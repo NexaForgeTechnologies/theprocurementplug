@@ -39,7 +39,7 @@ function EventsHeroComp() {
                             <h2 className='font-extrabold text-xl md:text-3xl'>In Collaboration with:</h2>
                             <img className='bg-white max-w-[240px] md:max-w-[400px] mt-4' src="/images/events/collaboration.png" alt="" />
                         </div>
-                        <div className='flex flex-col gap-6 my-6 md:my-8'>
+                        <div className='flex flex-col gap-6 my-6 md:my-8 text-white'>
                             <h2 className='font-extrabold text-xl'>Fast-Track Your Career & Elevate Your Leadership Skills with Elevate 2025!</h2>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>AWhether you're looking to enhance your procurement expertise or step into executive leadership, our 2025 Procurement Event in Glasgow offers career-defining learning, networking, and growth opportunities.</p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>Keynote talks, Boardroom preparedness executive workshops, and networking</p>
