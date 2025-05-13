@@ -71,7 +71,7 @@ function GuessCTR() {
     {
       id: 9,
       img: "/images/guess/guess-9.jpg",
-      heading: "Fluer Summers",
+      heading: "Fleur Summers",
       subHeading: "Keynote and Panellist",
       text1: "Senior Consultant",
       text2: "Turner and Townsend",
@@ -88,7 +88,7 @@ function GuessCTR() {
       id: 11,
       img: "/images/guess/guess-11.jpg",
       heading: "Laura Scarfe",
-      subHeading: "Workshp Facilitator",
+      subHeading: "Workshop Facilitator",
       text1: "CEO Director",
       text2: "Busniness academy online",
     },
