@@ -39,7 +39,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                             <h2 className='font-extrabold text-xl md:text-3xl'>In Collaboration with:</h2>
                             <img className='bg-white max-w-[240px] md:max-w-[400px] mt-4' src="/images/events/collaboration.png" alt="" />
                         </div>
-                        <div className='flex flex-col gap-6 text-white'>
+                        <div className='flex flex-col gap-6'>
                             <h2 className='font-extrabold text-xl'>Fast-Track Your Procurement Career & Elevate Your Leadership Skills with Elevate 2025! </h2>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>Are you looking to accelerate your career in procurement? Whether you're a mid-level professional aiming for leadership or an aspiring procurement specialist eager to break into the industry, this event is for you!</p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>Join industry experts and senior procurement leaders as they share insider strategies for career growth, skills development, and securing leadership roles.
@@ -60,19 +60,19 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                             </p>
                         </div>
                         <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>
-                            <strong className='font-extrabold'>Early Bird Tickets: </strong>149£
+                            <strong className='font-extrabold'>Tickets: </strong>£149
                         </p>
                         <Link href="https://www.trybooking.com/uk/ERLV" target='_blank' className='mt-auto bg-[#9c27b0] rounded-md block text-center md:p-4 p-3'>Book Your Ticket Now!</Link>
                     </div>
                 </div>
-                <div className='relative z-10 mt-6 md:mt-8 flex gap-4 md:gap-8 items-center'>
+                {/* <div className='relative z-10 mt-6 md:mt-8 flex gap-4 md:gap-8 items-center'>
                     <h3 className="text-[#b08d57] leading-10 md:leading-20 font-extrabold text-2xl md:text-7xl">
                         Register Interest
                     </h3>
                     <IconComponent name="arrow" color='#b08d57' size={40} />
-                </div>
+                </div> */}
             </div>
-        </div>
+        </div>  
     )
 }
 

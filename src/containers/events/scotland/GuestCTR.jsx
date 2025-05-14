@@ -129,12 +129,17 @@ function GuessCTR() {
 
   return (
     <div className="flex flex-col gap-6 md:gap-8">
-      <div className='max-w-[780px] m-auto text-center'>
-        <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>Event Speakers</h3>
-        <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>This year’s event features a dynamic lineup of distinguished speakers, including keynote leaders, workshop facilitators, and expert panellists from across the procurement and consulting landscape. From CEOs and directors to transformation specialists and sustainability consultants, these voices bring deep expertise, practical insight, and forward-thinking strategies to every session. With diverse roles spanning industry giants, innovative startups, and global firms, each speaker contributes a unique perspective to drive meaningful dialogue and professional growth.</p>
+      <div className="max-w-[780px] m-auto text-center">
+        <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
+          Event Speakers
+        </h3>
+        {/* <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>This year’s event features a dynamic lineup of distinguished speakers, including keynote leaders, workshop facilitators, and expert panellists from across the procurement and consulting landscape. From CEOs and directors to transformation specialists and sustainability consultants, these voices bring deep expertise, practical insight, and forward-thinking strategies to every session. With diverse roles spanning industry giants, innovative startups, and global firms, each speaker contributes a unique perspective to drive meaningful dialogue and professional growth.</p> */}
+        <p className="text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
+          Our speakers will be announced soon—stay tuned!
+        </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
         {guessDetails.map((guess) => (
           <GuestComp
             key={guess.id}
@@ -146,7 +151,7 @@ function GuessCTR() {
             bgColor={guess.bgColor}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
