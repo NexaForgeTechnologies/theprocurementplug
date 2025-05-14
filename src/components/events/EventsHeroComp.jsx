@@ -39,7 +39,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                             <h2 className='font-extrabold text-xl md:text-3xl'>In Collaboration with:</h2>
                             <img className='bg-white max-w-[240px] md:max-w-[400px] mt-4' src="/images/events/collaboration.png" alt="" />
                         </div>
-                        <div className='flex flex-col gap-6'>
+                        <div className='flex flex-col gap-6 text-white'>
                             <h2 className='font-extrabold text-xl'>Fast-Track Your Procurement Career & Elevate Your Leadership Skills with Elevate 2025! </h2>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>Are you looking to accelerate your career in procurement? Whether you're a mid-level professional aiming for leadership or an aspiring procurement specialist eager to break into the industry, this event is for you!</p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>Join industry experts and senior procurement leaders as they share insider strategies for career growth, skills development, and securing leadership roles.
