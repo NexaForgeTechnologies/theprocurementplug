@@ -9,7 +9,7 @@ function page() {
             id: 1,
             heading: "Events",
             text: "Webinar - Seminar - Workshops - Networking Oppertunity",
-            link: "/",
+            link: "",
             linkText: "View"
         },
         {

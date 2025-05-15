@@ -7,7 +7,7 @@ function BusinesFeatureComp({ data, key }) {
     const handleClick = (e) => {
         if (!data.link) {
             e.preventDefault(); // Prevent navigation
-            alert('Link is not available');
+            alert('Available soon!');
         }
     };
 
