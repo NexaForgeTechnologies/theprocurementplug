@@ -113,7 +113,7 @@ function GuessCTR() {
       img: "/images/guess/guess-16.jpg",
       heading: "Mick Ramsden",
       // subHeading: "Workshop",
-      text1: "Director at Essentil Sourcing Ltd",
+      text1: "Director at Essential Sourcing Ltd",
       text2: "",
     },
     {
