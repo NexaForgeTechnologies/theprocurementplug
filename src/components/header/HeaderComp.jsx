@@ -167,7 +167,7 @@ const HeaderComp = () => {
                   >
                     Elevate 2025 - Caribbean (Trinidad)
                   </Link>
-                  <Link
+                  {/* <Link
                     href="#"
                     className="block py-2 text-white hover:text-[#85009D]"
                   >
@@ -178,7 +178,7 @@ const HeaderComp = () => {
                     className="block py-2 text-white hover:text-[#85009D]"
                   >
                     Procurement Career Webinar
-                  </Link>
+                  </Link> */}
                   <Link
                     href="#"
                     className="block pt-2 text-white hover:text-[#85009D]"
