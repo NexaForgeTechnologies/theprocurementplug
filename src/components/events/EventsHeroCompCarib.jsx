@@ -1,9 +1,73 @@
-import React from 'react'
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link'
 
 import IconComponent from '@/components/icon/Icon'
 
 function EventsHeroComp({ heading, name, date, comment, img }) {
+
+    const [isLoading, setIsLoading] = useState(false);
+    const [alert, setAlert] = useState({ message: "", type: "", show: false });
+
+    useEffect(() => {
+        if (alert.show) {
+            const timer = setTimeout(() => {
+                setAlert({ message: "", type: "", show: false });
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [alert.show]);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setAlert({ message: "", type: "", show: false });
+
+        const formData = new FormData(e.target);
+        const data = {
+            fullName: formData.get("fullName"),
+            email: formData.get("email"),
+            jobTitle: formData.get("jobTitle"),
+            company: formData.get("company"),
+            phoneNumber: formData.get("phoneNumber"),
+            linkedInUrl: formData.get("linkedInUrl"),
+            consent: formData.get("consent") === "on",
+        };
+
+        try {
+            const response = await fetch("/api/event", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+            if (!response.ok) {
+                throw new Error(result.error || "Failed to submit registration");
+            }
+
+            setAlert({
+                message: "Thank you for registering! You'll receive a confirmation email soon.",
+                type: "success",
+                show: true,
+            });
+            e.target.reset(); // Reset form after successful submission
+        } catch (err) {
+            setAlert({
+                message: err.message || "An error occurred. Please try again later.",
+                type: "error",
+                show: true,
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleCloseAlert = () => {
+        setAlert({ message: "", type: "", show: false });
+    };
     return (
         <div className='relative min-h-screen'>
             <div
@@ -50,20 +114,149 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                         <h2 className='text-[#9c27b0] font-extrabold text-xl md:text-3xl'>Event Details</h2>
                         <div className='text-[#363636] flex flex-col gap-2'>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
-                                <strong className='font-extrabold'>Event Date & Time: </strong>25th June 2025, 8:30am to 5pm
+                                <strong className='font-extrabold'>Event Date & Time: </strong>November 2025
                             </p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
-                                <strong className='font-extrabold'>Location: </strong>4Th Floor, City Tower, New York Street, Caribbean M1 4BT
+                                <strong className='font-extrabold'>Caribbean Editio - Trinidad </strong>
                             </p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
-                                <strong className='font-extrabold'>Designed For: </strong>Caribbean Edition is designed for procurement professionals, focusing on innovation, strategy, and leadership in procurement.
+                                <strong className='font-extrabold'>Designed For: </strong>
+                                <li className="list-none">- Chief Procurement Officers (CPO),</li>
+                                <li className="list-none">- Vice Presidents & Directors of Procurement,</li>
+                                <li className="list-none">- Senior Managers in Supply Chain & Procurement,</li>
                             </p>
                         </div>
                         <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>
-                            <strong className='font-extrabold'>Tickets: </strong>£149
+                            <strong className='font-extrabold'>Early Bird Tickets:</strong>
+                            <li className='text-[#9c27b0] list-none'>Limited Spaces</li>
                         </p>
-                        <Link href="https://www.trybooking.com/uk/ERLV" target='_blank' className='mt-auto bg-[#9c27b0] rounded-md block text-center md:p-4 p-3'>Book Your Ticket Now!</Link>
+                        {/* <form action="" className="flex flex-col gap-2 md:gap-4">
+                            <input
+                                required
+                                type="text"
+                                name="text"
+                                placeholder="Full Name"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="text"
+                                name="text"
+                                placeholder="Job Title"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="text"
+                                name="text"
+                                placeholder="Compnay"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="email"
+                                name="email"
+                                placeholder="Your email"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="number"
+                                name="number"
+                                placeholder="Phone Number (Optional)"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="text"
+                                name="text"
+                                placeholder="LinkedIn URL (Optional)"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <div className="flex items-start gap-2">
+                                <input className="mt-1" required type="checkbox" name="" id="" />
+                                <p className="text-[#363636] text-sm leading-normal md:leading-relaxed">I consent to receiving event updates and future communications</p>
+                            </div>
+                            <button
+                                type="submit"
+                                disabled={isLoading}
+                                className="text-[#ffff] text-sm md:text-lg bg-[#85009D] rounded-md px-4 py-3 w-full cursor-pointer disabled:opacity-50"
+                            >
+                                {isLoading ? "Submitting..." : "Register Your Interest"}
+                            </button>
+                        </form> */}
+                        {/* {success && <p className="text-green-600 text-sm md:text-lg">{success}</p>}
+                        {error && <p className="text-red-600 text-sm md:text-lg">{error}</p>} */}
+                        {alert.show && (
+                            <div
+                                className={`p-4 rounded-md flex justify-between items-center ${alert.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"
+                                    }`}
+                            >
+                                <p className="text-sm md:text-lg">{alert.message}</p>
+                                <button
+                                    onClick={handleCloseAlert}
+                                    className="text-sm font-bold"
+                                    aria-label="Close alert"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+                        )}
+                        <form onSubmit={handleSubmit} className="flex flex-col gap-2 md:gap-4">
+                            <input
+                                required
+                                type="text"
+                                name="fullName"
+                                placeholder="Full Name"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="text"
+                                name="jobTitle"
+                                placeholder="Job Title"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="text"
+                                name="company"
+                                placeholder="Company"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                required
+                                type="email"
+                                name="email"
+                                placeholder="Your email"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                type="tel"
+                                name="phoneNumber"
+                                placeholder="Phone Number (Optional)"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <input
+                                type="url"
+                                name="linkedInUrl"
+                                placeholder="LinkedIn URL (Optional)"
+                                className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md"
+                            />
+                            <div className="flex items-start gap-2">
+                                <input className="mt-1" required type="checkbox" name="consent" />
+                                <p className="text-[#363636] text-sm leading-normal md:leading-relaxed">I consent to receiving event updates and future communications</p>
+                            </div>
+                            <button
+                                type="submit"
+                                disabled={isLoading}
+                                className="text-[#ffff] text-sm md:text-lg bg-[#85009D] rounded-md px-4 py-3 w-full cursor-pointer disabled:opacity-50"
+                            >
+                                {isLoading ? "Submitting..." : "Register Your Interest"}
+                            </button>
+                        </form>
                     </div>
+                    {/* <Link href="https://www.trybooking.com/uk/ERLV" target='_blank' className='mt-auto bg-[#9c27b0] rounded-md block text-center md:p-4 p-3'>Register Your Interest</Link> */}
                 </div>
                 {/* <div className='relative z-10 mt-6 md:mt-8 flex gap-4 md:gap-8 items-center'>
                     <h3 className="text-[#b08d57] leading-10 md:leading-20 font-extrabold text-2xl md:text-7xl">
@@ -72,7 +265,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                     <IconComponent name="arrow" color='#b08d57' size={40} />
                 </div> */}
             </div>
-        </div>  
+        </div>
     )
 }
 

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 import Icon from "@/components/icon/Icon";
@@ -9,6 +9,16 @@ const Footer = () => {
     const [message, setMessage] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
+
+    useEffect(() => {
+        if (showAlert) {
+            const timer = setTimeout(() => {
+                setShowAlert(false);
+                setMessage("");
+            }, 5000);
+            return () => clearTimeout(timer); 
+        }
+    }, [showAlert]);
 
     const handleSubscribe = async (e) => {
         e.preventDefault();
@@ -163,8 +173,8 @@ const Footer = () => {
             <div className=" bg-[#121212] p-[20px] flex flex-col lg:flex-row justify-between items-center rounded-md">
                 <span>© 2025 The Procurement Plug. All rights reserved.</span>
                 <span className="mt-2 lg:mt-0">
-                    Website Created By:{" "}
-                    <Link href="https://nexaforgetech.com/" target="_blank" className="font-semibold text-white">NexaForge Technologies</Link>
+                    Powered By{" "}
+                    <Link href="https://nexaforgetech.com/" target="_blank" className="font-semibold text-white hover:text-[#b08d57]">NexaForge Technologies</Link>
                 </span>
             </div>
         </footer >

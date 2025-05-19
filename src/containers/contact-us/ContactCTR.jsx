@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from 'next/link';
 
 import Icon from '@/components/icon/Icon'
@@ -15,6 +15,15 @@ const contactus = () => {
     });
     const [alert, setAlert] = useState({ message: "", type: "", show: false });
     const [isLoading, setIsLoading] = useState(false);
+
+   useEffect(() => {
+        if (alert.show) {
+            const timer = setTimeout(() => {
+                setAlert({ message: "", type: "", show: false });
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [alert.show]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
