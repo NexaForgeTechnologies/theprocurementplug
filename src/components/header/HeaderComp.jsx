@@ -252,9 +252,12 @@ const HeaderComp = () => {
               </Link>
             </li>
             <li>
-              <div className="text-[15px] font-semibold mb-1 flex items-center justify-between">
+              <div className="text-[15px] font-semibold mb-1 flex items-center justify-between"
+                onClick={toggleDropdown}
+              >
                 Events
-                <button onClick={toggleDropdown} className="text-[#85009D]">
+                <button className="text-[#85009D]">
+                {/* <button onClick={toggleDropdown} className="text-[#85009D]"> */}
                   <Icon
                     name={
                       ismobiledropdownOpen ? "dropdownarrow" : "dropdownarrow"
