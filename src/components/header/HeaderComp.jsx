@@ -54,7 +54,16 @@ const HeaderComp = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false);
     setIsMobileDropdownOpen(false);
+    setIsDropdownOpen(false);
   }, [pathname]);
+
+  const handleLinkClick = (href) => {
+    if (pathname == href) {
+      setIsMobileMenuOpen(false);
+      setIsMobileDropdownOpen(false);
+      setIsDropdownOpen(false);
+    }
+  };
 
   return (
     <>
@@ -81,12 +90,11 @@ const HeaderComp = () => {
       </style>
 
       <nav
-        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
-          isScrolled ? "shadow-md" : ""
-        }`}
+        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""
+          }`}
       >
         <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-20 2xl:px-0 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3">
+          <Link href="/" className="flex items-center space-x-3" onClick={() => handleLinkClick("/")}>
             <img
               src="/images/header/headerlogo.png"
               className="lg:w-[220px] md:w-[220px] sm:w-[150px] w-[150px]"
@@ -118,6 +126,7 @@ const HeaderComp = () => {
               <Link
                 href="/resources"
                 className="text-[15px] hover:text-[#85009D]"
+                onClick={() => handleLinkClick("/resources")}
               >
                 Resources
               </Link>
@@ -152,36 +161,42 @@ const HeaderComp = () => {
                   <Link
                     href="/event/elevate2025-manchester"
                     className="block pb-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/elevate2025-manchester")}
                   >
                     Elevate 2025 - Manchester (June)
                   </Link>
                   <Link
                     href="/event/elevate2025-scotland"
                     className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/elevate2025-scotland")}
                   >
                     Elevate 2025 - Scotland (August)
                   </Link>
                   <Link
-                    href="#"
+                    href="/event/elevate2025-caribbean"
                     className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/elevate2025-caribbean")}
                   >
                     Elevate 2025 - Caribbean (Trinidad)
                   </Link>
                   {/* <Link
                     href="#"
                     className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("")}
                   >
                     Procure Tech Unplugged 2025
                   </Link>
                   <Link
                     href="#"
                     className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("")}
                   >
                     Procurement Career Webinar
                   </Link> */}
                   <Link
-                    href="#"
+                    href="/event/boardroom-preparedness-for-senior-procurement-professionals"
                     className="block pt-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/boardroom-preparedness-for-senior-procurement-professionals")}
                   >
                     Boardroom Preparedness for Senior Procurement Professionals
                   </Link>
@@ -198,6 +213,7 @@ const HeaderComp = () => {
               <Link
                 href="/contact-us"
                 className="cursor-pointer bg-[#85009D] text-white text-[20px] px-[20px] py-[10px] rounded-md"
+                onClick={() => handleLinkClick("/contact-us")}
               >
                 Contact Us
               </Link>
@@ -207,12 +223,11 @@ const HeaderComp = () => {
 
         {/* Mobile Sidebar */}
         <div
-          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${
-            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
         >
           <div className="p-4 flex justify-between items-center">
-            <Link href="/">
+            <Link href="/" onClick={() => handleLinkClick("/")}>
               <img
                 src="/images/header/headerlogo.png"
                 className="w-[180px]"
@@ -231,6 +246,7 @@ const HeaderComp = () => {
               <Link
                 href="/resources"
                 className="text-[15px] font-semibold hover:text-[#85009D]"
+                onClick={() => handleLinkClick("/resources")}
               >
                 Resources
               </Link>
@@ -252,39 +268,45 @@ const HeaderComp = () => {
                 <div className="text-sm space-y-1 bg-[#010101] p-5 mt-2 rounded-md">
                   <Link
                     href="/event/elevate2025-manchester"
-                    className="block text-white hover:text-[#85009D]"
+                    className="block pb-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/elevate2025-manchester")}
                   >
-                    Elevate 2025 - Manchester
+                    Elevate 2025 - Manchester (June)
                   </Link>
                   <Link
                     href="/event/elevate2025-scotland"
-                    className="block text-white hover:text-[#85009D]"
+                    className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/elevate2025-scotland")}
                   >
-                    Elevate 2025 - Scotland
+                    Elevate 2025 - Scotland (August)
+                  </Link>
+                  <Link
+                    href="/event/elevate2025-caribbean"
+                    className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/elevate2025-caribbean")}
+                  >
+                    Elevate 2025 - Caribbean (Trinidad)
+                  </Link>
+                  {/* <Link
+                    href="#"
+                    className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("")}
+                  >
+                    Procure Tech Unplugged 2025
                   </Link>
                   <Link
                     href="#"
-                    className="block text-white hover:text-[#85009D]"
+                    className="block py-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("")}
                   >
-                    Elevate 2025 - Caribbean
-                  </Link>
+                    Procurement Career Webinar
+                  </Link> */}
                   <Link
-                    href="#"
-                    className="block text-white hover:text-[#85009D]"
+                    href="/event/boardroom-preparedness-for-senior-procurement-professionals"
+                    className="block pt-2 text-white hover:text-[#85009D]"
+                    onClick={() => handleLinkClick("/event/boardroom-preparedness-for-senior-procurement-professionals")}
                   >
-                    Procure Tech Unplugged
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block text-white hover:text-[#85009D]"
-                  >
-                    Career Webinar
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block text-white hover:text-[#85009D]"
-                  >
-                    Boardroom Preparedness
+                    Boardroom Preparedness for Senior Procurement Professionals
                   </Link>
                 </div>
               )}
@@ -299,6 +321,7 @@ const HeaderComp = () => {
               <Link
                 href="/contact-us"
                 className="cursor-pointer block bg-[#85009D] text-white text-[18px] text-center px-[20px] py-[10px] rounded-md"
+                onClick={() => handleLinkClick("/contact-us")}
               >
                 Contact Us
               </Link>
