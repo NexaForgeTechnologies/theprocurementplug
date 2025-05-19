@@ -160,10 +160,10 @@ const Footer = () => {
             </div>
 
             {/* Bottom Bar */}
-            <div className=" bg-[#121212] p-[20px] flex flex-col lg:flex-row justify-between items-center rounded-md">
+            <div className=" bg-[#121212] text-[#b58c4a] p-[20px] flex flex-col lg:flex-row justify-between items-center rounded-md">
                 <span>© 2025 The Procurement Plug. All rights reserved.</span>
                 <span className="mt-2 lg:mt-0">
-                    Website Created By:{" "}
+                    Powered By:{" "}
                     <Link href="https://nexaforgetech.com/" target="_blank" className="font-semibold text-white">NexaForge Technologies</Link>
                 </span>
             </div>
