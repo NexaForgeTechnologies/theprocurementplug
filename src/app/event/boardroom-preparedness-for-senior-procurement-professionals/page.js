@@ -2,7 +2,7 @@ import React from 'react'
 
 import EventBenifitsCTR from '@/containers/events/boardroom/EventBenifitsCTR'
 import EventHighlightCTR from '@/containers/events/boardroom/EventHighlightCTR'
-import GuestCTR from '@/containers/events/scotland/GuestCTR'
+import GuestCTR from '@/containers/events/boardroom/GuestCTR'
 import EventsOppertunityCTR from '@/containers/events/boardroom/EventOppertunityCTR'
 
 import EventsHeroComp from '@/components/events/EventsHeroCompBoard'

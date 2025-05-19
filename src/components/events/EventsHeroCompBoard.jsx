@@ -32,7 +32,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                             <div className='border-l-[10px] border-[#b08d57]'></div>
                             <h3 className="leading-10 md:leading-20 font-extrabold text-3xl md:text-7xl text-white">
                                 <span className='block'>BOARDROOM PREP AREDNESS FOR SENIOR PROCUREMENT PROFESSIONALS</span>
-                                <span className='text-[#b08d57]'>10TH June 2025</span>
+                                <span className='text-[#b08d57]'>July 2025</span>
                             </h3>
                         </div>
                         <div className='text-white my-6 md:my-8'>
@@ -50,19 +50,19 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                         <h2 className='text-[#9c27b0] font-extrabold text-xl md:text-3xl'>Event Details</h2>
                         <div className='text-[#363636] flex flex-col gap-2'>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
-                                <strong className='font-extrabold'>Event Date & Time: </strong>10th June 2025, 1:00 PM to 3:00 PM
+                                <strong className='font-extrabold'>Event Date & Time: </strong>17th July 11am to 12:15pm
                             </p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
-                                <strong className='font-extrabold'>Location: </strong>4Th Floor, City Tower, New York Street, Boardroom M1 4BT
+                                <strong className='font-extrabold'>Location: </strong>Virtual Webinar
                             </p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
-                                <strong className='font-extrabold'>Designed For: </strong>Boardroom Edition is designed for procurement professionals, focusing on innovation, strategy, and leadership in procurement.
+                                <strong className='font-extrabold'>Format: </strong>Keynote Speaker, Interactive Q&A
                             </p>
                         </div>
                         <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>
-                            <strong className='font-extrabold'>Tickets: </strong>£149
+                            <strong className='font-extrabold'>Tickets: </strong>Free
                         </p>
-                        <Link href="https://www.trybooking.com/uk/ERLV" target='_blank' className='mt-auto bg-[#9c27b0] rounded-md block text-center md:p-4 p-3'>Book Your Ticket Now!</Link>
+                        <Link href="https://www.trybooking.com/uk/EMRL" target='_blank' className='mt-auto bg-[#9c27b0] rounded-md block text-center md:p-4 p-3'>Book Your Ticket Now!</Link>
                     </div>
                 </div>
                 {/* <div className='relative z-10 mt-6 md:mt-8 flex gap-4 md:gap-8 items-center'>
