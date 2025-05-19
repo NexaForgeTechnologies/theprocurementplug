@@ -50,7 +50,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                         <h2 className='text-[#9c27b0] font-extrabold text-xl md:text-3xl'>Event Details</h2>
                         <div className='text-[#363636] flex flex-col gap-2'>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
-                                <strong className='font-extrabold'>Event Date & Time: </strong>17th July 11am to 12:15pm
+                                <strong className='font-extrabold'>Event Date & Time: </strong>17th July 2025, 11am to 12:15pm
                             </p>
                             <p className='text-sm md:text-lg leading-normal md:leading-relaxed'>
                                 <strong className='font-extrabold'>Location: </strong>Virtual Webinar
