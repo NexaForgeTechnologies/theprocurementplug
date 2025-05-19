@@ -94,7 +94,7 @@ const HeaderComp = () => {
           }`}
       >
         <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-20 2xl:px-0 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3" onClick={() => handleLinkClick("/")}>
+          <Link href="/" className="flex items-center space-x-3 cursor-pointer" onClick={() => handleLinkClick("/")}>
             <img
               src="/images/header/headerlogo.png"
               className="lg:w-[220px] md:w-[220px] sm:w-[150px] w-[150px]"
@@ -103,7 +103,7 @@ const HeaderComp = () => {
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden py-2 text-gray-500 hover:bg-gray-100 rounded-lg"
+            className="lg:hidden py-2 text-gray-500 hover:bg-gray-100 rounded-lg cursor-pointer"
           >
             <svg
               className="w-6 h-6"
@@ -245,7 +245,7 @@ const HeaderComp = () => {
             <li>
               <Link
                 href="/resources"
-                className="text-[15px] font-semibold hover:text-[#85009D]"
+                className="text-[15px] font-semibold hover:text-[#85009D] w-full flex"
                 onClick={() => handleLinkClick("/resources")}
               >
                 Resources
