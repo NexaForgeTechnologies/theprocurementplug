@@ -69,32 +69,35 @@ const HeaderComp = () => {
     <>
       <style>
         {`
-                @keyframes bounceRight {
-                    0%, 100% {
-                        transform: translateX(0) scale(1);
-                    }
-                    50% {
-                        transform: translateX(8px) scale(1.05);
-                    }
-                }
-
-                .bounce-right {
-                    animation: bounceRight 2s ease-in-out infinite;
-                    transform-origin: center;
-                }
-
-                .bounce-right:hover {
-                    animation-play-state: paused;
-                }
-                `}
+          @keyframes bounceRight {
+              0%, 100% {
+                  transform: translateX(0) scale(1);
+              }
+              50% {
+                  transform: translateX(8px) scale(1.05);
+              }
+          
+          .bounce-right {
+              animation: bounceRight 2s ease-in-out infinite;
+              transform-origin: center;
+          
+          .bounce-right:hover {
+              animation-play-state: paused;
+          }
+        `}
       </style>
 
       <nav
-        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""
-          }`}
+        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
+          isScrolled ? "shadow-md" : ""
+        }`}
       >
         <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-20 2xl:px-0 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-3 cursor-pointer" onClick={() => handleLinkClick("/")}>
+          <Link
+            href="/"
+            className="flex items-center space-x-3 cursor-pointer"
+            onClick={() => handleLinkClick("/")}
+          >
             <img
               src="/images/header/headerlogo.png"
               className="lg:w-[220px] md:w-[220px] sm:w-[150px] w-[150px]"
@@ -161,21 +164,27 @@ const HeaderComp = () => {
                   <Link
                     href="/event/elevate2025-manchester"
                     className="block pb-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/elevate2025-manchester")}
+                    onClick={() =>
+                      handleLinkClick("/event/elevate2025-manchester")
+                    }
                   >
                     Elevate 2025 - Manchester (June)
                   </Link>
                   <Link
                     href="/event/elevate2025-scotland"
                     className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/elevate2025-scotland")}
+                    onClick={() =>
+                      handleLinkClick("/event/elevate2025-scotland")
+                    }
                   >
                     Elevate 2025 - Scotland (August)
                   </Link>
                   <Link
                     href="/event/elevate2025-caribbean"
                     className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/elevate2025-caribbean")}
+                    onClick={() =>
+                      handleLinkClick("/event/elevate2025-caribbean")
+                    }
                   >
                     Elevate 2025 - Caribbean (Trinidad)
                   </Link>
@@ -196,12 +205,25 @@ const HeaderComp = () => {
                   <Link
                     href="/event/boardroom-preparedness-for-senior-procurement-professionals"
                     className="block pt-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/boardroom-preparedness-for-senior-procurement-professionals")}
+                    onClick={() =>
+                      handleLinkClick(
+                        "/event/boardroom-preparedness-for-senior-procurement-professionals"
+                      )
+                    }
                   >
                     Boardroom Preparedness for Senior Procurement Professionals
                   </Link>
                 </div>
               )}
+            </li>
+            <li>
+              <Link
+                href="/business-hub"
+                className="text-[15px] hover:text-[#85009D]"
+                onClick={() => handleLinkClick("/business-hub")}
+              >
+                Business Hub
+              </Link>
             </li>
             <li className="flex items-center bounce-right">
               <p className="text-[15px] px-3 text-[#010101]">
@@ -223,8 +245,9 @@ const HeaderComp = () => {
 
         {/* Mobile Sidebar */}
         <div
-          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-            }`}
+          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${
+            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
         >
           <div className="p-4 flex justify-between items-center">
             <Link href="/" onClick={() => handleLinkClick("/")}>
@@ -252,12 +275,13 @@ const HeaderComp = () => {
               </Link>
             </li>
             <li>
-              <div className="text-[15px] font-semibold mb-1 flex items-center justify-between"
+              <div
+                className="text-[15px] font-semibold mb-1 flex items-center justify-between"
                 onClick={toggleDropdown}
               >
                 Events
                 <button className="text-[#85009D]">
-                {/* <button onClick={toggleDropdown} className="text-[#85009D]"> */}
+                  {/* <button onClick={toggleDropdown} className="text-[#85009D]"> */}
                   <Icon
                     name={
                       ismobiledropdownOpen ? "dropdownarrow" : "dropdownarrow"
@@ -272,21 +296,27 @@ const HeaderComp = () => {
                   <Link
                     href="/event/elevate2025-manchester"
                     className="block pb-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/elevate2025-manchester")}
+                    onClick={() =>
+                      handleLinkClick("/event/elevate2025-manchester")
+                    }
                   >
                     Elevate 2025 - Manchester (June)
                   </Link>
                   <Link
                     href="/event/elevate2025-scotland"
                     className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/elevate2025-scotland")}
+                    onClick={() =>
+                      handleLinkClick("/event/elevate2025-scotland")
+                    }
                   >
                     Elevate 2025 - Scotland (August)
                   </Link>
                   <Link
                     href="/event/elevate2025-caribbean"
                     className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/elevate2025-caribbean")}
+                    onClick={() =>
+                      handleLinkClick("/event/elevate2025-caribbean")
+                    }
                   >
                     Elevate 2025 - Caribbean (Trinidad)
                   </Link>
@@ -307,13 +337,24 @@ const HeaderComp = () => {
                   <Link
                     href="/event/boardroom-preparedness-for-senior-procurement-professionals"
                     className="block pt-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("/event/boardroom-preparedness-for-senior-procurement-professionals")}
+                    onClick={() =>
+                      handleLinkClick(
+                        "/event/boardroom-preparedness-for-senior-procurement-professionals"
+                      )
+                    }
                   >
                     Boardroom Preparedness for Senior Procurement Professionals
                   </Link>
                 </div>
               )}
             </li>
+            <Link
+              href="/business-hub"
+              className="text-[15px] hover:text-[#85009D]"
+              onClick={() => handleLinkClick("/business-hub")}
+            >
+              Business Hub
+            </Link>
             <li className="flex gap-[4px] items-center bounce-right">
               <span className="text-[15px] text-[#010101]">
                 Reach Out To Our Team

@@ -17,7 +17,7 @@ function HeroCTR() {
         </video>
       </div>
       <div className="relative z-10 py-20 md:py-28 max-w-[600px] flex flex-col gap-4">
-        <h2 className="text-[#212121] text-3xl md:text-5xl mb-8 font-semibold md:font-medium">
+        <h2 className="text-[#212121] text-3xl md:text-5xl font-semibold md:font-medium">
           Welcome to <br />
           The Procurement Plug <br />– Your Ultimate Ecosystem for Procurement
           Excellence
