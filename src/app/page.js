@@ -7,6 +7,24 @@ import ResourceLibraryCTR from "@/containers/home/resource-library/ResourceLibra
 import PartnerCTR from "@/containers/home/partners/PartnerCTR";
 import HeroCTR from "@/containers/home/hero/HeroCTR";
 
+export const metadata = {
+  title: 'Home',
+  description: 'Explore procurement trends, events, and opportunities.',
+  openGraph: {
+    images: [
+      {
+        url: 'https://theprocurementplug.com/images/og/main.png',
+        width: 1200,
+        height: 630,
+        alt: 'The Procurement Plug Homepage',
+      },
+    ],
+  },
+  twitter: {
+    images: ['https://theprocurementplug.com/images/og/main.png'],
+  },
+};
+
 export default function Home() {
 
   return (
