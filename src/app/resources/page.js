@@ -1,6 +1,29 @@
 import ResourceLibraryCTR from '@/containers/resource/ResourceLibraryCTR'
 import React from 'react'
 
+export const metadata = {
+    title: 'Blogs',
+    description: 'We have put together our library in a way that will showcase some of our FREE resources.',
+    openGraph: {
+        title: 'Blogs',
+        description: 'We have put together our library in a way that will showcase some of our FREE resources.',
+        images: [
+            {
+                url: 'https://theprocurementplug.com/images/og/blogs.png',
+                width: 1200,
+                height: 630,
+                alt: 'Blogs',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Blogs',
+        description: 'We have put together our library in a way that will showcase some of our FREE resources.',
+        images: ['https://theprocurementplug.com/images/og/blogs.png'],
+    },
+};
+
 function page() {
     return (
         <>

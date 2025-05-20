@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://theprocurementplug.com'),
   title: {
     default: 'The Procurement Plug',
     template: '%s | The Procurement Plug',

@@ -8,6 +8,29 @@ import EventsOppertunityCTR from '@/containers/events/manchester/EventOppertunit
 import EventsHeroComp from '@/components/events/EventsHeroComp'
 import EventSponserComp from '@/components/events/EventSponserComp'
 
+export const metadata = {
+    title: 'Elevate Manchester June 2025',
+    description: 'Fast-Track Your Procurement Career & Elevate Your Leadership Skills with Elevate 2025!',
+    openGraph: {
+        title: 'Elevate Manchester June 2025',
+        description: 'Fast-Track Your Procurement Career & Elevate Your Leadership Skills with Elevate 2025!',
+        images: [
+            {
+                url: 'https://theprocurementplug.com/images/og/events.jpg',
+                width: 1200,
+                height: 630,
+                alt: 'Event',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Elevate Manchester June 2025',
+        description: 'Fast-Track Your Procurement Career & Elevate Your Leadership Skills with Elevate 2025!',
+        images: ['https://theprocurementplug.com/images/og/events.jpg'],
+    },
+};
+
 function page() {
     return (
         <>
