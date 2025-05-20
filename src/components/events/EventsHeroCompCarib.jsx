@@ -100,17 +100,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                 <span className="text-[#b08d57]">November 2025</span>
               </h3>
             </div>
-            <div className="text-white my-6 md:my-8">
-              <h2 className="font-extrabold text-xl md:text-3xl">
-                In Collaboration with:
-              </h2>
-              <img
-                className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
-                src="/images/events/collaboration.png"
-                alt=""
-              />
-            </div>
-            <div className="flex flex-col gap-6 text-white">
+            <div className="flex flex-col gap-6 text-white my-6 md:my-8">
               <h2 className="font-extrabold text-xl">
                 Transforming Procurement Excellence & Leadership{" "}
               </h2>
@@ -135,20 +125,13 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
               </p>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
                 <strong className="font-extrabold">
-                  Caribbean Editio - Trinidad{" "}
+                  Caribbean Edition - Trinidad
                 </strong>
               </p>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
-                <strong className="font-extrabold">Designed For: </strong>
-                <li className="list-none">
-                  - Chief Procurement Officers (CPO),
-                </li>
-                <li className="list-none">
-                  - Vice Presidents & Directors of Procurement,
-                </li>
-                <li className="list-none">
-                  - Senior Managers in Supply Chain & Procurement,
-                </li>
+                <strong className="font-extrabold">Format: </strong>Chief
+                Procurement Officers (CPO), Vice Presidents & Directors of
+                Procurement, Senior Managers in Supply Chain & Procurement.
               </p>
             </div>
             <p className="text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">

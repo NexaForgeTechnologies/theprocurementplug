@@ -69,6 +69,13 @@ function page() {
             text: "ESG Lounge - (additional resources)",
             link: "",
             linkText: "View"
+        },
+        {
+            id: 7,
+            heading: "VIP launch",
+            text: "ESG Lounge - (additional resources)",
+            link: "",
+            linkText: "View"
         }
     ]
 

@@ -9,8 +9,8 @@ function GuessCTR() {
       img: "/images/elevate-scotland/grahamcopeland.jpg",
       heading: "Graham Copeland",
       // subHeading: "Keynote and Panellist",
-      text1: "Procurement Expert & Business Development Director",
-      text2: "GEP",
+      text1: "Procurement Expert & Business Development",
+      text2: "Director GEP",
     },
     {
       id: 1,
@@ -34,7 +34,7 @@ function GuessCTR() {
       img: "/images/elevate-scotland/Iainsteel.jpg",
       heading: "Iain Steel",
       // subHeading: "Workshop",
-      text1: "Workshop and Panelist",
+      // text1: "",
       text2: "Procurement Transformation & Change Leadership",
     },
     {
