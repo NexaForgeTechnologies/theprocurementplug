@@ -5,29 +5,30 @@ import GuestComp from "@/components/events/GuestComp";
 function GuessCTR() {
   const guessDetails = [
     {
+      id: 3,
+      img: "/images/elevate-scotland/grahamcopeland.jpg",
+      heading: "Graham Copeland",
+      // subHeading: "Keynote and Panellist",
+      text1: "Procurement Expert & Business Development Director",
+      text2: "GEP",
+    },
+    {
       id: 1,
       img: "/images/elevate-scotland/atanu.jpeg",
       heading: "Atanu Chaudhuri",
       // subHeading: "Keynote",
-      text1: "Keynote",
-      text2: "Professor of Technology and Operations Management, Durham University Business School",
+      text1: "Professor of Technology and Operations Management",
+      text2: "Durham University Business School",
     },
     {
       id: 2,
       img: "/images/elevate-scotland/davidloseby.jpg",
       heading: "David Loseby",
       // subHeading: "Panellist",
-      text1: "Keynote and Panelist",
-      text2: "Senior Advisor & Educator in Procurement, ESG & Behavioural Transformation",
+      text1: "Senior Advisor & Educator in Procurement",
+      text2: "ESG & Behavioural Transformation",
     },
-    {
-      id: 3,
-      img: "/images/elevate-scotland/grahamcopeland.jpg",
-      heading: "Graham Copeland",
-      // subHeading: "Keynote and Panellist",
-      text1: "Event Introduction/MC",
-      text2: "Procurement & Commercial Consultant",
-    },
+
     {
       id: 4,
       img: "/images/elevate-scotland/Iainsteel.jpg",
@@ -41,17 +42,17 @@ function GuessCTR() {
       img: "/images/elevate-scotland/stevetosh.png",
       heading: "Steve Tosh",
       // subHeading: "Keynote",
-      text1: "Workshop and Panelist",
-      text2: "Procurement Fraud & Anti-Corruption Consultant / Author / Standards Advisor",
+      text1: "Procurement Fraud & Anti-Corruption Consultant",
+      text2: "Author - Standards Advisor",
     },
-    
+
     {
       id: 6,
       img: "/images/elevate-scotland/susanwalsh.jpg",
       heading: "Susan Walsh",
       // subHeading: "Panellist",
-      text1: "Workshop",
-      text2: "Founder & Managing Director, The Classification Guru Ltd",
+      text1: "Founder & Managing Director",
+      text2: "The Classification Guru Ltd",
     },
   ];
 

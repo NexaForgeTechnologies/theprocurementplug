@@ -1,11 +1,9 @@
 import React from "react";
 import Link from "next/link";
 
-import IconComponent from "@/components/icon/Icon";
-
 function EventsHeroComp() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen pb-10">
       <div
         style={{
           backgroundImage: `url(/images/blogs/blog-1/governance.webp)`,

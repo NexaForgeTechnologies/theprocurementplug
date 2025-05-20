@@ -36,7 +36,7 @@ function page() {
         <>
             <EventsHeroComp />
             <EventBenifitsCTR />
-            <EventHighlightCTR />
+            {/* <EventHighlightCTR /> */}
             <GuestCTR />
             <EventsOppertunityCTR />
             <EventSponserComp />
