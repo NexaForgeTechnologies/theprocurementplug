@@ -9,10 +9,10 @@ import EventsHeroComp from '@/components/events/EventsHeroCompBoard'
 import EventSponserComp from '@/components/events/EventSponserComp'
 
 export const metadata = {
-    title: 'Boardroom Prep Aredness',
+    title: 'Boardroom Preparedness',
     description: 'Unlock the Skills to Secure Your Seat at the Boardroom Table',
     openGraph: {
-        title: 'Boardroom Prep Aredness',
+        title: 'Boardroom Preparedness',
         description: 'Unlock the Skills to Secure Your Seat at the Boardroom Table',
         images: [
             {
@@ -25,7 +25,7 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Boardroom Prep Aredness',
+        title: 'Boardroom Preparedness',
         description: 'Unlock the Skills to Secure Your Seat at the Boardroom Table',
         images: ['https://theprocurementplug.com/images/og/events.jpg'],
     },

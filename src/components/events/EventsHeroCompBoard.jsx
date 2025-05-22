@@ -31,7 +31,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
               <div className="border-l-[10px] border-[#b08d57]"></div>
               <h3 className="leading-10 md:leading-20 font-extrabold text-3xl md:text-7xl text-white">
                 <span className="block">
-                  BOARDROOM PREP AREDNESS FOR SENIOR PROCUREMENT PROFESSIONALS
+                  BOARDROOM PREPAREDNESS FOR SENIOR PROCUREMENT PROFESSIONALS
                 </span>
                 <span className="text-[#b08d57]">July 2025</span>
               </h3>
