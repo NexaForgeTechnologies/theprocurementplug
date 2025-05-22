@@ -42,10 +42,10 @@ export default function Home() {
         <p className="text-sm md:text-lg leading-normal md:leading-relaxed text-[#ffffff]">At The Procurement Plug, we are passionate about giving back to the community. In addition to offering discounted rates on job postings for charities, we encourage procurement professionals to contribute their expertise by supporting charitable organisations on short-term projects. Whether its offering strategic advice, managing procurement processes, or delivering specialised skills, our community of professionals is dedicated to helping charities achieve their goals and make a meaningful impact. Together, we can create positive change in the world through procurement.</p>
       </div>
       <ImgTxtCTR />
-      <ImgTxtBgCTR />
-      <ResourceLibraryCTR />
-      <TalkToTeamCTR />
-      <PartnerCTR />
+      {/* <ImgTxtBgCTR /> */}
+      {/* <ResourceLibraryCTR /> */}
+      {/* <TalkToTeamCTR /> */}
+      {/* <PartnerCTR /> */}
     </>
   );
 }

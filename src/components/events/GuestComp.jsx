@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 function GuessComp({ img, heading, subHeading, text1, text2, bgColor }) {
@@ -9,7 +10,7 @@ function GuessComp({ img, heading, subHeading, text1, text2, bgColor }) {
           bgColor ? "text-white" : "text-[#363636]"
         }  border border-[#b08d57]  px-4 py-10 rounded-xl w-full flex flex-col items-center justify-center gap-2 text-center`}
       >
-        <img
+        <Image
           className="rounded-full w-32 h-32 object-cover"
           src={img}
           alt={img}

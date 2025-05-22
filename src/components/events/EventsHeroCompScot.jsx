@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 function EventsHeroComp() {
   return (
@@ -38,7 +39,7 @@ function EventsHeroComp() {
               <h2 className="font-extrabold text-xl md:text-3xl">
                 In Collaboration with:
               </h2>
-              <img
+              <Image
                 className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
                 src="/images/events/collaboration.png"
                 alt=""

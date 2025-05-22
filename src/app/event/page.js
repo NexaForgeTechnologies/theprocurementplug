@@ -29,7 +29,7 @@ function page() {
         <>
             <div className='mt-10'>
                 <h2 className='font-semibold text-xl md:text-2xl text-[#010101] mb-2'>Explore Our Dynamic Event Offerings</h2>
-                <p className='text-sm md:text-lg text-[#363636] leading-normal md:leading-relaxed'>Whether you're looking to deepen your knowledge, build practical skills, or expand your professional network, our diverse event lineup has something for everyone. Join us for seminars that dive into expert insights, webinars you can attend from anywhere, workshops designed for hands-on learning, and networking opportunities that connect you with like-minded professionals and industry leaders.</p>
+                <p className='text-sm md:text-lg text-[#363636] leading-normal md:leading-relaxed'>Whether you&#39;re looking to deepen your knowledge, build practical skills, or expand your professional network, our diverse event lineup has something for everyone. Join us for seminars that dive into expert insights, webinars you can attend from anywhere, workshops designed for hands-on learning, and networking opportunities that connect you with like-minded professionals and industry leaders.</p>
             </div>
             <EventsCTR />
         </>

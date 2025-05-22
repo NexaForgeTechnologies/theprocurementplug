@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Icon from "@/components/icon/Icon";
+import Image from "next/image";
 
 const HeaderComp = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -98,7 +99,7 @@ const HeaderComp = () => {
             className="flex items-center space-x-3 cursor-pointer"
             onClick={() => handleLinkClick("/")}
           >
-            <img
+            <Image
               src="/images/header/headerlogo.png"
               className="lg:w-[220px] md:w-[220px] sm:w-[150px] w-[150px]"
               alt="Logo"
@@ -237,7 +238,7 @@ const HeaderComp = () => {
         >
           <div className="p-4 flex justify-between items-center">
             <Link href="/" onClick={() => handleLinkClick("/")}>
-              <img
+              <Image
                 src="/images/header/headerlogo.png"
                 className="w-[180px]"
                 alt="Logo"
