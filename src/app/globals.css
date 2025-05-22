@@ -23,7 +23,6 @@
 
 body {
   background: #ffffff;
-  /* background: var(--background); */
   color: var(--foreground);
   font-family: var(--font-sans);
   max-width: 1440px;
@@ -55,4 +54,25 @@ body {
       overflow: hidden;
     }
   }
+}
+
+@keyframes bounceRight {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(8px);
+  }
+}
+
+.bounce-right {
+  animation: bounceRight 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.bounce-right:hover {
+  animation-play-state: paused;
 }

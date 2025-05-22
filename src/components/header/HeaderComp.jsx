@@ -7,8 +7,6 @@ import Icon from "@/components/icon/Icon";
 
 const HeaderComp = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [ismobiledropdownOpen, setIsMobileDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   // Handle scroll for shadow effect
@@ -34,59 +32,20 @@ const HeaderComp = () => {
     };
   }, [isMobileMenuOpen]);
 
-  // Dropdown hover with delay
-  let timeoutId = null;
-  const handleDropdownEnter = () => {
-    clearTimeout(timeoutId);
-    setIsDropdownOpen(true);
-  };
-
-  const handleDropdownLeave = () => {
-    timeoutId = setTimeout(() => {
-      setIsDropdownOpen(false);
-    }, 200); // 200ms delay before closing
-  };
-
-  const toggleDropdown = () => setIsMobileDropdownOpen(!ismobiledropdownOpen);
-
   const pathname = usePathname();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
-    setIsMobileDropdownOpen(false);
-    setIsDropdownOpen(false);
   }, [pathname]);
 
   const handleLinkClick = (href) => {
     if (pathname == href) {
       setIsMobileMenuOpen(false);
-      setIsMobileDropdownOpen(false);
-      setIsDropdownOpen(false);
     }
   };
 
   return (
     <>
-      <style>
-        {`
-          @keyframes bounceRight {
-              0%, 100% {
-                  transform: translateX(0) scale(1);
-              }
-              50% {
-                  transform: translateX(8px) scale(1.05);
-              }
-          
-          .bounce-right {
-              animation: bounceRight 2s ease-in-out infinite;
-              transform-origin: center;
-          
-          .bounce-right:hover {
-              animation-play-state: paused;
-          }
-        `}
-      </style>
-
       <nav
         className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
           isScrolled ? "shadow-md" : ""
@@ -124,109 +83,27 @@ const HeaderComp = () => {
           </button>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center space-x-6">
+          <ul className="hidden lg:flex gap-4 items-center">
             <li>
               <Link
                 href="/resources"
-                className="text-[15px] hover:text-[#85009D]"
+                className="text-sm font-semibold hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/resources")}
               >
                 Resources
               </Link>
             </li>
-            <li
-              className="relative"
-              onMouseEnter={handleDropdownEnter}
-              onMouseLeave={handleDropdownLeave}
-            >
-              <div className="flex text-[15px] items-center hover:text-[#85009D] cursor-pointer">
-                Events
-                <svg
-                  className="w-4 h-4 ml-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </div>
-              {isDropdownOpen && (
-                <div
-                  className="absolute bg-[#010101] p-5 mt-0 min-w-[406px] z-10 shadow-lg"
-                  onMouseEnter={handleDropdownEnter}
-                  onMouseLeave={handleDropdownLeave}
-                >
-                  <Link
-                    href="/event/elevate2025-manchester"
-                    className="block pb-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick("/event/elevate2025-manchester")
-                    }
-                  >
-                    Elevate 2025 - Manchester (June)
-                  </Link>
-                  <Link
-                    href="/event/elevate2025-scotland"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick("/event/elevate2025-scotland")
-                    }
-                  >
-                    Elevate 2025 - Scotland (August)
-                  </Link>
-                  <Link
-                    href="/event/elevate2025-caribbean"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick("/event/elevate2025-caribbean")
-                    }
-                  >
-                    Elevate 2025 - Caribbean (Trinidad)
-                  </Link>
-                  {/* <Link
-                    href="#"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("")}
-                  >
-                    Procure Tech Unplugged 2025
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("")}
-                  >
-                    Procurement Career Webinar
-                  </Link> */}
-                  <Link
-                    href="/event/boardroom-preparedness-for-senior-procurement-professionals"
-                    className="block pt-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick(
-                        "/event/boardroom-preparedness-for-senior-procurement-professionals"
-                      )
-                    }
-                  >
-                    Boardroom Preparedness for Senior Procurement Professionals
-                  </Link>
-                </div>
-              )}
-            </li>
             <li>
               <Link
                 href="/business-hub"
-                className="text-[15px] hover:text-[#85009D]"
+                className="text-sm font-semibold hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/business-hub")}
               >
                 Business Hub
               </Link>
             </li>
             <li className="flex items-center bounce-right">
-              <p className="text-[15px] px-3 text-[#010101]">
+              <p className="text-sm font-semibold pr-3 text-[#010101]">
                 Reach Out To Our Team
               </p>
               <Icon name="arrow" color="black" size={24} />
@@ -268,98 +145,26 @@ const HeaderComp = () => {
             <li>
               <Link
                 href="/resources"
-                className="text-[15px] font-semibold hover:text-[#85009D] w-full flex"
+                className="text-sm font-semibold hover:text-[#85009D] w-full flex"
                 onClick={() => handleLinkClick("/resources")}
               >
                 Resources
               </Link>
             </li>
-            <li>
-              <div
-                className="text-[15px] font-semibold mb-1 flex items-center justify-between"
-                onClick={toggleDropdown}
-              >
-                Events
-                <button className="text-[#85009D]">
-                  {/* <button onClick={toggleDropdown} className="text-[#85009D]"> */}
-                  <Icon
-                    name={
-                      ismobiledropdownOpen ? "dropdownarrow" : "dropdownarrow"
-                    }
-                    color="#85009D"
-                    size={20}
-                  />
-                </button>
-              </div>
-              {ismobiledropdownOpen && (
-                <div className="text-sm space-y-1 bg-[#010101] p-5 mt-2 rounded-md">
-                  <Link
-                    href="/event/elevate2025-manchester"
-                    className="block pb-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick("/event/elevate2025-manchester")
-                    }
-                  >
-                    Elevate 2025 - Manchester (June)
-                  </Link>
-                  <Link
-                    href="/event/elevate2025-scotland"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick("/event/elevate2025-scotland")
-                    }
-                  >
-                    Elevate 2025 - Scotland (August)
-                  </Link>
-                  <Link
-                    href="/event/elevate2025-caribbean"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick("/event/elevate2025-caribbean")
-                    }
-                  >
-                    Elevate 2025 - Caribbean (Trinidad)
-                  </Link>
-                  {/* <Link
-                    href="#"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("")}
-                  >
-                    Procure Tech Unplugged 2025
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                    onClick={() => handleLinkClick("")}
-                  >
-                    Procurement Career Webinar
-                  </Link> */}
-                  <Link
-                    href="/event/boardroom-preparedness-for-senior-procurement-professionals"
-                    className="block pt-2 text-white hover:text-[#85009D]"
-                    onClick={() =>
-                      handleLinkClick(
-                        "/event/boardroom-preparedness-for-senior-procurement-professionals"
-                      )
-                    }
-                  >
-                    Boardroom Preparedness for Senior Procurement Professionals
-                  </Link>
-                </div>
-              )}
-            </li>
             <Link
               href="/business-hub"
-              className="text-[15px] hover:text-[#85009D]"
+              className="text-sm font-semibold hover:text-[#85009D]"
               onClick={() => handleLinkClick("/business-hub")}
             >
               Business Hub
             </Link>
             <li className="flex gap-[4px] items-center bounce-right">
-              <span className="text-[15px] text-[#010101]">
+              <span className="text-sm font-semibold text-[#010101]">
                 Reach Out To Our Team
               </span>
-              <Icon name="arrow" color="black" size={20} />
+              <div className="rotate-90">
+                <Icon name="arrow" color="black" size={20} />
+              </div>
             </li>
             <li>
               <Link
