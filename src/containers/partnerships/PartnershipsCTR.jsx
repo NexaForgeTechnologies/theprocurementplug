@@ -4,6 +4,7 @@ import BenifitsComp from "@/components/benifit/BenifitsComp";
 import Icon from "@/components/icon/Icon";
 import Link from "next/link";
 import PartnerCTR from "@/containers/home/partners/PartnerCTR";
+import Image from "next/image";
 
 function PartnershipsCTR() {
   const partneringContent = [
@@ -84,10 +85,12 @@ function PartnershipsCTR() {
           </div>
         </div>
         <div className="flex-1">
-          <img
+          <Image
+            width={624}
+            height={600}
             className="rounded-2xl md:rounded-br-[130px] w-full max-h-[600px] object-cover"
             src="/images/home/tiles/tile-1.png"
-            alt=""
+            alt="partnership"
           />
         </div>
       </div>

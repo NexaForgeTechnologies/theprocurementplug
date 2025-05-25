@@ -14,6 +14,8 @@ function GuessComp({ img, heading, subHeading, text1, text2, bgColor }) {
           className="rounded-full w-32 h-32 object-cover"
           src={img}
           alt={img}
+          width={130}
+          height={130}
         />
         <h2 className="text-xl md:text-2xl font-extrabold">{heading}</h2>
         <h3

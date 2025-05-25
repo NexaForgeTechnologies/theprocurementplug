@@ -22,7 +22,7 @@ function ImgTxtCTR() {
           <Image
             width={624}
             height={500}
-            alt=""
+            alt="Discussions"
             className="rounded-lg w-full max-h-[500px] object-cover"
             src="/images/home/discussion.png"
           />
@@ -35,7 +35,7 @@ function ImgTxtCTR() {
             height={500}
             className="rounded-lg w-full max-h-[500px] object-cover"
             src="/images/home/happy-client.png"
-            alt=""
+            alt="Happy Client"
           />
         </div>
         <div className="flex-1">

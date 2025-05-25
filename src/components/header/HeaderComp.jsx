@@ -60,7 +60,7 @@ const HeaderComp = () => {
           >
             <Image
               width={200}
-              height={200}
+              height={40}
               src="/images/header/headerlogo.png"
               className="lg:w-[220px] md:w-[220px] sm:w-[150px] w-[150px]"
               alt="Logo"
@@ -132,8 +132,8 @@ const HeaderComp = () => {
           <div className="p-4 flex justify-between items-center">
             <Link href="/" onClick={() => handleLinkClick("/")}>
               <Image
-                width={200}
-                height={200}
+                width={150}
+                height={40}
                 src="/images/header/headerlogo.png"
                 className="w-[180px]"
                 alt="Logo"

@@ -40,9 +40,11 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
                 In Collaboration with:
               </h2>
               <Image
+                width={250}
+                height={70}
                 className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
                 src="/images/events/collaboration.png"
-                alt=""
+                alt="collaboration"
               />
             </div>
             <div className="flex flex-col gap-6 text-white">
