@@ -37,7 +37,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Understanding the Role of Procurement in Modern Business</h3>
-                    <Image alt="" src="/images/blogs/blog-6/confidentlypresent.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-6/confidentlypresent.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Grasping the strategic impact of procurement is pivotal for your success in an interview within this field. You&#39;ll need to articulate the key responsibilities that come with procurement roles, from strategic sourcing to fostering collaboration within an organisation. Additionally, you&#39;ll be expected to discuss the current challenges faced in the procurement sector, including the complexities of indirect procurement. This introduction will lead you through these crucial areas, equipping you with the knowledge to impress your potential employers.</p>
                 </div>
 
@@ -65,7 +68,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Researching the Company and Industry Thoroughly</h3>
-                    <Image alt="" src="/images/blogs/blog-6/focusedindividualsurrounded.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-6/focusedindividualsurrounded.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Before you step into your procurement interview, it&#39;s crucial to analyse the organisation&#39;s procurement practices, identify industry trends and developments, and align your expertise with the company&#39;s needs. A deep dive into the company&#39;s budget allocation, procurement analytics, and community engagement will reveal their value proposition and inform your approach. Your motivation to understand these elements will demonstrate your readiness to contribute meaningfully to their procurement strategy.</p>
                 </div>
 
@@ -93,7 +99,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Preparing for Common Procurement Interview Questions</h3>
-                    <Image alt="" src="/images/blogs/blog-6/modernoffice.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-6/modernoffice.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As you gear up for your procurement interview, it&#39;s crucial to prepare for the questions that will test your purchasing acumen. You&#39;ll need to demonstrate your proficiency with procurement management tools, discuss ethical considerations in procurement, and showcase your negotiation and analytical skills. Each scenario will offer you the chance to highlight the value you can bring to the role. The following sections will guide you through crafting effective responses that reflect your expertise in these key areas.</p>
                 </div>
 
@@ -128,7 +137,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Showcasing Your Procurement Achievements Effectively</h3>
-                    <Image alt="" src="/images/blogs/blog-6/professionalstandingin.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-6/professionalstandingin.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In your procurement interview, it&#39;s essential to present quantifiable results and successes that reflect your proficiency in e-sourcing and sustainable procurement. You&#39;ll need to share examples of innovative procurement strategies that have enhanced regulatory compliance and employment practices. Additionally, explaining how you&#39;ve leveraged technology to improve procurement processes will demonstrate your ability to drive efficiency and value. These topics will not only showcase your achievements but also illustrate your practical expertise in the field.</p>
                 </div>
 
@@ -156,7 +168,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Highlighting Soft Skills Important for Success</h3>
-                    <Image alt="" src="/images/blogs/blog-6/capturingaprofessional.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-6/capturingaprofessional.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In your pursuit to excel in a procurement role, soft skills are as crucial as technical know-how. You must communicate clearly and persuasively, ensuring your points are understood and your arguments compelling. Building robust relationships with suppliers and stakeholders is key to navigating the complexities of procurement. You&#39;ll also need to solve problems under pressure and adapt swiftly to changing market conditions. These skills will be explored in depth, highlighting their importance for your success in the field.</p>
                 </div>
 
@@ -191,7 +206,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Asking Insightful Questions During the Interview</h3>
-                    <Image alt="" src="/images/blogs/blog-6/candidateinaninterview.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-6/candidateinaninterview.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As you prepare to excel in your procurement interview, consider the strategic questions that can demonstrate your engagement and foresight. Inquiring about the company&#39;s procurement goals reveals your alignment with their vision, while exploring team dynamics and culture indicates your fit within the organisation. Discussing professional development opportunities shows your ambition to grow, and expressing enthusiasm for contributing to the team&#39;s success underscores your commitment. These topics will not only convey your readiness but also your potential to add significant value to the procurement team.</p>
                 </div>
 

@@ -37,7 +37,9 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Understanding Holistic Governance in Supply Chain Management</h3>
-                    <Image alt="" src="/images/blogs/blog-2/diverseteam.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-2/diverseteam.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Embarking on a journey towards holistic governance in supply chain management, you&#39;ll uncover the core principles of unified models that foster collaboration and leadership. Recognising the benefits of this approach, you&#39;ll see how it leads to more cohesive trade and organization strategies. Traditional supply chain challenges are many, but through these lenses, you&#39;ll learn how a holistic view can address these issues effectively. Delving into case studies, you&#39;ll gain practical insights into successful implementations and assess your own organisation&#39;s readiness for embracing such transformative change with creative wordpress solutions.</p>
                 </div>
 
@@ -86,7 +88,11 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Implementing Holistic Strategies for Supply Chain Optimisation</h3>
-                    <Image alt="" src="/images/blogs/blog-2/modernwarehouse.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-2/modernwarehouse.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To elevate your supply chain&#39;s performance in the world economy, a thorough analysis of current processes is essential for identifying gaps that may hinder efficiency. You must develop an integrated strategy that encompasses all supply chain functions, aligning organisational goals with supply chain objectives to navigate market complexity effectively. Embrace technology for enhanced coordination and undertake regular risk assessments to ensure robustness against potential disruptions. By continuously monitoring and adjusting your strategies, and measuring outcomes against key performance indicators, you&#39;ll foster ongoing optimisation and resilience in your supply chain operations.</p>
                 </div>
 
@@ -135,7 +141,10 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Enhancing Supply Chain Visibility Through Integrated Systems</h3>
-                    <Image alt="" src="/images/blogs/blog-2/warehousemanager.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-2/warehousemanager.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In the quest to optimise supply chain performance, enhancing visibility through integrated systems is paramount. You&#39;ll need to evaluate existing information systems, pinpointing limitations that may impede the flow of data. Integrating data across all supply chain partners ensures a unified view, while implementing real-time tracking and reporting tools sharpens responsiveness. Advanced analytics will become your compass for decision-making, guiding you through the complexities of the political economy and bolstering supply chain sustainability. Training your teams on these new systems and processes is crucial, as is upholding stringent data security and compliance standards. These steps are vital for a resilient, efficient supply chain in today&#39;s economy.</p>
                 </div>
 
@@ -184,7 +193,11 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Strengthening Stakeholder Collaboration for Better Performance</h3>
-                    <Image alt="" src="/images/blogs/blog-2/diversegroup.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-2/diversegroup.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Optimising your supply chain performance hinges on robust stakeholder collaboration. Identifying key players within your network and fostering open communication channels are foundational steps towards unified efficiency. Establishing joint objectives and shared metrics, coupled with collaborative planning processes, paves the way for streamlined operations. Effective conflict resolution through negotiation and compromise, along with celebrating shared successes, solidifies long-term partnerships that are essential for a resilient supply chain.</p>
                 </div>
 
@@ -233,7 +246,10 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Managing Supply Chain Risks With Holistic Governance Approaches</h3>
-                    <Image alt="" src="/images/blogs/blog-2/teamofprofessionals.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-2/teamofprofessionals.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In the pursuit of optimising supply chain performance, managing risks through holistic governance is paramount. You&#39;ll learn to identify potential risks across the supply chain, develop a comprehensive risk management plan, and implement preventative measures with contingencies. Advanced tools will aid in the continuous monitoring of risks, allowing for strategic adjustments in response to changes. Regular reviews and updates of risk plans ensure your supply chain remains resilient and efficient.</p>
                 </div>
 
@@ -282,7 +298,9 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Driving Sustainable Practices in the Supply Chain Ecosystem</h3>
-                    <Image alt="" src="/images/blogs/blog-2/warehousebustlingwithwork.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-2/warehousebustlingwithwork.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In the pursuit of optimising supply chain performance, integrating sustainable practices is imperative. You&#39;ll begin by assessing the environmental impact of your current operations, setting a benchmark for improvement. Aligning sustainability goals with industry standards ensures your efforts meet global expectations. Engaging suppliers in sustainable initiatives and adopting eco-friendly technologies and materials are crucial steps towards reducing your ecological footprint. Measuring progress towards these sustainability objectives allows for transparent reporting of your achievements, demonstrating your commitment to a greener supply chain ecosystem.</p>
                 </div>
 

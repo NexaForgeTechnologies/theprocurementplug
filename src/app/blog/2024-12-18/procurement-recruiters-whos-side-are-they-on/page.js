@@ -3,8 +3,8 @@ import BlogHeading from '@/components/blogs/BlogHeading'
 import Image from 'next/image'
 
 const page = () => {
-  return (
-    <>
+    return (
+        <>
             { /* Blog Heading */}
             <BlogHeading
                 img="/images/home/blogs/blog-5.png"
@@ -36,7 +36,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Understanding the Role of Procurement Recruiters</h3>
-                    <Image alt="" src="/images/blogs/blog-5/procurementrecruiter.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-5/procurementrecruiter.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Procurement recruiters are specialists who bridge the gap between you and the next step in your career, particularly within the realms of strategic sourcing and supply chain management. They possess a keen understanding of the demand for skilled professionals in sectors such as transport and customer service, ensuring your expertise aligns with the needs of an organization. This introduction will shed light on who these recruiters are, how they connect you with prime opportunities, and their significant impact on the procurement industry.</p>
                 </div>
 
@@ -64,7 +64,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>The Benefits of Collaborating With Procurement Recruiters</h3>
-                    <Image alt="" src="/images/blogs/blog-5/sleekmodern.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-5/sleekmodern.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Partnering with procurement recruiters such as Topteam Recruitment can be a game-changer in your quest for a chief procurement officer role or other positions within the procurement sector. You gain access to hidden job markets, often exclusive to the recruiter&#39;s network, which includes opportunities in software, retail, and beyond. Personalised career guidance ensures your skills and experience are presented effectively, while your professional network expands through strategic introductions. These collaborations are designed to position you advantageously in a competitive field, paving the way for a thriving procurement career.</p>
                 </div>
 
@@ -92,7 +92,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Finding the Right Procurement Recruiter for Your Career</h3>
-                    <Image alt="" src="/images/blogs/blog-5/focusedprofessionalsitting.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-5/focusedprofessionalsitting.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Securing the right procurement recruiter is a strategic move in your career progression. You&#39;ll want to identify specialist consultants with a robust presence in East Anglia&#39;s market, who can navigate the public sector&#39;s unique risks and opportunities. Evaluating their industry experience and connections is crucial. Prepare to ask potential recruiters pointed questions to gauge their expertise and fit for your career goals. This section will guide you through these critical steps, ensuring you partner with a recruiter who can effectively champion your professional journey.</p>
                 </div>
 
@@ -120,7 +120,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Building a Successful Partnership With Your Recruiter</h3>
-                    <Image alt="" src="/images/blogs/blog-5/professionalsitting.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-5/professionalsitting.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Forging a successful partnership with your procurement recruiter is a strategic step in advancing your career. It&#39;s essential to communicate your career objectives with clarity, including your commodity expertise and experience in supplier relationship management. Providing timely and honest feedback, as well as staying actively engaged throughout the recruitment process, are key to ensuring your recruiter can effectively advocate for you. These practices will be explored in depth, offering you expert advice on how to audit your professional journey and maximise the benefits of this collaboration.</p>
                 </div>
 
@@ -148,7 +148,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Overcoming Common Misconceptions About Recruiters</h3>
-                    <Image alt="" src="/images/blogs/blog-5/diversegroupofprofessional.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-5/diversegroupofprofessional.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Dispelling myths surrounding procurement recruiters is key to utilising their expertise effectively. You&#39;ll explore their true motivations, debunk the notion that they serve only employers, and understand how they prioritise your success. Whether you&#39;re in engineering, based in Manchester, or seeking technology roles, a recruiter&#39;s support can be pivotal. If you&#39;re contemplating a career move, request a call with an employment agency to discuss how they can assist in your professional journey.</p>
                 </div>
 
@@ -176,7 +176,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Leveraging Recruiter Insights for Long-Term Career Growth</h3>
-                    <Image alt="" src="/images/blogs/blog-5/professionalwomansurroun.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-5/professionalwomansurroun.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As you navigate your career in procurement, staying informed on industry trends, identifying skill development opportunities, and planning future career moves with expert advice are crucial. This section delves into how you can leverage insights from procurement recruiters to ensure long-term career growth. You&#39;ll learn to spot trends that could impact your role, uncover areas for professional enhancement, and strategise your career trajectory with guidance from those who know the industry best.</p>
                 </div>
 
@@ -204,7 +204,7 @@ const page = () => {
             </div>
 
         </>
-  )
+    )
 }
 
 export default page

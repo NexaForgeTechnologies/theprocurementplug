@@ -37,7 +37,7 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Understanding the Importance of Strategic Procurement KPIs</h3>
-                    <Image alt="" src="/images/blogs/blog-3/focusedbusinessman.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-3/focusedbusinessman.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Key Performance Indicators (KPIs) are not just data points; they&#39;re the compass that guides your procurement strategy towards improved performance with creative wordpress solutions. By evaluating these metrics, you&#39;ll gain insights into how effectively your company manages accounts payable, which directly influences your financial health. Measuring procurement activities offers a clear view of where your money is going and how it could be better spent. You&#39;ll see how KPIs can streamline your supply chain, leading to significant cost reductions. Understanding the connection between KPIs and your procurement objectives is essential for making informed decisions that drive success.</p>
                 </div>
 
@@ -85,7 +85,7 @@ function page() {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Identifying Key Procurement Performance Indicators</h3>
-                    <Image alt="" src="/images/blogs/blog-3/futuristicdigitaldashboard.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-3/futuristicdigitaldashboard.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To excel in strategic procurement, identifying the right Key Performance Indicators (KPIs) is paramount. You&#39;ll need to determine essential KPIs that not only reflect procurement success but also align closely with your objectives. This includes selecting metrics that gauge supplier performance, cost savings, and efficiency, while also leveraging spend analysis for deeper procurement insights. Additionally, applying risk management KPIs can significantly enhance procurement processes. These indicators are vital for innovation in construction, meeting authorities&#39; standards, responding to market demands, and upholding sustainability. The upcoming sections will delve into how each of these KPIs can be effectively incorporated into your strategy for optimal results.</p>
                 </div>
 
@@ -133,7 +133,7 @@ function page() {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Implementing Effective Procurement KPI Measurement Tools</h3>
-                    <Image alt="" src="/images/blogs/blog-3/moderndashboarddisplay.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-3/moderndashboarddisplay.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To achieve excellence in strategic procurement, selecting and implementing the most effective Key Performance Indicator (KPI) measurement tools is essential. These tools should seamlessly integrate into your procurement processes, offering automated systems for accurate and regular KPI reporting. It&#39;s vital to provide your team with the necessary training on monitoring tools and ensure data accuracy for insightful decision-making. Regular maintenance and updates of these tools are crucial to keep pace with your evolving business needs. The upcoming sections will delve into the practical steps you need to take to establish a robust KPI tracking system that drives procurement success.</p>
                 </div>
 
@@ -181,7 +181,7 @@ function page() {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Understanding Holistic Governance in Supply Chain Management</h3>
-                    <Image alt="" src="/images/blogs/blog-3/personstudyingalarge.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-3/personstudyingalarge.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Interpreting Key Performance Indicator data is pivotal for discerning performance trends and pinpointing areas in need of enhancement. Utilising these insights, you can make informed decisions, adjust procurement strategies accordingly, and set new targets for ongoing improvement. Monitoring the progress of these KPIs post-adjustment ensures your procurement practices remain agile and effective, driving continuous advancement in your strategic procurement endeavours.</p>
                 </div>
 
@@ -229,7 +229,7 @@ function page() {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Leveraging Procurement KPIs to Enhance Supplier Relationships</h3>
-                    <Image alt="" src="/images/blogs/blog-3/groupofbusiness.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-3/groupofbusiness.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Strategic procurement KPIs are pivotal in enhancing supplier relationships, offering a framework to assess, collaborate, and improve partnerships. By applying KPIs, you can gauge supplier performance, share results to foster collaboration, and develop targeted improvement plans. Transparency in KPIs strengthens communication, while insights gained enable you to negotiate better terms. Ultimately, this approach builds long-term relationships with high-performing suppliers, aligning closely with your strategic procurement goals.</p>
                 </div>
 
@@ -277,7 +277,7 @@ function page() {
                 </div>
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Aligning Procurement KPIs With Organisational Goals</h3>
-                    <Image alt="" src="/images/blogs/blog-3/teamofprofessionalscollabo.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-3/teamofprofessionalscollabo.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">For your business to reach its peak in strategic procurement, it&#39;s essential to align Key Performance Indicators (KPIs) with organisational goals. This alignment ensures that procurement efforts directly support business objectives, reflect company values, and contribute to overall performance. Engaging with stakeholders to map KPIs to business aims, regularly reviewing and adjusting these metrics as corporate goals evolve, and reporting outcomes to leadership for strategic planning are all critical steps. Each of these actions will be explored to demonstrate how they can be effectively implemented to drive procurement excellence.</p>
                 </div>
 

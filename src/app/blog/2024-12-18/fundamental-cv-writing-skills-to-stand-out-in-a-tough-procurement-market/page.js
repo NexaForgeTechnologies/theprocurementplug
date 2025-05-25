@@ -37,7 +37,13 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Craft a Compelling Professional Summary</h3>
-                    <Image alt="" src="/images/blogs/blog-7/focusedprofessional.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-7/focusedprofessional.webp"
+                        className="w-full h-[400px] object-cover rounded-md"
+                    />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As you seek to advance in the procurement sector, your résumé must immediately convey your career aspirations and the unique value you bring to an organization. A well-crafted professional summary not only highlights your demand for excellence but also showcases your adeptness in services procurement, creative wordpress solutions, and SWOT analysis. In the following sections, you&#39;ll learn how to articulate your career goals and present your key procurement skills effectively, ensuring your professional summary positions you as a standout candidate.</p>
                 </div>
 
@@ -58,7 +64,11 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Emphasize Your Relevant Work Experience</h3>
-                    <Image alt="" src="/images/blogs/blog-7/captureadynamic.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-7/captureadynamic.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In your curriculum vitae, the description of your previous procurement roles is pivotal. You must detail your achievements, particularly in risk management, and use dynamic action verbs to bring your responsibilities to life. This section will guide you through crafting a compelling work experience section for your CV, ensuring that your expertise is clearly documented in a database or PDF format for potential employers. By focusing on these aspects, you&#39;ll demonstrate the practical insights and expertise that set you apart in the procurement field.</p>
                 </div>
 
@@ -79,7 +89,11 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Showcase Procurement Certifications and Training</h3>
-                    <Image alt="" src="/images/blogs/blog-7/professionaldisplaying.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-7/professionaldisplaying.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Enhancing your procurement career demands showcasing your qualifications and commitment to ongoing professional development. When you&#39;re ready to write your CV, listing recognized procurement certifications can significantly bolster your profile. These credentials serve as a testament to your expertise and dedication to the field. Additionally, highlighting your continuous professional development demonstrates to companies your commitment to staying abreast of the latest procurement software and practices, ensuring confidentiality and efficiency in your role. This section will guide you through effectively presenting these elements, adding substantial value to your professional narrative.</p>
                 </div>
 
@@ -100,7 +114,11 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Tailor Your CV to the Procurement Role</h3>
-                    <Image alt="" src="/images/blogs/blog-7/craftingatailoredcv.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-7/craftingatailoredcv.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To elevate your procurement career, it&#39;s essential to tailor your CV to each specific role, ensuring that your experience and skills are aligned with the job description. You&#39;ll need to customise content to match job requirements, highlighting your expertise in data analysis, cost reduction, and the procurement of goods and services. The upcoming sections will delve into how to align your skills with particular procurement needs, infusing your CV with the intelligence that resonates with potential employers. This focused approach demonstrates your understanding of the role and your ability to meet its demands effectively.</p>
                 </div>
 

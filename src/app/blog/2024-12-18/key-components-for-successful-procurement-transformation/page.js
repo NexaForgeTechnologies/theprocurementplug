@@ -37,7 +37,9 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Streamlining Procurement Processes for Maximum Efficiency</h3>
-                    <Image alt="" src="/images/blogs/blog-1/streamlining.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-1/streamlining.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As you seek to transform your company&#39;s procurement processes, identifying and addressing bottlenecks in current workflows is essential. Streamlining these procedures not only simplifies operations but also aligns them with your business&#39;s core functions. By standardising procurement practices, you pave the way for the integration of sophisticated software solutions, such as creative wordpress solutions, that automate routine tasks, freeing up time and money. This integration extends to your accounts payable systems, ensuring seamless data flow and financial management. Monitoring and refining procurement cycle times will further enhance efficiency, allowing for a thorough evaluation of performance. Each step is a building block towards a leaner, more cost-effective procurement strategy.</p>
                 </div>
 
@@ -72,7 +74,10 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Applying Technology in Procurement Transformation</h3>
-                    <Image alt="" src="/images/blogs/blog-1/technology.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-1/technology.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Embracing technology is a cornerstone of procurement transformation, offering your team unprecedented flexibility and efficiency. Cloud-based platforms can revolutionise your policy adherence and budget management, while artificial intelligence (AI) refines supplier selection, enhancing negotiation and contract management. E-procurement solutions streamline operations, and data analytics provide the insights needed for informed decision-making. These advancements are not just about keeping pace; they&#39;re about setting the standard for procurement excellence.</p>
                 </div>
 
@@ -107,7 +112,9 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Building Strategic Supplier Relationships</h3>
-                    <Image alt="" src="/images/blogs/blog-1/relationships.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-1/relationships.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Building strategic supplier relationships is a pivotal component in driving procurement efficiency. You&#39;ll need to identify key suppliers for strategic partnerships, ensuring that communication channels are clear and effective. Negotiating long-term contracts can unlock added value, while collaboration on innovation with suppliers can yield significant competitive advantages. Regular assessments of supplier performance are essential to manage and enhance these relationships. Each of these steps contributes to a robust procurement strategy that supports your business&#39;s growth and efficiency.</p>
                 </div>
 
@@ -149,7 +156,9 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Improving Spend Visibility and Analytics</h3>
-                    <Image alt="" src="/images/blogs/blog-1/analytics.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-1/analytics.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Enhancing spend visibility and analytics is a critical component in driving procurement efficiency. You must collect comprehensive spend data across departments to gain a complete picture of your expenditures. Analysing these spend patterns uncovers cost-saving opportunities, crucial for optimising your budget. Implementing spend management tools enables real-time tracking, providing immediate insights into your financial flow. Transparently reporting this data to stakeholders ensures accountability and informed decision-making. These steps are vital for a robust procurement strategy that delivers tangible business value.</p>
                 </div>
 
@@ -184,7 +193,9 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Implementing Best Practices in Procurement Governance</h3>
-                    <Image alt="" src="/images/blogs/blog-1/governance.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-1/governance.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Implementing best practices in procurement governance is a vital step in driving efficiency within your organisation. You&#39;ll need to define clear procurement policies and procedures, ensuring compliance with legal and ethical standards. Establishing robust internal controls is essential to prevent fraud, while developing a risk management framework will safeguard your procurement activities. Regular reviews and updates of these policies are crucial to maintain relevance and effectiveness. This section will guide you through each of these components, providing the insights you need to enhance your procurement governance.</p>
                 </div>
 
@@ -226,7 +237,9 @@ function page() {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Empowering Procurement Teams Through Training and Development</h3>
-                    <Image alt="" src="/images/blogs/blog-1/training.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog" src="/images/blogs/blog-1/training.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Empowering your procurement team is a critical step in driving efficiency and achieving transformational change. Assessing training needs ensures staff are equipped with the latest skills and knowledge. Providing professional development opportunities fosters growth and innovation. Encouraging cross-functional collaboration breaks down silos and enhances communication. Setting performance goals aligned with business objectives sharpens focus, while recognising and rewarding procurement excellence motivates and retains top talent. Together, these strategies form the bedrock of a high-performing procurement function.</p>
                 </div>
 

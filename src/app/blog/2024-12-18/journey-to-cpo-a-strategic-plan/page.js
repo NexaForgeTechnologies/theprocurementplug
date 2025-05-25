@@ -51,7 +51,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Understanding the Role of a Chief Procurement Officer (CPO)</h3>
-                    <Image alt="" src="/images/blogs/blog-8/focusedcpositting.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/focusedcpositting.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Stepping into the role of a Chief Procurement Officer (CPO), you shoulder critical responsibilities that shape the strategic direction and operational efficiency of your organisation. This pivotal position demands a deep understanding of procurement&#39;s impact on overall business success, requiring a blend of leadership, strategic thinking, and a robust skill set. In the forthcoming sections, we&#39;ll dissect the key responsibilities of a CPO, the strategic significance of procurement leadership, and the essential skills and competencies you must cultivate to excel in this role.</p>
                 </div>
 
@@ -86,7 +89,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>The Importance of Strategic Planning in Procurement</h3>
-                    <Image alt="" src="/images/blogs/blog-8/focusedprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/focusedprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Strategic planning in procurement is your blueprint for aligning purchasing objectives with your business&#39;s broader ambitions. It involves crafting a comprehensive strategy that not only addresses cost efficiency but also encompasses risk management and compliance. As you progress towards a Chief Procurement Officer role, understanding these facets is crucial. You&#39;ll learn to navigate the complexities of aligning procurement with business goals, developing robust strategies, and ensuring adherence to regulatory standards, all of which are vital for a resilient supply chain.</p>
                 </div>
 
@@ -114,7 +120,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Building a Strong Foundation in Procurement</h3>
-                    <Image alt="" src="/images/blogs/blog-8/personstudyingdiligently.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/personstudyingdiligently.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To set the stage for a successful career as a Chief Procurement Officer, you must establish a solid foundation in procurement. This begins with understanding the educational requirements and relevant qualifications that underpin the profession. Gaining hands-on experience in procurement and supply chain management is equally critical, as it provides the practical knowledge necessary to navigate this complex field. Additionally, pursuing professional certifications in procurement can significantly enhance your expertise and credibility. Each of these steps is a building block towards the strategic acumen required for effective procurement leadership.</p>
                 </div>
 
@@ -147,7 +156,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Enhancing Leadership and Management Skills</h3>
-                    <Image alt="" src="/images/blogs/blog-8/confidentchiefprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/confidentchiefprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As you forge your path to becoming a Chief Procurement Officer, enhancing your leadership and management skills is essential. Mastering effective communication and negotiation techniques will empower you to articulate and advocate for your procurement strategies persuasively. Leading and developing high-performing teams ensures that your department excels in delivering strategic objectives. Moreover, honing decision-making strategies equips you to navigate the complexities of procurement with confidence and clarity.</p>
                 </div>
 
@@ -180,7 +192,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Navigating Your Career Path to Become a CPO</h3>
-                    <Image alt="" src="/images/blogs/blog-8/determinedprofessionalattendin.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/determinedprofessionalattendin.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Embarking on the journey to become a Chief Procurement Officer requires strategic career planning, robust networking within the procurement community, and a commitment to seeking mentorship and professional development opportunities. You&#39;ll set clear career goals and milestones, engage with industry peers, and pursue growth through learning and guidance. These steps are crucial in shaping your path to procurement leadership and ensuring your readiness to manage the complexities of the role.</p>
                 </div>
 
@@ -208,7 +223,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Implementing Innovative Procurement Practices</h3>
-                    <Image alt="" src="/images/blogs/blog-8/futuristicprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/futuristicprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In your quest to become a Chief Procurement Officer, embracing innovative procurement practices is essential. Leveraging technology and digital transformation can streamline operations and offer real-time insights. Sustainable and ethical procurement strategies are vital for corporate responsibility and brand integrity. Meanwhile, cost optimization and value creation methods are key to enhancing profitability and competitive advantage. These areas will be explored to equip you with the tools for strategic procurement leadership.</p>
                 </div>
 
@@ -236,7 +254,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Overcoming Challenges in the Procurement Landscape</h3>
-                    <Image alt="" src="/images/blogs/blog-8/chiefprocurementofficer.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/chiefprocurementofficer.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In your strategic journey to becoming a Chief Procurement Officer, you&#39;ll encounter a dynamic procurement landscape rife with challenges. Adapting to market changes and global trends is essential for maintaining a competitive edge. You must also hone your skills in managing supplier relationships and partnerships, ensuring they align with your strategic goals. Furthermore, addressing regulatory and ethical issues is critical to uphold compliance and integrity within your operations. Each of these areas requires a deft approach, blending foresight with practical solutions to navigate the complexities of modern procurement.</p>
                 </div>
 
@@ -264,7 +285,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Preparing for Future Trends and Opportunities</h3>
-                    <Image alt="" src="/images/blogs/blog-8/chiefprocurementofficerlastimage.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-8/chiefprocurementofficerlastimage.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As you forge ahead on your path to becoming a Chief Procurement Officer, staying ahead of the curve is paramount. Embracing emerging technologies in procurement equips you with the tools to enhance efficiency and innovation. Committing to continuous learning and skill enhancement ensures your expertise remains cutting-edge. Moreover, contributing to thought leadership in procurement positions you as an authority, influencing the direction of the industry. Each of these areas is critical for your strategic development and readiness for future opportunities.</p>
                 </div>
 

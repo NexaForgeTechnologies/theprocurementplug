@@ -24,7 +24,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>The Rise of Digital Procurement Technologies</h3>
-                    <Image alt="" src="/images/blogs/blog-4/futuristicofficesettin.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-4/futuristicofficesettin.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As your company navigates the market&#39;s complexities, the adoption of digital procurement technologies is transforming how you manage your accounts payable and overall evaluation of procurement processes. You&#39;ll see how implementing automation tools streamlines efficiency, while harnessing artificial intelligence in procurement offers unprecedented insights. Utilising data analytics empowers you to make informed decisions, and integrating the Internet of Things (IoT) enhances your operational processes. Moreover, adopting cloud-based procurement solutions alongside creative wordpress solutions ensures agility and scalability. Each of these advancements is pivotal in keeping your business at the forefront of innovation.</p>
                 </div>
 
@@ -66,7 +66,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Embracing Sustainable and Ethical Sourcing</h3>
-                    <Image alt="" src="/images/blogs/blog-4/supplier-tandsproudlyin.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-4/supplier-tandsproudlyin.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Your organization&#39;s commitment to sustainability is increasingly reflected in procurement management. As your procurement team develops policies that integrate environmental criteria, you&#39;re partnering with ethical suppliers to meet corporate social responsibility goals. Evaluating suppliers on sustainability metrics and reducing carbon footprints in supply chains are now essential practices. These steps ensure your budget aligns with your values, paving the way for a greener, more responsible future.</p>
                 </div>
 
@@ -108,7 +108,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>The Shift Towards Strategic Supplier Relationships</h3>
-                    <Image alt="" src="/images/blogs/blog-4/groupofbusiness.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-4/groupofbusiness.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In the dynamic realm of procurement, the shift towards strategic supplier relationships marks a significant trend. You&#39;ll discover how fostering collaborative partnerships and joint innovation with suppliers can align goals and objectives, enhancing communication channels for robust dialogue. Building long-term supplier engagement is crucial, as it underpins the success of these evolving relationships. Each aspect contributes to a procurement strategy that is not only efficient but also sustainable and forward-thinking.</p>
                 </div>
 
@@ -150,7 +150,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>The Growing Importance of Risk Management</h3>
-                    <Image alt="" src="/images/blogs/blog-4/focusedindividualanalysing.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-4/focusedindividualanalysing.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In the dynamic world of procurement, risk management has become a cornerstone of strategic planning. You must be adept at identifying potential supply chain disruptions, developing contingency plans, assessing the financial stability of suppliers, mitigating cybersecurity threats, and complying with regulatory requirements. These elements are critical for safeguarding your operations against unforeseen challenges and ensuring business continuity. The following sections will delve into each of these areas, providing you with the knowledge to fortify your procurement strategy against risks.</p>
                 </div>
 
@@ -192,7 +192,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Adoption of Agile Procurement Practices</h3>
-                    <Image alt="" src="/images/blogs/blog-4/diverseteamofprofessionals.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-4/diverseteamofprofessionals.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In the fast-paced world of procurement, agility has become a cornerstone of success. You&#39;re now expected to respond swiftly to market changes, streamline your procurement processes, and implement flexible contract terms. Encouraging cross-functional teams and leveraging real-time data for decision-making are also key to staying ahead. These practices are not just trends; they are essential strategies that will define the future of procurement, ensuring your business remains competitive and resilient.</p>
                 </div>
 
@@ -234,7 +234,7 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Integration of Blockchain for Transparency</h3>
-                    <Image alt="" src="/images/blogs/blog-4/glowingblockchainnetwo.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280} height={400} alt="blog" src="/images/blogs/blog-4/glowingblockchainnetwo.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">As procurement evolves, the integration of blockchain technology is becoming a game-changer for transparency in supply chains. You&#39;ll discover how blockchain enhances traceability, secures transactions, and reduces fraud and errors. Simplifying contract management and building trust with stakeholders are also key benefits. These advancements are not just technical improvements; they represent a shift towards greater accountability and efficiency in procurement practices.</p>
                 </div>
 

@@ -3,8 +3,8 @@ import BlogHeading from '@/components/blogs/BlogHeading'
 import Image from 'next/image'
 
 const page = () => {
-  return (
-    <>
+    return (
+        <>
             { /* Blog Heading */}
             <BlogHeading
                 img="/images/home/blogs/blog-9.png"
@@ -36,7 +36,11 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Understanding the Procurement Career Landscape</h3>
-                    <Image alt="" src="/images/blogs/blog-9/professionalstanding.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image
+                        width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-9/professionalstanding.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">Embarking on a procurement career demands a keen understanding of its diverse roles and responsibilities. You&#39;ll need to master key skills, from management to analytics, to thrive in this field. As you navigate your career path, staying abreast of the latest trends is crucial, particularly how they impact employment opportunities, budget considerations, and information flow within the industry. This section, provided by Creative WordPress Solutions, will equip you with insights into the essential competencies and current dynamics shaping procurement, setting the stage for your professional advancement.</p>
                 </div>
 
@@ -64,7 +68,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Setting Clear Career Goals in Procurement</h3>
-                    <Image alt="" src="/images/blogs/blog-9/determinedprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-9/determinedprocurement.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To propel your procurement career forward, it&#39;s vital to identify your personal strengths and areas for growth, define your short-term and long-term objectives, and align your goals with the evolving opportunities in the supply chain industry. Whether you&#39;re honing your project management skills, committing to ethics in inventory management, or striving for customer success, these steps will form the bedrock of your professional development. In the following sections, you&#39;ll gain practical insights into tailoring your career trajectory to meet the demands of this dynamic field.</p>
                 </div>
 
@@ -92,7 +99,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Enhancing Your Procurement Skills and Knowledge</h3>
-                    <Image alt="" src="/images/blogs/blog-9/personconfidentlyobtaining.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-9/personconfidentlyobtaining.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To climb the procurement ladder successfully, you must enhance your skills and knowledge continuously. Pursuing relevant certifications and qualifications will solidify your expertise, making you a key stakeholder in purchasing decisions. Engaging in continuous professional development ensures you remain at the forefront of industry best practices, while mastering procurement technologies and tools boosts efficiency and strengthens customer relationship management. Each step you take in these areas is a stride towards a more advanced procurement career.</p>
                 </div>
 
@@ -120,7 +130,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Building a Strong Professional Network</h3>
-                    <Image alt="" src="/images/blogs/blog-9/groupofprofessionals.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-9/groupofprofessionals.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">In the quest to advance your procurement career, building a robust professional network is indispensable. Engaging with industry leaders and peers opens doors to new insights and opportunities. Active participation in procurement associations and events can significantly broaden your professional horizon, while leveraging networking opportunities is key to propelling your career growth. These strategies are not just about expanding your contact list; they&#39;re about enriching your knowledge and positioning yourself for success in a competitive field.</p>
                 </div>
 
@@ -148,7 +161,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Gaining Diverse Experience Across Procurement Roles</h3>
-                    <Image alt="" src="/images/blogs/blog-9/professionalstandingin.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-9/professionalstandingin.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To propel your procurement career, diversifying your experience is key. Seeking opportunities across various sectors, engaging in cross-functional projects, and embracing international assignments can significantly broaden your skill set. Each of these strategies offers unique challenges and learning experiences that will deepen your understanding of the procurement field and enhance your professional versatility. Let&#39;s delve into how these approaches can shape your career trajectory and open doors to new possibilities.</p>
                 </div>
 
@@ -176,7 +192,10 @@ const page = () => {
 
                 <div className='flex flex-col gap-2'>
                     <h3 className='font-extrabold text-xl md:text-3xl'>Strategically Advancing Up the Procurement Career Ladder</h3>
-                    <Image alt="" src="/images/blogs/blog-9/determinedprofessionalin.webp" className="w-full h-[400px] object-cover rounded-md" />
+                    <Image width={1280}
+                        height={400}
+                        alt="blog"
+                        src="/images/blogs/blog-9/determinedprofessionalin.webp" className="w-full h-[400px] object-cover rounded-md" />
                     <p className="text-sm md:text-md leading-normal md:leading-relaxed">To ascend the procurement career ladder, you must exhibit leadership and initiative, positioning yourself for promotions and skilfully negotiating for advancement opportunities. This section will guide you through demonstrating your potential to lead, strategically positioning yourself for upward mobility, and effectively negotiating to secure the career progression you seek. These insights will empower you to take decisive action towards achieving your professional goals in procurement.</p>
                 </div>
 
@@ -203,7 +222,7 @@ const page = () => {
             </div>
 
         </>
-  )
+    )
 }
 
 export default page
