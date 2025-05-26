@@ -16,10 +16,10 @@ function HeroCTR() {
           <source src="/images/header/headervedio.mp4" type="video/mp4" />
         </video>
       </div>
-      <div className="relative z-10 py-20 md:py-28 max-w-[600px] flex flex-col gap-4">
+      <div className="relative z-10 py-20 md:py-28 max-w-[600px] flex flex-col gap-8">
         <h2 className="text-[#212121] text-3xl md:text-5xl font-semibold md:font-medium">
           Welcome to <br />
-          The Procurement Plug <br />– Your Ultimate Ecosystem for Procurement
+          The Procurement Plug <br />Your Ultimate Ecosystem for Procurement
           Excellence
         </h2>
         <p className="text-[#212121] text-lg md:leading-relaxed">
