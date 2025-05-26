@@ -169,18 +169,6 @@ const HeaderComp = () => {
                   </Link>
                   <Link
                     href="#"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                  >
-                    Procure Tech Unplugged 2025
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block py-2 text-white hover:text-[#85009D]"
-                  >
-                    Procurement Career Webinar
-                  </Link>
-                  <Link
-                    href="#"
                     className="block pt-2 text-white hover:text-[#85009D]"
                   >
                     Boardroom Preparedness for Senior Procurement Professionals
@@ -267,18 +255,6 @@ const HeaderComp = () => {
                     className="block text-white hover:text-[#85009D]"
                   >
                     Elevate 2025 - Caribbean
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block text-white hover:text-[#85009D]"
-                  >
-                    Procure Tech Unplugged
-                  </Link>
-                  <Link
-                    href="#"
-                    className="block text-white hover:text-[#85009D]"
-                  >
-                    Career Webinar
                   </Link>
                   <Link
                     href="#"

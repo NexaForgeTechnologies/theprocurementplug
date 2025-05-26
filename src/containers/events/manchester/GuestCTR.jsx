@@ -146,7 +146,7 @@ function GuessCTR() {
       img: "/images/guess/guess-15.jpg",
       heading: "Annalisha Noel",
       // subHeading: "Host & Founder of TPP",
-      text1: "Founder and the CEO of The Procurement",
+      text1: "Founder and the CEO of The Procurement Plug",
       text2: "",
       bgColor: "#9c27b0",
     },
