@@ -1,11 +1,10 @@
 import React from "react";
 import Link from "next/link";
-
-import IconComponent from "@/components/icon/Icon";
+import Image from "next/image";
 
 function EventsHeroComp() {
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen pb-10">
       <div
         style={{
           backgroundImage: `url(/images/blogs/blog-1/governance.webp)`,
@@ -40,10 +39,12 @@ function EventsHeroComp() {
               <h2 className="font-extrabold text-xl md:text-3xl">
                 In Collaboration with:
               </h2>
-              <img
+              <Image
+                width={250}
+                height={70}
                 className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
                 src="/images/events/collaboration.png"
-                alt=""
+                alt="collaboration"
               />
             </div>
             <div className="flex flex-col gap-6 my-6 md:my-8 text-white">

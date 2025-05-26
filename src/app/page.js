@@ -7,6 +7,29 @@ import ResourceLibraryCTR from "@/containers/home/resource-library/ResourceLibra
 import PartnerCTR from "@/containers/home/partners/PartnerCTR";
 import HeroCTR from "@/containers/home/hero/HeroCTR";
 
+export const metadata = {
+  title: 'Home',
+  description: 'Your Ultimate Ecosystem for Procurement Excellence.',
+  openGraph: {
+    title: 'Home',
+    description: 'Your Ultimate Ecosystem for Procurement Excellence.',
+    images: [
+      {
+        url: 'https://theprocurementplug.com/images/og/main.png',
+        width: 1200,
+        height: 630,
+        alt: 'Home',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Home',
+    description: 'Your Ultimate Ecosystem for Procurement Excellence.',
+    images: ['https://theprocurementplug.com/images/og/main.png'],
+  },
+};
+
 export default function Home() {
 
   return (
