@@ -95,7 +95,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
               <div className="border-l-[10px] border-[#b08d57]"></div>
               <h3 className="leading-10 md:leading-20 font-extrabold text-3xl md:text-7xl text-white">
                 <span className="block">
-                  ELEVATE Caribbean Edition Trinidad
+                  ELEVATE CARIBBEAN EDITION TRINIDAD
                 </span>
                 <span className="text-[#b08d57]">November 2025</span>
               </h3>

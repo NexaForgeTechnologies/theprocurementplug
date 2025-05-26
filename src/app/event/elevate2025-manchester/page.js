@@ -7,6 +7,7 @@ import EventsOppertunityCTR from '@/containers/events/manchester/EventOppertunit
 
 import EventsHeroComp from '@/components/events/EventsHeroComp'
 import EventSponserComp from '@/components/events/EventSponserComp'
+import AgendaCTR from '@/containers/events/manchester/AgendaCTR'
 
 export const metadata = {
     title: 'Elevate Manchester June 2025',
@@ -37,6 +38,7 @@ function page() {
             <EventsHeroComp />
             <EventBenifitsCTR />
             <EventHighlightCTR />
+            {/* <AgendaCTR /> */}
             <GuestCTR />
             <EventsOppertunityCTR />
             <EventSponserComp />
