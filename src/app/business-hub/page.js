@@ -27,23 +27,6 @@ export const metadata = {
     },
 };
 
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs mb-4">
-            <ol className="list-reset flex text-gray-600 gap-2">
-                <li>
-                    <Link href="/" className="hover:underline">Home</Link>
-                </li>
-                <li>/</li>
-                <li className="text-gray-900 font-semibold">
-                    Business Hub
-                </li>
-            </ol>
-        </nav>
-    )
-}
-
 function page() {
     const businessFeatures = [
         {
@@ -133,7 +116,6 @@ function page() {
     ]
     return (
         <>
-            <Breadcrumb />
             <BlogHeading
                 img="/images/home/tiles/tile-3.png"
                 heading="Welcome to The Procurement Plug Business Hub"
