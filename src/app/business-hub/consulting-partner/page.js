@@ -1,12 +1,14 @@
 import React from 'react'
 
-import ConsultantPartnerCTR from '@/containers/business-hub/consulting-partner/FeaturedPartnerCTR'
+import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/FeaturedPartnerCTR'
+import ConsultingPartnerCTR from '@/containers/business-hub/consulting-partner/ConsultingPartnerCTR'
 
 function page() {
     return (
-        <div>
-            <ConsultantPartnerCTR />
-        </div>
+        <>
+            <ConsultingPartnerCTR />
+            <FeaturedPartnerCTR />
+        </>
     )
 }
 

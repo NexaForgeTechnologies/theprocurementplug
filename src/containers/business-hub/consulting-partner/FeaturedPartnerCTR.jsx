@@ -94,7 +94,7 @@ function ConsultantPartnerCTR() {
   };
 
   return (
-    <>
+    <div>
       <div className="max-w-[780px] m-auto text-center">
         <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
           Featured Consultants
@@ -177,7 +177,7 @@ function ConsultantPartnerCTR() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
