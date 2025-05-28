@@ -36,9 +36,8 @@ function GuessCTR() {
       heading: "Iain Steel",
       // subHeading: "Workshop",
       // text1: "",
-      // text2: "Procurement Transformation & Change Leadership",
-      text2:
-        "Director of Procurement & Business Transformation, Beneffrey Consulting",
+      text2: "Director of Procurement & Business Transformation",
+      text2: "Beneffrey Consulting",
     },
     {
       id: 5,
@@ -64,7 +63,7 @@ function GuessCTR() {
       // subHeading: "",
       // text1: "",
       text2:
-        "Seniot Economist at the Department of Health and Social Care (DHSC)",
+        "Senior Economist at the Department of Health and Social Care (DHSC)",
     },
   ];
 
