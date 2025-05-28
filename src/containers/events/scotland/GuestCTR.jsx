@@ -25,8 +25,9 @@ function GuessCTR() {
       img: "/images/elevate-scotland/davidloseby.jpg",
       heading: "David Loseby",
       // subHeading: "Panellist",
-      text1: "Senior Advisor & Educator in Procurement",
-      text2: "ESG & Behavioural Transformation",
+      // text1: "Senior Advisor & Educator in Procurement",
+      // text2: "ESG & Behavioural Transformation",
+      text2: "Eurasia Academic Publishing Group Limited",
     },
 
     {
@@ -35,7 +36,9 @@ function GuessCTR() {
       heading: "Iain Steel",
       // subHeading: "Workshop",
       // text1: "",
-      text2: "Procurement Transformation & Change Leadership",
+      // text2: "Procurement Transformation & Change Leadership",
+      text2:
+        "Director of Procurement & Business Transformation, Beneffrey Consulting",
     },
     {
       id: 5,
@@ -43,7 +46,7 @@ function GuessCTR() {
       heading: "Steve Tosh",
       // subHeading: "Keynote",
       text1: "Procurement Fraud & Anti-Corruption Consultant",
-      text2: "Author - Standards Advisor",
+      text2: "Director at Global Risk Alliance Ltd",
     },
 
     {
@@ -53,6 +56,15 @@ function GuessCTR() {
       // subHeading: "Panellist",
       text1: "Founder & Managing Director",
       text2: "The Classification Guru Ltd",
+    },
+    {
+      id: 7,
+      img: "/images/elevate-scotland/francis.jpeg",
+      heading: "Francis Ekenimoh",
+      // subHeading: "",
+      // text1: "",
+      text2:
+        "Seniot Economist at the Department of Health and Social Care (DHSC)",
     },
   ];
 
