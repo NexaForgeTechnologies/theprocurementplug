@@ -25,9 +25,9 @@ function GuessCTR() {
       img: "/images/elevate-scotland/davidloseby.jpg",
       heading: "David Loseby",
       // subHeading: "Panellist",
-      // text1: "Senior Advisor & Educator in Procurement",
-      // text2: "ESG & Behavioural Transformation",
-      text2: "Eurasia Academic Publishing Group Limited",
+      text1: "Senior Advisor & Educator in Procurement",
+      text2:
+        "ESG & Behavioural Transformation Editor in Chief Eurasia Academic Publishing Group Limited",
     },
 
     {
