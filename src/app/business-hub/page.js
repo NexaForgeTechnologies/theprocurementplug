@@ -40,7 +40,7 @@ function page() {
             id: 2,
             heading: "Consulting Partners",
             text: "Six Sigma & Change Management - Procurement - ESG2 Sustainability",
-            link: "",
+            link: "/business-hub/consulting-partner",
             linkText: "View",
             bgColor: ""
         },
