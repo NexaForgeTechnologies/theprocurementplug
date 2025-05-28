@@ -35,8 +35,7 @@ function GuessCTR() {
       img: "/images/elevate-scotland/Iainsteel.jpg",
       heading: "Iain Steel",
       // subHeading: "Workshop",
-      // text1: "",
-      text2: "Director of Procurement & Business Transformation",
+      text1: "Director of Procurement & Business Transformation",
       text2: "Beneffrey Consulting",
     },
     {
