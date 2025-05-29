@@ -50,28 +50,6 @@ function ConsultantPartnerCTR() {
       region_name: "Region One",
       text2: "H&Z Management Consulting",
     },
-    {
-      id: 5,
-      img: "/images/guess/guess-2.jpg",
-      heading: "Kiran Kachela",
-      text1: "CEO",
-      industry_id: 2,
-      industry_name: "Industry Two",
-      region_id: 2,
-      region_name: "Region Two",
-      text2: "CI Projects",
-    },
-    {
-      id: 6,
-      img: "/images/guess/guess-3.jpg",
-      heading: "Sarah Socca",
-      text1: "CEO",
-      industry_id: 3,
-      industry_name: "Industry Three",
-      region_id: 3,
-      region_name: "Region Three",
-      text2: "Co Comply",
-    },
   ];
 
   const [selectedIndustry, setSelectedIndustry] = useState("");
@@ -129,10 +107,10 @@ function ConsultantPartnerCTR() {
             </select>
           </div>
 
-          {/* Region */}
+          {/* Location */}
           <div className="flex flex-col gap-2">
             <label className="text-xl font-bold" htmlFor="region">
-              <strong>Region</strong>
+              <strong>Location</strong>
             </label>
             <select
               id="region"
@@ -140,7 +118,25 @@ function ConsultantPartnerCTR() {
               onChange={(e) => setSelectedRegion(e.target.value)}
               className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
             >
-              <option value="">Select Region</option>
+              <option value="">Select Location</option>
+              <option value="1">Region One</option>
+              <option value="2">Region Two</option>
+              <option value="3">Region Three</option>
+            </select>
+          </div>
+
+          {/* Specialism */}
+          <div className="flex flex-col gap-2">
+            <label className="text-xl font-bold" htmlFor="region">
+              <strong>Specialism</strong>
+            </label>
+            <select
+              id="region"
+              value={selectedRegion}
+              onChange={(e) => setSelectedRegion(e.target.value)}
+              className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
+            >
+              <option value="">Select Specialism</option>
               <option value="1">Region One</option>
               <option value="2">Region Two</option>
               <option value="3">Region Three</option>
@@ -175,6 +171,11 @@ function ConsultantPartnerCTR() {
               No consultant found matching your criteria.
             </div>
           )}
+        </div>
+        <div className="flex items-center justify-end w-full">
+          <button className="mt-4 text-white cursor-pointer px-4 py-2 bg-[#b08d57] rounded">
+            View All Consultants
+          </button>
         </div>
       </div>
     </div>
