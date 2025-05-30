@@ -1,5 +1,6 @@
 import BlogHeading from '@/components/blogs/BlogHeading'
 import BusinesFeatureComp from '@/components/business-feature/BusinessFeatureComp'
+import PartnerWithUsComp from '@/components/partner-with-us/PartnerWithUsComp'
 import Link from 'next/link'
 import React from 'react'
 
@@ -87,14 +88,14 @@ function page() {
         }
     ]
 
-    const businessFeaturesIbfo = [
+    const partnerWithUs = [
         {
             id: 1,
             heading: "Prcurement Plug Academy",
             text: "",
             link: "",
             linkText: "Upskill Now",
-            bgColor: "#b58c4a"
+            bgColor: "#85009D"
         },
         {
             id: 2,
@@ -102,7 +103,7 @@ function page() {
             text: "",
             link: "",
             linkText: "Find Talent",
-            bgColor: "#b58c4a"
+            bgColor: "#85009D"
         },
         {
             id: 3,
@@ -110,7 +111,7 @@ function page() {
             text: "",
             link: "",
             linkText: "Explore Membership",
-            bgColor: "#b58c4a"
+            bgColor: "#85009D"
 
         }
     ]
@@ -139,13 +140,13 @@ function page() {
 
             <div className="flex flex-col gap-6 md:gap-8">
                 <div className='max-w-[780px] m-auto text-center'>
-                    <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>Partner With Us</h3>
-                    <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'><strong>marketing@theprocurement.com</strong> - <Link href="/partnerships">Visit our partnership page</Link>
+                    <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#85009D]'>Partner With Us</h3>
+                    <p className='text-[#85009D] text-sm md:text-lg leading-normal md:leading-relaxed'><strong>marketing@theprocurement.com</strong> - <Link href="/partnerships">Visit our partnership page</Link>
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 rounded">
-                    {businessFeaturesIbfo?.map((content, idx) => (
-                        <BusinesFeatureComp key={idx} data={content} />
+                <div className="bg-[#85009D] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 rounded-[8px] p-5 md:p-10 ">
+                    {partnerWithUs?.map((content, idx) => (
+                        <PartnerWithUsComp key={idx} data={content} />
                     ))}
                 </div>
             </div >

@@ -50,10 +50,55 @@ function ConsultantPartnerCTR() {
       region_name: "Region One",
       text2: "H&Z Management Consulting",
     },
+    {
+      id: 5,
+      img: "/images/guess/guess-2.jpg",
+      heading: "Kiran Kachela",
+      text1: "CEO",
+      industry_id: 2,
+      industry_name: "Industry Two",
+      region_id: 2,
+      region_name: "Region Two",
+      text2: "CI Projects",
+    },
+    {
+      id: 6,
+      img: "/images/guess/guess-1.jpg",
+      heading: "Oliver Jones",
+      text1: "Consulting Director",
+      industry_id: 1,
+      industry_name: "Industry One",
+      region_id: 1,
+      region_name: "Region One",
+      text2: "H&Z Management Consulting",
+    },
+    {
+      id: 7,
+      img: "/images/guess/guess-3.jpg",
+      heading: "Sarah Socca",
+      text1: "CEO",
+      industry_id: 3,
+      industry_name: "Industry Three",
+      region_id: 3,
+      region_name: "Region Three",
+      text2: "Co Comply",
+    },
+    {
+      id: 8,
+      img: "/images/guess/guess-1.jpg",
+      heading: "Oliver Jones",
+      text1: "Consulting Director",
+      industry_id: 1,
+      industry_name: "Industry One",
+      region_id: 1,
+      region_name: "Region One",
+      text2: "H&Z Management Consulting",
+    },
   ];
 
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [visibleCount, setVisibleCount] = useState(4);
 
   const filteredConsultants = consultantPartners.filter((partner) => {
     const matchesIndustry = selectedIndustry
@@ -69,6 +114,11 @@ function ConsultantPartnerCTR() {
   const handleClearFilters = () => {
     setSelectedIndustry("");
     setSelectedRegion("");
+    // setVisibleCount(4);
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
   };
 
   return (
@@ -157,7 +207,8 @@ function ConsultantPartnerCTR() {
         {/* Consultant Cards */}
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
           {filteredConsultants.length > 0 ? (
-            filteredConsultants.map((partner) => (
+            // filteredConsultants.map((partner) => (
+            filteredConsultants.slice(0, visibleCount).map((partner) => (
               <ConsultantTile
                 key={partner.id}
                 img={partner.img}
@@ -172,10 +223,14 @@ function ConsultantPartnerCTR() {
             </div>
           )}
         </div>
-        <div className="flex items-center justify-end w-full">
-          <button className="mt-4 text-white cursor-pointer px-4 py-2 bg-[#b08d57] rounded">
-            View All Consultants
-          </button>
+        <div className="flex items-center justify-center w-full">
+          {visibleCount < filteredConsultants.length && (
+            <button
+              onClick={handleShowMore}
+              className="mt-4 text-white cursor-pointer px-4 py-2 bg-[#b08d57] rounded">
+              View All Consultants
+            </button>
+          )}
         </div>
       </div>
     </div>
