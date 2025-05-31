@@ -2,10 +2,12 @@
 
 import React, { useState } from "react";
 
-import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTile";
-import { consultantPartners } from "@/app/business-hub/consulting-partner/data";
+import ConsultantTile from "@/components/business-hub/esg-sustainability/ConsultantTile";
+import { consultantPartners } from "@/app/business-hub/consulting-partner/esg-sustainability/data";
+
+
 function ConsultantPartnerCTR() {
- 
+
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [visibleCount, setVisibleCount] = useState(4);

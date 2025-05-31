@@ -1,36 +1,36 @@
-import ConsultingPartnerTile from "@/components/business-hub/consultinng-partner/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/esg-sustainability/ConsultingPartnerTile";
 import React from "react";
 
 function ConsultingPartnerCTR() {
   const consultantPartners = [
     {
       id: 1,
-      heading: "Six Sigma & Change Management",
-      text: "Process Improvement",
-      url: "",
+      heading: "ESG Reporting",
+      text: "Measurement & disclose impact",
+      // url: "",
     },
     {
       id: 2,
-      heading: "Procurement",
-      text: "Strategy Development",
-      url: "",
+      heading: "Net-zero Roadmap",
+      text: "Decarbonisation strategy",
+      // url: "",
     },
     {
       id: 3,
-      heading: "ESG & Sustainability",
-      text: "Environmental Impact",
-      url: "/business-hub/consulting-partner/esg-sustainability",
+      heading: "Supplier ESG Risk",
+      text: "Assess supplier practices",
+      // url: "",
     },
   ];
 
   return (
     <div>
-      <div className="max-w-[780px] m-auto text-center">
+      <div className="max-w-[850px] m-auto text-center">
         <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
-          Consulting Partners
+          ESG & Sustainability Consulting
         </h3>
         <p className="my-8 text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
-          Expert consultancy services to elevate your procurement strategy.
+          Consultancy services to help your organisation achieve its environmental, social, and governance goals.
         </p>
       </div>
 
@@ -41,7 +41,7 @@ function ConsultingPartnerCTR() {
             key={partner.id}
             heading={partner.heading}
             text={partner.text}
-            url={partner.url}
+            // url={partner.url}
           />
         ))}
       </div>
