@@ -164,6 +164,30 @@ const IconComponent = ({ name, size = 16, color = "#565656" }) => {
         </g>
       </svg>
     ),
+     close: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 17 17"
+        fill="none"
+      >
+        <path
+          d="M1 1L16 16"
+          stroke={color}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M1 16L16 1"
+          stroke={color}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
     wallet: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
