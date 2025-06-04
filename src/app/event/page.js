@@ -85,7 +85,7 @@ function page() {
     return (
         <>
             <div>
-                <div className='mb-4 md:mb-12'>
+                <div>
                     <Breadcrumb />
                 </div>
                 <h2 className='font-semibold text-xl md:text-2xl text-[#010101] mb-2'>Explore Our Dynamic Event Offerings</h2>

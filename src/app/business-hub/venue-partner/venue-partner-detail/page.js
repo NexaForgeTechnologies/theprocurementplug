@@ -99,7 +99,7 @@ const Page = () => {
                     <h2 className="text-xl md:text-2xl font-bold text-[#85009D] mb-4">
                         Testimonials
                     </h2>
-                    <div className="flex items-start gap-2 text-[#010101] mb-4 md:mb-8">
+                    <div className="flex items-start gap-2 text-[#010101]">
                         <span className="text-5xl text-[#85009D] leading-none">“</span>
                         <p>
                             The team exceeded our expectations with their dedication and attention to detail. From planning to execution, everything was handled with the utmost professionalism.
