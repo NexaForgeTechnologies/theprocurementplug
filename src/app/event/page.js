@@ -1,3 +1,4 @@
+import EventComp from '@/components/events/EventComp';
 import EventsCTR from '@/containers/events/EventsCTR'
 import Link from 'next/link';
 import React from 'react'
@@ -42,17 +43,47 @@ function Breadcrumb() {
 }
 
 function page() {
+
+    const events = [
+        {
+            id: 1,
+            type_id: 2,
+            type_name: "seminars",
+            heading: "Elevate Manchester – June 2025",
+            time: "25th June 2025, 8:30am to 5pm",
+            date: "2025-06-25",
+            location: "4Th Floor, City Tower, New York Street, Manchester M1 4BT",
+            designFor:
+                "Manchester Edition is designed for procurement professionals, focusing on innovation, strategy, and leadership in procurement.",
+            link: "/event/elevate2025-manchester",
+        },
+        {
+            id: 2,
+            type_id: 2,
+            type_name: "seminars",
+            heading: "Elevate Glasgow – August 2025",
+            time: "26th August 2025, 8:30am to 5pm",
+            date: "2025-08-26",
+            location: "3rd Floor, Beacon Building 176 St Vincent St Glasgow G2 5SG",
+            designFor: "Senior procurement leaders, CPOs, Procurement Directors.",
+            link: "/event/elevate2025-scotland",
+        },
+        {
+            id: 3,
+            type_id: 1,
+            type_name: "webinar",
+            heading:
+                "Boardroom Preparedness for Senior Procurement Professionals – July 2025",
+            time: "17th July 2025, 11am to 12:15pm",
+            date: "2025-07-17",
+            location: "Virtual Webinar",
+            designFor: "Keynote Speaker, Interactive Q&A.",
+            link: "/event/boardroom-preparedness-for-senior-procurement-professionals",
+        },
+    ];
+
     return (
         <>
-            {/* <div className="flex flex-col gap-6 md:gap-8">
-                <div className='max-w-[780px] m-auto text-center'>
-                    <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>Become a Media Partner</h3>
-                    <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'><strong>marketing@theprocurement.com</strong> - <Link href="/partnerships">Visit our partnership page</Link>
-                    </p>
-                </div>
-
-            </div > */}
-            {/* <div className='mt-10'> */}
             <div>
                 <div className='mb-4 md:mb-12'>
                     <Breadcrumb />
@@ -65,6 +96,30 @@ function page() {
                 </p>
             </div>
             <EventsCTR />
+
+            <div>
+                <div className="flex flex-col gap-6 md:gap-8">
+                    <div className='max-w-[780px] m-auto text-center'>
+                        <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>Upcoming Events</h3>
+                        <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>We have a wide range of upcoming events planned, including seminars, webinars, workshops, and networking opportunities. Stay tuned for more details!</p>
+                    </div>
+
+                </div >
+
+                {/* Events List */}
+                <div className="mt-10 grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+                    {events.map((event) => (
+                        <EventComp
+                            key={event.id}
+                            heading={event.heading}
+                            time={event.time}
+                            location={event.location}
+                            designFor={event.designFor}
+                            href={event.link}
+                        />
+                    ))}
+                </div>
+            </div>
         </>
     )
 }

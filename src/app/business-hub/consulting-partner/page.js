@@ -38,21 +38,20 @@ function Breadcrumb() {
     )
 }
 
-
-
 function Page() {
     const partnerWithUs = [
         {
             id: 1,
-            heading: "The Prcurement Plug Academy",
+            heading: "Procure Tech Solution",
             text: "",
             link: "",
             linkText: "View",
             bgColor: "#85009D"
-        },
+        }
+        ,
         {
             id: 2,
-            heading: "Resources Library",
+            heading: "Collaboration & Influence",
             text: "",
             link: "",
             linkText: "View",
@@ -60,7 +59,7 @@ function Page() {
         },
         {
             id: 3,
-            heading: "The Personal Development Hub",
+            heading: "Innovation Vault",
             text: "",
             link: "",
             linkText: "View",
@@ -70,14 +69,11 @@ function Page() {
     return (
         <>
             <div>
-                <div className='mb-4 md:mb-12 '>
-                    <Breadcrumb />
-                </div>
-                <div className='mb-20 md:mb-28'>
-                    <ConsultingPartnerCTR />
-                </div>
-                <FeaturedPartnerCTR />
+                <Breadcrumb />
+                <ConsultingPartnerCTR />
             </div>
+
+            <FeaturedPartnerCTR />
             <div className="flex flex-col gap-6 md:gap-8">
                 <div className='max-w-[780px] m-auto text-center'>
                     <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#85009D]'>Partner With Us</h3>

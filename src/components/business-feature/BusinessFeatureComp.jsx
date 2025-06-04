@@ -22,17 +22,18 @@ function BusinesFeatureComp({ data, key }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        gap: '0.5rem',
-        padding: '1.5rem',
-        borderRadius: '0.5rem',
-        border: '1px solid #85009D',
-        backgroundColor: isHovered ? '#85009D' : bgColor,
-        color: 'white',
-        transition: 'all 0.2s ease-in-out'
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        gap: "0.5rem",
+        padding: "1.5rem",
+        borderRadius: "0.5rem",
+        border: "1px solid #85009D",
+        backgroundColor: isHovered ? "#85009D" : bgColor,
+        color: "white",
+        transition: "all 0.2s ease-in-out",
+        height: "inherit",
       }}
     >
       <h2 className="font-extrabold text-xl">{data.heading}</h2>

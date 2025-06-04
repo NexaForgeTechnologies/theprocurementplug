@@ -131,11 +131,26 @@ function page() {
                     <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'><strong>Procurement Strategy & Transformation - </strong>Improve procure-mentorations with data-driven strategies and best practices. <strong>Market Research - </strong>Access industry reports and analytics make informed business decisions. <strong>Sustainability & ESG Initiatives - </strong>Drive ethical and sustainable procurement practices aligned with gbual standards.<strong> Legal & Complince - </strong>Strengthen procurement governance with research-led risk assessment and mitigation strategies.
                     </p>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {businessFeatures?.map((content, idx) => (
                         <BusinesFeatureComp key={idx} data={content} />
                     ))}
+                </div> */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {businessFeatures?.map((content, idx) => {
+                        const isLast = idx === businessFeatures.length - 1;
+                        return (
+                            <div
+                                key={idx}
+                                className={`h-full ${isLast ? 'md:col-span-3 sm:col-span-2 col-span-1' : ''}`}
+                            >
+                                <BusinesFeatureComp data={content} />
+                            </div>
+                        );
+                    })}
                 </div>
+
+
             </div>
 
             <div className="flex flex-col gap-6 md:gap-8">

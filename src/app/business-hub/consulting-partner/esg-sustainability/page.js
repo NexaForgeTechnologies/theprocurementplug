@@ -55,14 +55,10 @@ function Page() {
     return (
         <>
             <div>
-                <div className='mb-4 md:mb-12 '>
-                    <Breadcrumb />
-                </div>
-                <div className='mb-20 md:mb-28'>
-                    <ConsultingPartnerCTR />
-                </div>
-                <FeaturedPartnerCTR />
+                <Breadcrumb />
+                <ConsultingPartnerCTR />
             </div>
+            <FeaturedPartnerCTR />
 
             <div className="flex flex-col gap-6 md:gap-8">
                 <div className='max-w-[780px] m-auto text-center'>

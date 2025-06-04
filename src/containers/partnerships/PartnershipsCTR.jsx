@@ -76,6 +76,15 @@ function PartnershipsCTR() {
               <Icon name="email" color="white" size={20} />
               Become A Partner
             </Link>
+
+            <Link
+              href="mailto:request@theprocurementplug.com"
+              className="text-[#ffff] bg-[#85009D] text-sm md:text-lg cursor-pointer flex items-center gap-2 py-3 px-5 rounded-md w-full md:w-max"
+            >
+              <Icon name="email" color="white" size={20} />
+              Become A Media Partner
+            </Link>
+
             <Link
               href="mailto:request@theprocurementplug.com"
               className="text-[#ffff] bg-[#85009D] text-sm md:text-lg cursor-pointer flex items-center gap-2 py-3 px-5 rounded-md w-full md:w-max"
@@ -83,7 +92,11 @@ function PartnershipsCTR() {
               <Icon name="email" color="white" size={20} />
               Explore Partnership Opportunities
             </Link>
-            <button className="text-[#ffff] bg-[#b08d57] text-sm md:text-lg cursor-pointer flex items-center gap-2 py-3 px-5 rounded-md w-full md:w-max">
+            
+            <button
+              className="text-[#ffff] bg-[#b08d57] text-sm md:text-lg cursor-pointer flex items-center 
+            gap-2 py-3 px-5 rounded-md w-full md:w-max"
+            >
               <span className="rotate-90">
                 <Icon name="arrow" color="white" size={20} />
               </span>
