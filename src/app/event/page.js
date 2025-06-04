@@ -92,9 +92,32 @@ function page() {
                 <p className='text-sm md:text-lg text-[#363636] leading-normal md:leading-relaxed'>Whether you&#39;re looking to deepen your knowledge, build practical skills, or expand your professional network, our diverse event lineup has something for everyone. Join us for seminars that dive into expert insights, webinars you can attend from anywhere, workshops designed for hands-on learning, and networking opportunities that connect you with like-minded professionals and industry leaders.</p>
                 <br></br>
                 {/* <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>Become a Media Partner</h3> */}
-                <p className='text-[#363636] hover:text-[#85009D] text-sm md:text-lg leading-normal md:leading-relaxed'><Link href="/partnerships">Visit our partnership page to become a media partner with <strong>The Procurement Plug</strong>.</Link>
+                <p className='text-[#363636] hover:text-[#85009D] text-sm md:text-lg leading-normal md:leading-relaxed'>
+                    {/* <Link href="/partnerships">Visit our partnership page to become a media partner with <strong>The Procurement Plug</strong>.</Link> */}
+
                 </p>
-            </div>
+                {/* <div className='flex flex-col items-center md:flex-row gap-4'> */}
+                <div className="w-full md:w-[700px] text-center md:text-start grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                    <Link
+                        href={"/"}
+                        className="bg-[#b58c4a] text-white px-6 py-3 rounded"
+                    >
+                        Get your Tickets &gt;
+                    </Link>
+                    <Link
+                        href={"/"}
+                        className="border-2 border-[#85009D] text-[#010101] px-6 py-3 rounded"
+                    >
+                        Become a Speaker &gt;
+                    </Link>
+                    <Link
+                        href={"/"}
+                        className="bg-[#b58c4a] text-white px-6 py-3 rounded w-full"
+                    >
+                        Become a Sponsor &gt;
+                    </Link>
+                </div>
+            </div >
             <EventsCTR />
 
             <div>
