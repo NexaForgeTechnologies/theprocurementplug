@@ -2,12 +2,10 @@
 
 import React, { useState } from "react";
 
-import ConsultantTile from "@/components/business-hub/esg-sustainability/ConsultantTile";
-import { consultantPartners } from "@/app/business-hub/consulting-partner/esg-sustainability/data";
-
-
+import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTile";
+import { consultantPartners } from "@/app/business-hub/consulting-partner/data";
 function ConsultantPartnerCTR() {
-
+ 
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("");
   const [visibleCount, setVisibleCount] = useState(4);
@@ -35,19 +33,6 @@ function ConsultantPartnerCTR() {
 
   return (
     <div>
-      <div className="max-w-[780px] m-auto text-center">
-        <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
-          Featured Consultants
-        </h3>
-        <p className="text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
-          We are honored to be supported by a team of highly experienced
-          consultants who bring deep industry knowledge, strategic insight, and
-          proven leadership to our mission. These experts hold key roles such as
-          CEOs and Consulting Directors across respected organizations, and they
-          contribute valuable perspectives on innovation, compliance, and
-          organizational transformation.
-        </p>
-      </div>
 
       <div className="mt-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 md:mb-10 text-[#363636]">

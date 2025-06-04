@@ -39,7 +39,7 @@ function BusinesFeatureComp({ data, key }) {
       <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
         {data.text}
       </p>
-      <span className="text-[#85009D] cursor-pointer mb-1 max-w-max py-1 px-4 rounded bg-[#b58c4a]">
+      <span className="text-[#ffff] cursor-pointer mb-1 max-w-max py-1 px-4 rounded bg-[#b58c4a]">
         {data.linkText}
       </span>
     </Link>

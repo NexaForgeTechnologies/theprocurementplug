@@ -39,7 +39,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     return (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
             <div
-                className="max-w-lg w-full max-h-[80vh]  overflow-y-scroll p-6 bg-[#F7F9FB] relative rounded-2xl shadow-lg border-2 border-[#85009D]"
+                className="max-w-lg w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#F7F9FB] relative rounded-2xl shadow-lg border-2 border-[#85009D]"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-4">

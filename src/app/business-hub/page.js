@@ -50,7 +50,7 @@ function page() {
             id: 3,
             heading: "Venue Partners",
             text: "Webinar - Seminar - Workshops - Networking Oppertunity",
-            link: "",
+            link: "/business-hub/venue-partner",
             linkText: "View",
             bgColor: ""
         },
@@ -66,7 +66,7 @@ function page() {
             id: 5,
             heading: "Legal & Compliance",
             text: "Webinar - Seminar - Workshops - Networking Oppertunity",
-            link: "",
+            link: "/business-hub/legal-compliance",
             linkText: "View",
             bgColor: ""
         },
@@ -91,7 +91,7 @@ function page() {
     const partnerWithUs = [
         {
             id: 1,
-            heading: "Prcurement Plug Academy",
+            heading: "The Prcurement Plug Academy",
             text: "",
             link: "",
             linkText: "Upskill Now",

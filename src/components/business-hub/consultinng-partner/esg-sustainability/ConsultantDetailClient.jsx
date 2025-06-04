@@ -10,7 +10,7 @@ export default function ConsultantDetailClient({ consultant }) {
 
   return (
     <>
-      <div className="text-left p-6 md:p-8 border-2 text-[#85009D] rounded">
+      <div className="max-w-3xl m-auto text-left p-6 md:p-8 border-2 text-[#85009D] rounded">
         <div className="mb-4 md:mb-8">
           <Link
             href="/business-hub/consulting-partner"

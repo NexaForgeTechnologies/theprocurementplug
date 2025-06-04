@@ -1,7 +1,7 @@
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/FeaturedPartnerCTR'
-import ConsultingPartnerCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/ConsultingPartnerCTR'
+import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/procurement/FeaturedPartnerCTR'
+import ConsultingPartnerCTR from '@/containers/business-hub/consulting-partner/procurement/ConsultingPartnerCTR'
 import PartnerWithUsComp from '@/components/partner-with-us/PartnerWithUsComp'
 import Link from 'next/link'
 
@@ -18,7 +18,7 @@ function Breadcrumb() {
                 </li>
                 <li>/</li>
                 <li className="text-gray-900 font-semibold">
-                    ESG Sustainability
+                    Procurement
                 </li>
             </ol>
         </nav>

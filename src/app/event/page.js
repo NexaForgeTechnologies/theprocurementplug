@@ -25,6 +25,22 @@ export const metadata = {
     },
 };
 
+function Breadcrumb() {
+    return (
+        <nav className="text-sm breadcrumbs mb-4">
+            <ol className="list-reset flex gap-2 text-gray-600">
+                <li>
+                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
+                </li>
+                <li>/</li>
+                <li className="text-gray-900 font-semibold">
+                    Events
+                </li>
+            </ol>
+        </nav>
+    )
+}
+
 function page() {
     return (
         <>
@@ -36,8 +52,11 @@ function page() {
                 </div>
 
             </div > */}
-
-            <div className='mt-10'>
+            {/* <div className='mt-10'> */}
+            <div>
+                <div className='mb-4 md:mb-12'>
+                    <Breadcrumb />
+                </div>
                 <h2 className='font-semibold text-xl md:text-2xl text-[#010101] mb-2'>Explore Our Dynamic Event Offerings</h2>
                 <p className='text-sm md:text-lg text-[#363636] leading-normal md:leading-relaxed'>Whether you&#39;re looking to deepen your knowledge, build practical skills, or expand your professional network, our diverse event lineup has something for everyone. Join us for seminars that dive into expert insights, webinars you can attend from anywhere, workshops designed for hands-on learning, and networking opportunities that connect you with like-minded professionals and industry leaders.</p>
                 <br></br>

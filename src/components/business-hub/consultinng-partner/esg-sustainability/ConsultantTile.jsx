@@ -28,12 +28,12 @@ function ConsultantTile({ img, heading, subHeading, text1, text2, bgColor }) {
         <span className="font-bold">{text1}</span>
         <span className="font-bold">{text2}</span>
       </div>
-      <Link
+      {/* <Link
         href={`/business-hub/consulting-partner/${urlFriendlyHeading}`}
         className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded"
       >
         View
-      </Link>
+      </Link> */}
     </div>
   );
 }

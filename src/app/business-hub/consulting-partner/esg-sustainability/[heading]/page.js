@@ -1,6 +1,6 @@
 import React from "react";
 import { consultantPartners } from "@/app/business-hub/consulting-partner/esg-sustainability/data";
-import ConsultantDetailClient from "@/components/business-hub/consultant-detail-client/ConsultantDetailClient";
+import ConsultantDetailClient from "@/components/business-hub/consultinng-partner/esg-sustainability/ConsultantDetailClient";
 
 export default async function ConsultantDetail({ params }) {
   const { heading } = await params;

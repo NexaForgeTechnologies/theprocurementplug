@@ -1,7 +1,7 @@
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/FeaturedPartnerCTR'
-import ConsultingPartnerCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/ConsultingPartnerCTR'
+import FeaturedPartnerCTR from '@/containers/business-hub/venue-partner/FeaturedPartnerCTR'
+import ConsultingPartnerCTR from '@/containers/business-hub/venue-partner/ConsultingPartnerCTR'
 import PartnerWithUsComp from '@/components/partner-with-us/PartnerWithUsComp'
 import Link from 'next/link'
 
@@ -13,17 +13,15 @@ function Breadcrumb() {
                     <Link href="/business-hub" className="hover:underline">Business Hub</Link>
                 </li>
                 <li>/</li>
-                <li>
-                    <Link href="/business-hub/consulting-partner" className="hover:underline">Consulting Partner</Link>
-                </li>
-                <li>/</li>
                 <li className="text-gray-900 font-semibold">
-                    ESG Sustainability
+                    Venue Partners
                 </li>
             </ol>
         </nav>
     )
 }
+
+
 
 function Page() {
     const partnerWithUs = [
@@ -63,7 +61,6 @@ function Page() {
                 </div>
                 <FeaturedPartnerCTR />
             </div>
-
             <div className="flex flex-col gap-6 md:gap-8">
                 <div className='max-w-[780px] m-auto text-center'>
                     <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#85009D]'>Partner With Us</h3>

@@ -1,4 +1,4 @@
-import ConsultingPartnerTile from "@/components/business-hub/esg-sustainability/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/consultinng-partner/esg-sustainability/ConsultingPartnerTile";
 import React from "react";
 
 function ConsultingPartnerCTR() {
@@ -27,7 +27,7 @@ function ConsultingPartnerCTR() {
     <div>
       <div className="max-w-[850px] m-auto text-center">
         <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
-          ESG & Sustainability Consulting
+          Six Sigma & Change Management
         </h3>
         <p className="my-8 text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
           Consultancy services to help your organisation achieve its environmental, social, and governance goals.
@@ -41,7 +41,7 @@ function ConsultingPartnerCTR() {
             key={partner.id}
             heading={partner.heading}
             text={partner.text}
-            // url={partner.url}
+          // url={partner.url}
           />
         ))}
       </div>

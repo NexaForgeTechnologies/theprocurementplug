@@ -100,7 +100,7 @@
 
 import React from "react";
 import { consultantPartners } from "@/app/business-hub/consulting-partner/data";
-import ConsultantDetailClient from "@/components/business-hub/consultant-detail-client/ConsultantDetailClient";
+import ConsultantDetailClient from "@/components/business-hub/consultinng-partner/ConsultantDetailClient";
 
 export default async function ConsultantDetail({ params }) {
   const { heading } = await params;
