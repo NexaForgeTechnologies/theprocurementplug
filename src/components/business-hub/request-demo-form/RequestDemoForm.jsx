@@ -69,7 +69,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             value={formData.name}
                             onChange={handleChange}
                             required
-                            className="w-full p-2 border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-2 text-[#010101] border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -87,7 +87,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                 value={formData.company}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                className="w-full p-2 text-[#010101] border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                             />
                         </div>
                         <div>
@@ -104,7 +104,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                 value={formData.role}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                className="w-full p-2 text-[#010101] border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                             />
                         </div>
                     </div>
@@ -123,7 +123,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                 value={formData.email}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                className="w-full p-2 text-[#010101] border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                             />
                         </div>
                         <div>
@@ -140,7 +140,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                 value={formData.phone}
                                 onChange={handleChange}
                                 required
-                                className="w-full p-2 border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                className="w-full p-2 text-[#010101] border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                             />
                         </div>
                     </div>
@@ -158,7 +158,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             value={formData.implementationtimeframe}
                             onChange={handleChange}
                             required
-                            className="w-full p-2 border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-2 text-[#010101] border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <div>
@@ -173,7 +173,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             name="message"
                             value={formData.message}
                             onChange={handleChange}
-                            className="w-full p-2 border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
+                            className="w-full p-2 text-[#010101] border-2 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                             rows="4"
                         />
                     </div>

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import ConsultantTile from "@/components/business-hub/venue-partner/ConsultantTile";
+import ConsultantTile from "@/components/business-hub/legal-compliance/ConsultantTile";
 function ConsultantPartnerCTR() {
 
   const [selectedIndustry, setSelectedIndustry] = useState("");
@@ -12,8 +12,9 @@ function ConsultantPartnerCTR() {
   const consultantPartners = [
     {
       id: 1,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Smith & Associates",
+      text1: "Specialized in procurement Law",
+      text2: "S",
       industry_id: 1,
       industry_name: "Industry One",
       region_id: 1,
@@ -21,8 +22,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 2,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Jackson Legal",
+      text1: "Legal compliance experts",
+      text2: "J",
       industry_id: 2,
       industry_name: "Industry One",
       region_id: 2,
@@ -30,8 +32,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 3,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Harrison LLP",
+      text1: "Contract management services",
+      text2: "H",
       industry_id: 3,
       industry_name: "Industry One",
       region_id: 3,
@@ -39,8 +42,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 4,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Amanda Green",
+      text1: "Risk assessment consultant",
+      text2: "A",
       industry_id: 1,
       industry_name: "Industry One",
       region_id: 1,
@@ -48,8 +52,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 5,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Smith & Associates",
+      text1: "Specialized in procurement Law",
+      text2: "S",
       industry_id: 2,
       industry_name: "Industry One",
       region_id: 2,
@@ -57,8 +62,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 6,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Jackson Legal",
+      text1: "Legal compliance experts",
+      text2: "J",
       industry_id: 3,
       industry_name: "Industry One",
       region_id: 3,
@@ -88,32 +94,36 @@ function ConsultantPartnerCTR() {
 
   return (
     <div>
+      <div className="max-w-[780px] m-auto text-center">
+        <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
+          Featured Practitiooners & Firms
+        </h3>
+      </div>
 
       <div className="mt-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 md:mb-10 text-[#363636]">
-
-          {/* Location */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 md:mb-10 text-[#363636]">
+          {/* Industry */}
           <div className="flex flex-col gap-2">
-            <label className="text-xl font-bold" htmlFor="region">
-              <strong>Location</strong>
+            <label className="text-xl font-bold" htmlFor="industry">
+              <strong>Industry</strong>
             </label>
             <select
-              id="region"
-              value={selectedRegion}
-              onChange={(e) => setSelectedRegion(e.target.value)}
+              id="industry"
+              value={selectedIndustry}
+              onChange={(e) => setSelectedIndustry(e.target.value)}
               className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
             >
-              <option value="">Select Location</option>
-              <option value="1">Region One</option>
-              <option value="2">Region Two</option>
-              <option value="3">Region Three</option>
+              <option value="">Select Industry</option>
+              <option value="1">Industry One</option>
+              <option value="2">Industry Two</option>
+              <option value="3">Industry Three</option>
             </select>
           </div>
 
-          {/* Capacity */}
+          {/* region */}
           <div className="flex flex-col gap-2">
             <label className="text-xl font-bold" htmlFor="region">
-              <strong>Capacity</strong>
+              <strong>Region</strong>
             </label>
             <select
               id="region"
@@ -121,25 +131,7 @@ function ConsultantPartnerCTR() {
               onChange={(e) => setSelectedRegion(e.target.value)}
               className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
             >
-              <option value="">Select Capacity</option>
-              <option value="1">Region One</option>
-              <option value="2">Region Two</option>
-              <option value="3">Region Three</option>
-            </select>
-          </div>
-
-          {/* Amenities */}
-          <div className="flex flex-col gap-2">
-            <label className="text-xl font-bold" htmlFor="region">
-              <strong>Amenities</strong>
-            </label>
-            <select
-              id="region"
-              value={selectedRegion}
-              onChange={(e) => setSelectedRegion(e.target.value)}
-              className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
-            >
-              <option value="">Select Amenities</option>
+              <option value="">Select Specialism</option>
               <option value="1">Region One</option>
               <option value="2">Region Two</option>
               <option value="3">Region Three</option>
@@ -165,6 +157,7 @@ function ConsultantPartnerCTR() {
                 key={partner.id}
                 heading={partner.heading}
                 text1={partner.text1}
+                text2={partner.text2}
               />
             ))
           ) : (
@@ -178,7 +171,7 @@ function ConsultantPartnerCTR() {
             <button
               onClick={handleShowMore}
               className="mt-4 text-white cursor-pointer px-4 py-2 bg-[#b08d57] rounded">
-              View All Venue Partners
+              View All all Practitioners & firms
             </button>
           )}
         </div>
