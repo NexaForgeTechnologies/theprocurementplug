@@ -97,7 +97,7 @@ function page() {
 
                 </p>
                 {/* <div className='flex flex-col items-center md:flex-row gap-4'> */}
-                <div className="w-full md:w-[700px] text-center md:text-start grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <div className="w-full md:w-[800px] text-center md:text-start grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     <Link
                         href={"/"}
                         className="bg-[#b58c4a] text-white px-6 py-3 rounded"
