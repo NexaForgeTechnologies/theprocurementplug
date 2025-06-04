@@ -5,6 +5,24 @@ import GuestComp from "@/components/events/GuestComp";
 function GuessCTR() {
   const guessDetails = [
     {
+      id: 15,
+      img: "/images/guess/guest-19.jpg",
+      heading: "Annalisha Noel",
+      subHeading: "Host",
+      text1: "Founder and CEO",
+      text2: "The Procurement Plug",
+      bgColor: "rgb(176, 141, 87)",
+    },
+    {
+      id: 12,
+      img: "/images/guess/guess-12.jpg",
+      heading: "Jyothi Hartley",
+      subHeading: "Voice of the Day",
+      text1: "CEO Axis Procurement",
+      // text2: "",
+      bgColor: "#9c27b0",
+    },
+    {
       id: 1,
       img: "/images/guess/guess-1.jpg",
       heading: "Oliver Jones",
@@ -17,8 +35,8 @@ function GuessCTR() {
       img: "/images/guess/dan-craddock.jpg",
       heading: "Dan Craddock",
       // subHeading: "Keynote",
-      text1: "Sales and Solutions Director | Hays",
-      text2: "",
+      text1: "Sales and Solutions Director",
+      text2: "Hays",
     },
     {
       id: 3,
@@ -134,24 +152,6 @@ function GuessCTR() {
       // subHeading: "Panel And Workshop",
       text1: "Head of Procurement at Leeds City Council",
       text2: "",
-    },
-    {
-      id: 12,
-      img: "/images/guess/guess-12.jpg",
-      heading: "Jyothi Hartley",
-      // subHeading: "Moderator & Voice Of The Day",
-      text1: "CEO Axis Procurement",
-      text2: "Voice of the Day",
-      bgColor: "rgb(176, 141, 87)",
-    },
-    {
-      id: 15,
-      img: "/images/guess/guess-15.jpg",
-      heading: "Annalisha Noel",
-      // subHeading: "Host & Founder of TPP",
-      text1: "Founder and the CEO of The Procurement Plug",
-      text2: "",
-      bgColor: "#9c27b0",
     },
   ];
 

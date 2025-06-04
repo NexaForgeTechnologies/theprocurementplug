@@ -5,12 +5,22 @@ import GuestComp from "@/components/events/GuestComp";
 function GuessCTR() {
   const guessDetails = [
     {
+      id: 9,
+      img: "/images/guess/guest-19.jpg",
+      heading: "Annalisha Noel",
+      subHeading: "Host",
+      text1: "Founder and CEO",
+      text2: "The Procurement Plug",
+      bgColor: "rgb(176, 141, 87)",
+    },
+    {
       id: 3,
       img: "/images/elevate-scotland/grahamcopeland.jpg",
       heading: "Graham Copeland",
-      // subHeading: "Keynote and Panellist",
-      text1: "Procurement Expert & Business Development",
-      text2: "Director GEP",
+      subHeading: "Voice of the Day",
+      text1: "Procurement Expert & Business Development Director",
+      text2: "GEP",
+      bgColor: "#9c27b0",
     },
     {
       id: 1,
@@ -25,9 +35,9 @@ function GuessCTR() {
       img: "/images/elevate-scotland/davidloseby.jpg",
       heading: "David Loseby",
       // subHeading: "Panellist",
-      text1: "Senior Advisor & Educator in Procurement",
-      text2:
-        "ESG & Behavioural Transformation Editor in Chief Eurasia Academic Publishing Group Limited",
+      text1:
+        "Senior Advisor & Educator in Procurement ESG & Behavioural Transformation",
+      text2: "Editor in Chief Eurasia Academic Publishing Group Limited",
     },
 
     {
@@ -60,9 +70,8 @@ function GuessCTR() {
       img: "/images/elevate-scotland/francis.jpeg",
       heading: "Francis Ekenimoh",
       // subHeading: "",
-      // text1: "",
-      text2:
-        "Senior Economist at the Department of Health and Social Care (DHSC)",
+      text1: "Senior Economist",
+      text2: "The Department of Health and Social Care (DHSC)",
     },
     {
       id: 8,
