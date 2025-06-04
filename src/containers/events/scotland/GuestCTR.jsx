@@ -64,6 +64,14 @@ function GuessCTR() {
       text2:
         "Senior Economist at the Department of Health and Social Care (DHSC)",
     },
+    {
+      id: 8,
+      img: "/images/guess/guess-3.jpg",
+      heading: "Sarah Socha",
+      // subHeading: "Workshop",
+      text1: "Founder Stratify Social AI Sales",
+      text2: "AI Strategist & Enterprise Growth Leader",
+    },
   ];
 
   return (

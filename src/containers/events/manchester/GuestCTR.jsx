@@ -14,18 +14,19 @@ function GuessCTR() {
     },
     {
       id: 2,
-      img: "/images/guess/guess-2.jpg",
-      heading: "Kiran Kachela",
+      img: "/images/guess/dan-craddock.jpg",
+      heading: "Dan Craddock",
       // subHeading: "Keynote",
-      text1: "CEO",
-      text2: "CI Projects",
+      text1: "Sales and Solutions Director | Hays",
+      text2: "",
     },
     {
       id: 3,
       img: "/images/guess/guess-3.jpg",
-      heading: "Sarah Socca",
+      heading: "Sarah Socha",
       // subHeading: "Workshop",
-      text1: "CEO",
+      text1:
+        "Founder Stratify Social AI Sales & AI Strategist & Enterprise Growth Leader",
       text2: "Co Comply",
     },
     {
@@ -33,7 +34,7 @@ function GuessCTR() {
       img: "/images/guess/guess-4.jpg",
       heading: "Luke Tomlinson",
       // subHeading: "Panellist",
-      text1: "Global Categoy Manager",
+      text1: "Global Categroy Manager",
       text2: "RS Integrated Supply",
     },
     {
