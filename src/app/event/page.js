@@ -102,7 +102,7 @@ function page() {
                         href={"/"}
                         className="bg-[#b58c4a] text-white px-6 py-3 rounded"
                     >
-                        Get your Tickets &gt;
+                        Become a Media Partner &gt;
                     </Link>
                     <Link
                         href={"/"}
