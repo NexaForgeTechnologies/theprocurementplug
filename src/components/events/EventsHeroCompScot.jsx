@@ -53,7 +53,7 @@ function EventsHeroComp() {
                 Elevate 2025!
               </h2>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
-                AWhether you're looking to enhance your procurement expertise or
+                Whether you're looking to enhance your procurement expertise or
                 step into executive leadership, our 2025 Procurement Event in
                 Glasgow offers career-defining learning, networking, and growth
                 opportunities.

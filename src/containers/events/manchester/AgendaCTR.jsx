@@ -13,7 +13,7 @@ function AgendaCTR() {
             <IconComponent name="arrow" size="24" />
           </div>
           <a
-            href="/files/agenda.pdf"
+            href="/files/Elevate_Manchester_Event_Agenda_Clean.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="underline text-[#363636] hover:text-[#85009d] text-sm md:text-lg leading-normal md:leading-relaxed"
