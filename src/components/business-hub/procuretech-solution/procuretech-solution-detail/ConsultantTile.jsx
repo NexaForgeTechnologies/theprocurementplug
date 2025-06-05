@@ -28,7 +28,7 @@ function ConsultantTile({ img, heading, subHeading, text1, text2, bgColor }) {
         <span className="text-[#b08d57] font-bold">{text1}</span>
       </div>
       <Link
-        href={`/business-hub/procuretech-solution/procuretech-solution-detail/Vendor-detail`}
+        href={`/business-hub/procuretech-solution/procuretech-solution-detail/vendor-detail`}
         className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded"
       >
         View

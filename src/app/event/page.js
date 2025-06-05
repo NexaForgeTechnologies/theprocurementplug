@@ -105,7 +105,7 @@ function page() {
                         Become a Media Partner &gt;
                     </Link>
                     <Link
-                        href={"/"}
+                        href={"/event/become-a-speaker"}
                         className="border-2 border-[#85009D] text-[#010101] px-6 py-3 rounded text-center"
                     >
                         Become a Speaker &gt;
