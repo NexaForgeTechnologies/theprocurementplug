@@ -77,16 +77,21 @@ function Page() {
             <div className="flex flex-col gap-6 md:gap-8">
                 <div className='max-w-[780px] m-auto text-center'>
                     <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#85009D]'>Partner With Us</h3>
-                    <p className='text-[#85009D] text-sm md:text-lg leading-normal md:leading-relaxed'><strong>marketing@theprocurement.com</strong> - <Link href="/partnerships">Visit our partnership page</Link>
+                    <p className='text-[#85009D] text-sm md:text-lg leading-normal md:leading-relaxed'><strong>partnerships@theprocurementplug.com</strong> - <Link href="/partnerships">Visit our partnership page</Link>
                     </p>
                 </div>
-                <div className="bg-[#85009D] rounded-[8px] px-5 pb-5 md:px-10 md:pb-10">
+                {/* <div className="bg-[#85009D] rounded-[8px] px-5 pb-5 md:px-10 md:pb-10">
                     <h2 className="text-xl md:text-2xl font-extrabold text-center my-5">Cross-sell / Upsell</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 rounded-[8px]">
                         {partnerWithUs?.map((content, idx) => (
                             <PartnerWithUsComp key={idx} data={content} />
                         ))}
                     </div>
+                </div> */}
+                <div className="bg-[#85009D] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 rounded-[8px] p-5 md:p-10 ">
+                    {partnerWithUs?.map((content, idx) => (
+                        <PartnerWithUsComp key={idx} data={content} />
+                    ))}
                 </div>
             </div>
         </>

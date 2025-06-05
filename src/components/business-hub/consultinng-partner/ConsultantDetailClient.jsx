@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import RequestDemoForm from "@/components/business-hub/request-demo-form/RequestDemoForm";
+import RequestDemoForm from "@/components/business-hub/consultinng-partner/RequestDemoForm";
 import PartnerWithUsComp from "@/components/partner-with-us/PartnerWithUsComp";
 
 function Breadcrumb() {
@@ -165,7 +165,7 @@ export default function ConsultantDetailClient({ consultant }) {
             Partner With Us
           </h3>
           <p className="text-[#85009D] text-sm md:text-lg leading-normal md:leading-relaxed">
-            <strong>marketing@theprocurement.com</strong> -{" "}
+            <strong>partnerships@theprocurementplug.com</strong> -{" "}
             <Link href="/partnerships">Visit our partnership page</Link>
           </p>
         </div>

@@ -44,7 +44,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             >
                 <div className="flex justify-between items-center mb-4">
                     <h2 className="text-2xl font-bold text-[#85009D] text-center">
-                        Request a Consultation
+                        Request a Quote
                     </h2>
                     <button
                         className="absolute top-4 right-4 text-2xl text-[#85009D]"

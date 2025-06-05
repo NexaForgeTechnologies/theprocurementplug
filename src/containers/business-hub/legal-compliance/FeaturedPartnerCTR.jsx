@@ -18,7 +18,7 @@ function ConsultantPartnerCTR() {
       industry_id: 1,
       industry_name: "Industry One",
       region_id: 1,
-      region_name: "Region One",
+      region_name: "England",
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ function ConsultantPartnerCTR() {
       industry_id: 2,
       industry_name: "Industry One",
       region_id: 2,
-      region_name: "Region One",
+      region_name: "Scotland",
     },
     {
       id: 3,
@@ -38,37 +38,37 @@ function ConsultantPartnerCTR() {
       industry_id: 3,
       industry_name: "Industry One",
       region_id: 3,
-      region_name: "Region One",
+      region_name: "Northern Ireland",
     },
     {
       id: 4,
       heading: "Amanda Green",
       text1: "Risk assessment consultant",
       text2: "A",
-      industry_id: 1,
+      industry_id: 4,
       industry_name: "Industry One",
-      region_id: 1,
-      region_name: "Region One",
+      region_id: 4,
+      region_name: "wales",
     },
     {
       id: 5,
       heading: "Smith & Associates",
       text1: "Specialized in procurement Law",
       text2: "S",
-      industry_id: 2,
+      industry_id: 5,
       industry_name: "Industry One",
-      region_id: 2,
-      region_name: "Region One",
+      region_id: 5,
+      region_name: "europe",
     },
     {
       id: 6,
       heading: "Jackson Legal",
       text1: "Legal compliance experts",
       text2: "J",
-      industry_id: 3,
+      industry_id: 6,
       industry_name: "Industry One",
-      region_id: 3,
-      region_name: "Region One",
+      region_id: 6,
+      region_name: "International",
     },
   ];
 
@@ -131,10 +131,13 @@ function ConsultantPartnerCTR() {
               onChange={(e) => setSelectedRegion(e.target.value)}
               className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
             >
-              <option value="">Select Specialism</option>
-              <option value="1">Region One</option>
-              <option value="2">Region Two</option>
-              <option value="3">Region Three</option>
+              <option value="">Select Legal Region</option>
+              <option value="1">England</option>
+              <option value="2">Scotland</option>
+              <option value="3">Northern Ireland</option>
+              <option value="4">wales</option>
+              <option value="5">europe</option>
+              <option value="6">International</option>
             </select>
           </div>
 
@@ -142,7 +145,8 @@ function ConsultantPartnerCTR() {
           <div className="flex flex-col justify-end gap-2 sm:col-span-1">
             <button
               onClick={handleClearFilters}
-              className="bg-gray-300 text-black px-2 py-[10px] cursor-pointer rounded-md font-semibold hover:bg-gray-400 transition"
+              className="text-white bg-[#b08d57] cursor-pointer flex justify-center items-center gap-2 
+            py-[10px] px-2 rounded-md font-semibold w-full hover:shadow-lg transition hover:border-[#a07a4c] hover:text-white"
             >
               Clear Filters
             </button>
