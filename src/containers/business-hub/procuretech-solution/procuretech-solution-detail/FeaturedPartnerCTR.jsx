@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import ConsultantTile from "@/components/business-hub/venue-partner/ConsultantTile";
+import ConsultantTile from "@/components/business-hub/procuretech-solution/procuretech-solution-detail/ConsultantTile";
 function ConsultantPartnerCTR() {
 
   const [selectedIndustry, setSelectedIndustry] = useState("");
@@ -12,8 +12,9 @@ function ConsultantPartnerCTR() {
   const consultantPartners = [
     {
       id: 1,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Logo",
+      img: "/images/bussiness-hub/dummy.png",
+      text1: "★★★★☆",
       industry_id: 1,
       industry_name: "Industry One",
       region_id: 1,
@@ -21,8 +22,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 2,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Vendor",
+      img: "/images/bussiness-hub/dummy.png",
+      text1: "★★★★",
       industry_id: 2,
       industry_name: "Industry One",
       region_id: 2,
@@ -30,8 +32,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 3,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Vendor",
+      img: "/images/bussiness-hub/dummy.png",
+      text1: "★★★★",
       industry_id: 3,
       industry_name: "Industry One",
       region_id: 3,
@@ -39,8 +42,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 4,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Logo",
+      img: "/images/bussiness-hub/dummy.png",
+      text1: "★★★★☆",
       industry_id: 1,
       industry_name: "Industry One",
       region_id: 1,
@@ -48,8 +52,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 5,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Vendor",
+      img: "/images/bussiness-hub/dummy.png",
+      text1: "★★★★",
       industry_id: 2,
       industry_name: "Industry One",
       region_id: 2,
@@ -57,8 +62,9 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 6,
-      heading: "Venue Partner Name",
-      text1: "City, Capacity",
+      heading: "Vendor",
+      img: "/images/bussiness-hub/dummy.png",
+      text1: "★★★★",
       industry_id: 3,
       industry_name: "Industry One",
       region_id: 3,
@@ -88,14 +94,13 @@ function ConsultantPartnerCTR() {
 
   return (
     <div>
-
       <div>
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 md:mb-10 text-[#363636]">
 
-          {/* Location */}
+          {/* Deployment Modal */}
           <div className="flex flex-col gap-2">
             <label className="text-xl font-bold" htmlFor="region">
-              <strong>Location</strong>
+              <strong>Deployment Modal</strong>
             </label>
             <select
               id="region"
@@ -103,17 +108,17 @@ function ConsultantPartnerCTR() {
               onChange={(e) => setSelectedRegion(e.target.value)}
               className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
             >
-              <option value="">Select Location</option>
+              <option value="">Select Deployment Modal</option>
               <option value="1">Region One</option>
               <option value="2">Region Two</option>
               <option value="3">Region Three</option>
             </select>
           </div>
 
-          {/* Capacity */}
+          {/* Pricing Modal */}
           <div className="flex flex-col gap-2">
             <label className="text-xl font-bold" htmlFor="region">
-              <strong>Capacity</strong>
+              <strong>Pricing Modal</strong>
             </label>
             <select
               id="region"
@@ -121,18 +126,17 @@ function ConsultantPartnerCTR() {
               onChange={(e) => setSelectedRegion(e.target.value)}
               className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
             >
-              <option value="">Select Capacity</option>
-              <option value="1">1-10</option>
-              <option value="2">11-20</option>
-              <option value="3">21-50</option>
-              <option value="4">51+</option>
+              <option value="">Select Pricing Modal</option>
+              <option value="1">Region One</option>
+              <option value="2">Region Two</option>
+              <option value="3">Region Three</option>
             </select>
           </div>
 
-          {/* Amenities */}
+          {/* Integration Modal */}
           <div className="flex flex-col gap-2">
             <label className="text-xl font-bold" htmlFor="region">
-              <strong>Amenities</strong>
+              <strong>Integration Modal</strong>
             </label>
             <select
               id="region"
@@ -140,11 +144,10 @@ function ConsultantPartnerCTR() {
               onChange={(e) => setSelectedRegion(e.target.value)}
               className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
             >
-              <option value="">Select Amenities</option>
-              <option value="1">Wi-Fi</option>
-              <option value="2">Projector</option>
-              <option value="3">Catering</option>
-              <option value="4">Parking</option>
+              <option value="">Select Integration Modal</option>
+              <option value="1">Region One</option>
+              <option value="2">Region Two</option>
+              <option value="3">Region Three</option>
             </select>
           </div>
 
@@ -166,6 +169,7 @@ function ConsultantPartnerCTR() {
             filteredConsultants.slice(0, visibleCount).map((partner) => (
               <ConsultantTile
                 key={partner.id}
+                img={partner.img}
                 heading={partner.heading}
                 text1={partner.text1}
               />

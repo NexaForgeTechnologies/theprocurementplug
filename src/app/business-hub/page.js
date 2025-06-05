@@ -58,7 +58,7 @@ function page() {
             id: 4,
             heading: "ProcureTech Solutions",
             text: "Webinar - Seminar - Workshops - Networking Oppertunity",
-            link: "",
+            link: "/business-hub/procuretech-solution",
             linkText: "View",
             bgColor: ""
         },
