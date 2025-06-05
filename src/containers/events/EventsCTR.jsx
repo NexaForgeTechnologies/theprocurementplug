@@ -90,7 +90,7 @@ function ResourceLibraryCTR() {
 
   return (
     <div className="text-[#363636]">
-      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-6 md:mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6 md:mb-10">
         {/* Event Type */}
         <div className="flex flex-col gap-2">
           <label className="text-xl font-bold" htmlFor="content-type">
@@ -145,22 +145,11 @@ function ResourceLibraryCTR() {
         <div className="flex flex-col justify-end gap-2 sm:col-span-1">
           <button
             onClick={handleClearFilters}
-            className="bg-gray-300 text-black px-2 py-[10px] cursor-pointer rounded-md font-semibold hover:bg-gray-400 transition"
+            className="text-white bg-[#b08d57] cursor-pointer flex justify-center items-center gap-2 
+            py-[10px] px-2 rounded-md font-semibold w-full hover:shadow-lg transition hover:border-[#a07a4c] hover:text-white"
           >
             Clear Filters
           </button>
-        </div>
-
-        {/* Clear Filters Button */}
-        <div className="flex flex-col justify-end sm:col-span-1">
-          <Link
-            href="/partnerships"
-            onClick={handleClearFilters}
-            className="text-white bg-[#b08d57] cursor-pointer flex justify-center items-center gap-2 py-[10px] px-2
-  rounded-md font-semibold w-full hover:shadow-lg transition hover:border-[#a07a4c] hover:text-white"
-          >
-            Sponsor an Event
-          </Link>
         </div>
       </div>
 

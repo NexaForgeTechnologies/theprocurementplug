@@ -99,20 +99,20 @@ function page() {
                 {/* <div className='flex flex-col items-center md:flex-row gap-4'> */}
                 <div className="w-full md:w-[770px] text-center md:text-start grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                     <Link
-                        href={"/"}
-                        className="bg-[#b58c4a] text-white px-6 py-3 rounded"
+                        href={"/partnerships"}
+                        className="bg-[#85009D] text-white px-6 py-3 rounded text-center"
                     >
                         Become a Media Partner &gt;
                     </Link>
                     <Link
                         href={"/"}
-                        className="border-2 border-[#85009D] text-[#010101] px-6 py-3 rounded"
+                        className="border-2 border-[#85009D] text-[#010101] px-6 py-3 rounded text-center"
                     >
                         Become a Speaker &gt;
                     </Link>
                     <Link
                         href={"/"}
-                        className="bg-[#b58c4a] text-white px-6 py-3 rounded w-full"
+                        className="bg-[#b58c4a] text-white px-6 py-3 rounded text-center w-full"
                     >
                         Become a Sponsor &gt;
                     </Link>
