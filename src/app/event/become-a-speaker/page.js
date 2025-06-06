@@ -7,7 +7,10 @@ function Page() {
     const [formData, setFormData] = useState({
         name: "",
         email: "",
+        role: "",
+        company: "",
         proposedtopic: "",
+        proposal: "",
     });
 
     const handleChange = (e) => {
@@ -18,8 +21,15 @@ function Page() {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
-        setFormData({ name: "", email: "", proposedtopic: "", });
-        onClose();
+        setFormData({
+            name: "",
+            email: "",
+            role: "",
+            company: "",
+            proposedtopic: "",
+            proposal: "",
+        });
+        // onClose(); 
     };
 
     return (
@@ -115,10 +125,10 @@ function Page() {
                         </div>
                         <div>
                             <label
-                                htmlFor="name"
+                                htmlFor="email"
                                 className="block text-[#010101] font-medium"
                             >
-                                Email*
+                                Email
                             </label>
                             <input
                                 type="email"
@@ -132,15 +142,66 @@ function Page() {
                         </div>
                         <div>
                             <label
-                                htmlFor="message"
+                                htmlFor="role"
+                                className="block text-[#010101] font-medium"
+                            >
+                                Role
+                            </label>
+                            <input
+                                type="text"
+                                id="role"
+                                name="role"
+                                value={formData.role}
+                                onChange={handleChange}
+                                required
+                                className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="company"
+                                className="block text-[#010101] font-medium"
+                            >
+                                Company
+                            </label>
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                value={formData.company}
+                                onChange={handleChange}
+                                required
+                                className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="proposedtopic"
                                 className="block text-[#010101] font-medium"
                             >
                                 Proposed Topic
                             </label>
-                            <textarea
-                                id="message"
+                            <input
+                                type="text"
+                                id="proposedtopic"
                                 name="proposedtopic"
                                 value={formData.proposedtopic}
+                                onChange={handleChange}
+                                required
+                                className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            />
+                        </div>
+                        <div>
+                            <label
+                                htmlFor="proposal"
+                                className="block text-[#010101] font-medium"
+                            >
+                                Proposal
+                            </label>
+                            <textarea
+                                id="proposal"
+                                name="proposal"
+                                value={formData.proposal}
                                 onChange={handleChange}
                                 className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                                 rows="4"
@@ -157,7 +218,7 @@ function Page() {
             </div>
             <div className="bg-[#b58c4a] p-6 rounded flex flex-col md:flex-row item-center justify-around text-center md:text-left text-white gap-4">
                 <p>Upskill your capabilities</p>
-                <span class="text-2xl">&rarr;</span>
+                <span className="text-2xl">&rarr;</span>
                 <p>The Procurement Plug Academy</p>
             </div>
 
