@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
@@ -19,6 +19,53 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     //     const { name, value } = e.target;
     //     setFormData((prev) => ({ ...prev, [name]: value }));
     // };
+    // stop scrolling
+    const modalRef = useRef(null);
+
+    useEffect(() => {
+        if (isOpen) {
+            // Store the current scroll position
+            const scrollY = window.scrollY;
+            // Apply styles to lock body
+            document.body.style.position = "fixed";
+            document.body.style.top = `-${scrollY}px`;
+            document.body.style.width = "100%";
+
+            // Prevent touchmove on background, allow in modal
+            const preventTouch = (e) => {
+                if (!modalRef.current) return;
+                // Check if the touch event target is within the modal
+                const isInsideModal = modalRef.current.contains(e.target);
+                if (!isInsideModal) {
+                    e.preventDefault();
+                    return;
+                }
+                // Allow scrolling within modal if it has scrollable content
+                const { scrollTop, scrollHeight, clientHeight } = modalRef.current;
+                const atTop = scrollTop === 0;
+                const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
+                const scrollingUp = e.touches[0].clientY > e.targetTouches[0].clientY;
+                const scrollingDown = e.touches[0].clientY < e.targetTouches[0].clientY;
+
+                if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
+                    e.preventDefault();
+                }
+            };
+            document.addEventListener("touchmove", preventTouch, { passive: false });
+
+            return () => {
+                // Restore scroll position and remove styles
+                const top = parseInt(document.body.style.top || "0", 10);
+                document.body.style.position = "";
+                document.body.style.top = "";
+                document.body.style.width = "";
+                window.scrollTo(0, -top);
+                document.removeEventListener("touchmove", preventTouch);
+            };
+        }
+    }, [isOpen]);
+    // 
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData((prev) => ({
@@ -39,7 +86,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     return (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
             <div
-                className="max-w-lg w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#F7F9FB] relative rounded-2xl shadow-lg border-2 border-[#85009D]"
+                ref={modalRef}
+                className="max-w-lg w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#F7F9FB] relative rounded-2xl shadow-lg border-2 border-[#85009D] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-4">

@@ -8,10 +8,10 @@ function ConsultantTile({ img, heading, subHeading, text1, text2, bgColor }) {
   return (
     <div
       className="
-        text-[#363636] w-full rounded-2xl border border-[#85009D] hover:border-[#A020F0] bg-white p-5 flex flex-col items-center justify-center text-center"
+        text-[#363636] w-full rounded-2xl border border-[#85009D] hover:border-[#b08d57] bg-white hover:bg-[#85009D] p-5 flex flex-col items-center justify-center text-center hover:text-white transition-all duration-200 ease-in-out group"
     >
       <Image
-        className=" w-16 h-16"
+        className=" w-16 h-16 object-cover group-hover:bg-white group-hover:rounded-full group-hover:transition-all duration-200 ease-in-out"
         src={img}
         alt={img}
         width={64}
@@ -25,7 +25,7 @@ function ConsultantTile({ img, heading, subHeading, text1, text2, bgColor }) {
         {subHeading}
       </h3>
       <div className="my-2 flex flex-col items-center">
-        <span className="text-[#b08d57] font-bold">{text1}</span>
+        <span className="text-[#b08d57] group-hover:text-white font-bold group-hover:transition-all duration-200 ease-in-out">{text1}</span>
       </div>
       <Link
         href={`/business-hub/procuretech-solution/procuretech-solution-detail/vendor-detail`}

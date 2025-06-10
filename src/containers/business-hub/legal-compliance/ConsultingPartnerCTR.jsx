@@ -1,4 +1,4 @@
-import ConsultingPartnerTile from "@/components/business-hub/consultinng-partner/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/legal-compliance/ConsultingPartnerTile";
 import React from "react";
 
 function ConsultingPartnerCTR() {

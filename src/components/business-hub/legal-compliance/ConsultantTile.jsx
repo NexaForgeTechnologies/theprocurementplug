@@ -6,9 +6,9 @@ function ConsultantTile({ img, heading, subHeading, text1, text2, bgColor }) {
   return (
     <div
       className="
-        text-[#363636] w-full rounded-2xl border border-[#85009D] hover:border-[#A020F0] bg-white p-5 flex flex-col items-center justify-center text-center"
+        text-[#363636] w-full rounded-2xl border border-[#85009D] hover:border-[#b08d57] bg-white hover:bg-[#85009D] p-5 flex flex-col items-center justify-center text-center hover:text-white transition-all duration-200 ease-in-out group"
     >
-      <span className="font-bold text-white bg-[#85009D] py-2 px-4 rounded-full mb-2">{text2}</span>
+      <span className="font-bold text-white bg-[#85009D] py-2 px-4 rounded-full mb-2 group-hover:text-[#85009D] group-hover:bg-white group-hover:transition-all duration-200 ease-in-out">{text2}</span>
       <h2 className="text-xl md:text-2xl font-extrabold">{heading}</h2>
       <h3
         className={`${bgColor ? "text-white" : "text-[#b08d57]"

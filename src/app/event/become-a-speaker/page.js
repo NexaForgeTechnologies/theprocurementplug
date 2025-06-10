@@ -35,7 +35,7 @@ function Page() {
     return (
         <>
             <ConsultingPartnerCTR />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 ">
+            <div className="grid items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 ">
                 <div>
                     <h2 className="text-xl md:text-2xl font-bold text-[#010101] mb-4">
                         Speaker Benefits
@@ -57,7 +57,7 @@ function Page() {
                     <div className='flex items-center gap-2 '>
                         <div className='w-6 h-[2px] bg-[#85009D]'></div>
                         <p>
-                           Arthur Taylor, Procurement Specialist
+                            Arthur Taylor, Procurement Specialist
                         </p>
                     </div>
                 </div>
@@ -87,10 +87,10 @@ function Page() {
 
                             <li>Apply Submit your proposal.</li>
                             <li>Review Our team will evaluate your submission.</li>
-                            <li>Confirm Confirm Receive confirmation and event details.</li>
+                            <li>Confirm Receive confirmation and event details.</li>
                         </ul>
                     </div>
-                    <div>
+                    {/* <div>
                         <h2 className="text-xl md:text-2xl font-bold text-[#010101] mb-4">
                             The Process
                         </h2>
@@ -99,80 +99,84 @@ function Page() {
                             <li className="mb-2"><strong>Apply</strong> Submit your speaker proposal.</li>
                             <li className="mb-2"><strong>Review</strong> Our team will evaluate your submission.</li>
                         </ul>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="border-1 border-[#85009D] p-4 md:p-6 rounded-lg bg-white">
                     <h2 className="text-center text-xl md:text-2xl font-bold text-[#010101] mb-4">
                         Submit Speaker Proposal
                     </h2>
                     <form onSubmit={handleSubmit} className="space-y-4">
-                        <div>
-                            <label
-                                htmlFor="name"
-                                className="block text-[#010101] font-medium"
-                            >
-                                Name
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label
+                                    htmlFor="name"
+                                    className="block text-[#010101] font-medium"
+                                >
+                                    Name
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    htmlFor="email"
+                                    className="block text-[#010101] font-medium"
+                                >
+                                    Email
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <label
-                                htmlFor="email"
-                                className="block text-[#010101] font-medium"
-                            >
-                                Email
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
-                        </div>
-                        <div>
-                            <label
-                                htmlFor="role"
-                                className="block text-[#010101] font-medium"
-                            >
-                                Role
-                            </label>
-                            <input
-                                type="text"
-                                id="role"
-                                name="role"
-                                value={formData.role}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
-                        </div>
-                        <div>
-                            <label
-                                htmlFor="company"
-                                className="block text-[#010101] font-medium"
-                            >
-                                Company
-                            </label>
-                            <input
-                                type="text"
-                                id="company"
-                                name="company"
-                                value={formData.company}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label
+                                    htmlFor="role"
+                                    className="block text-[#010101] font-medium"
+                                >
+                                    Role
+                                </label>
+                                <input
+                                    type="text"
+                                    id="role"
+                                    name="role"
+                                    value={formData.role}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                />
+                            </div>
+                            <div>
+                                <label
+                                    htmlFor="company"
+                                    className="block text-[#010101] font-medium"
+                                >
+                                    Company
+                                </label>
+                                <input
+                                    type="text"
+                                    id="company"
+                                    name="company"
+                                    value={formData.company}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full p-2 text-[#010101] border-1 border-[#85009D] rounded focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                />
+                            </div>
                         </div>
                         <div>
                             <label

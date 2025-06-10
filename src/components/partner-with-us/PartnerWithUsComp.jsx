@@ -7,7 +7,7 @@ function BusinesFeatureComp({ data, key }) {
   const [isHovered, setIsHovered] = useState(false);
   const handleClick = (e) => {
     if (!data.link) {
-      e.preventDefault(); 
+      e.preventDefault();
       alert("Available soon!");
     }
   };
@@ -29,8 +29,9 @@ function BusinesFeatureComp({ data, key }) {
         gap: '0.5rem',
         padding: '2.5rem',
         borderRadius: '0.5rem',
-        border: '4px solid #b58c4a',
-        backgroundColor: isHovered ? '#85009D' : bgColor,
+        // border: '4px solid #b58c4a',
+        border: `4px solid ${isHovered ? "#ffffff" : "#b58c4a"}`, 
+        backgroundColor: isHovered ? '#b58c4a' : bgColor,
         color: 'white',
         transition: 'all 0.2s ease-in-out'
       }}
@@ -39,7 +40,16 @@ function BusinesFeatureComp({ data, key }) {
       <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
         {data.text}
       </p>
-      <span className="text-[#ffff] cursor-pointer mb-1 max-w-max py-1 px-4 rounded bg-[#b58c4a]">
+      {/* <span className="text-[#ffff] cursor-pointer mb-1 max-w-max py-1 px-4 rounded bg-[#b58c4a]">
+        {data.linkText}
+      </span> */}
+      <span
+        className="cursor-pointer mb-1 max-w-max py-1 px-4 rounded"
+        style={{
+          backgroundColor: isHovered ? "#ffffff" : "#b58c4a",
+          color: isHovered ? "#363636" : "#ffffff",
+        }}
+      >
         {data.linkText}
       </span>
     </Link>

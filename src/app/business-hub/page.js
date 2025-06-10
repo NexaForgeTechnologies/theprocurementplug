@@ -74,7 +74,7 @@ function page() {
             id: 6,
             heading: "ESG Social Value",
             text: "ESG Lounge - (additional resources)",
-            link: "",
+            link: "/business-hub/esg-social-value",
             linkText: "View",
             bgColor: ""
         },
