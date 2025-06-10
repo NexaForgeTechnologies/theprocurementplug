@@ -57,7 +57,7 @@ function Page() {
                     <div className='flex items-center gap-2 '>
                         <div className='w-6 h-[2px] bg-[#85009D]'></div>
                         <p>
-                            Albert Smith, Procurement Specialist
+                           Arthur Taylor, Procurement Specialist
                         </p>
                     </div>
                 </div>
