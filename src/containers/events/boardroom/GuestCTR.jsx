@@ -15,7 +15,7 @@ function GuessCTR() {
     },
     {
       id: 2,
-      img: "/images/elevate-scotland/guest-20.jpg",
+      img: "/images/guess/guest-20.jpg",
       heading: "Craig Elvin",
       // subHeading: "Panellist",
       text1:
