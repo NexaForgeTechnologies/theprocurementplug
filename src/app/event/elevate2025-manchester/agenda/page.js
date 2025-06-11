@@ -8,85 +8,92 @@ export default function Home() {
         {
             time: "08:30 - 09:00",
             title: "Registration & Welcome Coffee",
-            description: "PROCUREMENT CONFESSIONS WALL - Share your stories, lessons, or funny procurement moments. No names needed. Be real, be bold, be you.",
-            speakers: "All attendees",
+            description: 'PROCUREMENT CONFESSIONS WALL - Share your stories, lessons, or funny procurement moments. No names needed. Be real, be bold, be you.',
+            speakers: "All Attendees",
             moderator: "",
         },
         {
             time: "09:00 - 09:15",
             title: "Opening Remarks & Event Introduction",
             description: "",
-            speakers: "Jyothi Hartley / Annalisha Noel",
-            moderator: "Jyothi",
+            speakers: "Speakers: Annalisha Noel / Jyothi Hartley",
+            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
         },
         {
             time: "09:15 - 09:40",
             title: "Keynote: The Future of Procurement & Digital Transformation",
-            description: "Networking",
-            speakers: "Rachel Repper",
+            description: "",
+            speakers: "Speakers: Oliver Jones",
             moderator: "",
         },
         {
             time: "09:40 - 10:00",
             title: "Keynote: Procuring a Service from a Supplier Perspective",
-            description: "Networking",
-            speakers: "Dan Craddock",
+            description: "",
+            speakers: "Speakers: Dan Craddock",
             moderator: "",
         },
         {
             time: "10:15 - 11:15",
             title: "Learning Breakout: Finance for Procurement Cost Control & Budgeting",
-            description: "Networking",
-            speakers: "Susannah Gooch",
+            description: "",
+            speakers: "Speakers: Susannah Gooch",
             moderator: "",
         },
         {
             time: "10:15 - 11:15",
             title: "Learning Breakout: Mastering Negotiation Strategies",
-            description: "Networking",
-            speakers: "Laura Scarfe",
+            description: "",
+            speakers: "Speakers: Laura Scarfe",
             moderator: "",
         },
         {
             time: "10:15 - 11:15",
             title: "Learning Breakout: The Power of Stakeholder Influence",
-            description: "Networking",
-            speakers: "Blessed S. Agyemang / Christopher, Robinson",
+            description: "",
+            speakers: "Speakers: Blessed S. Agyemang / Christoper Robinson",
             moderator: "",
         },
         {
             time: "11:15 - 11:30",
             title: "Networking Break",
             description: "Focused Chat Corners - Mentors' Networking | Plug ProcureTech | The Procurement Plug",
-            speakers: "Blessed S. Agyemang / Christopher, Robinson",
+            speakers: "",
             moderator: "",
         },
         {
             time: "11:30 - 12:00",
             title: "Panel: Procurement Leadership & Career Growth",
-            description: "Networking",
-            speakers: "Susannah Gooch, Fraser McBeth, Josh, Caple, Miranda Gordon, Adwoa, Owusu-Banahene",
-            moderator: "Jyothi",
+            description: "",
+            speakers: "Speakers: Susannah Gooch, Fraser McBeth, Josh, Caple, Miranda Gordon, Adwoa Owusu Banahene",
+            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
         },
         {
             time: "12:00 - 13:15",
             title: "Networking Lunch",
             description: "Career Connect Plug - Recruitment Surgery",
-            speakers: "Mick Ramsden | Josh Caple",
+            speakers: "Speakers: Mick Ramsden | Josh Caple",
             moderator: "",
         },
         {
             time: "13:20 - 14:00",
             title: "Panel: Driving Innovation - Procurement Innovation, Sustainability & Agility",
-            description: "Networking",
-            speakers: "Oliver Jones, Christopher Robinson, Fleur, Summers, Blessed S. Agyemang, Lewis, Sinkala",
-            moderator: "Sinkala",
+            description: "",
+            speakers: "Speakers: Oliver Jones, Christopher Robinson, Fleur Summers, Blessed S. Agyemang, Lewis Sinkala",
+            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
+        },
+        {
+            time: "14:05 - 15:05",
+            title: "Learning Breakout: Digital Procurement & Data Analytics",
+            description: "",
+            speakers: "Speakers: Rachel Repper & Sarah Socha",
+            moderator: "",
         },
         {
             time: "14:05 - 15:05",
             title: "Learning Breakout: Contract Management & Commercial Awareness",
-            description: "Networking",
-            speakers: "Commercial Awareness",
+            description: "",
+            speakers: "Speakers: Miranda Gordon",
             moderator: "",
         },
         {
@@ -99,16 +106,16 @@ export default function Home() {
         {
             time: "15:20 - 15:50",
             title: "Panel Case Study: Real-World Procurement Success Stories",
-            description: "Success Stories",
-            speakers: "Luke Tomlinson, Fraser McBeth, Fleur Summers, Lewis Sinkala, Adwoa Owusu-Banahene",
-            moderator: "Jyothi",
+            description: "",
+            speakers: "Speakers: Luke Tomlinson, Fraser McBeth, Fleur Summers, Lewis Sinkala, Adwoa Owusu Banahene",
+            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
         },
         {
             time: "15:50 - 16:15",
             title: "Closing Remarks & Future Outlook",
             description: "",
-            speakers: "Annalisha Noel",
-            moderator: "Jyothi",
+            speakers: "Speakers: Annalisha Noel",
+            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
         },
         {
             time: "16:15 - 17:00",
@@ -191,13 +198,13 @@ export default function Home() {
 
                 if (item.speakers) {
                     const speakerWidth = titleWidth;
-                    const speakerLines = doc.splitTextToSize(`Speakers: ${item.speakers}`, speakerWidth);
+                    const speakerLines = doc.splitTextToSize(`${item.speakers}`, speakerWidth);
                     doc.text(speakerLines, padding + 45, yOffset);
                     yOffset += speakerLines.length * 6 + 2;
                 }
 
                 if (item.moderator) {
-                    doc.text(`Moderator: ${item.moderator}`, padding + 45, yOffset);
+                    doc.text(`${item.moderator}`, padding + 45, yOffset);
                     yOffset += 6;
                 }
 
@@ -207,7 +214,7 @@ export default function Home() {
             // Footer
             doc.setFontSize(10);
             doc.setTextColor(96, 96, 96);
-            doc.text("hello@theprocurementplug.com | +44 7447 163285", padding, pageHeight - padding);
+            // doc.text("hello@theprocurementplug.com | +44 7447 163285", padding, pageHeight - padding);
             doc.text("© 2025 The Procurement Plug. All rights reserved", pageWidth - padding, pageHeight - padding, { align: "right" });
         }
 
