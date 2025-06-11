@@ -100,7 +100,7 @@ function GuessCTR() {
     {
       id: 12,
       img: "/images/guess/guess-10.jpg",
-      heading: "Josh Cable",
+      heading: "Josh Caple",
       // subHeading: "Panellist",
       text1: "Managing Recruitment Consultant",
       text2: "Hays",
