@@ -4,7 +4,7 @@
 import { QRCodeCanvas } from 'qrcode.react';
 
 export default function QREventPage() {
-  const url = 'https://www.theprocurementplug.com/event/elevate2025-manchester';
+  const url = 'https://www.theprocurementplug.com/event/elevate2025-manchester/agenda';
 
   return (
     // <div className="flex flex-col items-center justify-center min-h-screen p-8 text-[#363636]">
