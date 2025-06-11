@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import PartnerWithUsComp from '@/components/partner-with-us/PartnerWithUsComp'
-import VIPLoungeCTR from '@/containers/business-hub/vip-lounge/VIPLoungeCTR'
+import VIPLoungeCTR from '@/containers/business-hub/vip-lounge/VipLoungeCTR'
 
 
 function Breadcrumb() {
