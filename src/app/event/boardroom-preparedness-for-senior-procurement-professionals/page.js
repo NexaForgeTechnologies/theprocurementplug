@@ -16,7 +16,7 @@ export const metadata = {
         description: 'Unlock the Skills to Secure Your Seat at the Boardroom Table',
         images: [
             {
-                url: 'https://theprocurementplug.com/images/og/events.jpg',
+                url: 'https://theprocurementplug.com/images/og/boadroom.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'Event',
@@ -27,7 +27,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Boardroom Preparedness',
         description: 'Unlock the Skills to Secure Your Seat at the Boardroom Table',
-        images: ['https://theprocurementplug.com/images/og/events.jpg'],
+        images: ['https://theprocurementplug.com/images/og/boadroom.jpg'],
     },
 };
 
