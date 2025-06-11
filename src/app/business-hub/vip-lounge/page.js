@@ -34,7 +34,7 @@ function page() {
         ,
         {
             id: 2,
-            heading: "Collaboration & Influence",
+            heading: "PTX",
             text: "",
             link: "",
             linkText: "View",
@@ -42,7 +42,7 @@ function page() {
         },
         {
             id: 3,
-            heading: "Innovation Vault",
+            heading: "Xec Plug",
             text: "",
             link: "",
             linkText: "View",
