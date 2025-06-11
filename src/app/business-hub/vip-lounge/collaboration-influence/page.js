@@ -1,9 +1,9 @@
+import Link from 'next/link'
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/FeaturedPartnerCTR'
-import ConsultingPartnerCTR from '@/containers/business-hub/consulting-partner/ConsultingPartnerCTR'
 import PartnerWithUsComp from '@/components/partner-with-us/PartnerWithUsComp'
-import Link from 'next/link'
+import CollaborationInfluenceCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/CollaborationInfluenceCTR'
+
 
 function Breadcrumb() {
     return (
@@ -13,15 +13,19 @@ function Breadcrumb() {
                     <Link href="/business-hub" className="hover:underline">Business Hub</Link>
                 </li>
                 <li>/</li>
+                <li>
+                    <Link href="/business-hub/vip-lounge" className="hover:underline">Vip Lounge</Link>
+                </li>
+                <li>/</li>
                 <li className="text-gray-900 font-semibold">
-                    Consulting Partner
+                    Collaboration & Influence ZOne
                 </li>
             </ol>
         </nav>
     )
 }
 
-function Page() {
+function page() {
     const partnerWithUs = [
         {
             id: 1,
@@ -54,10 +58,10 @@ function Page() {
         <>
             <div>
                 <Breadcrumb />
-                <ConsultingPartnerCTR />
+                <CollaborationInfluenceCTR />
             </div>
 
-            <FeaturedPartnerCTR />
+
             <div className="flex flex-col gap-6 md:gap-8">
                 <div className='max-w-[780px] m-auto text-center'>
                     <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#85009D]'>Partner With Us</h3>
@@ -74,4 +78,4 @@ function Page() {
     )
 }
 
-export default Page
+export default page
