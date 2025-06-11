@@ -141,28 +141,28 @@ export default function Home() {
         const itemsPerPage = 5;
         const padding = 15;
         const pageWidth = 210;
-        const pageHeight = 297; 
-        const contentWidth = pageWidth - 2 * padding; 
+        const pageHeight = 297;
+        const contentWidth = pageWidth - 2 * padding;
 
         for (let page = 0; page < Math.ceil(agendaItems.length / itemsPerPage); page++) {
             if (page > 0) doc.addPage();
-            let yOffset = padding; 
+            let yOffset = padding;
 
             // Header
             doc.setFont("Helvetica", "bold");
             doc.setFontSize(36);
-            doc.setTextColor(133, 0, 157); 
+            doc.setTextColor(133, 0, 157);
             doc.text("ELEVATE 2025", padding + contentWidth / 2, yOffset, { align: "center" });
             yOffset += 12;
             doc.setFont("Helvetica", "normal");
             doc.setFontSize(12);
-            doc.setTextColor(96, 96, 96); 
+            doc.setTextColor(96, 96, 96);
             doc.text("PROCUREMENT CAREER & INNOVATION SUMMIT", padding + contentWidth / 2, yOffset, { align: "center" });
             yOffset += 8;
-            doc.text("6TH JUNE 2025 | MANCHESTER, UK", padding + contentWidth / 2, yOffset, { align: "center" });
+            doc.text("25 JUNE 2025 | MANCHESTER, UK", padding + contentWidth / 2, yOffset, { align: "center" });
             yOffset += 10;
-            doc.setDrawColor(133, 0, 157); 
-            doc.line(padding, yOffset, pageWidth - padding, yOffset); 
+            doc.setDrawColor(133, 0, 157);
+            doc.line(padding, yOffset, pageWidth - padding, yOffset);
             yOffset += 16;
 
             // Agenda Items
@@ -172,16 +172,16 @@ export default function Home() {
                 doc.setFontSize(12);
                 doc.setTextColor(176, 141, 87);
                 doc.setFont("Helvetica", "bold");
-                doc.text(item.time, padding, yOffset); 
+                doc.text(item.time, padding, yOffset);
 
                 doc.setTextColor(133, 0, 157);
                 doc.setFont("Helvetica", "bold");
-                const titleWidth = contentWidth - 45; 
+                const titleWidth = contentWidth - 45;
                 const titleLines = doc.splitTextToSize(item.title, titleWidth);
                 doc.text(titleLines, padding + 45, yOffset);
                 yOffset += titleLines.length * 6 + 2;
 
-                doc.setTextColor(54, 54, 54); 
+                doc.setTextColor(54, 54, 54);
                 doc.setFont("Helvetica", "normal");
                 if (item.description) {
                     const descriptionLines = doc.splitTextToSize(item.description, titleWidth);
@@ -190,7 +190,7 @@ export default function Home() {
                 }
 
                 if (item.speakers) {
-                    const speakerWidth = titleWidth; 
+                    const speakerWidth = titleWidth;
                     const speakerLines = doc.splitTextToSize(`Speakers: ${item.speakers}`, speakerWidth);
                     doc.text(speakerLines, padding + 45, yOffset);
                     yOffset += speakerLines.length * 6 + 2;
@@ -201,12 +201,12 @@ export default function Home() {
                     yOffset += 6;
                 }
 
-                yOffset += 12; 
+                yOffset += 12;
             });
 
             // Footer
             doc.setFontSize(10);
-            doc.setTextColor(96, 96, 96); 
+            doc.setTextColor(96, 96, 96);
             doc.text("hello@theprocurementplug.com | +44 7447 163285", padding, pageHeight - padding);
             doc.text("© 2025 The Procurement Plug. All rights reserved", pageWidth - padding, pageHeight - padding, { align: "right" });
         }
@@ -233,14 +233,14 @@ export default function Home() {
                                 <button
                                     onClick={() => handlePageChange(currentPage - 1)}
                                     disabled={currentPage === 1}
-                                    className="px-3 py-1 bg-white text-[#85009D] rounded disabled:opacity-50"
+                                    className="cursor-pointer px-3 py-1 bg-white text-[#85009D] rounded disabled:opacity-50"
                                 >
                                     -
                                 </button>
                                 <button
                                     onClick={() => handlePageChange(currentPage + 1)}
                                     disabled={currentPage === totalPages}
-                                    className="px-2 py-1 bg-white text-[#85009D] rounded disabled:opacity-50"
+                                    className="cursor-pointer px-2 py-1 bg-white text-[#85009D] rounded disabled:opacity-50"
                                 >
                                     +
                                 </button>
@@ -249,7 +249,7 @@ export default function Home() {
                         <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
                             <button
                                 onClick={generatePDF}
-                                className="px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
+                                className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
                             >
                                 Download PDF
                             </button>
@@ -258,7 +258,7 @@ export default function Home() {
                     <div className="mt-4 p-2 bg-white rounded">
                         <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2025</h3>
                         <p className="text-center text-gray-600">PROCUREMENT CAREER & INNOVATION SUMMIT</p>
-                        <p className="text-center text-gray-600">6TH JUNE 2025 | MANCHESTER, UK</p>
+                        <p className="text-center text-gray-600">25 JUNE 2025 | MANCHESTER, UK</p>
                         <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#363636]">
                             {currentItems.map((item, index) => (

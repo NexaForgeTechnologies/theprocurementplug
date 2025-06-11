@@ -1,4 +1,5 @@
 import IconComponent from "@/components/icon/Icon";
+import Link from "next/link";
 import React from "react";
 
 function AgendaCTR() {
@@ -12,15 +13,12 @@ function AgendaCTR() {
           <div className="bounce-right">
             <IconComponent name="arrow" size="24" />
           </div>
-          <a
-            href="/event/elevate2025-manchester/pdf"
-            // href="/files/Elevate_Manchester_Event_Agenda_Clean.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/event/elevate2025-manchester/agenda"
             className="underline text-[#363636] hover:text-[#85009d] text-sm md:text-lg leading-normal md:leading-relaxed"
           >
             AGENDA Elevate 2025 - Manchester
-          </a>
+          </Link>
         </div>
       </div>
     </div>
