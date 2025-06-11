@@ -27,10 +27,10 @@ function CollaborationInfluenceCTR() {
     <div>
       <div className="max-w-[780px] m-auto text-center">
         <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
-          Collaboration & Influence Zone
+          Collaboration & Thought Leadership
         </h3>
         <p className="my-8 text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
-          Welcome to the Collaboration & Influence Zone. Your space to
+          Welcome to the Collaboration & Thought Leadership. Your space to
           co-create, connect and shape the future of procurement leadership.
         </p>
       </div>

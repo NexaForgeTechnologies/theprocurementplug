@@ -5,7 +5,7 @@ function VipLoungeCTR() {
   const viplounge = [
     {
       id: 1,
-      heading: "Collaboration & Influence Zone",
+      heading: "Collaboration & Thought Leadership",
       text: "",
       url: "/business-hub/vip-lounge/collaboration-influence",
     },
