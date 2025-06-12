@@ -91,11 +91,28 @@ export default function Home() {
             let yOffset = padding;
 
             // Header
+            // doc.setFont("Helvetica", "bold");
+            // doc.setFontSize(36);
+            // doc.setTextColor(133, 0, 157);
+            // doc.text("Boardroom Preparedness for Senior Procurement Professionals", padding + contentWidth / 2, yOffset, { align: "center" });
+            // yOffset += 12;
+            // doc.setFont("Helvetica", "normal");
+            // doc.setFontSize(12);
+            // doc.setTextColor(96, 96, 96);
+            // doc.text("Executive webinar Procurement Leaders", padding + contentWidth / 2, yOffset, { align: "center" });
+            // yOffset += 8;
+            // doc.text("July 17 2025 | Virtual Webinar", padding + contentWidth / 2, yOffset, { align: "center" });
+            // yOffset += 10;
+            // doc.setDrawColor(133, 0, 157);
+            // doc.line(padding, yOffset, pageWidth - padding, yOffset);
+            // yOffset += 16;
             doc.setFont("Helvetica", "bold");
-            doc.setFontSize(36);
+            doc.setFontSize(24); // Reduced font size from 36 to 24 to better fit
             doc.setTextColor(133, 0, 157);
-            doc.text("Boardroom Preparedness for Senior Procurement Professionals", padding + contentWidth / 2, yOffset, { align: "center" });
-            yOffset += 12;
+            const titleWidth = contentWidth - 30 // Set max width for title
+            const titleLines = doc.splitTextToSize("Boardroom Preparedness for Senior Procurement Professionals", titleWidth);
+            doc.text(titleLines, padding + contentWidth / 2, yOffset, { align: "center" });
+            yOffset += titleLines.length * 8; // Adjust yOffset based on number of lines
             doc.setFont("Helvetica", "normal");
             doc.setFontSize(12);
             doc.setTextColor(96, 96, 96);
