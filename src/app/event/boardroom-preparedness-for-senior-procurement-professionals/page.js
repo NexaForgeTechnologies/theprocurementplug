@@ -7,6 +7,7 @@ import EventsOppertunityCTR from '@/containers/events/boardroom/EventOppertunity
 
 import EventsHeroComp from '@/components/events/EventsHeroCompBoard'
 import EventSponserComp from '@/components/events/EventSponserComp'
+import AgendaCTR from '@/containers/events/boardroom/AgendaCTR'
 
 export const metadata = {
     title: 'Boardroom Preparedness',
@@ -37,6 +38,7 @@ function page() {
             <EventsHeroComp />
             <EventBenifitsCTR />
             {/* <EventHighlightCTR /> */}
+            <AgendaCTR />
             <GuestCTR />
             <EventsOppertunityCTR />
             <EventSponserComp />
