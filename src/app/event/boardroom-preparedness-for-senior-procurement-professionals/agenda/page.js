@@ -12,7 +12,7 @@ export default function Home() {
                 "Introduction to the session objectives – Why procurement professionals must master boardroom dynamics",
                 "Keynote welcome  - procurement’s evolving role at the executive level"
             ],
-            speakers: "Annalisha Found, CEO, The Procurement Plug",
+            speakers: "Speaker: Annalisha Found, CEO, The Procurement Plug",
         },
         {
             time: "11:10 - 11:30",
@@ -24,7 +24,7 @@ export default function Home() {
                 "Competency vs. character: balancing experience with adaptability",
                 "The Executive Mindset: adapting to leadership challenges at the highest level"
             ],
-            speakers: "David Loseby",
+            speakers: "Speaker: David Loseby",
         },
         {
             time: "11:30  - 11:45",
@@ -35,7 +35,7 @@ export default function Home() {
                 "Using data to accelerate innovation, sustainability, and competitive advantage",
                 "Building a data-driven culture across procurement and supply functions"
             ],
-            speakers: "Susan Walsh - CEO,  The Classification Guru and Samification ",
+            speakers: "Speaker: Susan Walsh - CEO,  The Classification Guru and Samification ",
         },
         {
             time: "11:45  - 12:00",
@@ -47,7 +47,7 @@ export default function Home() {
                 "How AI and predictive analytics are revolutionising executive search",
                 "Myth busters and truth around executive search "
             ],
-            speakers: "Craig Elvin",
+            speakers: "Speaker: Craig Elvin",
         },
         {
             time: "12:00: - 12:10",
@@ -57,7 +57,7 @@ export default function Home() {
                 "Exclusive follow-up opportunities (mentorship, executive coaching Elevate 2025 - Glasgow)",
                 "Q&A"
             ],
-            speakers: "Annalisha Found and CEO, The Procurement Plug",
+            speakers: "Speaker: Annalisha Found and CEO, The Procurement Plug",
         },
     ];
 
