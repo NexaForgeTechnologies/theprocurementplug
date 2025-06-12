@@ -94,7 +94,7 @@ export default function Home() {
             doc.setFont("Helvetica", "bold");
             doc.setFontSize(36);
             doc.setTextColor(133, 0, 157);
-            doc.text("ELEVATE 2025", padding + contentWidth / 2, yOffset, { align: "center" });
+            doc.text("Boardroom Preparedness for Senior Procurement Professionals", padding + contentWidth / 2, yOffset, { align: "center" });
             yOffset += 12;
             doc.setFont("Helvetica", "normal");
             doc.setFontSize(12);
@@ -169,7 +169,7 @@ export default function Home() {
                         <h2 className="text-lg font-semibold text-[#010101]">View the Full Agenda</h2>
                     </div>
                     <p className="text-gray-600 mb-4">
-                        Download or browse the complete Elevate 2025 agenda below. This executive-level event equips senior procurement professionals with the strategic insights, financial acumen, and leadership skills necessary to excel in boardroom discussions and influence executive decisions.
+                        This executive-level event equips senior procurement professionals with the strategic insights, financial acumen, and leadership skills necessary to excel in boardroom discussions and influence executive decisions.
                     </p>
                     <div className="bg-[#85009D] text-white p-4 rounded flex justify-between items-center">
                         <div className="flex items-center space-x-2">
@@ -201,7 +201,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="mt-4 p-2 bg-white rounded">
-                        <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2025</h3>
+                        <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">Boardroom Preparedness for Senior Procurement Professionals</h3>
                         <p className="text-center text-gray-600">Executive webinar Procurement Leaders</p>
                         <p className="text-center text-gray-600">July 17 2025 | Virtual Webinar</p>
                         <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
