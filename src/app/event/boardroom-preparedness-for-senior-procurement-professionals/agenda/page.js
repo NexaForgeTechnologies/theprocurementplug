@@ -57,7 +57,7 @@ export default function Home() {
                 "Exclusive follow-up opportunities (mentorship, executive coaching Elevate 2025 - Glasgow)",
                 "Q&A"
             ],
-            speakers: "Speaker: Annalisha Found and CEO, The Procurement Plug",
+            speakers: "Speaker: Annalisha Founder and CEO, The Procurement Plug",
         },
     ];
 
