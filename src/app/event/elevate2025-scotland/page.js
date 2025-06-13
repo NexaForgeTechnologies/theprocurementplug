@@ -8,6 +8,7 @@ import EventSponserComp from '@/components/events/EventSponserComp'
 import EventsOppertunityCTR from '@/containers/events/scotland/EventOppertunityCTR'
 
 import GuestCTR from '@/containers/events/scotland/GuestCTR'
+import AgendaCTR from '@/containers/events/scotland/AgendaCTR'
 
 export const metadata = {
     title: 'Elevate Glasgow August 2025',
@@ -38,6 +39,7 @@ function page() {
             <EventsHeroComp />
             <EventBenifitsCTR />
             <EventHighlightCTR />
+            <AgendaCTR />
             <GuestCTR />
             <EventsOppertunityCTR />
             <EventSponserComp />
