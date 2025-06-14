@@ -44,7 +44,7 @@ export default function Home() {
             time: "10:15 - 11:15",
             title: "Learning Breakout Session: Financial & Risk Modeling for Senior Procurement Professionals ",
             description: "",
-            speakers: "Speaker: Francis - tbc",
+            speakers: "Speaker: Francis Ekenimoh",
             moderator: "",
         },
         {
