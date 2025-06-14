@@ -30,7 +30,7 @@ export default function Home() {
             time: "09:40 - 10:00",
             title: "Keynote: Building Resilient Supply Chains in a Volatile Market",
             description: "",
-            speakers: "Speaker: Atanu",
+            speakers: "Speaker: Atanu Chaudhuri",
             moderator: "",
         },
         {
@@ -86,7 +86,7 @@ export default function Home() {
             time: "13:15 - 13:35",
             title: "Keynote: Sustainability & ESG Leadership in Procurement ",
             description: "",
-            speakers: "Speakers: Gillian Askew | & partner",
+            speakers: "Speakers: Gillian Askew",
             moderator: "",
         },
         {
