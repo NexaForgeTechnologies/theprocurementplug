@@ -1,19 +1,20 @@
 import Link from 'next/link'
 import React from 'react'
 
-import PartnerWithUsComp from '@/components/partner-with-us/PartnerWithUsComp'
+import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
+import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import VIPLoungeCTR from '@/containers/business-hub/vip-lounge/VipLoungeCTR'
 
 
 function Breadcrumb() {
     return (
-        <nav className="text-sm breadcrumbs mb-4">
-            <ol className="list-reset flex gap-2 text-gray-600">
+        <nav className="text-sm breadcrumbs my-4 md:my-10">
+            <ol className="list-reset flex gap-2 text-gray-600 whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                 <li>
                     <Link href="/business-hub" className="hover:underline">Business Hub</Link>
                 </li>
                 <li>/</li>
-                <li className="text-gray-900 font-semibold">
+                <li className="text-[#696969]">
                     Vip Lounge
                 </li>
             </ol>
@@ -28,8 +29,8 @@ function page() {
             heading: "Procure Tech Solution",
             text: "",
             link: "",
-            linkText: "View",
-            bgColor: "#85009D"
+            linkText: "View Details",
+            bgColor: ""
         }
         ,
         {
@@ -37,37 +38,59 @@ function page() {
             heading: "PTX",
             text: "",
             link: "",
-            linkText: "View",
-            bgColor: "#85009D"
+            linkText: "View Details",
+            bgColor: ""
         },
         {
             id: 3,
             heading: "Xec Plug",
             text: "",
             link: "",
-            linkText: "View",
-            bgColor: "#85009D"
+            linkText: "View Details",
+            bgColor: ""
         }
     ]
 
     return (
         <>
             <div>
+                <HeroCTR
+                    img="/images/bussiness-hub/vip-lounge/herosection.png"
+                    heading={<span className='flex flex-col gap-0 leading-none'>
+                        <span className="font-extrabold">VIP BUSINESS</span> Lounge
+                    </span>}
+                    para="A VIP Business Lounge offers a quiet, comfortable space
+                with premium services like Wi-Fi, refreshments, and
+                workstations—perfect for business travelers to relax
+                or work before their flight."
+                />
                 <Breadcrumb />
                 <VIPLoungeCTR />
             </div>
 
-
-            <div className="flex flex-col gap-6 md:gap-8">
-                <div className='max-w-[780px] m-auto text-center'>
-                    <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#85009D]'>Partner With Us</h3>
-                    <p className='text-[#85009D] text-sm md:text-lg leading-normal md:leading-relaxed'><strong>partnerships@theprocurementplug.com</strong> - <Link href="/partnerships">Visit our partnership page</Link>
-                    </p>
-                </div>
-                <div className="bg-[#85009D] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 rounded-[8px] p-5 md:p-10 ">
-                    {partnerWithUs?.map((content, idx) => (
-                        <PartnerWithUsComp key={idx} data={content} />
-                    ))}
+            <div className="relative">
+                <div
+                    style={{
+                        backgroundImage: `url("/images/bussiness-hub/vip-lounge/partnerwithus.png")`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        boxShadow: '#00000036 0px 0px 0px 100vmax',
+                        clipPath: 'inset(0 -100vmax)',
+                    }}
+                    className="w-screen ml-[calc(50%-50vw)] h-full absolute top-0 left-0 -z-10"
+                ></div>
+                <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-[8px] py-5 md:py-10 ">
+                    <div className='max-w-[780px] m-auto text-center'>
+                        <h3 className='font-semibold text-[32px] text-[#ffff]'>Partner With Us</h3>
+                        <p className='text-[#ffff] text-sm md:text-base font-medium leading-normal md:leading-relaxed'><strong>partnerships@theprocurementplug.com</strong> - <Link className='font-light' href="/partnerships">Visit our partnership page</Link>
+                        </p>
+                    </div>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
+                        {partnerWithUs?.map((content, idx) => (
+                            <PartnerWithUsComp key={idx} data={content} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

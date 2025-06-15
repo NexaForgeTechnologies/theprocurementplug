@@ -1,4 +1,4 @@
-import ConsultingPartnerTile from "@/components/business-hub/consultinng-partner/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/ConsultingPartnerTile";
 import React from "react";
 
 function VipLoungeCTR() {
@@ -6,50 +6,41 @@ function VipLoungeCTR() {
     {
       id: 1,
       heading: "Collaboration & Thought Leadership",
-      text: "",
+      btntext: "View Details",
       url: "/business-hub/vip-lounge/collaboration-influence",
     },
     {
       id: 2,
       heading: "Featured Business Partners",
-      text: "",
+      btntext: "View Details",
       url: "/business-hub/vip-lounge/featured-business-partners",
     },
     {
       id: 3,
       heading: "Exclusive Intelligent & Reports",
-      text: "",
+      btntext: "View Details",
       url: "/business-hub/vip-lounge/exclusive-intelligence-reports",
     },
     {
       id: 4,
       heading: "Executive Leadership",
-      text: "",
+      btntext: "View Details",
       url: "/business-hub/vip-lounge/executive-leadership",
     },
     {
       id: 5,
       heading: "Innovation Vault",
-      text: "",
+      btntext: "View Details",
       url: "/business-hub/vip-lounge/innovation-vault",
     },
   ];
 
   return (
     <div>
-      <div className="max-w-[780px] m-auto text-center">
-        <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
+      <div>
+        <h3 className="font-semibold text-[32px] md:text-5xl mb-4 md:mb-8 text-[#1B1B1B]">
           VIP Business Lounge
         </h3>
-        <p className="my-8 text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
-          Welcome to the VIP Business Lounge — your gateway to elite
-          connections, strategic insights, and cutting-edge innovation. This
-          exclusive hub is designed for visionary leaders and influential
-          partners to collaborate, access premium intelligence and reports, and
-          explore breakthrough ideas in our Innovation Vault. Whether you're
-          seeking executive leadership content or featured business alliances,
-          this is where future-shaping partnerships begin.
-        </p>
       </div>
 
       {/* Consultant Cards */}
@@ -58,7 +49,7 @@ function VipLoungeCTR() {
           <ConsultingPartnerTile
             key={partner.id}
             heading={partner.heading}
-            text={partner.text}
+            btntext={partner.btntext}
             url={partner.url}
           />
         ))}

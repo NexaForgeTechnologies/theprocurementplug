@@ -1,4 +1,4 @@
-import ConsultingPartnerTile from "@/components/business-hub/consultinng-partner/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/ConsultingPartnerTile";
 import React from "react";
 
 function CollaborationInfluenceCTR() {
@@ -6,42 +6,49 @@ function CollaborationInfluenceCTR() {
     {
       id: 1,
       heading: "VIP Forum",
-      text: "Invite-only discussion board",
+      para: "Invite only discussion board",
+      btntext: "Start a discussion",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum",
     },
     {
       id: 2,
       heading: "Thought Leadership Wall",
-      text: "Showcase member submitted content",
+      para: "Members/Submitted content",
+      smallimg: [
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member1.png",
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member2.png",
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member3.png",
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member4.png",
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member5.png",
+      ],
       url: "/business-hub/vip-lounge/featured-business-partners",
     },
     {
       id: 3,
       heading: "Exclusive Roundtables",
-      text: "Peer roundtable sessions for CPOs and Leaders",
+      para: "Peer roundtable sessions for CPOs and Leaders",
+      btntext: "XecXchange",
       url: "/business-hub/vip-lounge/exclusive-intelligence-reports",
     },
   ];
 
   return (
     <div>
-      <div className="max-w-[780px] m-auto text-center">
-        <h3 className="font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]">
+      <div>
+        <h3 className="font-semibold text-[32px] md:text-5xl mb-4 md:mb-8 text-[#1B1B1B]">
           Collaboration & Thought Leadership
         </h3>
-        <p className="my-8 text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
-          Welcome to the Collaboration & Thought Leadership. Your space to
-          co-create, connect and shape the future of procurement leadership.
-        </p>
       </div>
 
       {/* Pages */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
         {collaboration.map((partner) => (
           <ConsultingPartnerTile
             key={partner.id}
             heading={partner.heading}
-            text={partner.text}
+            para={partner.para}
+            btntext={partner.btntext}
+            smallimg={partner.smallimg} 
             url={partner.url}
           />
         ))}
