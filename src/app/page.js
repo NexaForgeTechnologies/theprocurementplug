@@ -15,7 +15,7 @@ export const metadata = {
     description: 'Your Ultimate Ecosystem for Procurement Excellence.',
     images: [
       {
-        url: 'https://theprocurementplug.com/images/og/main.png',
+        url: 'https://theprocurementplug.com/images/og/main.jpg',
         width: 1200,
         height: 630,
         alt: 'Home',
@@ -26,7 +26,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Home',
     description: 'Your Ultimate Ecosystem for Procurement Excellence.',
-    images: ['https://theprocurementplug.com/images/og/main.png'],
+    images: ['https://theprocurementplug.com/images/og/main.jpg'],
   },
 };
 

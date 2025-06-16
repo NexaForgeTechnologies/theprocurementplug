@@ -17,7 +17,7 @@ export const metadata = {
         description: 'Fast-Track Your Procurement Career & Elevate Your Leadership Skills with Elevate 2025!',
         images: [
             {
-                url: 'https://theprocurementplug.com/images/og/manchester.png',
+                url: 'https://theprocurementplug.com/images/og/manchester.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'Event',
@@ -28,7 +28,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Elevate Manchester June 2025',
         description: 'Fast-Track Your Procurement Career & Elevate Your Leadership Skills with Elevate 2025!',
-        images: ['https://theprocurementplug.com/images/og/manchester.png'],
+        images: ['https://theprocurementplug.com/images/og/manchester.jpg'],
     },
 };
 
