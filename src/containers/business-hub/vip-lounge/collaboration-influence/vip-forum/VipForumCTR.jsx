@@ -170,7 +170,7 @@ function VipForumCTR() {
         <div>
             <div className="flex justify-between align-top flex-col md:flex-row mb-6 md:mb-8">
                 <div>
-                    <h3 className="font-semibold text-[32px] md:text-5xl mb-4 text-[#1B1B1B]">
+                    <h3 className="font-semibold text-[24px] md:text-[32px] md:text-5xl mb-4 text-[#1B1B1B]">
                         VIP Forum
                     </h3>
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-0">Host or join exclusive conversations shaping procurement leadership.</p>

@@ -12,10 +12,10 @@ function CollaborationInfluenceCTR() {
     },
     {
       id: 2,
-      heading: "Exclusive Roundtables",
+      heading: "Executive Roundtables",
       para: "Peer roundtable sessions for CPOs and Leaders",
       btntext: "XecXchange",
-      url: "/business-hub/vip-lounge/collaboration-influence/exclusive-roundtables",
+      url: "/business-hub/vip-lounge/collaboration-influence/executive-roundtables",
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ function CollaborationInfluenceCTR() {
   return (
     <div>
       <div>
-        <h3 className="font-semibold text-[32px] md:text-5xl mb-4 md:mb-8 text-[#1B1B1B]">
+        <h3 className="font-semibold text-[24px] md:text-[32px] md:text-5xl mb-4 md:mb-8 text-[#1B1B1B]">
           Collaboration & Thought Leadership
         </h3>
       </div>

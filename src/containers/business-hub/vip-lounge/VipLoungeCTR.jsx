@@ -38,7 +38,7 @@ function VipLoungeCTR() {
   return (
     <div>
       <div>
-        <h3 className="font-semibold text-[32px] md:text-5xl mb-4 md:mb-8 text-[#1B1B1B]">
+        <h3 className="font-semibold text-[24px] md:text-[32px] md:text-5xl mb-4 md:mb-8 text-[#1B1B1B]">
           VIP Business Lounge
         </h3>
       </div>

@@ -19,13 +19,13 @@ function VipForumCTR() {
         <div>
             <div className="flex justify-between items-center text-start flex-col-reverse md:flex-row mb-6 md:mb-8">
                 <div>
-                    <h3 className="font-semibold text-[32px] md:text-[52px] mb-4 text-[#85009D]">
+                    <h3 className="font-semibold text-[24px] md:text-[52px] mb-4 text-[#85009D]">
                         Future-Proofing <span className="font-normal">Procurement</span>
                     </h3>
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Maria</span></p>
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Time: <span className="font-normal">12:00am to 6:00pm Local time</span></p>
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 font-semibold">Access level: <span className="font-normal">Request to join</span></p>
-                    <h3 className="font-normal text-[32px] md:text-[42px] text-[#B08D57]">
+                    <h3 className="font-normal text-[24px] md:text-[42px] text-[#B08D57]">
                         Sponsored by <span className="font-semibold">Logo</span>
                     </h3>
                 </div>
@@ -40,7 +40,7 @@ function VipForumCTR() {
                 </div>
             </div>
             <div className="bg-[#85009D] rounded-[6px] p-5 text-[#ffff] mb-6 md:mb-8">
-                <h3 className="font-semibold text-[32px] mb-4">
+                <h3 className="font-semibold text-[24px] md:text-[32px] mb-4">
                     Welcome <span className="font-normal">Note👋</span>
                 </h3>
                 <p className="text-[16px] md:text-[24px] mb-4">Welcome! This roundtable explores emerging models for resilient supply chains. Share
@@ -56,7 +56,7 @@ function VipForumCTR() {
             </div>
             <div className="flex flex-col md:flex-row  gap-4">
                 <div>
-                    <h3 className="text-[#1B1B1B] font-semibold text-[32px] mb-4">Live Discussion Thread</h3>
+                    <h3 className="text-[#1B1B1B] font-semibold text-[24px] md:text-[32px] mb-4">Live Discussion Thread</h3>
                     <div className="bg-[#FFFBF5] border-2 border-[#DBBB89] p-5 rounded-[6px]">
                         <div className="mb-4 md:mb-8">
                             <div className="flex flex-wrap gap-2 md:gap-4 items-center mb-4">
@@ -142,7 +142,7 @@ function VipForumCTR() {
                     </div>
                 </div>
                 <div>
-                    <h3 className="text-[#1B1B1B] font-semibold text-[32px] mb-4">Sponsorship</h3>
+                    <h3 className="text-[#1B1B1B] font-semibold text-[24px] md:text-[32px] mb-4">Sponsorship</h3>
                     <div className="bg-[#FFFBF5] border-2 border-[#DBBB89] p-5 rounded-[6px]">
                         <Image
                             src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/logo.png"}
