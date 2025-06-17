@@ -3,7 +3,7 @@ import React from 'react'
 
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import CollaborationInfluenceCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/vip-forum/VipForumCTR'
+import VipForumCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/vip-forum/VipForumCTR'
 
 
 function Breadcrumb() {
@@ -34,7 +34,7 @@ function page() {
     const partnerWithUs = [
         {
             id: 1,
-            heading: "Procure Tech Solution",
+            heading: "Partners hub",
             text: "",
             link: "",
             linkText: "View Details",
@@ -43,7 +43,7 @@ function page() {
         ,
         {
             id: 2,
-            heading: "PTX",
+            heading: "Events hub",
             text: "",
             link: "",
             linkText: "View Details",
@@ -51,7 +51,7 @@ function page() {
         },
         {
             id: 3,
-            heading: "Xec Plug",
+            heading: "Business hub",
             text: "",
             link: "",
             linkText: "View Details",
@@ -73,7 +73,7 @@ function page() {
                     connections and impactful collaboration."
                 />
                 <Breadcrumb />
-                <CollaborationInfluenceCTR />
+                <VipForumCTR />
             </div>
 
             <div className="relative">

@@ -3,7 +3,7 @@ import React from 'react'
 
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import CollaborationInfluenceCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/CollaborationInfluenceCTR'
+import FutureProofingCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement/FutureProofingCTR'
 
 
 function Breadcrumb() {
@@ -18,8 +18,16 @@ function Breadcrumb() {
                     <Link href="/business-hub/vip-lounge" className="hover:underline">Vip Lounge</Link>
                 </li>
                 <li>/</li>
+                <li>
+                    <Link href="/business-hub/vip-lounge/collaboration-influence" className="hover:underline">Collaboration & Influence Zone</Link>
+                </li>
+                <li>/</li>
+                <li>
+                    <Link href="/business-hub/vip-lounge/collaboration-influence/vip-forum" className="hover:underline">VIP Forum</Link>
+                </li>
+                <li>/</li>
                 <li className="text-[#696969] ">
-                    Collaboration & Influence Zone
+                    Future-proofing procurement
                 </li>
             </ol>
         </nav>
@@ -59,23 +67,18 @@ function page() {
         <>
             <div>
                 <HeroCTR
-                    img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/herosection.png"
-                    heading={
-                        <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Collaboration &</span>
-                            <span>
-                                <span className="font-extrabold">Influence</span> Zone
-                            </span>
-                        </span>
-                    }
-                    para="The Collaboration & Influence Zone is where teamwork
-                    meets impact, focusing on building trust, sharing ideas,
-                    and guiding others toward shared goals."
+                    img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
+                    heading={<span className='flex flex-col gap-0 leading-none'>
+                        <span className="font-extrabold">Future-Proofing</span> Procurement
+                    </span>}
+                    para="Future-proofing procurement means using smart
+                    technology and flexible strategies to stay ahead of
+                    market changes. It helps businesses reduce risks,
+                    stay efficient, and adapt quickly to future needs."
                 />
                 <Breadcrumb />
-                <CollaborationInfluenceCTR />
+                <FutureProofingCTR />
             </div>
-
             <div className="relative">
                 <div
                     style={{

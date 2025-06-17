@@ -12,8 +12,15 @@ function CollaborationInfluenceCTR() {
     },
     {
       id: 2,
+      heading: "Exclusive Roundtables",
+      para: "Peer roundtable sessions for CPOs and Leaders",
+      btntext: "XecXchange",
+      url: "/business-hub/vip-lounge/collaboration-influence/exclusive-roundtables",
+    },
+    {
+      id: 3,
       heading: "Thought Leadership Wall",
-      para: "Members/Submitted content",
+      para: "Members/Submitted content, Insights & Contributions from Our Community",
       smallimg: [
         "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member1.png",
         "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member2.png",
@@ -21,14 +28,8 @@ function CollaborationInfluenceCTR() {
         "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member4.png",
         "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member5.png",
       ],
-      url: "/business-hub/vip-lounge/featured-business-partners",
-    },
-    {
-      id: 3,
-      heading: "Exclusive Roundtables",
-      para: "Peer roundtable sessions for CPOs and Leaders",
-      btntext: "XecXchange",
-      url: "/business-hub/vip-lounge/exclusive-intelligence-reports",
+      btntext: "View Details",
+      url: "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall",
     },
   ];
 
@@ -48,7 +49,7 @@ function CollaborationInfluenceCTR() {
             heading={partner.heading}
             para={partner.para}
             btntext={partner.btntext}
-            smallimg={partner.smallimg} 
+            smallimg={partner.smallimg}
             url={partner.url}
           />
         ))}

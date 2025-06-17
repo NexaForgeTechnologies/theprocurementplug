@@ -3,7 +3,7 @@ import React from 'react'
 
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import CollaborationInfluenceCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/CollaborationInfluenceCTR'
+import ThoughtLeadershipWallCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/ThoughtLeadershipWallCTR'
 
 
 function Breadcrumb() {
@@ -18,8 +18,12 @@ function Breadcrumb() {
                     <Link href="/business-hub/vip-lounge" className="hover:underline">Vip Lounge</Link>
                 </li>
                 <li>/</li>
+                <li>
+                    <Link href="/business-hub/vip-lounge/collaboration-influence" className="hover:underline"> Collaboration & Influence Zone</Link>
+                </li>
+                <li>/</li>
                 <li className="text-[#696969] ">
-                    Collaboration & Influence Zone
+                    Thought Leadership Wall
                 </li>
             </ol>
         </nav>
@@ -59,21 +63,16 @@ function page() {
         <>
             <div>
                 <HeroCTR
-                    img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/herosection.png"
-                    heading={
-                        <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Collaboration &</span>
-                            <span>
-                                <span className="font-extrabold">Influence</span> Zone
-                            </span>
-                        </span>
-                    }
-                    para="The Collaboration & Influence Zone is where teamwork
-                    meets impact, focusing on building trust, sharing ideas,
-                    and guiding others toward shared goals."
+                    img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/herosection.png"
+                    heading={<span className='flex flex-col gap-0 leading-none'>
+                        <span className="font-extrabold">Thought Leadership</span>Wall
+                    </span>}
+                    para="The Thought Leadership Wall highlights bold ideas, expert
+                    insights, and visionary voices—sparking inspiration and
+                    showcasing innovation within the organization."
                 />
                 <Breadcrumb />
-                <CollaborationInfluenceCTR />
+                <ThoughtLeadershipWallCTR />
             </div>
 
             <div className="relative">

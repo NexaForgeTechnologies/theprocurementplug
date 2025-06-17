@@ -1,9 +1,8 @@
 "use client"
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/ConsultingPartnerTile";
-// import React from "react";
 import React, { useState } from "react";
 
-function CollaborationInfluenceCTR() {
+function VipForumCTR() {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8; // Show 8 items per page
     const collaboration = [
@@ -240,4 +239,4 @@ function CollaborationInfluenceCTR() {
     );
 }
 
-export default CollaborationInfluenceCTR;
+export default VipForumCTR;
