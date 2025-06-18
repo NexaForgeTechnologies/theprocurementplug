@@ -11,9 +11,9 @@ function VipLoungeCTR() {
     },
     {
       id: 2,
-      heading: "Featured Business Partners",
+      heading: "Exclusive Business Partners",
       btntext: "View Details",
-      url: "/business-hub/vip-lounge/featured-business-partners",
+      url: "/business-hub/vip-lounge/exclusive-business-partners",
     },
     {
       id: 3,
