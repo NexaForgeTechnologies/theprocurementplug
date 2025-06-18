@@ -350,19 +350,19 @@ function ThoughtLeadershipWallCTR() {
                             type="text"
                             name="headline"
                             placeholder="Enter Headline"
-                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px]"
+                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
                         />
                         <input
                             required
                             type="text"
                             name="summary"
                             placeholder="Enter Summary"
-                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4  rounded-[2px]"
+                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4  rounded-[2px] focus:outline-none focus:border-[#85009D]"
                         />
                         <select
                             required
                             name="tag"
-                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px]"
+                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
                         >
                             <option value="" disabled selected>
                                 Select Category
