@@ -8,14 +8,12 @@ const ImageSlider = ({ images }) => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 7,
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
     cssEase: 'linear',
     arrows: false,
-    centerMode: true, // Centers the active slide
-    centerPadding: '0px', // Adjust padding for centered slides
     responsive: [
       {
         breakpoint: 1024,
@@ -39,20 +37,22 @@ const ImageSlider = ({ images }) => {
   };
 
   return (
-    <div className="w-full overflow-hidden">
-      <Slider {...settings}>
-        {images.map((image, index) => (
-          <div key={index} className="px-2">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width}
-              height={image.height}
-              className="object-contain"
-            />
-          </div>
-        ))}
-      </Slider>
+    <div className='relative'>
+      <div className="w-screen ml-[calc(50%-50vw)] h-full absolute top-0 left-0 -z-10">
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index} className="px-2">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                className="object-contain"
+              />
+            </div>
+          ))}
+        </Slider>
+      </div >
     </div>
   );
 };
