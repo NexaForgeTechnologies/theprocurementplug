@@ -47,13 +47,13 @@ export default function Home() {
             speakers: "Speaker: Laura Scarfe",
             moderator: "",
         },
-        {
+        /*{ updated by abubakar
             time: "10:15 - 11:15",
             title: "Learning Breakout: The Power of Stakeholder Influence",
             description: "",
             speakers: "Speakers: Blessed S. Agyemang / Christoper Robinson",
             moderator: "",
-        },
+        },*/
         {
             time: "11:15 - 11:30",
             title: "Networking Break",
@@ -65,7 +65,7 @@ export default function Home() {
             time: "11:30 - 12:00",
             title: "Panel: Procurement Leadership & Career Growth",
             description: "",
-            speakers: "Speakers: Susannah Gooch, Fraser McBeth, Josh, Caple, Miranda Gordon, Adwoa Owusu Banahene",
+            speakers: "Speakers: Susannah Gooch, Fraser McBeth, Josh Caple, Miranda Gordon, Adwoa Owusu Banahene",
             moderator: "Voice of the Day & Moderator: Jyothi Hartley",
         },
         {
@@ -77,21 +77,21 @@ export default function Home() {
         },
         {
             time: "13:20 - 14:00",
-            title: "Panel: Driving Innovation - Procurement Innovation, Sustainability & Agility",
+            title: "Panel: Driving Innovation - Procurement Innovation, Sustainability & Agility - Public and Private sector",
             description: "",
             speakers: "Speakers: Oliver Jones, Christopher Robinson, Fleur Summers, Blessed S. Agyemang, Lewis Sinkala",
             moderator: "Voice of the Day & Moderator: Jyothi Hartley",
         },
         {
             time: "14:05 - 15:05",
-            title: "Learning Breakout: Digital Procurement & Data Analytics",
+            title: "Learning Breakout Session: The Power of Stakeholder Influence",
             description: "",
-            speakers: "Speaker: Sarah Socha",
+            speakers: "Speakers: Blessed S. Agyemang | Christopher Robinson",
             moderator: "",
         },
         {
             time: "14:05 - 15:05",
-            title: "Learning Breakout: Contract Management & Commercial Awareness",
+            title: "Learning Breakout Session: Contract Management & Commercial Awareness",
             description: "",
             speakers: "Speaker: Miranda Gordon",
             moderator: "",
