@@ -25,7 +25,7 @@ function ExclusiveBusinessPartnersCTR() {
             sponsor: "",
             btntext: "View Summary",
             bigimg: "",
-            url: "",
+            url: "/business-hub/vip-lounge/exclusive-intelligence-reports/market-research",
         },
         {
             id: 3,
