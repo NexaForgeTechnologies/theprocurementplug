@@ -25,7 +25,7 @@ export const metadata = {
         siteName: 'The Procurement Plug',
         images: [
             {
-                url: 'https://theprocurementplug.com/images/og/boardroom.jpg',
+                url: 'https://theprocurementplug.com/images/og/boardroom.jpg?v=2',
                 width: 1200,
                 height: 630,
                 alt: 'Boardroom Event',
@@ -37,7 +37,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Boardroom Preparedness',
         description: 'Unlock the Skills to Secure Your Seat at the Boardroom Table',
-        images: ['https://theprocurementplug.com/images/og/boardroom.jpg'],
+        images: ['https://theprocurementplug.com/images/og/boardroom.jpg?v=2'],
         site: '@theprocplug', // optional if you have a Twitter handle
         creator: '@theprocplug', // optional
     },
