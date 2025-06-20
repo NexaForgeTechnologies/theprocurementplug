@@ -75,32 +75,7 @@ function page() {
                 <Breadcrumb />
                 <VipForumCTR />
             </div>
-
-            <div className="relative">
-                <div
-                    style={{
-                        backgroundImage: `url("/images/bussiness-hub/vip-lounge/partnerwithus.png")`,
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        backgroundRepeat: 'no-repeat',
-                        boxShadow: '#00000036 0px 0px 0px 100vmax',
-                        clipPath: 'inset(0 -100vmax)',
-                    }}
-                    className="w-screen ml-[calc(50%-50vw)] h-full absolute top-0 left-0 -z-10"
-                ></div>
-                <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-[8px] py-5 md:py-10 ">
-                    <div className='max-w-[780px] m-auto text-center'>
-                        <h3 className='font-semibold text-[32px] text-[#ffff]'>Partner With Us</h3>
-                        <p className='text-[#ffff] text-sm md:text-base font-medium leading-normal md:leading-relaxed'><strong>partnerships@theprocurementplug.com</strong> - <Link className='font-light' href="/partnerships">Visit our partnership page</Link>
-                        </p>
-                    </div>
-                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
-                        {partnerWithUs?.map((content, idx) => (
-                            <PartnerWithUsComp key={idx} data={content} />
-                        ))}
-                    </div>
-                </div>
-            </div>
+            <PartnerWithUsComp data={partnerWithUs} />
         </>
     )
 }
