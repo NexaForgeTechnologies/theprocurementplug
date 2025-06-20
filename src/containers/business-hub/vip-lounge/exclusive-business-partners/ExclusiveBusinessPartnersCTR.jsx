@@ -187,7 +187,7 @@ function ExclusiveBusinessPartnersCTR() {
                     </div>
                 </div>
             </div>
-            <div className="w-full h-[2px] bg-[#85009D] mb-4 md:mb-8"></div>
+            {/* <div className="w-full h-[2px] bg-[#85009D] mb-4 md:mb-8"></div>
             <div className='rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5]  p-5 w-full'>
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1B1B1B]">
                     Partnership Inquiry Form
@@ -204,9 +204,10 @@ function ExclusiveBusinessPartnersCTR() {
                         <select
                             required
                             name="tag"
+                            defaultValue=""
                             className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
                         >
-                            <option value="" disabled selected>
+                            <option value="" disabled>
                                 Select Category
                             </option>
                             <option value="Technology">Technology</option>
@@ -230,7 +231,7 @@ function ExclusiveBusinessPartnersCTR() {
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }

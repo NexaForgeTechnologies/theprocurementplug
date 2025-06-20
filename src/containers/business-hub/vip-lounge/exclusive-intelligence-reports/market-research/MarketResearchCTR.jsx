@@ -1,5 +1,5 @@
 "use client"
-import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/FeatureReportTile";
 import ImageSlider from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/ImageSlider"
 import Image from "next/image";
 
@@ -11,7 +11,7 @@ function MarketResearchCTR() {
             tag: "Sponsored",
             heading: "Procurement in the AI Era – 2025 Outlook",
             para: (
-                <div className="flex items-center">
+                <span className="flex items-center">
                     <span>Format: </span>
                     <Image
                         src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
@@ -20,18 +20,18 @@ function MarketResearchCTR() {
                         height={24}
                         className="ml-2"
                     />
-                </div>
+                </span>
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/futuristic.png",
-            download: "/files/dummy.pdf",
+            url: "/files/dummy.pdf",
         },
         {
             id: 2,
             tag: "Updated",
             heading: "UK Salary Tracker (Q2 Edition)",
             para: (
-                <div className="flex items-center">
+                <span className="flex items-center">
                     <span>Format: </span>
                     <Image
                         src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
@@ -40,18 +40,18 @@ function MarketResearchCTR() {
                         height={24}
                         className="ml-2"
                     />
-                </div>
+                </span>
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/modernonitior.png",
-            download: "/files/dummy.pdf",
+            url: "/files/dummy.pdf",
         },
         {
             id: 3,
             tag: "Sponsored",
             heading: "Top 5 Digital Procurement Vendors Comparison",
             para: (
-                <div className="flex items-center">
+                <span className="flex items-center">
                     <span>Format: </span>
                     <Image
                         src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
@@ -60,18 +60,18 @@ function MarketResearchCTR() {
                         height={24}
                         className="ml-2"
                     />
-                </div>
+                </span>
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/bussiness.png",
-            download: "/files/dummy.pdf",
+            url: "/files/dummy.pdf",
         },
         {
             id: 4,
             tag: "New",
             heading: "FM & Utilities Category Report",
             para: (
-                <div className="flex items-center">
+                <span className="flex items-center">
                     <span>Format: </span>
                     <Image
                         src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
@@ -80,11 +80,11 @@ function MarketResearchCTR() {
                         height={24}
                         className="ml-2"
                     />
-                </div>
+                </span>
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/table.png",
-            download: "/files/dummy.pdf",
+            url: "/files/dummy.pdf",
         },
     ];
     const images = [
@@ -169,7 +169,7 @@ function MarketResearchCTR() {
                             para={partner.para}
                             btntext={partner.btntext}
                             bigimg={partner.bigimg}
-                            download={partner.download}
+                            url={partner.url}
                         />
                     ))}
                 </div>
@@ -177,9 +177,10 @@ function MarketResearchCTR() {
                     <select
                         required
                         name="tag"
+                        defaultValue=""
                         className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[6px] focus:outline-none focus:border-[#85009D]"
                     >
-                        <option value="" disabled selected>
+                        <option value="" disabled>
                             Industry
                         </option>
                         <option value="Technology">Technology</option>
@@ -190,9 +191,10 @@ function MarketResearchCTR() {
                     <select
                         required
                         name="tag"
+                        defaultValue=""
                         className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[6px] focus:outline-none focus:border-[#85009D]"
                     >
-                        <option value="" disabled selected>
+                        <option value="" disabled>
                             Report Type
                         </option>
                         <option value="Technology">Technology</option>
@@ -203,9 +205,10 @@ function MarketResearchCTR() {
                     <select
                         required
                         name="tag"
+                        defaultValue=""
                         className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[6px] focus:outline-none focus:border-[#85009D]"
                     >
-                        <option value="" disabled selected>
+                        <option value="" disabled>
                             Sponsor Filter
                         </option>
                         <option value="Technology">Technology</option>

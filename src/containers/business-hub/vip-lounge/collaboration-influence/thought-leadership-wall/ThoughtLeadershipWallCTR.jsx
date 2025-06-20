@@ -354,9 +354,10 @@ function ThoughtLeadershipWallCTR() {
                         <select
                             required
                             name="tag"
+                            defaultValue=""
                             className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
                         >
-                            <option value="" disabled selected>
+                            <option value="" disabled>
                                 Select Category
                             </option>
                             <option value="Technology">Technology</option>

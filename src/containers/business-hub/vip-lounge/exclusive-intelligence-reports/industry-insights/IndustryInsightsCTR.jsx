@@ -1,10 +1,10 @@
 "use client"
-import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/ConsultingPartnerTile";
-import ReportTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/ConsultingPartnerTile";
+import MonthHightlightTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/MonthHightlightTile";
+import ReportTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/reportTile";
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom'
 
-function MarketResearchCTR() {
+function IndustryInsightsCTR() {
 
     const collaboration = [
         {
@@ -95,7 +95,7 @@ function MarketResearchCTR() {
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6  mb-4 md:mb-8">
                     {collaboration.map((partner) => (
-                        <ConsultingPartnerTile
+                        <MonthHightlightTile
                             key={partner.id}
                             tag={partner.tag}
                             heading={partner.heading}
@@ -142,4 +142,4 @@ function MarketResearchCTR() {
     );
 }
 
-export default MarketResearchCTR;
+export default IndustryInsightsCTR;
