@@ -24,7 +24,7 @@ function MarketResearchCTR() {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/futuristic.png",
-            url: "",
+            download: "/files/dummy.pdf",
         },
         {
             id: 2,
@@ -44,7 +44,7 @@ function MarketResearchCTR() {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/modernonitior.png",
-            url: "",
+            download: "/files/dummy.pdf",
         },
         {
             id: 3,
@@ -64,7 +64,7 @@ function MarketResearchCTR() {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/bussiness.png",
-            url: "",
+            download: "/files/dummy.pdf",
         },
         {
             id: 4,
@@ -84,7 +84,7 @@ function MarketResearchCTR() {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/table.png",
-            url: "",
+            download: "/files/dummy.pdf",
         },
     ];
     const images = [
@@ -169,7 +169,7 @@ function MarketResearchCTR() {
                             para={partner.para}
                             btntext={partner.btntext}
                             bigimg={partner.bigimg}
-                            url={partner.url}
+                            download={partner.download}
                         />
                     ))}
                 </div>
@@ -180,7 +180,7 @@ function MarketResearchCTR() {
                         className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[6px] focus:outline-none focus:border-[#85009D]"
                     >
                         <option value="" disabled selected>
-                            Select Category
+                            Industry
                         </option>
                         <option value="Technology">Technology</option>
                         <option value="Business">Business</option>
@@ -193,7 +193,7 @@ function MarketResearchCTR() {
                         className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[6px] focus:outline-none focus:border-[#85009D]"
                     >
                         <option value="" disabled selected>
-                            Select Category
+                            Report Type
                         </option>
                         <option value="Technology">Technology</option>
                         <option value="Business">Business</option>
@@ -206,7 +206,7 @@ function MarketResearchCTR() {
                         className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[6px] focus:outline-none focus:border-[#85009D]"
                     >
                         <option value="" disabled selected>
-                            Select Category
+                            Sponsor Filter
                         </option>
                         <option value="Technology">Technology</option>
                         <option value="Business">Business</option>

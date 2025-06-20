@@ -14,7 +14,7 @@ function ExclusiveBusinessPartnersCTR() {
             sponsor: "",
             btntext: "View Summary",
             bigimg: "",
-            url: "",
+            url: "/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights",
         },
         {
             id: 2,

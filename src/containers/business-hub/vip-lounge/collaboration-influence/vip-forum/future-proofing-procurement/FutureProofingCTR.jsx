@@ -23,7 +23,7 @@ function VipForumCTR() {
                         Future-Proofing <span className="font-normal">Procurement</span>
                     </h3>
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Maria</span></p>
-                    <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Time: <span className="font-normal">12:00am to 6:00pm Local time</span></p>
+                    {/* <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Time: <span className="font-normal">12:00am to 6:00pm Local time</span></p> */}
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 font-semibold">Access level: <span className="font-normal">Request to join</span></p>
                     <h3 className="font-normal text-[24px] md:text-[42px] text-[#B08D57]">
                         Sponsored by <span className="font-semibold">Logo</span>

@@ -3,7 +3,7 @@ import React from 'react'
 
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import MarketResearchCTR from '@/containers/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/MarketResearchCTR'
+import IndustryInsightsCTR from '@/containers/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/IndustryInsightsCTR'
 
 
 function Breadcrumb() {
@@ -23,7 +23,7 @@ function Breadcrumb() {
                 </li>
                 <li>/</li>
                 <li className="text-[#696969] ">
-                    Market Research
+                    Industry Insights
                 </li>
             </ol>
         </nav>
@@ -63,17 +63,17 @@ function page() {
         <>
             <div>
                 <HeroCTR
-                    img="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/herosection.png"
+                    img="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Market
-                        </span> Research
+                        <span className="font-extrabold">Industry
+                        </span> Insights
                     </span>}
-                    para="Market research provides insights into customer
-                    needs, trends, and competition—empowering
-                    smarter business decisions and strategic growth."
+                    para="Industry insights reveal key trends and shifts
+                     helping businesses stay competitive and
+                     make informed decisions."
                 />
                 <Breadcrumb />
-                <MarketResearchCTR />
+                <IndustryInsightsCTR />
             </div>
 
             <div className="relative">

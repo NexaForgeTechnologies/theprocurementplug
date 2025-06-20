@@ -120,6 +120,7 @@
 "use client"
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/ConsultingPartnerTile";
 import LeaderboardTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/LeaderboardTile";
+import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import Image from "next/image";
 import React from "react";
 
@@ -214,6 +215,15 @@ function ThoughtLeadershipWallCTR() {
     const col1Items = collaboration.length >= 4 ? [collaboration[0], collaboration[2], collaboration[3]] : collaboration.slice(0, Math.floor(collaboration.length / 2));
     const col2Items = collaboration.length >= 4 ? [collaboration[1]] : collaboration.slice(Math.floor(collaboration.length / 2));
 
+    const categories = [
+        "Strategic Sourcing",
+        "Automation & AI",
+        "ESG & Social Value",
+        "Cross-Industry Insights",
+        "Career & Personal Growth",
+        "Boardroom Readiness",
+    ];
+
     return (
         <div>
             <div className="mb-4 md:mb-8">
@@ -232,25 +242,7 @@ function ThoughtLeadershipWallCTR() {
                     </button>
                 </div>
             </div>
-            <div
-                style={{
-                    boxShadow: "0 0 0 100vmax #85009D",
-                    clipPath: "inset(0 -100vmax)",
-                }}
-                className="bg-[#85009D] py-5 md:py-10 text-center mb-4 md:mb-8"
-            >
-                <h3 className="font-semibold text-[24px] md:text-[32px] md:text-5xl mb-4 md:mb-8 text-[#ffff]">
-                    Categories Bar
-                </h3>
-                <div className="flex justify-center gap-4 flex-wrap flex-col md:flex-row">
-                    <p className="text-[16px] md:text-[24px] text-[#85009D] border-2 border-[#D09B48] rounded-[6px] bg-[#ffff] py-3 px-4">Strategic Sourcing</p>
-                    <p className="text-[16px] md:text-[24px] text-[#85009D] border-2 border-[#D09B48] rounded-[6px] bg-[#ffff] py-3 px-4">Automation & AI</p>
-                    <p className="text-[16px] md:text-[24px] text-[#85009D] border-2 border-[#D09B48] rounded-[6px] bg-[#ffff] py-3 px-4">ESG & Social Value</p>
-                    <p className="text-[16px] md:text-[24px] text-[#85009D] border-2 border-[#D09B48] rounded-[6px] bg-[#ffff] py-3 px-4">Cross-Industry Insights</p>
-                    <p className="text-[16px] md:text-[24px] text-[#85009D] border-2 border-[#D09B48] rounded-[6px] bg-[#ffff] py-3 px-4">Career & Personal Growth</p>
-                    <p className="text-[16px] md:text-[24px] text-[#85009D] border-2 border-[#D09B48] rounded-[6px] bg-[#ffff] py-3 px-4">Boardroom Readiness</p>
-                </div>
-            </div>
+            <CategoriesBar categories={categories} />
             {/* Combined Spotlight and Leaderboard Section */}
             <div className="mb-4 md:mb-8">
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 md:mb-8 text-[#1B1B1B]">
