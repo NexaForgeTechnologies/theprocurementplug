@@ -82,7 +82,7 @@ function GuessCTR() {
     {
       id: 10,
       img: "/images/guess/guess-8.jpg",
-      heading: "Christoper Robinson",
+      heading: "Christopher Robinson",
       // subHeading: "Keynote",
       // text1: "Associate Director",
       text1: "Procurement Podcast Co-Host",
