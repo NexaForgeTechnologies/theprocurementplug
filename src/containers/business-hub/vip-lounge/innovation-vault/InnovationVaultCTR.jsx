@@ -146,7 +146,9 @@ const InnovationVaultCTR = () => {
           future-shaping solutions.
         </p>
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <ArrowButtonCom text="Explore Tools" />
+          <Link href="innovation-vault/explore-tools">
+            <ArrowButtonCom text="Explore Tools" />
+          </Link>
           <ArrowButtonCom text="Join a Pilot Program" />
           <ArrowButtonCom text="Suggest a Solution" />
         </div>

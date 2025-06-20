@@ -14,7 +14,7 @@ function HeroCTR({ img, heading, para }) {
                 }}
                 className="w-screen ml-[calc(50%-50vw)] h-full absolute">
             </div>
-            <div className="relative z-10 py-20 md:py-28 max-w-[500px] flex flex-col gap-4">
+            <div className="relative z-10 py-20 md:py-28 max-w-[540px] flex flex-col gap-4">
                 <h2 className="text-[#ffff] text-[30px] md:text-[52px] font-medium md:font-medium">
                     {heading}
                 </h2>
