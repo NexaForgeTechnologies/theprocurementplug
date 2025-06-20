@@ -1,8 +1,10 @@
+import React from "react";
+import Link from "next/link";
+
 import NewTechComp from "@/components/business-hub/vip-lounge/innovation-vault/NewTechComp";
 import HeroCTR from "@/components/business-hub/vip-lounge/VipHeroSection";
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
-import Link from "next/link";
-import React from "react";
+import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 
 function Breadcrumb() {
   return (
@@ -102,6 +104,27 @@ const InnovationVaultCTR = () => {
     },
   ];
 
+  const partnerWithUs = [
+    {
+      id: 1,
+      heading: "Partners hub",
+      link: "",
+      linkText: "View Details",
+    },
+    {
+      id: 2,
+      heading: "Events hub",
+      link: "",
+      linkText: "View Details",
+    },
+    {
+      id: 3,
+      heading: "Business hub",
+      link: "",
+      linkText: "View Details",
+    },
+  ];
+
   return (
     <>
       <div className="border-b-2 border-[#85009D] pb-8 sm:pb-12">
@@ -148,7 +171,7 @@ const InnovationVaultCTR = () => {
           ))}
         </div>
       </div>
-      <div className="border-b-2 border-[#85009D] pb-8 sm:pb-12">
+      <div>
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
           Recently Added to the Vault
         </h3>
@@ -164,6 +187,38 @@ const InnovationVaultCTR = () => {
           </p>
         </div>
       </div>
+      <div className="flex flex-col gap-2 border border-[#DBBB89] rounded-[6px] p-4 bg-[#FFFBF5]">
+        <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+          Suggest a Tool
+        </h3>
+        <p className="text-[#363636]">
+          Know something that should be in the Vault?
+        </p>
+        <div className="my-4 grid grid-cols-2 gap-6 text-[#808080]">
+          <input
+            type="text"
+            placeholder="Tool name"
+            className="bg-[#FFFFFF] rounded-sm focus:outline-2 focus:outline-[#85009D] border border-[#85009D] p-4
+             col-span-2 sm:col-span-1"
+          />
+          <input
+            type="text"
+            placeholder="link (url)"
+            className="bg-[#FFFFFF] rounded-sm focus:outline-2 focus:outline-[#85009D] border border-[#85009D] p-4 
+             col-span-2 sm:col-span-1"
+          />
+          <textarea
+            placeholder="Reason for submission"
+            rows={4}
+            type="text"
+            className="w-full bg-[#FFFFFF] rounded-sm focus:outline-2 focus:outline-[#85009D] border border-[#85009D] p-4 col-span-2"
+          />
+        </div>
+        <div className="sm:max-w-max">
+          <ArrowButtonCom text="Submit" />
+        </div>
+      </div>
+      <PartnerWithUsComp data={partnerWithUs} />
     </>
   );
 };
