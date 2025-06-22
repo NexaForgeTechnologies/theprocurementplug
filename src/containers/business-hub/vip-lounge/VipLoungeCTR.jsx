@@ -37,7 +37,7 @@ function VipLoungeCTR() {
       id: 6,
       heading: "Talent & Hiring Intelligence",
       btntext: "View Details",
-      url: "/business-hub/vip-lounge/talent-Hiring-iIntelligence",
+      url: "/business-hub/vip-lounge/talent-hiring-intelligence",
     },
   ];
 
