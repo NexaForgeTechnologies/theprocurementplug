@@ -182,20 +182,28 @@ function ExclusiveBusinessPartnersCTR() {
                             Beta for agile talent matching and
                             AchieveMeter Beta for smart goal tracking.</p>
                         <div className="flex flex-wrap justify-center md:justify-start items-center gap-6">
-                            <Image
-                                src={"/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/beta2.png"}
-                                alt="member"
-                                width={152}
-                                height={64}
-                                className="w-[152px] h-[64px]"
-                            />
-                            <Image
-                                src={"/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/beta1.png"}
-                                alt="member"
-                                width={226}
-                                height={65}
-                                className="w-[226px] h-[65px]"
-                            />
+                            <Link
+                                href={"/business-hub/vip-lounge/talent-hiring-intelligence/talent-xchange-beta"}
+                            >
+                                <Image
+                                    src={"/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/beta2.png"}
+                                    alt="member"
+                                    width={152}
+                                    height={64}
+                                    className="w-[152px] h-[64px]"
+                                />
+                            </Link>
+                            <Link
+                                href={"/business-hub/vip-lounge/talent-hiring-intelligence/achieveMeter-beta"}
+                            >
+                                <Image
+                                    src={"/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/beta1.png"}
+                                    alt="member"
+                                    width={226}
+                                    height={65}
+                                    className="w-[226px] h-[65px]"
+                                />
+                            </Link>
                         </div>
                     </div>
                 </div>
