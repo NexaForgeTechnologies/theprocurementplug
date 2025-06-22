@@ -173,7 +173,7 @@ function MarketResearchCTR() {
                         />
                     ))}
                 </div>
-                <div className="flex gap-4 max-w-[761px] m-auto mb-4">
+                <div className="max-w-[1100px] m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-4 md:mb-8">
                     <select
                         required
                         name="tag"
@@ -216,6 +216,10 @@ function MarketResearchCTR() {
                         <option value="Marketing">Marketing</option>
                         <option value="Design">Design</option>
                     </select>
+                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                        View All Market Research
+                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                    </button>
                 </div>
             </div>
             <div>

@@ -6,7 +6,7 @@ function ConsultingPartnerTile({ heading, para, sponsor, btntext, bigimg, smalli
   return (
     <Link
       href={url}
-      className="w-full rounded-[6px] border border-[#DBBB89] hover:border-[#85009D] bg-[#FFFBF5] hover:bg-[#85009D] p-5 flex flex-col-reverse md:flex-row text-center md:text-start justify-center md:justify-between gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
+      className="w-full rounded-[6px] border border-[#DBBB89] hover:border-[#85009D] bg-[#FFFBF5] hover:bg-[#85009D] p-5 flex flex-col-reverse md:flex-row text-center md:text-start justify-center md:justify-between gap-6 items-center text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
     >
       <div className="flex flex-col items-center md:items-start gap-4">
         {tag && <p className="text-[12px] border-1 border-[#85009D] rounded-[0.5px] px-1 bg-[#ffff] text-[#1B1B1B]">{tag}</p>}

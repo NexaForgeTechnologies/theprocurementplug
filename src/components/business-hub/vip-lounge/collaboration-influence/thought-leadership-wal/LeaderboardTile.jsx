@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 
 
-const LeaderboardTile = ({ rank, name, metric, image }) => {
+const LeaderboardTile = ({ rank, name, metric, image, medalImage }) => {
     return (
         <div className="flex items-center justify-between bg-[#FFFBF5] pb-2 mb-2 border-b-2 border-[#DBBB89] last:border-b-0 last:mb-0">
             <div className="flex items-center gap-4">
@@ -19,13 +19,15 @@ const LeaderboardTile = ({ rank, name, metric, image }) => {
                     <span className="text-[#808080] font-normal">{metric}</span>
                 </div>
             </div>
-            <Image
-                src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/gold.png"
-                alt="medal"
-                width={44}
-                height={70}
-                className="w-[44px] h-[70px]"
-            />
+            {medalImage && (
+                <Image
+                    src={medalImage}
+                    alt="medal"
+                    width={44}
+                    height={70}
+                    className="w-[44px] h-[70px]"
+                />
+            )}
         </div>
     );
 };

@@ -47,7 +47,7 @@ function ExecutiveRoundtablesCTR() {
                     <p className="text-[16px] md:text-[20px] text-[#808080]">Align with execs by challenge, industry, or investment type</p>
                 </div>
             </div>
-            <div className="flex gap-2 md:gap-4 items-start">
+            <div className="flex gap-2 md:gap-4 items-start mb-4 md:mb-8">
                 <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                 <div>
                     <h3 className="font-normal text-[20px] md:text-[24px] mb-2 md:mb-4 text-[#1B1B1B]">
@@ -56,6 +56,10 @@ function ExecutiveRoundtablesCTR() {
                     <p className="text-[16px] md:text-[20px] text-[#808080]">Books, whitepapers, roundtable transcrip</p>
                 </div>
             </div>
+            <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                Join the Waitlist for XecXchange Access
+                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+            </button>
         </div>
     );
 }

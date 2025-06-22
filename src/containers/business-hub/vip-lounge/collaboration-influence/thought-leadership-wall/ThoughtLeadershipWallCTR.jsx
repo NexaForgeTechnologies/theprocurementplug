@@ -180,6 +180,7 @@ function ThoughtLeadershipWallCTR() {
             name: "Savannah",
             metric: "Most Read",
             image: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member1.png",
+            medalImage: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/gold.png",
         },
         {
             id: 2,
@@ -187,6 +188,7 @@ function ThoughtLeadershipWallCTR() {
             name: "Jonathon Brown",
             metric: "Most Endorsed",
             image: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member3.png",
+            medalImage: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/bronze.png",
         },
         {
             id: 3,
@@ -194,6 +196,7 @@ function ThoughtLeadershipWallCTR() {
             name: "Ricky",
             metric: "Most Shared",
             image: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member2.png",
+            medalImage: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/silver.png",
         },
         {
             id: 4,
@@ -296,6 +299,7 @@ function ThoughtLeadershipWallCTR() {
                                         name={item.name}
                                         metric={item.metric}
                                         image={item.image}
+                                        medalImage={item.medalImage}
                                     />
                                 ))}
                             </div>
@@ -310,61 +314,124 @@ function ThoughtLeadershipWallCTR() {
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1B1B1B]">
                     Contributor Leaderboard
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    <div className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
-                        onClick={() => document.getElementById('fileInput').click()}
-                    >
-                        <Image
-                            src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"}
-                            alt={`download`}
-                            width={128}
-                            height={128}
-                            className="w-[128px] h-[128px] object-cover mb-4"
-                        />
-                        <p className="text-[#1B1B1B] text-center"><span className="font-semibold">Upload content</span> (PDF, video link, text, visual)</p>
-                        {/* Hidden file input */}
-                        <input
-                            id="fileInput"
-                            type="file"
-                            accept=".pdf,.txt,image/*,.mp4,.mov"
-                            className="hidden"
-                            onChange={(e) => {
-                                const file = e.target.files[0];
-                                if (file) {
-                                    console.log("Selected file:", file.name); // Replace with your file upload logic
-                                }
-                            }}
-                        />
-                    </div>
-                    <div className="flex flex-col gap-4 md:gap-7 mb-4 md:mb-0">
-                        <input
-                            required
-                            type="text"
-                            name="headline"
-                            placeholder="Enter Headline"
-                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
-                        />
-                        <input
-                            required
-                            type="text"
-                            name="summary"
-                            placeholder="Enter Summary"
-                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4  rounded-[2px] focus:outline-none focus:border-[#85009D]"
-                        />
-                        <select
-                            required
-                            name="tag"
-                            defaultValue=""
-                            className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-4">
+                    <div>
+                        <div className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                            onClick={() => document.getElementById('fileInput').click()}
                         >
-                            <option value="" disabled>
-                                Select Category
-                            </option>
-                            <option value="Technology">Technology</option>
-                            <option value="Business">Business</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Design">Design</option>
-                        </select>
+                            <Image
+                                src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"}
+                                alt={`download`}
+                                width={128}
+                                height={128}
+                                className="w-[128px] h-[128px] object-cover mb-4"
+                            />
+                            <p className="text-[#1B1B1B] text-center"><span className="font-semibold">Upload content</span> (PDF, video link, text, visual)</p>
+                            {/* Hidden file input */}
+                            <input
+                                id="fileInput"
+                                type="file"
+                                accept=".pdf,.txt,image/*,.mp4,.mov"
+                                className="hidden"
+                                onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    if (file) {
+                                        console.log("Selected file:", file.name); // Replace with your file upload logic
+                                    }
+                                }}
+                            />
+                        </div>
+                        <div className="flex flex-col gap-4 md:gap-7 mb-4 md:mb-0">
+                            <input
+                                required
+                                type="text"
+                                name="headline"
+                                placeholder="Enter Headline"
+                                className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
+                            />
+                            <select
+                                required
+                                name="tag"
+                                defaultValue=""
+                                className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
+                            >
+                                <option value="" disabled>
+                                    Select Category
+                                </option>
+                                <option value="Technology">Technology</option>
+                                <option value="Business">Business</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Design">Design</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <div
+                            className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                            onClick={() => document.getElementById('fileInput').click()}
+                        >
+                            <Image
+                                src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"}
+                                alt="upload banner"
+                                width={128}
+                                height={128}
+                                className="w-[128px] h-[128px] object-cover mb-4"
+                            />
+                            <p className="text-[#1B1B1B] text-center">
+                                <span className="font-semibold">Banner Image</span> (Image Size 1440px × 440px)
+                            </p>
+                            <input
+                                id="fileInput"
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    if (file) {
+                                        if (!file.type.startsWith('image/')) {
+                                            alert('Please select a valid image file.');
+                                            return;
+                                        }
+
+                                        const img = new Image();
+                                        img.src = URL.createObjectURL(file);
+                                        img.onload = () => {
+                                            if (img.width !== 1440 || img.height !== 440) {
+                                                alert('Please upload an image with dimensions 1440px × 440px.');
+                                                return;
+                                            }
+
+                                            console.log('Uploading image:', {
+                                                name: file.name,
+                                                size: file.size,
+                                                type: file.type,
+                                                dimensions: `${img.width}×${img.height}`
+                                            });
+
+                                            const formData = new FormData();
+                                            formData.append('bannerImage', file);
+                                            URL.revokeObjectURL(img.src);
+                                        };
+                                    }
+                                }}
+                            />
+                        </div>
+                        <div className="flex flex-col gap-4 md:gap-7 mb-4 md:mb-0">
+                            <input
+                                required
+                                type="text"
+                                name="headline"
+                                placeholder="Enter Summary"
+                                className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
+                            />
+                            <input
+                                required
+                                type="text"
+                                name="headline"
+                                placeholder="Content Type"
+                                className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
+                            />
+                        </div>
                     </div>
                 </div>
                 <div className="flex items-start gap-2 mb-4">
