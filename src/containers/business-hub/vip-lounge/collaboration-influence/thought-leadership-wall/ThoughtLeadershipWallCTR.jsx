@@ -120,7 +120,7 @@
 "use client"
 import { useState } from "react";
 import IconComponent from "@/components/icon/Icon";
-import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/ConsultingPartnerTile";
 import LeaderboardTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/LeaderboardTile";
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import Image from "next/image";
