@@ -108,8 +108,8 @@ function ExclusiveBusinessPartnersCTR() {
                     </button>
                 </div>
             </div>
-            <div className="bg-[#85009D] rounded-[6px] gap-6 md:gap-12 flex flex-col md:flex-row items-center p-5 relative mb-4">
-                <div className="mt-10 md:mt-0">
+            <div className="bg-[#85009D] rounded-[6px] gap-6 md:gap-12 flex flex-col lg:flex-row items-center p-5 relative mb-4">
+                <div className="mt-10 lg:mt-0">
                     <Image
                         src={slides[activeIndex].logoSrc}
                         alt={`${slides[activeIndex].client} logo`}

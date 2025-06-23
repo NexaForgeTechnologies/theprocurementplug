@@ -161,19 +161,6 @@ function MarketResearchCTR() {
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#ffff] text-center">
                     Featured Reports
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-4 md:mb-8">
-                    {collaboration.map((partner) => (
-                        <ConsultingPartnerTile
-                            key={partner.id}
-                            tag={partner.tag}
-                            heading={partner.heading}
-                            para={partner.para}
-                            btntext={partner.btntext}
-                            bigimg={partner.bigimg}
-                            url={partner.url}
-                        />
-                    ))}
-                </div>
                 <div className="max-w-[1100px] m-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-4 md:mb-8">
                     <div className="relative w-full">
                         <select
@@ -232,6 +219,19 @@ function MarketResearchCTR() {
                         View All Market Research
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-4 md:mb-8">
+                    {collaboration.map((partner) => (
+                        <ConsultingPartnerTile
+                            key={partner.id}
+                            tag={partner.tag}
+                            heading={partner.heading}
+                            para={partner.para}
+                            btntext={partner.btntext}
+                            bigimg={partner.bigimg}
+                            url={partner.url}
+                        />
+                    ))}
                 </div>
             </div>
             <div>
