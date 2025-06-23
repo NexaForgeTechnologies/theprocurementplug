@@ -142,7 +142,7 @@ function ThoughtLeadershipWallCTR() {
             sponsor: "Sponsored by Logo",
             btntext: "View Full Post",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
+            url: "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/category-strategy-in-a-volatile-market",
         },
         {
             id: 2,
@@ -154,7 +154,7 @@ function ThoughtLeadershipWallCTR() {
             pick: "Editor’s Pick",
             btntext: "Click for full profile",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/vom.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-pertnership",
+            url: "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/navigating-procurement-roles-in-times-of-change",
         },
         {
             id: 3,
@@ -165,7 +165,7 @@ function ThoughtLeadershipWallCTR() {
             sponsor: "Sponsored by Innotech",
             btntext: "View Full Post",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member3.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/emerging-technologies-in-procurement",
+            url: "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/hollister-supplier-relationship-work",
         },
         {
             id: 4,
@@ -176,7 +176,7 @@ function ThoughtLeadershipWallCTR() {
             sponsor: "Sponsored by Logo",
             btntext: "View Full Post",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member2.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
+            url: "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/procurement-macro-trends",
         },
     ];
 
