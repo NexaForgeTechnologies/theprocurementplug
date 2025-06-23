@@ -2,25 +2,25 @@
 import React from "react";
 import Image from "next/image";
 
-function FutureProofingCTR() {
+function EmergingTechnologiesProcurementCTR() {
  
     return (
         <div>
             <div className="flex justify-between items-center text-start flex-col-reverse md:flex-row mb-6 md:mb-8">
                 <div>
-                    <h3 className="font-semibold text-[24px] md:text-[52px] mb-4 text-[#85009D]">
-                        Future-Proofing <span className="font-normal">Procurement</span>
+                    <h3 className="max-w-[820px] leading-none font-semibold text-[24px] md:text-[52px] mb-4 text-[#85009D]">
+                        Emerging Technologies in <span className="font-normal">Procurement</span>
                     </h3>
-                    <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Maria</span></p>
+                    <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Martha</span></p>
                     {/* <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Time: <span className="font-normal">12:00am to 6:00pm Local time</span></p> */}
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 font-semibold">Access level: <span className="font-normal">Request to join</span></p>
                     <h3 className="font-normal text-[24px] md:text-[42px] text-[#B08D57]">
-                        Sponsored by <span className="font-semibold">Logo</span>
+                        Sponsored by <span className="font-semibold">Initech</span>
                     </h3>
                 </div>
                 <div className="mb-4 md:mb-0">
                     <Image
-                        src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/member.png"}
+                        src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png"}
                         alt={`memeber`}
                         width={300}
                         height={300}
@@ -153,4 +153,4 @@ function FutureProofingCTR() {
     );
 }
 
-export default FutureProofingCTR;
+export default EmergingTechnologiesProcurementCTR;

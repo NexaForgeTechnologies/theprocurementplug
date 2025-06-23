@@ -1,4 +1,4 @@
-import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/ConsultingPartnerTile";
+import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/ConsultingPartnerTile";
 import React from "react";
 
 function CollaborationInfluenceCTR() {
