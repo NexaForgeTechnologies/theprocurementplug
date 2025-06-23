@@ -153,7 +153,7 @@ function ThoughtLeadershipWallCTR() {
             vom: "Top Voices of the Month",
             pick: "Editor’s Pick",
             btntext: "Click for full profile",
-            bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member1.png",
+            bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/vom.png",
             url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-pertnership",
         },
         {
@@ -258,7 +258,7 @@ function ThoughtLeadershipWallCTR() {
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 md:mb-8 text-[#1B1B1B]">
                     Spotlight
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr] gap-6 md:gap-8 min-h-[500px] items-stretch">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-6 md:gap-8 min-h-[500px] items-stretch">
                     {/* First Column: Collaboration Items 1, 3, 4 */}
                     <div className="grid grid-cols-1 gap-6">
                         {col1Items.map((item) => (
@@ -274,11 +274,12 @@ function ThoughtLeadershipWallCTR() {
                                 btntext={item.btntext}
                                 bigimg={item.bigimg}
                                 url={item.url}
+                                isCol2={false}
                             />
                         ))}
                     </div>
                     {/* Second Column: Collaboration Item 2 and Contributor Leaderboard */}
-                    <div className="grid grid-cols-1 gap-6">
+                    <div className="grid grid-cols-1 gap-6 h-full">
                         {col2Items.map((item) => (
                             <ConsultingPartnerTile
                                 key={item.id}
@@ -292,14 +293,15 @@ function ThoughtLeadershipWallCTR() {
                                 btntext={item.btntext}
                                 bigimg={item.bigimg}
                                 url={item.url}
+                                isCol2={true}
                             />
                         ))}
-                        <div className="flex flex-col h-full rounded-[6px] bg-[#FFFBF5] border border-[#DBBB89] p-4">
+                        <div className="flex flex-col h-full rounded-[6px] bg-[#FFFBF5] border border-[#DBBB89] p-4 min-h-[500px]">
                             <h3 className="font-semibold text-[24px] md:text-3xl mb-4 text-[#1B1B1B]">
                                 Contributor Leaderboard
                             </h3>
-                            <div className="overflow-auto flex-grow">
-                                {leaderboard.map((item) => (
+                            <div className="flex flex-col justify-between flex-1">
+                                {leaderboard.map((item, index) => (
                                     <LeaderboardTile
                                         key={item.id}
                                         rank={item.rank}
@@ -307,6 +309,7 @@ function ThoughtLeadershipWallCTR() {
                                         metric={item.metric}
                                         image={item.image}
                                         medalImage={item.medalImage}
+                                        isLast={index === leaderboard.length - 1}
                                     />
                                 ))}
                             </div>

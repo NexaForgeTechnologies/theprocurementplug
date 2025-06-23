@@ -61,7 +61,7 @@ function ConsultingPartnerTile({ heading, para, sponsor, btntext, smallimg, url 
               alt={`${heading} image ${index + 1}`}
               width={94}
               height={94}
-              className="object-cover -mr-[20px] last:mr-0"
+              className="w-[44px] md:w-[94px] h-[44px] md:h-[94px] object-cover -mr-[15px] md:-mr-[20px] last:mr-0"
             />
           ))}
         </span>
