@@ -3,8 +3,16 @@
 import { useState } from 'react';
 import Image from "next/image";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-business-partners/ConsultingPartnerTile";
+import IconComponent from "@/components/icon/Icon";
 
 function ExclusiveBusinessPartnersCTR() {
+
+    const [selectedValue, setSelectedValue] = useState("");
+
+    const handleChange = (e) => {
+        setSelectedValue(e.target.value);
+    };
+
     const categoryLabels = {
         ecommerce: "E-commerce / Online Shopping Platform",
         cybersecurity: "Cybersecurity / Tech Services",
@@ -111,23 +119,34 @@ function ExclusiveBusinessPartnersCTR() {
             <div className="flex flex-col lg:flex-row  gap-4 mb-4 md:mb-8">
                 <div className="flex flex-col gap-2 md:gap-4 flex-2">
                     <div className="flex flex-col lg:flex-row gap-4 mb-4 md:mb-8">
-                        <input
-                            type="text"
-                            placeholder="Search"
-                            className="border border-[#85009D] rounded-[6px] py-2 px-3 text-[#1b1b1b] flex-2 focus:outline-none focus:border-[#85009D]"
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                        />
-                        <select
-                            className="border border-[#85009D] rounded-[6px] py-2 px-3 text-[#1b1b1b] flex-1 focus:outline-none focus:border-[#85009D]"
-                            value={selectedCategory}
-                            onChange={(e) => setSelectedCategory(e.target.value)}
-                        >
-                            <option value="">Category</option>
-                            <option value="ecommerce">{categoryLabels.ecommerce}</option>
-                            <option value="cybersecurity">{categoryLabels.cybersecurity}</option>
-                            <option value="sustainable">{categoryLabels.sustainable}</option>
-                        </select>
+                        <div className="relative flex items-center flex-2">
+                            <input
+                                type="text"
+                                placeholder="Search"
+                                className="border border-[#85009D] rounded-[6px] py-2 px-3 pr-10 text-[#1b1b1b] flex-2 focus:outline-none focus:border-[#85009D]"
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                            />
+                            <span className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                                <IconComponent name="search" color='#85009D' size={16} />
+                            </span>
+                        </div>
+                        <div className="relative w-full flex-1">
+                            <select
+                                className="appearance-none border border-[#85009D] rounded-[6px] py-2 px-3 pr-10 text-[#1b1b1b] w-full focus:outline-none focus:border-[#85009D]"
+                                value={selectedCategory}
+                                onChange={(e) => setSelectedCategory(e.target.value)}
+                            >
+                                <option value="">Category</option>
+                                <option value="ecommerce">{categoryLabels.ecommerce}</option>
+                                <option value="cybersecurity">{categoryLabels.cybersecurity}</option>
+                                <option value="sustainable">{categoryLabels.sustainable}</option>
+                            </select>
+
+                            <div className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
+                                <IconComponent name="drop-down" color="#808080" size={16} />
+                            </div>
+                        </div>
                     </div>
                     {/* {collaboration.map((partner) => (
                         <ConsultingPartnerTile

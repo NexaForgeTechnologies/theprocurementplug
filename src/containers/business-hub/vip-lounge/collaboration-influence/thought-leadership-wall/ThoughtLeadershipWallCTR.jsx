@@ -118,13 +118,20 @@
 // export default ThoughtLeadershipWallCTR;
 
 "use client"
+import { useState } from "react";
+import IconComponent from "@/components/icon/Icon";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/ConsultingPartnerTile";
 import LeaderboardTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/LeaderboardTile";
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import Image from "next/image";
-import React from "react";
 
 function ThoughtLeadershipWallCTR() {
+    const [selectedValue, setSelectedValue] = useState("");
+
+    const handleChange = (e) => {
+        setSelectedValue(e.target.value);
+    };
+
     const collaboration = [
         {
             id: 1,
@@ -349,20 +356,25 @@ function ThoughtLeadershipWallCTR() {
                                 placeholder="Enter Headline"
                                 className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
                             />
-                            <select
-                                required
-                                name="tag"
-                                defaultValue=""
-                                className="w-full border-1 text-[#363636] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
-                            >
-                                <option value="" disabled>
-                                    Select Category
-                                </option>
-                                <option value="Technology">Technology</option>
-                                <option value="Business">Business</option>
-                                <option value="Marketing">Marketing</option>
-                                <option value="Design">Design</option>
-                            </select>
+                            <div className="relative w-full">
+                                <select
+                                    id="content-type"
+                                    value={selectedValue}
+                                    onChange={handleChange}
+                                    className="appearance-none border border-[#85009D] text-[#363636] py-3 px-4 bg-white cursor-pointer rounded-[2px] w-full focus:outline-none focus:border-[#85009D]"
+                                >
+                                    <option value="" disabled>
+                                        Category tag
+                                    </option>
+                                    <option value="Technology">Technology</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Design">Design</option>
+                                </select>
+                                <div className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-[#85009D]">
+                                    <IconComponent name="drop-down" color="#808080" size={16} />
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div>
