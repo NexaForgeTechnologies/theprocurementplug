@@ -119,7 +119,7 @@ function ConsultingPartnerTile({ heading, para, sponsor, btntext, bigimg, smalli
             alt="member"
             width={isCol2 ? 174 : 204}
             height={isCol2 ? 174 : 204}
-            className={`w-[${isCol2 ? '174px' : '204px'}] h-[${isCol2 ? '174px' : '204px'}] lg:w-full mb-2 border border-[#B08D57] rounded-full`}
+            className={`${isCol2 ? 'w-full lg:w-[174px]' : 'w-full lg:w-[204px]'} ${isCol2 ? 'h-[174px]' : 'h-[204px]'} ${isCol2 ? 'mb-2' : 'mb-0'} border border-[#B08D57] rounded-full`}
           />
           {(vom || pick) && (
             <div className="flex flex-col">
