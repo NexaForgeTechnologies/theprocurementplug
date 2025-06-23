@@ -6,11 +6,34 @@ import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusiv
 import IconComponent from "@/components/icon/Icon";
 
 function ExclusiveBusinessPartnersCTR() {
+    const [activeIndex, setActiveIndex] = useState(0);
 
-    const [selectedValue, setSelectedValue] = useState("");
+    const slides = [
+        {
+            client: 'AquaPure Bottles',
+            logoSrc: '/images/bussiness-hub/vip-lounge/exclusive-business-partners/aqualogo.png',
+            offerSrc: '/images/bussiness-hub/vip-lounge/exclusive-business-partners/offer.png',
+            description:
+                'AquaPure partnered with us through our Exclusive Business Partner program to expand retail presence. With access to our network and co-branded campaigns, they achieved a 40% sales boost and entered 25 new stores within 3 months. The partnership drove rapid growth and increased brand visibility.',
+        },
+        {
+            client: 'AquaFresh Innovations',
+            logoSrc: '/images/bussiness-hub/vip-lounge/exclusive-business-partners/aqualogo.png',
+            offerSrc: '/images/bussiness-hub/vip-lounge/exclusive-business-partners/offer.png',
+            description:
+                'AquaPure partnered with us through our Exclusive Business Partner program to expand retail presence. With access to our network and co-branded campaigns, they achieved a 40% sales boost and entered 25 new stores within 3 months. The partnership drove rapid growth and increased brand visibility.',
+        },
+        {
+            client: 'PureWave Enterprises',
+            logoSrc: '/images/bussiness-hub/vip-lounge/exclusive-business-partners/aqualogo.png',
+            offerSrc: '/images/bussiness-hub/vip-lounge/exclusive-business-partners/offer.png',
+            description:
+                'AquaPure partnered with us through our Exclusive Business Partner program to expand retail presence. With access to our network and co-branded campaigns, they achieved a 40% sales boost and entered 25 new stores within 3 months. The partnership drove rapid growth and increased brand visibility.',
+        },
+    ];
 
-    const handleChange = (e) => {
-        setSelectedValue(e.target.value);
+    const handleDotClick = (index) => {
+        setActiveIndex(index);
     };
 
     const categoryLabels = {
@@ -85,35 +108,49 @@ function ExclusiveBusinessPartnersCTR() {
                     </button>
                 </div>
             </div>
-            <div className="bg-[#85009D] rounded-[6px] gap-6 md:gap-12 flex flex-col md:flex-row items-center p-5 relative mb-4 md:mb-8">
+            <div className="bg-[#85009D] rounded-[6px] gap-6 md:gap-12 flex flex-col md:flex-row items-center p-5 relative mb-4">
                 <div className="mt-10 md:mt-0">
                     <Image
-                        src={"/images/bussiness-hub/vip-lounge/exclusive-business-partners/aqualogo.png"}
-                        alt={`aqualogo`}
+                        src={slides[activeIndex].logoSrc}
+                        alt={`${slides[activeIndex].client} logo`}
                         width={269}
                         height={269}
                         className="w-[269px] h-[269px] object-cover"
                     />
                 </div>
                 <div className="flex-2">
-                    <h3 className="font-semibold text-[24px] mb-4">Client: <span className="font-normal">AquaPure Bottles</span></h3>
-                    <p className="max-w-[850px] text-[16px] md:text-[20px] mb-4">AquaPure partnered with us through our Exclusive Business Partner
-                        program to expand retail presence. With access to our network and
-                        co-branded campaigns, they achieved a 40% sales boost and entered
-                        25 new stores within 3 months. The partnership drove rapid growth
-                        and increased brand visibility.</p>
+                    <h3 className="font-semibold text-[24px] mb-4">
+                        Client: <span className="font-normal">{slides[activeIndex].client}</span>
+                    </h3>
+                    <p className="max-w-[850px] text-[16px] md:text-[20px] mb-4">
+                        {slides[activeIndex].description}
+                    </p>
                     <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         View Profile
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </div>
                 <Image
-                    src={"/images/bussiness-hub/vip-lounge/exclusive-business-partners/offer.png"}
-                    alt={`offer`}
+                    src={slides[activeIndex].offerSrc}
+                    alt="offer"
                     width={241}
                     height={44}
                     className="w-[241px] h-[44px] object-cover absolute top-3 right-[-5px]"
                 />
+            </div>
+
+            {/* Navigation Dots */}
+            <div className="max-w-[112px] m-auto flex items-center gap-1 mb-4 md:mb-8">
+                {slides.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`h-[6px] rounded-[8px] cursor-pointer ${activeIndex === index
+                            ? 'w-[64px] bg-[#b08d57]'
+                            : 'w-[20px] bg-[#B08D5766]'
+                            }`}
+                        onClick={() => handleDotClick(index)}
+                    ></button>
+                ))}
             </div>
             {/*  */}
             <div className="flex flex-col lg:flex-row  gap-4 mb-4 md:mb-8">

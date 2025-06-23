@@ -1,4 +1,5 @@
 "use client"
+import React, { useState } from 'react';
 import FutureProcurementTile from "@/components/business-hub/vip-lounge/talent-hiring-intelligence/FutureProcurementTile";
 import InsightsSection from "@/components/business-hub/vip-lounge/talent-hiring-intelligence/InsightSection";
 import Image from "next/image";
@@ -30,6 +31,36 @@ function ExclusiveBusinessPartnersCTR() {
         },
         {
             id: 3,
+            heading: "Grace Robinson",
+            post: "Procurement specialist",
+            location: "London, UK",
+            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
+            btntext: "Reuest Intro",
+            bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
+            url: "",
+        },
+        {
+            id: 4,
+            heading: "Grace Robinson",
+            post: "Procurement specialist",
+            location: "London, UK",
+            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
+            btntext: "Reuest Intro",
+            bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
+            url: "",
+        },
+        {
+            id: 5,
+            heading: "Grace Robinson",
+            post: "Procurement specialist",
+            location: "London, UK",
+            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
+            btntext: "Reuest Intro",
+            bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
+            url: "",
+        },
+        {
+            id: 6,
             heading: "Grace Robinson",
             post: "Procurement specialist",
             location: "London, UK",
@@ -83,6 +114,19 @@ function ExclusiveBusinessPartnersCTR() {
         buttonText: ["View Tracker Report", null],
     };
 
+    const [activeIndex, setActiveIndex] = useState(0);
+    const tilesPerSlide = 3;
+    const totalSlides = Math.ceil(collaboration.length / tilesPerSlide);
+
+    const handleDotClick = (index) => {
+        setActiveIndex(index);
+    };
+
+    // Get the tiles for the current slide
+    const startIndex = activeIndex * tilesPerSlide;
+    const currentTiles = collaboration.slice(startIndex, startIndex + tilesPerSlide);
+
+
     return (
         <div>
             <div className="mb-4 md:mb-8">
@@ -110,8 +154,8 @@ function ExclusiveBusinessPartnersCTR() {
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1B1B1B]">
                     Meet the Future of Procurement
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                    {collaboration.map((partner) => (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-4 ">
+                    {currentTiles.map((partner) => (
                         <FutureProcurementTile
                             key={partner.id}
                             heading={partner.heading}
@@ -121,6 +165,18 @@ function ExclusiveBusinessPartnersCTR() {
                             btntext={partner.btntext}
                             bigimg={partner.bigimg}
                             url={partner.url}
+                        />
+                    ))}
+                </div>
+                <div className="max-w-[112px] m-auto flex items-center gap-1">
+                    {Array.from({ length: totalSlides }).map((_, index) => (
+                        <button
+                            key={index}
+                            className={`h-[6px] rounded-[8px] cursor-pointer transition-all duration-300 ${index === activeIndex
+                                ? 'w-[64px] bg-[#b08d57]'
+                                : 'w-[20px] bg-[#B08D5766]'
+                                }`}
+                            onClick={() => handleDotClick(index)}
                         />
                     ))}
                 </div>
