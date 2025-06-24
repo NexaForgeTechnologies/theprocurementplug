@@ -74,7 +74,7 @@ const ToolProfileCTR = () => {
     <>
       <div className="border-b-2 border-[#85009D] pb-8 sm:pb-12">
         <HeroCTR
-          img="/images/bussiness-hub/vip-lounge/innovation-vault/hero-bg.png"
+          img="/images/bussiness-hub/vip-lounge/innovation-vault/tool-profile.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
               <span className="font-extrabold">VaultMetric</span> Sync
@@ -137,7 +137,7 @@ const ToolProfileCTR = () => {
                 alt="img"
                 width={80}
                 height={80}
-                className="object-cover max-w-[40px]"
+                className="object-cover max-w-[50px]"
               />
             </div>
             <p className="md:text-xl text-[#1B1B1B] font-medium">
