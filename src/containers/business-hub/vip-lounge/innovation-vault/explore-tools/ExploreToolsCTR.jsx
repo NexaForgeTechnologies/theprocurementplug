@@ -4,6 +4,7 @@ import Link from "next/link";
 import HeroCTR from "@/components/business-hub/vip-lounge/VipHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
+import ToolsCTR from "./tool/ToolsCTR";
 
 function Breadcrumb() {
   return (
@@ -80,6 +81,7 @@ const ExploreToolsCTR = () => {
           Discover tested and emerging digital tools transforming procurement
           workflows.
         </p>
+        <ToolsCTR />
       </div>
 
       <div
