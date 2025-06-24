@@ -27,7 +27,7 @@ function Page() {
     const partnerWithUs = [
         {
             id: 1,
-            heading: "The Prcurement Plug Academy",
+            heading: "The Procurement Plug Academy",
             text: "",
             link: "",
             linkText: "View",

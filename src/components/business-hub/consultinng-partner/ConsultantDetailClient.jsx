@@ -29,7 +29,7 @@ export default function ConsultantDetailClient({ consultant }) {
   const partnerWithUs = [
     {
       id: 1,
-      heading: "The Prcurement Plug Academy",
+      heading: "The Procurement Plug Academy",
       text: "",
       link: "",
       linkText: "View",
