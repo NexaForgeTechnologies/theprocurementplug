@@ -1,4 +1,5 @@
 "use client"
+import React, { useState } from 'react';
 import MonthHightlightTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/MonthHightlightTile";
 import ReportTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/reportTile";
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
@@ -29,6 +30,30 @@ function IndustryInsightsCTR() {
             para: "Public procurement faces hurdles in balancing sustainability goals with budget limits and regulatory complexity.",
             btntext: "Read More",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/meeting.png",
+            url: "/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights",
+        },
+        {
+            id: 4,
+            heading: "Public Sector: Net Zero Procurement Challenges",
+            para: "Public procurement faces hurdles in balancing sustainability goals with budget limits and regulatory complexity.",
+            btntext: "Read More",
+            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/meeting.png",
+            url: "/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights",
+        },
+        {
+            id: 5,
+            heading: "Retail: Digital Procurement Maturity",
+            para: "Retail is rapidly adopting digital tools, yet many firms still lag in fully integrated, data-driven procurement systems.",
+            btntext: "Read More",
+            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/shopping.png",
+            url: "/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights",
+        },
+        {
+            id: 6,
+            heading: "Construction: Supplier Risk Trends",
+            para: "Rising costs and labor shortages are increasing supplier risk, demanding better vetting and resilience planning.",
+            btntext: "Read More",
+            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/construction.png",
             url: "/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights",
         },
     ];
@@ -66,6 +91,18 @@ function IndustryInsightsCTR() {
         "Transport & Logistics",
     ];
 
+    const [activeIndex, setActiveIndex] = useState(0);
+    const tilesPerSlide = 3;
+    const totalSlides = Math.ceil(collaboration.length / tilesPerSlide);
+
+    const handleDotClick = (index) => {
+        setActiveIndex(index);
+    };
+
+    // Get the tiles for the current slide
+    const startIndex = activeIndex * tilesPerSlide;
+    const currentTiles = collaboration.slice(startIndex, startIndex + tilesPerSlide);
+
     return (
         <div>
             <div className="mb-4 md:mb-8">
@@ -93,8 +130,8 @@ function IndustryInsightsCTR() {
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1b1b1b]">
                     This Month’s Highlights
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6  mb-4 md:mb-8">
-                    {collaboration.map((partner) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-4">
+                    {currentTiles.map((partner) => (
                         <MonthHightlightTile
                             key={partner.id}
                             tag={partner.tag}
@@ -103,6 +140,18 @@ function IndustryInsightsCTR() {
                             btntext={partner.btntext}
                             bigimg={partner.bigimg}
                             url={partner.url}
+                        />
+                    ))}
+                </div>
+                <div className="max-w-[112px] m-auto flex items-center gap-1">
+                    {Array.from({ length: totalSlides }).map((_, index) => (
+                        <button
+                            key={index}
+                            className={`h-[6px] rounded-[8px] cursor-pointer transition-all duration-300 ${index === activeIndex
+                                    ? 'w-[64px] bg-[#b08d57]'
+                                    : 'w-[20px] bg-[#B08D5766]'
+                                }`}
+                            onClick={() => handleDotClick(index)}
                         />
                     ))}
                 </div>
@@ -135,7 +184,7 @@ function IndustryInsightsCTR() {
                     Need insights tailored to your <strong>organisation?</strong>
                 </h2>
                 <div className="min-w-[200px]">
-                    <ArrowButtonCom text="Request a Custom Brief "/>
+                    <ArrowButtonCom text="Request a Custom Brief " />
                 </div>
             </div>
         </div>

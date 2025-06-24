@@ -2,19 +2,8 @@
 import React from "react";
 import Image from "next/image";
 
-function VipForumCTR() {
-    const collaboration = [
-        {
-            id: 1,
-            heading: "Future Proofing Procurement",
-            para: "Name: Maria",
-            sponsor: "Sponsored by Logo",
-            btntext: "Invite Members",
-            bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
-        },
-    ];
-
+function FutureProofingCTR() {
+ 
     return (
         <div>
             <div className="flex justify-between items-center text-start flex-col-reverse md:flex-row mb-6 md:mb-8">
@@ -29,13 +18,13 @@ function VipForumCTR() {
                         Sponsored by <span className="font-semibold">Logo</span>
                     </h3>
                 </div>
-                <div>
+                <div className="mb-4 md:mb-0">
                     <Image
                         src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/member.png"}
                         alt={`memeber`}
                         width={300}
                         height={300}
-                        className="w-full md:w-[300px] md:h-[300px] object-cover"
+                        className="w-full md:w-[300px] md:h-[300px] object-contain"
                     />
                 </div>
             </div>
@@ -164,4 +153,4 @@ function VipForumCTR() {
     );
 }
 
-export default VipForumCTR;
+export default FutureProofingCTR;

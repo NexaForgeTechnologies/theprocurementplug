@@ -17,12 +17,12 @@ function VipForumCTR() {
         },
         {
             id: 2,
-            heading: "Strategic Supplier Pertnership",
+            heading: "Strategic Supplier Partnership",
             para: "Name: Timothy",
             sponsor: "Sponsored by Globex",
             btntext: "RSVP",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-pertnership",
+            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
         },
         {
             id: 3,
@@ -53,12 +53,12 @@ function VipForumCTR() {
         },
         {
             id: 6,
-            heading: "Strategic Supplier Pertnership",
+            heading: "Strategic Supplier Partnership",
             para: "Name: Timothy",
             sponsor: "Sponsored by Globex",
             btntext: "RSVP",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-pertnership",
+            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
         },
         {
             id: 7,
@@ -89,12 +89,12 @@ function VipForumCTR() {
         },
         {
             id: 10,
-            heading: "Strategic Supplier Pertnership",
+            heading: "Strategic Supplier Partnership",
             para: "Name: Timothy",
             sponsor: "Sponsored by Globex",
             btntext: "RSVP",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-pertnership",
+            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
         },
         {
             id: 11,
@@ -125,12 +125,12 @@ function VipForumCTR() {
         },
         {
             id: 14,
-            heading: "Strategic Supplier Pertnership",
+            heading: "Strategic Supplier Partnership",
             para: "Name: Timothy",
             sponsor: "Sponsored by Globex",
             btntext: "RSVP",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
-            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-pertnership",
+            url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
         },
         {
             id: 15,

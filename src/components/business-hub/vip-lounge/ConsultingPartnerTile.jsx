@@ -8,7 +8,7 @@ function ConsultingPartnerTile({ heading, para, sponsor, btntext, smallimg, url 
       href={url}
       className="w-full rounded-[6px] border border-[#DBBB89] hover:border-[#85009D] bg-[#FFFBF5] hover:bg-[#85009D] p-5 flex flex-col justify-between gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group "
     >
-      <h2 className="text-xl md:text-2xl font-semibold">{heading}</h2>
+      <h2 className="max-w-full sm:max-w-[300px] text-xl md:text-2xl font-semibold">{heading}</h2>
       {para && <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff]">{para}</p>}
       {sponsor && <p className="text-[#B08D57] text-base">{sponsor}</p>}
       {smallimg && smallimg.length > 0 && (

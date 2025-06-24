@@ -15,7 +15,7 @@ function Breadcrumb() {
                 </li>
                 <li>/</li>
                 <li className="text-[#696969]">
-                    Vip Lounge
+                    VIP Business Lounge
                 </li>
             </ol>
         </nav>

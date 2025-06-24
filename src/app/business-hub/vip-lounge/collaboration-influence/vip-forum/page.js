@@ -15,7 +15,7 @@ function Breadcrumb() {
                 </li>
                 <li>/</li>
                 <li>
-                    <Link href="/business-hub/vip-lounge" className="hover:underline">Vip Lounge</Link>
+                    <Link href="/business-hub/vip-lounge" className="hover:underline">VIP Business Lounge</Link>
                 </li>
                 <li>/</li>
                 <li>

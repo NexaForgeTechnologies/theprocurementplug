@@ -15,7 +15,7 @@ function Breadcrumb() {
                 </li>
                 <li>/</li>
                 <li>
-                    <Link href="/business-hub/vip-lounge" className="hover:underline">Vip Lounge</Link>
+                    <Link href="/business-hub/vip-lounge" className="hover:underline"> VIP Business Lounge</Link>
                 </li>
                 <li>/</li>
                 <li className="text-[#696969] ">
@@ -60,9 +60,12 @@ function page() {
             <div>
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/exclusive-business-partners/herosection.png"
-                    heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Exclusive Business</span> partner
-                    </span>}
+                    heading={
+                        <span className="flex flex-col gap-0 leading-none">
+                            <span className="font-extrabold whitespace-nowrap">Exclusive Business</span>
+                            <span>partner</span>
+                        </span>
+                    }
                     para="An Exclusive Business Partner enjoys priority
                     access to strategic opportunities, tailored support,
                     and a trusted platform for mutual growth and
