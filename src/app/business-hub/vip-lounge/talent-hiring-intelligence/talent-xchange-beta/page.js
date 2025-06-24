@@ -65,8 +65,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/talent-xchange-beta/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Talent Xchange
-                        </span> (Beta)
+                        <span className="font-extrabold">Talent Xchange (Beta)
+                        </span>
                     </span>}
                     para="Connect with top talent for short-term
                     projects and innovation. Join the beta to

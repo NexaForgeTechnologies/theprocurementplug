@@ -65,8 +65,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Industry
-                        </span> Insights
+                        <span className="font-extrabold">Industry Insights
+                        </span>
                     </span>}
                     para="Industry insights reveal key trends and shifts
                      helping businesses stay competitive and

@@ -77,7 +77,7 @@ const ToolProfileCTR = () => {
           img="/images/bussiness-hub/vip-lounge/innovation-vault/tool-profile.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">VaultMetric</span> Sync
+              <span className="font-extrabold">VaultMetric Sync</span>
             </span>
           }
           para="VaultMetric Sync integrates seamlessly with your HR workflows to track and visualise procurement career progression."

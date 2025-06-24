@@ -69,7 +69,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Hollister Supplier</span> Relationship work
+                        <span className="font-extrabold">Hollister Supplier Relationship work</span>
                     </span>}
                     para="Hollister's supplier relationships thrive with AI, blockchain, and analytics, fostering collaboration, transparency, and efficiency for adaptable, resilient procurement."
                 />

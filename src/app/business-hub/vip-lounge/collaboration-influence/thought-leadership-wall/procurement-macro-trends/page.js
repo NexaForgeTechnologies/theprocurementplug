@@ -69,7 +69,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold"> 5 Procurement Macro trends for </span> 2025
+                        <span className="font-extrabold"> 5 Procurement Macro trends for 2025</span>
                     </span>}
                     para="In 2025, procurement evolves with AI-driven insights, blockchain transparency, sustainable sourcing, advanced analytics, and agile supply chains, shaping resilient and efficient strategies."
                 />

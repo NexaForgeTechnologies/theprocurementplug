@@ -65,8 +65,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Recruitment
-                        </span> Partners
+                        <span className="font-extrabold">Recruitment Partners
+                        </span>
                     </span>}
                     para="View key details of our trusted recruitment partners, including logo, main contact, role, email, and website—everything you need to connect quickly and effectively."
                 />

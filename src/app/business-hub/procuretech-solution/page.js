@@ -21,8 +21,6 @@ function Breadcrumb() {
     )
 }
 
-
-
 function Page() {
     const partnerWithUs = [
         {

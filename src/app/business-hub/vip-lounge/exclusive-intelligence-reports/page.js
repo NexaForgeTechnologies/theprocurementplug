@@ -61,8 +61,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Exclusive Intelligence
-                        </span> & Reports
+                        <span className="font-extrabold">Exclusive Intelligence & Reports
+                        </span>
                     </span>}
                     para="Access exclusive reports and insights that uncover
                     key trends, data, and strategies—designed to help

@@ -69,7 +69,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Future-Proofing</span> Procurement
+                        <span className="font-extrabold">Future Proofing Procurement</span>
                     </span>}
                     para="Future-proofing procurement means using smart
                     technology and flexible strategies to stay ahead of
