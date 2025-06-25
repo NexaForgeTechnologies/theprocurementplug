@@ -62,8 +62,7 @@ function page() {
                     img="/images/bussiness-hub/vip-lounge/exclusive-business-partners/herosection.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold whitespace-nowrap">Exclusive Business</span>
-                            <span>partner</span>
+                            <span className="font-extrabold whitespace-nowrap">Exclusive Business partner</span>
                         </span>
                     }
                     para="An Exclusive Business Partner enjoys priority

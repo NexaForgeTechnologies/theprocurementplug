@@ -69,7 +69,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Category Strategy in a</span> Volatile Market
+                        <span className="font-extrabold">Category Strategy in a Volatile Market</span>
                     </span>}
                     para="In a volatile market, category strategy powered by AI, blockchain, and analytics optimizes procurement, cuts risks, and builds resilient, agile supply chains."
                 />

@@ -27,7 +27,7 @@ function Breadcrumb() {
                 </li>
                 <li>/</li>
                 <li className="text-[#696969] ">
-                   Navigating Procurement Roles In Times Of Change
+                    Navigating Procurement Roles In Times Of Change
                 </li>
             </ol>
         </nav>
@@ -69,7 +69,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold"> Navigating Procurement Roles in </span> Times of change
+                        <span className="font-extrabold"> Navigating Procurement Roles in Times of change</span>
                     </span>}
                     para="In 2025, procurement evolves with AI-driven insights, blockchain transparency, sustainable sourcing, advanced analytics, and agile supply chains, shaping resilient and efficient strategies."
                 />

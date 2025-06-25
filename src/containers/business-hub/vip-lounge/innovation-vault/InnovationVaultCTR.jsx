@@ -132,7 +132,7 @@ const InnovationVaultCTR = () => {
           img="/images/bussiness-hub/vip-lounge/innovation-vault/hero-bg.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Innovation</span> Vault
+              <span className="font-extrabold">Innovation Vault</span>
             </span>
           }
           para="Innovation Vault is a hub for cutting-edge ideas and digital solutions, offering tools, insights, and platforms that help businesses and creators unlock their full potential."

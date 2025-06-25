@@ -65,7 +65,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/executive-roundtables/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Executive</span>Roundtables
+                        <span className="font-extrabold">Executive Roundtables</span>
                     </span>}
                     para="Executive Roundtables are exclusive sessions
                     where senior leaders connect to share insights, 

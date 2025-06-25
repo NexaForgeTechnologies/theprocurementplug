@@ -65,8 +65,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/achieveMeter-beta/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">AchieveMeter
-                        </span> (Beta)
+                        <span className="font-extrabold">AchieveMeter (Beta)
+                        </span>
                     </span>}
                     para="Measure goals, track progress, and
                     stay on target with real-time insights

@@ -65,7 +65,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">VIP</span> Forum
+                        <span className="font-extrabold">VIP Forum</span>
                     </span>}
                     para="The VIP Forum is an exclusive space for high-level
                     discussions, idea exchange, and strategic insights

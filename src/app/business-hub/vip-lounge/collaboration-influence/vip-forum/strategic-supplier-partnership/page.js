@@ -69,7 +69,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Strategic Supplier</span> Partnership
+                        <span className="font-extrabold">Strategic Supplier Partnership</span>
                     </span>}
                     para="Strategic supplier partnerships use collaboration and technology to future-proof procurement. They boost efficiency, cut risks, and enable quick adaptation to market shifts, ensuring a resilient supply chain."
                 />

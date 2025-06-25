@@ -69,7 +69,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Emerging Technologies</span> in Procurement
+                        <span className="font-extrabold">Emerging Technologies in Procurement</span>
                     </span>}
                     para="AI, blockchain, and analytics are transforming procurement, boosting efficiency and adaptability. These technologies help businesses cut risks and respond swiftly to market shifts, ensuring a resilient supply chain."
                 />

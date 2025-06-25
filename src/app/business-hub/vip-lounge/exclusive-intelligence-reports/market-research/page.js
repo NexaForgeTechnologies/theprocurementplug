@@ -65,8 +65,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Market
-                        </span> Research
+                        <span className="font-extrabold">Market Research
+                        </span>
                     </span>}
                     para="Market research provides insights into customer
                     needs, trends, and competition—empowering

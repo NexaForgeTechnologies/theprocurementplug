@@ -62,8 +62,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Talent & Hiring
-                        </span> Intelligence
+                        <span className="font-extrabold">Talent & Hiring Intelligence
+                        </span>
                     </span>}
                     para="Talent & Hiring Intelligence uses smart
                     data to find top talent, streamline hiring, 

@@ -66,10 +66,7 @@ function page() {
                     img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/salary-and-role-tracker/herosection.png"
                     heading={
                         <span className='flex flex-col gap-0 leading-none'>
-                            <span>
-                                <span className="font-extrabold">Salary</span> and{' '}
-                                <span className="font-extrabold">Role</span> Tracker
-                            </span>
+                            <span className="font-extrabold">Salary and Role Tracker</span>
                         </span>
                     }
                     para="Track salary trends, role shifts, and career

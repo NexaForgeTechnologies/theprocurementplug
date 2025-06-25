@@ -62,10 +62,7 @@ function page() {
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/herosection.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Collaboration &</span>
-                            <span>
-                                <span className="font-extrabold">Influence</span> Zone
-                            </span>
+                            <span className="font-extrabold">Collaboration & Influence Zone</span>
                         </span>
                     }
                     para="The Collaboration & Influence Zone is where teamwork

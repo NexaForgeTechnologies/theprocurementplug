@@ -68,7 +68,7 @@ const ExploreToolsCTR = () => {
           img="/images/bussiness-hub/vip-lounge/innovation-vault/explore-tool-bg.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Explore Innovation</span> Tools
+              <span className="font-extrabold">Explore Innovation Tools</span>
             </span>
           }
           para="Explore Innovation Tools to spark ideas, streamline collaboration and turn creative concepts into impactful solutions—all in one place."
