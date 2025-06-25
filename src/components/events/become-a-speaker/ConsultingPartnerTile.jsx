@@ -1,24 +1,22 @@
 import React from "react";
 import Image from "next/image";
 
-function ConsultingPartnerTile({ heading, text, img}) {
+function ConsultingPartnerTile({ heading, text, img }) {
   return (
     <div
-      className="
-        text-[#363636] w-full rounded-2xl border border-[#85009D] hover:border-[#A020F0] bg-white p-5 flex flex-col items-center justify-center text-center"
+      className="w-full rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 flex flex-col justify-between gap-6  text-[#85009D]"
     >
-      <Image
-        className="w-16 h-16 rounded"
-        src={img}
-        alt={img}
-        width={64}
-        height={64}
-      />
-      <h2 className="text-xl md:text-2xl font-extrabold">{heading}</h2>
- 
-      <div className="my-2 flex flex-col items-center">
-        <span className="font-bold">{text}</span>
+      <div className="bg-white p-4 rounded-full border border-[85009D] self-start">
+        <Image
+          className="w-16 h-16"
+          src={img}
+          alt={img}
+          width={64}
+          height={64}
+        />
       </div>
+      <h2 className="text-xl md:text-2xl font-semibold">{heading}</h2>
+      <p className="text-[#1B1B1B] text-base">{text}</p>
     </div>
   );
 }

@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import EventComp from "@/components/events/EventComp";
+// import EventComp from "@/components/events/EventComp";
 import Link from "next/link";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import ElevateCard from '@/components/events/ElevateCardComp';
-import IconComponent from "@/components/icon/Icon";
+// import IconComponent from "@/components/icon/Icon";
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 
 function Breadcrumb() {
@@ -445,7 +445,7 @@ function ResourceLibraryCTR() {
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] mb-4">
           WHO SHOULD ATTEND?
         </h3>
-        <div className="bg-[#FFFBF5] text-[#1B1B1B]">
+        {/* <div className="bg-[#FFFBF5] text-[#1B1B1B]">
           <table class="w-full border-collapse bg-[#FFFBF5] text-left border-2 border-[#DBBB89] rounded-[6px]">
             <tr class="bg-[#FFFBF5] text-2xl font-semibold">
               <th class="p-4 border-2 border-[#DBBB89]">Track</th>
@@ -463,6 +463,28 @@ function ResourceLibraryCTR() {
               <td class="p-4 border-2 border-[#DBBB89]">Xec</td>
               <td class="p-4 border-2 border-[#DBBB89]">CPOs, Directors, Heads of Procurement, VPs, or executives moving toward the boardroom</td>
             </tr>
+          </table>
+        </div> */}
+        <div className="bg-[#FFFBF5] text-[#1B1B1B]">
+          <table className="w-full border-collapse bg-[#FFFBF5] text-left border-2 border-[#DBBB89] rounded-[6px]">
+            <tbody>
+              <tr className="bg-[#FFFBF5] text-2xl font-semibold">
+                <th className="p-4 border-2 border-[#DBBB89]">Track</th>
+                <th className="p-4 border-2 border-[#DBBB89]">Ideal For</th>
+              </tr>
+              <tr className="bg-[#FFFBF5] text-[20px]">
+                <td className="p-4 border-2 border-[#DBBB89]">NextGen</td>
+                <td className="p-4 border-2 border-[#DBBB89]">College students, university undergrads, career changers, apprenticeship seekers</td>
+              </tr>
+              <tr className="bg-[#FFFBF5] text-[20px]">
+                <td className="p-4 border-2 border-[#DBBB89]">Bloom</td>
+                <td className="p-4 border-2 border-[#DBBB89]">Procurement officers, category managers, sourcing professionals, delivery leaders</td>
+              </tr>
+              <tr className="bg-[#FFFBF5] text-[20px]">
+                <td className="p-4 border-2 border-[#DBBB89]">Xec</td>
+                <td className="p-4 border-2 border-[#DBBB89]">CPOs, Directors, Heads of Procurement, VPs, or executives moving toward the boardroom</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div >
