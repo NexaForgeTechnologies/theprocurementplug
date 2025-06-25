@@ -21,21 +21,20 @@ function ConsultingPartnerTile({
       }}
     >
       <h2
-        className={` ${
-          isLast || isFirst
+        className={` ${isLast || isFirst
             ? "text-white"
             : "text-[#85009D] group-hover:text-white"
-        } text-xl md:text-2xl font-semibold`}
+          } text-xl md:text-2xl font-semibold`}
       >
         {heading}
       </h2>
       {para && (
         <p
-          className={` ${isLast || isFirst ? "text-white" : "text-[#1b1b1b]"} ${
-            isLast || isFirst
+          className={` ${isLast || isFirst ? "text-white" : "text-[#1b1b1b]"} ${isLast || isFirst
               ? "max-w-full sm:max-w-[400px]"
-              : "max-w-full sm:max-w-[550px]"
-          } text-[#1B1B1B] text-base group-hover:text-[#ffff]`}
+              : "max-w-full sm:max-w-[300px]"
+            // : "max-w-full sm:max-w-[550px]"
+            } text-[#1B1B1B] text-base group-hover:text-[#ffff]`}
         >
           {para}
         </p>

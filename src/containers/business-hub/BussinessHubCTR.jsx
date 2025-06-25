@@ -91,7 +91,8 @@ function BussinessHubCTR() {
     {
       id: 7,
       heading: "ESG Social Value",
-      para: "ESG Lounge (Additional Resources)",
+      para: "ESG Lounge: Tools for sustainable procurement",
+      // para: "ESG Lounge (Additional Resources)",
       btntext: "View Details",
       url: "/business-hub/esg-social-value",
     },
