@@ -6,7 +6,8 @@ const ElevateCard = ({ cards }) => {
             {cards.map((card, index) => (
                 <div
                     key={index}
-                    className="rounded-[6px] px-5 pb-5 pt-5 md:pt-12 h-[280px] md:h-[436px] flex flex-col justify-between"
+                    className="rounded-[6px] p-5 h-[280px] md:h-[400px] flex flex-col justify-between"
+                    // className="rounded-[6px] px-5 pb-5 pt-5 md:pt-12 h-[280px] md:h-[436px] flex flex-col justify-between"
                     style={{
                         backgroundImage: `linear-gradient(to bottom, ${card.bgFrom}, ${card.bgTo})`,
                         color: card.textColor,
