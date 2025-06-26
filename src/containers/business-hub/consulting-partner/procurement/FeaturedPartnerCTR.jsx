@@ -200,7 +200,7 @@ function ConsultantPartnerCTR() {
           img="/images/bussiness-hub/consulting-partner/procurement/herosection.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold whitespace-nowrap">Procurement</span>
+              <span className="font-extrabold">Procurement</span>
             </span>
           }
           para="We help organizations meet environmental, social,

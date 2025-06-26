@@ -117,7 +117,11 @@ function BecomeaSpeaker() {
             <div>
                 <HeroCTR
                     img="/images/events/become-a-speaker/herosection.png"
-                    heading={<span className='flex flex-row items-center gap-2 leading-none'><span className="font-extrabold">Become a </span>Speaker</span>}
+                    heading={
+                        <span className="flex flex-col gap-0 leading-none">
+                            <span className="font-extrabold">Become a Speaker</span>
+                        </span>
+                    }
                     para="hare your insights, grow your network, and make
                     an impact in the procurement industry."
                 />

@@ -200,7 +200,7 @@ function ConsultantPartnerCTR() {
           img="/images/bussiness-hub/esg-social-value/herosection.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold whitespace-nowrap">ESG & Social <span className="font-normal">Value</span></span>
+              <span className="font-extrabold">ESG & Social Value</span>
             </span>
           }
           para="We help organizations meet environmental, social,

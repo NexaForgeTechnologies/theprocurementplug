@@ -63,7 +63,11 @@ export default function ConsultantDetailClient({ consultant }) {
       <div>
         <HeroCTR
           img="/images/bussiness-hub/consulting-partner/herosection.png"
-          heading={<span className='flex flex-row items-center gap-2 leading-none'><span className="font-extrabold">Consulting </span>Partners</span>}
+          heading={
+            <span className="flex flex-col gap-0 leading-none">
+              <span className="font-extrabold">Consulting Partners</span>
+            </span>
+          }
           para="The Procurement Plug’s Consulting Partners deliver
           expert solutions to enhance your procurement
           strategy, from process improvement and strategy

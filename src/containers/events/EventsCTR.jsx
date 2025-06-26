@@ -240,7 +240,11 @@ function ResourceLibraryCTR() {
       <div>
         <HeroCTR
           img="/images/events/herosection.png"
-          heading={<span className='flex flex-row items-center gap-2 leading-none'><span className="font-extrabold">Events </span>Offerings</span>}
+          heading={
+            <span className="flex flex-col gap-0 leading-none">
+              <span className="font-extrabold">Events Offerings</span>
+            </span>
+          }
           para="A central space for procurement professionals to
           access expert insights, tools, and partnerships that
           drive smarter, sustainable business decisions."

@@ -244,10 +244,16 @@ function ResourceLibraryCTR() {
       <div>
         <HeroCTR
           img="/images/events/elevate-by-the-procurement-plug/herosection.png"
-          heading={<span className='flex flex-col gap-0 leading-none'>
-            <span className="font-extrabold">Elevate by
-            </span> The Procurement Plug
-          </span>} para="Elevate by The Procurement Plug empowers
+          // heading={<span className='flex flex-col gap-0 leading-none'>
+          //   <span className="font-extrabold">Elevate by
+          //   </span> The Procurement Plug
+          // </span>} 
+          heading={
+            <span className="flex flex-col gap-0 leading-none">
+              <span className="font-extrabold">Elevate by The Procurement Plug</span>
+            </span>
+          }
+          para="Elevate by The Procurement Plug empowers
           procurement professionals through tailored
           growth and leadership programs. It supports
           every career stage, from entry-level to executive."

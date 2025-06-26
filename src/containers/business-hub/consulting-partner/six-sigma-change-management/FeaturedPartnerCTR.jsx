@@ -200,7 +200,7 @@ function ConsultantPartnerCTR() {
           img="/images/bussiness-hub/consulting-partner/six-sigma/herosection.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold whitespace-nowrap">Six Sigma & Change <span className="font-normal">Management</span></span>
+              <span className="font-extrabold">Six Sigma & Change Management</span>
             </span>
           }
           para="We help organizations meet environmental, social,
