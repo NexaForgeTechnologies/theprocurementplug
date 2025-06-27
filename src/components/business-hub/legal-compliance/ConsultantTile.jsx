@@ -1,32 +1,33 @@
 import React from "react";
-
+import Image from "next/image";
 import Link from "next/link";
 
-function ConsultantTile({ img, heading, subHeading, text1, text2, bgColor }) {
+function ConsultingPartnerTile({ heading, text1, text2, btntext, img, url = "" }) {
   return (
-    <div
-      className="
-        text-[#363636] w-full rounded-2xl border border-[#85009D] hover:border-[#b08d57] bg-white hover:bg-[#85009D] p-5 flex flex-col items-center justify-center text-center hover:text-white transition-all duration-200 ease-in-out group"
+    <Link
+      href={url}
+      className="w-full rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
     >
-      <span className="font-bold text-white bg-[#85009D] py-2 px-4 rounded-full mb-2 group-hover:text-[#85009D] group-hover:bg-white group-hover:transition-all duration-200 ease-in-out">{text2}</span>
-      <h2 className="text-xl md:text-2xl font-extrabold">{heading}</h2>
-      <h3
-        className={`${bgColor ? "text-white" : "text-[#b08d57]"
-          } text-xl md:text-2xl font-medium`}
-      >
-        {subHeading}
-      </h3>
-      <div className="my-2 flex flex-col items-center">
-        <span className="font-bold">{text1}</span>
+      <div className="flex justify-center">
+        <Image
+          className="rounded-full w-[160px] md:w-[227px] h-[160px] md:h-[227px] object-cover"
+          src={img}
+          alt={img}
+          width={227}
+          height={27}
+        />
       </div>
-      <Link
-        href={`/business-hub/legal-compliance/legal-compliance-detail`}
-        className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded"
-      >
-        View
-      </Link>
-    </div>
+      <div>
+        <h2 className="text-xl md:text-2xl font-semibold mb-4">{heading}</h2>
+        <p className="text-[#1B1B1B] text-base group-hover:text-white">{text1}</p>
+        {text2 && (<p className="text-[#1B1B1B] text-base group-hover:text-white">{text2}</p>)}
+      </div>
+      <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
+        {btntext}
+        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+      </span>
+    </Link>
   );
 }
 
-export default ConsultantTile;
+export default ConsultingPartnerTile;

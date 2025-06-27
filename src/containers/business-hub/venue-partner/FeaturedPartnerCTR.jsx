@@ -236,7 +236,7 @@ function ConsultantPartnerCTR() {
             </button>
           </div>
         </div>
-        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-4">
           {filteredConsultants.length > 0 ? (
             filteredConsultants.slice(0, visibleCount).map((partner) => (
               <ConsultantTile
@@ -258,8 +258,9 @@ function ConsultantPartnerCTR() {
           {visibleCount < filteredConsultants.length && (
             <button
               onClick={handleShowMore}
-              className="mt-4 text-white cursor-pointer px-4 py-2 bg-[#b08d57] rounded">
+              className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
               View All Venue Partners
+              <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
             </button>
           )}
         </div>

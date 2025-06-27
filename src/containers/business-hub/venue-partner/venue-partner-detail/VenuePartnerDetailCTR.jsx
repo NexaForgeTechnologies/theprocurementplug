@@ -16,6 +16,10 @@ function Breadcrumb() {
                     <Link href="/business-hub" className="hover:underline">Business Hub</Link>
                 </li>
                 <li>/</li>
+                <li>
+                    <Link href="/business-hub/venue-partner" className="hover:underline">Venue Partners</Link>
+                </li>
+                <li>/</li>
                 <li className="text-[#696969]">
                     Venue Partners Overview
                 </li>
@@ -105,7 +109,7 @@ function ConsultantPartnerCTR() {
                     Location
                 </h3>
                 <Image
-                    className="w-full h-[200px] md:h-[451px] object-cover mb-4"
+                    className="w-full h-[200px] md:h-[451px] object-cover"
                     src="/images/bussiness-hub/venue-partner/venue-partner-detail/map.png"
                     alt="Venue Partner Image"
                     width={1140}

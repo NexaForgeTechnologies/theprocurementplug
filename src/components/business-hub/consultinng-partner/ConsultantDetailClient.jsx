@@ -74,7 +74,7 @@ export default function ConsultantDetailClient({ consultant }) {
           development to ESG and sustainability impact."
         />
         <Breadcrumb />
-        <div className="flex flex-col-reverse md:flex-row justify-between items-start mb-4 gap-4 md:gap-0">
+        <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 md:gap-0">
           <div className="w-full md:w-auto">
             <h1 className="text-3xl md:text-[52px] font-semibold text-[#85009D]">
               {consultant.heading}
