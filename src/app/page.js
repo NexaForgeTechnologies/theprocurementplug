@@ -31,7 +31,7 @@ export const metadata = {
 };
 
 export default function Home() {
-
+  console.log('hello')
   return (
     <>
       <HeroCTR />
