@@ -221,9 +221,6 @@ function ProcurementConciergeCTR() {
                 </p>
                 <div className="bg-[#FFFBF5] border border-[#DBBB89] rounded-[6px]">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center mb-6">
-                        {/* <button className="w-full text-center text-2xl py-4 font-semibold bg-[#D44CED] text-[#FFFBF5] md:rounded-tl-[6px] md:rounded-bl-[6px]">Light</button>
-                        <button className="w-full text-center text-2xl py-4 font-semibold border border-[#85009D]  text-[#BC1ED9]">Medium</button>
-                        <button className="w-full text-center text-2xl py-4 font-semibold border border-[#85009D] text-[#BC1ED9] md:rounded-tr-[6px] md:rounded-br-[6px]">Heavy</button> */}
                         <button
                             onClick={() => setActiveTab("Light")}
                             className={`${getButtonClass("Light")} md:rounded-tl-[6px] md:rounded-bl-[6px]`}
