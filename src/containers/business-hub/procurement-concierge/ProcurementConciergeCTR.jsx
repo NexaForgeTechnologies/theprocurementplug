@@ -6,6 +6,8 @@ import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
+import TaskListForm from "@/components/business-hub/procurement-concierge/TaskListForm";
+import JoinForm from '@/components/business-hub/procurement-concierge/JoinForm';
 
 function Breadcrumb() {
     return (
@@ -27,6 +29,8 @@ function ProcurementConciergeCTR() {
 
     const [activeTab, setActiveTab] = useState("Light");
     const [openIndex, setOpenIndex] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
 
 
     const getButtonClass = (tabName) => {
@@ -170,11 +174,12 @@ function ProcurementConciergeCTR() {
                     </div>
                 </div>
                 <div className="flex flex-col md:flex-row items-center gap-4">
-                    <button
+                    <Link
+                        href={"/business-hub/procurement-concierge/pricing-plan"}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Get Started
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div>
@@ -270,6 +275,7 @@ function ProcurementConciergeCTR() {
                         )}
                         <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
                             <button
+                                onClick={() => setIsModalOpen(true)}
                                 className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                                 Download full task list
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
@@ -345,7 +351,7 @@ function ProcurementConciergeCTR() {
                     </div>
                 </div>
             </div>
-            <div className='flex flex-col-reverse md:flex-row items-center justify-between  gap-6'> 
+            <div className='flex flex-col-reverse md:flex-row items-center justify-between  gap-6'>
                 <div className='w-full md:w-[581px]'>
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] mb-4">
                         Have Questions? We Have Answers
@@ -382,8 +388,8 @@ function ProcurementConciergeCTR() {
                         </button>
                     </div>
                 </div>
-                <Link
-                    href={"/"}
+                <button
+                    onClick={() => setIsJoinModalOpen(true)}
                     className=" w-full md:w-[488px] rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
                 >
                     <div className=" self-center md:self-start">
@@ -408,9 +414,11 @@ function ProcurementConciergeCTR() {
                         Join Now
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </span>
-                </Link>
+                </button>
             </div>
             <PartnerWithUsComp data={partnerWithUs} />
+            <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <JoinForm isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
         </>
     );
 }
