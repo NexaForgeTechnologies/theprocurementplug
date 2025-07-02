@@ -7,7 +7,7 @@ function BusinesFeatureComp({ data, key }) {
   const [isHovered, setIsHovered] = useState(false);
   const handleClick = (e) => {
     if (!data.link) {
-      e.preventDefault(); // Prevent navigation
+      e.preventDefault();
       alert("Available soon!");
     }
   };
@@ -22,19 +22,19 @@ function BusinesFeatureComp({ data, key }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        textAlign: 'center',
-        gap: '0.5rem',
-        padding: '1.5rem',
-        borderRadius: '0.5rem',
-        border: '1px solid #85009D',
-        backgroundColor: isHovered ? '#85009D' : bgColor,
-        color: 'white',
-        transition: 'all 0.2s ease-in-out'
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        gap: "0.5rem",
+        padding: "1.5rem",
+        borderRadius: "0.5rem",
+        border: "1px solid #85009D",
+        backgroundColor: isHovered ? "#85009D" : bgColor,
+        color: "white",
+        transition: "all 0.2s ease-in-out",
+        height: "inherit",
       }}
-    // className="transition-all flex flex-col items-center text-center gap-2 p-6 bg-[#b58c4a] rounded border border-[#85009D] hover:bg-[#85009D] text-white hover:text-white"
     >
       <h2 className="font-extrabold text-xl">{data.heading}</h2>
       <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
