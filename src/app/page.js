@@ -37,7 +37,7 @@ export default function Home() {
       <InfoTileCTR />
       <CoFeatureCTR />
       <div className="bg-[#212121] p-6 md:p-8 rounded-2xl">
-        <h3 className="font-extrabold text-3xl md:text-5xl mb-4 text-[#ffffff]">Charity Support at The Procurement Plug</h3>
+        <h3 className="font-extrabold text-3xl md:text-5xl mb-4 text-[#ffffff]">Test -Charity Support at The Procurement Plug</h3>
         <p className="text-sm md:text-lg leading-normal md:leading-relaxed text-[#ffffff]">At The Procurement Plug, we are passionate about giving back to the community. In addition to offering discounted rates on job postings for charities, we encourage procurement professionals to contribute their expertise by supporting charitable organisations on short-term projects. Whether its offering strategic advice, managing procurement processes, or delivering specialised skills, our community of professionals is dedicated to helping charities achieve their goals and make a meaningful impact. Together, we can create positive change in the world through procurement.</p>
       </div>
       <ImgTxtCTR />
