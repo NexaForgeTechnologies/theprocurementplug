@@ -225,7 +225,7 @@ function ConsultantPartnerCTR() {
             onChange={(e) => setSelectedIndustry(e.target.value)}
             className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
           >
-            <option value="">Select Industry</option>
+            <option value="">Industry</option>
             <option value="1">Industry One</option>
             <option value="2">Industry Two</option>
             <option value="3">Industry Three</option>
@@ -237,12 +237,12 @@ function ConsultantPartnerCTR() {
             onChange={(e) => setSelectedRegion(e.target.value)}
             className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
           >
-            <option value="">Select Legal Region</option>
+            <option value="">Legal Region</option>
             <option value="1">England</option>
             <option value="2">Scotland</option>
             <option value="3">Northern Ireland</option>
-            <option value="4">wales</option>
-            <option value="5">europe</option>
+            <option value="4">Wales</option>
+            <option value="5">Europe</option>
             <option value="6">International</option>
           </select>
 

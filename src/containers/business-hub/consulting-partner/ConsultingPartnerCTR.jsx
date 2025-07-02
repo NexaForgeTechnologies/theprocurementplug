@@ -160,7 +160,7 @@ function ConsultingPartnerCTR() {
             onChange={(e) => setSelectedIndustry(e.target.value)}
             className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
           >
-            <option value="">Select Industry</option>
+            <option value="">Industry</option>
             <option value="1">Industry One</option>
             <option value="2">Industry Two</option>
             <option value="3">Industry Three</option>
@@ -175,7 +175,7 @@ function ConsultingPartnerCTR() {
             onChange={(e) => setSelectedRegion(e.target.value)}
             className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
           >
-            <option value="">Select Location</option>
+            <option value="">Location</option>
             <option value="1">Region One</option>
             <option value="2">Region Two</option>
             <option value="3">Region Three</option>
@@ -189,7 +189,7 @@ function ConsultingPartnerCTR() {
             onChange={(e) => setSelectedRegion(e.target.value)}
             className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"
           >
-            <option value="">Select Specialism</option>
+            <option value="">Specialism</option>
             <option value="1">Region One</option>
             <option value="2">Region Two</option>
             <option value="3">Region Three</option>
