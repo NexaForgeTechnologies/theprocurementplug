@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import React, { useState } from "react";
+import Image from "next/image";
 
 function BusinesFeatureComp({ data }) {
   const [hoveredId, setHoveredId] = useState(null);
@@ -16,17 +17,31 @@ function BusinesFeatureComp({ data }) {
   const bgColor = data.bgColor || "#FFFBF5";
 
   return (
-    <div className="relative">
-      <div
-        style={{
-          backgroundImage: `url("/images/bussiness-hub/vip-lounge/partnerwithus.png")`,
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
-          boxShadow: "#00000036 0px 0px 0px 100vmax",
-          clipPath: "inset(0 -100vmax)",
-        }}
-        className="w-screen ml-[calc(50%-50vw)] h-full absolute top-0 left-0 -z-10"
-      ></div>
+    <div
+      className="relative flex flex-col gap-6 md:gap-8 py-5 px-6 sm:px-10 md:px-14 lg:px-20"
+      style={{
+        width: "100vw",
+        left: "50%",
+        right: "50%",
+        marginLeft: "-50vw",
+        marginRight: "-50vw",
+        backgroundColor: "#85009D",
+      }}
+    >
+      <Image
+        width={88}
+        height={190}
+        src="/images/bussiness-hub/plug1.png"
+        alt="The Procurement Plug Logo"
+        className="absolute top-0 md:top-6 left-0"
+      />
+      <Image
+        width={291}
+        height={329}
+        src="/images/bussiness-hub/plug2.png"
+        alt="The Procurement Plug Logo"
+        className="absolute bottom-0 right-0 md:top-1/2 md:-translate-y-1/2"
+      />
 
       <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-lg py-5 md:py-10 ">
         <div className="max-w-[780px] m-auto text-center">
@@ -41,7 +56,7 @@ function BusinesFeatureComp({ data }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-[1440px] m-auto">
           {data?.map((partner) => {
             const isHovered = hoveredId === partner.id;
 
@@ -92,3 +107,4 @@ function BusinesFeatureComp({ data }) {
 }
 
 export default BusinesFeatureComp;
+

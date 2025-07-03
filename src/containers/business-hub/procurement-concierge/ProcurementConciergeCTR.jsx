@@ -277,7 +277,7 @@ function ProcurementConciergeCTR() {
                             <button
                                 onClick={() => setIsModalOpen(true)}
                                 className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                                Download full task lists
+                                Download full task list
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </button>
                         </div>
