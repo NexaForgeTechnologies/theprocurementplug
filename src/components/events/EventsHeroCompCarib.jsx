@@ -21,17 +21,21 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
 
     const formData = new FormData(e.target);
     const data = {
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
+      userEmail: formData.get("email"),
+      name: formData.get("fullName"),
       jobTitle: formData.get("jobTitle"),
       company: formData.get("company"),
       phoneNumber: formData.get("phoneNumber"),
       linkedInUrl: formData.get("linkedInUrl"),
       consent: formData.get("consent") === "on",
+      type: "event_registration",
+      eventName: "Elevate 2025: Caribbean Edition",
+      eventLocation: "Trinidad & Tobago",
+      eventDate: "November 2025"
     };
 
     try {
-      const response = await fetch("/api/event", {
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

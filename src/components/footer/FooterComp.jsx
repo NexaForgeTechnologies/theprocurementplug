@@ -28,15 +28,20 @@ const Footer = () => {
     setShowAlert(false);
 
     try {
-      const response = await fetch("/api/subscribe", {
+      const response = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ 
+          userEmail: email,
+          name: "Newsletter Subscriber",
+          message: "New newsletter subscription request",
+          type: "newsletter_subscription"
+        }),
       });
 
       const data = await response.json();
       if (response.ok) {
-        setMessage("Subscription successful! Check your email.");
+        setMessage("Subscription successful! Check your email for confirmation.");
         setEmail("");
         setShowAlert(true);
       } else {
@@ -47,7 +52,6 @@ const Footer = () => {
       setMessage("An error occurred. Please try again later.");
       setShowAlert(true);
     } finally {
-      setIsLoading(false);
       setIsLoading(false);
     }
   };
