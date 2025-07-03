@@ -48,9 +48,8 @@ const HeaderComp = () => {
   return (
     <>
       <nav
-        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
-          isScrolled ? "shadow-md" : ""
-        }`}
+        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""
+          }`}
       >
         <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-20 2xl:px-0 py-4 flex items-center justify-between">
           <Link
@@ -105,6 +104,15 @@ const HeaderComp = () => {
                 Business Hub
               </Link>
             </li>
+            <li>
+              <Link
+                href="/business-hub/procurement-concierge"
+                className="text-sm font-semibold hover:text-[#85009D]"
+                onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
+              >
+                The Plug Concierge
+              </Link>
+            </li>
             <li className="flex items-center bounce-right">
               <p className="text-sm font-semibold pr-3 text-[#010101]">
                 Reach Out To Our Team
@@ -125,9 +133,8 @@ const HeaderComp = () => {
 
         {/* Mobile Sidebar */}
         <div
-          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${
-            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
         >
           <div className="p-4 flex justify-between items-center">
             <Link href="/" onClick={() => handleLinkClick("/")}>
@@ -163,6 +170,15 @@ const HeaderComp = () => {
             >
               Business Hub
             </Link>
+            <li>
+              <Link
+                href="/business-hub/procurement-concierge"
+                className="text-sm font-semibold hover:text-[#85009D]"
+                onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
+              >
+                The Plug Concierge
+              </Link>
+            </li>
             <li className="flex gap-[4px] items-center bounce-right">
               <span className="text-sm font-semibold text-[#010101]">
                 Reach Out To Our Team

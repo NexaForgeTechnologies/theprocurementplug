@@ -98,7 +98,7 @@ function ConsultantPartnerCTR() {
     },
     {
       id: 6,
-      heading: "Agentic AI",
+      heading: "Contract Management",
       img: "/images/bussiness-hub/sourcetocontract64.png",
       text1: "Improve connectivity via AI.",
       industry_id: 3,

@@ -111,7 +111,7 @@ function BussinessHubCTR() {
           img="/images/bussiness-hub/herosection.png"
           heading={
             <span className="flex flex-row items-center gap-2 leading-none">
-              <span className="font-extrabold">The Business Hub Tile</span>
+              <span className="font-extrabold">The Business Hub</span>
             </span>
           }
           para="A central space for procurement professionals to
