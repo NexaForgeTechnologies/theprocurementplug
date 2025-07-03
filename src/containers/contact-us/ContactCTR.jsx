@@ -25,49 +25,70 @@ const contactus = () => {
     }
   }, [alert.show]);
 
+  const sendEmail= async ()=>{
+    await fetch('/api/send-email', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ userEmail: 'newuser@example.com' }),
+});
+  }
+
+  // useEffect(()=>{
+  
+  // sendEmail()
+  // },[])
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setAlert({ message: "", type: "", show: false });
+  e.preventDefault();
+  setIsLoading(true);
+  setAlert({ message: "", type: "", show: false });
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userEmail: formData?.email,
+        message: formData.message,
+        name: formData.name
+      }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      console.log('Server returned:', result.data); // contains name, email, message
+
+      setAlert({
+        message: "Message sent successfully! Check your email for confirmation.",
+        type: "success",
+        show: true,
       });
 
-      const data = await response.json();
-      if (response.ok) {
-        setAlert({
-          message:
-            "Message sent successfully! Check your email for confirmation.",
-          type: "success",
-          show: true,
-        });
-        setFormData({ name: "", email: "", message: "" });
-      } else {
-        setAlert({
-          message: data.error || "Failed to send message. Please try again.",
-          type: "error",
-          show: true,
-        });
-      }
-    } catch (error) {
+      setFormData({ name: "", email: "", message: "" }); // Reset form
+    } else {
       setAlert({
-        message: "An error occurred. Please try again later.",
+        message: result.error || "Failed to send message. Please try again.",
         type: "error",
         show: true,
       });
-    } finally {
-      setIsLoading(false);
     }
-  };
+  } catch (error) {
+    console.error("Client error:", error);
+    setAlert({
+      message: "An error occurred. Please try again later.",
+      type: "error",
+      show: true,
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleCloseAlert = () => {
     setAlert({ message: "", type: "", show: false });
