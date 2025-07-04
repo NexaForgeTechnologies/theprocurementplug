@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from "next/link";
+import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
@@ -98,32 +99,32 @@ function PricingPlanCTR() {
         }
     ];
 
-    const partnerWithUs = [
-        {
-            id: 1,
-            heading: "The Procurement Plug Academy",
-            text: "",
-            link: "",
-            linkText: "View",
-            bgColor: "#85009D"
-        },
-        {
-            id: 2,
-            heading: "Resources Library",
-            text: "",
-            link: "",
-            linkText: "View",
-            bgColor: "#85009D"
-        },
-        {
-            id: 3,
-            heading: "The Personal Development Hub",
-            text: "",
-            link: "",
-            linkText: "View",
-            bgColor: "#85009D"
-        }
-    ]
+    // const partnerWithUs = [
+    //     {
+    //         id: 1,
+    //         heading: "The Procurement Plug Academy",
+    //         text: "",
+    //         link: "",
+    //         linkText: "View",
+    //         bgColor: "#85009D"
+    //     },
+    //     {
+    //         id: 2,
+    //         heading: "Resources Library",
+    //         text: "",
+    //         link: "",
+    //         linkText: "View",
+    //         bgColor: "#85009D"
+    //     },
+    //     {
+    //         id: 3,
+    //         heading: "The Personal Development Hub",
+    //         text: "",
+    //         link: "",
+    //         linkText: "View",
+    //         bgColor: "#85009D"
+    //     }
+    // ]
 
     return (
         <>
@@ -194,10 +195,52 @@ function PricingPlanCTR() {
                     </button>
                 </div>
             </div>
+            <div
+                className="relative flex flex-col gap-6 md:gap-8 py-5"
+                style={{
+                    width: "100vw",
+                    left: "50%",
+                    right: "50%",
+                    marginLeft: "-50vw",
+                    marginRight: "-50vw",
+                    backgroundColor: "#85009D",
+                }}
+            >
+                <Image
+                    width={76}
+                    height={163}
+                    src="/images/bussiness-hub/plug1.png"
+                    alt="The Procurement Plug Logo"
+                    className="absolute top-0  left-0"
+                />
+                <Image
+                    width={136}
+                    height={154}
+                    src="/images/bussiness-hub/plug2.png"
+                    alt="The Procurement Plug Logo"
+                    className="absolute bottom-0 right-0 md:top-1/2 md:-translate-y-1/2"
+                />
+
+                <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-lg py-5 md:py-10 mx-auto max-w-[1440px] w-full
+      px-6 sm:px-10 md:px-14 lg:px-20">
+                    <div>
+                        <div className="max-w-[780px] m-auto text-center">
+                            <h3 className="max-w-[521px] m-auto leading-none font-semibold text-[32px] text-[#ffff]">
+                                Need a bespoke task?
+                            </h3>
+                            <p className="text-[#ffff] text-sm md:text-2xl font-medium leading-normal md:leading-relaxed mt-4">
+                                Contact us at -{' '}
+                                <Link className="font-semibold" href="/business-hub/procurement-concierge">
+                                     concierge@theprocurementplug.com
+                                </Link>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
-
-            <PartnerWithUsComp data={partnerWithUs} />
+            {/* <PartnerWithUsComp data={partnerWithUs} /> */}
             <ExpertForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );

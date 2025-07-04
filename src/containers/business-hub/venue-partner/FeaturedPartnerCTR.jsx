@@ -138,32 +138,39 @@ function ConsultantPartnerCTR() {
     setVisibleCount((prevCount) => prevCount + 4);
   };
 
-  const partnerWithUs = [
-    {
-      id: 1,
-      heading: "The Procurement Plug Academy",
-      text: "",
-      link: "",
-      linkText: "View",
-      bgColor: "#85009D"
-    },
-    {
-      id: 2,
-      heading: "Resources Library",
-      text: "",
-      link: "",
-      linkText: "View",
-      bgColor: "#85009D"
-    },
-    {
-      id: 3,
-      heading: "The Personal Development Hub",
-      text: "",
-      link: "",
-      linkText: "View",
-      bgColor: "#85009D"
-    }
-  ]
+   const partnerWithUs = {
+        Partnerheader: {
+            crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
+            h3: "",
+            p: ""
+        },
+        items: [
+            {
+                id: 1,
+                heading: "The Procurement Plug Academy",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            },
+            {
+                id: 2,
+                heading: "Resources Library",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            },
+            {
+                id: 3,
+                heading: "The Personal Development Hub",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            }
+        ]
+    };
 
   return (
     <>

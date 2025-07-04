@@ -45,20 +45,59 @@ function BusinesFeatureComp({ data }) {
 
       <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-lg py-5 md:py-10 mx-auto max-w-[1440px] w-full
       px-6 sm:px-10 md:px-14 lg:px-20">
-        <div className="max-w-[780px] m-auto text-center">
-          <h3 className="font-semibold text-[32px] text-[#ffff]">
-            Partner With Us
-          </h3>
-          <p className="text-[#ffff] text-sm md:text-base font-medium leading-normal md:leading-relaxed">
-            <strong>partnerships@theprocurementplug.com</strong> -
-            <Link className="font-light" href="/partnerships">
-              Visit our partnership page
-            </Link>
-          </p>
+        <div>
+          {data.Partnerheader.crossSellh3 && (
+            <div className="max-w-[780px] m-auto text-center">
+              <h3 className="max-w-[521px] m-auto leading-none font-semibold text-[32px] text-[#ffff]">
+                {data.Partnerheader.crossSellh3}
+              </h3>
+            </div>
+          )}
+
+          {data.Partnerheader.h3 && (
+            <div className="max-w-[780px] m-auto text-center">
+              <h3 className="font-semibold text-[32px] text-[#ffff]">
+                {data.Partnerheader.h3}
+              </h3>
+            </div>
+          )}
+
+          {data.Partnerheader.bullets && (
+            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 mt-4">
+              <div>
+                {data.Partnerheader.bullets.slice(0, 2).map((bullet, index) => (
+                  <div key={index} className="flex gap-2 md:gap-4 items-start mb-4">
+                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full shrink-0 mt-[3px]"></div>
+                    <div>
+                      <p className="text-[16px] text-[#FFFFFF]">{bullet}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div>
+                {data.Partnerheader.bullets.slice(2).map((bullet, index) => (
+                  <div key={index} className="flex gap-2 md:gap-4 items-start mb-4">
+                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full shrink-0 mt-[3px]"></div>
+                    <div>
+                      <p className="text-[16px] text-[#FFFFFF]">{bullet}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {data.Partnerheader.p && (
+            <div className="max-w-[780px] m-auto text-center">
+              <p className="text-[#ffff] text-sm md:text-base font-medium leading-normal md:leading-relaxed">
+                {data.Partnerheader.p}
+              </p>
+            </div>
+          )}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {data?.map((partner) => {
+          {data.items?.map((partner) => {
             const isHovered = hoveredId === partner.id;
 
             return (
@@ -103,7 +142,7 @@ function BusinesFeatureComp({ data }) {
           })}
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

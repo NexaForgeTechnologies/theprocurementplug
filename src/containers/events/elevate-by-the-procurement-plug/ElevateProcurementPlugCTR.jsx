@@ -181,33 +181,51 @@ function ResourceLibraryCTR() {
     },
   ];
 
-  const partnerWithUs = [
-    {
-      id: 1,
-      heading: "The Procurement Plug Academy",
-      text: "",
-      link: "",
-      linkText: "Upskill Now",
-      bgColor: "#85009D"
+  const partnerWithUs = {
+    Partnerheader: {
+      h3: "Partner With Us",
+      p: (
+        <>
+          <strong>partnerships@theprocurementplug.com</strong> -{' '}
+          <Link className="font-light" href="/partnerships">
+            Visit our partnership page
+          </Link>
+        </>
+      ),
+      bullets: [
+        "Position Your Brand as a strategic employer and change leader",
+        "Access Talent Pipelines across all levels",
+        "Be Part of the Conversation shaping the future of procurement",
+        "Support Economic Mobility & industry visibility",
+      ],
     },
-    {
-      id: 2,
-      heading: "Recruitment Services",
-      text: "",
-      link: "",
-      linkText: "Find Talent",
-      bgColor: "#85009D"
-    },
-    {
-      id: 3,
-      heading: "Procurement Xec Plug",
-      text: "",
-      link: "",
-      linkText: "Explore Membership",
-      bgColor: "#85009D"
-
-    }
-  ]
+    items: [
+      {
+        id: 1,
+        heading: "The Procurement Plug Academy",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 2,
+        heading: "Resources Library",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 3,
+        heading: "The Personal Development Hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      }
+    ]
+  };
 
 
   const filteredEvents = events.filter((event) => {

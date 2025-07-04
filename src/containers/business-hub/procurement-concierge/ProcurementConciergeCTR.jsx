@@ -5,9 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
+// import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import TaskListForm from "@/components/business-hub/procurement-concierge/TaskListForm";
-import JoinForm from '@/components/business-hub/procurement-concierge/JoinForm';
 
 function Breadcrumb() {
     return (
@@ -30,7 +29,6 @@ function ProcurementConciergeCTR() {
     const [activeTab, setActiveTab] = useState("Light");
     const [openIndex, setOpenIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
 
 
     const getButtonClass = (tabName) => {
@@ -67,32 +65,32 @@ function ProcurementConciergeCTR() {
         }
     ];
 
-    const partnerWithUs = [
-        {
-            id: 1,
-            heading: "The Procurement Plug Academy",
-            text: "",
-            link: "",
-            linkText: "View",
-            bgColor: "#85009D"
-        },
-        {
-            id: 2,
-            heading: "Resources Library",
-            text: "",
-            link: "",
-            linkText: "View",
-            bgColor: "#85009D"
-        },
-        {
-            id: 3,
-            heading: "The Personal Development Hub",
-            text: "",
-            link: "",
-            linkText: "View",
-            bgColor: "#85009D"
-        }
-    ]
+    // const partnerWithUs = [
+    //     {
+    //         id: 1,
+    //         heading: "The Procurement Plug Academy",
+    //         text: "",
+    //         link: "",
+    //         linkText: "View",
+    //         bgColor: "#85009D"
+    //     },
+    //     {
+    //         id: 2,
+    //         heading: "Resources Library",
+    //         text: "",
+    //         link: "",
+    //         linkText: "View",
+    //         bgColor: "#85009D"
+    //     },
+    //     {
+    //         id: 3,
+    //         heading: "The Personal Development Hub",
+    //         text: "",
+    //         link: "",
+    //         linkText: "View",
+    //         bgColor: "#85009D"
+    //     }
+    // ]
 
     return (
         <>
@@ -388,8 +386,9 @@ function ProcurementConciergeCTR() {
                         </button>
                     </div>
                 </div>
-                <button
-                    onClick={() => setIsJoinModalOpen(true)}
+                <Link
+                    href={"/business-hub/procurement-concierge/plug-concierge-experts"}
+                    // onClick={() => setIsJoinModalOpen(true)}
                     className=" w-full md:w-[488px] rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
                 >
                     <div className=" self-center md:self-start">
@@ -414,11 +413,10 @@ function ProcurementConciergeCTR() {
                         Join Now
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </span>
-                </button>
+                </Link>
             </div>
-            <PartnerWithUsComp data={partnerWithUs} />
+            {/* <PartnerWithUsComp data={partnerWithUs} /> */}
             <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-            <JoinForm isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
         </>
     );
 }

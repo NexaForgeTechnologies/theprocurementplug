@@ -24,34 +24,45 @@ function Breadcrumb() {
 
 function page() {
 
-    const partnerWithUs = [
-        {
-            id: 1,
-            heading: "Procure Tech Solution",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: ""
-        }
-        ,
-        {
-            id: 2,
-            heading: "PTX",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: ""
+    const partnerWithUs = {
+        Partnerheader: {
+            h3: "Partner With Us",
+            p: (
+                <>
+                    <strong>partnerships@theprocurementplug.com</strong> -{' '}
+                    <Link className="font-light" href="/partnerships">
+                        Visit our partnership page
+                    </Link>
+                </>
+            )
         },
-        {
-            id: 3,
-            heading: "Xec Plug",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: ""
-        }
-    ]
-
+        items: [
+            {
+                id: 1,
+                heading: "Procure Tech Solution",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: ""
+            },
+            {
+                id: 2,
+                heading: "PTX",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: ""
+            },
+            {
+                id: 3,
+                heading: "Xec Plug",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: ""
+            }
+        ]
+    }
     return (
         <>
             <div>

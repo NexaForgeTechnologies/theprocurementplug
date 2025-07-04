@@ -3,11 +3,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-import EsgConsultantTile from "@/components/business-hub/consultinng-partner/esg-sustainability/EsgConsultantTile";
+import EsgConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTile";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 
 import EsgTile from "@/components/business-hub/consultinng-partner/esg-sustainability/EsgTile";
+import { consultantPartners } from "@/app/business-hub/consulting-partner/data";
+
 
 
 function Breadcrumb() {
@@ -36,123 +38,130 @@ function ConsultantPartnerCTR() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [visibleCount, setVisibleCount] = useState(4);
 
-  const consultantPartners = [
-    {
-      id: 1,
-      img: "/images/guess/guess-1.jpg",
-      heading: "Oliver Jones",
-      text1: "Consulting Director",
-      industry_id: 1,
-      industry_name: "Industry One",
-      region_id: 1,
-      region_name: "Region One",
-      text2: "H&Z Management Consulting",
-    },
-    {
-      id: 2,
-      img: "/images/guess/guess-2.jpg",
-      heading: "Kiran Kachela",
-      text1: "CEO",
-      industry_id: 2,
-      industry_name: "Industry Two",
-      region_id: 2,
-      region_name: "Region Two",
-      text2: "CI Projects",
-    },
-    {
-      id: 3,
-      img: "/images/guess/guess-3.jpg",
-      heading: "Sarah Socca",
-      text1: "CEO",
-      industry_id: 3,
-      industry_name: "Industry Three",
-      region_id: 3,
-      region_name: "Region Three",
-      text2: "Co Comply",
-    },
-    {
-      id: 4,
-      img: "/images/guess/guess-1.jpg",
-      heading: "Oliver Jones",
-      text1: "Consulting Director",
-      industry_id: 1,
-      industry_name: "Industry One",
-      region_id: 1,
-      region_name: "Region One",
-      text2: "H&Z Management Consulting",
-    },
-    {
-      id: 5,
-      img: "/images/guess/guess-2.jpg",
-      heading: "Kiran Kachela",
-      text1: "CEO",
-      industry_id: 2,
-      industry_name: "Industry Two",
-      region_id: 2,
-      region_name: "Region Two",
-      text2: "CI Projects",
-    },
-    {
-      id: 6,
-      img: "/images/guess/guess-1.jpg",
-      heading: "Oliver Jones",
-      text1: "Consulting Director",
-      industry_id: 1,
-      industry_name: "Industry One",
-      region_id: 1,
-      region_name: "Region One",
-      text2: "H&Z Management Consulting",
-    },
-    {
-      id: 7,
-      img: "/images/guess/guess-3.jpg",
-      heading: "Sarah Socca",
-      text1: "CEO",
-      industry_id: 3,
-      industry_name: "Industry Three",
-      region_id: 3,
-      region_name: "Region Three",
-      text2: "Co Comply",
-    },
-    {
-      id: 8,
-      img: "/images/guess/guess-1.jpg",
-      heading: "Oliver Jones",
-      text1: "Consulting Director",
-      industry_id: 1,
-      industry_name: "Industry One",
-      region_id: 1,
-      region_name: "Region One",
-      text2: "H&Z Management Consulting",
-    },
-  ];
+  // const consultantPartners = [
+  //   {
+  //     id: 1,
+  //     img: "/images/guess/guess-1.jpg",
+  //     heading: "Oliver Jones",
+  //     text1: "Consulting Director",
+  //     industry_id: 1,
+  //     industry_name: "Industry One",
+  //     region_id: 1,
+  //     region_name: "Region One",
+  //     text2: "H&Z Management Consulting",
+  //   },
+  //   {
+  //     id: 2,
+  //     img: "/images/guess/guess-2.jpg",
+  //     heading: "Kiran Kachela",
+  //     text1: "CEO",
+  //     industry_id: 2,
+  //     industry_name: "Industry Two",
+  //     region_id: 2,
+  //     region_name: "Region Two",
+  //     text2: "CI Projects",
+  //   },
+  //   {
+  //     id: 3,
+  //     img: "/images/guess/guess-3.jpg",
+  //     heading: "Sarah Socca",
+  //     text1: "CEO",
+  //     industry_id: 3,
+  //     industry_name: "Industry Three",
+  //     region_id: 3,
+  //     region_name: "Region Three",
+  //     text2: "Co Comply",
+  //   },
+  //   {
+  //     id: 4,
+  //     img: "/images/guess/guess-1.jpg",
+  //     heading: "Oliver Jones",
+  //     text1: "Consulting Director",
+  //     industry_id: 1,
+  //     industry_name: "Industry One",
+  //     region_id: 1,
+  //     region_name: "Region One",
+  //     text2: "H&Z Management Consulting",
+  //   },
+  //   {
+  //     id: 5,
+  //     img: "/images/guess/guess-2.jpg",
+  //     heading: "Kiran Kachela",
+  //     text1: "CEO",
+  //     industry_id: 2,
+  //     industry_name: "Industry Two",
+  //     region_id: 2,
+  //     region_name: "Region Two",
+  //     text2: "CI Projects",
+  //   },
+  //   {
+  //     id: 6,
+  //     img: "/images/guess/guess-1.jpg",
+  //     heading: "Oliver Jones",
+  //     text1: "Consulting Director",
+  //     industry_id: 1,
+  //     industry_name: "Industry One",
+  //     region_id: 1,
+  //     region_name: "Region One",
+  //     text2: "H&Z Management Consulting",
+  //   },
+  //   {
+  //     id: 7,
+  //     img: "/images/guess/guess-3.jpg",
+  //     heading: "Sarah Socca",
+  //     text1: "CEO",
+  //     industry_id: 3,
+  //     industry_name: "Industry Three",
+  //     region_id: 3,
+  //     region_name: "Region Three",
+  //     text2: "Co Comply",
+  //   },
+  //   {
+  //     id: 8,
+  //     img: "/images/guess/guess-1.jpg",
+  //     heading: "Oliver Jones",
+  //     text1: "Consulting Director",
+  //     industry_id: 1,
+  //     industry_name: "Industry One",
+  //     region_id: 1,
+  //     region_name: "Region One",
+  //     text2: "H&Z Management Consulting",
+  //   },
+  // ];
 
-  const partnerWithUs = [
-    {
-      id: 1,
-      heading: "The Procurement Plug Academy",
-      text: "",
-      link: "",
-      linkText: "View",
-      bgColor: "#85009D"
-    },
-    {
-      id: 2,
-      heading: "Resources Library",
-      text: "",
-      link: "",
-      linkText: "View",
-      bgColor: "#85009D"
-    },
-    {
-      id: 3,
-      heading: "The Personal Development Hub",
-      text: "",
-      link: "",
-      linkText: "View",
-      bgColor: "#85009D"
-    }
-  ]
+   const partnerWithUs = {
+        Partnerheader: {
+            crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
+            h3: "",
+            p: ""
+        },
+        items: [
+            {
+                id: 1,
+                heading: "The Procurement Plug Academy",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            },
+            {
+                id: 2,
+                heading: "Resources Library",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            },
+            {
+                id: 3,
+                heading: "The Personal Development Hub",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            }
+        ]
+    };
 
   const consultantPartnerTile = [
     {

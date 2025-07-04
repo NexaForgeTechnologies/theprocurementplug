@@ -84,33 +84,39 @@ function BecomeaSpeaker() {
         },
     ];
 
-    const partnerWithUs = [
-        {
-            id: 1,
-            heading: "The Procurement Plug Academy",
-            text: "",
-            link: "",
-            linkText: "Upskill Now",
-            bgColor: "#85009D"
+    const partnerWithUs = {
+        Partnerheader: {
+            crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
+            h3: "",
+            p: ""
         },
-        {
-            id: 2,
-            heading: "Recruitment Services",
-            text: "",
-            link: "",
-            linkText: "Find Talent",
-            bgColor: "#85009D"
-        },
-        {
-            id: 3,
-            heading: "Procurement Xec Plug",
-            text: "",
-            link: "",
-            linkText: "Explore Membership",
-            bgColor: "#85009D"
-
-        }
-    ]
+        items: [
+            {
+                id: 1,
+                heading: "The Procurement Plug Academy",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            },
+            {
+                id: 2,
+                heading: "Resources Library",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            },
+            {
+                id: 3,
+                heading: "The Personal Development Hub",
+                text: "",
+                link: "",
+                linkText: "View Details",
+                bgColor: "#85009D"
+            }
+        ]
+    };
 
     return (
         <>
