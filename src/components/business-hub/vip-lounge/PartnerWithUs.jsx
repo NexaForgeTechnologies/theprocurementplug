@@ -18,7 +18,7 @@ function BusinesFeatureComp({ data }) {
 
   return (
     <div
-      className="relative flex flex-col gap-6 md:gap-8 py-5 px-6 sm:px-10 md:px-14 lg:px-20"
+      className="relative flex flex-col gap-6 md:gap-8 py-5"
       style={{
         width: "100vw",
         left: "50%",
@@ -43,7 +43,8 @@ function BusinesFeatureComp({ data }) {
         className="absolute bottom-0 right-0 md:top-1/2 md:-translate-y-1/2"
       />
 
-      <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-lg py-5 md:py-10 ">
+      <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-lg py-5 md:py-10 mx-auto max-w-[1440px] w-full
+      px-6 sm:px-10 md:px-14 lg:px-20">
         <div className="max-w-[780px] m-auto text-center">
           <h3 className="font-semibold text-[32px] text-[#ffff]">
             Partner With Us
@@ -56,7 +57,7 @@ function BusinesFeatureComp({ data }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-[1440px] m-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {data?.map((partner) => {
             const isHovered = hoveredId === partner.id;
 
