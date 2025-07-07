@@ -89,7 +89,7 @@ const ToolsCTR = () => {
 
   const filterOptions = {
     category: ["All", "Category 1", "Category 2"],
-    stage: ["All", "Idea", "Prototype", "Launched"],
+    stage: [ "live", "beta access", "pilot open", "In development - download Deck"],
     partner: ["All", "Partner A", "Partner B"],
     tag: ["All", "Tag 1", "Tag 2"],
   };

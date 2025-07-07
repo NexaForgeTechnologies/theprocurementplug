@@ -294,15 +294,14 @@ function ResourceLibraryCTR() {
           What is Elevate?
         </h3>
         <p className="leading-none max-w-[930px] md:text-xl text-[#1B1B1B] mb-2">
-          <strong>Elevate is not just a series of events</strong>
+          <strong>Elevate is real-time strategy lab for procurement leaders.</strong>
         </p>
-        <p className="max-w-[930px] md:text-xl text-[#1B1B1B] mb-4">
-          it’s a movement. Curated by The Procurement Plug, Elevate creates human-first, forward-thinking spaces for
-          career discovery, transformation, and executive impact in procurement.
+        <p className="max-w-[1128px] md:text-xl text-[#1B1B1B] mb-4">
+          Our exclusive Elevate Digital Journal enables you to track every expert led session, using personalized
+          planning tools, which enables you to create  your personal action plan on the spot so you leave ready to execute
         </p>
         <p className="max-w-[930px] md:text-xl text-[#1B1B1B]">
-          We believe in growth that is strategic, inclusive, and legacy-building — whether you're just starting out or
-          stepping into the boardroom.
+          Tying participation directly to measurable growth outcomes.
         </p>
       </div>
 
@@ -363,6 +362,12 @@ function ResourceLibraryCTR() {
               <p className="text-[16px] md:text-[20px] text-[#1B1B1B]">Human stories from diverse procurement professionals</p>
             </div>
           </div>
+          <div className="flex gap-2 md:gap-4 items-start mb-4 ">
+            <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[3px] md:mt-[5px] shrink-0"></div>
+            <div>
+              <p className="text-[16px] md:text-[20px] text-[#1B1B1B]">Make action plans live via the digital Elevate NexGen Journal</p>
+            </div>
+          </div>
         </div>
         <div className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 w-full lg:self-start hover:text-[#ffff] mb-4 md:my-8">
           <h3 className="text-[24px] md:text-[32px] mb-4 text-[#85009D]">
@@ -412,6 +417,12 @@ function ResourceLibraryCTR() {
             <div className="w-[20px] h-[20px] bg-[#85009D] rounded-full mt-[3px] md:mt-[5px] shrink-0"></div>
             <div>
               <p className="text-[16px] md:text-[20px] text-[#1B1B1B]">Tools to grow from “doing” to “leading”</p>
+            </div>
+          </div>
+          <div className="flex gap-2 md:gap-4 items-start mb-4 ">
+            <div className="w-[20px] h-[20px] bg-[#85009D] rounded-full mt-[3px] md:mt-[5px] shrink-0"></div>
+            <div>
+              <p className="text-[16px] md:text-[20px] text-[#1B1B1B]">Make action plans live via the digital Elevate Bloom Journal</p>
             </div>
           </div>
         </div>
@@ -465,6 +476,12 @@ function ResourceLibraryCTR() {
               <p className="text-[16px] md:text-[20px] text-[#1B1B1B]">Strategic deep dives in finance, governance, and ESG</p>
             </div>
           </div>
+          <div className="flex gap-2 md:gap-4 items-start mb-4 ">
+            <div className="w-[20px] h-[20px] bg-[#000000] rounded-full mt-[3px] md:mt-[5px] shrink-0"></div>
+            <div>
+              <p className="text-[16px] md:text-[20px] text-[#1B1B1B]">Make action plans live via the digital Elevate Xec Journal</p>
+            </div>
+          </div>
         </div>
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] mb-4">
           WHO SHOULD ATTEND?
@@ -498,7 +515,7 @@ function ResourceLibraryCTR() {
               </tr>
               <tr className="bg-[#FFFBF5] text-[20px]">
                 <td className="p-4 border-2 border-[#DBBB89]">NextGen</td>
-                <td className="p-4 border-2 border-[#DBBB89]">College students, university undergrads, career changers, apprenticeship seekers</td>
+                <td className="p-4 border-2 border-[#DBBB89]">Final year school students, university undergrads, career changers, apprenticeship seekers</td>
               </tr>
               <tr className="bg-[#FFFBF5] text-[20px]">
                 <td className="p-4 border-2 border-[#DBBB89]">Bloom</td>

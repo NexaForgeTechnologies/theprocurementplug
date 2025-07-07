@@ -1,10 +1,13 @@
 "use client"
+import { useState } from "react";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/FeatureReportTile";
 import ImageSlider from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/ImageSlider"
 import Image from "next/image";
 import IconComponent from "@/components/icon/Icon";
 
 function MarketResearchCTR() {
+
+    const [visibleItems, setVisibleItems] = useState(4);
 
     const collaboration = [
         {
@@ -87,6 +90,86 @@ function MarketResearchCTR() {
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/table.png",
             url: "/files/dummy.pdf",
         },
+        {
+            id: 5,
+            tag: "New",
+            heading: "FM & Utilities Category Report",
+            para: (
+                <span className="flex items-center">
+                    <span>Format: </span>
+                    <Image
+                        src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
+                        alt="PDF Icon"
+                        width={23}
+                        height={24}
+                        className="ml-2"
+                    />
+                </span>
+            ),
+            btntext: "Download",
+            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/table.png",
+            url: "/files/dummy.pdf",
+        },
+        {
+            id: 6,
+            tag: "Sponsored",
+            heading: "Top 5 Digital Procurement Vendors Comparison",
+            para: (
+                <span className="flex items-center">
+                    <span>Format: </span>
+                    <Image
+                        src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
+                        alt="PDF Icon"
+                        width={23}
+                        height={24}
+                        className="ml-2"
+                    />
+                </span>
+            ),
+            btntext: "Download",
+            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/bussiness.png",
+            url: "/files/dummy.pdf",
+        },
+        {
+            id: 7,
+            tag: "Updated",
+            heading: "UK Salary Tracker (Q2 Edition)",
+            para: (
+                <span className="flex items-center">
+                    <span>Format: </span>
+                    <Image
+                        src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
+                        alt="PDF Icon"
+                        width={23}
+                        height={24}
+                        className="ml-2"
+                    />
+                </span>
+            ),
+            btntext: "Download",
+            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/modernonitior.png",
+            url: "/files/dummy.pdf",
+        },
+        {
+            id: 8,
+            tag: "Sponsored",
+            heading: "Procurement in the AI Era – 2025 Outlook",
+            para: (
+                <span className="flex items-center">
+                    <span>Format: </span>
+                    <Image
+                        src="/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/pdf.png"
+                        alt="PDF Icon"
+                        width={23}
+                        height={24}
+                        className="ml-2"
+                    />
+                </span>
+            ),
+            btntext: "Download",
+            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/futuristic.png",
+            url: "/files/dummy.pdf",
+        },
     ];
     const images = [
         {
@@ -132,6 +215,10 @@ function MarketResearchCTR() {
             height: 30,
         },
     ];
+
+    const handleShowMore = () => {
+        setVisibleItems((prev) => prev + 4);
+    };
 
     return (
         <div>
@@ -215,13 +302,16 @@ function MarketResearchCTR() {
                             <IconComponent name="drop-down" color="#808080" size={16} />
                         </div>
                     </div>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button
+                        onClick={handleShowMore}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         View All Market Research
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-4 md:mb-8">
-                    {collaboration.map((partner) => (
+                    {/* {collaboration.map((partner) => ( */}
+                    {collaboration.slice(0, visibleItems).map((partner) => (
                         <ConsultingPartnerTile
                             key={partner.id}
                             tag={partner.tag}

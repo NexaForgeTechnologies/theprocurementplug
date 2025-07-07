@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FutureProcurementTile from "@/components/business-hub/vip-lounge/talent-hiring-intelligence/FutureProcurementTile";
 import InsightsSection from "@/components/business-hub/vip-lounge/talent-hiring-intelligence/InsightSection";
 import Image from "next/image";
@@ -15,62 +15,131 @@ function ExclusiveBusinessPartnersCTR() {
             post: "Procurement specialist",
             location: "London, UK",
             para: "Cut product development time by 35% through smarter workflows and team collaboration.",
-            btntext: "Reuest Intro",
+            btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
             url: "",
         },
         {
             id: 2,
-            heading: "Grace Robinson",
-            post: "Procurement specialist",
-            location: "London, UK",
-            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
-            btntext: "Reuest Intro",
-            bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
+            heading: "Liam Turner",
+            post: "Supply Chain Manager",
+            location: "Berlin, Germany",
+            para: "Reduced logistics costs by 20% by streamlining vendor negotiations and delivery schedules.",
+            btntext: "Request Intro",
+            bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member2.png",
             url: "",
         },
         {
             id: 3,
-            heading: "Grace Robinson",
-            post: "Procurement specialist",
-            location: "London, UK",
-            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
-            btntext: "Reuest Intro",
-            bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
+            heading: "Ethan Patel",
+            post: "Procurement Analyst",
+            location: "Austin, USA",
+            para: "Identified $500K in annual savings through category management and spend analysis.",
+            btntext: "Request Intro",
+            bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member3.png",
             url: "",
         },
         {
             id: 4,
-            heading: "Grace Robinson",
-            post: "Procurement specialist",
-            location: "London, UK",
-            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
-            btntext: "Reuest Intro",
-            bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
+            heading: "Adam Johansson",
+            post: "Purchasing Coordinator",
+            location: "Stockholm, Sweden",
+            para: "Enhanced procurement processes with automated PO systems and compliance tracking.",
+            btntext: "Request Intro",
+            bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member3.png",
             url: "",
         },
         {
             id: 5,
-            heading: "Grace Robinson",
-            post: "Procurement specialist",
-            location: "London, UK",
-            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
-            btntext: "Reuest Intro",
-            bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
+            heading: "Noah Kim",
+            post: "Global Procurement Advisor",
+            location: "Seoul, South Korea",
+            para: "Led international procurement projects resulting in 15% cost reduction globally.",
+            btntext: "Request Intro",
+            bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member2.png",
             url: "",
         },
         {
             id: 6,
-            heading: "Grace Robinson",
-            post: "Procurement specialist",
-            location: "London, UK",
-            para: "Cut product development time by 35% through smarter workflows and team collaboration.",
-            btntext: "Reuest Intro",
+            heading: "Sophia Bennett",
+            post: "Strategic Sourcing Lead",
+            location: "Toronto, Canada",
+            para: "Improved vendor reliability by 40% through data-driven supplier performance tracking.",
+            btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
             url: "",
-        },
-
+        }
     ];
+
+    const [tilesPerSlide, setTilesPerSlide] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const [touchStart, setTouchStart] = useState(null);
+    const [touchEnd, setTouchEnd] = useState(null);
+    const totalSlides = Math.ceil(collaboration.length / tilesPerSlide);
+
+    const getTilesPerSlide = () => {
+        if (typeof window === 'undefined') return 1;
+        if (window.innerWidth >= 1024) return 3;
+        if (window.innerWidth >= 768) return 2;
+        return 1;
+    };
+
+    useEffect(() => {
+        setTilesPerSlide(getTilesPerSlide());
+        const handleResize = () => {
+            setTilesPerSlide(getTilesPerSlide());
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    useEffect(() => {
+        setActiveIndex(0);
+    }, [tilesPerSlide]);
+
+    const handleDotClick = (index) => {
+        setActiveIndex(index);
+    };
+
+    const handlePrevClick = () => {
+        setActiveIndex((prevIndex) =>
+            prevIndex === 0 ? totalSlides - 1 : prevIndex - 1
+        );
+    };
+
+    const handleNextClick = () => {
+        setActiveIndex((prevIndex) =>
+            prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    // Swipe handling
+    const minSwipeDistance = 50; // Minimum distance for swipe to register
+
+    const handleTouchStart = (e) => {
+        setTouchEnd(null); // Reset touchEnd
+        setTouchStart(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchMove = (e) => {
+        setTouchEnd(e.targetTouches[0].clientX);
+    };
+
+    const handleTouchEnd = () => {
+        if (!touchStart || !touchEnd) return;
+        const distance = touchStart - touchEnd;
+        const isLeftSwipe = distance > minSwipeDistance;
+        const isRightSwipe = distance < -minSwipeDistance;
+
+        if (isLeftSwipe) {
+            handleNextClick();
+        } else if (isRightSwipe) {
+            handlePrevClick();
+        }
+    };
+
+    const startIndex = activeIndex * tilesPerSlide;
+    const currentTiles = collaboration.slice(startIndex, startIndex + tilesPerSlide);
 
     const insightsData = {
         title: ["Salary & Role Tracker", "Employer Insights"],
@@ -114,19 +183,6 @@ function ExclusiveBusinessPartnersCTR() {
         buttonText: ["View Tracker Report", null],
     };
 
-    const [activeIndex, setActiveIndex] = useState(0);
-    const tilesPerSlide = 3;
-    const totalSlides = Math.ceil(collaboration.length / tilesPerSlide);
-
-    const handleDotClick = (index) => {
-        setActiveIndex(index);
-    };
-
-    // Get the tiles for the current slide
-    const startIndex = activeIndex * tilesPerSlide;
-    const currentTiles = collaboration.slice(startIndex, startIndex + tilesPerSlide);
-
-
     return (
         <div>
             <div className="mb-4 md:mb-8">
@@ -154,19 +210,56 @@ function ExclusiveBusinessPartnersCTR() {
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1B1B1B]">
                     Meet the Future of Procurement
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-4 ">
-                    {currentTiles.map((partner) => (
-                        <FutureProcurementTile
-                            key={partner.id}
-                            heading={partner.heading}
-                            post={partner.post}
-                            location={partner.location}
-                            para={partner.para}
-                            btntext={partner.btntext}
-                            bigimg={partner.bigimg}
-                            url={partner.url}
-                        />
-                    ))}
+                {/* <div className="relative"> */}
+                <div className="relative" onTouchStart={handleTouchStart} onTouchMove={handleTouchMove} onTouchEnd={handleTouchEnd}>
+                    {/* Arrow Buttons */}
+                    <button
+                        onClick={handlePrevClick}
+                        className="hidden lg:block absolute left-[-35px] md:left-[-55px] top-1/2 transform -translate-y-1/2 bg-[#b08d57] text-white p-2 rounded-[6px] hover:bg-[#8f7043] transition-colors duration-300"
+                        aria-label="Previous slide"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button
+                        onClick={handleNextClick}
+                        className="hidden lg:block absolute right-[-55px] top-1/2 transform -translate-y-1/2 bg-[#b08d57] text-white p-2 rounded-[6px] hover:bg-[#8f7043] transition-colors duration-300"
+                        aria-label="Next slide"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-4 "> */}
+                    <div
+                        className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-4 ${tilesPerSlide === 2 ? 'max-w-[calc(100%_-_32px)] mx-auto' : ''}`}
+                    >
+                        {currentTiles.map((partner) => (
+                            <FutureProcurementTile
+                                key={partner.id}
+                                heading={partner.heading}
+                                post={partner.post}
+                                location={partner.location}
+                                para={partner.para}
+                                btntext={partner.btntext}
+                                bigimg={partner.bigimg}
+                                url={partner.url}
+                            />
+                        ))}
+                    </div>
                 </div>
                 <div className="max-w-[112px] m-auto flex items-center gap-1">
                     {Array.from({ length: totalSlides }).map((_, index) => (

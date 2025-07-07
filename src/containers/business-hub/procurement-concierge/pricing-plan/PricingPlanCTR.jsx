@@ -44,7 +44,7 @@ function PricingPlanCTR() {
         {
             id: 1,
             tag: "Plug lite",
-            heading: "£21,300",
+            // heading: "£21,300",
             credit: "Credits",
             creditvalue: "8",
             name: "Rollover Grace",
@@ -53,12 +53,12 @@ function PricingPlanCTR() {
             workingdayvalue: "≤  5 days",
             btntext: "Select",
             url: "",
-            isAnnual: true,
+            // isAnnual: true,
         },
         {
             id: 2,
             tag: "Plug Prime",
-            heading: "£42,000",
+            // heading: "£42,000",
             credit: "Credits",
             creditvalue: "16",
             name: "Rollover Grace",
@@ -67,12 +67,12 @@ function PricingPlanCTR() {
             workingdayvalue: "≤  5 days",
             btntext: "Select",
             url: "",
-            isAnnual: true,
+            // isAnnual: true,
         },
         {
             id: 3,
             tag: "Plug Elite",
-            heading: "£73,900",
+            // heading: "£73,900",
             credit: "Credits",
             creditvalue: "30",
             name: "Rollover Grace",
@@ -81,12 +81,12 @@ function PricingPlanCTR() {
             workingdayvalue: "≤  5 days",
             btntext: "Select",
             url: "",
-            isAnnual: true,
+            // isAnnual: true,
         },
         {
             id: 4,
             tag: "Plug task pass",
-            heading: "£3,250",
+            // heading: "£3,250",
             credit: "Light task only",
             creditvalue: "",
             name: "One off",
@@ -95,7 +95,7 @@ function PricingPlanCTR() {
             workingdayvalue: "≤  5 days",
             btntext: "Select",
             url: "",
-            isAnnual: false,
+            // isAnnual: false,
         }
     ];
 

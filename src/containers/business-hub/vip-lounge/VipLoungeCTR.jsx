@@ -73,7 +73,7 @@ function VipLoungeCTR() {
   const viplounge = [
     {
       id: 1,
-      heading: "Collaboration & Thought Leadership",
+      heading: "Collaboration & Thought Leadership Zone",
       para: "Members/Submitted content, Insights & Contributions from Our Community",
       smallimg: [
         "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/member1.png",
@@ -93,7 +93,7 @@ function VipLoungeCTR() {
     },
     {
       id: 3,
-      heading: "Exclusive Intelligent & Reports",
+      heading: "Exclusive Intelligence",
       btntext: "View Details",
       url: "/business-hub/vip-lounge/exclusive-intelligence-reports",
     },

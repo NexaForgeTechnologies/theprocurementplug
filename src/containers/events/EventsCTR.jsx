@@ -91,10 +91,11 @@ function ResourceLibraryCTR() {
     {
       id: 1,
       type_id: 2,
-      banner: "/images/events/banner.png",
+      banner: "/images/events/global.png",
       tag: "",
       type_name: "",
-      heading: "",
+      para: "Join our BI-Monthly Webinar Series",
+      heading: "Procurement Beyond Borders",
       time: "",
       date: "",
       location: "",
@@ -177,7 +178,7 @@ function ResourceLibraryCTR() {
     },
   ];
 
-const partnerWithUs = {
+  const partnerWithUs = {
     Partnerheader: {
       h3: "Partner With Us",
       p: (
@@ -190,30 +191,30 @@ const partnerWithUs = {
       )
     },
     items: [
-     {
-            id: 1,
-            heading: "The Procurement Plug Academy",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: "#85009D"
-        },
-        {
-            id: 2,
-            heading: "Resources Library",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: "#85009D"
-        },
-        {
-            id: 3,
-            heading: "The Personal Development Hub",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: "#85009D"
-        }
+      {
+        id: 1,
+        heading: "The Procurement Plug Academy",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 2,
+        heading: "Resources Library",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 3,
+        heading: "The Personal Development Hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      }
     ]
   };
 
@@ -363,10 +364,10 @@ const partnerWithUs = {
           <div className="flex flex-col justify-end gap-2 sm:col-span-1">
             <button
               onClick={handleClearFilters}
-              className="text-white bg-[#b08d57] cursor-pointer flex justify-center items-center gap-2 
+              className="text-white bg-[#b08d57] cursor-pointer text-left gap-2 
             py-[10px] px-2 rounded-md font-semibold w-full hover:shadow-lg transition hover:border-[#a07a4c] hover:text-white"
             >
-              Clear Filters
+              Track
             </button>
           </div>
         </div>
@@ -405,26 +406,30 @@ const partnerWithUs = {
         {/* Events List */}
         <div className="mt-10 grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {upcomingevents.map((event) =>
-            event.id === 1 ? (
-              <div key={event.id} className="w-full">
-                <img
-                  src={event.banner}
-                  alt="Event Banner"
-                  className="w-full h-auto rounded-[6px] object-cover"
-                />
-              </div>
-            ) : (
-              <EventComp
-                key={event.id}
-                tag={event.tag}
-                tagColor={event.tagColor}
-                heading={event.heading}
-                time={event.time}
-                location={event.location}
-                designFor={event.designFor}
-                href={event.link}
-              />
-            )
+            // event.id === 1 ? (
+            //   <div key={event.id} className="w-full">
+            //     <img
+            //       src={event.banner}
+            //       alt="Event Banner"
+            //       className="w-full h-auto rounded-[6px] object-cover"
+            //     />
+            //   </div>
+            // ) : (
+            <EventComp
+              key={event.id}
+              id={event.id}
+              tag={event.tag}
+              tagColor={event.tagColor}
+              heading={event.heading}
+              time={event.time}
+              location={event.location}
+              designFor={event.designFor}
+              href={event.link}
+              banner={event.banner}
+              para={event.para}
+            />
+
+            // )
           )}
         </div>
       </div >
