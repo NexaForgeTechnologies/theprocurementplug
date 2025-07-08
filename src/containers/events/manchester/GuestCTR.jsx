@@ -38,7 +38,7 @@ function GuessCTR() {
       text1: "Sales and Solutions Director",
       text2: "Hays",
     },
-    {
+    /*{
       id: 5,
       img: "/images/guess/guess-3.jpg",
       heading: "Sarah Socha",
@@ -46,7 +46,7 @@ function GuessCTR() {
       text1:
         "Founder Stratify Social AI Sales & AI Strategist & Enterprise Growth Leader",
       text2: "Co Comply",
-    },
+    },*/
     {
       id: 6,
       img: "/images/guess/guess-4.jpg",
@@ -82,7 +82,7 @@ function GuessCTR() {
     {
       id: 10,
       img: "/images/guess/guess-8.jpg",
-      heading: "Christoper Robinson",
+      heading: "Christopher Robinson",
       // subHeading: "Keynote",
       // text1: "Associate Director",
       text1: "Procurement Podcast Co-Host",
@@ -137,14 +137,14 @@ function GuessCTR() {
       text1: "Director",
       text2: "Essential Sourcing Ltd",
     },
-    {
+    /*{
       id: 17,
       img: "/images/guess/guess-7.jpg",
       heading: "Rachel Repper",
       // subHeading: "Keynote",
       text1: "Digital Procurement Lead",
       text2: "Amazon Business",
-    },
+    },*/
     {
       id: 18,
       img: "/images/guess/guess-18.jpg",

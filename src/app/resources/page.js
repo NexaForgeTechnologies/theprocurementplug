@@ -9,7 +9,7 @@ export const metadata = {
         description: 'We have put together our library in a way that will showcase some of our FREE resources.',
         images: [
             {
-                url: 'https://theprocurementplug.com/images/og/blogs.png',
+                url: 'https://theprocurementplug.com/images/og/blogs.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'Blogs',
@@ -20,7 +20,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Blogs',
         description: 'We have put together our library in a way that will showcase some of our FREE resources.',
-        images: ['https://theprocurementplug.com/images/og/blogs.png'],
+        images: ['https://theprocurementplug.com/images/og/blogs.jpg'],
     },
 };
 
