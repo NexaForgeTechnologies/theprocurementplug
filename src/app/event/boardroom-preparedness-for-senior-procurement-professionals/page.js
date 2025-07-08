@@ -4,9 +4,11 @@ import EventBenifitsCTR from '@/containers/events/boardroom/EventBenifitsCTR'
 import EventHighlightCTR from '@/containers/events/boardroom/EventHighlightCTR'
 import GuestCTR from '@/containers/events/boardroom/GuestCTR'
 import EventsOppertunityCTR from '@/containers/events/boardroom/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/events/boardroom/EventReviewCTR'
 
 import EventsHeroComp from '@/components/events/EventsHeroCompBoard'
 import EventSponserComp from '@/components/events/EventSponserComp'
+import AgendaCTR from '@/containers/events/boardroom/AgendaCTR'
 
 export const metadata = {
     title: 'Boardroom Preparedness',
@@ -37,8 +39,10 @@ function page() {
             <EventsHeroComp />
             <EventBenifitsCTR />
             {/* <EventHighlightCTR /> */}
+            <AgendaCTR />
             <GuestCTR />
             <EventsOppertunityCTR />
+            {/* <EventReviewCTR /> */}
             <EventSponserComp />
         </>
     )

@@ -4,6 +4,8 @@ import EventBenifitsCTR from '@/containers/events/manchester/EventBenifitsCTR'
 import EventHighlightCTR from '@/containers/events/manchester/EventHighlightCTR'
 import GuestCTR from '@/containers/events/manchester/GuestCTR'
 import EventsOppertunityCTR from '@/containers/events/manchester/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/events/manchester/EventReviewCTR'
+import AgendaCTR from '@/containers/events/manchester/AgendaCTR'
 
 import EventsHeroComp from '@/components/events/EventsHeroComp'
 import EventSponserComp from '@/components/events/EventSponserComp'
@@ -37,8 +39,10 @@ function page() {
             <EventsHeroComp />
             <EventBenifitsCTR />
             <EventHighlightCTR />
+            <AgendaCTR />
             <GuestCTR />
             <EventsOppertunityCTR />
+            <EventReviewCTR />
             <EventSponserComp />
         </>
     )
