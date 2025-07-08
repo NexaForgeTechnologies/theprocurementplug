@@ -6,6 +6,7 @@ import EventsHeroComp from '@/components/events/EventsHeroCompScot'
 import EventSponserComp from '@/components/events/EventSponserComp'
 
 import EventsOppertunityCTR from '@/containers/events/scotland/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/events/scotland/EventReviewCTR'
 
 import GuestCTR from '@/containers/events/scotland/GuestCTR'
 import AgendaCTR from '@/containers/events/scotland/AgendaCTR'
@@ -42,6 +43,7 @@ function page() {
             <AgendaCTR />
             <GuestCTR />
             <EventsOppertunityCTR />
+            {/* <EventReviewCTR /> */}
             <EventSponserComp />
         </>
     )

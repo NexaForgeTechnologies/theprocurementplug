@@ -4,6 +4,7 @@ import EventBenifitsCTR from '@/containers/events/boardroom/EventBenifitsCTR'
 import EventHighlightCTR from '@/containers/events/boardroom/EventHighlightCTR'
 import GuestCTR from '@/containers/events/boardroom/GuestCTR'
 import EventsOppertunityCTR from '@/containers/events/boardroom/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/events/boardroom/EventReviewCTR'
 
 import EventsHeroComp from '@/components/events/EventsHeroCompBoard'
 import EventSponserComp from '@/components/events/EventSponserComp'
@@ -41,6 +42,7 @@ function page() {
             <AgendaCTR />
             <GuestCTR />
             <EventsOppertunityCTR />
+            {/* <EventReviewCTR /> */}
             <EventSponserComp />
         </>
     )

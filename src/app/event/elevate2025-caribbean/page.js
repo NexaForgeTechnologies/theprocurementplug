@@ -4,6 +4,7 @@ import EventBenifitsCTR from '@/containers/events/caribbean/EventBenifitsCTR'
 import EventHighlightCTR from '@/containers/events/caribbean/EventHighlightCTR'
 import GuestCTR from '@/containers/events/caribbean/GuestCTR'
 import EventsOppertunityCTR from '@/containers/events/caribbean/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/events/caribbean/EventReviewCTR'
 
 import EventsHeroComp from '@/components/events/EventsHeroCompCarib'
 import EventSponserComp from '@/components/events/EventSponserComp'
@@ -39,6 +40,7 @@ function page() {
             <EventHighlightCTR />
             <GuestCTR />
             <EventsOppertunityCTR />
+            {/* <EventReviewCTR /> */}
             <EventSponserComp />
         </>
     )
