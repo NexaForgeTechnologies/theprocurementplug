@@ -17,7 +17,7 @@ function EventOppertunityCTR() {
                     {/* <img className='w-full' src="/images/events/manchester/highlight.png" alt="" /> */}
                     <Image
                         className='w-full  md:h-[578px]'
-                        src={"/images/events/manchester/highlight.png"}
+                        src={"/images/events/oppertunity.png"}
                         alt={"member"}
                         width={578}
                         height={578}
