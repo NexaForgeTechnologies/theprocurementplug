@@ -1,58 +1,8 @@
 "use client"
 import { useState } from 'react';
 import Image from "next/image";
-import axios from 'axios';
 
 function StrategicSupplierPartnershipCTR() {
-    const [formData] = useState({
-        subscriptionType: 'one_time',
-        duration: 'monthly',
-        quantity: 1,
-    });
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError(null);
-
-        const priceIds = {
-            one_time: {
-                monthly: 'insert your onetime monthly package priceid here',
-            },
-        };
-
-        const priceId = priceIds[formData.subscriptionType][formData.duration];
-
-        try {
-            const response = await axios.post('/api/create-checkout-session', {
-                subscriptionType: formData.subscriptionType,
-                quantity: formData.quantity,
-                priceId,
-                metadata: {
-                    duration: formData.duration,
-                    subscriptionType: formData.subscriptionType,
-                    quantity: String(formData.quantity),
-                },
-            });
-
-            if (response.data.url) {
-                window.open(response.data.url, '_blank');
-            } else {
-                throw new Error('No checkout URL returned');
-            }
-        } catch (error) {
-            console.error('Frontend error:', error);
-            setError(
-                error.response?.data?.details ||
-                error.response?.data?.error ||
-                'Failed to initiate checkout. Please try again.'
-            );
-        } finally {
-            setLoading(false);
-        }
-    };
 
     return (
         <div>
@@ -193,15 +143,10 @@ function StrategicSupplierPartnershipCTR() {
                         <p className="text-[#000000] mb-4">This Roundtable is
                             Sponsored by [logo]</p>
                         <button
-                            onClick={handleSubmit}
-                            disabled={loading}
-                            className={`flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${loading ? 'opacity-50 cursor-not-allowed' : ''
-                                }`}
+                            className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
                         >
-                            {loading ? 'Processing...' : 'Sponsor Profile'}
-                            {!loading && (
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            )}
+                            Sponsor Profile
+                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                         </button>
                     </div>
                 </div>
