@@ -67,7 +67,7 @@ const HeaderComp = () => {
           </Link>
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden py-2 text-gray-500 hover:bg-gray-100 rounded-lg cursor-pointer"
+            className="xl:hidden py-2 text-gray-500 hover:bg-gray-100 rounded-lg cursor-pointer"
           >
             <svg
               className="w-6 h-6"
@@ -85,7 +85,7 @@ const HeaderComp = () => {
           </button>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex gap-4 items-center">
+          <ul className="hidden xl:flex gap-4 items-center">
             <li>
               <Link
                 href="/resources"
@@ -111,6 +111,15 @@ const HeaderComp = () => {
                 onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
               >
                 The Plug Concierge
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/business-hub/vip-lounge"
+                className="text-sm font-semibold hover:text-[#85009D]"
+                onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+              >
+                VIP Business Lounge
               </Link>
             </li>
             <li className="flex items-center bounce-right">
@@ -177,6 +186,15 @@ const HeaderComp = () => {
                 onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
               >
                 The Plug Concierge
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/business-hub/vip-lounge"
+                className="text-sm font-semibold hover:text-[#85009D]"
+                onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+              >
+                VIP Business Lounge
               </Link>
             </li>
             <li className="flex gap-[4px] items-center bounce-right">
