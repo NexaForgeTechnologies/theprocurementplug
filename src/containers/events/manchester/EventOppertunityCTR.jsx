@@ -50,7 +50,7 @@ function EventOppertunityCTR() {
                         Catch up on all our past Webinars-now available on Youtube
                     </p>
                     <Link
-                        href={"/"}
+                        href={"https://youtube.com/playlist?list=PLfsOuinzybi7VdkcUfp6KIDAeYoAjAqgY&si=pNq5Vcotv49NBSLr"}
                         className="inline-flex justify-center items-center cursor-pointer bg-[#b08d57] text-white px-4 py-3 rounded-[6px] w-full lg:w-auto">
                         Watch on Youtube
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
