@@ -47,7 +47,7 @@ function EventOppertunityCTR() {
                 <h2 className='text-[#ffff] font-extrabold text-lg leading-6 md:leading-6'>Relive the Moments from Elevate Manchester 2025</h2>
                 <div className='flex flex-col lg:flex-row justify-between items-center w-full gap-4 lg:gap-0'>
                     <p className='max-w-[450px] text-[#ffff] text-sm md:text-lg leading-normal'>
-                        See all vedios, photo galleries, and behind-the-scenes content
+                        See all videos, photo galleries, and behind-the-scenes content
                     </p>
                     <Link
                         href={"https://youtube.com/playlist?list=PLfsOuinzybi7VdkcUfp6KIDAeYoAjAqgY&si=pNq5Vcotv49NBSLr"}

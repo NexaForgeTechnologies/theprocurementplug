@@ -47,7 +47,7 @@ function EventOppertunityCTR() {
                 <div>
                     <h2 className='text-[#ffff] font-extrabold text-lg leading-6 md:leading-6 mb-4'>Missed the live session?</h2>
                     <p className='text-[#ffff] text-sm md:text-lg leading-normal md:leading-relaxed mb-4'>
-                        Catch up on all our past Webinars-now available on Youtube
+                        Catch up on all our past Webinars-now available on Youtube.
                     </p>
                     <Link
                         href={"/"}
