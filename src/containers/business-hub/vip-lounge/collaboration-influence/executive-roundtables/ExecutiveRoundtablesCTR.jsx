@@ -7,7 +7,7 @@ function ExecutiveRoundtablesCTR() {
             <div className="max-w-[803px] mb-4 md:mb-8">
                 <div>
                     <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1B1B1B]">
-                        Executive Roundtables
+                        XecXchange
                     </h3>
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-0">Curated conversations designed exclusively for procurement leaders navigating
                         boardroom-level challenges.</p>
