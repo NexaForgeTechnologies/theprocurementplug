@@ -4,8 +4,10 @@ import MonthHightlightTile from "@/components/business-hub/vip-lounge/exclusive-
 import ReportTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/reportTile";
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom'
+import Form from '@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/Form'
 
 function IndustryInsightsCTR() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const collaboration = [
         {
@@ -148,8 +150,8 @@ function IndustryInsightsCTR() {
                         <button
                             key={index}
                             className={`h-[6px] rounded-[8px] cursor-pointer transition-all duration-300 ${index === activeIndex
-                                    ? 'w-[64px] bg-[#b08d57]'
-                                    : 'w-[20px] bg-[#B08D5766]'
+                                ? 'w-[64px] bg-[#b08d57]'
+                                : 'w-[20px] bg-[#B08D5766]'
                                 }`}
                             onClick={() => handleDotClick(index)}
                         />
@@ -183,10 +185,17 @@ function IndustryInsightsCTR() {
                 <h2 className="font-medium max-w-[700px] text-3xl md:text-5xl text-[#85009D]">
                     Need insights tailored to your <strong>organisation?</strong>
                 </h2>
-                <div className="min-w-[200px]">
+                {/* <div className="min-w-[200px]">
                     <ArrowButtonCom text="Request a Custom Brief " />
-                </div>
+                </div> */}
+                <button
+                    onClick={() => setIsModalOpen(true)}
+                    className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    Request a Custom Brief
+                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                </button>
             </div>
+            <Form isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 }
