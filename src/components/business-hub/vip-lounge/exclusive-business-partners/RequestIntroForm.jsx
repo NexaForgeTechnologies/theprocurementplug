@@ -4,21 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 import Image from "next/image";
 
-export default function RequestDemoForm({ isOpen, onClose }) {
+export default function RequestIntroductionForm({ isOpen, onClose }) {
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
         company: "",
         role: "",
-        topic: "",
-        objectives: "",
-        desiredDeliveryDate: "",
-        budgetRange: "",
-        documents: null,
+        areaOfInterest: "",
+        briefNote: "",
     });
 
     const modalRef = useRef(null);
-    const fileInputRef = useRef(null);
 
     useEffect(() => {
         if (isOpen) {
@@ -58,10 +54,10 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     }, [isOpen]);
 
     const handleChange = (e) => {
-        const { name, value, files } = e.target;
+        const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: files ? files[0] : value,
+            [name]: value,
         }));
     };
 
@@ -73,36 +69,10 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             email: "",
             company: "",
             role: "",
-            topic: "",
-            objectives: "",
-            desiredDeliveryDate: "",
-            budgetRange: "",
-            documents: null,
+            areaOfInterest: "",
+            briefNote: "",
         });
-        if (fileInputRef.current) {
-            fileInputRef.current.value = "";
-        }
         onClose();
-    };
-
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            if (file.size > 5 * 1024 * 1024) {
-                alert("File size exceeds 5MB limit");
-                e.target.value = "";
-                return;
-            }
-            if (!["application/pdf", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"].includes(file.type)) {
-                alert("Only PDF, DOCX, and XLSX files are allowed");
-                e.target.value = "";
-                return;
-            }
-            setFormData((prev) => ({
-                ...prev,
-                documents: file,
-            }));
-        }
     };
 
     if (!isOpen) return null;
@@ -116,8 +86,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             >
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-                        Request a Custom Briefing
-                        {/* Request a Custom Briefing - partnerships@ */}
+                        Request an Introduction
                     </h3>
                     <button
                         className="absolute top-4 right-4 text-2xl text-[#85009D]"
@@ -164,96 +133,50 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             type="text"
                             id="role"
                             name="role"
-                            placeholder="Role / Title*"
+                            placeholder="Role"
                             value={formData.role}
                             onChange={handleChange}
                             required
                             className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input
-                            type="text"
-                            id="topic"
-                            name="topic"
-                            placeholder="Topic or Scope of Briefing*"
-                            value={formData.topic}
-                            onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                        />
-                        <input
-                            type="text"
-                            id="objectives"
-                            name="objectives"
-                            placeholder="Key Questions or Objectives*"
-                            value={formData.objectives}
-                            onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                        />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input
-                            type="date"
-                            id="desiredDeliveryDate"
-                            name="desiredDeliveryDate"
-                            placeholder="Desired Delivery Date*"
-                            value={formData.desiredDeliveryDate}
-                            onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                        />
+                    <div className="grid grid-cols-1 gap-4">
                         <div className="relative w-full">
                             <select
-                                id="budgetRange"
-                                name="budgetRange"
-                                value={formData.budgetRange}
+                                id="areaOfInterest"
+                                name="areaOfInterest"
+                                value={formData.areaOfInterest}
                                 onChange={handleChange}
-                                className="appearance-none border-1 border-[#85009D] text-[#363636] w-full p-4 bg-white cursor-pointer rounded-[2px]  focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                required
+                                className="appearance-none border-1 border-[#85009D] text-[#363636] w-full p-4 bg-white cursor-pointer rounded-[2px] focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                             >
-                                <option value="">Select Budget Range</option>
-                                <option value="£1,000–£5,000">£1,000–£5,000</option>
-                                <option value="£5,000–£10,000">£5,000–£10,000</option>
-                                <option value="£10,000">£10,000</option>
+                                <option value="">Select Area of Interest*</option>
+                                <option value="Strategic Sourcing">Strategic Sourcing</option>
+                                <option value="Supplier Risk">Supplier Risk</option>
+                                <option value="Automation Tools">Automation Tools</option>
+                                <option value="Market Intelligence">Market Intelligence</option>
                             </select>
                             <div className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-[#85009D]">
                                 <IconComponent name="drop-down" color="#808080" size={16} />
                             </div>
                         </div>
-
                     </div>
-                    <div>
-                        <div
-                            className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
-                            onClick={() => fileInputRef.current.click()}
-                        >
-                            <Image
-                                src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
-                                alt="upload documents"
-                                width={128}
-                                height={128}
-                                className="w-[128px] h-[128px] object-cover mb-4"
-                            />
-                            <p className="text-[#1B1B1B] text-center">
-                                <span className="font-semibold">Attach Supporting Documents</span> (PDF, DOCX, XLSX, Max 5MB)
-                            </p>
-                        </div>
-                        <input
-                            type="file"
-                            id="documents"
-                            name="documents"
-                            accept=".pdf,.docx,.xlsx"
-                            onChange={handleFileChange}
-                            ref={fileInputRef}
-                            className="hidden"
+                    <div className="grid grid-cols-1 gap-4">
+                        <textarea
+                            id="briefNote"
+                            name="briefNote"
+                            placeholder="Brief Note*"
+                            value={formData.briefNote}
+                            onChange={handleChange}
+                            required
+                            className="resize-none w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] min-h-[100px]"
                         />
                     </div>
                     <button
                         type="submit"
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
                     >
-                        Request My Briefing
+                        Request My Introduction
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </form>

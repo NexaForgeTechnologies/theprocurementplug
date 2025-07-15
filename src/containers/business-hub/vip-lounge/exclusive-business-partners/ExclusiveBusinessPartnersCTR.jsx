@@ -4,8 +4,10 @@ import { useState } from 'react';
 import Image from "next/image";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-business-partners/ConsultingPartnerTile";
 import IconComponent from "@/components/icon/Icon";
+import RequestIntroForm from "@/components/business-hub/vip-lounge/exclusive-business-partners/RequestIntroForm"
 
 function ExclusiveBusinessPartnersCTR() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
 
     const slides = [
@@ -98,7 +100,9 @@ function ExclusiveBusinessPartnersCTR() {
                         View Partner Directory
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Request an Introduction
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -288,6 +292,7 @@ function ExclusiveBusinessPartnersCTR() {
                     </div>
                 </div>
             </div> */}
+            <RequestIntroForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 }

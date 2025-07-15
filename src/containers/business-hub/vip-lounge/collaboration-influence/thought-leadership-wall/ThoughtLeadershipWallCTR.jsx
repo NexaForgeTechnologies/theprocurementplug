@@ -5,11 +5,13 @@ import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collabor
 import LeaderboardTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/LeaderboardTile";
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import SubmissionModalForm from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/RequestDemoForm";
+import NominationForm from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/NominationForm"
 // import Image from "next/image";
 
 function ThoughtLeadershipWallCTR() {
     // const [selectedValue, setSelectedValue] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isNominationOpen, setIsNominationOpen] = useState(false);
 
     // const handleChange = (e) => {
     //     setSelectedValue(e.target.value);
@@ -131,7 +133,9 @@ function ThoughtLeadershipWallCTR() {
                         Submit Your Insight
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button
+                        onClick={() => setIsNominationOpen(true)}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Nominate a Contributor
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -202,8 +206,9 @@ function ThoughtLeadershipWallCTR() {
                     </div>
                 </div>
             </div>
-            {/* <div className="w-full h-[2px] bg-[#85009D] mb-4 md:mb-8"></div> */}           
+            {/* <div className="w-full h-[2px] bg-[#85009D] mb-4 md:mb-8"></div> */}
             <SubmissionModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <NominationForm isOpen={isNominationOpen} onClose={() => setIsNominationOpen(false)} />
         </div>
     );
 }
