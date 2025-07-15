@@ -84,7 +84,7 @@ function EventsHeroComp() {
             </div>
             <p className="text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
               <strong className="font-extrabold">Early Bird Tickets: </strong>
-              £395
+              £295
             </p>
             <Link
               href="https://www.trybooking.com/uk/EVTX"
