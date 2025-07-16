@@ -24,7 +24,12 @@ function BussinessHubCTR() {
       h3: "Partner With Us",
       p: (
         <>
-          <strong>partnerships@theprocurementplug.com</strong> -{' '}
+          <a
+            href="mailto:partnerships@theprocurementplug.com"
+            className="font-semibold text-white hover:underline"
+          >
+            partnerships@theprocurementplug.com
+          </a> -{' '}
           <Link className="font-light" href="/partnerships">
             Visit our partnership page
           </Link>
@@ -32,30 +37,30 @@ function BussinessHubCTR() {
       )
     },
     items: [
-     {
-            id: 1,
-            heading: "The Procurement Plug Academy",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: "#85009D"
-        },
-        {
-            id: 2,
-            heading: "Resources Library",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: "#85009D"
-        },
-        {
-            id: 3,
-            heading: "The Personal Development Hub",
-            text: "",
-            link: "",
-            linkText: "View Details",
-            bgColor: "#85009D"
-        }
+      {
+        id: 1,
+        heading: "The Procurement Plug Academy",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 2,
+        heading: "Resources Library",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 3,
+        heading: "The Personal Development Hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      }
     ]
   };
 

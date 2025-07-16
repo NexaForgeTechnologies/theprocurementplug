@@ -105,44 +105,49 @@ const InnovationVaultCTR = () => {
   ];
 
   const partnerWithUs = {
-        Partnerheader: {
-            h3: "Partner With Us",
-            p: (
-                <>
-                    <strong>partnerships@theprocurementplug.com</strong> -{' '}
-                    <Link className="font-light" href="/partnerships">
-                        Visit our partnership page
-                    </Link>
-                </>
-            )
-        },
-        items: [
-            {
-                id: 1,
-                heading: "Partners hub",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: ""
-            },
-            {
-                id: 2,
-                heading: "Events hub",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: ""
-            },
-            {
-                id: 3,
-                heading: "Business hub",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: ""
-            }
-        ]
-    }
+    Partnerheader: {
+      h3: "Partner With Us",
+      p: (
+        <>
+          <a
+            href="mailto:partnerships@theprocurementplug.com"
+            className="font-semibold text-white hover:underline"
+          >
+            partnerships@theprocurementplug.com
+          </a> -{' '}
+          <Link className="font-light" href="/partnerships">
+            Visit our partnership page
+          </Link>
+        </>
+      )
+    },
+    items: [
+      {
+        id: 1,
+        heading: "Partners hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: ""
+      },
+      {
+        id: 2,
+        heading: "Events hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: ""
+      },
+      {
+        id: 3,
+        heading: "Business hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: ""
+      }
+    ]
+  }
 
   return (
     <>

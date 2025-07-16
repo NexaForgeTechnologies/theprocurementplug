@@ -38,6 +38,8 @@ export default function JoinForm({ isOpen, onClose }) {
     });
 
     const modalRef = useRef(null);
+    const [alert, setAlert] = useState({ message: "", type: "", show: false });
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         if (isOpen) {
@@ -80,6 +82,18 @@ export default function JoinForm({ isOpen, onClose }) {
     }, [isOpen]);
     // 
 
+    useEffect(() => {
+        if (alert.show) {
+            const timer = setTimeout(() => {
+                setAlert({ message: "", type: "", show: false });
+                if (alert.type === "success") {
+                    onClose(); // Close modal after alert disappears
+                }
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [alert.show, onClose]);
+
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData((prev) => ({
@@ -88,40 +102,88 @@ export default function JoinForm({ isOpen, onClose }) {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        setFormData({
-            name: "",
-            phone: "",
-            email: "",
-            linkedIn: "",
-            location: "",
-            experience: "",
-            message: "",
-            mcipsCips: false,
-            projectmanagement: false,
-            sixsigma: false,
-            other: false,
-            contractdrafting: false,
-            categorystrategy: false,
-            commercialstrategies: false,
-            interviewseat: false,
-            tendersupport: false,
-            sourcingsupplier: false,
-            marketinsight: false,
-            evaluationseat: false,
-            p2pSrmESourcing: false,
-            immediately: false,
-            withinonemonth: false,
-            withintwomonth: false,
-            laterdiscuss: false,
-            occasionaltasks: false,
-            opentolargecomplex: false,
-            regulartasks: false,
-            Subscribe: false,
-        });
-        onClose();
+        setIsLoading(true);
+        setAlert({ message: "", type: "", show: false });
+
+        try {
+            const formDataToSend = new FormData();
+            Object.entries(formData).forEach(([key, value]) => {
+                formDataToSend.append(key, value);
+            });
+
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files[0]) {
+                formDataToSend.append('cv', fileInput.files[0]);
+            }
+
+            const response = await fetch('/api/become-a-plug-concierge-expert', {
+                method: 'POST',
+                body: formDataToSend,
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                console.log('Server returned:', result.data);
+                setAlert({
+                    message: "Thank you for applying! We’ve received your application to join our Plug Concierge Expert Network. Look out for an email from us within the next 48 hours with next steps—meanwhile, feel free to review our Concierge Handbook or explore our Community Forum",
+                    type: "success",
+                    show: true,
+                });
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    linkedIn: "",
+                    location: "",
+                    experience: "",
+                    message: "",
+                    mcipsCips: false,
+                    projectmanagement: false,
+                    sixsigma: false,
+                    other: false,
+                    contractdrafting: false,
+                    categorystrategy: false,
+                    commercialstrategies: false,
+                    interviewseat: false,
+                    tendersupport: false,
+                    sourcingsupplier: false,
+                    marketinsight: false,
+                    evaluationseat: false,
+                    p2pSrmESourcing: false,
+                    immediately: false,
+                    withinonemonth: false,
+                    withintwomonth: false,
+                    laterdiscuss: false,
+                    occasionaltasks: false,
+                    opentolargecomplex: false,
+                    regulartasks: false,
+                    Subscribe: false,
+                });
+                onClose();
+            } else {
+                setAlert({
+                    message: result.error || "Failed to submit application. Please try again.",
+                    type: "error",
+                    show: true,
+                });
+            }
+        } catch (error) {
+            console.error("Client error:", error);
+            setAlert({
+                message: "An error occurred. Please try again later.",
+                type: "error",
+                show: true,
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleCloseAlert = () => {
+        setAlert({ message: "", type: "", show: false });
     };
 
     if (!isOpen) return null;
@@ -141,6 +203,23 @@ export default function JoinForm({ isOpen, onClose }) {
                 className="max-w-[1134px] w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
+                {alert.show && (
+                    <div
+                        className={`w-full p-3 rounded-md flex justify-between items-center ${alert.type === "success" ? "bg-green-900/50 text-green-400" : "bg-red-900/50 text-red-400"
+                            }`}
+                        role="alert"
+                        aria-live="polite"
+                        dangerouslySetInnerHTML={{ __html: alert.message }}
+                    >
+                        <span></span>
+                        <button
+                            onClick={handleCloseAlert}
+                            className="text-white hover:text-gray-300 focus:outline-none"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                )}
                 <div className="flex justify-between items-center">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D]">
                         Join The Plug Concierge Expert Network
@@ -554,8 +633,9 @@ export default function JoinForm({ isOpen, onClose }) {
                     </div>
                     <button
                         type="submit"
+                        disabled={isLoading}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                        Join the Expert Network
+                        {isLoading ? "Submitting..." : "Join the Expert Network"}
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </form>

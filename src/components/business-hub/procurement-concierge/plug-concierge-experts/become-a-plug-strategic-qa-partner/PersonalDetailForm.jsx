@@ -14,6 +14,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
         role: "",
         experience: "",
         industries: "",
+        companyrole: "",
         advisoryYes: false,
         advisoryNo: false,
         boardProject: "",
@@ -23,6 +24,8 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
     });
 
     const modalRef = useRef(null);
+    const [alert, setAlert] = useState({ message: "", type: "", show: false });
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         if (isOpen) {
@@ -64,6 +67,138 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
         }
     }, [isOpen]);
     // 
+    useEffect(() => {
+        if (alert.show) {
+            const timer = setTimeout(() => {
+                setAlert({ message: "", type: "", show: false });
+                if (alert.type === "success") {
+                    onClose();
+                }
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [alert.show, onClose]);
+
+    const validateLinkedIn = (url) => {
+        if (!url) return true; // Optional field
+        try {
+            new URL(url);
+            return url.match(/^https?:\/\/(www\.)?linkedin\.com\/in\/[\w-]+\/?$/i);
+        } catch {
+            return false;
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        setAlert({ message: "", type: "", show: false });
+
+        // Client-side validation
+        if (!formData.name || !formData.email || !formData.currentCompany || !formData.role || !formData.experience || !formData.industries || !formData.companyrole || !formData.hoursPerMonth || !formData.interestReason) {
+            setAlert({
+                message: "Please fill out all required fields (Name, Email, Current Company, Role, Experience, Industries, Hours per Month, Reason for Interest).",
+                type: "error",
+                show: true,
+            });
+            setIsLoading(false);
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            setAlert({
+                message: "Please enter a valid email address.",
+                type: "error",
+                show: true,
+            });
+            setIsLoading(false);
+            return;
+        }
+        if (formData.linkedIn && !validateLinkedIn(formData.linkedIn)) {
+            setAlert({
+                message:
+                    "Please enter a valid LinkedIn profile URL (e.g., https://www.linkedin.com/in/username) or leave it blank.",
+                type: "error",
+                show: true,
+            });
+            setIsLoading(false);
+            return;
+        }
+        if (formData.advisoryYes && formData.advisoryNo) {
+            setAlert({
+                message: "Please select only one option for advisory services (Yes or No).",
+                type: "error",
+                show: true,
+            });
+            setIsLoading(false);
+            return;
+        }
+
+        try {
+            const formDataToSend = new FormData();
+            Object.entries(formData).forEach(([key, value]) => {
+                formDataToSend.append(key, value);
+            });
+
+            const response = await fetch("/api/strategic-qa-partner", {
+                method: "POST",
+                body: formDataToSend,
+            });
+
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                throw new Error("Server returned non-JSON response");
+            }
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                console.log("Server returned:", result.data);
+                setAlert({
+                    message:
+                        'Thank you for your interest! We’ve received your application to join our Strategic QA Partner Network. Expect an email from us within 48 hours outlining next steps. In the meantime, you can review our QA Partner Handbook or browse our Partner Community Forum.',
+                    type: "success",
+                    show: true,
+                });
+                setFormData({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    linkedIn: "",
+                    location: "",
+                    currentCompany: "",
+                    role: "",
+                    experience: "",
+                    companyrole: "",
+                    industries: "",
+                    advisoryYes: false,
+                    advisoryNo: false,
+                    boardProject: "",
+                    strategicRisk: "",
+                    hoursPerMonth: "",
+                    interestReason: "",
+                });
+            } else {
+                setAlert({
+                    message: result.error || "Failed to submit application. Please try again.",
+                    type: "error",
+                    show: true,
+                });
+            }
+        } catch (error) {
+            console.error("Client error:", error);
+            setAlert({
+                message: "An error occurred while submitting your application. Please try again later.",
+                type: "error",
+                show: true,
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleCloseAlert = () => {
+        setAlert({ message: "", type: "", show: false });
+    };
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -71,29 +206,6 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
             ...prev,
             [name]: type === "checkbox" ? checked : value,
         }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log("Form submitted:", formData);
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            linkedIn: "",
-            location: "",
-            currentCompany: "",
-            role: "",
-            experience: "",
-            industries: "",
-            advisoryYes: false,
-            advisoryNo: false,
-            boardProject: "",
-            strategicRisk: "",
-            hoursPerMonth: "",
-            interestReason: "",
-        });
-        onClose();
     };
 
     if (!isOpen) return null;
@@ -216,10 +328,10 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         </div>
                         <input
                             type="text"
-                            id="industries"
-                            name="industries"
+                            id="companyrole"
+                            name="companyrole"
                             placeholder="What is your current or most recent role & company?"
-                            value={formData.industries}
+                            value={formData.companyrole}
                             onChange={handleChange}
                             required
                             className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
@@ -317,10 +429,27 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
 
                     <button
                         type="submit"
+                        disabled={isLoading}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                        Submit
+                        {isLoading ? "Submitting..." : "Submit"}
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
+                    {alert.show && (
+                        <div
+                            className={`w-full p-3 rounded-md flex justify-between items-center ${alert.type === "success" ? "bg-[#85009D] text-white" : "bg-red-900/50 text-red-400"
+                                } mt-4`}
+                            role="alert"
+                            aria-live="polite"
+                        >
+                            <span dangerouslySetInnerHTML={{ __html: alert.message }} />
+                            <button
+                                onClick={handleCloseAlert}
+                                className="text-white hover:text-gray-300 focus:outline-none"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    )}
                 </form>
             </div>
         </div >

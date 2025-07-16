@@ -12,6 +12,8 @@ export default function TaskListForm({ isOpen, onClose }) {
     });
 
     const modalRef = useRef(null);
+    const [alert, setAlert] = useState({ message: "", type: "", show: false });
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         if (isOpen) {
@@ -53,6 +55,17 @@ export default function TaskListForm({ isOpen, onClose }) {
         }
     }, [isOpen]);
     // 
+    useEffect(() => {
+        if (alert.show) {
+            const timer = setTimeout(() => {
+                setAlert({ message: "", type: "", show: false });
+                if (alert.type === "success") {
+                    onClose();
+                }
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [alert.show, onClose]);
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
@@ -62,11 +75,79 @@ export default function TaskListForm({ isOpen, onClose }) {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        setFormData({ name: "", company: "", email: "", interest: "" });
-        onClose();
+        setIsLoading(true);
+        setAlert({ message: "", type: "", show: false });
+
+        // Client-side validation
+        if (!formData.name || !formData.company || !formData.email || !formData.interest) {
+            setAlert({
+                message: "Please fill out all required fields (Name, Company, Email, Interest).",
+                type: "error",
+                show: true,
+            });
+            setIsLoading(false);
+            return;
+        }
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            setAlert({
+                message: "Please enter a valid email address.",
+                type: "error",
+                show: true,
+            });
+            setIsLoading(false);
+            return;
+        }
+
+        try {
+            const formDataToSend = new FormData();
+            Object.entries(formData).forEach(([key, value]) => {
+                formDataToSend.append(key, value);
+            });
+
+            const response = await fetch("/api/task-list-download", {
+                method: "POST",
+                body: formDataToSend,
+            });
+
+            const contentType = response.headers.get("content-type");
+            if (!contentType || !contentType.includes("application/json")) {
+                throw new Error("Server returned non-JSON response");
+            }
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                console.log("Server returned:", result.data);
+                setAlert({
+                    message:
+                        'Your download is ready! Thanks for requesting our Task List. Check your inbox in a moment for the download link—and feel free to explore our Resource Center for more guides.',
+                    type: "success",
+                    show: true,
+                });
+                setFormData({ name: "", company: "", email: "", interest: "" });
+            } else {
+                setAlert({
+                    message: result.error || "Failed to submit form. Please try again.",
+                    type: "error",
+                    show: true,
+                });
+            }
+        } catch (error) {
+            console.error("Client error:", error);
+            setAlert({
+                message: "An error occurred while submitting your form. Please try again later.",
+                type: "error",
+                show: true,
+            });
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleCloseAlert = () => {
+        setAlert({ message: "", type: "", show: false });
     };
 
     if (!isOpen) return null;
@@ -149,10 +230,27 @@ export default function TaskListForm({ isOpen, onClose }) {
                     </div>
                     <button
                         type="submit"
+                        disabled={isLoading}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                        Download
+                        {isLoading ? "Submitting..." : "Download"}
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
+                    {alert.show && (
+                        <div
+                            className={`w-full p-3 rounded-md flex justify-between items-center ${alert.type === "success" ? "bg-[#85009D] text-white" : "bg-red-900/50 text-red-400"
+                                } mt-4`}
+                            role="alert"
+                            aria-live="polite"
+                        >
+                            <span dangerouslySetInnerHTML={{ __html: alert.message }} />
+                            <button
+                                onClick={handleCloseAlert}
+                                className="text-white hover:text-gray-300 focus:outline-none"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                    )}
                 </form>
             </div>
         </div>

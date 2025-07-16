@@ -25,16 +25,16 @@ const contactus = () => {
     }
   }, [alert.show]);
 
-  const sendEmail= async ()=>{
-    await fetch('/api/send-email', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ userEmail: 'newuser@example.com' }),
-});
-  }
+  //   const sendEmail= async ()=>{
+  //     await fetch('/api/send-email', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({ userEmail: 'newuser@example.com' }),
+  // });
+  //   }
 
   // useEffect(()=>{
-  
+
   // sendEmail()
   // },[])
 
@@ -44,51 +44,52 @@ const contactus = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsLoading(true);
-  setAlert({ message: "", type: "", show: false });
+    e.preventDefault();
+    setIsLoading(true);
+    setAlert({ message: "", type: "", show: false });
 
-  try {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        userEmail: formData?.email,
-        message: formData.message,
-        name: formData.name
-      }),
-    });
-
-    const result = await response.json();
-
-    if (response.ok && result.success) {
-      console.log('Server returned:', result.data); // contains name, email, message
-
-      setAlert({
-        message: "Message sent successfully! Check your email for confirmation.",
-        type: "success",
-        show: true,
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          // userEmail: formData?.email,
+          message: formData.message,
+          name: formData.name
+        }),
       });
 
-      setFormData({ name: "", email: "", message: "" }); // Reset form
-    } else {
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        console.log('Server returned:', result.data); // contains name, email, message
+
+        setAlert({
+          message: "Thanks for reaching out! We’ve received your message and will get back to you within 24 hours. In the meantime, feel free to explore our Help Center or check out our latest blog posts",
+          type: "success",
+          show: true,
+        });
+
+        setFormData({ name: "", email: "", message: "" }); // Reset form
+      } else {
+        setAlert({
+          message: result.error || "Failed to send message. Please try again.",
+          type: "error",
+          show: true,
+        });
+      }
+    } catch (error) {
+      console.error("Client error:", error);
       setAlert({
-        message: result.error || "Failed to send message. Please try again.",
+        message: "An error occurred. Please try again later.",
         type: "error",
         show: true,
       });
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    console.error("Client error:", error);
-    setAlert({
-      message: "An error occurred. Please try again later.",
-      type: "error",
-      show: true,
-    });
-  } finally {
-    setIsLoading(false);
-  }
-};
+  };
 
   const handleCloseAlert = () => {
     setAlert({ message: "", type: "", show: false });
@@ -168,11 +169,10 @@ const contactus = () => {
         >
           {alert.show && (
             <div
-              className={`w-full p-3 rounded-md flex justify-between items-center ${
-                alert.type === "success"
-                  ? "bg-green-900/50 text-green-400"
+              className={`w-full p-3 rounded-md flex justify-between items-center ${alert.type === "success"
+                  ? "bg-[#85009D]/50 text-white"
                   : "bg-red-900/50 text-red-400"
-              }`}
+                }`}
               role="alert"
               aria-live="polite"
             >

@@ -55,49 +55,46 @@ export async function POST(req) {
         },
     });
 
-    // User confirmation email template
+    // Updated User confirmation email template
     const userEmailTemplate = `
         <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Thank You for Contacting The Procurement Plug!</title>
+            <title>Thanks for Contacting Procurement Plug!</title>
         </head>
         <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
-            <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <div style=" background-color: #F4F4F4; width: 100%; height: 20px;"></div>
+            <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 <tr>
-                    <td style="padding: 20px; text-align: center; background-color: #212121; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                        <img src="https://yourdomain.com/images/footer/Horizontal-V1-copy.png" alt="The Procurement Plug Logo" style="max-width: 260px; height: auto;" />
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 30px; text-align: center;">
-                        <h1 style="font-size: 24px; color: #333333; margin: 0 0 20px;">Thank You for Your Message!</h1>
+                    <td style="padding: 20px;">
+                        <h1 style="font-size: 24px; color: #333333; margin: 0 0 20px;">Thanks for Contacting Procurement Plug!</h1>
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
-                            Dear ${name},<br/>
-                            We have successfully received your message at <strong>The Procurement Plug</strong>. Thank you for reaching out to us!
+                            Hi ${name},<br/>
+                            Thanks for getting in touch. We’ve received your inquiry and one of our experts will be in touch within the next 24 hours to discuss your needs.
                         </p>
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
-                            <strong>Your Details:</strong><br/>
-                            Email: ${email}<br/>
-                            Message: ${message}
+                            Meanwhile, you might find these resources helpful:
+                        </p>
+                        <ul style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px; padding-left: 20px;">
+                            <li><span style="color: #1b1b1b; text-decoration: none; font-weight: 600;">Quick Start Guide:</span> How to get the most from Procurement Plug</li>
+                            <li><span style="color: #1b1b1b; text-decoration: none; font-weight: 600;">Customer Success Stories:</span> See how others are streamlining their sourcing</li>
+                            <li><span style="color: #1b1b1b; text-decoration: none; font-weight: 600;">FAQs:</span> Answers to common questions</li>
+                        </ul>
+                        <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
+                            Looking forward to chatting soon!
                         </p>
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
-                            Our team will review your message and get back to you as soon as possible. We appreciate your patience and are excited to connect with you!
+                            Best regards,<br/>
+                            The Procurement Plug Team
                         </p>
-                        <a href="https://theprocurementplug.com" style="display: inline-block; padding: 12px 24px; background-color: #85009D; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 16px;">
-                            Visit Our Website
-                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding: 20px; text-align: center; background-color: #f4f4f4; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
                         <p style="font-size: 14px; color: #999999; margin: 0;">
                             © ${new Date().getFullYear()} The Procurement Plug. All rights reserved.
-                        </p>
-                        <p style="font-size: 14px; color: #999999; margin: 5px 0 0;">
-                            <a href="https://theprocurementplug.com" style="color: #85009D; text-decoration: none;">Contact Us</a>
                         </p>
                     </td>
                 </tr>
@@ -106,7 +103,7 @@ export async function POST(req) {
         </html>
     `;
 
-    // Admin notification email template
+    // Admin notification email template (unchanged)
     const adminEmailTemplate = `
         <!DOCTYPE html>
         <html lang="en">
@@ -116,14 +113,10 @@ export async function POST(req) {
             <title>New Contact Form Submission</title>
         </head>
         <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+            <div style=" background-color: #F4F4F4; width: 100%; height: 20px;"></div>
             <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 <tr>
-                    <td style="padding: 20px; text-align: center; background-color: #212121; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                        <img src="https://yourdomain.com/images/footer/Horizontal-V1-copy.png" alt="The Procurement Plug Logo" style="max-width: 260px; height: auto;" />
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 30px;">
+                    <td style="padding: 20px;">
                         <h1 style="font-size: 24px; color: #333333; margin: 0 0 20px;">New Contact Form Submission</h1>
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
                             You have received a new message via the contact form on <strong>The Procurement Plug</strong>.
@@ -138,9 +131,6 @@ export async function POST(req) {
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
                             Please review the message and respond to the user as needed.
                         </p>
-                        <a href="https://theprocurementplug.com" style="display: inline-block; padding: 12px 24px; background-color: #85009D; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 16px;">
-                            Visit Website
-                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -159,11 +149,11 @@ export async function POST(req) {
     const userMailOptions = {
         from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
         to: email,
-        subject: "We’ve Received Your Message!",
+        subject: "Thanks for Contacting Procurement Plug!",
         html: userEmailTemplate,
     };
 
-    // Email options for admin (sent to EMAIL_USER)
+    // Email options for admin
     const adminMailOptions = {
         from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
         to: process.env.EMAIL_USER,
@@ -173,17 +163,18 @@ export async function POST(req) {
 
     // Send both emails
     try {
-        // Verify transporter configuration
         await transporter.verify();
-        
-        // Log email recipients for debugging
         console.log("Sending emails to:", { userEmail: email, adminEmail: process.env.EMAIL_USER });
 
         await Promise.all([
             transporter.sendMail(userMailOptions),
             transporter.sendMail(adminMailOptions),
         ]);
-        return NextResponse.json({ message: "Message sent, saved to database, and confirmation emails sent successfully" });
+        return NextResponse.json({
+            message: "Message sent, saved to database, and confirmation emails sent successfully",
+            success: true,
+            data: { name, email, message }
+        });
     } catch (error) {
         console.error("Email error:", error);
         return NextResponse.json({ error: `Failed to send confirmation emails: ${error.message}` }, { status: 500 });
