@@ -27,16 +27,22 @@ const Footer = () => {
     setMessage("");
     setShowAlert(false);
 
+    // try {
+    //   const response = await fetch("/api/send-email", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ 
+    //       userEmail: email,
+    //       name: "Newsletter Subscriber",
+    //       message: "New newsletter subscription request",
+    //       type: "newsletter_subscription"
+    //     }),
+    //   });
     try {
-      const response = await fetch("/api/send-email", {
+      const response = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ 
-          userEmail: email,
-          name: "Newsletter Subscriber",
-          message: "New newsletter subscription request",
-          type: "newsletter_subscription"
-        }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await response.json();
@@ -119,13 +125,12 @@ const Footer = () => {
                     )} */}
           {showAlert && (
             <div
-              className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${
-                message.includes("successful")
+              className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${message.includes("successful")
                   ? "bg-green-900/50 text-green-400"
                   : message.includes("already subscribed")
-                  ? "bg-yellow-900/50 text-yellow-400"
-                  : "bg-red-900/50 text-red-400"
-              }`}
+                    ? "bg-yellow-900/50 text-yellow-400"
+                    : "bg-red-900/50 text-red-400"
+                }`}
             >
               <span>{message}</span>
               <button

@@ -21,8 +21,10 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
 
     const formData = new FormData(e.target);
     const data = {
-      userEmail: formData.get("email"),
-      name: formData.get("fullName"),
+      email: formData.get("email"),
+      // userEmail: formData.get("email"),
+      fullName: formData.get("fullName"),
+      // name: formData.get("fullName"),
       jobTitle: formData.get("jobTitle"),
       company: formData.get("company"),
       phoneNumber: formData.get("phoneNumber"),
@@ -35,7 +37,14 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
     };
 
     try {
-      const response = await fetch("/api/send-email", {
+      // const response = await fetch("/api/send-email", {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(data),
+      // });
+      const response = await fetch("/api/event", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -144,11 +153,10 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
             </p>
             {alert.show && (
               <div
-                className={`p-4 rounded-md flex justify-between items-center ${
-                  alert.type === "success"
+                className={`p-4 rounded-md flex justify-between items-center ${alert.type === "success"
                     ? "bg-green-100 text-green-800"
                     : "bg-red-100 text-red-800"
-                }`}
+                  }`}
               >
                 <p className="text-sm md:text-lg">{alert.message}</p>
                 <button

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import mysql from "mysql2/promise";
+// import mysql from "mysql2/promise";
 
 export async function POST(req) {
     const { name, email, message } = await req.json();
@@ -16,53 +16,53 @@ export async function POST(req) {
     }
 
     // Validate environment variables
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    if (!process.env.CONTACT_EMAIL_USER || !process.env.CONTACT_EMAIL_PASS) {
         console.error("Missing email environment variables:", {
-            EMAIL_USER: !!process.env.EMAIL_USER,
-            EMAIL_PASS: !!process.env.EMAIL_PASS,
+            CONTACT_EMAIL_USER: !!process.env.CONTACT_EMAIL_USER,
+            CONTACT_EMAIL_PASS: !!process.env.CONTACT_EMAIL_PASS,
         });
         return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
     // Initialize MySQL connection
-    let connection;
-    try {
-        connection = await mysql.createConnection({
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_NAME,
-        });
+    // let connection;
+    // try {
+    //     connection = await mysql.createConnection({
+    //         host: process.env.DB_HOST,
+    //         user: process.env.DB_USER,
+    //         password: process.env.DB_PASSWORD,
+    //         database: process.env.DB_NAME,
+    //     });
 
-        // Insert contact data into messages table
-        await connection.execute(
-            "INSERT INTO messages (name, email, message, submitted_at) VALUES (?, ?, ?, NOW())",
-            [name, email, message]
-        );
-    } catch (error) {
-        console.error("Database error:", error);
-        return NextResponse.json({ error: "Failed to save message to database" }, { status: 500 });
-    } finally {
-        if (connection) await connection.end();
-    }
+    //     // Insert contact data into messages table
+    //     await connection.execute(
+    //         "INSERT INTO messages (name, email, message, submitted_at) VALUES (?, ?, ?, NOW())",
+    //         [name, email, message]
+    //     );
+    // } catch (error) {
+    //     console.error("Database error:", error);
+    //     return NextResponse.json({ error: "Failed to save message to database" }, { status: 500 });
+    // } finally {
+    //     if (connection) await connection.end();
+    // }
 
     // Configure Nodemailer transporter
-    const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
-        },
-    });
     // const transporter = nodemailer.createTransport({
-    //     host: "smtp.office365.com",
-    //     // port: 587,
-    //     // secure: false, 
+    //     service: "gmail",
     //     auth: {
-    //         user: process.env.EMAIL_USER,
-    //         pass: process.env.EMAIL_PASS,
+    //         user: process.env.CONTACT_EMAIL_USER,
+    //         pass: process.env.CONTACT_EMAIL_PASS,
     //     },
     // });
+    const transporter = nodemailer.createTransport({
+        host: "smtp.office365.com",
+        port: 587,
+        secure: false, 
+        auth: {
+            user: process.env.CONTACT_EMAIL_USER,
+            pass: process.env.CONTACT_EMAIL_PASS,
+        },
+    });
 
     // Updated User confirmation email template
     const userEmailTemplate = `
@@ -156,7 +156,7 @@ export async function POST(req) {
 
     // Email options for user
     const userMailOptions = {
-        from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
+        from: `"The Procurement Plug" <${process.env.CONTACT_EMAIL_USER}>`,
         to: email,
         subject: "Thanks for Contacting Procurement Plug!",
         html: userEmailTemplate,
@@ -164,8 +164,8 @@ export async function POST(req) {
 
     // Email options for admin
     const adminMailOptions = {
-        from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_USER,
+        from: `"The Procurement Plug" <${process.env.CONTACT_EMAIL_USER}>`,
+        to: process.env.CONTACT_EMAIL_USER,
         subject: "New Contact Form Submission",
         html: adminEmailTemplate,
     };
@@ -173,7 +173,7 @@ export async function POST(req) {
     // Send both emails
     try {
         await transporter.verify();
-        console.log("Sending emails to:", { userEmail: email, adminEmail: process.env.EMAIL_USER });
+        console.log("Sending emails to:", { userEmail: email, adminEmail: process.env.CONTACT_EMAIL_USER });
 
         await Promise.all([
             transporter.sendMail(userMailOptions),
