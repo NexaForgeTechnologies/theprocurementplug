@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Icon from "@/components/icon/Icon";
 import Image from "next/image";
+import Authlogin from '@/components/auth/AuthComp'
 
 const HeaderComp = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -45,6 +46,8 @@ const HeaderComp = () => {
     }
   };
 
+  const showLoginButton = pathname.includes("vip-lounge");
+
   return (
     <>
       <nav
@@ -65,24 +68,32 @@ const HeaderComp = () => {
               alt="Logo"
             />
           </Link>
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="xl:hidden py-2 text-gray-500 hover:bg-gray-100 rounded-lg cursor-pointer"
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <div className="xl:hidden flex items-center gap-3">
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="py-2 text-gray-500 hover:bg-gray-100 rounded-lg cursor-pointer"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+            {showLoginButton && (
+              <div>
+                <Authlogin />
+              </div>
+            )}
+          </div>
+
 
           {/* Desktop Menu */}
           <ul className="hidden xl:flex gap-4 items-center">
@@ -137,6 +148,11 @@ const HeaderComp = () => {
                 Contact Us
               </Link>
             </li>
+            {showLoginButton && (
+              <li>
+                <Authlogin />
+              </li>
+            )}
           </ul>
         </div>
 
@@ -222,7 +238,8 @@ const HeaderComp = () => {
           <div
             className="fixed inset-0 bg-opacity-40 backdrop-blur-md z-40 transition-all duration-300"
             onClick={() => setIsMobileMenuOpen(false)}
-          ></div>
+          >
+          </div>
         )}
       </nav>
     </>

@@ -5,7 +5,6 @@ import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import VIPLoungeCTR from '@/containers/business-hub/vip-lounge/VipLoungeCTR'
 
-
 function Breadcrumb() {
     return (
         <nav className="text-sm breadcrumbs my-6 md:my-10">

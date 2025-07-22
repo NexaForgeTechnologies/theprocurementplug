@@ -301,68 +301,71 @@
 "use client"
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/ConsultingPartnerTile";
 import React, { useState, useEffect, useRef } from "react";
-import axios from 'axios';
+// import axios from 'axios';
+import HostARoundaTableForm from '@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/HostARoundtableForm'
 
 function VipForumCTR() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const [formData, setFormData] = useState({
-        quantity: 1,
-        amount: "",
-    });
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
+    // const [formData, setFormData] = useState({
+    //     quantity: 1,
+    //     amount: "",
+    // });
+    // const [loading, setLoading] = useState(false);
+    // const [error, setError] = useState(null);
+    // const [showModal, setShowModal] = useState(false);
+
+
+    // // Handle input changes
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormData((prev) => ({ ...prev, [name]: value }));
+    // };
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     setLoading(true);
+    //     setError(null);
+
+    //     // Validate amount
+    //     const amount = parseFloat(formData.amount);
+    //     if (!amount || amount <= 0) {
+    //         setError("Please enter a valid amount");
+    //         setLoading(false);
+    //         return;
+    //     }
+
+    //     try {
+    //         const response = await axios.post("/api/create-checkout-session", {
+    //             quantity: formData.quantity,
+    //             amount: amount * 100,
+    //             metadata: {
+    //                 quantity: String(formData.quantity),
+    //                 amount: String(amount),
+    //                 paymentType: "sponsor",
+    //             },
+    //         });
+
+    //         if (response.data.url) {
+    //             window.open(response.data.url, "_blank");
+    //             setShowModal(false);
+    //             setFormData({ ...formData, amount: "" });
+    //         } else {
+    //             throw new Error("No checkout URL returned");
+    //         }
+    //     } catch (error) {
+    //         console.error("Frontend error:", error);
+    //         setError(
+    //             error.response?.data?.details ||
+    //             error.response?.data?.error ||
+    //             "Failed to initiate checkout. Please try again."
+    //         );
+    //     } finally {
+    //         setLoading(false);
+    //     }
+    // };
+
     const [showModal, setShowModal] = useState(false);
-
-
-    // Handle input changes
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        setError(null);
-
-        // Validate amount
-        const amount = parseFloat(formData.amount);
-        if (!amount || amount <= 0) {
-            setError("Please enter a valid amount");
-            setLoading(false);
-            return;
-        }
-
-        try {
-            const response = await axios.post("/api/create-checkout-session", {
-                quantity: formData.quantity,
-                amount: amount * 100,
-                metadata: {
-                    quantity: String(formData.quantity),
-                    amount: String(amount),
-                    paymentType: "sponsor",
-                },
-            });
-
-            if (response.data.url) {
-                window.open(response.data.url, "_blank");
-                setShowModal(false);
-                setFormData({ ...formData, amount: "" });
-            } else {
-                throw new Error("No checkout URL returned");
-            }
-        } catch (error) {
-            console.error("Frontend error:", error);
-            setError(
-                error.response?.data?.details ||
-                error.response?.data?.error ||
-                "Failed to initiate checkout. Please try again."
-            );
-        } finally {
-            setLoading(false);
-        }
-    };
-
     const modalRef = useRef(null);
 
     useEffect(() => {
@@ -578,11 +581,15 @@ function VipForumCTR() {
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-0">Host or join exclusive conversations shaping procurement leadership.</p>
                 </div>
                 <button
+                    // onClick={() => setIsModalOpen(true)}
+                    className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+                >
+                    {/* <button
                     onClick={() => setShowModal(true)}
                     className={`flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${loading ? 'opacity-50 cursor-not-allowed' : ''
                         }`}
                     disabled={loading}
-                >
+                > */}
                     Host a Roundtable
                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                 </button>
@@ -684,6 +691,7 @@ function VipForumCTR() {
                     </button>
                 </div>
             )}
+            <HostARoundaTableForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 }
