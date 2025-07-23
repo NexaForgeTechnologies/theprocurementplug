@@ -9,10 +9,10 @@ import HeroCTR from "@/containers/home/hero/HeroCTR";
 
 export const metadata = {
   title: 'Home',
-  description: 'Your Ultimate Ecosystem for Procurement Excellence.',
+  description: 'Welcome to The Procurement Plug Your Ultimate Ecosystem for Procurement Excellence.',
   openGraph: {
     title: 'Home',
-    description: 'Your Ultimate Ecosystem for Procurement Excellence.',
+    description: 'Welcome to The Procurement Plug Your Ultimate Ecosystem for Procurement Excellence.',
     images: [
       {
         url: 'https://theprocurementplug.com/images/og/main.jpg',
@@ -25,7 +25,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Home',
-    description: 'Your Ultimate Ecosystem for Procurement Excellence.',
+    description: 'Welcome to The Procurement Plug Your Ultimate Ecosystem for Procurement Excellence.',
     images: ['https://theprocurementplug.com/images/og/main.jpg'],
   },
 };
