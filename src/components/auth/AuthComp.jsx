@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import IconComponent from '../icon/Icon';
+import Image from 'next/image';
 
 export default function Auth() {
     const pathname = usePathname();
@@ -141,10 +142,18 @@ export default function Auth() {
                 <button
                     type="button"
                     onClick={openModal}
-                    className="cursor-pointer bg-[#85009D] text-white text-[16px] xl:text-[20px] px-3 py-1 xl:px-[20px] xl:py-[6px] rounded-md w-full"
+                    className="group relative cursor-pointer bg-[#85009D] text-white text-[16px] xl:text-[20px] rounded-full w-full flex items-center justify-center"
                 >
-                    Login
-                    {/* Login/Signup */}
+                    <Image
+                        width={43}
+                        height={43}
+                        src="/images/header/login.png"
+                        className="rounded-full"
+                        alt="Login"
+                    />
+                    <span className="absolute hidden group-hover:block bg-[#85009D] text-white text-xs rounded py-1 px-2 -bottom-8 left-1/2 transform -translate-x-1/2">
+                        LOGIN
+                    </span>
                 </button>
             )}
             {user && (
