@@ -581,7 +581,7 @@ function VipForumCTR() {
                     <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-0">Host or join exclusive conversations shaping procurement leadership.</p>
                 </div>
                 <button
-                    // onClick={() => setIsModalOpen(true)}
+                    onClick={() => setIsModalOpen(true)}
                     className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
                 >
                     {/* <button

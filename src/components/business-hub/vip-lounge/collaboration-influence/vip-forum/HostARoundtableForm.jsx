@@ -1,318 +1,8 @@
-// "use client";
-
-// import React, { useState, useEffect, useRef } from "react";
-// // import IconComponent from "@/components/icon/Icon";
-
-// export default function RequestDemoForm({ isOpen, onClose }) {
-//     const [formData, setFormData] = useState({
-//         name: "",
-//         company: "",
-//         role: "",
-//         email: "",
-//         phone: "",
-//         implementationtimeframe: "",
-//         message: "",
-//         Subscribe: false,
-//         package: "",
-//         payment: "",
-//     });
-//     const [step, setStep] = useState(1);
-//     const modalRef = useRef(null);
-
-//     useEffect(() => {
-//         if (isOpen) {
-//             const scrollY = window.scrollY;
-//             document.body.style.position = "fixed";
-//             document.body.style.top = `-${scrollY}px`;
-//             document.body.style.width = "100%";
-//             const preventTouch = (e) => {
-//                 if (!modalRef.current) return;
-//                 const isInsideModal = modalRef.current.contains(e.target);
-//                 if (!isInsideModal) {
-//                     e.preventDefault();
-//                     return;
-//                 }
-//                 const { scrollTop, scrollHeight, clientHeight } = modalRef.current;
-//                 const atTop = scrollTop === 0;
-//                 const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-//                 const scrollingUp = e.touches[0].clientY > e.targetTouches[0].clientY;
-//                 const scrollingDown = e.touches[0].clientY < e.targetTouches[0].clientY;
-//                 if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
-//                     e.preventDefault();
-//                 }
-//             };
-//             document.addEventListener("touchmove", preventTouch, { passive: false });
-//             return () => {
-//                 const top = parseInt(document.body.style.top || "0", 10);
-//                 document.body.style.position = "";
-//                 document.body.style.top = "";
-//                 document.body.style.width = "";
-//                 window.scrollTo(0, -top);
-//                 document.removeEventListener("touchmove", preventTouch);
-//             };
-//         }
-//     }, [isOpen]);
-
-//     const handleChange = (e) => {
-//         const { name, value, type, checked } = e.target;
-//         setFormData((prev) => ({
-//             ...prev,
-//             [name]: type === "checkbox" ? checked : value,
-//         }));
-//     };
-
-//     const nextStep = () => setStep(step + 1);
-//     const prevStep = () => setStep(step - 1);
-
-//     const handleSubmit = (e) => {
-//         e.preventDefault();
-//         if (step === 5) {
-//             console.log("Form submitted:", formData);
-//             setFormData({
-//                 name: "",
-//                 company: "",
-//                 role: "",
-//                 email: "",
-//                 phone: "",
-//                 implementationtimeframe: "",
-//                 message: "",
-//                 Subscribe: false,
-//                 package: "",
-//                 payment: "",
-//             });
-//             onClose();
-//         } else {
-//             nextStep();
-//         }
-//     };
-
-//     if (!isOpen) return null;
-
-//     return (
-//         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
-//             <div
-//                 ref={modalRef}
-//                 className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
-//                 onClick={(e) => e.stopPropagation()}
-//             >
-//                 {/* <div className="flex justify-between items-center mb-4">
-//                     <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-//                         Request a Consultation
-//                     </h3>
-//                     <button
-//                         className="absolute top-4 right-4 text-2xl text-[#85009D]"
-//                         onClick={onClose}
-//                     >
-//                         <IconComponent name="close" color='#7C7C7C' size={16} />
-//                     </button>
-//                 </div> */}
-//                 <div className="flex flex-col justify-center mb-6">
-//                     <div className="flex justify-between items-center w-full">
-//                         {[1, 2, 3, 4, 5].map((s) => (
-//                             <React.Fragment key={s}>
-//                                 <div className="flex items-center">
-//                                     <div
-//                                         className={`w-[100px] h-[100px] text-[50px] font-bold flex items-center justify-center rounded-full ${step === s
-//                                                 ? "bg-[#85009D] text-white"
-//                                                 : "bg-white text-[#B08D57] border border-[#85009D]"
-//                                             }`}
-//                                     >
-//                                         {s}
-//                                     </div>
-//                                 </div>
-
-//                                 {/* Connector Line */}
-//                                 {s < 5 && (
-//                                     <div
-//                                         className={`h-1 flex-1 mx-2 ${step > s
-//                                                 ? "bg-[#85009D]" // solid line for completed
-//                                                 : step === s
-//                                                     ? "bg-[#85009D]" // solid for current
-//                                                     : "border-t-2 border-dashed border-[#B08D57]" // dashed for upcoming
-//                                             }`}
-//                                     />
-//                                 )}
-//                             </React.Fragment>
-//                         ))}
-//                     </div>
-
-
-//                     <div className="my-4 text-2xl md:text-[32px] font-semibold text-[#85009D]">
-//                         {step === 1 && "Company Registration"}
-//                         {step === 2 && "Select Package"}
-//                         {step === 3 && "Uploadable Details & Assets"}
-//                         {step === 4 && "Review & Payment"}
-//                         {step === 5 && "Confirmation"}
-//                     </div>
-//                 </div>
-
-//                 <form onSubmit={handleSubmit} className="space-y-4">
-//                     {step === 1 && (
-//                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                             <input
-//                                 type="text"
-//                                 id="name"
-//                                 name="name"
-//                                 placeholder="Full Name*"
-//                                 value={formData.name}
-//                                 onChange={handleChange}
-//                                 required
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-//                             />
-//                             <input
-//                                 type="text"
-//                                 id="company"
-//                                 name="company"
-//                                 placeholder="Company*"
-//                                 value={formData.company}
-//                                 onChange={handleChange}
-//                                 required
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-//                             />
-//                             <input
-//                                 type="text"
-//                                 id="role"
-//                                 name="role"
-//                                 placeholder="Role"
-//                                 value={formData.role}
-//                                 onChange={handleChange}
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-//                             />
-//                             <input
-//                                 type="email"
-//                                 id="email"
-//                                 name="email"
-//                                 placeholder="Work email*"
-//                                 value={formData.email}
-//                                 onChange={handleChange}
-//                                 required
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-//                             />
-//                         </div>
-//                     )}
-//                     {step === 2 && (
-//                         <div className="space-y-4">
-//                             <label className="block text-[#1B1B1B] font-medium">Select Package</label>
-//                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-//                                 <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white">
-//                                     <input
-//                                         type="radio"
-//                                         id="package1"
-//                                         name="package"
-//                                         value="1 Week"
-//                                         checked={formData.package === "1 Week"}
-//                                         onChange={handleChange}
-//                                         required
-//                                     />
-//                                     <label htmlFor="package1" className="ml-2">1 Week - £150</label>
-//                                 </div>
-//                                 <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white">
-//                                     <input
-//                                         type="radio"
-//                                         id="package2"
-//                                         name="package"
-//                                         value="2 Weeks"
-//                                         checked={formData.package === "2 Weeks"}
-//                                         onChange={handleChange}
-//                                         required
-//                                     />
-//                                     <label htmlFor="package2" className="ml-2">2 Weeks - £225</label>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     )}
-//                     {step === 3 && (
-//                         <div className="space-y-4">
-//                             <input
-//                                 type="text"
-//                                 id="phone"
-//                                 name="phone"
-//                                 placeholder="Phone"
-//                                 value={formData.phone}
-//                                 onChange={handleChange}
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-//                             />
-//                             <input
-//                                 type="text"
-//                                 id="implementationtimeframe"
-//                                 name="implementationtimeframe"
-//                                 placeholder="Project Timeframe"
-//                                 value={formData.implementationtimeframe}
-//                                 onChange={handleChange}
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-//                             />
-//                             <textarea
-//                                 id="message"
-//                                 name="message"
-//                                 placeholder="Message"
-//                                 value={formData.message}
-//                                 onChange={handleChange}
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
-//                                 rows="4"
-//                             />
-//                         </div>
-//                     )}
-//                     {step === 4 && (
-//                         <div className="space-y-4">
-//                             <div className="flex items-center gap-2">
-//                                 <input
-//                                     type="checkbox"
-//                                     id="Subscribe"
-//                                     name="Subscribe"
-//                                     checked={formData.Subscribe}
-//                                     onChange={handleChange}
-//                                     className="p-2 border border-[#85009D] rounded focus:outline-none"
-//                                 />
-//                                 <label htmlFor="Subscribe" className="block text-[#1B1B1B] font-medium">
-//                                     Subscribe for more updates
-//                                 </label>
-//                             </div>
-//                             <input
-//                                 type="text"
-//                                 id="payment"
-//                                 name="payment"
-//                                 placeholder="Payment Details"
-//                                 value={formData.payment}
-//                                 onChange={handleChange}
-//                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-//                             />
-//                         </div>
-//                     )}
-//                     {step === 5 && (
-//                         <div className="text-center">
-//                             <p className="text-[#1B1B1B] font-medium">Thank you for your submission!</p>
-//                             <p>Confirmation details will be sent to {formData.email}.</p>
-//                         </div>
-//                     )}
-//                     <div className="flex justify-between mt-6">
-//                         {step > 1 && (
-//                             <button
-//                                 type="button"
-//                                 onClick={prevStep}
-//                                 className="bg-gray-300 text-[#1B1B1B] px-4 py-2 rounded-[6px]"
-//                             >
-//                                 Back
-//                             </button>
-//                         )}
-//                         <button
-//                             type="submit"
-//                             className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
-//                         >
-//                             {step === 5 ? "Close" : "Next"}
-//                             {step !== 5 && (
-//                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-//                             )}
-//                         </button>
-//                     </div>
-//                 </form>
-//             </div>
-//         </div>
-//     );
-// }
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-// import IconComponent from "@/components/icon/Icon";
+import Image from "next/image";
+import axios from "axios";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
     const [formData, setFormData] = useState({
@@ -329,9 +19,18 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         Subscribe: false,
         package: "",
         payment: "",
+        bannerImage: null,
+        logoImage: null,
+        subscriptionType: "one_time",
+        duration: "monthly",
+        quantity: 1,
     });
     const [step, setStep] = useState(1);
     const modalRef = useRef(null);
+    const [bannerPreview, setBannerPreview] = useState(null);
+    const [logoPreview, setLogoPreview] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
 
     // Calculate completion percentage for a step's required fields
     const getCompletionPercentage = (step) => {
@@ -346,7 +45,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             }
             case 3:
             case 4:
-            case 5:
                 return 100; // No required fields
             default:
                 return 0;
@@ -362,7 +60,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 return formData.package;
             case 3:
             case 4:
-            case 5:
                 return true;
             default:
                 return false;
@@ -414,27 +111,109 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     const nextStep = () => setStep(step + 1);
     const prevStep = () => setStep(step - 1);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (step === 5) {
-            console.log("Form submitted:", formData);
-            setFormData({
-                name: "",
-                company: "",
-                role: "",
-                email: "",
-                companywebsiteorlinkedinurl: "",
-                title: "",
-                targetaudience: "",
-                date: "",
-                phone: "",
-                implementationtimeframe: "",
-                message: "",
-                Subscribe: false,
-                package: "",
-                payment: "",
+    const handleFileChange = (e, field) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Validate file type
+        const validTypes = field === "bannerImage" ? ["image/jpeg", "image/png"] : ["image/png", "image/svg+xml"];
+        if (!validTypes.includes(file.type)) {
+            alert(`Please select a valid ${field === "bannerImage" ? "JPG or PNG" : "PNG or SVG"} image file.`);
+            return;
+        }
+
+        // Update formData and preview URL
+        setFormData((prev) => ({
+            ...prev,
+            [field]: file,
+        }));
+        const newPreview = URL.createObjectURL(file);
+        if (field === "bannerImage") {
+            setBannerPreview((prev) => {
+                if (prev) URL.revokeObjectURL(prev);
+                return newPreview;
             });
-            onClose();
+        } else {
+            setLogoPreview((prev) => {
+                if (prev) URL.revokeObjectURL(prev);
+                return newPreview;
+            });
+        }
+        console.log(`Uploading ${field}:`, {
+            name: file.name,
+            size: file.size,
+            type: file.type,
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        if (step === 4) {
+            setLoading(true);
+            setError(null);
+
+            // Map package to priceId
+            const priceIds = {
+                one_time: {
+                    monthly: {
+                        "1 Week": "150 price id here", // Replace with actual Stripe Price ID
+                        "2 Weeks": "275 price id here", // Replace with actual Stripe Price ID
+                    },
+                },
+            };
+
+            const priceId = priceIds[formData.subscriptionType][formData.duration][formData.package];
+
+            try {
+                const response = await axios.post("/api/create-checkout-session", {
+                    subscriptionType: formData.subscriptionType,
+                    quantity: formData.quantity,
+                    priceId,
+                    metadata: {
+                        duration: formData.duration,
+                        subscriptionType: formData.subscriptionType,
+                        quantity: String(formData.quantity),
+                    },
+                });
+
+                if (response.data.url) {
+                    window.open(response.data.url, "_blank");
+                    // Reset form and close modal after successful redirect
+                    setFormData({
+                        name: "",
+                        company: "",
+                        role: "",
+                        email: "",
+                        companywebsiteorlinkedinurl: "",
+                        title: "",
+                        targetaudience: "",
+                        date: "",
+                        phone: "",
+                        implementationtimeframe: "",
+                        message: "",
+                        Subscribe: false,
+                        package: "",
+                        payment: "",
+                        bannerImage: null,
+                        logoImage: null,
+                        subscriptionType: "one_time",
+                        duration: "monthly",
+                        quantity: 1,
+                    });
+                    onClose();
+                } else {
+                    throw new Error("No checkout URL returned");
+                }
+            } catch (error) {
+                console.error("Frontend error:", error);
+                setError(
+                    error.response?.data?.details ||
+                    error.response?.data?.error ||
+                    "Failed to initiate checkout. Please try again."
+                );
+            } finally {
+                setLoading(false);
+            }
         } else {
             nextStep();
         }
@@ -449,23 +228,22 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="flex flex-col justify-center mb-6">
-                    <div className="flex justify-between items-center w-full">
-                        {[1, 2, 3, 4, 5].map((s) => (
+                <div className="flex flex-col justify-center">
+                    <div className="flex justify-between items-center w-full mb-4">
+                        {[1, 2, 3, 4].map((s) => (
                             <React.Fragment key={s}>
                                 <div className="flex items-center">
                                     <div
-                                        className={`w-[100px] h-[100px] text-[50px] font-bold flex items-center justify-center rounded-full ${step === s
-                                            ? "bg-[#85009D] text-white"
-                                            : "bg-white text-[#B08D57] border border-[#85009D]"
-                                            }`}
+                                        className={`w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] md:w-[100px] md:h-[100px] text-[20px] sm:text-[24px] md:text-[50px] font-bold flex items-center justify-center rounded-full ${
+                                            step === s
+                                                ? "bg-[#85009D] text-white"
+                                                : "bg-white text-[#B08D57] border border-[#85009D]"
+                                        }`}
                                     >
                                         {s}
                                     </div>
                                 </div>
-
-                                {/* Connector Line */}
-                                {s < 5 && (
+                                {s < 4 && (
                                     <div className="h-1 flex-1 mx-2 relative">
                                         <div className="absolute inset-0 h-1 border-t-2 border-dashed border-[#B08D57]" />
                                         <div
@@ -475,8 +253,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                                     step > s || (step === s && areRequiredFieldsFilled(s))
                                                         ? "100%"
                                                         : step === s
-                                                            ? `${getCompletionPercentage(s)}%`
-                                                            : "0%",
+                                                        ? `${getCompletionPercentage(s)}%`
+                                                        : "0%",
                                             }}
                                         />
                                     </div>
@@ -484,13 +262,11 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             </React.Fragment>
                         ))}
                     </div>
-
                     <div className="my-4 text-2xl md:text-[32px] font-semibold text-[#85009D]">
                         {step === 1 && "Company Registration"}
                         {step === 2 && "Select Hosting Package"}
                         {step === 3 && "Roundtable Details & Assets"}
                         {step === 4 && "Review & Payment"}
-                        {step === 5 && "Confirmation"}
                     </div>
                 </div>
 
@@ -501,7 +277,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                 type="text"
                                 id="company"
                                 name="company"
-                                placeholder="Company*"
+                                placeholder="Company Name*"
                                 value={formData.company}
                                 onChange={handleChange}
                                 required
@@ -544,10 +320,12 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     )}
                     {step === 2 && (
                         <div className="space-y-4">
-                            <label className="block text-[#1B1B1B] font-medium">How long would you like your digital Roundtable to run?</label>
+                            <label className="block text-[#1B1B1B] font-medium">
+                                How long would you like your digital Roundtable to run?
+                            </label>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <label htmlFor="package1" className="block cursor-pointer h-full">
-                                    <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between">
+                                    <div className="p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group">
                                         <input
                                             type="radio"
                                             id="package1"
@@ -558,16 +336,21 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                             required
                                             className="hidden"
                                         />
-                                        <span className="text-[#B08D57] text-[42px] leading-none">1 Week</span>
-                                        <p className="text-[#1B1B1B] text-[42px]">£150</p>
+                                        <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">1 Week</span>
+                                        <p className="text-[#1B1B1B] text-[24px] md:text-[42px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
+                                            £150
+                                        </p>
                                         <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
-                                        <p className="text-[#7B7B7B] mb-4 md:mb-8">Note below: “First week is FREE for returning Business Hub
-                                            partners – 2 free sessions per year</p>
-                                        <button className="text-[#85009D] border border-[#85009D] w-full py-[5px] rounded-md">Select</button>
+                                        <p className="text-[#7B7B7B] mb-4 md:mb-8 group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
+                                            Note below: “First week is FREE for returning Business Hub partners – 2 free sessions per year
+                                        </p>
+                                        <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out">
+                                            Select
+                                        </p>
                                     </div>
                                 </label>
                                 <label htmlFor="package2" className="block cursor-pointer h-full">
-                                    <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between">
+                                    <div className="p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group">
                                         <input
                                             type="radio"
                                             id="package2"
@@ -578,12 +361,17 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                             required
                                             className="hidden"
                                         />
-                                        <span className=" text-[#B08D57] text-[42px] leading-none">2 Weeks</span>
-                                        <p className="text-[#1B1B1B] text-[42px] flex items-center gap-2">£275<span className="text-[#808080] text-[16px]">(Non-Partner)</span></p>
+                                        <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">2 Weeks</span>
+                                        <p className="text-[#1B1B1B] text-[24px] md:text-[42px] flex items-center gap-2 group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
+                                            £275<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out">(Non-Partner)</span>
+                                        </p>
                                         <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
-                                        <p className="text-[#1B1B1B] text-[42px] flex items-center gap-2 mb-4 md:mb-8 leading-none">£150<span className="text-[#808080] text-[16px]">(Existing Partner)</span></p>
-
-                                        <button className="text-[#85009D] border border-[#85009D] w-full py-[5px] rounded-md">Select</button>
+                                        <p className="text-[#1B1B1B] text-[24px] md:text-[42px] flex items-center gap-2 mb-4 md:mb-8 leading-none group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
+                                            £150<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out">(Existing Partner)</span>
+                                        </p>
+                                        <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out">
+                                            Select
+                                        </p>
                                     </div>
                                 </label>
                             </div>
@@ -614,7 +402,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                     type="text"
                                     id="targetaudience"
                                     name="targetaudience"
-                                    placeholder=" Target Audience / Key Participants"
+                                    placeholder="Target Audience / Key Participants"
                                     value={formData.targetaudience}
                                     onChange={handleChange}
                                     className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
@@ -629,57 +417,147 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                     className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                                 />
                             </div>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div
+                                    className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                                    onClick={() => document.getElementById("bannerInput").click()}
+                                >
+                                    <Image
+                                        src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
+                                        alt="upload banner"
+                                        width={128}
+                                        height={128}
+                                        className="w-[128px] h-[128px] object-cover mb-4"
+                                    />
+                                    <p className="text-[#1B1B1B] text-center">
+                                        <span className="font-semibold">Banner Image</span> (file, 1440×440 px, JPG/PNG)
+                                    </p>
+                                    {formData.bannerImage && (
+                                        <p className="text-sm text-gray-600 mt-2">{formData.bannerImage.name}</p>
+                                    )}
+                                    <input
+                                        id="bannerInput"
+                                        type="file"
+                                        accept="image/jpeg,image/png"
+                                        className="hidden"
+                                        onChange={(e) => handleFileChange(e, "bannerImage")}
+                                    />
+                                </div>
+                                <div
+                                    className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                                    onClick={() => document.getElementById("logoInput").click()}
+                                >
+                                    <Image
+                                        src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
+                                        alt="upload logo"
+                                        width={128}
+                                        height={128}
+                                        className="w-[128px] h-[128px] object-cover mb-4"
+                                    />
+                                    <p className="text-[#1B1B1B] text-center">
+                                        <span className="font-semibold">Logo Upload</span> (file, max 300×100 px, PNG/SVG)
+                                    </p>
+                                    {formData.logoImage && (
+                                        <p className="text-sm text-gray-600 mt-2">{formData.logoImage.name}</p>
+                                    )}
+                                    <input
+                                        id="logoInput"
+                                        type="file"
+                                        accept="image/png,image/svg+xml"
+                                        className="hidden"
+                                        onChange={(e) => handleFileChange(e, "logoImage")}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     )}
                     {step === 4 && (
                         <div className="space-y-4">
-                            <div className="flex items-center gap-2">
-                                <input
-                                    type="checkbox"
-                                    id="Subscribe"
-                                    name="Subscribe"
-                                    checked={formData.Subscribe}
-                                    onChange={handleChange}
-                                    className="p-2 border border-[#85009D] rounded focus:outline-none"
-                                />
-                                <label htmlFor="Subscribe" className="block text-[#1B1B1B] font-medium">
-                                    Subscribe for more updates
-                                </label>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full space-y-4">
+                                    <p className="text-[#1b1b1b]">
+                                        Company Name: <span className="text-[#505050]">{formData.company}</span>
+                                    </p>
+                                    <p className="text-[#1b1b1b]">
+                                        Host Full Name: <span className="text-[#505050]">{formData.name}</span>
+                                    </p>
+                                    <p className="text-[#1b1b1b]">
+                                        Selected Package & Duration: <span className="text-[#505050]">{formData.package}</span>
+                                    </p>
+                                    <p className="text-[#1b1b1b]">
+                                        Topic: <span className="text-[#505050]">{formData.title}</span>
+                                    </p>
+                                    <p className="text-[#1b1b1b]">
+                                        Start Date: <span className="text-[#505050]">{formData.date}</span>
+                                    </p>
+                                    <p className="text-[#1b1b1b]">Banner:</p>
+                                    {bannerPreview ? (
+                                        <img
+                                            src={bannerPreview}
+                                            alt="Banner Preview"
+                                            className="w-full h-[100px] object-cover rounded-[2px]"
+                                        />
+                                    ) : (
+                                        <p className="text-[#505050]">No banner uploaded</p>
+                                    )}
+                                    <p className="text-[#1b1b1b]">Logo:</p>
+                                    {logoPreview ? (
+                                        <img
+                                            src={logoPreview}
+                                            alt="Logo Preview"
+                                            className="w-full max-w-[150px] h-auto object-contain rounded-[2px]"
+                                        />
+                                    ) : (
+                                        <p className="text-[#505050]">No logo uploaded</p>
+                                    )}
+                                </div>
+                                <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full space-y-4">
+                                    <p className="text-[#1b1b1b]">
+                                        Click on <span className="font-semibold">"Pay & Submit for Review"</span> to be redirected to the Stripe
+                                        payment gateway.
+                                    </p>
+                                    {error && (
+                                        <p className="text-red-500 text-sm">{error}</p>
+                                    )}
+                                </div>
                             </div>
-                            <input
-                                type="text"
-                                id="payment"
-                                name="payment"
-                                placeholder="Payment Details"
-                                value={formData.payment}
-                                onChange={handleChange}
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
                         </div>
                     )}
-                    {step === 5 && (
-                        <div className="text-center">
-                            <p className="text-[#1B1B1B] font-medium">Thank you for your submission!</p>
-                            <p>Confirmation details will be sent to {formData.email}.</p>
-                        </div>
-                    )}
-                    <div className="flex justify-between mt-6">
-                        {step > 1 && (
+                    <div className="flex flex-col md:flex-row gap-4 mt-6">
+                        {step === 1 ? (
+                            <button
+                                type="button"
+                                onClick={onClose}
+                                className="bg-[#6C6C6C] text-[#ffff] text-[14px] md:text-[16px] px-4 py-2 rounded-[6px]"
+                            >
+                                Cancel
+                            </button>
+                        ) : (
                             <button
                                 type="button"
                                 onClick={prevStep}
-                                className="bg-gray-300 text-[#1B1B1B] px-4 py-2 rounded-[6px]"
+                                className="bg-[#6C6C6C] text-[#ffff] text-[14px] md:text-[16px] px-4 py-2 rounded-[6px]"
                             >
                                 Back
                             </button>
                         )}
                         <button
                             type="submit"
-                            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+                            disabled={loading}
+                            className={`flex items-center justify-center md:justify-start cursor-pointer text-[14px] md:text-[16px] bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${
+                                loading ? "opacity-50 cursor-not-allowed" : ""
+                            }`}
                         >
-                            {step === 5 ? "Close" : "Next"}
-                            {step !== 5 && (
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                            {loading ? "Processing..." : (
+                                <>
+                                    {step === 1 && "Next: Choose Your Hosting Package"}
+                                    {step === 2 && "Next: Tell Us About Your Roundtable"}
+                                    {step === 3 && "Next: Review & Pay"}
+                                    {step === 4 && "Pay & Submit for Review"}
+                                    {step !== 4 && (
+                                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                                    )}
+                                </>
                             )}
                         </button>
                     </div>
