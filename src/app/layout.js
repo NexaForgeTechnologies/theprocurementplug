@@ -52,6 +52,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
+import { Suspense } from "react"; // ✅ Add this
 
 import Footer from "@/components/footer/FooterComp";
 import Header from "@/components/header/HeaderComp";
@@ -110,7 +111,12 @@ export default function RootLayout({ children }) {
         />
 
         <Header />
-        <Analytics /> {/* Add Analytics tracking */}
+
+        {/* ✅ Wrap Analytics in Suspense to fix static build */}
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
+
         <main className="flex flex-col pb-20 gap-20 md:gap-28 mt-20 md:mt-28">
           {children}
         </main>
