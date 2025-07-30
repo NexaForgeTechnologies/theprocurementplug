@@ -16,21 +16,21 @@ export async function POST(req) {
     }
 
     // Validate environment variables
-    if (!process.env.SMTP_SUPPORT_USER || !process.env.SMTP_SUPPORT_PASS) {
+    if (!process.env.SMTP_REQUEST_USER || !process.env.SMTP_REQUEST_PASS) {
         console.error("Missing email environment variables:", {
-            SMTP_SUPPORT_USER: !!process.env.SMTP_SUPPORT_USER,
-            SMTP_SUPPORT_PASS: !!process.env.SMTP_SUPPORT_PASS,
+            SMTP_REQUEST_USER: !!process.env.SMTP_REQUEST_USER,
+            SMTP_REQUEST_PASS: !!process.env.SMTP_REQUEST_PASS,
         });
         return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
     const transporter = nodemailer.createTransport({
-        host: "smtp.office365.com",
-        port: 587,
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
         secure: false,
         auth: {
-            user: process.env.SMTP_SUPPORT_USER,
-            pass: process.env.SMTP_SUPPORT_PASS,
+            user: process.env.SMTP_REQUEST_USER,
+            pass: process.env.SMTP_REQUEST_PASS,
         },
     });
 
@@ -126,7 +126,7 @@ export async function POST(req) {
 
     // Email options for user
     const userMailOptions = {
-        from: `"The Procurement Plug" <${process.env.SMTP_SUPPORT_USER}>`,
+        from: `"The Procurement Plug" <${process.env.SMTP_REQUEST_USER}>`,
         to: email,
         subject: "Thanks for Contacting Procurement Plug!",
         html: userEmailTemplate,
@@ -134,8 +134,8 @@ export async function POST(req) {
 
     // Email options for admin
     const adminMailOptions = {
-        from: `"The Procurement Plug" <${process.env.SMTP_SUPPORT_USER}>`,
-        to: process.env.SMTP_SUPPORT_USER,
+        from: `"The Procurement Plug" <${process.env.SMTP_REQUEST_USER}>`,
+        to: process.env.SMTP_REQUEST_USER,
         subject: "New Contact Form Submission",
         html: adminEmailTemplate,
     };
@@ -143,7 +143,6 @@ export async function POST(req) {
     // Send both emails
     try {
         await transporter.verify();
-        console.log("Sending emails to:", { userEmail: email, adminEmail: process.env.SMTP_SUPPORT_USER });
 
         await Promise.all([
             transporter.sendMail(userMailOptions),
