@@ -119,7 +119,7 @@ function EventReviewCTR() {
     return (
         <div className="flex flex-col gap-6 md:gap-8">
             <div className='max-w-[780px] m-auto text-center'>
-                <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>What Our Customers Say</h3>
+                <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>Reviews from the Event</h3>
                 <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>Discover why professionals trust us to deliver quality, every time.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
