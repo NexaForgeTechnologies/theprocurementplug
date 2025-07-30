@@ -1,6 +1,6 @@
+
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-import mysql from "mysql2/promise";
 
 export async function POST(req) {
     const { fullName, email, jobTitle, company, phoneNumber, linkedInUrl, consent } = await req.json();
@@ -20,55 +20,21 @@ export async function POST(req) {
     }
 
     // Validate environment variables
-    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    if (!process.env.SMTP_EVENT_USER || !process.env.SMTP_EVENT_PASS) {
         console.error("Missing email environment variables:", {
-            EMAIL_USER: !!process.env.EMAIL_USER,
-            EMAIL_PASS: !!process.env.EMAIL_PASS,
+            SMTP_EVENT_USER: !!process.env.SMTP_EVENT_USER,
+            SMTP_EVENT_PASS: !!process.env.SMTP_EVENT_PASS,
         });
         return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
-    // Initialize MySQL connection
-    let connection;
-    try {
-        connection = await mysql.createConnection({
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_NAME,
-        });
-
-        // Check if email already exists in the event table
-        const [rows] = await connection.execute(
-            "SELECT email FROM event WHERE email = ?",
-            [email]
-        );
-
-        if (rows.length > 0) {
-            return NextResponse.json({ error: "You are already registered for this event" }, { status: 400 });
-        }
-
-        // Insert data into the event table
-        await connection.execute(
-            "INSERT INTO event (full_name, email, job_title, company, phone_number, linkedin_url, consent, subscribed_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())",
-            [fullName, email, jobTitle || null, company || null, phoneNumber || null, linkedInUrl || null, consent]
-        );
-    } catch (error) {
-        console.error("Database error:", error);
-        if (error.code === "ER_DUP_ENTRY") {
-            return NextResponse.json({ error: "You are already registered for this event" }, { status: 400 });
-        }
-        return NextResponse.json({ error: "Failed to save registration to database" }, { status: 500 });
-    } finally {
-        if (connection) await connection.end();
-    }
-
-    // Configure Nodemailer transporter
     const transporter = nodemailer.createTransport({
-        service: "gmail",
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
+        secure: false,
         auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS,
+            user: process.env.SMTP_EVENT_USER,
+            pass: process.env.SMTP_EVENT_PASS,
         },
     });
 
@@ -82,14 +48,10 @@ export async function POST(req) {
             <title>Welcome to The Procurement Plug!</title>
         </head>
         <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+         <div style=" background-color: #F4F4F4; width: 100%; height: 20px;"></div>
             <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 <tr>
-                    <td style="padding: 20px; text-align: center; background-color: #212121; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                        <img src="https://yourdomain.com/images/footer/Horizontal-V1-copy.png" alt="The Procurement Plug Logo" style="max-width: 260px; height: auto;" />
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 30px; text-align: center;">
+                    <td style="padding: 20px;">
                         <h1 style="font-size: 24px; color: #333333; margin: 0 0 20px;">Thank You for Registering!</h1>
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
                             Dear ${fullName},<br/>
@@ -98,18 +60,12 @@ export async function POST(req) {
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
                             Stay tuned for exciting news and insights straight to your inbox!
                         </p>
-                        <a href="https://theprocurementplug.com" style="display: inline-block; padding: 12px 24px; background-color: #85009D; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 16px;">
-                            Visit Our Website
-                        </a>
                     </td>
                 </tr>
                 <tr>
                     <td style="padding: 20px; text-align: center; background-color: #f4f4f4; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
                         <p style="font-size: 14px; color: #999999; margin: 0;">
                             © ${new Date().getFullYear()} The Procurement Plug. All rights reserved.
-                        </p>
-                        <p style="font-size: 14px; color: #999999; margin: 5px 0 0;">
-                            <a href="https://theprocurementplug.com/unsubscribe" style="color: #85009D; text-decoration: none;">Unsubscribe</a>
                         </p>
                     </td>
                 </tr>
@@ -128,14 +84,10 @@ export async function POST(req) {
             <title>New Subscriber Notification</title>
         </head>
         <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
+         <div style=" background-color: #F4F4F4; width: 100%; height: 20px;"></div>
             <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                 <tr>
-                    <td style="padding: 20px; text-align: center; background-color: #212121; border-top-left-radius: 8px; border-top-right-radius: 8px;">
-                        <img src="https://yourdomain.com/images/footer/Horizontal-V1-copy.png" alt="The Procurement Plug Logo" style="max-width: 260px; height: auto;" />
-                    </td>
-                </tr>
-                <tr>
-                    <td style="padding: 30px;">
+                    <td style="padding: 20px;">
                         <h1 style="font-size: 24px; color: #333333; margin: 0 0 20px;">New Subscriber Notification</h1>
                         <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
                             A new user has registered for <strong>Elevate 2025: Caribbean Edition</strong>.
@@ -151,9 +103,6 @@ export async function POST(req) {
                             Consent: ${consent ? 'Yes' : 'No'}<br/>
                             Subscribed at: ${new Date().toLocaleString()}
                         </p>
-                        <a href="https://theprocurementplug.com" style="display: inline-block; padding: 12px 24px; background-color: #85009D; color: #ffffff; text-decoration: none; border-radius: 4px; font-size: 16px;">
-                            Visit Website
-                        </a>
                     </td>
                 </tr>
                 <tr>
@@ -170,7 +119,7 @@ export async function POST(req) {
 
     // Email options for subscriber
     const subscriberMailOptions = {
-        from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
+        from: `"The Procurement Plug" <${process.env.SMTP_EVENT_USER}>`,
         to: email,
         subject: "Thank You for Registering for Elevate 2025!",
         html: subscriberEmailTemplate,
@@ -178,8 +127,8 @@ export async function POST(req) {
 
     // Email options for admin
     const adminMailOptions = {
-        from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_USER,
+        from: `"The Procurement Plug" <${process.env.SMTP_EVENT_USER}>`,
+        to: process.env.SMTP_EVENT_USER,
         subject: "New Subscriber for Elevate 2025",
         html: adminEmailTemplate,
     };
@@ -187,7 +136,6 @@ export async function POST(req) {
     // Send both emails
     try {
         await transporter.verify();
-        console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.EMAIL_USER });
         await Promise.all([
             transporter.sendMail(subscriberMailOptions),
             transporter.sendMail(adminMailOptions),

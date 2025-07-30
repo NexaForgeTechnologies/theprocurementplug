@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 
 function EventsHeroComp({ heading, name, date, comment, img }) {
@@ -21,13 +22,19 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
 
     const formData = new FormData(e.target);
     const data = {
-      fullName: formData.get("fullName"),
       email: formData.get("email"),
+      // userEmail: formData.get("email"),
+      fullName: formData.get("fullName"),
+      // name: formData.get("fullName"),
       jobTitle: formData.get("jobTitle"),
       company: formData.get("company"),
       phoneNumber: formData.get("phoneNumber"),
       linkedInUrl: formData.get("linkedInUrl"),
       consent: formData.get("consent") === "on",
+      type: "event_registration",
+      eventName: "Elevate 2025: Caribbean Edition",
+      eventLocation: "Trinidad & Tobago",
+      eventDate: "November 2025"
     };
 
     try {
@@ -95,7 +102,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
               <div className="border-l-[10px] border-[#b08d57]"></div>
               <h3 className="leading-10 md:leading-20 font-extrabold text-3xl md:text-7xl text-white">
                 <span className="block">
-                  ELEVATE CARIBBEAN EDITION TRINIDAD
+                  ELEVATE Caribbean Edition Trinidad
                 </span>
                 <span className="text-[#b08d57]">November 2025</span>
               </h3>
@@ -140,11 +147,10 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
             </p>
             {alert.show && (
               <div
-                className={`p-4 rounded-md flex justify-between items-center ${
-                  alert.type === "success"
-                    ? "bg-green-100 text-green-800"
-                    : "bg-red-100 text-red-800"
-                }`}
+                className={`p-4 rounded-md flex justify-between items-center ${alert.type === "success"
+                  ? "bg-green-100 text-green-800"
+                  : "bg-red-100 text-red-800"
+                  }`}
               >
                 <p className="text-sm md:text-lg">{alert.message}</p>
                 <button
@@ -220,14 +226,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
               </button>
             </form>
           </div>
-          {/* <Link href="https://www.trybooking.com/uk/ERLV" target='_blank' className='mt-auto bg-[#9c27b0] rounded-md block text-center md:p-4 p-3'>Register Your Interest</Link> */}
         </div>
-        {/* <div className='relative z-10 mt-6 md:mt-8 flex gap-4 md:gap-8 items-center'>
-                    <h3 className="text-[#b08d57] leading-10 md:leading-20 font-extrabold text-2xl md:text-7xl">
-                        Register Interest
-                    </h3>
-                    <IconComponent name="arrow" color='#b08d57' size={40} />
-                </div> */}
       </div>
     </div>
   );

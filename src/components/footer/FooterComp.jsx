@@ -1,9 +1,10 @@
 // "use client";
+
 // import { useState, useEffect } from "react";
 // import Link from "next/link";
+// import Image from "next/image";
 
 // import Icon from "@/components/icon/Icon";
-// import Image from "next/image";
 
 // const Footer = () => {
 //   const [email, setEmail] = useState("");
@@ -101,27 +102,14 @@
 //               {isLoading ? "Subscribing..." : "Subscribe"}
 //             </button>
 //           </form>
-//           {/* {message && (
-//                         <p
-//                             className={`mt-2 text-sm ${message.includes("successful")
-//                                     ? "text-green-400"
-//                                     : message.includes("already subscribed")
-//                                         ? "text-yellow-400"
-//                                         : "text-red-400"
-//                                 }`}
-//                         >
-//                             {message}
-//                         </p>
-//                     )} */}
 //           {showAlert && (
 //             <div
-//               className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${
-//                 message.includes("successful")
+//               className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${message.includes("successful")
 //                   ? "bg-green-900/50 text-green-400"
 //                   : message.includes("already subscribed")
-//                   ? "bg-yellow-900/50 text-yellow-400"
-//                   : "bg-red-900/50 text-red-400"
-//               }`}
+//                     ? "bg-yellow-900/50 text-yellow-400"
+//                     : "bg-red-900/50 text-red-400"
+//                 }`}
 //             >
 //               <span>{message}</span>
 //               <button
@@ -214,11 +202,11 @@
 //       <div className=" bg-[#121212] p-[20px] flex flex-col lg:flex-row justify-between items-center rounded-md">
 //         <span>© 2025 The Procurement Plug. All rights reserved.</span>
 //         <span className="mt-2 lg:mt-0">
-//           Website Created By:{" "}
+//           Powered By{" "}
 //           <Link
 //             href="https://nexaforgetech.com/"
 //             target="_blank"
-//             className="font-semibold text-white"
+//             className="font-semibold text-white hover:text-[#b08d57]"
 //           >
 //             NexaForge Technologies
 //           </Link>
@@ -229,6 +217,7 @@
 // };
 
 // export default Footer;
+
 
 "use client";
 import { useState, useEffect } from "react";
@@ -259,6 +248,17 @@ const Footer = () => {
     setMessage("");
     setShowAlert(false);
 
+    // try {
+    //   const response = await fetch("/api/send-email", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify({ 
+    //       userEmail: email,
+    //       name: "Newsletter Subscriber",
+    //       message: "New newsletter subscription request",
+    //       type: "newsletter_subscription"
+    //     }),
+    //   });
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
@@ -268,7 +268,7 @@ const Footer = () => {
 
       const data = await response.json();
       if (response.ok) {
-        setMessage("Subscription successful! Check your email.");
+        setMessage("Subscription successful! Check your email for confirmation.");
         setEmail("");
         setShowAlert(true);
       } else {
@@ -279,7 +279,6 @@ const Footer = () => {
       setMessage("An error occurred. Please try again later.");
       setShowAlert(true);
     } finally {
-      setIsLoading(false);
       setIsLoading(false);
     }
   };
@@ -347,13 +346,12 @@ const Footer = () => {
                     )} */}
           {showAlert && (
             <div
-              className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${
-                message.includes("successful")
+              className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${message.includes("successful")
                   ? "bg-green-900/50 text-green-400"
                   : message.includes("already subscribed")
-                  ? "bg-yellow-900/50 text-yellow-400"
-                  : "bg-red-900/50 text-red-400"
-              }`}
+                    ? "bg-yellow-900/50 text-yellow-400"
+                    : "bg-red-900/50 text-red-400"
+                }`}
             >
               <span>{message}</span>
               <button
