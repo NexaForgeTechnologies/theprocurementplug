@@ -12,10 +12,10 @@ export async function POST(req) {
   }
 
   // Validate environment variables
-  if (!process.env.SUBSCRIBE_EMAIL_USER || !process.env.Subscribe_EMAIL_PASS) {
+  if (!process.env.SMTP_SUBSCRIBE_USER || !process.env.SMTP_SUBSCRIBE_PASS) {
     console.error("Missing email environment variables:", {
-      SUBSCRIBE_EMAIL_USER: !!process.env.SUBSCRIBE_EMAIL_USER,
-      Subscribe_EMAIL_PASS: !!process.env.Subscribe_EMAIL_PASS,
+      SMTP_SUBSCRIBE_USER: !!process.env.SMTP_SUBSCRIBE_USER,
+      SMTP_SUBSCRIBE_PASS: !!process.env.SMTP_SUBSCRIBE_PASS,
     });
     return NextResponse.json({ error: "Internal server configuration error" }, { status: 500 });
   }
@@ -61,8 +61,8 @@ export async function POST(req) {
   // const transporter = nodemailer.createTransport({
   //     service: "gmail",
   //     auth: {
-  //         user: process.env.SUBSCRIBE_EMAIL_USER,
-  //         pass: process.env.Subscribe_EMAIL_PASS,
+  //         user: process.env.SMTP_SUBSCRIBE_USER,
+  //         pass: process.env.SMTP_SUBSCRIBE_PASS,
   //     },
   // });
   const transporter = nodemailer.createTransport({
@@ -70,8 +70,8 @@ export async function POST(req) {
     port: 587,
     secure: false,
     auth: {
-      user: process.env.SUBSCRIBE_EMAIL_USER,
-      pass: process.env.Subscribe_EMAIL_PASS,
+      user: process.env.SMTP_SUBSCRIBE_USER,
+      pass: process.env.SMTP_SUBSCRIBE_PASS,
     },
   });
 
@@ -151,7 +151,7 @@ export async function POST(req) {
 
   // Email options for subscriber
   const subscriberMailOptions = {
-    from: `"The Procurement Plug" <${process.env.SUBSCRIBE_EMAIL_USER}>`,
+    from: `"The Procurement Plug" <${process.env.SMTP_SUBSCRIBE_USER}>`,
     to: email,
     subject: "Welcome to The Procurement Plug Newsletter!",
     html: subscriberEmailTemplate,
@@ -159,8 +159,8 @@ export async function POST(req) {
 
   // Email options for admin
   const adminMailOptions = {
-    from: `"The Procurement Plug" <${process.env.SUBSCRIBE_EMAIL_USER}>`,
-    to: process.env.SUBSCRIBE_EMAIL_USER,
+    from: `"The Procurement Plug" <${process.env.SMTP_SUBSCRIBE_USER}>`,
+    to: process.env.SMTP_SUBSCRIBE_USER,
     subject: "New Subscriber Notification",
     html: adminEmailTemplate,
   };
@@ -168,7 +168,7 @@ export async function POST(req) {
   // Send both emails
   try {
     await transporter.verify();
-    console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.SUBSCRIBE_EMAIL_USER });
+    console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.SMTP_SUBSCRIBE_USER });
     await Promise.all([
       transporter.sendMail(subscriberMailOptions),
       transporter.sendMail(adminMailOptions),

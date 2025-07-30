@@ -3,124 +3,124 @@ import nodemailer from "nodemailer";
 import mysql from "mysql2/promise";
 
 export async function POST(req) {
+  try {
+    // Parse form data
+    const formDataEntries = await req.formData();
+    const fields = Object.fromEntries(formDataEntries);
+
+    // Convert fields to proper types
+    const formData = {
+      name: fields.name || "",
+      email: fields.email || "",
+      phone: fields.phone || "",
+      linkedIn: fields.linkedIn || "",
+      location: fields.location || "",
+      currentCompany: fields.currentCompany || "",
+      role: fields.role || "",
+      experience: fields.experience || "",
+      companyrole: fields.companyrole || "",
+      industries: fields.industries || "",
+      advisoryYes: fields.advisoryYes === "true",
+      advisoryNo: fields.advisoryNo === "true",
+      boardProject: fields.boardProject || "",
+      strategicRisk: fields.strategicRisk || "",
+      hoursPerMonth: fields.hoursPerMonth || "",
+      interestReason: fields.interestReason || "",
+    };
+
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.currentCompany || !formData.role || !formData.experience || !formData.industries || !formData.companyrole || !formData.hoursPerMonth || !formData.interestReason) {
+      console.error("Missing required fields:", {
+        name: formData.name,
+        email: formData.email,
+        currentCompany: formData.currentCompany,
+        role: formData.role,
+        experience: formData.experience,
+        companyrole: formData.companyrole,
+        industries: formData.industries,
+        hoursPerMonth: formData.hoursPerMonth,
+        interestReason: formData.interestReason,
+      });
+      return NextResponse.json(
+        { error: "All required fields must be filled" },
+        { status: 400 }
+      );
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      console.error("Invalid email format:", formData.email);
+      return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
+    }
+    if (formData.linkedIn && !/^https?:\/\/(www\.)?linkedin\.com\/in\/[\w-]+\/?$/i.test(formData.linkedIn)) {
+      console.error("Invalid LinkedIn URL:", formData.linkedIn);
+      return NextResponse.json(
+        { error: "Invalid LinkedIn URL. Please provide a valid LinkedIn profile URL or leave it blank." },
+        { status: 400 }
+      );
+    }
+
+    // Initialize MySQL connection
+    let connection;
     try {
-        // Parse form data
-        const formDataEntries = await req.formData();
-        const fields = Object.fromEntries(formDataEntries);
+      connection = await mysql.createConnection({
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
+      });
 
-        // Convert fields to proper types
-        const formData = {
-            name: fields.name || "",
-            email: fields.email || "",
-            phone: fields.phone || "",
-            linkedIn: fields.linkedIn || "",
-            location: fields.location || "",
-            currentCompany: fields.currentCompany || "",
-            role: fields.role || "",
-            experience: fields.experience || "",
-            companyrole: fields.companyrole || "",
-            industries: fields.industries || "",
-            advisoryYes: fields.advisoryYes === "true",
-            advisoryNo: fields.advisoryNo === "true",
-            boardProject: fields.boardProject || "",
-            strategicRisk: fields.strategicRisk || "",
-            hoursPerMonth: fields.hoursPerMonth || "",
-            interestReason: fields.interestReason || "",
-        };
-
-        // Validate required fields
-        if (!formData.name || !formData.email || !formData.currentCompany || !formData.role || !formData.experience || !formData.industries || !formData.companyrole || !formData.hoursPerMonth || !formData.interestReason) {
-            console.error("Missing required fields:", {
-                name: formData.name,
-                email: formData.email,
-                currentCompany: formData.currentCompany,
-                role: formData.role,
-                experience: formData.experience,
-                companyrole: formData.companyrole,
-                industries: formData.industries,
-                hoursPerMonth: formData.hoursPerMonth,
-                interestReason: formData.interestReason,
-            });
-            return NextResponse.json(
-                { error: "All required fields must be filled" },
-                { status: 400 }
-            );
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            console.error("Invalid email format:", formData.email);
-            return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
-        }
-        if (formData.linkedIn && !/^https?:\/\/(www\.)?linkedin\.com\/in\/[\w-]+\/?$/i.test(formData.linkedIn)) {
-            console.error("Invalid LinkedIn URL:", formData.linkedIn);
-            return NextResponse.json(
-                { error: "Invalid LinkedIn URL. Please provide a valid LinkedIn profile URL or leave it blank." },
-                { status: 400 }
-            );
-        }
-
-        // Initialize MySQL connection
-        let connection;
-        try {
-            connection = await mysql.createConnection({
-                host: process.env.DB_HOST,
-                user: process.env.DB_USER,
-                password: process.env.DB_PASSWORD,
-                database: process.env.DB_NAME,
-            });
-
-            // Insert application data into strategic_qa_partner table
-            await connection.execute(
-                `INSERT INTO strategic_qa_partner (
+      // Insert application data into strategic_qa_partner table
+      await connection.execute(
+        `INSERT INTO strategic_qa_partner (
           name, email, phone, linkedIn, location, current_company, role, experience,
           companyrole, industries, advisory_yes, advisory_no, board_project, strategic_risk, 
           hours_per_month, interest_reason, submitted_at
         ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())`,
-                [
-                    formData.name,
-                    formData.email,
-                    formData.phone,
-                    formData.linkedIn,
-                    formData.location,
-                    formData.currentCompany,
-                    formData.role,
-                    formData.experience,
-                    formData.companyrole,
-                    formData.industries,
-                    formData.advisoryYes,
-                    formData.advisoryNo,
-                    formData.boardProject,
-                    formData.strategicRisk,
-                    formData.hoursPerMonth,
-                    formData.interestReason,
-                ]
-            );
-        } catch (error) {
-            console.error("Database error:", error);
-            return NextResponse.json({ error: "Failed to save application to database" }, { status: 500 });
-        } finally {
-            if (connection) await connection.end();
-        }
+        [
+          formData.name,
+          formData.email,
+          formData.phone,
+          formData.linkedIn,
+          formData.location,
+          formData.currentCompany,
+          formData.role,
+          formData.experience,
+          formData.companyrole,
+          formData.industries,
+          formData.advisoryYes,
+          formData.advisoryNo,
+          formData.boardProject,
+          formData.strategicRisk,
+          formData.hoursPerMonth,
+          formData.interestReason,
+        ]
+      );
+    } catch (error) {
+      console.error("Database error:", error);
+      return NextResponse.json({ error: "Failed to save application to database" }, { status: 500 });
+    } finally {
+      if (connection) await connection.end();
+    }
 
-        // Validate environment variables for email
-        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-            console.error("Missing email environment variables:", {
-                EMAIL_USER: !!process.env.EMAIL_USER,
-                EMAIL_PASS: !!process.env.EMAIL_PASS,
-            });
-            return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
-        }
+    // Validate environment variables for email
+    if (!process.env.SMTP_SUPPORT_USER || !process.env.SMTP_SUPPORT_PASS) {
+      console.error("Missing email environment variables:", {
+        SMTP_SUPPORT_USER: !!process.env.SMTP_SUPPORT_USER,
+        SMTP_SUPPORT_PASS: !!process.env.SMTP_SUPPORT_PASS,
+      });
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
+    }
 
-        // Configure Nodemailer transporter
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
-            },
-        });
+    // Configure Nodemailer transporter
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.SMTP_SUPPORT_USER,
+        pass: process.env.SMTP_SUPPORT_PASS,
+      },
+    });
 
-        // User confirmation email template
-        const userEmailTemplate = `
+    // User confirmation email template
+    const userEmailTemplate = `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -167,8 +167,8 @@ export async function POST(req) {
       </html>
     `;
 
-        // Admin notification email template
-        const adminEmailTemplate = `
+    // Admin notification email template
+    const adminEmailTemplate = `
       <!DOCTYPE html>
       <html lang="en">
       <head>
@@ -231,38 +231,38 @@ export async function POST(req) {
       </html>
     `;
 
-        // Email options for user
-        const userMailOptions = {
-            from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
-            to: formData.email,
-            subject: "We’ve got your Plug Strategic QA Partner application",
-            html: userEmailTemplate,
-        };
+    // Email options for user
+    const userMailOptions = {
+      from: `"The Procurement Plug" <${process.env.SMTP_SUPPORT_USER}>`,
+      to: formData.email,
+      subject: "We’ve got your Plug Strategic QA Partner application",
+      html: userEmailTemplate,
+    };
 
-        // Email options for admin
-        const adminMailOptions = {
-            from: `"The Procurement Plug" <${process.env.EMAIL_USER}>`,
-            to: process.env.EMAIL_USER,
-            subject: "New Plug Strategic QA Partner Application",
-            html: adminEmailTemplate,
-        };
+    // Email options for admin
+    const adminMailOptions = {
+      from: `"The Procurement Plug" <${process.env.SMTP_SUPPORT_USER}>`,
+      to: process.env.SMTP_SUPPORT_USER,
+      subject: "New Plug Strategic QA Partner Application",
+      html: adminEmailTemplate,
+    };
 
-        // Send both emails
-        try {
-            await transporter.verify();
-            console.log("Sending emails to:", { userEmail: formData.email, adminEmail: process.env.EMAIL_USER });
-            await Promise.all([transporter.sendMail(userMailOptions), transporter.sendMail(adminMailOptions)]);
-            return NextResponse.json({
-                message: "Application sent, saved to database, and confirmation emails sent successfully",
-                success: true,
-                data: formData,
-            });
-        } catch (error) {
-            console.error("Email error:", error);
-            return NextResponse.json({ error: `Failed to send confirmation emails: ${error.message}` }, { status: 500 });
-        }
+    // Send both emails
+    try {
+      await transporter.verify();
+      console.log("Sending emails to:", { userEmail: formData.email, adminEmail: process.env.SMTP_SUPPORT_USER });
+      await Promise.all([transporter.sendMail(userMailOptions), transporter.sendMail(adminMailOptions)]);
+      return NextResponse.json({
+        message: "Application sent, saved to database, and confirmation emails sent successfully",
+        success: true,
+        data: formData,
+      });
     } catch (error) {
-        console.error("Server error:", error);
-        return NextResponse.json({ error: "Failed to process form data" }, { status: 500 });
+      console.error("Email error:", error);
+      return NextResponse.json({ error: `Failed to send confirmation emails: ${error.message}` }, { status: 500 });
     }
+  } catch (error) {
+    console.error("Server error:", error);
+    return NextResponse.json({ error: "Failed to process form data" }, { status: 500 });
+  }
 }

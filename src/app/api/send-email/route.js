@@ -11,8 +11,8 @@ export async function POST(request) {
 
     // Create transporter with basic configuration
     const transporter = nodemailer.createTransport({
-      host: 'smtp.hostinger.com',
-      port: 587,
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
       secure: false,
       auth: {
         user: 'sardarjalil102@nexaforgetech.com',

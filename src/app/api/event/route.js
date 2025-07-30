@@ -20,64 +20,21 @@ export async function POST(req) {
     }
 
     // Validate environment variables
-    if (!process.env.Event_Caribbean_EMAIL_USER || !process.env.Event_Caribbean_EMAIL_PASS) {
+    if (!process.env.SMTP_EVENT_USER || !process.env.SMTP_EVENT_PASS) {
         console.error("Missing email environment variables:", {
-            Event_Caribbean_EMAIL_USER: !!process.env.Event_Caribbean_EMAIL_USER,
-            Event_Caribbean_EMAIL_PASS: !!process.env.Event_Caribbean_EMAIL_PASS,
+            SMTP_EVENT_USER: !!process.env.SMTP_EVENT_USER,
+            SMTP_EVENT_PASS: !!process.env.SMTP_EVENT_PASS,
         });
         return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
-    // Initialize MySQL connection
-    // let connection;
-    // try {
-    //     connection = await mysql.createConnection({
-    //         host: process.env.DB_HOST,
-    //         user: process.env.DB_USER,
-    //         password: process.env.DB_PASSWORD,
-    //         database: process.env.DB_NAME,
-    //     });
-
-    //     // Check if email already exists in the event table
-    //     const [rows] = await connection.execute(
-    //         "SELECT email FROM event WHERE email = ?",
-    //         [email]
-    //     );
-
-    //     if (rows.length > 0) {
-    //         return NextResponse.json({ error: "You are already registered for this event" }, { status: 400 });
-    //     }
-
-    //     // Insert data into the event table
-    //     await connection.execute(
-    //         "INSERT INTO event (full_name, email, job_title, company, phone_number, linkedin_url, consent, subscribed_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())",
-    //         [fullName, email, jobTitle || null, company || null, phoneNumber || null, linkedInUrl || null, consent]
-    //     );
-    // } catch (error) {
-    //     console.error("Database error:", error);
-    //     if (error.code === "ER_DUP_ENTRY") {
-    //         return NextResponse.json({ error: "You are already registered for this event" }, { status: 400 });
-    //     }
-    //     return NextResponse.json({ error: "Failed to save registration to database" }, { status: 500 });
-    // } finally {
-    //     if (connection) await connection.end();
-    // }
-
-    // Configure Nodemailer transporter
-    // const transporter = nodemailer.createTransport({
-    //     service: "gmail",
-    //     auth: {
-    //         user: process.env.Event_Caribbean_EMAIL_USER,
-    //         pass: process.env.Event_Caribbean_EMAIL_PASS,
-    //     },
-    // });
     const transporter = nodemailer.createTransport({
-        host: "smtp.office365.com",
-        port: 587,
+        host: process.env.SMTP_HOST,
+        port: process.env.SMTP_PORT,
         secure: false,
         auth: {
-            user: process.env.Event_Caribbean_EMAIL_USER,
-            pass: process.env.Event_Caribbean_EMAIL_PASS,
+            user: process.env.SMTP_EVENT_USER,
+            pass: process.env.SMTP_EVENT_PASS,
         },
     });
 
@@ -162,7 +119,7 @@ export async function POST(req) {
 
     // Email options for subscriber
     const subscriberMailOptions = {
-        from: `"The Procurement Plug" <${process.env.Event_Caribbean_EMAIL_USER}>`,
+        from: `"The Procurement Plug" <${process.env.SMTP_EVENT_USER}>`,
         to: email,
         subject: "Thank You for Registering for Elevate 2025!",
         html: subscriberEmailTemplate,
@@ -170,8 +127,8 @@ export async function POST(req) {
 
     // Email options for admin
     const adminMailOptions = {
-        from: `"The Procurement Plug" <${process.env.Event_Caribbean_EMAIL_USER}>`,
-        to: process.env.Event_Caribbean_EMAIL_USER,
+        from: `"The Procurement Plug" <${process.env.SMTP_EVENT_USER}>`,
+        to: process.env.SMTP_EVENT_USER,
         subject: "New Subscriber for Elevate 2025",
         html: adminEmailTemplate,
     };
@@ -179,7 +136,7 @@ export async function POST(req) {
     // Send both emails
     try {
         await transporter.verify();
-        console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.Event_Caribbean_EMAIL_USER });
+        console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.SMTP_EVENT_USER });
         await Promise.all([
             transporter.sendMail(subscriberMailOptions),
             transporter.sendMail(adminMailOptions),
