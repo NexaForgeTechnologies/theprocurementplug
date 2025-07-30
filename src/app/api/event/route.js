@@ -136,7 +136,6 @@ export async function POST(req) {
     // Send both emails
     try {
         await transporter.verify();
-        console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.SMTP_EVENT_USER });
         await Promise.all([
             transporter.sendMail(subscriberMailOptions),
             transporter.sendMail(adminMailOptions),
