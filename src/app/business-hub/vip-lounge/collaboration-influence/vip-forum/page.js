@@ -5,6 +5,7 @@ import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import VipForumCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/vip-forum/VipForumCTR'
 
+import ToastHandler from '@/components/ToasterProvider'
 
 function Breadcrumb() {
     return (
@@ -30,7 +31,11 @@ function Breadcrumb() {
     )
 }
 
-function page() {
+async function Page({searchParams}) {
+    const params=await searchParams;
+   
+   
+
     const partnerWithUs = {
         Partnerheader: {
             h3: "Partner With Us",
@@ -78,6 +83,7 @@ function page() {
 
     return (
         <>
+        { params?.status && <ToastHandler status={params.status}/>}
             <div>
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/herosection.png"
@@ -97,4 +103,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

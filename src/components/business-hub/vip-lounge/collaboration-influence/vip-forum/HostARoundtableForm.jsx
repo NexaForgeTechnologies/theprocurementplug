@@ -153,22 +153,22 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             setError(null);
 
             // Map package to priceId
-            const priceIds = {
-                one_time: {
-                    monthly: {
-                        "1 Week": "150 price id here", // Replace with actual Stripe Price ID
-                        "2 Weeks": "275 price id here", // Replace with actual Stripe Price ID
-                    },
-                },
-            };
+            // const priceIds = {
+            //     one_time: {
+            //         monthly: {
+            //             "1 Week": "150 price id here", // Replace with actual Stripe Price ID
+            //             "2 Weeks": "275 price id here", // Replace with actual Stripe Price ID
+            //         },
+            //     },
+            // };
 
-            const priceId = priceIds[formData.subscriptionType][formData.duration][formData.package];
+            // const priceId = priceIds[formData.subscriptionType][formData.duration][formData.package];
 
             try {
                 const response = await axios.post("/api/create-checkout-session", {
                     subscriptionType: formData.subscriptionType,
                     quantity: formData.quantity,
-                    priceId,
+                    packageType:formData.package,
                     metadata: {
                         duration: formData.duration,
                         subscriptionType: formData.subscriptionType,
@@ -325,7 +325,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             </label>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <label htmlFor="package1" className="block cursor-pointer h-full">
-                                    <div className="p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group">
+                                    <div className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group`} style={{background:formData.package==="1 Week"?'#85009D':""}}>
                                         <input
                                             type="radio"
                                             id="package1"
@@ -350,7 +350,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                     </div>
                                 </label>
                                 <label htmlFor="package2" className="block cursor-pointer h-full">
-                                    <div className="p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group">
+                                    <div className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group `} style={{background:formData.package==="2 Weeks"?'#85009D':""}}>
                                         <input
                                             type="radio"
                                             id="package2"

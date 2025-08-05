@@ -150,35 +150,41 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
 
 export async function POST(req) {
   try {
-    const { quantity, priceId, subscriptionType, metadata } = await req.json();
+    const { quantity, packageType , subscriptionType, metadata } = await req.json();
 
     // Validate required fields
-    if (!quantity || !priceId || !metadata || !metadata.duration || !metadata.subscriptionType || !metadata.quantity) {
+    if (!quantity || !packageType || !metadata || !metadata.duration || !metadata.subscriptionType || !metadata.quantity) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
         status: 400,
         headers: { "Content-Type": "application/json" },
       });
     }
 
-    // Create a Checkout Session
+    let priceId=process.env.price_id_week;
+   const origin = req.headers.get("origin");
+    if(packageType==="2 Weeks"){
+    priceId=process.env.price_id_2week
+    }
     const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
       line_items: [
+         
         {
           price: priceId,
           quantity: parseInt(quantity),
         },
       ],
-      mode: subscriptionType === "one_time" ? "payment" : "subscription",
+      mode:"subscription",
       allow_promotion_codes: true,
       metadata: {
         duration: metadata.duration,
         subscriptionType: metadata.subscriptionType,
         quantity: metadata.quantity,
       },
-      success_url: "http://localhost:3000/",
-      cancel_url: "http://localhost:3000/",
+      success_url: origin+"/business-hub/vip-lounge/collaboration-influence/vip-forum?status=true&session_id={CHECKOUT_SESSION_ID}",
+      cancel_url:  origin+"/business-hub/vip-lounge/collaboration-influence/vip-forum?status=false",
     });
-
+console.log(session)
     return new Response(JSON.stringify({ url: session.url }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
