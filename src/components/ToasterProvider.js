@@ -6,8 +6,12 @@ export default function ToastHandler({ status }) {
     if (status==="true") {
       toast.success("Payment Proceed");
     }
+     
+    else if(status==="false"){
+      toast.error("Payment Declined")
+    }
     else{
-        toast.error("Payment Declined")
+       toast.loading(status)
     }
   }, [status]);
 

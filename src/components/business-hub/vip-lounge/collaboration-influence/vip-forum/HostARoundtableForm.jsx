@@ -6,25 +6,19 @@ import axios from "axios";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
     const [formData, setFormData] = useState({
+        companyName: "",
         name: "",
-        company: "",
-        role: "",
         email: "",
-        companywebsiteorlinkedinurl: "",
+        website: "",
+        package:"",
         title: "",
-        targetaudience: "",
-        phone: "",
-        implementationtimeframe: "",
-        message: "",
-        Subscribe: false,
-        package: "",
-        payment: "",
+        description:"",
+        targetAudience: "",
+        date:"",
         bannerImage: null,
         logoImage: null,
-        subscriptionType: "one_time",
-        duration: "monthly",
-        quantity: 1,
-    });
+        payment:""
+});
     const [step, setStep] = useState(1);
     const modalRef = useRef(null);
     const [bannerPreview, setBannerPreview] = useState(null);
@@ -146,78 +140,63 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         });
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (step === 4) {
-            setLoading(true);
-            setError(null);
+   const handleSubmit = async (e) => {
+  e.preventDefault();
 
-            // Map package to priceId
-            // const priceIds = {
-            //     one_time: {
-            //         monthly: {
-            //             "1 Week": "150 price id here", // Replace with actual Stripe Price ID
-            //             "2 Weeks": "275 price id here", // Replace with actual Stripe Price ID
-            //         },
-            //     },
-            // };
+  if (step === 4) {
+    setLoading(true);
+    setError(null);
 
-            // const priceId = priceIds[formData.subscriptionType][formData.duration][formData.package];
+    try {
+      // Create FormData instance
+      const formDataToSend = new FormData();
 
-            try {
-                const response = await axios.post("/api/create-checkout-session", {
-                    subscriptionType: formData.subscriptionType,
-                    quantity: formData.quantity,
-                    packageType:formData.package,
-                    metadata: {
-                        duration: formData.duration,
-                        subscriptionType: formData.subscriptionType,
-                        quantity: String(formData.quantity),
-                    },
-                });
-
-                if (response.data.url) {
-                    window.open(response.data.url, "_blank");
-                    // Reset form and close modal after successful redirect
-                    setFormData({
-                        name: "",
-                        company: "",
-                        role: "",
-                        email: "",
-                        companywebsiteorlinkedinurl: "",
-                        title: "",
-                        targetaudience: "",
-                        date: "",
-                        phone: "",
-                        implementationtimeframe: "",
-                        message: "",
-                        Subscribe: false,
-                        package: "",
-                        payment: "",
-                        bannerImage: null,
-                        logoImage: null,
-                        subscriptionType: "one_time",
-                        duration: "monthly",
-                        quantity: 1,
-                    });
-                    onClose();
-                } else {
-                    throw new Error("No checkout URL returned");
-                }
-            } catch (error) {
-                console.error("Frontend error:", error);
-                setError(
-                    error.response?.data?.details ||
-                    error.response?.data?.error ||
-                    "Failed to initiate checkout. Please try again."
-                );
-            } finally {
-                setLoading(false);
-            }
+      // Append all form fields
+      for (const key in formData) {
+        // Handle files (bannerImage, logoImage) separately if needed
+        if (formData[key] instanceof File) {
+          formDataToSend.append(key, formData[key], formData[key].name);
         } else {
-            nextStep();
+          formDataToSend.append(key, formData[key]);
         }
-    };
+      }
+
+      // Send as multipart/form-data
+      const response = await axios.post("/api/round-table/create-checkout-session", formDataToSend, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      if (response.data.url) {
+        window.location.href = response.data.url;
+      } else {
+        throw new Error("No checkout URL returned from server.");
+      }
+    } catch (error) {
+  console.error("Frontend error:", error);
+
+  const resData = error.response?.data;
+
+  if (Array.isArray(resData?.details)) {
+    // Validation errors → only messages
+    setError(resData.details.map(err => err.message));
+  } else {
+    // General error → single string
+    setError(
+      resData?.details ||
+      resData?.error ||
+      "Failed to initiate checkout. Please try again."
+    );
+  }
+} finally {
+      setLoading(false);
+    }
+  } else {
+    nextStep();
+  }
+};
+
 
     if (!isOpen) return null;
 
@@ -276,9 +255,9 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             <input
                                 type="text"
                                 id="company"
-                                name="company"
+                                name="companyName"
                                 placeholder="Company Name*"
-                                value={formData.company}
+                                value={formData.companyName}
                                 onChange={handleChange}
                                 required
                                 className="w-full p-4 mb-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
@@ -308,9 +287,9 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                     <input
                                         type="text"
                                         id="companywebsiteorlinkedinurl"
-                                        name="companywebsiteorlinkedinurl"
+                                        name="website"
                                         placeholder="Company Website / LinkedIn URL (URL)"
-                                        value={formData.companywebsiteorlinkedinurl}
+                                        value={formData.website}
                                         onChange={handleChange}
                                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                                     />
@@ -337,14 +316,14 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                             className="hidden"
                                         />
                                         <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">1 Week</span>
-                                        <p className="text-[#1B1B1B] text-[24px] md:text-[42px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
+                                        <p className="text-[#1B1B1B] text-[24px] md:text-[42px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{color:formData.package==="1 Week"?'white':""}}>
                                             £150
                                         </p>
                                         <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
-                                        <p className="text-[#7B7B7B] mb-4 md:mb-8 group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
+                                        <p className="text-[#7B7B7B] mb-4 md:mb-8 group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{color:formData.package==="1 Week"?'white':""}}>
                                             Note below: “First week is FREE for returning Business Hub partners – 2 free sessions per year
                                         </p>
-                                        <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out">
+                                        <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out" style={{color:formData.package==="1 Week"?'white':"",borderColor:formData.package==="1 Week"?'white':""}}>
                                             Select
                                         </p>
                                     </div>
@@ -363,13 +342,13 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                         />
                                         <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">2 Weeks</span>
                                         <p className="text-[#1B1B1B] text-[24px] md:text-[42px] flex items-center gap-2 group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
-                                            £275<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out">(Non-Partner)</span>
+                                            £275<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{color:formData.package==="2 Weeks"?'white':""}}>(Non-Partner)</span>
                                         </p>
                                         <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
                                         <p className="text-[#1B1B1B] text-[24px] md:text-[42px] flex items-center gap-2 mb-4 md:mb-8 leading-none group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
-                                            £150<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out">(Existing Partner)</span>
+                                            £150<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{color:formData.package==="2 Weeks"?'white':""}}>(Existing Partner)</span>
                                         </p>
-                                        <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out">
+                                        <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out" style={{color:formData.package==="2 Weeks"?'white':"",borderColor:formData.package==="1 Week"?'white':""}}>
                                             Select
                                         </p>
                                     </div>
@@ -390,9 +369,9 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             />
                             <textarea
                                 id="message"
-                                name="message"
+                                name="description"
                                 placeholder="Introduction / Description"
-                                value={formData.message}
+                                value={formData.description}
                                 onChange={handleChange}
                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                                 rows="4"
@@ -401,9 +380,9 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                 <input
                                     type="text"
                                     id="targetaudience"
-                                    name="targetaudience"
+                                    name="targetAudience"
                                     placeholder="Target Audience / Key Participants"
-                                    value={formData.targetaudience}
+                                    value={formData.targetAudience}
                                     onChange={handleChange}
                                     className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                                 />
@@ -476,7 +455,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                                 <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full space-y-4">
                                     <p className="text-[#1b1b1b]">
-                                        Company Name: <span className="text-[#505050]">{formData.company}</span>
+                                        Company Name: <span className="text-[#505050]">{formData.companyName}</span>
                                     </p>
                                     <p className="text-[#1b1b1b]">
                                         Host Full Name: <span className="text-[#505050]">{formData.name}</span>
@@ -516,9 +495,15 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                         Click on <span className="font-semibold">"Pay & Submit for Review"</span> to be redirected to the Stripe
                                         payment gateway.
                                     </p>
-                                    {error && (
-                                        <p className="text-red-500 text-sm">{error}</p>
-                                    )}
+                                   {error && (
+  Array.isArray(error) ? (
+    error.map((msg, i) => (
+      <p key={i} className="text-red-500 text-sm">{msg}</p>
+    ))
+  ) : (
+    <p className="text-red-500 text-sm">{error}</p>
+  )
+)}
                                 </div>
                             </div>
                         </div>
