@@ -21,7 +21,7 @@ export async function POST(req) {
 
     // Check if user already exists
     const [existingUsers] = await connection.execute(
-      'SELECT * FROM users WHERE email = ?',
+      'SELECT * FROM users_frontend WHERE email = ?',
       [email]
     );
 
@@ -38,7 +38,7 @@ export async function POST(req) {
 
     // Insert user into database
     await connection.execute(
-      'INSERT INTO users (name, email, password, login_source) VALUES (?, ?, ?, ?)',
+      'INSERT INTO users_frontend (name, email, password, login_source) VALUES (?, ?, ?, ?)',
       [name, email, hashedPassword, login_source]
     );
 
