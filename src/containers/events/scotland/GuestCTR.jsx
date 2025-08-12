@@ -122,6 +122,14 @@ function GuessCTR() {
       text1: "Head of Impact Practice",
       text2: "Impact Reporting",
     },*/
+     {
+      id: 15,
+      img: "/images/guess/guess-14.jpg",
+      heading: "Blessed Agyemang",
+      // subHeading: "Workshop",
+      text1: "Global Supply Chain Management Expert | Digital Technologies, Sustainability & ESG Specialist",
+      text2: "Founder & Principal Consultant – Herrada",
+    },
   ];
 
   return (
