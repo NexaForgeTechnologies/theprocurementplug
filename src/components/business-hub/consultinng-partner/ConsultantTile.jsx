@@ -10,12 +10,9 @@ function ConsultingPartnerTile({ heading, text1, text2, btntext, img }) {
       className="w-full rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
     >
       <div className="flex justify-center">
-        <Image
+        <img
           className="rounded-full w-[160px] md:w-[227px] h-[160px] md:h-[227px] object-cover"
           src={img}
-          alt={img}
-          width={227}
-          height={27}
         />
       </div>
       <div>
