@@ -18,7 +18,7 @@ function GuessCTR() {
       img: "/images/elevate-scotland/grahamcopeland.jpg",
       heading: "Graham Copeland",
       subHeading: "Voice of the Day",
-      text1: "Procurement Expert & Business Development Director",
+      text1: "Procurement & Commercial Consultant Director",
       text2: "GEP",
       bgColor: "#9c27b0",
     },
@@ -36,8 +36,8 @@ function GuessCTR() {
       heading: "David Loseby",
       // subHeading: "Panellist",
       text1:
-        "Senior Advisor & Educator in Procurement ESG & Behavioural Transformation",
-      text2: "Editor in Chief Eurasia Academic Publishing Group Limited",
+        "Professor, Editor in Chief & Advisor",
+     // text2: "Editor in Chief Eurasia Academic Publishing Group Limited",
     },
 
     {
@@ -73,21 +73,21 @@ function GuessCTR() {
       text1: "Senior Economist",
       text2: "The Department of Health and Social Care (DHSC)",
     },
-    {
+    /*{
       id: 9,
       img: "/images/guess/guess-3.jpg",
       heading: "Sarah Socha",
       // subHeading: "Workshop",
       text1: "Founder Stratify Social AI Sales",
       text2: "AI Strategist & Enterprise Growth Leader",
-    },
+    },*/
     {
       id: 10,
       img: "/images/guess/salisu-uba.jpeg",
       heading: "Dr Salisu Uba",
       // subHeading: "Workshop",
       text1: "Founder & CEO",
-      text2: "NatQuest & OpenTenderAI",
+      text2: "NatQuest and OpenTenderAI",
     },
     {
       id: 11,
@@ -97,31 +97,31 @@ function GuessCTR() {
       text1: "Director and Co-Founder",
       text2: "Go4Growth",
     },
-    {
+    /*{
       id: 12,
       img: "/images/guess/cameron-poole.png",
       heading: "Cameron Poole",
       // subHeading: "Workshop",
       text1: "Leadership & Resilience Coach",
       text2: "Trajectory Group",
-    },
+    },*/
     {
       id: 13,
       img: "/images/guess/gary-weston.jpeg",
       heading: "Gary Weston",
       // subHeading: "Workshop",
       text1:
-        "Founder, The Leadership Team | Regional VP, NEDonBoard | Strategic Consultant, Scottish Enterprise",
-      text2: "Vistage",
+        " Regional Vice President & Leadership Development Expert",
+      text2: "NEDonBoard & The Leadership Team",
     },
-    {
+    /*{
       id: 14,
       img: "/images/guess/catherine-manning.jpg",
       heading: "Catherine Manning",
       // subHeading: "Workshop",
       text1: "Head of Impact Practice",
       text2: "Impact Reporting",
-    },
+    },*/
   ];
 
   return (
