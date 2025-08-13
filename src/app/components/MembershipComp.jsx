@@ -1,6 +1,6 @@
 import BtnOne from "./BtnOne";
 
-export default function MembershipComp({ title, subtitle, includes, buttonText }) {
+export default function MembershipComp({ title, subtitle, subHead, includes=[], buttonText }) {
     return (
         <div className="bg-[#111] text-white  p-6 rounded-lg shadow-lg border border-[#f2b85933]">
             {/* Title */}
@@ -13,7 +13,7 @@ export default function MembershipComp({ title, subtitle, includes, buttonText }
             <div className="border-t border-[#B08D57] my-4"></div>
 
             {/* Includes */}
-            <h3 className="font-medium text-sm mb-3">Includes:</h3>
+            <h3 className="font-medium text-sm mb-3">{subHead}</h3>
             <ul className="space-y-2 text-sm">
                 {includes.map((item, index) => (
                     <li key={index} className="flex gap-2 items-start">
