@@ -25,7 +25,6 @@
 //   );
 // }
 
-
 // function ConsultingPartnerCTR() {
 
 //    const partnerWithUs = {
@@ -172,7 +171,6 @@
 //             <option value="3">Industry Three</option>
 //           </select>
 
-
 //           {/* Location */}
 
 //           <select
@@ -205,7 +203,7 @@
 //           <div className="flex flex-col justify-end gap-2 sm:col-span-1">
 //             <button
 //               onClick={handleClearFilters}
-//               className="text-white bg-[#b08d57] cursor-pointer flex justify-start items-center gap-2 
+//               className="text-white bg-[#b08d57] cursor-pointer flex justify-start items-center gap-2
 //              p-3 rounded-md w-full hover:shadow-lg transition hover:border-[#a07a4c] hover:text-white"
 //             >
 //               Clear Filters
@@ -250,8 +248,6 @@
 
 // export default ConsultingPartnerCTR;
 
-
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -287,13 +283,30 @@ function Breadcrumb() {
 function ConsultingPartnerCTR() {
   const { consultants, consultantLoading, error, refetch } = useConsultants();
 
-  const { data: industries, loading, error: industryLoading, refetch: industryRefetch } = useGenericTable("industries");
-  const { data: locations, loading: isLocationLoading, error: isLocationError, refetch: locationsRefetch } = useGenericTable("locations");
-  const { data: specialisms, loading: isSpecialismLoading, error: isSpecialismError, refetch: specialismRefetch } = useGenericTable("specialisms");
-  const { data: consultant_types, loading: isCOnsultantTypeLoading, error: isCOnsultantTypeError, refetch: consultantTypeRefetch } = useGenericTable("consultant_types");
-  
-  console.log(consultants);
-  
+  const {
+    data: industries,
+    loading,
+    error: industryLoading,
+    refetch: industryRefetch,
+  } = useGenericTable("industries");
+  const {
+    data: locations,
+    loading: isLocationLoading,
+    error: isLocationError,
+    refetch: locationsRefetch,
+  } = useGenericTable("locations");
+  const {
+    data: specialisms,
+    loading: isSpecialismLoading,
+    error: isSpecialismError,
+    refetch: specialismRefetch,
+  } = useGenericTable("specialisms");
+  const {
+    data: consultant_types,
+    loading: isCOnsultantTypeLoading,
+    error: isCOnsultantTypeError,
+    refetch: consultantTypeRefetch,
+  } = useGenericTable("consultant_types");
 
   // filter states
   const [selectedIndustry, setSelectedIndustry] = useState("");
@@ -490,15 +503,8 @@ function ConsultingPartnerCTR() {
           {filteredConsultants.length > 0 ? (
             filteredConsultants
               .slice(0, visibleCount)
-              .map((partner) => (
-                <ConsultantTile
-                  key={partner.id}
-                  img="https://procurementplug-dashboard.vercel.app/images/consultant-alternate.png"
-                  heading={partner.name}
-                  text1={partner.company}
-                  text2={partner.designation}
-                  btntext={partner.name}
-                />
+              .map((consultant) => (
+                <ConsultantTile key={consultant.id} data={consultant} />
               ))
           ) : (
             <div className="col-span-full text-center text-gray-500">
