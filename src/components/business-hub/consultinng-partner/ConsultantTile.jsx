@@ -4,8 +4,9 @@ import Link from "next/link";
 
 import { useConsultantStore } from "@/store/consultantStore";
 
-
 function ConsultingPartnerTile({ data }) {
+  if (!data) return null; // don't render if data is missing
+
   const setConsultant = useConsultantStore((state) => state.setConsultant);
 
   return (

@@ -339,30 +339,6 @@ function ConsultingPartnerCTR() {
     setVisibleCount((prev) => prev + 4);
   };
 
-  const consultantPartnerTile = [
-    {
-      id: 1,
-      heading: "Six Sigma & Change Management",
-      text: "Process Improvement",
-      btntext: "View Details",
-      url: "/business-hub/consulting-partner/six-sigma-change-management",
-    },
-    {
-      id: 2,
-      heading: "Procurement",
-      text: "Strategy Development",
-      btntext: "View Details",
-      url: "/business-hub/consulting-partner/procurement",
-    },
-    {
-      id: 3,
-      heading: "ESG & Sustainability",
-      text: "Environmental Impact",
-      btntext: "View Details",
-      url: "/business-hub/consulting-partner/esg-sustainability",
-    },
-  ];
-
   const partnerWithUs = {
     Partnerheader: {
       crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
