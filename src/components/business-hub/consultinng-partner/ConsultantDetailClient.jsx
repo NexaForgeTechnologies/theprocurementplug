@@ -186,7 +186,7 @@ export default function ConsultantDetailClient({ consultant }) {
             ”
           </span>
           <p className="mt-6 md:text-2xl leading-relaxed">
-            {'"' + consultant.overview + '"'}
+            {'"' + consultant.testimonials + '"'}
           </p>
           <div className="absolute -bottom-[30px] right-10 w-0 h-0 border-r-[40px] border-r-transparent border-t-[30px] border-t-[#85009D]"></div>
           <div className="absolute -bottom-[28px] right-[41.5px] w-0 h-0 border-r-[39px] border-r-transparent border-t-[29px] border-t-[#FFF9F5]"></div>
