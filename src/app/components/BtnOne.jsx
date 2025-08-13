@@ -11,7 +11,7 @@ export default function BtnOne({
     return (
         <a href={href} target={targetLink}>
             <button className={` ${bgColor} ${hoverBgColor} ${textColor} ${hoverTextColor} ${className}
-          font-normal text-xs sm:text-sm md:text-base rounded-full flex items-center cursor-pointer duration-300 group
+          font-normal text-xs sm:text-sm lg:text-base rounded-full flex items-center cursor-pointer duration-300 group
         `}
             >
                 {/* Text section */}
