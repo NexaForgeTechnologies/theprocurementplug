@@ -7,7 +7,7 @@ export default function MembershipComp({ title, subtitle, subHead, includes = []
             <h2 className="text-lg font-semibold text-[#B08D57]">{title}</h2>
 
             {/* Subtitle */}
-            <p className="text-sm text-gray-300 mt-2">{subtitle}</p>
+            <p className="text-sm text-[#C2C2C2] mt-2">{subtitle}</p>
 
             {/* Divider */}
             <div className="border-t border-[#B08D57] my-4"></div>
@@ -18,7 +18,7 @@ export default function MembershipComp({ title, subtitle, subHead, includes = []
                 {includes.map((item, index) => (
                     <li key={index} className="flex gap-2 items-start">
                         <span className="text-[#B08D57] mt-1 flex-shrink-0">✔</span>
-                        <span>{item}</span>
+                        <span className="text-[#C2C2C2]">{item}</span>
                     </li>
                 ))}
             </ul>

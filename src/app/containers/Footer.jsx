@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Footer() {
     return (
-        <footer className="w-screen ml-[calc(50%-50vw)] flex flex-col justify-between px-5 sm:px-10 md:px-18 lg:px-20 bg-[#111] text-white">
-            
+        <footer className="w-screen ml-[calc(50%-50vw)] flex flex-col justify-between px-5 sm:px-10 md:px-18 lg:px-20 bg-[#111] text-white pb-5">
+
             {/* Top Section */}
             <section className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-10 w-full">
 
@@ -16,9 +16,9 @@ export default function Footer() {
                 <div className="mt-8 md:mt-0">
                     <h1 className="text-lg md:text-2xl text-[white] mb-5">Contact Us</h1>
                     <ul className="flex flex-col gap-y-4">
-                        
+
                         {/* LinkedIn */}
-                        <Link 
+                        <Link
                             href="https://www.linkedin.com/company/achiever-group/about/?viewAsMember=true"
                             target="_blank"
                         >
@@ -53,13 +53,15 @@ export default function Footer() {
             </section>
 
             {/* Bottom Bar */}
-            <section className="py-4 text-center rounded-2xl bg-gradient-to-r from-[#111] to-[#B08D57] text-white border border-[#444]">
+            <section className="py-3 md:py-4 rounded-2xl bg-gradient-to-r from-[#111] to-[#B08D57] text-white border border-[#444] flex flex-wrap justify-center items-center gap-x-1 text-sm sm:text-base text-center">
+                <Link href={'https://achiever-group-latest-stg.vercel.app/'} target="_blank">
+                    <span>©2025 Achiever Group |</span>
+                </Link>
                 <Link href={'https://nexaforgetech.com/'} target="_blank">
-                    <p className="text-sm sm:text-base">
-                        ©2025 Achiever Group | Powered by NexaForge Technologies
-                    </p>
+                    <span>Powered by NexaForge Technologies</span>
                 </Link>
             </section>
+
         </footer>
     );
 }

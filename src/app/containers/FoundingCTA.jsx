@@ -8,7 +8,7 @@ export default function FoundingCTA() {
 
                 <h2 className="text-xl md:text-3xl lg:text-4xl font-normal text-[#B08D57]">Founding Membership is limited to 50 procurement leaders globally.</h2>
 
-                <p className="text-sm text-gray-300 mt-2">Gain early access to the tools, programes, and retreats shaping procurement’s future.</p>
+                <p className="text-sm md:text-base text-[#C2C2C2] mt-2">Gain early access to the tools, programes, and retreats shaping procurement’s future.</p>
 
                 <BtnOne name={"Apply to Join the Founding Waitlist"} />
             </section>
