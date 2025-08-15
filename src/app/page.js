@@ -1,4 +1,5 @@
 import MembershipComp from "./components/MembershipComp";
+import FormApplication from "./containers/FormApplication";
 import FoundingCTA from "./containers/FoundingCTA";
 import HeroCont from "./containers/HeroCont";
 import InvestorOpportunity from "./containers/InvestorOpportunity";
@@ -25,6 +26,7 @@ export default function Home() {
       </section>
 
       <InvestorOpportunity />
+      <FormApplication />
     </>
   );
 }

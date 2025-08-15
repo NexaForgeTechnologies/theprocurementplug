@@ -7,10 +7,11 @@ export default function BtnOne({
     textColor,
     hoverTextColor,
     targetLink = "_self",
+    typeSubmit
 }) {
     return (
         <a href={href} target={targetLink}>
-            <button className={` ${bgColor} ${hoverBgColor} ${textColor} ${hoverTextColor} ${className}
+            <button type={typeSubmit} className={` ${bgColor} ${hoverBgColor} ${textColor} ${hoverTextColor} ${className}
           font-normal text-xs sm:text-sm lg:text-base rounded-full flex items-center cursor-pointer duration-300 group
         `}
             >
