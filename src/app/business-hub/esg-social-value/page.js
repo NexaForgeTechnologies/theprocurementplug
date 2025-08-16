@@ -1,6 +1,6 @@
 import React from 'react'
 
-import EsgSocialValueCTR from '@/containers/business-hub/esg-social-value/FeaturedPartnerCTR'
+import EsgSocialValueCTR from '@/containers/business-hub/esg-social-value/ESGSocialCTR'
 
 function Page() {
     return (
