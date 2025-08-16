@@ -6,10 +6,10 @@ import { useGenericTable } from "@/hooks/GetGenericType";
 import { useConsultants } from "@/hooks/GetConsultant";
 
 import Link from "next/link";
-import ConsultantType from "@/components/business-hub/consultinng-partner/ConsultantTypeComp";
+import ConsultantType from "@/components/business-hub/consulting-partner/ConsultantTypeComp";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
-import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTileComp";
+import ConsultantTile from "@/components/business-hub/consulting-partner/ConsultantTileComp";
 
 function Breadcrumb() {
   return (

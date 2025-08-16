@@ -225,12 +225,13 @@ function ConsultantPartnerCTR() {
                 </h2>
                 <div className="relative w-full max-w-xl  bg-[#FFF9F5] border border-[#85009D] rounded-3xl p-6 text-[#1b1b1b]">
                     <span className="absolute top-4 md:top-0 left-4 text-4xl md:text-8xl text-[#85009D] font-semibold">”</span>
-                    <p className="mt-6 md:text-2xl leading-relaxed">
-                        "The team exceeded our expectations with their
+                    <p>
+                        &quot;The team exceeded our expectations with their
                         dedication and attention to detail. From planning
                         to execution, everything was handled with the
-                        utmost professionalism."
+                        utmost professionalism.&quot;
                     </p>
+
                     <div className="absolute -bottom-[30px] right-10 w-0 h-0 border-r-[40px] border-r-transparent border-t-[30px] border-t-[#85009D]"></div>
                     <div className="absolute -bottom-[28px] right-[41.5px] w-0 h-0 border-r-[39px] border-r-transparent border-t-[29px] border-t-[#FFF9F5]"></div>
                 </div>

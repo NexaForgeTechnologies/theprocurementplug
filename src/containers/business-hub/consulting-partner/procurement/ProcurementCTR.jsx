@@ -8,8 +8,8 @@ import { useGenericTable } from "@/hooks/GetGenericType";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import ProcurementType from "@/components/business-hub/consultinng-partner/procurement/ProcurementTypeComp";
-import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTileComp";
+import ProcurementType from "@/components/business-hub/consulting-partner/procurement/ProcurementTypeComp";
+import ConsultantTile from "@/components/business-hub/consulting-partner/ConsultantTileComp";
 
 function Breadcrumb() {
   return (

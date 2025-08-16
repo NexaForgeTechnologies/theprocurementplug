@@ -8,8 +8,8 @@ import { useConsultants } from "@/hooks/GetConsultant";
 
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
-import SixSigmaConsultantTile from "@/components/business-hub/consultinng-partner/six-sigma-change-management/SixSigmaConsultantTileComp";
-import SixSigmaTypeComp from "@/components/business-hub/consultinng-partner/six-sigma-change-management/SixSigmaTypeComp";
+import SixSigmaConsultantTile from "@/components/business-hub/consulting-partner/six-sigma-change-management/SixSigmaConsultantTileComp";
+import SixSigmaTypeComp from "@/components/business-hub/consulting-partner/six-sigma-change-management/SixSigmaTypeComp";
 
 function Breadcrumb() {
   return (

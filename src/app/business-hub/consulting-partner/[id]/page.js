@@ -6,7 +6,7 @@ import Link from "next/link";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 
-import RequestDemoForm from "@/components/business-hub/consultinng-partner/RequestDemoForm";
+import RequestDemoForm from "@/components/business-hub/consulting-partner/RequestDemoForm";
 import { useConsultantStore } from "@/store/consultantStore";
 
 function Breadcrumb({ name }) {
