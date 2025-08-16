@@ -63,7 +63,7 @@ function ConsultingPartnerCTR() {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedSpecialism, setSelectedSpecialism] = useState("");
 
-  const [visibleCount, setVisibleCount] = useState(4);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const filteredConsultants = consultants.filter((partner) => {
     const matchesIndustry = selectedIndustry
@@ -86,7 +86,7 @@ function ConsultingPartnerCTR() {
   };
 
   const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 4);
+    setVisibleCount((prev) => prev + 3);
   };
 
   const partnerWithUs = {

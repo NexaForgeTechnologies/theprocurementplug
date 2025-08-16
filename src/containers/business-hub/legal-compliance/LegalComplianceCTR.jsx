@@ -54,7 +54,7 @@ function LegalComplianceCTR() {
     const [selectedIndustry, setSelectedIndustry] = useState("");
     const [selectedRegion, setSelectedRegion] = useState("");
 
-    const [visibleCount, setVisibleCount] = useState(4);
+    const [visibleCount, setVisibleCount] = useState(3);
 
     const filteredLegalCompliance = legals.filter((legal) => {
         const matchesIndustry = selectedIndustry
@@ -73,7 +73,7 @@ function LegalComplianceCTR() {
     };
 
     const handleShowMore = () => {
-        setVisibleCount((prev) => prev + 4);
+        setVisibleCount((prev) => prev + 3);
     };
 
     const partnerWithUs = {

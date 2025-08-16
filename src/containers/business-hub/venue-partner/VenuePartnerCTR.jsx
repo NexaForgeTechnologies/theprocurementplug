@@ -76,7 +76,7 @@ function ConsultantPartnerCTR() {
   };
 
   const handleShowMore = () => {
-    setVisibleCount((prevCount) => prevCount + 4);
+    setVisibleCount((prevCount) => prevCount + 3);
   };
 
   const partnerWithUs = {

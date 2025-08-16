@@ -106,7 +106,7 @@ function ESGSocialPartnerCTR() {
     const [selectedLocation, setSelectedLocation] = useState("");
     const [selectedSpecialism, setSelectedSpecialism] = useState("");
 
-    const [visibleCount, setVisibleCount] = useState(4);
+    const [visibleCount, setVisibleCount] = useState(3);
 
     const filteredConsultants = consultants.filter((partner) => {
         const matchesIndustry = selectedIndustry
@@ -129,7 +129,7 @@ function ESGSocialPartnerCTR() {
     };
 
     const handleShowMore = () => {
-        setVisibleCount((prevCount) => prevCount + 4);
+        setVisibleCount((prevCount) => prevCount + 3);
     };
 
     return (
