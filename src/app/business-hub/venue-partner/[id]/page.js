@@ -1,6 +1,6 @@
 "use client";
 
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -30,7 +30,7 @@ function Breadcrumb() {
     )
 }
 
-function page() {
+function Page() {
     const venue = useVenueStore((state) => state.venue);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -151,4 +151,4 @@ function page() {
     );
 }
 
-export default page;
+export default Page;
