@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import LegalComplianceTile from "@/components/business-hub/consultinng-partner/ConsultingPartnerTile";
+import LegalComplianceTile from "@/components/business-hub/consultinng-partner/ConsultantTypeComp";
 import ConsultantTile from "@/components/business-hub/legal-compliance/ConsultantTile";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';

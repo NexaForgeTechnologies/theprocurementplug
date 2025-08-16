@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-import EsgConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTile";
+import EsgConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTileComp";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 

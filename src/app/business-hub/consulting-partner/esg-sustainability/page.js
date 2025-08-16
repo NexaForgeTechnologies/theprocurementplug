@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/FeaturedPartnerCTR'
+import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/ESGPartnerCTR'
 function Page() {
 
     return (

@@ -3,13 +3,13 @@
 import React, { useState } from "react";
 import Link from "next/link";
 
-import { useGenericTable } from "@/hooks/GetGenericType";
 import { useConsultants } from "@/hooks/GetConsultant";
+import { useGenericTable } from "@/hooks/GetGenericType";
 
-import HeroCTR from "@/components/business-hub/BussinessHeroSection";
-import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
-import EsgTile from "@/components/business-hub/consultinng-partner/esg-sustainability/EsgTile";
-import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTile";
+import HeroCTR from '@/components/business-hub/BussinessHeroSection';
+import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
+import ESGType from "@/components/business-hub/consultinng-partner/esg-sustainability/ESGTypeComp";
+import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTileComp";
 
 function Breadcrumb() {
   return (
@@ -95,21 +95,21 @@ function ConsultantPartnerCTR() {
     ],
   };
 
-  const consultantPartnerTile = [
+  const esg_partner_types = [
     {
       id: 1,
-      heading: "ESG Reporting",
-      text: "Measurement & disclose impact",
+      value: "ESG Reporting",
+      description: "Measurement & disclose impact",
     },
     {
       id: 2,
-      heading: "Net-zero Roadmap",
-      text: "Decarbonisation strategy",
+      value: "Net-zero Roadmap",
+      description: "Decarbonisation strategy",
     },
     {
       id: 3,
-      heading: "Supplier ESG Risk",
-      text: "Assess supplier practices",
+      value: "Supplier ESG Risk",
+      description: "Assess supplier practices",
     },
   ];
 
@@ -169,11 +169,10 @@ function ConsultantPartnerCTR() {
           environmental, social, and governance goals
         </p>
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-          {consultantPartnerTile.map((partner) => (
-            <EsgTile
-              key={partner.id}
-              heading={partner.heading}
-              text={partner.text}
+          {esg_partner_types.map((type) => (
+            <ESGType
+              key={type.id}
+              type={type}
             />
           ))}
         </div>

@@ -1,36 +1,38 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Link from "next/link";
 
 import { useGenericTable } from "@/hooks/GetGenericType";
 import { useConsultants } from "@/hooks/GetConsultant";
 
-import Link from "next/link";
-import ConsultantType from "@/components/business-hub/consultinng-partner/ConsultantTypeComp";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTileComp";
+import SixSigmaTypeComp from "@/components/business-hub/consultinng-partner/six-sigma-change-management/SixSigmaTypeComp";
 
 function Breadcrumb() {
   return (
     <nav className="text-sm breadcrumbs my-4 md:my-10">
-      <ol
-        className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
+      <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
         <li>
-          <Link href="/business-hub" className="hover:underline">
-            Business Hub
-          </Link>
+          <Link href="/business-hub" className="hover:underline">Business Hub</Link>
         </li>
         <li>/</li>
-        <li className="text-[#696969]">Consulting Partner</li>
+        <li>
+          <Link href="/business-hub/consulting-partner" className="hover:underline">Consulting Partner</Link>
+        </li>
+        <li>/</li>
+        <li className="text-[#696969]">
+          Six Sigma & Change Management
+        </li>
       </ol>
     </nav>
-  );
+  )
 }
 
-function ConsultingPartnerCTR() {
+function ConsultantPartnerCTR() {
+
   const { consultants, consultantLoading, error, refetch } = useConsultants();
 
   const {
@@ -51,12 +53,6 @@ function ConsultingPartnerCTR() {
     error: isSpecialismError,
     refetch: specialismRefetch,
   } = useGenericTable("specialisms");
-  const {
-    data: consultant_types,
-    loading: isCOnsultantTypeLoading,
-    error: isCOnsultantTypeError,
-    refetch: consultantTypeRefetch,
-  } = useGenericTable("consultant_types");
 
   // filter states
   const [selectedIndustry, setSelectedIndustry] = useState("");
@@ -79,21 +75,11 @@ function ConsultingPartnerCTR() {
     return matchesIndustry && matchesLocation && matchesSpecialism;
   });
 
-  const handleClearFilters = () => {
-    setSelectedIndustry("");
-    setSelectedLocation("");
-    setSelectedSpecialism("");
-  };
-
-  const handleShowMore = () => {
-    setVisibleCount((prev) => prev + 4);
-  };
-
   const partnerWithUs = {
     Partnerheader: {
       crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
       h3: "",
-      p: "",
+      p: ""
     },
     items: [
       {
@@ -102,7 +88,7 @@ function ConsultingPartnerCTR() {
         text: "",
         link: "",
         linkText: "View Details",
-        bgColor: "#85009D",
+        bgColor: "#85009D"
       },
       {
         id: 2,
@@ -110,7 +96,7 @@ function ConsultingPartnerCTR() {
         text: "",
         link: "",
         linkText: "View Details",
-        bgColor: "#85009D",
+        bgColor: "#85009D"
       },
       {
         id: 3,
@@ -118,36 +104,65 @@ function ConsultingPartnerCTR() {
         text: "",
         link: "",
         linkText: "View Details",
-        bgColor: "#85009D",
-      },
-    ],
+        bgColor: "#85009D"
+      }
+    ]
+  };
+
+  const consultant_type = [
+    {
+      id: 1,
+      value: "ESG Reporting",
+      description: "Measurement & disclose impact",
+    },
+    {
+      id: 2,
+      value: "Net-zero Roadmap",
+      description: "Decarbonisation strategy",
+    },
+    {
+      id: 3,
+      value: "Supplier ESG Risk",
+      description: "Assess supplier practices",
+    },
+  ];
+
+  const handleClearFilters = () => {
+    setSelectedIndustry("");
+    setSelectedRegion("");
+    // setVisibleCount(4);
+  };
+
+  const handleShowMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4);
   };
 
   return (
     <>
       <div>
         <HeroCTR
-          img="/images/bussiness-hub/consulting-partner/herosection.png"
+          img="/images/bussiness-hub/consulting-partner/six-sigma/herosection.png"
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Consulting Partners</span>
+              <span className="font-extrabold">Six Sigma & Change Management</span>
             </span>
           }
-          para="The Procurement Plug’s Consulting Partners deliver
-          expert solutions to enhance your procurement
-          strategy, from process improvement and strategy
-          development to ESG and sustainability impact."
+          para="We help organizations meet environmental, social,
+          and governance goals through expert-led strategies
+          in ESG reporting, decarbonization, and supplier
+          risk management."
         />
         <Breadcrumb />
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-          Consulting Partners
+          Six Sigma & Change Management
         </h3>
-        <p className="max-w-[930px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
-          Expert consultancy services to elevate your procurement strategy.
+        <p className="max-w-[738px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
+          Consultancy services to help your organisation achieve its environmental,
+          social, and governance goals
         </p>
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-          {consultant_types.map((type) => (
-            <ConsultantType
+          {consultant_type.map((type) => (
+            <SixSigmaTypeComp
               key={type.id}
               type={type}
             />
@@ -251,9 +266,10 @@ function ConsultingPartnerCTR() {
           )}
         </div>
       </div>
+
       <PartnerWithUsComp data={partnerWithUs} />
     </>
   );
 }
 
-export default ConsultingPartnerCTR;
+export default ConsultantPartnerCTR;

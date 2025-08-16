@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 // import ConsultantTile from "@/components/business-hub/venue-partner/ConsultantTile";
-import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultingPartnerTile";
+import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTypeComp";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
