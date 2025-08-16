@@ -1,11 +1,11 @@
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/ESGPartnerCTR'
+import ESGSustainabilityCTR from '@/containers/business-hub/consulting-partner/esg-sustainability/ESGPartnerCTR'
 function Page() {
 
     return (
         <>
-            <FeaturedPartnerCTR />
+            <ESGSustainabilityCTR />
         </>
     )
 }

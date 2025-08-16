@@ -33,7 +33,7 @@ function Breadcrumb() {
           </Link>
         </li>
         <li>/</li>
-        <li className="text-[#696969]">ESG & Sustainability Consulting</li>
+        <li className="text-[#696969]">ESG & Sustainability</li>
       </ol>
     </nav>
   );

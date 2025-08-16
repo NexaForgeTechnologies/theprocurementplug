@@ -19,10 +19,6 @@ function Breadcrumb() {
                     <Link href="/business-hub" className="hover:underline">Business Hub</Link>
                 </li>
                 <li>/</li>
-                <li>
-                    <Link href="/business-hub/consulting-partner" className="hover:underline">Consulting Partner</Link>
-                </li>
-                <li>/</li>
                 <li className="text-[#696969]">
                     Esg Social Value
                 </li>

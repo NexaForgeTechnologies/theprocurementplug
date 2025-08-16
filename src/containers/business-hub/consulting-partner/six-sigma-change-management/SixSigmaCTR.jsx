@@ -8,7 +8,7 @@ import { useConsultants } from "@/hooks/GetConsultant";
 
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
-import ConsultantTile from "@/components/business-hub/consultinng-partner/ConsultantTileComp";
+import SixSigmaConsultantTile from "@/components/business-hub/consultinng-partner/six-sigma-change-management/SixSigmaConsultantTileComp";
 import SixSigmaTypeComp from "@/components/business-hub/consultinng-partner/six-sigma-change-management/SixSigmaTypeComp";
 
 function Breadcrumb() {
@@ -243,7 +243,7 @@ function ConsultantPartnerCTR() {
             filteredConsultants
               .slice(0, visibleCount)
               .map((consultant) => (
-                <ConsultantTile key={consultant.id} data={consultant} />
+                <SixSigmaConsultantTile key={consultant.id} data={consultant} />
               ))
           ) : (
             <div className="col-span-full text-center text-gray-500">
