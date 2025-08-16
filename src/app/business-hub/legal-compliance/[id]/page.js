@@ -30,7 +30,7 @@ function Breadcrumb() {
 
 function ConsultantPartnerCTR() {
     const [isModalOpen, setIsModalOpen] = useState(false);
-     const partnerWithUs = {
+    const partnerWithUs = {
         Partnerheader: {
             crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
             h3: "",

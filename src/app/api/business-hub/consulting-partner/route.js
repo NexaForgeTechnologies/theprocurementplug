@@ -1,4 +1,4 @@
-import { ConsultantRepo } from '@/repository/ConsultantRepo';
+import { ConsultantRepo } from '@/repository/business-hub/ConsultantRepo';
 
 export async function GET() {
     try {

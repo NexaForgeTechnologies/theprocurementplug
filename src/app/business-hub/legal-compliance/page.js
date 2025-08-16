@@ -1,12 +1,12 @@
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/legal-compliance/FeaturedPartnerCTR'
+import LegalComplianceCTR from '@/containers/business-hub/legal-compliance/LegalComplianceCTR'
 
 function Page() {
 
     return (
         <>
-            <FeaturedPartnerCTR />
+            <LegalComplianceCTR />
         </>
     )
 }

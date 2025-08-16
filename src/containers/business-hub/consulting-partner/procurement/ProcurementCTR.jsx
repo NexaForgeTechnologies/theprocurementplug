@@ -129,8 +129,8 @@ function ConsultantPartnerCTR() {
 
   const handleClearFilters = () => {
     setSelectedIndustry("");
-    setSelectedRegion("");
-    // setVisibleCount(4);
+    setSelectedLocation("");
+    setSelectedSpecialism("");
   };
 
   const handleShowMore = () => {
@@ -229,15 +229,12 @@ function ConsultantPartnerCTR() {
           </select>
 
           {/* Clear Filters */}
-          <div className="flex flex-col justify-end gap-2 sm:col-span-1">
-            <button
-              onClick={handleClearFilters}
-              className="text-white bg-[#b08d57] cursor-pointer flex justify-start items-center gap-2 
-             p-3 rounded-md w-full hover:shadow-lg transition hover:border-[#a07a4c] hover:text-white"
-            >
-              Clear Filters
-            </button>
-          </div>
+          <button
+            onClick={handleClearFilters}
+            className="text-center text-white bg-[#b08d57] cursor-pointer p-3 rounded-md w-full hover:shadow-lg transition hover:border-[#a07a4c] hover:text-white"
+          >
+            Clear Filters
+          </button>
         </div>
 
         {/* Consultant Cards */}
