@@ -10,7 +10,7 @@ const slugify = (str) =>
     .replace(/(^-|-$)/g, ""); // trim starting/ending -
 
 function ConsultingPartnerTile({ type }) {
-  const href = `/business-hub/consulting-partner/${slugify(type.value)}`;
+  const href = `/business-hub/legal-compliance/${slugify(type.value)}`;
 
   return (
     <Link
