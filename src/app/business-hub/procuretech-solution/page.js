@@ -1,11 +1,11 @@
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/procuretech-solution/FeaturedPartnerCTR'
+import ProcureTechSolutionCTR from '@/containers/business-hub/procuretech-solution/ProcureTechSolutionCTR'
 
 function Page() {
     return (
         <>
-            <FeaturedPartnerCTR />
+            <ProcureTechSolutionCTR />
         </>
     )
 }
