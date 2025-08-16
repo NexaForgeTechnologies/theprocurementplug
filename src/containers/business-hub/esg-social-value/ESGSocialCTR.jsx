@@ -143,22 +143,18 @@ function ESGSocialPartnerCTR() {
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
                             <span className="font-extrabold">
-                                ESG & Sustainability Consulting
+                                ESG & Social Value
                             </span>
                         </span>
                     }
-                    para="We help organizations meet environmental, social,
-          and governance goals through expert-led strategies
-          in ESG reporting, decarbonization, and supplier
-          risk management."
+                    para="We help organizations meet environmental, social, and governance goals through expert-led strategies in ESG reporting, decarbonization, and supplier risk management."
                 />
                 <Breadcrumb />
                 <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-                    ESG & Sustainability Consulting
+                    ESG Social Value
                 </h3>
                 <p className="max-w-[738px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
-                    Consultancy services to help your organisation achieve its
-                    environmental, social, and governance goals
+                    Consultancy services to help your organisation achieve its environmental, social, and governance goals
                 </p>
                 <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                     {esg_social_partner_types.map((type) => (
