@@ -1,5 +1,11 @@
+"use client"
 import BtnOne from "../components/BtnOne";
+import useFormStore from "../useFormStore";
+
 export default function HeroCont() {
+
+    const { isOpen, setIsOpen } = useFormStore();
+
     return (
         <>
             <section className="flex flex-col justify-center items-center gap-y-5 md:gap-y-8 pt-5 pb-10 md:pb-30 bg-gradient-to-b from-[#151515] to-[#151515]/0 w-screen ml-[calc(50%-50vw)] relative">
@@ -29,8 +35,8 @@ export default function HeroCont() {
 
                 <img src="/ellipse-left.png" alt="Oval-glow" className="absolute bottom-[10%] md:bottom-[20%] left-0 w-30 sm:w-40 md:w-50 lg:w-60" />
 
-                <div className="mt-5">
-                    <BtnOne name={"Join the Waitlist"} />
+                <div className="mt-5" onClick={() => setIsOpen(!isOpen)}>
+                    <BtnOne name={"Join the Waitlist"}/>
                 </div>
             </section>
         </>

@@ -1,10 +1,10 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import BtnOne from '../components/BtnOne';
+import useFormStore from '../useFormStore';
 
 export default function FormApplication() {
-  const [isOpen, setIsOpen] = useState(true);
-
+  const {isOpen, setIsOpen} = useFormStore();
 
   useEffect(() => {
     isOpen ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "unset"

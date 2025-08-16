@@ -1,6 +1,10 @@
+"use client";
+import useFormStore from "../useFormStore";
 import BtnOne from "./BtnOne";
 
-export default function MembershipComp({ title, subtitle, subHead, includes = [], buttonText }) {
+export default function MembershipComp({ title, subtitle, subHead, includes = [], buttonText }) 
+{
+    const { isOpen, setIsOpen } = useFormStore();
     return (
         <div className="flex flex-col bg-[#151515] text-white p-6 rounded-lg shadow-lg border border-[#f2b85933] ">
             {/* Title */}
@@ -24,7 +28,7 @@ export default function MembershipComp({ title, subtitle, subHead, includes = []
             </ul>
 
             {/* Button */}
-            <button className="mt-auto ">
+            <button className="mt-auto " onClick={() => setIsOpen(!isOpen)}>
                 <BtnOne name={buttonText} />
             </button>
         </div>

@@ -1,7 +1,10 @@
+"use client";
 import BtnOne from "../components/BtnOne";
 import ListCard from "../components/ListCard";
+import useFormStore from "../useFormStore";
 
 export default function PartnershipEcosystemCTA() {
+    const {isOpen, setIsOpen} = useFormStore();
     return (
         <>
             <section className="grid grid-cols-1 lg:grid-cols-2 rounded gap-5 md:gap-10">
@@ -29,7 +32,7 @@ export default function PartnershipEcosystemCTA() {
                     />
 
                     <BtnOne 
-                    name={"Join the Founding Waitlist"}/>
+                    name={"Join the Founding Waitlist"} onClick={() => setIsOpen(!isOpen)}/>
                 </div>
 
 

@@ -1,6 +1,10 @@
+"use client";
 import BtnOne from "../components/BtnOne";
-
+import useFormStore from "../useFormStore";
 export default function Header() {
+
+const { isOpen, setIsOpen } = useFormStore();
+
     return (
         <>
             <nav className="px-5 sm:px-10 md:px-18 lg:px-20 bg-[#151515] z-50">
@@ -9,7 +13,8 @@ export default function Header() {
                     <img src="/favicon.ico" className="w-25 sm:w-35 md:w-40 h-auto" alt="logo" />
 
                     <BtnOne
-                        name={"Join the Founding Waitlist"} />
+                        name={"Join the Founding Waitlist"}
+                        onClick={() => setIsOpen(!isOpen)} />
                 </nav>
             </nav>
         </>
