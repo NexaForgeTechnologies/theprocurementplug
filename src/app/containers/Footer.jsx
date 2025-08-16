@@ -44,8 +44,9 @@ export default function Footer() {
 
                         {/* Privacy Policy */}
                         <Link href="https://achiever-group-latest-stg.vercel.app/privacypolicy" target="_blank">
-                            <li className="flex items-center gap-x-3 hover:opacity-80 transition-opacity">
-                                <span>Privacy Policy</span>
+                            <li className="flex items-center gap-x-1.5 hover:opacity-80 transition-opacity -ml-1">
+                                <img src="privacy.png" alt="Location" className="w-7 h-auto" />
+                                <span className="">Privacy Policy</span>
                             </li>
                         </Link>
                     </ul>
