@@ -233,7 +233,7 @@ function ConsultantPartnerCTR() {
             </button>
           </div>
         </div>
-        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-4">
           {filteredConsultants.length > 0 ? (
             filteredConsultants
               .slice(0, visibleCount)
@@ -253,11 +253,12 @@ function ConsultantPartnerCTR() {
             </div>
           )}
         </div>
-        <div className="flex items-center justify-center w-full">
+
+        <div className="mt-6 flex items-center justify-center w-full">
           {visibleCount < filteredConsultants.length && (
             <button
               onClick={handleShowMore}
-              className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
+              className="flex items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
               View All ProcureTech
               <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
             </button>

@@ -182,6 +182,7 @@ function ConsultantPartnerCTR() {
           contribute valuable perspectives on innovation, compliance, and
           organizational transformation.
         </p>
+
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 md:mb-10 text-[#363636]">
           {/* Industry */}
           <select
@@ -251,11 +252,12 @@ function ConsultantPartnerCTR() {
             </div>
           )}
         </div>
-        <div className="flex items-center justify-center w-full">
+
+        <div className="mt-6 flex items-center justify-center w-full">
           {visibleCount < filteredConsultants.length && (
             <button
               onClick={handleShowMore}
-              className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]"
+              className="flex items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]"
             >
               View All Consultants
               <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
