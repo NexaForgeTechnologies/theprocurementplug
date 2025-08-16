@@ -1,12 +1,12 @@
 import React from 'react'
 
-import FeaturedPartnerCTR from '@/containers/business-hub/venue-partner/FeaturedPartnerCTR'
+import VenuePartnerCTR from '@/containers/business-hub/venue-partner/VenuePartnerCTR'
 
 function Page() {
 
     return (
         <>
-            <FeaturedPartnerCTR />
+            <VenuePartnerCTR />
         </>
     )
 }
