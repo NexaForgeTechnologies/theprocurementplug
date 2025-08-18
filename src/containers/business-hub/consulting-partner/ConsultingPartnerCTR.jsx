@@ -145,7 +145,7 @@ function ConsultingPartnerCTR() {
         <p className="max-w-[930px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
           Expert consultancy services to elevate your procurement strategy.
         </p>
-        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {consultant_types.map((type) => (
             <ConsultantType
               key={type.id}

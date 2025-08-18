@@ -33,7 +33,8 @@ function Breadcrumb() {
 
 function ConsultantPartnerCTR() {
 
-  const { consultants, consultantLoading, error, refetch } = useConsultants();
+  // Get a specific consultant by ID
+  const { consultants } = useConsultants(4);
 
   const {
     data: industries,

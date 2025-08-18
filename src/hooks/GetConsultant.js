@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export const useConsultants = () => {
+export const useConsultants = (id) => {
     const [consultants, setConsultants] = useState([]);
     const [consultantLoading, setConsultantLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -9,8 +9,13 @@ export const useConsultants = () => {
     const fetchConsultants = async () => {
         try {
             setConsultantLoading(true);
-            const response = await axios.get("/api/business-hub/consulting-partner");
-            setConsultants(response.data);
+
+            const url = id
+                ? `/api/business-hub/consulting-partner/${id}`
+                : `/api/business-hub/consulting-partner`;
+
+            const response = await axios.get(url);
+            setConsultants(Array.isArray(response.data) ? response.data : [response.data]);
         } catch (err) {
             setError(err);
         } finally {
@@ -20,7 +25,7 @@ export const useConsultants = () => {
 
     useEffect(() => {
         fetchConsultants();
-    }, []);
+    }, [id]); // will refetch if id changes
 
     return { consultants, consultantLoading, error, refetch: fetchConsultants };
 };
