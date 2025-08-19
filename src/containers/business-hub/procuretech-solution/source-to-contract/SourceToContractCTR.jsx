@@ -97,10 +97,13 @@ function ConsultantPartnerCTR() {
           process from supplier sourcing to contract signing, helping
           businesses save time, reduce risks, and improve compliance."
         />
+
         <Breadcrumb />
+        
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
           Source-to-Contract
         </h3>
+        
         <p className="max-w-[843px] md:text-xl text-[#1B1B1B] mt-4">
           End-to-end process covering supplier identification, sourcing, negotiation, contract
           creation, approval, and e-signature

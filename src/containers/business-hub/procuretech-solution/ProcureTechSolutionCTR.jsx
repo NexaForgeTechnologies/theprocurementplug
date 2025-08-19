@@ -1,29 +1,13 @@
 "use client";
 
 import React from "react";
-import Link from 'next/link'
 
 import { useGenericTable } from "@/hooks/GetGenericType";
 
-import ProcureTechTile from "@/components/business-hub/procuretech-solution/ProcureTechType";
+import ProcureTechType from "@/components/business-hub/procuretech-solution/ProcureTechType";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-
-function Breadcrumb() {
-  return (
-    <nav className="text-sm breadcrumbs my-4 md:my-10">
-      <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <li>
-          <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-        </li>
-        <li>/</li>
-        <li className="text-[#696969]">
-          ProcureTech Solutions
-        </li>
-      </ol>
-    </nav>
-  )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function ProcureTechCTR() {
 
@@ -70,17 +54,15 @@ function ProcureTechCTR() {
       <div>
         <HeroCTR
           img="/images/bussiness-hub/procuretech-solution/herosection.png"
-          heading={
-            <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">ProcureTech Solutions</span>
-            </span>
-          }
+          heading="ProcureTech Solutions"
           para="ProcureTech Solutions offers smart digital tools to
-          simplify and speed up the procurement process,
-          helping businesses manage sourcing, contracts,
-          and spending more efficiently."
+        simplify and speed up the procurement process,
+        helping businesses manage sourcing, contracts,
+        and spending more efficiently."
         />
+
         <Breadcrumb />
+
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
           ProcureTech Solutions
         </h3>
@@ -92,7 +74,7 @@ function ProcureTechCTR() {
           {data.length > 0 ? (
             data
               .map((solution) => (
-                <ProcureTechTile
+                <ProcureTechType
                   key={solution.id}
                   data={solution}
                 />

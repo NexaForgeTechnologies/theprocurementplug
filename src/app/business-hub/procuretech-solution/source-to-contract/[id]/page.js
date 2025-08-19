@@ -39,6 +39,7 @@ function VendorDetailCTR() {
     if (!data) return null;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+
     const partnerWithUs = {
         Partnerheader: {
             crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
