@@ -115,7 +115,7 @@ function ConsultingPartnerCTR() {
             <ConsultantType
               key={type.id}
               type={type}
-              cta
+              url="/business-hub/consulting-partner/"
             />
           ))}
         </div>

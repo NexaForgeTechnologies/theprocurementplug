@@ -9,8 +9,9 @@ const slugify = (str) =>
     .replace(/[^a-z0-9]+/g, "-") // replace non-alphanumeric with -
     .replace(/(^-|-$)/g, ""); // trim starting/ending -
 
-function ConsultingPartnerTile({ type, cta = false }) {
-  const href = `/business-hub/consulting-partner/${slugify(type.value)}`;
+function ConsultingPartnerTile({ type, url }) {
+  // If url is passed, append slug, otherwise null
+  const href = url ? `${url}${slugify(type.value)}` : null;
 
   const CardContent = () => (
     <div className="h-full w-full rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between gap-6 text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group">
@@ -21,7 +22,7 @@ function ConsultingPartnerTile({ type, cta = false }) {
         </p>
       </div>
 
-      {cta && (
+      {href && (
         <span className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
           View Details
           <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
@@ -30,7 +31,7 @@ function ConsultingPartnerTile({ type, cta = false }) {
     </div>
   );
 
-  return cta ? (
+  return href ? (
     <Link href={href}>
       <CardContent />
     </Link>

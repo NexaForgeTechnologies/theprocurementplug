@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import { useLegalCompliance } from "@/hooks/GetLegalCompliance";
 import { useGenericTable } from "@/hooks/GetGenericType";
 
-import LegalTile from "@/components/business-hub/legal-compliance/LegalTileComp";
-import LegalType from "@/components/business-hub/legal-compliance/LegalTypeComp";
+import ConsultantTile from "@/components/business-hub/consulting-partner/ConsultantTileComp";
+import ConsultantType from "@/components/business-hub/consulting-partner/ConsultantTypeComp";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import Breadcrumb from "@/components/BreadCrumbs";
@@ -104,9 +104,10 @@ function LegalComplianceCTR() {
                 </p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                     {legal_types.map((type) => (
-                        <LegalType
+                        <ConsultantType
                             key={type.id}
                             type={type}
+                            url="/business-hub/legal-compliance/"
                         />
                     ))}
                 </div>
@@ -116,6 +117,7 @@ function LegalComplianceCTR() {
                 <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] mb-4 md:md-8">
                     Featured Practitioners & Firms
                 </h3>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 md:mb-10 text-[#363636]">
                     {/* Industry */}
                     <select
@@ -154,12 +156,14 @@ function LegalComplianceCTR() {
                         Clear Filters
                     </button>
                 </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {filteredLegalCompliance.length > 0 ? (
-                        filteredLegalCompliance.slice(0, visibleCount).map((partner) => (
-                            <LegalTile
-                                key={partner.id}
-                                data={partner}
+                        filteredLegalCompliance.slice(0, visibleCount).map((compliance) => (
+                            <ConsultantTile
+                                key={compliance.id}
+                                data={compliance}
+                                url={`/business-hub/legal-compliance/${compliance.id}`}
                             />
                         ))
                     ) : (
