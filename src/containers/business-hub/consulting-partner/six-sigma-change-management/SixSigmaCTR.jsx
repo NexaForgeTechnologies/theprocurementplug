@@ -7,8 +7,8 @@ import { useConsultants } from "@/hooks/GetConsultant";
 
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
-import SixSigmaConsultantTile from "@/components/business-hub/consulting-partner/six-sigma-change-management/SixSigmaConsultantTileComp";
-import SixSigmaTypeComp from "@/components/business-hub/consulting-partner/six-sigma-change-management/SixSigmaTypeComp";
+import ConsultantTile from "@/components/business-hub/consulting-partner/ConsultantTileComp";
+import ConsultantType from "@/components/business-hub/consulting-partner/ConsultantTypeComp";
 import Breadcrumb from "@/components/BreadCrumbs";
 
 function ConsultantPartnerCTR() {
@@ -128,9 +128,10 @@ function ConsultantPartnerCTR() {
           Consultancy services to help your organisation achieve its environmental,
           social, and governance goals
         </p>
+
         <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {consultant_type.map((type) => (
-            <SixSigmaTypeComp
+            <ConsultantType
               key={type.id}
               type={type}
             />
@@ -211,7 +212,11 @@ function ConsultantPartnerCTR() {
             filteredConsultants
               .slice(0, visibleCount)
               .map((consultant) => (
-                <SixSigmaConsultantTile key={consultant.id} data={consultant} />
+                <ConsultantTile
+                  key={consultant.id}
+                  data={consultant}
+                  url={`/business-hub/consulting-partner/six-sigma-change-management/${consultant.id}`}
+                />
               ))
           ) : (
             <div className="col-span-full text-center text-gray-500">

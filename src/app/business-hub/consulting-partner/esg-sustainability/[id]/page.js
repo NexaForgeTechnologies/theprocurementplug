@@ -1,50 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 
 import RequestDemoForm from "@/components/business-hub/consulting-partner/RequestDemoForm";
 import { useConsultantStore } from "@/store/consultantStore";
-
-function Breadcrumb({ name }) {
-  return (
-    <nav className="text-sm breadcrumbs my-4 md:my-10">
-      <ol
-        className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        <li>
-          <Link href="/business-hub" className="hover:underline">
-            Business Hub
-          </Link>
-        </li>
-        <li>/</li>
-        <li>
-          <Link
-            href="/business-hub/consulting-partner"
-            className="hover:underline"
-          >
-            Consulting Partners
-          </Link>
-        </li>
-        <li>/</li>
-        <li>
-          <Link
-            href="/business-hub/consulting-partner/esg-sustainability"
-            className="hover:underline text-[#696969]"
-          >
-            ESG & Sustainability
-          </Link>
-        </li>
-        <li>/</li>
-        <li className="text-[#696969]">{name + " Overview"}</li>
-      </ol>
-    </nav>
-  );
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 export default function ConsultantDetailClient() {
   const consultant = useConsultantStore((state) => state.consultant);
@@ -99,17 +62,13 @@ export default function ConsultantDetailClient() {
       <div>
         <HeroCTR
           img="/images/bussiness-hub/consulting-partner/herosection.png"
-          heading={
-            <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Consulting Partners</span>
-            </span>
-          }
+          heading="Consulting Partners"
           para="The Procurement Plug’s Consulting Partners deliver
           expert solutions to enhance your procurement
           strategy, from process improvement and strategy
           development to ESG and sustainability impact."
         />
-        <Breadcrumb name={consultant.name} />
+        <Breadcrumb />
         <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 md:gap-0">
           <div className="w-full md:w-auto">
             <h1 className="text-3xl md:text-[52px] font-semibold text-[#85009D]">

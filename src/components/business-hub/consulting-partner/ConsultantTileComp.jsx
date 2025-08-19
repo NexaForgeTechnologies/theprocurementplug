@@ -4,14 +4,14 @@ import Link from "next/link";
 
 import { useConsultantStore } from "@/store/consultantStore";
 
-function ConsultingPartnerTile({ data }) {
-  if (!data) return null; // don't render if data is missing
+function ConsultingPartnerTile({ data, url }) {
+  if (!data) return null;
 
   const setConsultant = useConsultantStore((state) => state.setConsultant);
 
   return (
     <Link
-      href={`/business-hub/consulting-partner/${data.id}`}
+      href={url}
       onClick={() => setConsultant(data)} // save data before navigating
       className="w-full p-4 flex flex-col items-center text-center gap-2 rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group relative"
     >

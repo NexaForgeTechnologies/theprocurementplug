@@ -115,6 +115,7 @@ function ConsultingPartnerCTR() {
             <ConsultantType
               key={type.id}
               type={type}
+              cta
             />
           ))}
         </div>
@@ -193,7 +194,11 @@ function ConsultingPartnerCTR() {
             filteredConsultants
               .slice(0, visibleCount)
               .map((consultant) => (
-                <ConsultantTile key={consultant.id} data={consultant} />
+                <ConsultantTile
+                  key={consultant.id}
+                  data={consultant}
+                  url={`/business-hub/consulting-partner/${consultant.id}`}
+                />
               ))
           ) : (
             <div className="col-span-full text-center text-gray-500">
