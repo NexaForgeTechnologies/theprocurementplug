@@ -1,44 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import Link from 'next/link'
 import Image from "next/image";
+
+import { useProcureTechStore } from "@/store/ProcuretechStore";
 
 import RequestDemoForm from "@/components/business-hub/procuretech-solution//RequestDemoForm";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs';
-
-import { useProcureTechStore } from "@/store/ProcuretechStore";
-
-function Breadcrumb({ name }) {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex flex-wrap gap-2 text-[#9C9C9C]">
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/procuretech-solution" className="hover:underline">ProcureTech Solutions</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/procuretech-solution/source-to-contract" className="hover:underline">Source-to-Contract</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969]">
-                    {name + " Detail"}
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function VendorDetailCTR() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const data = useProcureTechStore((state) => state.procuretech);
     if (!data) return null;
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const partnerWithUs = {
         Partnerheader: {
@@ -79,16 +55,14 @@ function VendorDetailCTR() {
             <div>
                 <HeroCTR
                     img="/images/bussiness-hub/procuretech-solution/procuretech-solution-detail/herosection.png"
-                    heading={
-                        <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Source-to-Contract</span>
-                        </span>
-                    }
+                    heading="Source-to-Contract"
                     para="Source-to-Contract (S2C) streamlines the procurement
                     process from supplier sourcing to contract signing, helping
                     businesses save time, reduce risks, and improve compliance."
                 />
-                <Breadcrumb name={data.name} />
+
+                <Breadcrumb />
+                
                 <div className="flex flex-col-reverse md:flex-row justify-between items-start md:gap-4">
                     <div className="w-full md:w-auto">
                         <h1 className="text-3xl md:text-[52px] font-semibold text-[#85009D]">
