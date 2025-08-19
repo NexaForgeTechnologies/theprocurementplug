@@ -7,7 +7,7 @@ import { useGenericTable } from "@/hooks/GetGenericType";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import ESGSocialType from "@/components/business-hub//esg-social-value/ESGSocialTypeComp";
+import ConsultantType from "@/components/business-hub/consulting-partner/ConsultantTypeComp";
 import ConsultantTile from "@/components/business-hub/consulting-partner/ConsultantTileComp";
 import Breadcrumb from "@/components/BreadCrumbs";
 
@@ -124,7 +124,7 @@ function ESGSocialPartnerCTR() {
                 </p>
                 <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
                     {esg_social_partner_types.map((type) => (
-                        <ESGSocialType
+                        <ConsultantType
                             key={type.id}
                             type={type}
                         />
@@ -205,7 +205,11 @@ function ESGSocialPartnerCTR() {
                         filteredConsultants
                             .slice(0, visibleCount)
                             .map((consultant) => (
-                                <ConsultantTile key={consultant.id} data={consultant} />
+                                <ConsultantTile
+                                    key={consultant.id}
+                                    data={consultant}
+                                    url={`/business-hub/esg-social-value/${consultant.id}`}
+                                />
                             ))
                     ) : (
                         <div className="col-span-full text-center text-gray-500">
