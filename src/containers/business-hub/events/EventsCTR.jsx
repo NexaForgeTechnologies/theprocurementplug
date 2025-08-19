@@ -7,22 +7,7 @@ import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import ElevateCard from '@/components/events/ElevateCardComp';
 import IconComponent from "@/components/icon/Icon";
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-
-function Breadcrumb() {
-  return (
-    <nav className="text-sm breadcrumbs my-4 md:my-10">
-      <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <li>
-          <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-        </li>
-        <li>/</li>
-        <li className="text-[#696969] ">
-          Events
-        </li>
-      </ol>
-    </nav>
-  )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function ResourceLibraryCTR() {
   const [selectedType, setSelectedType] = useState("");
@@ -147,7 +132,6 @@ function ResourceLibraryCTR() {
     },
   ];
 
-
   const cardsData = [
     {
       prefix: 'ELEVATE',
@@ -257,11 +241,7 @@ function ResourceLibraryCTR() {
       <div>
         <HeroCTR
           img="/images/events/herosection.png"
-          heading={
-            <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Events Offerings</span>
-            </span>
-          }
+          heading="Events Offerings"
           para="A central space for procurement professionals to
           access expert insights, tools, and partnerships that
           drive smarter, sustainable business decisions."

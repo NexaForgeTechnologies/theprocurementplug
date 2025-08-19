@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from 'next/link'
 
 import { useGenericTable } from "@/hooks/GetGenericType";
 import { useProcuretech } from "@/hooks/GetProcureTech";
@@ -9,29 +8,10 @@ import { useProcuretech } from "@/hooks/GetProcureTech";
 import ProcureTechTile from "@/components/business-hub/procuretech-solution/ProcureTechTile";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-
-function Breadcrumb() {
-  return (
-    <nav className="text-sm breadcrumbs my-4 md:my-10">
-      <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <li>
-          <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-        </li>
-        <li>/</li>
-        <li>
-          <Link href="/business-hub/procuretech-solution" className="hover:underline"> ProcureTech Solutions</Link>
-        </li>
-        <li>/</li>
-        <li className="text-[#696969]">
-          Source-to-Contract
-        </li>
-      </ol>
-    </nav>
-  )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function ConsultantPartnerCTR() {
-  const { procuretechSolutions } = useProcuretech();
+  const { procuretechSolutions } = useProcuretech(1);
 
   const {
     data: deployment_models,
@@ -112,11 +92,7 @@ function ConsultantPartnerCTR() {
       <div>
         <HeroCTR
           img="/images/bussiness-hub/procuretech-solution/procuretech-solution-detail/herosection.png"
-          heading={
-            <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Source-to-Contract</span>
-            </span>
-          }
+          heading="Source-to-Contract"
           para="Source-to-Contract (S2C) streamlines the procurement
           process from supplier sourcing to contract signing, helping
           businesses save time, reduce risks, and improve compliance."
@@ -195,6 +171,7 @@ function ConsultantPartnerCTR() {
                 <ProcureTechTile
                   key={solution.id}
                   data={solution}
+                  url={`/business-hub/procuretech-solution/source-to-contract/${solution.id}`}
                 />
               ))
           ) : (

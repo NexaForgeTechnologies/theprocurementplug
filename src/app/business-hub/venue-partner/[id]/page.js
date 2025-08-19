@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 import { useVenueStore } from "@/store/venueStore";
@@ -9,26 +8,7 @@ import { useVenueStore } from "@/store/venueStore";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import RequestDemoForm from "@/components/business-hub/venue-partner/RequestDemoForm";
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/venue-partner" className="hover:underline">Venue Partners</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969]">
-                    Overview
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function Page() {
     const venue = useVenueStore((state) => state.venue);
@@ -74,11 +54,7 @@ function Page() {
             <div>
                 <HeroCTR
                     img="/images/bussiness-hub/venue-partner/herosection.png"
-                    heading={
-                        <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Venue Partners</span>
-                        </span>
-                    }
+                    heading="Venue Partners"
                     para="Explore handpicked venues ideal for procurement
                     events, conferences, and workshops—designed to
                     meet your professional needs with the right

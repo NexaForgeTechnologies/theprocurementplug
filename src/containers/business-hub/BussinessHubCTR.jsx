@@ -4,19 +4,7 @@ import Link from "next/link";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import BussinessTile from "@/components/business-hub/BussinessTile";
-
-function Breadcrumb() {
-  return (
-    <nav className="text-sm breadcrumbs my-6 md:my-10">
-      <ol
-        className="list-reset flex gap-2 text-gray-600 whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        <li className="text-[#696969]">Business Hub</li>
-      </ol>
-    </nav>
-  );
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function BussinessHubCTR() {
   const partnerWithUs = {
@@ -77,7 +65,7 @@ function BussinessHubCTR() {
       heading: "Events",
       para: "Webinar-Seminar-Workshops Networking opportunity",
       btntext: "View Details",
-      url: "/event",
+      url: "/business-hub/event",
     },
     {
       id: 3,
@@ -123,19 +111,14 @@ function BussinessHubCTR() {
       url: "/business-hub/vip-lounge",
     },
   ];
+
   return (
     <>
       <div>
         <HeroCTR
           img="/images/bussiness-hub/herosection.png"
-          heading={
-            <span className="flex flex-row items-center gap-2 leading-none">
-              <span className="font-extrabold">The Business Hub</span>
-            </span>
-          }
-          para="A central space for procurement professionals to
-                access expert insights, tools, and partnerships that
-                drive smarter, sustainable business decisions."
+          heading="The Business Hub"
+          para="A central space for procurement professionals to access expert insights, tools, and partnerships that drive smarter, sustainable business decisions."
         />
         <Breadcrumb />
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
@@ -190,7 +173,7 @@ function BussinessHubCTR() {
                   url={partner.url}
                   bgImage={bgImage}
                   isLast={isLast}
-                  isFirst={isFirst} // optional, in case BussinessTile needs to handle logic
+                  isFirst={isFirst}
                 />
               </div>
             );

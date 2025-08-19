@@ -1,52 +1,26 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-
-import VenuePartnerTile from "@/components/business-hub/venue-partner/VenuePartnerTile";
 
 import { useVenues } from "@/hooks/GetVenues";
 import { useGenericTable } from "@/hooks/GetGenericType";
 
+import VenuePartnerTile from "@/components/business-hub/venue-partner/VenuePartnerTile";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-
-function Breadcrumb() {
-  return (
-    <nav className="text-sm breadcrumbs my-4 md:my-10">
-      <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <li>
-          <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-        </li>
-        <li>/</li>
-        <li className="text-[#696969]">
-          Venue Partners
-        </li>
-      </ol>
-    </nav>
-  )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function ConsultantPartnerCTR() {
-  const { venues, venueLoading, error, refetch: fetchVenues } = useVenues();
+  const { venues } = useVenues();
 
   const {
-    data: locations,
-    loading: isLocationLoading,
-    error: isLocationError,
-    refetch: locationsRefetch,
+    data: locations
   } = useGenericTable("locations");
   const {
-    data: capacities,
-    loading: isCapacityLoading,
-    error: isCapacityError,
-    refetch: capacitiesRefetch,
+    data: capacities
   } = useGenericTable("capacities");
   const {
-    data: amenities,
-    loading: isAmenityLoading,
-    error: isAmenityError,
-    refetch: amenitiesRefetch,
+    data: amenities
   } = useGenericTable("amenities");
 
   // filter states
@@ -118,11 +92,7 @@ function ConsultantPartnerCTR() {
       <div>
         <HeroCTR
           img="/images/bussiness-hub/venue-partner/herosection.png"
-          heading={
-            <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Venue Partners</span>
-            </span>
-          }
+          heading="Venue Partners"
           para="Explore handpicked venues ideal for procurement
           events, conferences, and workshops—designed to
           meet your professional needs with the right
@@ -217,7 +187,6 @@ function ConsultantPartnerCTR() {
           )}
         </div>
       </div>
-
 
       <PartnerWithUsComp data={partnerWithUs} />
     </>

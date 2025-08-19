@@ -1,10 +1,10 @@
 import React from 'react'
 
-import EventBenifitsCTR from '@/containers/events/caribbean/EventBenifitsCTR'
-import EventHighlightCTR from '@/containers/events/caribbean/EventHighlightCTR'
-import GuestCTR from '@/containers/events/caribbean/GuestCTR'
-import EventsOppertunityCTR from '@/containers/events/caribbean/EventOppertunityCTR'
-import EventReviewCTR from '@/containers/events/caribbean/EventReviewCTR'
+import EventBenifitsCTR from '@/containers/business-hub/events/caribbean/EventBenifitsCTR'
+import EventHighlightCTR from '@/containers/business-hub/events/caribbean/EventHighlightCTR'
+import GuestCTR from '@/containers/business-hub/events/caribbean/GuestCTR'
+import EventsOppertunityCTR from '@/containers/business-hub/events/caribbean/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/business-hub/events/caribbean/EventReviewCTR'
 
 
 import EventsHeroComp from '@/components/events/EventsHeroCompCarib'

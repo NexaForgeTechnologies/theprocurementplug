@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from 'next/link'
 
 import { useLegalCompliance } from "@/hooks/GetLegalCompliance";
 import { useGenericTable } from "@/hooks/GetGenericType";
@@ -10,44 +9,20 @@ import LegalTile from "@/components/business-hub/legal-compliance/LegalTileComp"
 import LegalType from "@/components/business-hub/legal-compliance/LegalTypeComp";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969]">
-                    Legal & Compliance
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function LegalComplianceCTR() {
 
-    const { legals, legalLoading, error, refetch } = useLegalCompliance();
+    const { legals } = useLegalCompliance();
 
     const {
-        data: industries,
-        loading,
-        error: industryLoading,
-        refetch: industryRefetch,
+        data: industries
     } = useGenericTable("industries");
     const {
-        data: regions,
-        loading: isRegionLoading,
-        error: isRegionError,
-        refetch: regionRefetch,
+        data: regions
     } = useGenericTable("regions");
     const {
-        data: legal_types,
-        loading: isLegalTypeLoading,
-        error: isLegalTypeError,
-        refetch: legalTypeRefetch,
+        data: legal_types
     } = useGenericTable("legal_compliance_types");
 
     // filter states
@@ -115,11 +90,7 @@ function LegalComplianceCTR() {
             <div>
                 <HeroCTR
                     img="/images/bussiness-hub/legal-compliance/herosection.png"
-                    heading={
-                        <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Legal & Compliance</span>
-                        </span>
-                    }
+                    heading="Legal & Compliance"
                     para="Source-to-Contract (S2C) streamlines the procurement
                         process from supplier sourcing to contract signing, helping
                         businesses save time, reduce risks, and improve compliance."

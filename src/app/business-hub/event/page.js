@@ -1,5 +1,5 @@
 import React from 'react'
-import EventsCTR from '@/containers/events/EventsCTR'
+import EventsCTR from '@/containers/business-hub/events/EventsCTR'
 
 export const metadata = {
     title: 'Events',

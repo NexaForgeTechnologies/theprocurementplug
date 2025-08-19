@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 
 import { useGenericTable } from "@/hooks/GetGenericType";
 import { useConsultants } from "@/hooks/GetConsultant";
@@ -10,49 +9,21 @@ import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import SixSigmaConsultantTile from "@/components/business-hub/consulting-partner/six-sigma-change-management/SixSigmaConsultantTileComp";
 import SixSigmaTypeComp from "@/components/business-hub/consulting-partner/six-sigma-change-management/SixSigmaTypeComp";
-
-function Breadcrumb() {
-  return (
-    <nav className="text-sm breadcrumbs my-4 md:my-10">
-      <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-        <li>
-          <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-        </li>
-        <li>/</li>
-        <li>
-          <Link href="/business-hub/consulting-partner" className="hover:underline">Consulting Partner</Link>
-        </li>
-        <li>/</li>
-        <li className="text-[#696969]">
-          Six Sigma & Change Management
-        </li>
-      </ol>
-    </nav>
-  )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
 
 function ConsultantPartnerCTR() {
 
   // Get a specific consultant by ID
-  const { consultants } = useConsultants(1);  
+  const { consultants } = useConsultants(1);
 
   const {
-    data: industries,
-    loading,
-    error: industryLoading,
-    refetch: industryRefetch,
+    data: industries
   } = useGenericTable("industries");
   const {
-    data: locations,
-    loading: isLocationLoading,
-    error: isLocationError,
-    refetch: locationsRefetch,
+    data: locations
   } = useGenericTable("locations");
   const {
-    data: specialisms,
-    loading: isSpecialismLoading,
-    error: isSpecialismError,
-    refetch: specialismRefetch,
+    data: specialisms
   } = useGenericTable("specialisms");
 
   // filter states
@@ -143,11 +114,7 @@ function ConsultantPartnerCTR() {
       <div>
         <HeroCTR
           img="/images/bussiness-hub/consulting-partner/six-sigma/herosection.png"
-          heading={
-            <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">Six Sigma & Change Management</span>
-            </span>
-          }
+          heading="Six Sigma & Change Management"
           para="We help organizations meet environmental, social,
           and governance goals through expert-led strategies
           in ESG reporting, decarbonization, and supplier

@@ -1,14 +1,14 @@
 import React from 'react'
 
-import EventBenifitsCTR from '@/containers/events/boardroom/EventBenifitsCTR'
-import EventHighlightCTR from '@/containers/events/boardroom/EventHighlightCTR'
-import GuestCTR from '@/containers/events/boardroom/GuestCTR'
-import EventsOppertunityCTR from '@/containers/events/boardroom/EventOppertunityCTR'
-import EventReviewCTR from '@/containers/events/boardroom/EventReviewCTR'
+import EventBenifitsCTR from '@/containers/business-hub/events/boardroom/EventBenifitsCTR'
+import EventHighlightCTR from '@/containers/business-hub/events/boardroom/EventHighlightCTR'
+import GuestCTR from '@/containers/business-hub/events/boardroom/GuestCTR'
+import EventsOppertunityCTR from '@/containers/business-hub/events/boardroom/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/business-hub/events/boardroom/EventReviewCTR'
 
 import EventsHeroComp from '@/components/events/EventsHeroCompBoard'
 import EventSponserComp from '@/components/events/EventSponserComp'
-import AgendaCTR from '@/containers/events/boardroom/AgendaCTR'
+import AgendaCTR from '@/containers/business-hub/events/boardroom/AgendaCTR'
 
 export const metadata = {
     title: 'Boardroom Preparedness',

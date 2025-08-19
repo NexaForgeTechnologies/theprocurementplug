@@ -1,15 +1,15 @@
 import React from 'react'
 
-import EventBenifitsCTR from '@/containers/events/scotland/EventBenifitsCTR'
-import EventHighlightCTR from '@/containers/events/scotland/EventHighlightCTR'
+import EventBenifitsCTR from '@/containers/business-hub/events/scotland/EventBenifitsCTR'
+import EventHighlightCTR from '@/containers/business-hub/events/scotland/EventHighlightCTR'
 import EventsHeroComp from '@/components/events/EventsHeroCompScot'
 import EventSponserComp from '@/components/events/EventSponserComp'
 
-import EventsOppertunityCTR from '@/containers/events/scotland/EventOppertunityCTR'
-import EventReviewCTR from '@/containers/events/scotland/EventReviewCTR'
+import EventsOppertunityCTR from '@/containers/business-hub/events/scotland/EventOppertunityCTR'
+import EventReviewCTR from '@/containers/business-hub/events/scotland/EventReviewCTR'
 
-import GuestCTR from '@/containers/events/scotland/GuestCTR'
-import AgendaCTR from '@/containers/events/scotland/AgendaCTR'
+import GuestCTR from '@/containers/business-hub/events/scotland/GuestCTR'
+import AgendaCTR from '@/containers/business-hub/events/scotland/AgendaCTR'
 
 export const metadata = {
     title: 'Elevate Glasgow August 2025',
