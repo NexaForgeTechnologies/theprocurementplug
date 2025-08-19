@@ -43,50 +43,51 @@ export class ConsultantRepo {
         }
     }
 
-    static async getConsultantById(id) {
-
+    static async getConsultantsByTypeId(typeId) {
         try {
-            const [rows] = await db.query(`
-        SELECT 
-            c.id,
-            c.consultant_type_id,
-            ct.value AS consultant_type_name,
-            c.industry_id,
-            i.value AS industry_name,
-            c.location_id,
-            l.value AS location_name,
-            c.specialism_id,
-            s.value AS specialism_name,
-            c.img,
-            c.name,
-            c.designation,
-            c.company,
-            c.overview,
-            c.email,
-            c.experties_areas,
-            c.engagement_models,
-            c.clients,
-            c.testimonials,
-            c.created_at,
-            c.updated_at,
-            c.deleted_at
-        FROM consultants c
-        LEFT JOIN consultant_types ct ON c.consultant_type_id = ct.id
-        LEFT JOIN industries i ON c.industry_id = i.id
-        LEFT JOIN locations l ON c.location_id = l.id
-        LEFT JOIN specialisms s ON c.specialism_id = s.id
-        WHERE c.deleted_at IS NULL AND c.consultant_type_id = ?
-        LIMIT 1;
-      `, [id]);
+            const [rows] = await db.query(
+                `
+                SELECT 
+                    c.id,
+                    c.consultant_type_id,
+                    ct.value AS consultant_type_name,
+                    c.industry_id,
+                    i.value AS industry_name,
+                    c.location_id,
+                    l.value AS location_name,
+                    c.specialism_id,
+                    s.value AS specialism_name,
+                    c.img,
+                    c.name,
+                    c.designation,
+                    c.company,
+                    c.overview,
+                    c.email,
+                    c.experties_areas,
+                    c.engagement_models,
+                    c.clients,
+                    c.testimonials,
+                    c.created_at,
+                    c.updated_at,
+                    c.deleted_at
+                FROM consultants c
+                LEFT JOIN consultant_types ct ON c.consultant_type_id = ct.id
+                LEFT JOIN industries i ON c.industry_id = i.id
+                LEFT JOIN locations l ON c.location_id = l.id
+                LEFT JOIN specialisms s ON c.specialism_id = s.id
+                WHERE c.deleted_at IS NULL AND c.consultant_type_id = ?;
+                `,
+                [typeId]
+            );
 
             if (rows.length === 0) {
-                return null;
+                return [];
             }
 
-            return this.mapRowToConsultant(rows[0]);
+            return rows.map(this.mapRowToConsultant); // ✅ map each row into object
         } catch (error) {
-            console.error("Error fetching consultant by id:", error);
-            throw new Error("Unable to fetch consultant from the database");
+            console.error("Error fetching consultants by types:", error);
+            throw new Error("Unable to fetch consultants from the database");
         }
     }
 
