@@ -1,26 +1,80 @@
 "use client";
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import BtnOne from '../components/BtnOne';
 import useFormStore from '../useFormStore';
+import axios from 'axios';
 
 export default function FormApplication() {
-  const {isOpen, setIsOpen} = useFormStore();
+
+  const [formData, setFormData] = useState({
+    membership_type: "",
+    name: "",
+    job: "",
+    company_name: "",
+    email: "",
+    linkedin: "",
+    country: "",
+    interests: [],           // store Step 3 “what attracts you” checkboxes
+    membership_options: [],  // store Step 3 “membership type options” checkboxes
+    seniority: "",
+    goals: "",
+    benefits: "",
+    source: [],            // array for “How did you hear about us” checkboxes
+    source_other: "",      // text for “Other”
+    invite_option: ""      // radio yes/no
+  }
+  );
+
+  // For text, email, radio inputs
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // For checkboxes (multi-select arrays)
+  const handleCheckboxChange = (e, key) => {
+    const { value, checked } = e.target;
+
+    setFormData((prev) => {
+      let updatedArray = [...prev[key]];
+
+      if (checked) {
+        updatedArray.push(value); // add if checked
+      } else {
+        updatedArray = updatedArray.filter((item) => item !== value); // remove if unchecked
+      }
+
+      return { ...prev, [key]: updatedArray };
+    });
+  };
+
+  // Submit handler
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log(formData);
+
+    try {
+      const res = await axios.post("/api/waitlist", formData);
+      alert(res.data.message);
+    } catch (err) {
+      console.error(err);
+      alert("Error submitting form");
+    }
+  };
+
+
+  const { isOpen, setIsOpen } = useFormStore();
 
   useEffect(() => {
     isOpen ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "unset"
   }, [isOpen])
 
-  // useEffect(() => {
-  //   const SwitchHandler = (OpenCondition) => {
-  //     setIsOpen(OpenCondition);
-  //   }
-  // }, [isOpen])
 
   return (
     <>
       {isOpen && (
         <section className="fixed top-0 left-0 w-screen h-screen z-50 bg-black/80 py-8 md:py-10 overflow-y-auto">
-          <form className="flex justify-center items-center" >
+          <form className="flex justify-center items-center"
+            onSubmit={handleSubmit} >
 
             <section className='bg-[#151515] p-6 rounded-lg shadow-lg border border-[#444444] flex flex-col gap-7
                w-full max-w-3xl relative mx-5'>
@@ -56,6 +110,8 @@ export default function FormApplication() {
                         type="radio"
                         name="membership_type"
                         value="individual"
+                        checked={formData.membership_type === "individual"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -67,9 +123,11 @@ export default function FormApplication() {
                   <label className="flex items-start gap-x-3">
                     <div>
                       <input
-                        type="radio"
+                        type='radio'
                         name="membership_type"
                         value="business"
+                        checked={formData.membership_type === "business"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -86,6 +144,8 @@ export default function FormApplication() {
                   <span className='font-normal ml-1'>About You / Your Organisation</span></h1>
 
                 <div className="space-y-2 mt-2 grid grid-cols-1 md:grid-cols-2 gap-x-5 gap-y-3">
+
+                  {/* Name */}
                   <label className="flex flex-col justify-start gap-y-2">
                     <div>
                       <span className='text-[white] text-base md:text-xl'>
@@ -94,11 +154,17 @@ export default function FormApplication() {
                     </div>
                     <input
                       type="text"
+                      name="name"
                       placeholder="Full Name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
                       className="appearance-none w-full bg-[#151515] border border-[#444444] rounded-md px-3 py-2 text-[#C2C2C2] placeholder-[#C2C2C2] focus:outline-none"
                     />
                   </label>
 
+
+                  {/* Job Title */}
                   <label className="flex flex-col justify-start gap-y-2">
                     <div>
                       <span className='text-[white] text-base md:text-xl'>
@@ -107,11 +173,16 @@ export default function FormApplication() {
                     </div>
                     <input
                       type="text"
+                      name="job"
                       placeholder="Job Title"
+                      value={formData.job}
+                      onChange={handleChange}
+                      required
                       className="appearance-none w-full bg-[#151515] border border-[#444444] rounded-md px-3 py-2 text-[#C2C2C2] placeholder-[#C2C2C2] focus:outline-none"
                     />
                   </label>
 
+                  {/* Company Name (optional) */}
                   <label className="flex flex-col justify-start gap-y-2">
                     <div>
                       <span className='text-[white] text-base md:text-xl'>
@@ -120,12 +191,15 @@ export default function FormApplication() {
                     </div>
                     <input
                       type="text"
+                      name="company_name"
                       placeholder="Company Name (if applicable)"
+                      value={formData.company_name}
+                      onChange={handleChange}
                       className="appearance-none w-full bg-[#151515] border border-[#444444] rounded-md px-3 py-2 text-[#C2C2C2] placeholder-[#C2C2C2] focus:outline-none"
                     />
                   </label>
 
-
+                  {/* Email */}
                   <label className="flex flex-col justify-start gap-y-2">
                     <div>
                       <span className='text-[white] text-base md:text-xl'>
@@ -133,12 +207,17 @@ export default function FormApplication() {
                       </span>
                     </div>
                     <input
-                      type="Email"
+                      type="email"
+                      name="email"
                       placeholder="Email Address"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
                       className="appearance-none w-full bg-[#151515] border border-[#444444] rounded-md px-3 py-2 text-[#C2C2C2] placeholder-[#C2C2C2] focus:outline-none"
                     />
                   </label>
 
+                  {/* LinkedIn (optional) */}
                   <label className="flex flex-col justify-start gap-y-2">
                     <div>
                       <span className='text-[white] text-base md:text-xl'>
@@ -147,11 +226,15 @@ export default function FormApplication() {
                     </div>
                     <input
                       type="text"
+                      name="linkedin"
                       placeholder="LinkedIn Profile (optional)"
+                      value={formData.linkedin}
+                      onChange={handleChange}
                       className="appearance-none w-full bg-[#151515] border border-[#444444] rounded-md px-3 py-2 text-[#C2C2C2] placeholder-[#C2C2C2] focus:outline-none"
                     />
                   </label>
 
+                  {/* Country */}
                   <label className="flex flex-col justify-start gap-y-2">
                     <div>
                       <span className='text-[white] text-base md:text-xl'>
@@ -160,7 +243,11 @@ export default function FormApplication() {
                     </div>
                     <input
                       type="text"
+                      name="country"
                       placeholder="Country of Residence"
+                      value={formData.country}
+                      onChange={handleChange}
+                      required
                       className="appearance-none w-full bg-[#151515] border border-[#444444] rounded-md px-3 py-2 text-[#C2C2C2] placeholder-[#C2C2C2] focus:outline-none"
                     />
                   </label>
@@ -180,6 +267,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Boardroom Readiness"
+                        checked={formData.interests.includes("Boardroom Readiness")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -192,6 +282,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Representing a Business / Organisation"
+                        checked={formData.interests.includes("Representing a Business / Organisation")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -204,6 +297,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Proprietary Leadership Tools (XecAchieve, XecXchange, etc.)"
+                        checked={formData.interests.includes("Proprietary Leadership Tools (XecAchieve, XecXchange, etc.)")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -216,6 +312,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Executive Retreats & In-Person Events"
+                        checked={formData.interests.includes("Executive Retreats & In-Person Events")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -228,6 +327,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Virtual Masterclasses & On-Demand Learning"
+                        checked={formData.interests.includes("Virtual Masterclasses & On-Demand Learning")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -240,6 +342,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Enterprise Transformation Strategy"
+                        checked={formData.interests.includes("Enterprise Transformation Strategy")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -252,6 +357,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Coaching & Concierge Support"
+                        checked={formData.interests.includes("Coaching & Concierge Support")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -264,10 +372,19 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Other"
+                        checked={formData.interests.includes("Other")}
+                        onChange={(e) => handleCheckboxChange(e, "interests")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
-                        Other (please specify): <input type="text" placeholder='_____________' className='pl-2 outline-none border-none bg-transparent' />
+                        Other (please specify):
+                        <input
+                          type="text"
+                          value={formData.other_interest || ""}
+                          onChange={(e) => setFormData({ ...formData, other_interest: e.target.value })}
+                          placeholder='_____________'
+                          className='pl-2 outline-none border-none bg-transparent' />
                       </span>
                     </div>
                   </label>
@@ -282,6 +399,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Digital Membership (virtual access)"
+                        checked={formData.membership_options.includes("Digital Membership (virtual access)")}
+                        onChange={(e) => handleCheckboxChange(e, "membership_options")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -294,6 +414,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Xec House Membership (in-person access)"
+                        checked={formData.membership_options.includes("Xec House Membership (in-person access)")}
+                        onChange={(e) => handleCheckboxChange(e, "membership_options")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -306,6 +429,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Not sure yet – I’d like to explore options"
+                        checked={formData.membership_options.includes("Not sure yet – I’d like to explore options")}
+                        onChange={(e) => handleCheckboxChange(e, "membership_options")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -328,7 +454,10 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="radio"
-                        name="seniorityLevel"
+                        name="seniority"
+                        value="CPO"
+                        checked={formData.seniority === "CPO"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -341,7 +470,10 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="radio"
-                        name="seniorityLevel"
+                        name="seniority"
+                        value="Director / Head of Procurement"
+                        checked={formData.seniority === "Director / Head of Procurement"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -354,7 +486,10 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="radio"
-                        name="seniorityLevel"
+                        name="seniority"
+                        value="VP / AVP"
+                        checked={formData.seniority === "VP / AVP"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -367,7 +502,10 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="radio"
-                        name="seniorityLevel"
+                        name="seniority"
+                        value="Executive / NED"
+                        checked={formData.seniority === "Executive / NED"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -380,11 +518,20 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="radio"
-                        name="seniorityLevel"
+                        name="seniority"
+                        value="Other"
+                        checked={formData.seniority === "Other"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
-                        Other: <input type="text" placeholder='_____________' className='pl-2 outline-none border-none bg-transparent' />
+                        Other:
+                        <input
+                          type="text"
+                          value={formData.seniority_other}
+                          onChange={(e) => setFormData({ ...formData, seniority_other: e.target.value })}
+                          placeholder='_____________'
+                          className='pl-2 outline-none border-none bg-transparent' />
                       </span>
                     </div>
                   </label>
@@ -392,12 +539,24 @@ export default function FormApplication() {
 
                 <div className='flex flex-col gap-y-3 mt-2'>
                   <p className="font-normal text-white text-base md:text-2xl">What are your next leadership goals (e.g., COO, CEO, NED, transformation lead)? </p>
-                  <textarea rows="4" placeholder='Write your answer' className="w-full bg-transparent text-[#C2C2C2] border border-[#C2C2C2]/50 min-h-30 outline-none rounded p-2"></textarea>
+                  <textarea
+                    value={formData.goals}
+                    onChange={handleChange}
+                    name="goals"
+                    rows="4"
+                    placeholder='Write your answer'
+                    className="w-full bg-transparent text-[#C2C2C2] border border-[#C2C2C2]/50 min-h-30 outline-none rounded p-2"></textarea>
                 </div>
 
                 <div className='flex flex-col gap-y-3 mt-2'>
                   <p className="font-normal text-white text-base md:text-2xl">What would you hope to gain from being part of the founding cohort?</p>
-                  <textarea rows="4" placeholder='Write your answer' className="w-full bg-transparent text-[#C2C2C2] border border-[#C2C2C2]/50 min-h-30 outline-none rounded p-2"></textarea>
+                  <textarea
+                    value={formData.benefits}
+                    onChange={handleChange}
+                    name="benefits"
+                    rows="4"
+                    placeholder='Write your answer'
+                    className="w-full bg-transparent text-[#C2C2C2] border border-[#C2C2C2]/50 min-h-30 outline-none rounded p-2"></textarea>
                 </div>
 
               </section>
@@ -413,6 +572,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        name='linkedin'
+                        value={formData.linkedin}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -425,6 +587,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Referral"
+                        checked={formData.source.includes("Referral")}
+                        onChange={(e) => handleCheckboxChange(e, "source")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -437,6 +602,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Procurement Plug Ecosystem"
+                        checked={formData.source.includes("Procurement Plug Ecosystem")}
+                        onChange={(e) => handleCheckboxChange(e, "source")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -449,6 +617,9 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Event or Webinar"
+                        checked={formData.source.includes("Event or Webinar")}
+                        onChange={(e) => handleCheckboxChange(e, "source")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -461,10 +632,18 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="checkbox"
+                        value="Other"
+                        checked={formData.source.includes("Other")}
+                        onChange={(e) => handleCheckboxChange(e, "source")}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
-                        Other: <input type="text" placeholder='_____________' className='pl-2 outline-none border-none bg-transparent' />
+                        Other:
+                        <input type="text"
+                          value={formData.source_other}
+                          onChange={(e) => setFormData({ ...formData, source_other: e.target.value })}
+                          placeholder='_____________'
+                          className='pl-2 outline-none border-none bg-transparent' />
                       </span>
                     </div>
                   </label>
@@ -479,7 +658,10 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="radio"
-                        name='inviteOption'
+                        name="invite_option"
+                        value="Yes"
+                        checked={formData.invite_option === "Yes"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -492,7 +674,10 @@ export default function FormApplication() {
                     <div>
                       <input
                         type="radio"
-                        name='inviteOption'
+                        name="invite_option"
+                        value="No"
+                        checked={formData.invite_option === "No"}
+                        onChange={handleChange}
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>

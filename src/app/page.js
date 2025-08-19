@@ -1,4 +1,3 @@
-import MembershipComp from "./components/MembershipComp";
 import FormApplication from "./containers/FormApplication";
 import FoundingCTA from "./containers/FoundingCTA";
 import HeroCont from "./containers/HeroCont";

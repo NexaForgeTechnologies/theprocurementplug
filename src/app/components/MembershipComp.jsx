@@ -28,9 +28,9 @@ export default function MembershipComp({ title, subtitle, subHead, includes = []
             </ul>
 
             {/* Button */}
-            <button className="mt-auto " onClick={() => setIsOpen(!isOpen)}>
+            <div className="mt-auto " onClick={() => setIsOpen(!isOpen)}>
                 <BtnOne name={buttonText} />
-            </button>
+            </div>
         </div>
     );
 }
