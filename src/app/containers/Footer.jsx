@@ -23,7 +23,7 @@ export default function Footer() {
                             target="_blank"
                         >
                             <li className="flex items-center gap-x-3 hover:opacity-80 transition-opacity">
-                                <img src="linkedin.png" alt="LinkedIn" className="w-5 h-5" />
+                                <img src="/linkedin.png" alt="LinkedIn" className="w-5 h-5" />
                                 <span>Achiever Group</span>
                             </li>
                         </Link>
@@ -31,21 +31,21 @@ export default function Footer() {
                         {/* Email */}
                         <Link href="mailto:grow@achievergrp.com">
                             <li className="flex items-center gap-x-3 hover:opacity-80 transition-opacity">
-                                <img src="text.png" alt="Email" className="w-5 h-5" />
+                                <img src="/text.png" alt="Email" className="w-5 h-5" />
                                 <u className="break-all">grow@achievergrp.com</u>
                             </li>
                         </Link>
 
                         {/* Location */}
                         <li className="flex items-center gap-x-3 hover:opacity-80 transition-opacity">
-                            <img src="location.png" alt="Location" className="w-5 h-auto" />
+                            <img src="/location.png" alt="Location" className="w-5 h-auto" />
                             <span>UK</span>
                         </li>
 
                         {/* Privacy Policy */}
                         <Link href="https://achiever-group-latest-stg.vercel.app/privacypolicy" target="_blank">
                             <li className="flex items-center gap-x-1.5 hover:opacity-80 transition-opacity -ml-1">
-                                <img src="privacy.png" alt="Location" className="w-7 h-auto" />
+                                <img src="/privacy.png" alt="Location" className="w-7 h-auto" />
                                 <span className="">Privacy Policy</span>
                             </li>
                         </Link>
