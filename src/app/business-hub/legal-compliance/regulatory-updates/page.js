@@ -1,9 +1,14 @@
 import React from 'react'
 
-function page() {
+import RegulatoryUpdatesCTR from '@/containers/business-hub/legal-compliance/regulatory-updates/RegulatoryUpdatesCTR';
+
+function Page() {
+
     return (
-        <div>regulatory-updates</div>
+        <>
+            <RegulatoryUpdatesCTR />
+        </>
     )
 }
 
-export default page
+export default Page

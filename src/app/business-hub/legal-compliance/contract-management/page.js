@@ -1,9 +1,14 @@
 import React from 'react'
 
-function page() {
+import ContractManagementCTR from '@/containers/business-hub/legal-compliance/contract-management/ContractManagementCTR';
+
+function Page() {
+
     return (
-        <div>contract-management</div>
+        <>
+            <ContractManagementCTR />
+        </>
     )
 }
 
-export default page
+export default Page
