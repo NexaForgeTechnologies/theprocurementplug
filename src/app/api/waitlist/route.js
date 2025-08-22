@@ -146,15 +146,15 @@ export async function POST(request) {
       html: userEmailHtml,
     });
 
-    // ---- Fire-and-forget emails ----
-    transporter.sendMail(adminEmailPromise).catch(err =>
+    // ---- Fire-and-forget (no await) ----
+    adminEmailPromise.catch(err =>
       console.error("❌ Failed to send admin email:", err)
     );
-    transporter.sendMail(userEmailPromise).catch(err =>
+    userEmailPromise.catch(err =>
       console.error("❌ Failed to send user email:", err)
     );
 
-    // ✅ Respond immediately (fast)
+    // ✅ Respond immediately
     return Response.json(
       {
         success: true,
