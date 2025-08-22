@@ -146,8 +146,6 @@ export async function POST(request) {
       html: userEmailHtml,
     });
 
-    // ---- Send user confirmation email (Email 1) ----
-
     // ---- Fire-and-forget emails ----
     transporter.sendMail(adminEmailPromise).catch(err =>
       console.error("❌ Failed to send admin email:", err)
