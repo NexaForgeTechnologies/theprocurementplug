@@ -1,5 +1,5 @@
 "use client"
-import useFormStore from "../useFormStore";
+import useFormStore from "../store/useFormStore";
 import BtnOne from "../components/BtnOne";
 
 export default function FoundingCTA() {

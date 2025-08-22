@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Roboto } from "next/font/google";
-import Header from "./containers/Header";
-import Footer from "./containers/Footer";
+import Header from "../containers/Header";
+import Footer from "../containers/Footer";
 
 const roboto = Roboto({
   weight: ["400", "700"], // Choose weights you need

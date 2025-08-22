@@ -1,12 +1,13 @@
 "use client";
 import { useEffect, useState } from 'react';
 import BtnOne from '../components/BtnOne';
-import useFormStore from '../useFormStore';
+import useFormStore from '../store/useFormStore';
 import axios from 'axios';
 
 export default function FormApplication() {
 
-  const [formData, setFormData] = useState({
+  // initial state
+  const initialFormState = {
     membership_type: "",
     name: "",
     job: "",
@@ -14,16 +15,17 @@ export default function FormApplication() {
     email: "",
     linkedin: "",
     country: "",
-    interests: [],           // store Step 3 “what attracts you” checkboxes
-    membership_options: [],  // store Step 3 “membership type options” checkboxes
+    interests: [],           // Step 3 checkboxes
+    membership_options: [],  // Step 3 checkboxes
     seniority: "",
     goals: "",
     benefits: "",
-    source: [],            // array for “How did you hear about us” checkboxes
+    source: [],            // array checkboxes
     source_other: "",      // text for “Other”
     invite_option: ""      // radio yes/no
-  }
-  );
+  };
+
+  const [formData, setFormData] = useState(initialFormState);
 
   // For text, email, radio inputs
   const handleChange = (e) => {
@@ -50,11 +52,15 @@ export default function FormApplication() {
   // Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
 
     try {
       const res = await axios.post("/api/waitlist", formData);
       alert(res.data.message);
+
+      if (res.data.success) {
+        // ✅ Reset form
+        setFormData(initialFormState);
+      }
     } catch (err) {
       console.error(err);
       alert("Error submitting form");

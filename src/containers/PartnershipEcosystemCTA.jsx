@@ -1,7 +1,7 @@
 "use client";
 import BtnOne from "../components/BtnOne";
 import ListCard from "../components/ListCard";
-import useFormStore from "../useFormStore";
+import useFormStore from "../store/useFormStore";
 
 export default function PartnershipEcosystemCTA() {
     const {isOpen, setIsOpen} = useFormStore();

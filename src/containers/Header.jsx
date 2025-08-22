@@ -1,6 +1,6 @@
 "use client";
 import BtnOne from "../components/BtnOne";
-import useFormStore from "../useFormStore";
+import useFormStore from "../store/useFormStore";
 export default function Header() {
 
 const { isOpen, setIsOpen } = useFormStore();

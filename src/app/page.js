@@ -1,12 +1,12 @@
-import FormApplication from "./containers/FormApplication";
-import FoundingCTA from "./containers/FoundingCTA";
-import HeroCont from "./containers/HeroCont";
-import InvestorOpportunity from "./containers/InvestorOpportunity";
-import MembershipCont from "./containers/MembershipCont";
-import OperatingModel from "./containers/OperatingModel";
-import PartnershipEcosystem from "./containers/PartnershipEcosystem";
-import PartnershipEcosystemCont from "./containers/PartnershipEcosystemCTA";
-import WhatIsXecPlug from "./containers/WhatIsXecPlug";
+import FormApplication from "../containers/FormApplication";
+import FoundingCTA from "../containers/FoundingCTA";
+import HeroCont from "../containers/HeroCont";
+import InvestorOpportunity from "../containers/InvestorOpportunity";
+import MembershipCont from "../containers/MembershipCont";
+import OperatingModel from "../containers/OperatingModel";
+import PartnershipEcosystem from "../containers/PartnershipEcosystem";
+import PartnershipEcosystemCont from "../containers/PartnershipEcosystemCTA";
+import WhatIsXecPlug from "../containers/WhatIsXecPlug";
 
 export default function Home() {
   return (
