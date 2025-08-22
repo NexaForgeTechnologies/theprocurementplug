@@ -110,24 +110,31 @@ export async function POST(request) {
         <li>Receive an early invitation to The <b>Xec House membership</b> and our 2026 executive retreats</li>
       </ul>
       <p>📅 We’ll begin onboarding founding members from <b>Spring 2026</b>. Until then, you’ll receive exclusive updates and insights on how the platform is shaping up.</p>
-      <p>Welcome aboard,<br/>The Xec Plug Team</p>
+
+      <p>Welcome aboard,</br>
+      The Xec Plug Team</br>
+      xecplug@theprocurementplug.com</p>
     `;
     } else {
       // ✅ Business template
-      subject = "You're on the list — Xec Plug Business Membership";
+      subject = "Your organisation is on the waitlist – Xec Plug Enterprise";
       userEmailHtml = `
-      <p>Hi ${name},</p>
-      <p>Thank you for registering your interest in <b>The Xec Plug – Business Membership</b>.</p>
-      <p>This exclusive membership is designed for companies and executive teams who want to accelerate procurement transformation and strengthen leadership impact at scale.</p>
-      <p>As a business member, you’ll gain early access to:</p>
+      <p>Hi ${name},</br></p>
+      <p>Thank you for registering your organisation’s interest in <b>The Xec Plug</b> — the first-of-its-kind leadership platform preparing procurement teams for enterprise transformation, C-suite progression, and boardroom influence.</br></p>
+      <p>Your interest confirms a shared vision: that procurement is no longer just a function, but a force for strategic enterprise value.</br></p>
+      <p>As an enterprise partner, you’ll soon gain priority access to:</p>
       <ul>
-        <li><b>Enterprise-level XecEdge tools</b> to measure and enhance organizational procurement maturity</li>
-        <li>Team access to <b>XecXchange executive circles</b> for peer learning</li>
-        <li>Tailored <b>leadership workshops</b> and <b>enterprise concierge services</b></li>
-        <li>Priority invitations to <b>Xec House corporate retreats</b> and <b>board-level strategy sessions</b></li>
+        <li>Our <b>XecEdge Leadership Suite — </b>including team diagnostics, AI benchmarking, and enterprise-level leadership analytics.</li>
+        <li>Bespoke <b>CPO-to-COO capability programmes</b></li>
+        <li>Access to our <b>strategic secondment model</b> via XecXchange</li>
+        <li>Tailored team access to our <b>concierge service</b>, retreats, and masterclasses</li>
+        <li>Enterprise onboarding to both <b>Digital</b> and <b>Xec House</b> tier pathways</br></li>
       </ul>
-      <p>📅 Business memberships will launch alongside our founding cohort in <b>Spring 2026</b>. We’ll be in touch with next steps and exclusive previews of the corporate membership model.</p>
-      <p>We’re excited to explore how Xec Plug can support your organization’s growth journey.<br/>The Xec Plug Team</p>
+      <p>Enterprise onboarding will begin from <b>Spring 2026</b>, with strategic briefings and early partner discovery calls scheduled ahead of launch.</p>
+      <p>We’ll be in touch shortly to schedule an optional intro call with our founder or partnerships team.</br></p>
+      <p>Warm regards,</br>
+      The Xec Plug Team</br>
+      xecplug@theprocurementplug.com</p>
     `;
     }
 
