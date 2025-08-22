@@ -141,14 +141,20 @@ export async function POST(request) {
 
     // ---- Send user confirmation email (Email 1) ----
 
-    // Send emails simultaneously
-    await Promise.all([adminEmailPromise, userEmailPromise]);
+    // ---- Fire-and-forget emails ----
+    transporter.sendMail(adminEmailPromise).catch(err =>
+      console.error("❌ Failed to send admin email:", err)
+    );
+    transporter.sendMail(userEmailPromise).catch(err =>
+      console.error("❌ Failed to send user email:", err)
+    );
 
+    // ✅ Respond immediately (fast)
     return Response.json(
       {
         success: true,
         message:
-          "✅ Application submitted successfully. Confirmation email sent!",
+          "✅ Application submitted successfully. Emails are being sent in background.",
         applicationId: result.insertId,
       },
       { status: 200 }

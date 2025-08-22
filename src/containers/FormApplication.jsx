@@ -60,6 +60,7 @@ export default function FormApplication() {
       if (res.data.success) {
         // ✅ Reset form
         setFormData(initialFormState);
+        setIsOpen(false);
       }
     } catch (err) {
       console.error(err);
