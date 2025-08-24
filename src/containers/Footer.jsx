@@ -55,7 +55,7 @@ export default function Footer() {
 
             {/* Bottom Bar */}
             <section className="py-3 md:py-4 rounded-2xl bg-gradient-to-r from-[#111] to-[#B08D57] text-white border border-[#444] flex flex-wrap justify-center items-center gap-x-1 text-sm sm:text-base text-center">
-                <Link href={'https://achiever-group-latest-stg.vercel.app/'} target="_blank">
+                <Link href={'https://achiever-grp.com/'} target="_blank">
                     <span>©2025 Achiever Group |</span>
                 </Link>
                 <Link href={'https://nexaforgetech.com/'} target="_blank">
