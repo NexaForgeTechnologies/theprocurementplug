@@ -186,7 +186,7 @@ export async function POST(request) {
     const response = Response.json(
       {
         success: true,
-        message: "Application submitted successfully. Welcome email being sent!",
+        message: "🎉 You're in! Welcome to the XecPlug Founding Waitlist. You'll receive a confirmation email shortly with next steps.",
         applicationId: result.insertId,
       },
       { status: 200 }
