@@ -293,14 +293,6 @@ export async function POST(req) {
   }
   */
 
-  // Configure Nodemailer transporter
-  // const transporter = nodemailer.createTransport({
-  //     service: "gmail",
-  //     auth: {
-  //         user: process.env.SMTP_XEC_USER,
-  //         pass: process.env.SMTP_XEC_PASS,
-  //     },
-  // });
   const transporter = nodemailer.createTransport({
     host: "smtp.office365.com",
     port: 587,
@@ -311,94 +303,92 @@ export async function POST(req) {
     },
   });
 
+  // Email options for user
+  const adminEmail = process.env.SMTP_XEC_USER;
 
-
-  // Subscriber confirmation email template
-  const subscriberEmailTemplate = `
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to The Procurement Plug!</title>
-    </head>
-    <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
-    <div style=" background-color: #F4F4F4; width: 100%; height: 20px;"></div>
-      <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <tr>
-          <td style="padding: 20px;">
-            <h1 style="font-size: 24px; color: #333333; margin: 0 0 20px;">Thank You for Subscribing!</h1>
-            <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
-              Welcome to <strong>The Procurement Plug</strong>! You're now part of our community and will receive the latest updates on features, releases, and more.
-            </p>
-            <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
-              Stay tuned for exciting news and insights straight to your inbox!
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding: 20px; text-align: center; background-color: #f4f4f4; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
-            <p style="font-size: 14px; color: #999999; margin: 0;">
-              © ${new Date().getFullYear()} The Procurement Plug. All rights reserved.
-            </p>
-          </td>
-        </tr>
-      </table>
-    </body>
-    </html>
-  `;
-
-  // Admin notification email template
   const adminEmailTemplate = `
     <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>New Subscriber Notification</title>
-    </head>
-    <body style="margin: 0; padding: 0; font-family: Arial, sans-serif; background-color: #f4f4f4;">
-    <div style=" background-color: #F4F4F4; width: 100%; height: 20px;"></div>
-      <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-        <tr>
-          <td style="padding: 20px;">
-            <h1 style="font-size: 24px; color: #333333; margin: 0 0 20px;">New Subscriber Notification</h1>
-            <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
-              A new user has subscribed to <strong>The Procurement Plug</strong> newsletter.
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>New Waitlist Signup</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+            <h2 style="color: #2c3e50;">New XecPlug Waitlist Registration</h2>
+
+            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <p><strong>Name:</strong> ${name || 'Not provided'}</p>
+              <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+              <p><strong>Job Title:</strong> ${job || 'Not provided'}</p>
+              <p><strong>Company:</strong> ${company_name || 'Not provided'}</p>
+              <p><strong>Country:</strong> ${country || 'Not provided'}</p>
+              <p><strong>Membership Type:</strong> ${membership_type || 'Not provided'}</p>
+              <p><strong>LinkedIn:</strong> ${linkedin || 'Not provided'}</p>
+            </div>
+
+            <p>A new registration has been submitted to the XecPlug waitlist.</p>
+            <p style="margin-top: 30px; font-size: 12px; color: #666;">
+              This is an automated notification from your XecPlug waitlist system.
             </p>
-            <p style="font-size: 16px; color: #666666; line-height: 1.5; margin: 0 0 20px;">
-              <strong>Subscriber Details:</strong><br/>
-              Email: ${email}<br/>
-              Subscribed at: ${new Date().toLocaleString()}
-            </p>
-          </td>
-        </tr>
-        <tr>
-          <td style="padding: 20px; text-align: center; background-color: #f4f4f4; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px;">
-            <p style="font-size: 14px; color: #999999; margin: 0;">
-              © ${new Date().getFullYear()} The Procurement Plug. All rights reserved.
-            </p>
-          </td>
-        </tr>
-      </table>
-    </body>
-    </html>
+          </div>
+        </body>
+      </html>
   `;
 
-  // Email options for subscriber
-  const subscriberMailOptions = {
-    from: `"The Procurement Plug" <${process.env.SMTP_XEC_USER}>`,
-    to: email,
-    subject: "Welcome to The Procurement Plug Newsletter!",
-    html: subscriberEmailTemplate,
+  const adminEmailOptions = {
+    from: `"XecPlug Waitlist" <${process.env.SMTP_XEC_USER}>`,
+    to: adminEmail,
+    subject: "New Waitlist Signup - XecPlug!",
+    html: adminEmailTemplate,
   };
 
   // Email options for admin
-  const adminMailOptions = {
-    from: `"The Procurement Plug" <${process.env.SMTP_XEC_USER}>`,
-    to: process.env.SMTP_XEC_USER,
-    subject: "New Subscriber Notification",
-    html: adminEmailTemplate,
+  const userEmailTemplate = `
+    <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Welcome to XecPlug Waitlist</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 30px;">
+              <h1 style="color: #2c3e50; margin-bottom: 10px;">🎉 Welcome to XecPlug!</h1>
+              <p style="color: #7f8c8d; font-size: 16px;">You're on the Founding Waitlist</p>
+            </div>
+
+            <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;">
+              <p style="margin-bottom: 15px;">Hi ${name || 'there'},</p>
+
+              <p style="margin-bottom: 15px;">Thank you for applying to join XecPlug.</p>
+
+              <p style="margin-bottom: 15px;">You're now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.</p>
+
+              <p style="margin-bottom: 15px;">You'll receive a confirmation email shortly with more information.</p>
+
+              <p style="margin-bottom: 20px;">Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.</p>
+
+              <p style="margin-bottom: 5px;">We're honored to have you on this journey.</p>
+              <p style="font-weight: bold;">— The XecPlug Team</p>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+              <p style="font-size: 12px; color: #666;">
+                This email was sent because you signed up for the XecPlug waitlist.<br>
+                If you have any questions, please don't reply to this email.
+              </p>
+            </div>
+          </div>
+        </body>
+      </html>
+  `;
+
+  const userEmailOptions = {
+    from: `"The XecPlug Team" <${process.env.SMTP_XEC_USER}>`,
+    to: email,
+    subject: "Welcome to XecPlug Founding Waitlist",
+    html: userEmailTemplate,
   };
 
   // Send both emails
@@ -406,8 +396,8 @@ export async function POST(req) {
     await transporter.verify();
     console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.SMTP_XEC_USER });
     await Promise.all([
-      transporter.sendMail(subscriberMailOptions),
-      transporter.sendMail(adminMailOptions),
+      transporter.sendMail(userEmailOptions),
+      transporter.sendMail(adminEmailOptions),
     ]);
     return NextResponse.json({ message: "Subscription successful! Confirmation emails sent." });
   } catch (error) {
