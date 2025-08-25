@@ -432,16 +432,17 @@ export async function POST(req) {
   try {
     await transporter.verify();
     console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.SMTP_XEC_USER });
-    // await Promise.all([
-    //   transporter.sendMail(userEmailOptions),
-    //   transporter.sendMail(adminEmailOptions),
-    // ]);
-    // Don't wait for emails to complete
-    Promise.all([
+    await Promise.all([
       transporter.sendMail(userEmailOptions),
       transporter.sendMail(adminEmailOptions),
-    ]).catch(err => console.error("Email sending failed:", err));
+    ]);
     
+    // Don't wait for emails to complete
+    // Promise.all([
+    //   transporter.sendMail(userEmailOptions),
+    //   transporter.sendMail(adminEmailOptions),
+    // ]).catch(err => console.error("Email sending failed:", err));
+
     return NextResponse.json({ message: "🎉 You're in! Welcome to the XecPlug Founding Waitlist. You'll receive a confirmation email shortly with next steps." });
   } catch (error) {
     console.error("Email error:", error);
