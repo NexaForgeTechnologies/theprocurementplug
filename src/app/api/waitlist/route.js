@@ -236,16 +236,28 @@
 
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
-// import mysql from "mysql2/promise";
+import mysql from "mysql2/promise";
 
 export async function POST(req) {
-  const { email } = await req.json();
+  const body = await req.json();
 
-  // Validate email
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    console.error("Invalid or missing email:", email);
-    return NextResponse.json({ error: "Please provide a valid email address" }, { status: 400 });
-  }
+  const {
+    membership_type,
+    name,
+    job,
+    company_name,
+    email,
+    linkedin,
+    country,
+    interests,
+    membership_options,
+    seniority,
+    goals,
+    benefits,
+    source,
+    source_other,
+    invite_option,
+  } = body;
 
   // Validate environment variables
   if (!process.env.SMTP_XEC_USER || !process.env.SMTP_XEC_PASS) {
@@ -257,31 +269,56 @@ export async function POST(req) {
   }
 
   // Initialize MySQL connection
-  /*
+
   let connection;
   try {
     connection = await mysql.createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_NAME,
+      host: process.env.DATABASE_HOST,
+      user: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE_NAME,
     });
- 
-    // Check if email already exists
-    const [rows] = await connection.execute(
-      "SELECT email FROM subscribers WHERE email = ?",
-      [email]
-    );
- 
-    if (rows.length > 0) {
-      return NextResponse.json({ error: "This email is already subscribed" }, { status: 400 });
-    }
- 
-    // Insert email into subscribers table
+
+    // ---- Insert into database ----
     await connection.execute(
-      "INSERT INTO subscribers (email, subscribed_at) VALUES (?, NOW())",
-      [email]
+      `INSERT INTO waitlist 
+      (
+        membership_type, 
+        name, 
+        job_title, 
+        company_name, 
+        email, 
+        linkedin, 
+        country, 
+        interests, 
+        membership_options,
+        seniority,
+        goals,
+        benefits,
+        source,
+        source_other,
+        invite_option
+      )
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        membership_type || null,
+        name || null,
+        job || null,
+        company_name || null,
+        email || null,
+        linkedin || null,
+        country || null,
+        JSON.stringify(interests) || null,
+        JSON.stringify(membership_options) || null,
+        seniority || null,
+        goals || null,
+        benefits || null,
+        JSON.stringify(source) || null,
+        source_other || null,
+        invite_option || null,
+      ]
     );
+
   } catch (error) {
     console.error("Database error:", error);
     if (error.code === "ER_DUP_ENTRY") {
@@ -291,7 +328,7 @@ export async function POST(req) {
   } finally {
     if (connection) await connection.end();
   }
-  */
+
 
   const transporter = nodemailer.createTransport({
     host: "smtp.office365.com",
@@ -395,11 +432,17 @@ export async function POST(req) {
   try {
     await transporter.verify();
     console.log("Sending emails to:", { subscriberEmail: email, adminEmail: process.env.SMTP_XEC_USER });
-    await Promise.all([
+    // await Promise.all([
+    //   transporter.sendMail(userEmailOptions),
+    //   transporter.sendMail(adminEmailOptions),
+    // ]);
+    // Don't wait for emails to complete
+    Promise.all([
       transporter.sendMail(userEmailOptions),
       transporter.sendMail(adminEmailOptions),
-    ]);
-    return NextResponse.json({ message: "Subscription successful! Confirmation emails sent." });
+    ]).catch(err => console.error("Email sending failed:", err));
+    
+    return NextResponse.json({ message: "🎉 You're in! Welcome to the XecPlug Founding Waitlist. You'll receive a confirmation email shortly with next steps." });
   } catch (error) {
     console.error("Email error:", error);
     return NextResponse.json({ error: "Failed to send confirmation emails" }, { status: 500 });
