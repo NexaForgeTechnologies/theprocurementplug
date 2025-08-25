@@ -66,106 +66,159 @@ export async function POST(request) {
     // ---- Nodemailer setup ----
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: false, // use TLS (true) if port 465
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_PORT == 465, // true for 465, false for other ports
       auth: {
-        user: process.env.SMTP_XEC_USER, // should match SMTP credentials
+        user: process.env.SMTP_XEC_USER,
         pass: process.env.SMTP_XEC_PASS,
       },
+      // Add these for better deliverability
+      tls: {
+        rejectUnauthorized: false
+      }
     });
-
-    const adminEmail = process.env.SMTP_XEC_USER;
 
     // ---- Send admin email ----
-    const adminEmailPromise = transporter.sendMail({
-      from: `"Xec Plug Waitlist" <${process.env.SMTP_XEC_USER}>`,
+    const adminEmail = process.env.SMTP_XEC_USER;
+
+    const adminEmailTemplate = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>New Waitlist Signup</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+            <h2 style="color: #2c3e50;">New XecPlug Waitlist Registration</h2>
+            
+            <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+              <p><strong>Name:</strong> ${name || 'Not provided'}</p>
+              <p><strong>Email:</strong> ${email || 'Not provided'}</p>
+              <p><strong>Job Title:</strong> ${job || 'Not provided'}</p>
+              <p><strong>Company:</strong> ${company_name || 'Not provided'}</p>
+              <p><strong>Country:</strong> ${country || 'Not provided'}</p>
+              <p><strong>Membership Type:</strong> ${membership_type || 'Not provided'}</p>
+              <p><strong>LinkedIn:</strong> ${linkedin || 'Not provided'}</p>
+            </div>
+            
+            <p>A new registration has been submitted to the XecPlug waitlist.</p>
+            <p style="margin-top: 30px; font-size: 12px; color: #666;">
+              This is an automated notification from your XecPlug waitlist system.
+            </p>
+          </div>
+        </body>
+      </html>
+    `;
+
+    const adminEmailOptions = {
+      from: `"XecPlug Waitlist" <${process.env.SMTP_XEC_USER}>`,
       to: adminEmail,
-      subject: "Hi Team, New Waitlist Signup",
-      html: `
-      <p>Name: ${name}</p>
-      <p>Email: ${email}</p>
-      <p>Job Title: ${job}</p>
-      <p>Company: ${company_name}</p>
-      <p>Country: ${country}</p>
-      <p>Business type: ${membership_type}</p>
-        <p>A new registration has just been submitted to the XecPlug waitlist.</p>
-      `,
-    });
+      subject: "New Waitlist Signup - XecPlug",
+      html: adminEmailTemplate,
+      // Add text version for better deliverability
+      text: `New XecPlug Waitlist Registration\n\nName: ${name}\nEmail: ${email}\nJob Title: ${job}\nCompany: ${company_name}\nCountry: ${country}\nMembership Type: ${membership_type}\n\nA new registration has been submitted to the XecPlug waitlist.`,
+      // Add headers to improve deliverability
+      headers: {
+        'X-Priority': '3',
+        'X-MSMail-Priority': 'Normal',
+        'Importance': 'Normal'
+      }
+    };
 
-    // ---- Build user confirmation email based on membership type ----
-    let subject, userEmailHtml;
-
-    if (membership_type === "individual") {
-      // ✅ Individual template
-      subject = "You're on the list — welcome to Xec Plug";
-      userEmailHtml = `
-      <p>Hi ${name},</p>
-      <p>Thank you for joining the waitlist for <b>The Xec Plug</b> — our invitation-only platform preparing procurement leaders for enterprise transformation and boardroom influence.</p>
-      <p>This is not just a membership. It’s a high-calibre leadership ecosystem designed to support your next leap — from CPO to COO, CEO, or board-level strategist.</p>
-      <p>As part of the waitlist, you’ll be among the first to:</p>
-      <ul>
-        <li>Access our <b>proprietary XecEdge tools</b> including XecAchieve and the Decision-Making Impact Tracker</li>
-        <li>Join <b>executive peer exchange</b> placements via XecXchange</li>
-        <li>Explore our <b>concierge services</b> and <b>virtual masterclasses</b></li>
-        <li>Receive an early invitation to The <b>Xec House membership</b> and our 2026 executive retreats</li>
-      </ul>
-      <p>📅 We’ll begin onboarding founding members from <b>Spring 2026</b>. Until then, you’ll receive exclusive updates and insights on how the platform is shaping up.</p>
-
-      <p>Welcome aboard,</br>
-      The Xec Plug Team</br>
-      xecplug@theprocurementplug.com</p>
+    // ---- Send user email ----
+    const userEmailTemplate = `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8">
+          <title>Welcome to XecPlug Waitlist</title>
+        </head>
+        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+          <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+            <div style="text-align: center; margin-bottom: 30px;">
+              <h1 style="color: #2c3e50; margin-bottom: 10px;">🎉 Welcome to XecPlug!</h1>
+              <p style="color: #7f8c8d; font-size: 16px;">You're on the Founding Waitlist</p>
+            </div>
+            
+            <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;">
+              <p style="margin-bottom: 15px;">Hi ${name || 'there'},</p>
+              
+              <p style="margin-bottom: 15px;">Thank you for applying to join XecPlug.</p>
+              
+              <p style="margin-bottom: 15px;">You're now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.</p>
+              
+              <p style="margin-bottom: 15px;">You'll receive a confirmation email shortly with more information.</p>
+              
+              <p style="margin-bottom: 20px;">Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.</p>
+              
+              <p style="margin-bottom: 5px;">We're honored to have you on this journey.</p>
+              <p style="font-weight: bold;">— The XecPlug Team</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
+              <p style="font-size: 12px; color: #666;">
+                This email was sent because you signed up for the XecPlug waitlist.<br>
+                If you have any questions, please don't reply to this email.
+              </p>
+            </div>
+          </div>
+        </body>
+      </html>
     `;
-    } else {
-      // ✅ Business template
-      subject = "Your organisation is on the waitlist – Xec Plug Enterprise";
-      userEmailHtml = `
-      <p>Hi ${name},</br></p>
-      <p>Thank you for registering your organisation’s interest in <b>The Xec Plug</b> — the first-of-its-kind leadership platform preparing procurement teams for enterprise transformation, C-suite progression, and boardroom influence.</br></p>
-      <p>Your interest confirms a shared vision: that procurement is no longer just a function, but a force for strategic enterprise value.</br></p>
-      <p>As an enterprise partner, you’ll soon gain priority access to:</p>
-      <ul>
-        <li>Our <b>XecEdge Leadership Suite — </b>including team diagnostics, AI benchmarking, and enterprise-level leadership analytics.</li>
-        <li>Bespoke <b>CPO-to-COO capability programmes</b></li>
-        <li>Access to our <b>strategic secondment model</b> via XecXchange</li>
-        <li>Tailored team access to our <b>concierge service</b>, retreats, and masterclasses</li>
-        <li>Enterprise onboarding to both <b>Digital</b> and <b>Xec House</b> tier pathways</br></li>
-      </ul>
-      <p>Enterprise onboarding will begin from <b>Spring 2026</b>, with strategic briefings and early partner discovery calls scheduled ahead of launch.</p>
-      <p>We’ll be in touch shortly to schedule an optional intro call with our founder or partnerships team.</br></p>
-      <p>Warm regards,</br>
-      The Xec Plug Team</br>
-      xecplug@theprocurementplug.com</p>
-    `;
-    }
 
-    // ---- Send user confirmation email ----
-    const userEmailPromise = transporter.sendMail({
-      from: `"The Xec Plug Team" <${process.env.SMTP_XEC_USER}>`,
+    const userEmailOptions = {
+      from: `"The XecPlug Team" <${process.env.SMTP_XEC_USER}>`,
       to: email,
-      subject,
-      html: userEmailHtml,
-    });
+      subject: "Welcome to XecPlug Founding Waitlist!",
+      html: userEmailTemplate,
+      // Add text version
+      text: `Hi ${name || 'there'},\n\nThank you for applying to join XecPlug.\n\nYou're now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.\n\nYou'll receive a confirmation email shortly with more information.\n\nStay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.\n\nWe're honored to have you on this journey.\n\n— The XecPlug Team`,
+      // Add headers
+      headers: {
+        'X-Priority': '3',
+        'X-MSMail-Priority': 'Normal',
+        'Importance': 'Normal'
+      }
+    };
 
-    // ---- Fire-and-forget (no await) ----
-    adminEmailPromise.catch(err =>
-      console.error("❌ Failed to send admin email:", err)
-    );
-    userEmailPromise.catch(err =>
-      console.error("❌ Failed to send user email:", err)
-    );
-
-    // ✅ Respond immediately
-    return Response.json(
+    // ✅ Respond immediately BEFORE sending emails
+    const response = Response.json(
       {
         success: true,
-        message:
-          "✅ Application submitted successfully. Emails are being sent in background.",
+        message: "Application submitted successfully. Welcome email being sent!",
         applicationId: result.insertId,
       },
       { status: 200 }
     );
+
+    // ---- Send emails in background (fire and forget) ----
+    setImmediate(async () => {
+      try {
+        await transporter.verify();
+        console.log("SMTP connection verified successfully");
+
+        const emailResults = await Promise.allSettled([
+          transporter.sendMail(userEmailOptions),
+          transporter.sendMail(adminEmailOptions),
+        ]);
+
+        emailResults.forEach((result, index) => {
+          if (result.status === 'rejected') {
+            console.error(`Email ${index + 1} failed:`, result.reason);
+          } else {
+            console.log(`Email ${index + 1} sent successfully:`, result.value.messageId);
+          }
+        });
+
+      } catch (emailError) {
+        console.error("Background email sending error:", emailError);
+      }
+    });
+
+    return response;
   } catch (error) {
-    console.error("❌ Error inserting into database or sending email:", error);
+    console.error("❌ Error inserting into database:", error);
     return Response.json(
       {
         success: false,
