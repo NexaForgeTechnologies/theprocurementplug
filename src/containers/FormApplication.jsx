@@ -49,9 +49,17 @@ export default function FormApplication() {
     });
   };
 
+  const [loading, setLoading] = useState(false);
   // Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    // keep loading for 9 seconds, then reset
+    setTimeout(() => {
+      setLoading(false);
+    }, 9800);
+
 
     try {
       const res = await axios.post("/api/waitlist", formData);
@@ -119,6 +127,7 @@ export default function FormApplication() {
                         value="individual"
                         checked={formData.membership_type === "individual"}
                         onChange={handleChange}
+                        required
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
@@ -551,6 +560,7 @@ export default function FormApplication() {
                     onChange={handleChange}
                     name="goals"
                     rows="4"
+                    required
                     placeholder='Write your answer'
                     className="w-full bg-transparent text-[#C2C2C2] border border-[#C2C2C2]/50 min-h-30 outline-none rounded p-2"></textarea>
                 </div>
@@ -563,6 +573,7 @@ export default function FormApplication() {
                     name="benefits"
                     rows="4"
                     placeholder='Write your answer'
+                    required
                     className="w-full bg-transparent text-[#C2C2C2] border border-[#C2C2C2]/50 min-h-30 outline-none rounded p-2"></textarea>
                 </div>
 
@@ -698,7 +709,7 @@ export default function FormApplication() {
 
 
               <div className='flex justify-center items-center' >
-                <BtnOne typeSubmit={"submit"} name={"Submit Application to Waitlist"} />
+                <BtnOne typeSubmit={"submit"} name={"Submit Application to Waitlist"} loading={loading} />
               </div>
             </section>
           </form>
