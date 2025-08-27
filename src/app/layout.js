@@ -3,6 +3,7 @@ import "./globals.css";
 import { Roboto } from "next/font/google";
 import Header from "../containers/Header";
 import Footer from "../containers/Footer";
+import { Toaster } from "react-hot-toast";
 
 const roboto = Roboto({
   weight: ["400", "700"], // Choose weights you need
@@ -40,6 +41,9 @@ export default function RootLayout({ children }) {
         <main className="px-5 sm:px-10 md:px-18 lg:px-20 bg-black">
           {children}
         </main>
+        <Toaster position="top-right" reverseOrder={false} toastOptions={{
+          className: "!bg-slate-800 !text-white !rounded-2xl !p-4 !shadow-lg", duration: 4000
+        }} />
         <Footer />
 
       </body>

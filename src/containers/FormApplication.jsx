@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import BtnOne from '../components/BtnOne';
 import useFormStore from '../store/useFormStore';
 import axios from 'axios';
-
+import { toast } from "react-hot-toast"; // or shadcn/ui toast
 export default function FormApplication() {
 
   // initial state
@@ -49,33 +49,30 @@ export default function FormApplication() {
     });
   };
 
+
   const [loading, setLoading] = useState(false);
-  // Submit handler
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // keep loading for 9 seconds, then reset
-    setTimeout(() => {
-      setLoading(false);
-    }, 9800);
-
-
     try {
       const res = await axios.post("/api/waitlist", formData);
-      alert(res.data.message);
 
       if (res.data.success) {
-        // ✅ Reset form
+        toast.success(res.data.message); // ✅ green toast
         setFormData(initialFormState);
         setIsOpen(false);
+      } else {
+        toast.error(res.data.message); // ❌ red toast
       }
+
+      setLoading(false); // ✅ always stop loader after showing message
     } catch (err) {
       console.error(err);
-      alert("Error submitting form");
+      toast.error("Error submitting form"); // fallback toast
+      setLoading(false);
     }
   };
-
 
   const { isOpen, setIsOpen } = useFormStore();
 
