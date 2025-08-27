@@ -170,7 +170,7 @@ export async function POST(request) {
     const userEmailOptions = {
       from: `"The XecPlug Team" <${process.env.SMTP_XEC_USER}>`,
       to: email,
-      subject: "Welcome to XecPlug Founding Waitlist!",
+      subject: "Thank you for applying to join Xec Plug.\n\n You’re now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.\n\n You’ll receive a confirmation email shortly with more information.\n\n\n\n Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.\n\n\n\n We’re honoured to have you in this journey.\n\n — The Xec Plug Team</title>",
       html: userEmailTemplate,
       // Add text version
       text: `Hi ${name || 'there'},\n\nThank you for applying to join XecPlug.\n\nYou're now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.\n\nYou'll receive a confirmation email shortly with more information.\n\nStay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.\n\nWe're honored to have you on this journey.\n\n— The XecPlug Team`,
