@@ -128,49 +128,56 @@ export async function POST(request) {
 
     // ---- Send user email ----
     const userEmailTemplate = `
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <meta charset="utf-8">
-          <title>Welcome to XecPlug Waitlist</title>
-        </head>
-        <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-          <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-            <div style="text-align: center; margin-bottom: 30px;">
-              <h1 style="color: #2c3e50; margin-bottom: 10px;">🎉 Welcome to XecPlug!</h1>
-              <p style="color: #7f8c8d; font-size: 16px;">You're on the Founding Waitlist</p>
-            </div>
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Welcome to Xec Plug</title>
+    </head>
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+      <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+          <h1 style="color: #2c3e50; margin-bottom: 10px;">🎉 Welcome to Xec Plug!</h1>
+          <p style="color: #7f8c8d; font-size: 16px;">You're on the Founding Waitlist</p>
+        </div>
 
-            <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;">
-              <p style="margin-bottom: 15px;">Hi ${name || 'there'},</p>
+        <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;">
+          <p style="margin-bottom: 15px;">Hi ${name},</p>
 
-              <p style="margin-bottom: 15px;">Thank you for applying to join XecPlug.</p>
+          <p style="margin-bottom: 15px;">
+            Thank you for joining the waitlist for <strong>The Xec Plug</strong> — our invitation-only platform preparing procurement leaders for enterprise transformation and boardroom influence.
+          </p>
 
-              <p style="margin-bottom: 15px;">You're now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.</p>
+          <p style="margin-bottom: 15px;">
+            This is not just a membership. It’s a high-calibre leadership ecosystem designed to support your next leap — from CPO to COO, CEO, or board-level strategist.
+          </p>
 
-              <p style="margin-bottom: 15px;">You'll receive a confirmation email shortly with more information.</p>
+          <p style="margin-bottom: 15px;">As part of the waitlist, you’ll be among the first to:</p>
+          <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+            <p style="margin-bottom: 8px;">✔ Access our<strong> proprietary XecEdge tools</strong> including XecAchieve and the Decision-Making Impact Tracker</p>
+            <p style="margin-bottom: 8px;">✔ Join executive peer exchange placements via <strong>XecXchange</strong></p>
+            <p style="margin-bottom: 8px;">✔ Explore our concierge services and virtual masterclasses</p>
+            <p style="margin-bottom: 8px;">✔ Receive an early invitation to <strong>The Xec House</strong> membership and our 2026 executive retreats</p>
+          </ul>
 
-              <p style="margin-bottom: 20px;">Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.</p>
+          <p style="margin-bottom: 15px;">
+            📅 We’ll begin onboarding founding members from <strong>Spring 2026</strong>. Until then, you’ll receive exclusive updates and insights on how the platform is shaping up.
+          </p>
 
-              <p style="margin-bottom: 5px;">We're honored to have you on this journey.</p>
-              <p style="font-weight: bold;">— The XecPlug Team</p>
-            </div>
+          <p style="margin-bottom: 5px;">Welcome aboard,</p>
+          <p style="font-weight: bold;">— The Xec Plug Team</p>
+        </div>
 
-            <div style="text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;">
-              <p style="font-size: 12px; color: #666;">
-                This email was sent because you signed up for the XecPlug waitlist.<br>
-                If you have any questions, please don't reply to this email.
-              </p>
-            </div>
-          </div>
-        </body>
-      </html>
-    `;
+      </div>
+    </body>
+  </html>
+`;
+
 
     const userEmailOptions = {
       from: `"The XecPlug Team" <${process.env.SMTP_XEC_USER}>`,
       to: email,
-      subject: "Thank you for applying to join Xec Plug.\n\n You’re now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.\n\n You’ll receive a confirmation email shortly with more information.\n\n\n\n Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.\n\n\n\n We’re honoured to have you in this journey.\n\n — The Xec Plug Team</title>",
+      subject: "You're on the list — welcome to Xec Plug",
       html: userEmailTemplate,
       // Add text version
       text: `Hi ${name || 'there'},\n\nThank you for applying to join XecPlug.\n\nYou're now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.\n\nYou'll receive a confirmation email shortly with more information.\n\nStay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.\n\nWe're honored to have you on this journey.\n\n— The XecPlug Team`,
@@ -192,8 +199,7 @@ export async function POST(request) {
       {
         success: true,
         message:
-          "🎉 You're in! Welcome to the XecPlug Founding Waitlist. We've emailed you confirmation.",
-        applicationId: result.insertId,
+          "🎉 You’re on the Founding Waitlist! Thank you for applying to join Xec Plug. You’re now part of an exclusive group of senior leaders preparing to shape the future of procurement aenterprise and board level. You’ll receive a confirmation email shortly with more information. Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps. We’re honoured to have you in this journey— The Xec Plug Team", applicationId: result.insertId,
       },
       { status: 200 }
     );
