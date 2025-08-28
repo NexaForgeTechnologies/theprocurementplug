@@ -31,7 +31,7 @@ export const metadata = {
     siteName: "The Achiever Group",
     images: [
       {
-        url: "https://xecplug.theprocurementplug.com//favlogo2.png", // absolute URL required
+        url: "https://xecplug.theprocurementplug.com//logo-lg.png", // absolute URL required
         width: 1200,
         height: 630,
         alt: "The Achiever Group",
@@ -45,7 +45,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "The Achiever Group",
     description: "Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
-    images: ["https://xecplug.theprocurementplug.com//favlogo2.png"], // absolute URL required
+    images: ["https://xecplug.theprocurementplug.com//logo-lg.png"], // absolute URL required
   },
 
   alternates: {
