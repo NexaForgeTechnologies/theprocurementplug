@@ -127,67 +127,114 @@ export async function POST(request) {
     };
 
     // ---- Send user email ----
-    const userEmailTemplate = `
-  <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Welcome to Xec Plug</title>
-    </head>
-    <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
-      <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
-        <div style="text-align: center; margin-bottom: 30px;">
-          <h1 style="color: #2c3e50; margin-bottom: 10px;">🎉 Welcome to Xec Plug!</h1>
-          <p style="color: #7f8c8d; font-size: 16px;">You're on the Founding Waitlist</p>
-        </div>
+    // ---- Send user email ----
+    let userEmailTemplate;
+    let userEmailSubject;
+    let userEmailText;
 
-        <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;">
-          <p style="margin-bottom: 15px;">Hi ${name},</p>
+    if (membership_type === "business") {
+      // Enterprise (organisation) email
+      userEmailSubject = "Your organisation is on the waitlist – Xec Plug Enterprise";
+      userEmailTemplate = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Welcome to Xec Plug Enterprise</title>
+          </head>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+            <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h1 style="color: #2c3e50; margin-bottom: 10px;">Xec Plug Enterprise</h1>
+                <p style="color: #7f8c8d; font-size: 16px;">Your organisation is on the waitlist</p>
+              </div>
 
-          <p style="margin-bottom: 15px;">
-            Thank you for joining the waitlist for <strong>The Xec Plug</strong> — our invitation-only platform preparing procurement leaders for enterprise transformation and boardroom influence.
-          </p>
+              <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;">
+                <p>Hi ${name || "there"},</p>
 
-          <p style="margin-bottom: 15px;">
-            This is not just a membership. It’s a high-calibre leadership ecosystem designed to support your next leap — from CPO to COO, CEO, or board-level strategist.
-          </p>
+                <p>Thank you for registering your organisation’s interest in <strong>The Xec Plug</strong> — the first-of-its-kind leadership platform preparing procurement teams for enterprise transformation, C-suite progression, and boardroom influence.</p>
 
-          <p style="margin-bottom: 15px;">As part of the waitlist, you’ll be among the first to:</p>
-          <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
-            <p style="margin-bottom: 8px;">✔ Access our<strong> proprietary XecEdge tools</strong> including XecAchieve and the Decision-Making Impact Tracker</p>
-            <p style="margin-bottom: 8px;">✔ Join executive peer exchange placements via <strong>XecXchange</strong></p>
-            <p style="margin-bottom: 8px;">✔ Explore our concierge services and virtual masterclasses</p>
-            <p style="margin-bottom: 8px;">✔ Receive an early invitation to <strong>The Xec House</strong> membership and our 2026 executive retreats</p>
-          </ul>
+                <p>Your interest confirms a shared vision: that procurement is no longer just a function, but a force for strategic enterprise value.</p>
 
-          <p style="margin-bottom: 15px;">
-            📅 We’ll begin onboarding founding members from <strong>Spring 2026</strong>. Until then, you’ll receive exclusive updates and insights on how the platform is shaping up.
-          </p>
+                <p>As an enterprise partner, you’ll soon gain priority access to:</p>
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+                  <p>✅ Our <strong>XecEdge Leadership Suite</strong> — including team diagnostics, AI benchmarking, and enterprise-level leadership analytics</p>
+                  <p>✅ Bespoke <strong>CPO-to-COO capability programmes</strong></p>
+                  <p>✅ Access to our strategic secondment model via <strong>XecXchange</strong></p>
+                  <p>✅ Tailored team access to our concierge service, retreats, and masterclasses</p>
+                  <p>✅ Enterprise onboarding to both Digital and Xec House tier pathways</p>
+                </ul>
 
-          <p style="margin-bottom: 5px;">Welcome aboard,</p>
-          <p style="font-weight: bold;">— The Xec Plug Team</p>
-        </div>
+                <p>📅 Enterprise onboarding will begin from <strong>Spring 2026</strong>, with strategic briefings and early partner discovery calls scheduled ahead of launch.</p>
 
-      </div>
-    </body>
-  </html>
-`;
+                <p>We’ll be in touch shortly to schedule an optional intro call with our founder or partnerships team.</p>
 
+                <p style="margin-bottom: 5px;">Warm regards,</p>
+                <p style="font-weight: bold;">— The Xec Plug Team</p>
+                <p>xecplug@theprocurementplug.com</p>
+              </div>
+            </div>
+          </body>
+        </html>
+      `;
+      userEmailText = `Hi ${name || "there"},\n\nThank you for registering your organisation’s interest in The Xec Plug — the first-of-its-kind leadership platform preparing procurement teams for enterprise transformation, C-suite progression, and boardroom influence.\n\nAs an enterprise partner, you’ll soon gain access to:\n- XecEdge Leadership Suite (diagnostics, AI benchmarking, analytics)\n- Bespoke CPO-to-COO capability programmes\n- XecXchange secondment model\n- Concierge, retreats, masterclasses\n- Digital and Xec House pathways\n\nOnboarding begins Spring 2026. We’ll reach out soon to schedule an intro call.\n\nWarm regards,\nThe Xec Plug Team\nxecplug@theprocurementplug.com`;
+    } else {
+      // Individual email (default)
+      userEmailSubject = "You're on the list — welcome to Xec Plug";
+      userEmailTemplate = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Welcome to Xec Plug</title>
+          </head>
+          <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+            <div style="max-width: 600px; margin: 0 auto; padding: 20px;">
+              <div style="text-align: center; margin-bottom: 30px;">
+                <h1 style="color: #2c3e50; margin-bottom: 10px;">🎉 Welcome to Xec Plug!</h1>
+                <p style="color: #7f8c8d; font-size: 16px;">You're on the Founding Waitlist</p>
+              </div>
+
+              <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 20px 0;">
+                <p>Hi ${name || "there"},</p>
+
+                <p>Thank you for joining the waitlist for <strong>The Xec Plug</strong> — our invitation-only platform preparing procurement leaders for enterprise transformation and boardroom influence.</p>
+
+                <p>This is not just a membership. It’s a high-calibre leadership ecosystem designed to support your next leap — from CPO to COO, CEO, or board-level strategist.</p>
+
+                <p>As part of the waitlist, you’ll be among the first to:</p>
+                <ul style="list-style: none; padding-left: 0; margin-bottom: 20px;">
+                  <p>✅ Access our <strong>XecEdge tools</strong> including XecAchieve and the Decision-Making Impact Tracker</p>
+                  <p>✅ Join executive peer exchange placements via <strong>XecXchange</strong></p>
+                  <p>✅ Explore our concierge services and virtual masterclasses</p>
+                  <p>✅ Receive an early invitation to <strong>The Xec House</strong> membership and our 2026 executive retreats</p>
+                </ul>
+
+                <p>📅 We’ll begin onboarding founding members from <strong>Spring 2026</strong>. Until then, you’ll receive exclusive updates and insights on how the platform is shaping up.</p>
+
+                <p style="margin-bottom: 5px;">Welcome aboard,</p>
+                <p style="font-weight: bold;">— The Xec Plug Team</p>
+              </div>
+            </div>
+          </body>
+        </html>
+      `;
+      userEmailText = `Hi ${name || "there"},\n\nThank you for joining the waitlist for The Xec Plug — our invitation-only platform preparing procurement leaders for enterprise transformation and boardroom influence.\n\nAs part of the waitlist, you’ll be among the first to:\n- Access XecEdge tools (XecAchieve, Decision-Making Impact Tracker)\n- Join executive exchanges via XecXchange\n- Explore concierge + masterclasses\n- Get early invite to The Xec House + 2026 retreats\n\nOnboarding begins Spring 2026.\n\nWelcome aboard,\nThe Xec Plug Team`;
+    }
 
     const userEmailOptions = {
       from: `"The XecPlug Team" <${process.env.SMTP_XEC_USER}>`,
       to: email,
-      subject: "You're on the list — welcome to Xec Plug",
+      subject: userEmailSubject,
       html: userEmailTemplate,
-      // Add text version
-      text: `Hi ${name || 'there'},\n\nThank you for applying to join XecPlug.\n\nYou're now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.\n\nYou'll receive a confirmation email shortly with more information.\n\nStay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.\n\nWe're honored to have you on this journey.\n\n— The XecPlug Team`,
-      // Add headers
+      text: userEmailText,
       headers: {
         'X-Priority': '3',
         'X-MSMail-Priority': 'Normal',
         'Importance': 'Normal'
       }
     };
+
 
     // ---- Verify connection + Send emails sequentially ----
     await transporter.verify();
@@ -199,7 +246,7 @@ export async function POST(request) {
       {
         success: true,
         message:
-          "🎉 You’re on the Founding Waitlist! Thank you for applying to join Xec Plug. You’re now part of an exclusive group of senior leaders preparing to shape the future of procurement aenterprise and board level. You’ll receive a confirmation email shortly with more information. Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps. We’re honoured to have you in this journey— The Xec Plug Team", applicationId: result.insertId,
+          "🎉 You’re on the Founding Waitlist! Thank you for applying to join Xec Plug. You’re now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level. You’ll receive a confirmation email shortly with more information. Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps. We’re honoured to have you in this journey— The Xec Plug Team", applicationId: result.insertId,
       },
       { status: 200 }
     );
