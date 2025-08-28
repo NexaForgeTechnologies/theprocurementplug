@@ -25,13 +25,19 @@ export const metadata = {
   title: "The Achiever Group",
   description: "Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
 
+  icons: {
+    icon: "/logo-lg.png", // served from /public/favicon.ico
+    shortcut: "/logo-lg.png",
+    apple: "/logo-lg.png",
+  },
+
   openGraph: {
     title: "The Achiever Group — CONNECT | LEAD | GROW | MEASURE",
-    url: "https://xecplug.theprocurementplug.com/", // canonical domain
+    url: "https://xecplug.theprocurementplug.com/",
     siteName: "The Achiever Group",
     images: [
       {
-        url: "https://xecplug.theprocurementplug.com//logo-lg.png", // absolute URL required
+        url: "https://xecplug.theprocurementplug.com/logo-lg.png",
         width: 1200,
         height: 630,
         alt: "The Achiever Group",
@@ -45,7 +51,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "The Achiever Group",
     description: "Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
-    images: ["https://xecplug.theprocurementplug.com//logo-lg.png"], // absolute URL required
+    images: ["https://xecplug.theprocurementplug.com/logo-lg.png"],
   },
 
   alternates: {
@@ -62,7 +68,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
       </head>
       <body
