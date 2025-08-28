@@ -245,8 +245,18 @@ export async function POST(request) {
     return Response.json(
       {
         success: true,
-        message:
-          "🎉 You’re on the Founding Waitlist! Thank you for applying to join Xec Plug. You’re now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level. You’ll receive a confirmation email shortly with more information. Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps. We’re honoured to have you in this journey— The Xec Plug Team", applicationId: result.insertId,
+       message: `🎉 You’re on the Founding Waitlist!  
+
+Thank you for applying to join Xec Plug.  
+You’re now part of an exclusive group of senior leaders preparing to shape the future of procurement at enterprise and board level.  
+
+You’ll receive a confirmation email shortly with more information.  
+Stay connected with us on LinkedIn @The Procurement Plug and check your inbox for next steps.  
+
+We’re honoured to have you in this journey —  
+The Xec Plug Team`,
+applicationId: result.insertId,
+
       },
       { status: 200 }
     );
