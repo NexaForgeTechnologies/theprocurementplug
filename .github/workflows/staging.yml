@@ -48,5 +48,6 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             cd ~/theprocurementplug.com/stagging
+            docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
             docker compose -f docker-compose.staging.yml pull
             docker compose -f docker-compose.staging.yml up -d
