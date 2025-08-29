@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "The Achiever Group",
+  title: "XECPLUG",
   description: "Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
 
   icons: {
@@ -32,15 +32,15 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "The Achiever Group — CONNECT | LEAD | GROW | MEASURE",
+    title: "XECPLUG — CONNECT | LEAD | GROW | MEASURE",
     url: "https://xecplug.theprocurementplug.com/",
-    siteName: "The Achiever Group",
+    siteName: "XECPLUG",
     images: [
       {
         url: "https://xecplug.theprocurementplug.com/logo-lg.png",
         width: 1200,
         height: 630,
-        alt: "The Achiever Group",
+        alt: "XECPLUG",
       },
     ],
     locale: "en_US",
@@ -49,7 +49,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "The Achiever Group",
+    title: "XECPLUG",
     description: "Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
     images: ["https://xecplug.theprocurementplug.com/logo-lg.png"],
   },
