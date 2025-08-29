@@ -32,7 +32,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "XECPLUG — CONNECT | LEAD | GROW | MEASURE",
+    title: "XECPLUG | Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
     url: "https://xecplug.theprocurementplug.com/",
     siteName: "XECPLUG",
     images: [
@@ -49,7 +49,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "XECPLUG",
+    title: "XECPLUG | Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
     description: "Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
     images: ["https://xecplug.theprocurementplug.com/logo-lg.png"],
   },
