@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "XECPLUG",
+  title: "XECPLUG | Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
   description: "Preparing Procurement Leaders for Enterprise and Boardroom Leadership",
 
   icons: {
