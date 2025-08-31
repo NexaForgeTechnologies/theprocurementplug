@@ -22,7 +22,7 @@ services:
     depends_on:
       - mysql
     ports:
-      - "3001:3000"
+      - "4000:4000"
     environment:
       - NODE_ENV=staging
       - DATABASE_HOST=mysql
@@ -38,8 +38,8 @@ services:
     depends_on:
       - nextapp
     ports:
-      - "8080:80"
-      - "8443:443"
+      - "80:80"
+      - "443:443"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - ./nginx/ssl:/etc/letsencrypt  # for SSL later
