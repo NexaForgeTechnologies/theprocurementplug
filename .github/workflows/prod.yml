@@ -16,7 +16,7 @@ jobs:
         id: prep
         run: |
           IMAGE="anasmughal123/nexaforge"
-          TAG="prod"
+          TAG="theprocurementplug.prod"
           echo "image_tag=${IMAGE}:${TAG}" >> "$GITHUB_OUTPUT"
 
       - name: Set up QEMU
@@ -49,8 +49,8 @@ jobs:
           script: |
             cd ~/theprocurementplug
             docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
-            docker compose pull nextapp-prod
-            docker compose up -d nextapp-prod
+            docker compose pull theprocurementplug-prod
+            docker compose up -d theprocurementplug-prod
             docker system prune -a -f
 
             
