@@ -16,7 +16,7 @@ export default function Home() {
             time: "09:00 - 09:15",
             title: "Opening Remarks & Event Introduction",
             description: "",
-            speakers: "Speakers: Graham / Annalisha",
+            speakers: "Speakers: Graham Copeland | Annalisha Noel",
             moderator: "",
         },
         {
@@ -33,13 +33,13 @@ export default function Home() {
             speakers: "Speaker: Atanu Chaudhuri",
             moderator: "",
         },
-        {
+       /* {
             time: "10:00 - 10:15",
             title: "Networking break",
             description: "",
             speakers: "",
             moderator: "",
-        },
+        },*/
         {
             time: "10:15 - 11:15",
             title: "Learning Breakout Session: Financial & Risk Modeling for Senior Procurement Professionals ",
@@ -54,13 +54,13 @@ export default function Home() {
             speakers: "Speaker: Gary Weston",
             moderator: "",
         },
-        {
+        /*{
             time: "10:15 - 11:15",
             title: "Learning Breakout Session: ESG and Social Value impact",
             description: "",
             speakers: "Speaker: Catherine Manning",
             moderator: "",
-        },
+        },*/
         {
             time: "11:15 - 11:30",
             title: "Networking Break",
@@ -69,19 +69,20 @@ export default function Home() {
             moderator: "",
         },
         {
-            time: "11:30 - 12:00",
+            time: "11:30 - 12:10",
             title: "Panel Discussion: AI & Procurement Analytics for Strategic Decision-Making",
             description: "",
-            speakers: "Speakers: Sarah Socha , Salisu Uba, David Loseby, Steve Tosh",
-            moderator: "Voice of the Day & Moderator: Graham Copeland",
+            speakers: "Speakers: Salisu Uba | Steve Tosh | Susan Walsh",
+            moderator: "Voice of the Day & Moderator: Graham Copeland - GEP",
         },
         {
-            time: "12:00 - 13:15",
+            time: "12:10 - 13:15",
             title: "Networking Lunch",
             description: "Live Tech Demo",
-            speakers: "Speakers: procurie | Nova-Love me Tender | Samification | TenderAI",
+            speakers: "Speakers: Nova-Love me Tender | Samification | TenderAI",
             moderator: "",
         },
+          
         {
             time: "13:15 - 13:35",
             title: "Keynote: Sustainability & ESG Leadership in Procurement ",
@@ -93,50 +94,50 @@ export default function Home() {
             time: "13:35 - 14:10",
             title: "Panel Discussion: Executive Influence & Strategic Stakeholder Engagement",
             description: "",
-            speakers: "Speakers: Iain Steel | Catherine Manning | Gary Weston",
+            speakers: "Speakers: Iain Steel | David Loseby | Blessed S. Agyemang",
             moderator: "",
         },
         {
-            time: "14:15 - 15:15",
-            title: "Learning Breakout Session: Strategic Risk & Compliance for Procurement Leaders",
+            time: "14:10 - 15:00",
+            title: "Group Learning Session: Strategic Risk, Cybersecurity & Compliance for Procurement Leaders",
             description: "",
             speakers: "Speaker: Steve Tosh ",
             moderator: "",
         },
         {
-            time: "14:15 - 15:15",
-            title: "Learning Breakout Session: Procurement Transformation & Change Leadership ",
+            time: "15:00 - 15:50",
+            title: "Group Learning Session: Procurement Transformation & Change Leadership",
             description: "",
             speakers: "Speakers: Iain Steel | Susan Walsh ",
             moderator: "",
         },
         {
-            time: "14:15 - 15:15",
-            title: "Learning Breakout Session: Crisis Management & Boardroom Resilience",
+            time: "15:50 - 16:15",
+            title: "Case Study Panel: Successful Boardroom Transition from Procurement",
             description: "",
-            speakers: "Speaker: Cameron Poole",
+            speakers: "Speaker: Gillian Askew | David Loseby",
             moderator: "",
         },
         {
-            time: "15:15 - 15:30",
-            title: "Networking break",
+            time: "16:15 - 16:30",
+            title: "Closing Remarks & Future Outlook",
+            description: "",
+            speakers: "Annalisha Noel",
+            moderator: "Voice of the Day & Moderator: Graham Copeland - GEP",
+        },
+        {
+            time: "16:30 - 17:00",
+            title: "Networking & Executive Meetups",
             description: "",
             speakers: "",
-            moderator: "",
+            moderator: "Voice of the Day & Moderator: Graham Copeland - GEP",
         },
-        {
-            time: "15:30 - 16:10",
-            title: "Case Study Panel: Successful Boardroom Transition from Procurement ",
-            description: "",
-            speakers: "Speakers: Gillian Askew | David Loseby",
-            moderator: "Voice of the Day & Moderator: Graham Copeland",
-        },
-        {
+       /* {
             time: "16:10 - 16:25",
             title: "Closing Remarks & Future Outlook",
             description: "",
             speakers: "",
-            moderator: "Voice of the Day & Moderator: Graham Copeland",
+            moderator: "Voice of the Day & Moderator: Graham Copeland - GEP",
         },
         {
             time: "16:25 - 17:00",
@@ -144,7 +145,7 @@ export default function Home() {
             description: "",
             speakers: "",
             moderator: "",
-        },
+        },*/
     ];
 
     const itemsPerPage = 4;
