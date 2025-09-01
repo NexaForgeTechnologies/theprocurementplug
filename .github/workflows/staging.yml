@@ -47,9 +47,9 @@ jobs:
           username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
-            cd ~/theprocurementplug/staging
+            cd ~/theprocurementplug
             docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
-            docker compose pull nextapp
-            docker compose up -d nextapp
+            docker compose pull nextjs-staging
+            docker compose up -d nextjs-staging
             docker image prune -f
             
