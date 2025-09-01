@@ -49,8 +49,8 @@ jobs:
           script: |
             cd ~/theprocurementplug/prod
             docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
-            docker compose pull nextapp
-            docker compose up -d nextapp
+            docker compose pull nextjs-prod
+            docker compose up -d nextjs-prod
             docker system prune -a -f
 
             
