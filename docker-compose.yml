@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-staging
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: stagingdb
+      MYSQL_USER: staginguser
+      MYSQL_PASSWORD: stagingpwd
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - proxy-tier
+
+  nextapp:
+    image: anasmughal123/nexaforge:staging
+    container_name: nextjs-staging
+    restart: always
+    depends_on:
+      - mysql
+    expose:
+      - "4000"
+    environment:
+      NODE_ENV: staging
+      DATABASE_HOST: mysql
+      DB_PORT: 3306
+      DATABASE_USER: staginguser
+      DATABASE_PASSWORD: stagingpwd
+      DATABASE_NAME: stagingdb
+      STRIPE_PUBLISHABLE_KEY: pk_test_51OJ1DYJWkGag7EkLy7cw901R9fnCresgJ7SdIUZBk0hY2zNVDus0FMOfqvq0d97sZi980C7wN9fupup4foWT0w0200XABZX2sc
+      STRIPE_SECRET_KEY: sk_test_51OJ1DYJWkGag7EkLUxWGviZSvDGNdjYqEcmvolB1F9oZRoM428v8m5sKHAgLLJgFiy8h7dQyMv0nbIne5ovpk97q004FTu7fdQ
+      price_id_week: price_1RsjKSJWkGag7EkLHx3QNX2i
+
+      # nginx-proxy labels for automatic routing and SSL
+      VIRTUAL_HOST: staging.theprocurementplug.com
+      LETSENCRYPT_HOST: staging.theprocurementplug.com
+      LETSENCRYPT_EMAIL: anasmughal595@gmail.com
+    networks:
+      - proxy-tier
+
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./certs:/etc/nginx/certs:ro
+      - ./vhost.d:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - proxy-tier
+
+  acme-companion:
+    image: nginxproxy/acme-companion
+    container_name: nginx-proxy-acme
+    restart: always
+    volumes:
+      - ./certs:/etc/nginx/certs
+      - ./vhost.d:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      DEFAULT_EMAIL: anasmughal595@gmail.com
+      NGINX_PROXY_CONTAINER: nginx-proxy
+    depends_on:
+      - nginx-proxy
+    networks:
+      - proxy-tier
+
+volumes:
+  mysql_data:
+
+networks:
+  proxy-tier:
+    driver: bridge

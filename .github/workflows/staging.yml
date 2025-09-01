@@ -49,5 +49,7 @@ jobs:
           script: |
             cd ~/theprocurementplug/staging
             docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
-            docker compose -f docker-compose.staging.yml pull
-            docker compose -f docker-compose.staging.yml up -d
+            docker compose pull nextapp
+            docker compose up -d nextapp
+            docker image prune -f
+            docker compose logs -f nextapp
