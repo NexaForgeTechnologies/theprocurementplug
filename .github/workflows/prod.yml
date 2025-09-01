@@ -51,5 +51,6 @@ jobs:
             docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
             docker compose pull nextapp
             docker compose up -d nextapp
-            docker image prune -f
+            docker system prune -a -f
+
             
