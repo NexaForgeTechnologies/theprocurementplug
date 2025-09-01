@@ -52,4 +52,4 @@ jobs:
             docker compose pull nextapp
             docker compose up -d nextapp
             docker image prune -f
-            docker compose logs -f nextapp
+            
