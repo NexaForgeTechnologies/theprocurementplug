@@ -9,7 +9,7 @@ export default function WhatIsXecPlug() {
                         <h1 className="text-xl md:text-3xl lg:text-4xl font-semibold text-[#B08D57]">
                             What is
                         </h1>
-                        <img src="/favicon.ico" alt="logo" className="w-30 sm:w-35 md:w-40 h-auto" />
+                        <img src="/logo.png" alt="logo" className="w-30 sm:w-35 md:w-40 h-auto" />
                     </div>
                     
                     <p className="text-base text-[#C2C2C2] max-w-250">A uniquely positioned, fully integrated, first-of-its-kind  global leadership solution combining proprietary
