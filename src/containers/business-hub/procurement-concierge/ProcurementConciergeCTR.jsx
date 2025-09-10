@@ -361,6 +361,13 @@ function ProcurementConciergeCTR() {
                     />
 
                 </div>
+                <Link href="/business-hub/procurement-concierge/pricing-plan">
+                    <button
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] self-start">
+                        View more details on Pricing Plan
+                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                    </button>
+                </Link>
             </section>
 
             {/* Fractional CPO Service */}
@@ -390,6 +397,7 @@ function ProcurementConciergeCTR() {
                     ))}
 
                     <button
+                    onClick={()=>{alert("Available soon!")}}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] ">
                         Request a Fractional CPO Intro
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
