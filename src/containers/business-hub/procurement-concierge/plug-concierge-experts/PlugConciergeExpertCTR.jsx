@@ -75,7 +75,7 @@ function PlugConciergeExpertsCTR() {
                     hassle."
                 />
                 <Breadcrumb />
-                <div className='bg-[#85009D] rounded-[6px] p-5 flex flex-col  md:flex-row items-start md:items-center justify-between'>
+                <div className='bg-[#85009D] rounded-[6px] p-5 flex flex-col md:flex-row items-start md:items-center justify-between'>
                     <div>
                         <h3 className="font-semibold text-2xl text-[#FFFFFF]">
                             Ready to become a Plug Concierge Expert
