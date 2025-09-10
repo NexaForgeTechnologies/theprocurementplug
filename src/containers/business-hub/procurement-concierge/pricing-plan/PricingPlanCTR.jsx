@@ -36,8 +36,11 @@ function PricingPlanCTR() {
     const tagStyles = {
         "Plug lite": { bgColor: "#EAC6FF", textColor: "#85009D" },
         "Plug Prime": { bgColor: "#B08D57", textColor: "#FFFFFF" },
-        "Plug Elite": { bgColor: "#85009D", textColor: "#FFFFFF" },
-        "Plug task pass": { bgColor: "#EFCB91", textColor: "#85009D" },
+        "Plug Single Task": { bgColor: "#EAC6FF", textColor: "#85009D" },
+        "Plug Strategic": { bgColor: "#B08D57", textColor: "#FFFFFF" },
+        "Plug QA Reviews": { bgColor: "#85009D", textColor: "#FFFFFF" },
+        "Plug Fractional CPO": { bgColor: "#EFCB91", textColor: "#85009D" },
+        "Plug Concierge+": { bgColor: "#85009D", textColor: "#FFFFFF" },
     };
 
     const pricingplan = [
@@ -51,7 +54,7 @@ function PricingPlanCTR() {
             data: "Up to 2 credit",
             workingday: "Working days SLA",
             workingdayvalue: "≤  5 days",
-            btntext: "Select",
+            btntext: "Register your interest",
             url: "",
             // isAnnual: true,
         },
@@ -65,13 +68,13 @@ function PricingPlanCTR() {
             data: "Up to 3 credit",
             workingday: "Working days SLA",
             workingdayvalue: "≤  5 days",
-            btntext: "Select",
+            btntext: "Register your interest",
             url: "",
             // isAnnual: true,
         },
         {
             id: 3,
-            tag: "Plug Elite",
+            tag: "Plug Single Task",
             // heading: "£73,900",
             credit: "Credits",
             creditvalue: "30",
@@ -79,21 +82,63 @@ function PricingPlanCTR() {
             data: "Up to 5 credit",
             workingday: "Working days SLA",
             workingdayvalue: "≤  5 days",
-            btntext: "Select",
+            btntext: "Register your interest",
             url: "",
             // isAnnual: true,
         },
         {
             id: 4,
-            tag: "Plug task pass",
+            tag: "Plug Strategic",
             // heading: "£3,250",
-            credit: "Light task only",
-            creditvalue: "",
-            name: "One off",
-            data: "",
+            credit: "Credits",
+            creditvalue: "8",
+            name: "Rollover Grace",
+            data: "Up to 2 credit",
             workingday: "Working days SLA",
             workingdayvalue: "≤  5 days",
-            btntext: "Select",
+            btntext: "Register your interest",
+            url: "",
+            // isAnnual: false,
+        },
+        {
+            id: 5,
+            tag: "Plug QA Reviews",
+            // heading: "£3,250",
+            credit: "Credits",
+            creditvalue: "16",
+            name: "Rollover Grace",
+            data: "Up to 3 credit",
+            workingday: "Working days SLA",
+            workingdayvalue: "≤  5 days",
+            btntext: "Register your interest",
+            url: "",
+            // isAnnual: false,
+        },
+        {
+            id: 6,
+            tag: "Plug Fractional CPO",
+            // heading: "£3,250",
+            credit: "Credits",
+            creditvalue: "30",
+            name: "Rollover Grace",
+            data: "Up to 5 credit",
+            workingday: "Working days SLA",
+            workingdayvalue: "≤  5 days",
+            btntext: "Register your interest",
+            url: "",
+            // isAnnual: false,
+        },
+        {
+            id: 7,
+            tag: "Plug Concierge+",
+            // heading: "£3,250",
+            credit: "Credits",
+            creditvalue: "8",
+            name: "Rollover Grace",
+            data: "Up to 2 credit",
+            workingday: "Working days SLA",
+            workingdayvalue: "≤  5 days",
+            btntext: "Register your interest",
             url: "",
             // isAnnual: false,
         }
@@ -143,9 +188,9 @@ function PricingPlanCTR() {
                 />
                 <Breadcrumb />
                 <h3 className="text-center font-semibold text-2xl md:text-[32px] text-[#1B1B1B] mb-4">
-                    Pricing Plan
+                    Investment Plans
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-7">
                     {pricingplan.length > 0 ? (
                         pricingplan.map((plan) => (
                             <PricingPlanTile
