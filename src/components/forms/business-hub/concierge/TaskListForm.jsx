@@ -106,7 +106,7 @@ export default function TaskListForm({ isOpen, onClose }) {
                 formDataToSend.append(key, value);
             });
 
-            const response = await fetch("/api/task-list-download", {
+            const response = await fetch("/api/business-hub/concierge/task-list-request", {
                 method: "POST",
                 body: formDataToSend,
             });
