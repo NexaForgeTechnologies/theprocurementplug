@@ -49,7 +49,7 @@ jobs:
           script: |
             cd ~/theprocurementplug
             docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
-            docker compose pull anasmughal123/nexaforge:staging
+            docker compose pull nextapp-staging
             docker compose up -d nextapp-staging
             docker system prune -a -f
 
