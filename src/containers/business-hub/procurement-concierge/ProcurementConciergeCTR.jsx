@@ -22,7 +22,7 @@ function Breadcrumb() {
                 </li>
                 <li>/</li>
                 <li className="text-[#696969]">
-                    The Procurement Plug Concierge
+                    Procurement Concierge Hub
                 </li>
             </ol>
         </nav>
@@ -104,7 +104,7 @@ function ProcurementConciergeCTR() {
                     img="/images/bussiness-hub/firsttile.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">The Procurement Plug Concierge</span>
+                            <span className="font-extrabold">Procurement Concierge Hub</span>
                         </span>
                     }
                     para="Welcome to The Procurement Plug Concierge Your On-Demand
@@ -120,7 +120,7 @@ function ProcurementConciergeCTR() {
 
                         {/* Left: Text Content */}
                         <div
-                            className="w-full lg:w-[40%] bg-[#FFFBF5] backdrop-blur-md p-6 min-h-full"
+                            className="w-full lg:w-[45%] bg-[#FFFBF5] backdrop-blur-md p-6 min-h-full"
                             style={{
                                 boxShadow: '0 25px 50px 50px #FFFBF5'
                                 // boxShadow: '0 25px 50px 100px black'
@@ -154,14 +154,18 @@ function ProcurementConciergeCTR() {
                                     Join the waitlist
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                                 </button>
-                                <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                    How It Works
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                                </button>
-                                <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                    Concierge+ Services
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
-                                </button>
+                                <Link href={"/business-hub/procurement-concierge/how-it-works"}>
+                                    <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                        How It Works
+                                        <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
+                                    </button>
+                                </Link>
+                                <Link href={"/business-hub/procurement-concierge/plug-concierge-services"}>
+                                    <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                        Concierge+ Services
+                                        <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
+                                    </button>
+                                </Link>
                             </div>
                         </div>
 
@@ -388,7 +392,7 @@ function ProcurementConciergeCTR() {
                         "Fully embedded into your Plug Concierge access",
                         "Ideal for scaling teams, leadership vacancies, or strategic change"
                     ].map((list, index) => (
-                        <div className="flex gap-2 md:gap-4 items-start">
+                        <div key={index} className="flex gap-2 md:gap-4 items-start">
                             <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                             <div>
                                 <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">{list}</p>
@@ -397,7 +401,7 @@ function ProcurementConciergeCTR() {
                     ))}
 
                     <button
-                    onClick={()=>{alert("Available soon!")}}
+                        onClick={() => { alert("Available soon!") }}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] ">
                         Request a Fractional CPO Intro
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>

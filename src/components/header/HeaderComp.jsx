@@ -121,7 +121,7 @@ const HeaderComp = () => {
                 className="text-sm font-semibold hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
               >
-                The Plug Concierge
+                Procurement Concierge Hub
               </Link>
             </li>
             <li>
