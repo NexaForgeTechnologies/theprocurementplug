@@ -88,7 +88,7 @@ const Footer = () => {
           </Link>
           <div className="max-w-[695px]">
             <p className="text-[17px] mb-[-10px] w-full">
-              Join our newsletter to stay up to date on features and releases.
+              Join our newsletter to stay up to date on features and releases....
             </p>
           </div>
           <form

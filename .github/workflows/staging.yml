@@ -39,6 +39,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ${{ steps.prep.outputs.image_tag }}
+          no-cache: true   # 🚀 Force fresh build every time
 
       - name: Deploy on AWS Staging
         uses: appleboy/ssh-action@v0.1.10
@@ -48,9 +49,7 @@ jobs:
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             cd ~/theprocurementplug
-            docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
-            docker compose pull anasmughal123/nexaforge:staging
-            docker compose up -d nextapp-staging
-            docker system prune -a -f
-
-            
+            echo "${{ secrets.DOCKERPWD }}" | docker login -u "${{ secrets.DOCKERLOGIN }}" --password-stdin
+            docker compose pull nextapp-staging
+            docker compose up -d --force-recreate --no-deps nextapp-staging
+            docker image prune -f
