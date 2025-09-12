@@ -46,7 +46,7 @@ jobs:
       - name: Deploy on AWS Production
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.AWS_PROD_HOST }}
+          host: ${{ secrets.AWS_STAGING_HOST }}
           username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
