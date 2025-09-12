@@ -1,4 +1,4 @@
-name: Deploy Staging
+name: Deploy Production
 
 on:
   push:
@@ -16,8 +16,10 @@ jobs:
         id: prep
         run: |
           IMAGE="anasmughal123/nexaforge"
-          TAG="theprocurementplug.prod"
+          DATE=$(date +'%Y%m%d')
+          TAG="theprocurementplug.prod-${DATE}"
           echo "image_tag=${IMAGE}:${TAG}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
@@ -39,18 +41,18 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: ${{ steps.prep.outputs.image_tag }}
+          no-cache: true   # 🚀 Force fresh build every time
 
-      - name: Deploy on AWS Staging
+      - name: Deploy on AWS Production
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.AWS_STAGING_HOST }}
+          host: ${{ secrets.AWS_PROD_HOST }}
           username: ubuntu
           key: ${{ secrets.AWS_SSH_KEY }}
           script: |
             cd ~/theprocurementplug
-            docker login -u "${{ secrets.DOCKERLOGIN }}" -p "${{ secrets.DOCKERPWD }}"
-            docker compose pull theprocurementplug-prod
-            docker compose up -d theprocurementplug-prod
-            docker system prune -a -f
-
-            
+            echo "${{ secrets.DOCKERPWD }}" | docker login -u "${{ secrets.DOCKERLOGIN }}" --password-stdin
+            export PROD_TAG=${{ steps.prep.outputs.image_tag }}
+            docker compose pull nextapp-prod
+            docker compose up -d nextapp-prod
+            docker image prune -f
