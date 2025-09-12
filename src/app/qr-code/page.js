@@ -1,7 +1,5 @@
 "use client"
 
-// pages/qr-event.js
-import { QRCodeCanvas } from 'qrcode.react';
 
 export default function QREventPage() {
   const url = 'https://www.theprocurementplug.com/event/elevate2025-manchester/agenda';
