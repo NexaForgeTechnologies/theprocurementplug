@@ -52,6 +52,7 @@ jobs:
           script: |
             cd ~/theprocurementplug
             echo "${{ secrets.DOCKERPWD }}" | docker login -u "${{ secrets.DOCKERLOGIN }}" --password-stdin
+            export STAGING_TAG_=${{ steps.prep.outputs.image_tag }}
             export PROD_TAG=${{ steps.prep.outputs.image_tag }}
             docker compose pull nextapp-prod
             docker compose up -d nextapp-prod
