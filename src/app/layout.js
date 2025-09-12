@@ -50,6 +50,7 @@
 
 
 import { Geist, Geist_Mono } from "next/font/google";
+import { Bodoni_Moda } from 'next/font/google';
 import "./globals.css";
 import Script from "next/script";
 import { Suspense } from "react"; // ✅ Add this
@@ -62,7 +63,11 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
-
+const bodoniModa = Bodoni_Moda({
+  variable: '--font-bodoni-moda',  // Set your custom CSS variable
+  weight: ['400', '700'],          // Specify the weights you want to load
+  subsets: ['latin'],              // Include the necessary character subsets
+});
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],

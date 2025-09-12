@@ -162,10 +162,10 @@ const HeaderComp = () => {
                     Elevate 2025 - Scotland (August)
                   </Link>
                   <Link
-                    href="/event/elevate2025-caribbean"
+                    href="/event/elevate2025-digital-global"
                     className="block py-2 text-white hover:text-[#85009D]"
                   >
-                    Elevate 2025 - Caribbean (Trinidad)
+                    Elevate 2025 - Digital Global Edition
                   </Link>
                   <Link
                     href="/event/boardroom-preparedness-for-senior-procurement-professionals"
@@ -251,10 +251,10 @@ const HeaderComp = () => {
                     Elevate 2025 - Scotland
                   </Link>
                   <Link
-                    href="/event/elevate2025-caribbean"
+                    href="/event/elevate2025-digital-global"
                     className="block text-white hover:text-[#85009D]"
                   >
-                    Elevate 2025 - Caribbean
+                    Elevate 2025 - Digital Global Edition
                   </Link>
                   <Link
                     href="/event/boardroom-preparedness-for-senior-procurement-professionals"

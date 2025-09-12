@@ -102,7 +102,7 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
               <div className="border-l-[10px] border-[#b08d57]"></div>
               <h3 className="leading-10 md:leading-20 font-extrabold text-3xl md:text-7xl text-white">
                 <span className="block">
-                  ELEVATE Caribbean Edition Trinidad
+                  ELEVATE Digital Global Edition
                 </span>
                 <span className="text-[#b08d57]">November 2025</span>
               </h3>
@@ -128,17 +128,18 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
             <div className="text-[#363636] flex flex-col gap-2">
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
                 <strong className="font-extrabold">Event Date & Time: </strong>
-                November 2025
-              </p>
-              <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
-                <strong className="font-extrabold">
-                  Caribbean Edition - Trinidad
-                </strong>
+                November 17 & 18th, 2025 - Online
               </p>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
                 <strong className="font-extrabold">Format: </strong>Chief
                 Procurement Officers (CPO), Vice Presidents & Directors of
                 Procurement, Senior Managers in Supply Chain & Procurement.
+              </p>
+              <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
+                <strong className="font-extrabold">Key Focus Areas: </strong>Future-Proofing Careers with multi-disciplinary skills, Boardroom Startegy and enterprise value, Crisis Room Simulation for decision-making under pressure, Global Growth Action Plan to translate experience into value.
+              </p>
+              <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
+                <strong className="font-extrabold">Global reach: </strong>Perfectly timed for professionals in the US, Europe, and the Middle East to attend live.
               </p>
             </div>
             <p className="text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">

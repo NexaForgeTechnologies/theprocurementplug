@@ -31,8 +31,8 @@ function EventHighlightCTR() {
 
   return (
     <div className="flex flex-col gap-6 md:gap-8">
-      <div className='max-w-[780px] m-auto text-center'>
-        <h3 className='font-extrabold text-3xl md:text-5xl mb-4 md:mb-8 text-[#010101]'>Event Workshops</h3>
+      <div className='m-auto text-center'>
+        <h3 className='font-extrabold text-2xl md:text-3xl mb-4 md:mb-8 text-[#010101]'>Event Workshops</h3>
         <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>These curated workshops focus on empowering procurement professionals with strategic and practical skills across key areas. From mastering negotiation tactics and leveraging digital tools, to optimizing cost control and embedding sustainability through ESG principles, each session offers targeted insights designed to enhance performance, drive efficiency, and deliver long-term value in modern procurement practices.</p>
       </div>
 
