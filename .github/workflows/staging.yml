@@ -54,5 +54,5 @@ jobs:
             echo "${{ secrets.DOCKERPWD }}" | docker login -u "${{ secrets.DOCKERLOGIN }}" --password-stdin
             export STAGING_TAG=${{ steps.prep.outputs.tag }}
             docker compose pull theprocurementplug-staging
-            docker compose up -d --force-recreate --no-deps theprocurementplug-staging
+            docker compose up -d theprocurementplug-staging
             docker image prune -f
