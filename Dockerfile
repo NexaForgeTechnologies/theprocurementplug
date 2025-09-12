@@ -1,27 +1,22 @@
-# -----------------------
-# Build Stage
-# -----------------------
-FROM node:20-bullseye-slim AS build
+FROM node:20-alpine AS build
 WORKDIR /app
 
-# Install dependencies
+# Needed for rebuilding native modules
+RUN apk add --no-cache libc6-compat python3 make g++
+
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Copy source code
-COPY . .
+# ⚡ Force rebuild lightningcss with Alpine-compatible binary
+RUN npm rebuild lightningcss --build-from-source
 
-# Build Next.js
+COPY . .
 RUN npm run build
 
-# -----------------------
-# Runtime Stage
-# -----------------------
-FROM node:20-bullseye-slim AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
-# Copy only the needed files
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next/standalone ./
 COPY --from=build /app/.next/static ./.next/static
