@@ -4,27 +4,50 @@ import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 
 export default function PersonalDetailForm({ isOpen, onClose }) {
-    const [formData, setFormData] = useState({
+    const experienceOptions = [
+        { value: "Years of Procurement Experience", label: "Years of Procurement Experience" },
+        { value: "Consulting Services", label: "Consulting Services" },
+        { value: "Procurement Solutions", label: "Procurement Solutions" },
+        { value: "Training Programs", label: "Training Programs" },
+        { value: "Other", label: "Other" },
+    ];
+
+    const initialFormData = {
+        // Personal & Professional Details
         name: "",
         email: "",
-        phone: "",
-        linkedIn: "",
+        linkedin: "",
         location: "",
-        currentCompany: "",
+        company: "",
         role: "",
+
+        // Expertise
         experience: "",
-        industries: "",
-        companyrole: "",
-        advisoryYes: false,
-        advisoryNo: false,
-        boardProject: "",
-        strategicRisk: "",
-        hoursPerMonth: "",
-        interestReason: "",
-    });
+        designation: "",
+        industry: "",
+
+        // Strategic & Leadership Exposure
+        services: "",
+        example: "",
+
+        // Quality & Risk Mindset
+        quality_risk_mindset: "",
+
+        // Availability & Interest
+        hours_per_month: "",
+        interest_reason: "",
+
+    }
+    const [formData, setFormData] = useState(initialFormData);
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: type === "checkbox" ? checked : value,
+        }));
+    };
 
     const modalRef = useRef(null);
-    const [alert, setAlert] = useState({ message: "", type: "", show: false });
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -66,157 +89,35 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
             };
         }
     }, [isOpen]);
-    // 
-    useEffect(() => {
-        if (alert.show) {
-            const timer = setTimeout(() => {
-                setAlert({ message: "", type: "", show: false });
-                if (alert.type === "success") {
-                    onClose();
-                }
-            }, 5000);
-            return () => clearTimeout(timer);
-        }
-    }, [alert.show, onClose]);
 
-    const validateLinkedIn = (url) => {
-        if (!url) return true; // Optional field
-        try {
-            new URL(url);
-            return url.match(/^https?:\/\/(www\.)?linkedin\.com\/in\/[\w-]+\/?$/i);
-        } catch {
-            return false;
-        }
-    };
-
+    // ✅ Submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        setAlert({ message: "", type: "", show: false });
-
-        // Client-side validation
-        if (!formData.name || !formData.email || !formData.currentCompany || !formData.role || !formData.experience || !formData.industries || !formData.companyrole || !formData.hoursPerMonth || !formData.interestReason) {
-            setAlert({
-                message: "Please fill out all required fields (Name, Email, Current Company, Role, Experience, Industries, Hours per Month, Reason for Interest).",
-                type: "error",
-                show: true,
-            });
-            setIsLoading(false);
-            return;
-        }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-            setAlert({
-                message: "Please enter a valid email address.",
-                type: "error",
-                show: true,
-            });
-            setIsLoading(false);
-            return;
-        }
-        if (formData.linkedIn && !validateLinkedIn(formData.linkedIn)) {
-            setAlert({
-                message:
-                    "Please enter a valid LinkedIn profile URL (e.g., https://www.linkedin.com/in/username) or leave it blank.",
-                type: "error",
-                show: true,
-            });
-            setIsLoading(false);
-            return;
-        }
-        if (formData.advisoryYes && formData.advisoryNo) {
-            setAlert({
-                message: "Please select only one option for advisory services (Yes or No).",
-                type: "error",
-                show: true,
-            });
-            setIsLoading(false);
-            return;
-        }
 
         try {
-            const formDataToSend = new FormData();
-            Object.entries(formData).forEach(([key, value]) => {
-                formDataToSend.append(key, value);
-            });
-
-            const response = await fetch("/api/strategic-qa-partner", {
+            const response = await fetch("/api/business-hub/concierge/become-qa-partner", {
                 method: "POST",
-                body: formDataToSend,
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             });
-
-            const contentType = response.headers.get("content-type");
-            if (!contentType || !contentType.includes("application/json")) {
-                throw new Error("Server returned non-JSON response");
-            }
 
             const result = await response.json();
 
             if (response.ok && result.success) {
-                console.log("Server returned:", result.data);
-                setAlert({
-                    message:
-                        'Thank you for your interest! We’ve received your application to join our Strategic QA Partner Network. Expect an email from us within 48 hours outlining next steps. In the meantime, you can review our QA Partner Handbook or browse our Partner Community Forum.',
-                    type: "success",
-                    show: true,
-                });
-                setFormData({
-                    name: "",
-                    email: "",
-                    phone: "",
-                    linkedIn: "",
-                    location: "",
-                    currentCompany: "",
-                    role: "",
-                    experience: "",
-                    companyrole: "",
-                    industries: "",
-                    advisoryYes: false,
-                    advisoryNo: false,
-                    boardProject: "",
-                    strategicRisk: "",
-                    hoursPerMonth: "",
-                    interestReason: "",
-                });
+                setFormData(initialFormData);
+                onClose(); // ✅ just close modal on success
             } else {
-                setAlert({
-                    message: result.error || "Failed to submit application. Please try again.",
-                    type: "error",
-                    show: true,
-                });
+                console.error(result.error || "Failed to submit application.");
             }
         } catch (error) {
             console.error("Client error:", error);
-            setAlert({
-                message: "An error occurred while submitting your application. Please try again later.",
-                type: "error",
-                show: true,
-            });
         } finally {
             setIsLoading(false);
         }
     };
 
-    const handleCloseAlert = () => {
-        setAlert({ message: "", type: "", show: false });
-    };
-
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? checked : value,
-        }));
-    };
-
     if (!isOpen) return null;
-
-    const experienceOptions = [
-        { value: "", label: "Years of Procurement Experience" },
-        { value: "consulting", label: "Consulting Services" },
-        { value: "procurement", label: "Procurement Solutions" },
-        { value: "training", label: "Training Programs" },
-        { value: "other", label: "Other" },
-    ];
 
     return (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
@@ -236,6 +137,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         <IconComponent name="close" color='#7C7C7C' size={16} />
                     </button>
                 </div>
+
                 <form onSubmit={handleSubmit} className="space-y-4 mb-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
@@ -263,9 +165,9 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         <input
                             type="url"
                             id="linkedIn"
-                            name="linkedIn"
+                            name="linkedin"
                             placeholder="LinkedIn Profile URL (Optional)"
-                            value={formData.linkedIn}
+                            value={formData.linkedin}
                             onChange={handleChange}
                             required
                             className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
@@ -284,10 +186,10 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
                             type="text"
-                            id="currentCompany"
-                            name="currentCompany"
+                            id="company"
+                            name="company"
                             placeholder="Current Company"
-                            value={formData.currentCompany}
+                            value={formData.company}
                             onChange={handleChange}
                             required
                             className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
@@ -328,10 +230,10 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         </div>
                         <input
                             type="text"
-                            id="companyrole"
-                            name="companyrole"
+                            id="designation"
+                            name="designation"
                             placeholder="What is your current or most recent role & company?"
-                            value={formData.companyrole}
+                            value={formData.designation}
                             onChange={handleChange}
                             required
                             className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
@@ -339,10 +241,10 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                     </div>
                     <input
                         type="text"
-                        id="industriesExpertise"
-                        name="industries"
+                        id="industry"
+                        name="industry"
                         placeholder="What industries do you have the strongest expertise in?"
-                        value={formData.industries}
+                        value={formData.industry}
                         onChange={handleChange}
                         required
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
@@ -359,9 +261,10 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         <div className="flex gap-10">
                             <label className="flex items-center gap-2 text-[#1B1B1B]">
                                 <input
-                                    type="checkbox"
-                                    name="advisoryYes"
-                                    checked={formData.advisoryYes}
+                                    type="radio"
+                                    name="services"
+                                    value="yes"
+                                    checked={formData.services === "yes"}
                                     onChange={handleChange}
                                     className="p-2 border border-[#85009D] rounded focus:outline-none"
                                 />
@@ -370,21 +273,23 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
 
                             <label className="flex items-center gap-2 text-[#1B1B1B]">
                                 <input
-                                    type="checkbox"
-                                    name="advisoryNo"
-                                    checked={formData.advisoryNo}
+                                    type="radio"
+                                    name="services"
+                                    value="no"
+                                    checked={formData.services === "no"}
                                     onChange={handleChange}
                                     className="p-2 border border-[#85009D] rounded focus:outline-none"
                                 />
                                 No
                             </label>
                         </div>
+
                     </div>
                     <textarea
-                        id="boardProject"
-                        name="boardProject"
+                        id="example"
+                        name="example"
                         placeholder="Please give a brief example of a board-level or enterprise project you’ve overseen"
-                        value={formData.boardProject}
+                        value={formData.example}
                         onChange={handleChange}
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                         rows="4"
@@ -394,10 +299,10 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         Quality & Risk Mindset
                     </h3>
                     <textarea
-                        id="strategicRisk"
-                        name="strategicRisk"
+                        id="quality_risk_mindset"
+                        name="quality_risk_mindset"
                         placeholder="What’s one example of how you’ve identified or mitigated a strategic risk in a procurement or sourcing project?"
-                        value={formData.strategicRisk}
+                        value={formData.quality_risk_mindset}
                         onChange={handleChange}
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                         rows="4"
@@ -408,20 +313,20 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                     </h3>
                     <input
                         type="text"
-                        id="hoursPerMonth"
-                        name="hoursPerMonth"
+                        id="hours_per_month"
+                        name="hours_per_month"
                         placeholder="How many hours per month would you ideally dedicate to Plug QA reviews?"
-                        value={formData.hoursPerMonth}
+                        value={formData.hours_per_month}
                         onChange={handleChange}
                         required
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
                     <input
                         type="text"
-                        id="interestReason"
-                        name="interestReason"
+                        id="interest_reason"
+                        name="interest_reason"
                         placeholder="Why are you interested in becoming a Plug Strategic QA Partner?"
-                        value={formData.interestReason}
+                        value={formData.interest_reason}
                         onChange={handleChange}
                         required
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"

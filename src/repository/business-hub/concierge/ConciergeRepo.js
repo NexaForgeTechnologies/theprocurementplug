@@ -53,4 +53,34 @@ export class ConciergeRepo {
         }
     }
 
+    static async saveBecomeQaPartnerForm(data) {
+        try {
+            const [result] = await db.query(
+                `INSERT INTO concierge_become_qa_partner
+                (name, email, linkedin, location, company, role, experience, designation, industry, services, example, quality_risk_mindset, hours_per_month, interest_reason)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [
+                    data.name,
+                    data.email,
+                    data.linkedin,
+                    data.location,
+                    data.company,
+                    data.role,
+                    data.experience,
+                    data.designation,
+                    data.industry,
+                    data.services,
+                    data.example,
+                    data.quality_risk_mindset,
+                    data.hours_per_month,
+                    data.interest_reason,
+                ]
+            );
+
+            return { id: result.insertId, ...data };
+        } catch (error) {
+            console.error("Error saving QA form:", error);
+            throw new Error("Unable to save form to the database");
+        }
+    }
 }
