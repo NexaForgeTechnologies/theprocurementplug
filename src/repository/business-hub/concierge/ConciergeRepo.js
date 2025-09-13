@@ -83,4 +83,26 @@ export class ConciergeRepo {
             throw new Error("Unable to save form to the database");
         }
     }
+
+    static async saveRegisterInterestForm(data) {
+        try {
+            const [result] = await db.query(
+                `INSERT INTO concierge_register_interest
+                (name, company, email, interest, subscribe)
+                VALUES (?, ?, ?, ?, ?)`,
+                [
+                    data.name,
+                    data.company,
+                    data.email,
+                    data.interest,
+                    data.subscribe
+                ]
+            );
+
+            return { id: result.insertId, ...data };
+        } catch (error) {
+            console.error("Error saving Register Interest form:", error);
+            throw new Error("Unable to save form to the database");
+        }
+    }
 }

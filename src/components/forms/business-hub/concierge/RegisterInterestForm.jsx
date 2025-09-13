@@ -4,12 +4,24 @@ import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 
 export default function ExpertForm({ isOpen, onClose }) {
-    const [formData, setFormData] = useState({
+    const [isLoading, setIsLoading] = useState(false); // ✅ FIX added
+
+    // Form Data
+    const initialFormData = {
         name: "",
         company: "",
         email: "",
         interest: "",
-    });
+        subscribe: false,
+    };
+    const [formData, setFormData] = useState(initialFormData);
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: type === "checkbox" ? checked : value,
+        }));
+    };
 
     const modalRef = useRef(null);
 
@@ -52,22 +64,34 @@ export default function ExpertForm({ isOpen, onClose }) {
             };
         }
     }, [isOpen]);
-    // 
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? checked : value,
-        }));
-    };
-
-    const handleSubmit = (e) => {
+    // ✅ Submit form
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        setFormData({ name: "", company: "", email: "", interest: "" });
-        onClose();
+        setIsLoading(true);
+
+        try {
+            const response = await fetch("/api/business-hub/concierge/register-interest", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                setFormData(initialFormData);
+                onClose();
+            } else {
+                console.error(result.error || "Failed to submit application.");
+            }
+        } catch (error) {
+            console.error("Client error:", error);
+        } finally {
+            setIsLoading(false);
+        }
     };
+
 
     if (!isOpen) return null;
 
@@ -155,9 +179,9 @@ export default function ExpertForm({ isOpen, onClose }) {
                     <div className="flex items-start gap-2">
                         <input
                             type="checkbox"
-                            id="Subscribe"
-                            name="Subscribe"
-                            checked={formData.Subscribe}
+                            id="subscribe"
+                            name="subscribe"
+                            checked={formData.subscribe}
                             onChange={handleChange}
                             required
                             className="p-2 border border-[#85009D] rounded focus:outline-none mt-[8px]"
@@ -171,9 +195,10 @@ export default function ExpertForm({ isOpen, onClose }) {
                     </div>
                     <button
                         type="submit"
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                        Register My Interest
-                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                        disabled={isLoading}
+                        className={`flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                        {isLoading ? "Submitting..." : "Register My Interest"}
+                        {!isLoading && <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>}
                     </button>
                 </form>
             </div>
