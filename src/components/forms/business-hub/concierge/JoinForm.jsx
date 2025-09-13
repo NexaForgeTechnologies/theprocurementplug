@@ -6,36 +6,77 @@ import Image from "next/image";
 import Checkbox from "@/components/business-hub/procurement-concierge/Checkbox";
 
 export default function JoinForm({ isOpen, onClose }) {
-    const [formData, setFormData] = useState({
+    // checkbox and drop down data
+    const experienceOptions = [
+        { value: "", label: "Years of Procurement Experience" },
+        { value: "consulting", label: "Consulting Services" },
+        { value: "procurement", label: "Procurement Solutions" },
+        { value: "training", label: "Training Programs" },
+        { value: "other", label: "Other" },
+    ];
+    const expertiseOptions = [
+        { key: "mcipsCips", label: "MCIPS / CIPS qualified" },
+        { key: "projectmanagement", label: "Project Management (PRINCE2 / PMP)" },
+        { key: "sixsigma", label: "Six Sigma / Lean" },
+        { key: "other", label: "Other" },
+    ];
+    const procurementAreasOptions = [
+        { key: "contractDrafting", label: "Contract drafting & reviews" },
+        { key: "sourcing", label: "Sourcing & supplier discovery" },
+        { key: "categoryStrategy", label: "Category strategy & analysis" },
+        { key: "marketInsight", label: "Market insight reports" },
+        { key: "commercialStrategies", label: "Commercial strategies development" },
+        { key: "evaluationSeat", label: "Evaluation seat" },
+        { key: "interviewSeat", label: "Interview seat" },
+        { key: "p2pSrm", label: "P2P / SRM / eSourcing systems" },
+        { key: "tenderSupport", label: "Tender support" },
+        { key: "other", label: "Other" },
+    ];
+    const availabilityOptions = [
+        { key: "immediately", label: "Immediately" },
+        { key: "withinTwoWeeks", label: "Within 2 weeks" },
+        { key: "withinOneMonth", label: "Within 1 month" },
+        { key: "laterDiscuss", label: "Later / let's discuss" },
+    ];
+    const workloadOptions = [
+        { key: "occasionalTasks", label: "Occasional tasks" },
+        { key: "regularTasks", label: "Regular tasks each month" },
+        { key: "openToLargeComplex", label: "Open to large / complex assignments" },
+    ];
+
+    // Form Data
+    const initialFormData = {
+        // About You
         name: "",
         email: "",
         phone: "",
         linkedIn: "",
         location: "",
+
+        // Experience
         experience: "",
-        message: "",
-        mcipsCips: false,
-        projectmanagement: false,
-        sixsigma: false,
-        other: false,
-        contractdrafting: false,
-        categorystrategy: false,
-        commercialstrategies: false,
-        interviewseat: false,
-        tendersupport: false,
-        sourcingsupplier: false,
-        marketinsight: false,
-        evaluationseat: false,
-        p2pSrmESourcing: false,
-        immediately: false,
-        withinonemonth: false,
-        withintwomonth: false,
-        laterdiscuss: false,
-        occasionaltasks: false,
-        opentolargecomplex: false,
-        regulartasks: false,
+        experties: [],
+        procurementAreas: [],
+        experience_details: "",
+
+        // Availability & Preferences
+        availability: [],
+        workload: [],
+
+        // cv upload
+        cv: null,
+
+        // Consent & Submit
         Subscribe: false,
-    });
+    }
+    const [formData, setFormData] = useState(initialFormData);
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: type === "checkbox" ? checked : value,
+        }));
+    };
 
     const modalRef = useRef(null);
     const [alert, setAlert] = useState({ message: "", type: "", show: false });
@@ -80,7 +121,6 @@ export default function JoinForm({ isOpen, onClose }) {
             };
         }
     }, [isOpen]);
-    // 
 
     useEffect(() => {
         if (alert.show) {
@@ -94,74 +134,32 @@ export default function JoinForm({ isOpen, onClose }) {
         }
     }, [alert.show, onClose]);
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? checked : value,
-        }));
+    const handleCloseAlert = () => {
+        setAlert({ message: "", type: "", show: false });
     };
 
+    // Submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
         setAlert({ message: "", type: "", show: false });
 
         try {
-            const formDataToSend = new FormData();
-            Object.entries(formData).forEach(([key, value]) => {
-                formDataToSend.append(key, value);
-            });
 
-            const fileInput = document.getElementById('fileInput');
-            if (fileInput.files[0]) {
-                formDataToSend.append('cv', fileInput.files[0]);
-            }
-
-            const response = await fetch('/api/become-a-plug-concierge-expert', {
+            const response = await fetch('/api/business-hub/concierge/become-expert', {
                 method: 'POST',
-                body: formDataToSend,
+                body: formData,
             });
 
             const result = await response.json();
 
             if (response.ok && result.success) {
-                console.log('Server returned:', result.data);
                 setAlert({
                     message: "Thank you for applying! We’ve received your application to join our Plug Concierge Expert Network. Look out for an email from us within the next 48 hours with next steps—meanwhile, feel free to review our Concierge Handbook or explore our Community Forum",
                     type: "success",
                     show: true,
                 });
-                setFormData({
-                    name: "",
-                    email: "",
-                    phone: "",
-                    linkedIn: "",
-                    location: "",
-                    experience: "",
-                    message: "",
-                    mcipsCips: false,
-                    projectmanagement: false,
-                    sixsigma: false,
-                    other: false,
-                    contractdrafting: false,
-                    categorystrategy: false,
-                    commercialstrategies: false,
-                    interviewseat: false,
-                    tendersupport: false,
-                    sourcingsupplier: false,
-                    marketinsight: false,
-                    evaluationseat: false,
-                    p2pSrmESourcing: false,
-                    immediately: false,
-                    withinonemonth: false,
-                    withintwomonth: false,
-                    laterdiscuss: false,
-                    occasionaltasks: false,
-                    opentolargecomplex: false,
-                    regulartasks: false,
-                    Subscribe: false,
-                });
+                setFormData(initialFormData);
                 onClose();
             } else {
                 setAlert({
@@ -182,19 +180,7 @@ export default function JoinForm({ isOpen, onClose }) {
         }
     };
 
-    const handleCloseAlert = () => {
-        setAlert({ message: "", type: "", show: false });
-    };
-
     if (!isOpen) return null;
-
-    const experienceOptions = [
-        { value: "", label: "Years of Procurement Experience" },
-        { value: "consulting", label: "Consulting Services" },
-        { value: "procurement", label: "Procurement Solutions" },
-        { value: "training", label: "Training Programs" },
-        { value: "other", label: "Other" },
-    ];
 
     return (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
@@ -220,6 +206,7 @@ export default function JoinForm({ isOpen, onClose }) {
                         </button>
                     </div>
                 )}
+
                 <div className="flex justify-between items-center">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D]">
                         Join The Plug Concierge Expert Network
@@ -231,15 +218,18 @@ export default function JoinForm({ isOpen, onClose }) {
                         <IconComponent name="close" color='#7C7C7C' size={16} />
                     </button>
                 </div>
+
                 <p className="md:max-w-[978px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
                     Join The Plug Concierge as a fractional expert and lend your specialized skills to high-impact
                     projects on a flexible schedule. Whether you're a procurement pro, data strategist, or industry
                     consultant, this is your chance to collaborate with leading organizations while maintaining control
                     over your time and focus.
                 </p>
+
                 <p className="font-semibold text-xl text-[#1B1B1B] mb-4">
                     Perks:
                 </p>
+
                 <div className="flex flex-col md:flex-row gap-4 mb-4 md:mb-8">
                     <div className="flex gap-2 items-center">
                         <div className="font-semibold text-[#B08D57] text-xl md:text-2xl">✓</div>
@@ -264,6 +254,7 @@ export default function JoinForm({ isOpen, onClose }) {
                 <p className="font-semibold text-xl text-[#1B1B1B] mb-4">
                     Apply below and we’ll be in touch.
                 </p>
+
                 <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
                     About You
                 </h3>
@@ -300,8 +291,8 @@ export default function JoinForm({ isOpen, onClose }) {
                             className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
                             type="url"
                             id="linkedIn"
@@ -323,6 +314,8 @@ export default function JoinForm({ isOpen, onClose }) {
                             className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
+
+                    {/* Experience */}
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
                         Your Experience
                     </h3>
@@ -345,133 +338,49 @@ export default function JoinForm({ isOpen, onClose }) {
                             <IconComponent name="drop-down" color="#808080" size={16} />
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3">
-                        <div className="flex-1">
-                            <p className="text-[#1B1B1B] mb-4">
-                                Do you hold any of these?
-                            </p>
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="mcipsCips"
-                                name="mcipsCips"
-                                checked={formData.mcipsCips}
-                                onChange={handleChange}
-                                label="MCIPS / CIPS qualified"
-                            />
-                            <Checkbox
-                                id="sixsigma"
-                                name="sixsigma"
-                                checked={formData.sixsigma}
-                                onChange={handleChange}
-                                label="Six Sigma / Lean"
-                            />
-                            <Checkbox
-                                id="other"
-                                name="other"
-                                checked={formData.other}
-                                onChange={handleChange}
-                                label="Other"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="projectmanagement"
-                                name="projectmanagement"
-                                checked={formData.projectmanagement}
-                                onChange={handleChange}
-                                label="Project Management (PRINCE2 / PMP)"
-                            />
-                            <Checkbox
-                                id="other"
-                                name="other"
-                                checked={formData.other}
-                                onChange={handleChange}
-                                label="Other"
-                            />
+                    {/* Experties */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
+                        {/* Label */}
+                        <p className="lg:col-span-1 text-[#1B1B1B] mb-4 lg:mb-0">
+                            Do you hold any of these?
+                        </p>
+
+                        {/* Checkboxes */}
+                        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                            {expertiseOptions.map((opt) => (
+                                <Checkbox
+                                    key={opt.key}
+                                    id={opt.key}
+                                    name={opt.key}
+                                    checked={formData[opt.key]}
+                                    onChange={handleChange}
+                                    label={opt.label}
+                                />
+                            ))}
                         </div>
                     </div>
-                    <div className="grid grid-cols-1  lg:grid-cols-3">
-                        <div className="flex-1">
-                            <p className="text-[#1B1B1B] mb-4">
-                                Key procurement areas you can support:
-                            </p>
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="contractdrafting"
-                                name="contractdrafting"
-                                checked={formData.contractdrafting}
-                                onChange={handleChange}
-                                label="Contract drafting & reviews"
-                            />
-                            <Checkbox
-                                id="categorystrategy"
-                                name="categorystrategy"
-                                checked={formData.categorystrategy}
-                                onChange={handleChange}
-                                label="Category strategy & analysis"
-                            />
-                            <Checkbox
-                                id="commercialstrategies"
-                                name="commercialstrategies"
-                                checked={formData.commercialstrategies}
-                                onChange={handleChange}
-                                label="Commercial strategies development "
-                            />
-                            <Checkbox
-                                id="interviewseat"
-                                name="interviewseat"
-                                checked={formData.interviewseat}
-                                onChange={handleChange}
-                                label="Interview seat"
-                            />
-                            <Checkbox
-                                id="tendersupport"
-                                name="tendersupport"
-                                checked={formData.tendersupport}
-                                onChange={handleChange}
-                                label="Tender support"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="sourcingsupplier"
-                                name="sourcingsupplier"
-                                checked={formData.sourcingsupplier}
-                                onChange={handleChange}
-                                label="Sourcing & supplier discovery"
-                            />
-                            <Checkbox
-                                id="marketinsight"
-                                name="marketinsight"
-                                checked={formData.marketinsight}
-                                onChange={handleChange}
-                                label="Market insight reports"
-                            />
-                            <Checkbox
-                                id="evaluationseat"
-                                name="evaluationseat"
-                                checked={formData.evaluationseat}
-                                onChange={handleChange}
-                                label="Evaluation seat"
-                            />
-                            <Checkbox
-                                id="p2pSrmESourcing"
-                                name="p2pSrmESourcing"
-                                checked={formData.p2pSrmESourcing}
-                                onChange={handleChange}
-                                label="P2P / SRM / eSourcing systems"
-                            />
-                            <Checkbox
-                                id="other"
-                                name="other"
-                                checked={formData.other}
-                                onChange={handleChange}
-                                label="Other (please specify)"
-                            />
+                    {/* Procurement Areas */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
+                        {/* Label */}
+                        <p className="lg:col-span-1 text-[#1B1B1B] mb-4 lg:mb-0">
+                            Key procurement areas you can support:
+                        </p>
+
+                        {/* Checkboxes */}
+                        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                            {procurementAreasOptions.map((opt) => (
+                                <Checkbox
+                                    key={opt.key}
+                                    id={opt.key}
+                                    name={opt.key}
+                                    checked={formData[opt.key]}
+                                    onChange={handleChange}
+                                    label={opt.label}
+                                />
+                            ))}
                         </div>
                     </div>
+                    {/* Brief Message */}
                     <textarea
                         id="message"
                         name="message"
@@ -481,80 +390,51 @@ export default function JoinForm({ isOpen, onClose }) {
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                         rows="4"
                     />
+
+                    {/* Availability & Preferences */}
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
                         Availability & Preferences
                     </h3>
-                    <div className="grid grid-cols-1 lg:grid-cols-3">
-                        <div className="flex-1">
-                            <p className="text-[#1B1B1B] mb-4">
-                                How soon could you start taking tasks?
-                            </p>
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="immediately"
-                                name="immediately"
-                                checked={formData.immediately}
-                                onChange={handleChange}
-                                label="Immediately"
-                            />
-                            <Checkbox
-                                id="withinonemonth"
-                                name="withinonemonth"
-                                checked={formData.withinonemonth}
-                                onChange={handleChange}
-                                label="Within 1 month"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="withintwomonth"
-                                name="withintwomonth"
-                                checked={formData.withintwomonth}
-                                onChange={handleChange}
-                                label="Within 2 weeks"
-                            />
-                            <Checkbox
-                                id="laterdiscuss"
-                                name="laterdiscuss"
-                                checked={formData.laterdiscuss}
-                                onChange={handleChange}
-                                label="Later / let's discuss"
-                            />
+                    {/* Availability */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
+                        <p className="lg:col-span-1 text-[#1B1B1B] mb-4 lg:mb-0">
+                            How soon could you start taking tasks?
+                        </p>
+
+                        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                            {availabilityOptions.map((opt) => (
+                                <Checkbox
+                                    key={opt.key}
+                                    id={opt.key}
+                                    name={opt.key}
+                                    checked={formData[opt.key]}
+                                    onChange={handleChange}
+                                    label={opt.label}
+                                />
+                            ))}
                         </div>
                     </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3">
-                        <div className="flex-1">
-                            <p className="text-[#1B1B1B] mb-4">
-                                Preferred workload
-                            </p>
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="occasionaltasks"
-                                name="occasionaltasks"
-                                checked={formData.occasionaltasks}
-                                onChange={handleChange}
-                                label="Occasional tasks"
-                            />
-                            <Checkbox
-                                id="opentolargecomplex"
-                                name="opentolargecomplex"
-                                checked={formData.opentolargecomplex}
-                                onChange={handleChange}
-                                label="Open to large / complex assignments"
-                            />
-                        </div>
-                        <div className="space-y-2">
-                            <Checkbox
-                                id="regulartasks"
-                                name="regulartasks"
-                                checked={formData.regulartasks}
-                                onChange={handleChange}
-                                label="Regular tasks each month"
-                            />
+                    {/* Work Load */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
+                        <p className="lg:col-span-1 text-[#1B1B1B] mb-4 lg:mb-0">
+                            Preferred workload
+                        </p>
+
+                        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                            {workloadOptions.map((opt) => (
+                                <Checkbox
+                                    key={opt.key}
+                                    id={opt.key}
+                                    name={opt.key}
+                                    checked={formData[opt.key]}
+                                    onChange={handleChange}
+                                    label={opt.label}
+                                />
+                            ))}
                         </div>
                     </div>
+
+                    {/* CV Upload */}
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
                         Optional Upload
                     </h3>
@@ -595,21 +475,12 @@ export default function JoinForm({ isOpen, onClose }) {
 
                                     const formData = new FormData();
                                     formData.append('cv', file);
-
-                                    // TODO: Upload logic here (e.g., fetch or axios call)
-                                    // Example:
-                                    // fetch('/upload-endpoint', {
-                                    //     method: 'POST',
-                                    //     body: formData
-                                    // }).then(res => res.json()).then(data => {
-                                    //     console.log('Upload success:', data);
-                                    // }).catch(err => {
-                                    //     console.error('Upload error:', err);
-                                    // });
                                 }
                             }}
                         />
                     </div>
+
+                    {/* Consent & Submit */}
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
                         Consent & Submit
                     </h3>
@@ -631,6 +502,8 @@ export default function JoinForm({ isOpen, onClose }) {
                             opportunities.
                         </label>
                     </div>
+
+                    {/* Submit Button */}
                     <button
                         type="submit"
                         disabled={isLoading}
@@ -640,6 +513,6 @@ export default function JoinForm({ isOpen, onClose }) {
                     </button>
                 </form>
             </div>
-        </div >
+        </div>
     );
 }

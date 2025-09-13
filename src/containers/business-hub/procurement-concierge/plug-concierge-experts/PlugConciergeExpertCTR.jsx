@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 // import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import JoinForm from '@/components/business-hub/procurement-concierge/JoinForm';
+import JoinForm from '@/components/forms/business-hub/concierge/JoinForm';
 
 
 function Breadcrumb() {
