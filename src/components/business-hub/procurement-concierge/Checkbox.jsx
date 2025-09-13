@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Checkbox = ({ id, name, checked, onChange, label }) => {
     return (
@@ -8,7 +8,7 @@ const Checkbox = ({ id, name, checked, onChange, label }) => {
                 id={id}
                 name={name}
                 checked={checked}
-                onChange={onChange}
+                onChange={(e) => onChange(e.target.checked)} // pass state (true/false)
                 className="p-2 border border-[#85009D] rounded focus:outline-none"
             />
             <label

@@ -16,8 +16,8 @@ export default function JoinForm({ isOpen, onClose }) {
     ];
     const expertiseOptions = [
         { key: "mcipsCips", label: "MCIPS / CIPS qualified" },
-        { key: "projectmanagement", label: "Project Management (PRINCE2 / PMP)" },
-        { key: "sixsigma", label: "Six Sigma / Lean" },
+        { key: "projectManagement", label: "Project Management (PRINCE2 / PMP)" },
+        { key: "sixSigma", label: "Six Sigma / Lean" },
         { key: "other", label: "Other" },
     ];
     const procurementAreasOptions = [
@@ -64,7 +64,7 @@ export default function JoinForm({ isOpen, onClose }) {
         workload: [],
 
         // cv upload
-        cv: null,
+        cv: "",
 
         // Consent & Submit
         Subscribe: false,
@@ -77,6 +77,20 @@ export default function JoinForm({ isOpen, onClose }) {
             [name]: type === "checkbox" ? checked : value,
         }));
     };
+    const handleCheckboxArray = (field, value) => {
+        setFormData((prev) => {
+            const current = prev[field] || [];
+            const exists = current.includes(value);
+
+            return {
+                ...prev,
+                [field]: exists
+                    ? current.filter((item) => item !== value) // remove
+                    : [...current, value], // add
+            };
+        });
+    };
+
 
     const modalRef = useRef(null);
     const [alert, setAlert] = useState({ message: "", type: "", show: false });
@@ -145,22 +159,23 @@ export default function JoinForm({ isOpen, onClose }) {
         setAlert({ message: "", type: "", show: false });
 
         try {
-
-            const response = await fetch('/api/business-hub/concierge/become-expert', {
-                method: 'POST',
-                body: formData,
+            const response = await fetch("/api/business-hub/concierge/become-expert", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
             });
 
             const result = await response.json();
 
             if (response.ok && result.success) {
                 setAlert({
-                    message: "Thank you for applying! We’ve received your application to join our Plug Concierge Expert Network. Look out for an email from us within the next 48 hours with next steps—meanwhile, feel free to review our Concierge Handbook or explore our Community Forum",
+                    message:
+                        "Thank you for applying! We’ve received your application to join our Plug Concierge Expert Network. Look out for an email from us within the next 48 hours with next steps—meanwhile, feel free to review our Concierge Handbook or explore our Community Forum.",
                     type: "success",
                     show: true,
                 });
                 setFormData(initialFormData);
-                onClose();
+                onClose(); // ✅ only close here, not in alert useEffect
             } else {
                 setAlert({
                     message: result.error || "Failed to submit application. Please try again.",
@@ -352,11 +367,12 @@ export default function JoinForm({ isOpen, onClose }) {
                                     key={opt.key}
                                     id={opt.key}
                                     name={opt.key}
-                                    checked={formData[opt.key]}
-                                    onChange={handleChange}
+                                    checked={formData.experties.includes(opt.key)}
+                                    onChange={() => handleCheckboxArray("experties", opt.key)}
                                     label={opt.label}
                                 />
                             ))}
+
                         </div>
                     </div>
                     {/* Procurement Areas */}
@@ -373,8 +389,8 @@ export default function JoinForm({ isOpen, onClose }) {
                                     key={opt.key}
                                     id={opt.key}
                                     name={opt.key}
-                                    checked={formData[opt.key]}
-                                    onChange={handleChange}
+                                    checked={formData.procurementAreas.includes(opt.key)}
+                                    onChange={() => handleCheckboxArray("procurementAreas", opt.key)}
                                     label={opt.label}
                                 />
                             ))}
@@ -407,8 +423,8 @@ export default function JoinForm({ isOpen, onClose }) {
                                     key={opt.key}
                                     id={opt.key}
                                     name={opt.key}
-                                    checked={formData[opt.key]}
-                                    onChange={handleChange}
+                                    checked={formData.availability.includes(opt.key)}
+                                    onChange={() => handleCheckboxArray("availability", opt.key)}
                                     label={opt.label}
                                 />
                             ))}
@@ -426,8 +442,8 @@ export default function JoinForm({ isOpen, onClose }) {
                                     key={opt.key}
                                     id={opt.key}
                                     name={opt.key}
-                                    checked={formData[opt.key]}
-                                    onChange={handleChange}
+                                    checked={formData.workload.includes(opt.key)}
+                                    onChange={() => handleCheckboxArray("workload", opt.key)}
                                     label={opt.label}
                                 />
                             ))}
@@ -460,21 +476,20 @@ export default function JoinForm({ isOpen, onClose }) {
                             onChange={(e) => {
                                 const file = e.target.files[0];
                                 if (file) {
-                                    const validTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-
+                                    const validTypes = [
+                                        "application/pdf",
+                                        "application/msword",
+                                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                    ];
                                     if (!validTypes.includes(file.type)) {
-                                        alert('Please upload a valid PDF or Word document (.pdf, .doc, .docx).');
+                                        alert("Please upload a valid PDF or Word document (.pdf, .doc, .docx).");
                                         return;
                                     }
-
-                                    console.log('Uploading document:', {
-                                        name: file.name,
-                                        size: file.size,
-                                        type: file.type
-                                    });
-
-                                    const formData = new FormData();
-                                    formData.append('cv', file);
+                                    const reader = new FileReader();
+                                    reader.onloadend = () => {
+                                        setFormData((prev) => ({ ...prev, cv: reader.result }));
+                                    };
+                                    reader.readAsDataURL(file); // convert to Base64
                                 }
                             }}
                         />
