@@ -91,9 +91,7 @@ export default function JoinForm({ isOpen, onClose }) {
         });
     };
 
-
     const modalRef = useRef(null);
-    const [alert, setAlert] = useState({ message: "", type: "", show: false });
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
@@ -136,27 +134,10 @@ export default function JoinForm({ isOpen, onClose }) {
         }
     }, [isOpen]);
 
-    useEffect(() => {
-        if (alert.show) {
-            const timer = setTimeout(() => {
-                setAlert({ message: "", type: "", show: false });
-                if (alert.type === "success") {
-                    onClose(); // Close modal after alert disappears
-                }
-            }, 5000);
-            return () => clearTimeout(timer);
-        }
-    }, [alert.show, onClose]);
-
-    const handleCloseAlert = () => {
-        setAlert({ message: "", type: "", show: false });
-    };
-
-    // Submit form
+    // ✅ Submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
-        setAlert({ message: "", type: "", show: false });
 
         try {
             const response = await fetch("/api/business-hub/concierge/become-expert", {
@@ -168,32 +149,18 @@ export default function JoinForm({ isOpen, onClose }) {
             const result = await response.json();
 
             if (response.ok && result.success) {
-                setAlert({
-                    message:
-                        "Thank you for applying! We’ve received your application to join our Plug Concierge Expert Network. Look out for an email from us within the next 48 hours with next steps—meanwhile, feel free to review our Concierge Handbook or explore our Community Forum.",
-                    type: "success",
-                    show: true,
-                });
                 setFormData(initialFormData);
-                onClose(); // ✅ only close here, not in alert useEffect
+                onClose(); // ✅ just close modal on success
             } else {
-                setAlert({
-                    message: result.error || "Failed to submit application. Please try again.",
-                    type: "error",
-                    show: true,
-                });
+                console.error(result.error || "Failed to submit application.");
             }
         } catch (error) {
             console.error("Client error:", error);
-            setAlert({
-                message: "An error occurred. Please try again later.",
-                type: "error",
-                show: true,
-            });
         } finally {
             setIsLoading(false);
         }
     };
+
 
     if (!isOpen) return null;
 
@@ -401,7 +368,7 @@ export default function JoinForm({ isOpen, onClose }) {
                         id="message"
                         name="message"
                         placeholder="Briefly tell us about your procurement expertise"
-                        value={formData.message}
+                        value={formData.experience_details}
                         onChange={handleChange}
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                         rows="4"
