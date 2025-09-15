@@ -29,6 +29,7 @@ function ProcurementConciergeCTR() {
     return (
         <>
             <div>
+                
                 <HeroCTR
                     img="/images/bussiness-hub/firsttile.png"
                     heading={
