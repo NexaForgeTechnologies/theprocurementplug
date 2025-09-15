@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo";
 
 // Emails
-import { registerInterestEmail } from "@/lib/emails/ConciergeEmail";
+import { RegisterInterestEmail } from "@/lib/emails/ConciergeEmail";
 
 export async function POST(request) {
     try {
@@ -12,7 +12,7 @@ export async function POST(request) {
         const saved = await ConciergeRepo.saveRegisterInterestForm(body);
 
         // Send email
-        await registerInterestEmail(body);
+        await RegisterInterestEmail(body);
 
 
         return NextResponse.json({ success: true, data: saved });

@@ -18,7 +18,7 @@ export async function TaskListDownloadEmail({ email, name }) {
 }
 
 // Register Interest Form Email
-export async function registerInterestEmail({ email, name }) {
+export async function RegisterInterestEmail({ email, name }) {
     await sendEmail({
         type: "registerInterest",
         to: email,
