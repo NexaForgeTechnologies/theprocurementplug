@@ -30,7 +30,7 @@ export const metadata = {
         description: 'Transforming Procurement Excellence & Leadership',
         images: [
             {
-                url: 'https://theprocurementplug.com/images/og/events.jpg',
+                url: 'https://theprocurementplug.com/images/og/elevate_digital_thumbnail.jpg',
                 width: 1200,
                 height: 630,
                 alt: 'Event',
@@ -41,7 +41,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Elevate Digital Global Edition November 2025',
         description: 'Transforming Procurement Excellence & Leadership',
-        images: ['https://theprocurementplug.com/images/og/events.jpg'],
+        images: ['https://theprocurementplug.com/images/og/elevate_digital_thumbnail.jpg'],
     },
 };
 
