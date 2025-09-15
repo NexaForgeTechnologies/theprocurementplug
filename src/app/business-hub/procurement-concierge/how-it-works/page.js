@@ -75,9 +75,10 @@ export default function HowItWorks() {
                             Submit Your Request
                         </h3>
                         <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
-                            You let us know what you need – whether it's a one-off task, leadership support, or a complex procurement
+                            You let us know what you need – whether it&apos;s a one-off task, leadership support, or a complex procurement
                             challenge. We guide you through a structured intake to capture objectives, timelines, and scope.
                         </p>
+
                     </div>
                     {[
                         { step: "03", title: "Task Scoping & Matching", description: "Every request is reviewed and scoped by our concierge team. Based on your requirements, we match you with the most suitable Plug Expert – a vetted procurement professional with direct experience in your industry or category.", listItems: ["Expert matching by skill, category, and seniority", "Real-world experience from former Heads of Procurement, Buyers, Analysts, and SMEs", "Flexible involvement: short-term, project-based, or advisory"] },
