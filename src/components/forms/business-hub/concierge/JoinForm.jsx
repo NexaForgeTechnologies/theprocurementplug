@@ -365,8 +365,8 @@ export default function JoinForm({ isOpen, onClose }) {
                     </div>
                     {/* Brief Message */}
                     <textarea
-                        id="message"
-                        name="message"
+                        id="experience_details"
+                        name="experience_details"
                         placeholder="Briefly tell us about your procurement expertise"
                         value={formData.experience_details}
                         onChange={handleChange}

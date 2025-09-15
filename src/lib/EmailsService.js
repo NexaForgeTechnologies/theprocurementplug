@@ -24,6 +24,16 @@ export async function sendEmail({ type, to, subject, html }) {
             pass: process.env.SMTP_CONCIERGE_PASS,
             label: "Procurement Plug Concierge",
         },
+        becomeExpert: {
+            user: process.env.SMTP_CONCIERGE_EXPERT_USER,
+            pass: process.env.SMTP_CONCIERGE_EXPERT_PASS,
+            label: "Procurement Plug Concierge",
+        },
+        becomeQaPartner: {
+            user: process.env.SMTP_CONCIERGE_EXPERT_USER,
+            pass: process.env.SMTP_CONCIERGE_EXPERT_PASS,
+            label: "Procurement Plug Concierge",
+        },
     };
 
     const account = accounts[type];

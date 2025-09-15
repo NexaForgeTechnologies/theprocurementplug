@@ -1,5 +1,10 @@
 import { NextResponse } from "next/server";
+
+// Repository
 import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo";
+
+// Emails
+import { BecomeExpertEmail } from "@/lib/emails/ConciergeEmail";
 
 export async function POST(request) {
     try {
@@ -7,8 +12,7 @@ export async function POST(request) {
         const saved = await ConciergeRepo.saveBecomeExpertForm(body);
 
         // Send confirmation email
-        await TaskListDownloadEmail(data);
-
+        await BecomeExpertEmail(body);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {
