@@ -30,7 +30,7 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
 
                     <div className="flex lg:justify-end">
                         {Btnlink1 ? (
-                            <a href={Btnlink1} download className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
+                            <a href={Btnlink1} className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
                                 <span className="text-center">
                                     {btnText1}
                                 </span>

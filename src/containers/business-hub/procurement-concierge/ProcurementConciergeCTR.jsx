@@ -599,7 +599,7 @@ function ProcurementConciergeCTR() {
                                 Join the waitlist
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </span>
-                            <Link href="" download>
+                            <Link href="\">
                                 <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
                                     Download Full Task List
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
@@ -640,10 +640,12 @@ function ProcurementConciergeCTR() {
                                 fractional expert</h2>
                             <p className="text-[#1B1B1B] text-base group-hover:text-white">Support top procurement teams on a flexible, fractional basis.Apply to become a Plug Expert or QA Reviewer.</p>
                         </div>
-                        <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
-                            Join Now
-                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                        </span>
+                        <Link href={"/business-hub/procurement-concierge/plug-concierge-experts"} className='self-start'>
+                            <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
+                                Join Now
+                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                            </span>
+                        </Link>
                     </div>
 
                 </div>
@@ -656,7 +658,7 @@ function ProcurementConciergeCTR() {
                 link2={"Concierge.expert@theprocurementplug.com"}
                 btnText1={"Download Pricing & Package Sheet"}
                 btnText2={"Book a Discovery Call"}
-                Btnlink1={"https://drive.google.com/file/d/1JqFYrSUrgFuIorVVXs6AR__GPrRXSCOn/view"}
+                Btnlink1={"/"}
                 Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
             />
 

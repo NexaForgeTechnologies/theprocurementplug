@@ -96,7 +96,7 @@ const HeaderComp = () => {
 
 
           {/* Desktop Menu */}
-          <ul className="hidden xl:flex gap-4 items-center">
+          <ul className="hidden xl:flex gap-3 items-center">
             <li>
               <Link
                 href="/resources"

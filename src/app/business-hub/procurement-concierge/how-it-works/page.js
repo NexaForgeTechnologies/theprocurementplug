@@ -173,7 +173,7 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                 <ReadyToWorkBannerComp
                     title={"Ready to Work Together?"}
                     description={"Let’s build a better procurement function – task by task, strategy by strategy."}
-                    link1={"concierge@theprocurementplug.com"}
+                    link1={"/"}
                     link2={"Concierge.expert@theprocurementplug.com "}
                     btnText1={"Download Pricing & Package Sheet"}
                     btnText2={"Book a Discovery Call"} />
