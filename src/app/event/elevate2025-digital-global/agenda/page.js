@@ -265,9 +265,11 @@ export default function Home() {
                     <div className="mt-4 p-2 bg-white rounded">
                         <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2025</h3>
                         <p className="text-center text-gray-600">PROCUREMENT CAREER & INNOVATION SUMMIT</p>
-                        <p className="text-center text-gray-600">25 JUNE 2025 | Digital Global Edition, UK</p>
+                        <p className="text-center text-gray-600">17th & 18th, Nov 2025 | Digital Global Edition, UK</p>
                         <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#363636]">
+                        <p className="text-center text-gray-600 text-2xl">Available Soon ...</p>
+
+                        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#363636]">
                             {currentItems.map((item, index) => (
                                 <div key={index} className="flex items-start gap-4">
                                     <div className="basis-[50%]">
@@ -281,7 +283,7 @@ export default function Home() {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                        </div> */}
                     </div>
                 </section>
             </main>

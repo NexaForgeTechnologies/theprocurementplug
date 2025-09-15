@@ -17,6 +17,7 @@ import EventHighlightDigitalGlobalDayTwoCont from '@/containers/events/digital-g
 import OurSpeakersCont from '@/containers/events/digital-global/OurSpeakersCont'
 import RegionalCoverageCont from '@/containers/events/digital-global/RegionalCoverageCont'
 import EventHeroCont from '@/containers/events/digital-global/EventHeroCont'
+import AgendaCTR from '@/containers/events/boardroom/AgendaCTR'
 
 export const metadata = {
     title: 'Elevate Digital Global Edition November 2025',
@@ -47,19 +48,24 @@ export const metadata = {
 function page() {
     return (
         <>
-            {/* <EventsHeroComp />
+            {/* <EventsHeroComp /> */}
+            <EventHeroCont />
             <EventBenifitsCTR />
             <EventHighlightCTR />
+            {/* <EventHighlightDigitalGlobalDayOneCont />
+            <EventHighlightDigitalGlobalDayTwoCont /> */}
+            {/* <AgendaCTR /> */}
             <GuestCTR />
             <EventsOppertunityCTR />
-            <EventReviewCTR /> 
-            <EventSponserComp />*/}
+            <EventReviewCTR />
+            <EventSponserComp />
 
-            <EventHeroCont />
-            <EventHighlightDigitalGlobalDayOneCont />
-            <EventHighlightDigitalGlobalDayTwoCont />
-            <OurSpeakersCont />
-            <RegionalCoverageCont />
+
+            {/* old design */}
+
+
+            {/*<OurSpeakersCont />
+            <RegionalCoverageCont /> */}
 
 
 

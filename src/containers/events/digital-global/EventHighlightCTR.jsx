@@ -6,26 +6,47 @@ function EventHighlightCTR() {
   const eventHighlight1 = [
     {
       id: 1,
-      heading: "Financial & Risk Modeling for Senior Procurement Professionals",
-      text: 'Join our Financial & Risk Modeling workshop for senior procurement professionals, led by expert actuaries and economists. Gain advanced techniques in risk management and financial forecasting to strengthen your procurement strategy and propel your boardroom decision-making skills.',
+      heading: `AI, Analytics & Automation – Practical Tools Every Professional Must Master`,
+      text: `Speaker Type: Procurement technology vendor, data
+scientist, or digital transformation trainer. Definition: A practical deep dive into tools (e.g., Power BI,
+ChatGPT, SAP Ariba AI) with step-by-step examples of
+how to use them in everyday procurement work.`,
     },
     {
       id: 2,
-      heading: "Executive Coaching & Leadership Development",
-      text: 'Participate in our "Executive Coaching & Leadership Development" workshop, designed for senior procurement professionals eager to enhance their leadership capabilities. Led by seasoned coaches, and CEOs, this session will equip you with the tools and insights to elevate your leadership skills, drive organizational growth, and position yourself for executive-level success.',
+      heading: `Career Accelerator Framework – Building Influence,
+Visibility & Global Credentials`,
+      text: `Speaker Type: Executive coach, LinkedIn career strategist,
+or senior procurement leader who’s made the leap to
+global roles. Definition: Step-by-step system to help mid-level
+professionals grow influence, showcase their impact,
+and position themselves for promotions or international
+opportunities.`,
     },
+
   ];
 
   const eventHighlight2 = [
     {
       id: 1,
-      heading: "Strategic Risk & Compliance for Procurement Leaders",
-      text: 'Attend our Strategic Risk & Compliance workshop for procurement leaders, led by expert actuaries and economists. Discover advanced risk management and compliance strategies that fortify your organization’s framework, empower you to drive strategic decisions, and propel your boardroom decision-making skills in today’s dynamic market.',
+      heading: `Boardroom Finance Mastery – Interpreting Balance
+Sheets, Valuations & Enterprise Risk`,
+      text: `Speaker Type: Finance professor, CFO, or corporate
+treasurer who teaches boards/NEDs. Definition: A practical financial literacy bootcamp for
+senior leaders. Attendees learn how to read balance
+sheets, understand financial ratios, and spot enterprise
+risks like a board director.`,
     },
     {
       id: 2,
-      heading: "Executive Influence & Strategic Stakeholder Engagement",
-      text: 'Elevate your influence with a highly strategic edge at our Executive Influence & Strategic Stakeholder Engagement workshop, delivered by top executive coaches and renowned industry thought leaders. Enhance your executive presence, master stakeholder dynamics, and drive high-impact strategic decisions that propel your leadership skills forward.',
+      heading: ` Crisis Room Simulation – Making Enterprise-Level
+Decisions Under Pressure`,
+      text: `Speaker Type: Former CEO, risk strategist, or crisis
+management expert. Definition: A live simulation masterclass where attendees
+walk through a high-stakes board-level crisis (e.g.,
+cyberattack, supply chain collapse, reputational scandal)
+and learn how leaders make decisions under extreme
+pressure.`,
     },
   ];
 
@@ -36,8 +57,8 @@ function EventHighlightCTR() {
         <p className='text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed'>These curated workshops focus on empowering procurement professionals with strategic and practical skills across key areas. From mastering negotiation tactics and leveraging digital tools, to optimizing cost control and embedding sustainability through ESG principles, each session offers targeted insights designed to enhance performance, drive efficiency, and deliver long-term value in modern procurement practices.</p>
       </div>
 
-      <FeatureComponent heading="Workshop" text={eventHighlight1} />
-      <FeatureComponent heading="Workshop" text={eventHighlight2} />
+      <FeatureComponent heading="Mini Masterclass" text={eventHighlight1} />
+      <FeatureComponent heading="Mini Masterclass" text={eventHighlight2} />
     </div>
   );
 }

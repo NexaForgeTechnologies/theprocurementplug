@@ -29,9 +29,15 @@ export default function EventHeroCont() {
                         <p className="text-sm md:text-lg text-white">
                             <strong> Global Reach: </strong> Perfectly timed for professionals in the US,
                             Europe, Caribbean and the Middle East to attend live.</p>
-                        <Link href={"https://www.trybooking.com/uk/events/landing/92707"}>
-                            <button className="bg-[#85009D] text-white py-2 px-4 rounded-md self-start cursor-pointer">Book Now</button>
-                        </Link>
+                        <div className="flex gap-2 flex-wrap">
+                            <Link href={"https://www.trybooking.com/uk/FHDO"}>
+                                <button className="bg-[#85009D] text-white py-2 px-4 rounded-md self-start cursor-pointer text-sm md:text-base">Book - Day 1</button>
+                            </Link>
+                            <Link href={"https://www.trybooking.com/uk/FHDR"}>
+                                <button className="bg-[#85009D] text-white py-2 px-4 rounded-md self-start cursor-pointer text-sm md:text-base">Book - Day 2</button>
+                            </Link>
+                        </div>
+
                     </div>
                     <Link href={"/event/elevate2025-digital-global/agenda"}>
                         <h2 className="font-medium text-md sm:text-xl lg:text-2xl text-white underline cursor-pointer">

@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 
 
-function EventSponserComp() {
+function EventSponserComp({email="request@theprocurementplug.com"}) {
     return (
         <div
             className="relative flex flex-col gap-6 md:gap-8 py-5"
@@ -39,10 +39,12 @@ function EventSponserComp() {
                         <p className='text-white text-sm md:text-lg leading-normal md:leading-relaxed my-4 md:my-8'>Are you a procurement solutions provider looking to showcase your solution to
                             a highly engaged audience? Become a sponsor and get premium exposure.</p>
                         <div className='flex justify-center items-center w-full'>
-                            <button className="flex justify-center items-center cursor-pointer bg-[#b08d57] text-white px-4 py-3 rounded-[6px] w-full lg:w-auto">
-                                Email Us About it
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </button>
+                            <Link href={`mailto:${email}`}>
+                                <button className="flex justify-center items-center cursor-pointer bg-[#b08d57] text-white px-4 py-3 rounded-[6px] w-full lg:w-auto">
+                                    Email Us About it
+                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
