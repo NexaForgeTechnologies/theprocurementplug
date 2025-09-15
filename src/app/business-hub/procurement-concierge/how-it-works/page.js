@@ -4,7 +4,7 @@ import ReadyToWorkBannerComp from "@/components/business-hub/procurement-concier
 import Link from "next/link";
 
 export default function HowItWorks() {
-    
+
     return (
         <>
             <section>
@@ -63,10 +63,17 @@ export default function HowItWorks() {
                         </p>
                     </div>
                     {[
-                        { step: "03", title: "Task Scoping & Matching", description: "Every request is reviewed and scoped by our concierge team. Based on your requirements, we match you with the most suitable Plug Expert – a vetted procurement professional with direct experience in your industry or category.", listItems: ["Expert matching by skill, category, and seniority", "Real-world experience from former Heads of Procurement, Buyers, Analysts, and SMEs", "Flexible involvement: short-term, project-based, or advisory"] },
+                        { step: "03", title: "Task Scoping & Matching", description: "Every request is reviewed and scoped by our concierge team. Based on your requirements, we match you with the most suitable Plug Expert - a vetted procurement professional with direct experience in your industry or category.", listItems: ["Expert matching by skill, category, and seniority", "Real-world experience from former Heads of Procurement, Buyers, Analysts, and SMEs", "Flexible involvement: short-term, project-based, or advisory"] },
                         {
-                            step: "04", title: `Delivery & Updates`, description: `Your Plug Expert gets to work – with timelines and milestones agreed upfront. You’ll receive regular updates
-                             and can communicate directly with the concierge team throughout.`, listItems: [`Streamlined workflow`, `Regular progress check-ins`, `Resource sharing via secure workspace`]
+                            step: "04",
+                            title: "Delivery & Updates",
+                            description:
+                                "Your Plug Expert gets to work - with timelines and milestones agreed upfront. You'll receive regular updates and can communicate directly with the concierge team throughout.",
+                            listItems: [
+                                "Streamlined workflow",
+                                "Regular progress check-ins",
+                                "Resource sharing via secure workspace"
+                            ]
                         },
                         {
                             step: "05", title: `Quality Assurance`, description: `Depending on the task level, your deliverable is reviewed by a QA Partner – a senior procurement leader
@@ -121,18 +128,18 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                         </div>
 
                         <div className="flex flex-wrap items-center gap-4 max-w-100 mt-4">
-                            <Link href={""}>
+                            
                                 <button className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Join the waitlist
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                                 </button>
-                            </Link>
-                            <Link href={""}>
+                           
+                            
                                 <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Download Full Task List
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                                 </button>
-                            </Link>
+                            
                             <Link href={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}>
                                 <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Book a Discovery Call

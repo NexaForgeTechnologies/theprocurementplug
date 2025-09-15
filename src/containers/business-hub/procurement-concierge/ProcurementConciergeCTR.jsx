@@ -393,7 +393,7 @@ function ProcurementConciergeCTR() {
                             onClick={() => setActiveTab("Strategic ")}
                             className={`${getButtonClass("Strategic ")} md:rounded-tr-[6px] md:rounded-br-[6px]`}
                         >
-                            Strategic 
+                            Strategic
                         </button>
                     </div>
                     <div className="px-5 pb-5">
@@ -405,9 +405,9 @@ function ProcurementConciergeCTR() {
                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Training & Knowledge</p>
                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Analysis & Reporting</p>
                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Planning & Frameworks</p>
-                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Communication & Outreach</p>
-                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
-                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Research & Benchmarking</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Communication & Outreach</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Research & Benchmarking</p>
                             </div>
                         )}
                         {activeTab === "Medium" && (
@@ -418,7 +418,7 @@ function ProcurementConciergeCTR() {
                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Data & Analytics</p>
                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Strategy & Planning</p>
                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Process Improvement</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Management</p>                                
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Management</p>
                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">ESG & Sustainability</p>
                             </div>
                         )}
@@ -653,11 +653,13 @@ function ProcurementConciergeCTR() {
                 title={"Ready to Work Together?"}
                 description={"Let’s build a better procurement function – task by task, strategy by strategy."}
                 link1={"concierge@theprocurementplug.com"}
-                link2={"Concierge.expert@theprocurementplug.com "}
+                link2={"Concierge.expert@theprocurementplug.com"}
                 btnText1={"Download Pricing & Package Sheet"}
-                btnText2={"Book a Discovery Call"} 
+                btnText2={"Book a Discovery Call"}
                 Btnlink1={"https://drive.google.com/file/d/1JqFYrSUrgFuIorVVXs6AR__GPrRXSCOn/view"}
-                Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}/>
+                Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
+            />
+
 
             <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
