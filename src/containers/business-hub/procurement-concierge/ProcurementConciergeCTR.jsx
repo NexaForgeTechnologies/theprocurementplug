@@ -29,7 +29,7 @@ function ProcurementConciergeCTR() {
     return (
         <>
             <div>
-                
+
                 <HeroCTR
                     img="/images/bussiness-hub/firsttile.png"
                     heading={
@@ -50,7 +50,7 @@ function ProcurementConciergeCTR() {
 
                         {/* Left: Text Content */}
                         <div
-                            className="w-full lg:w-[45%] bg-[#FFFBF5] backdrop-blur-md p-6 min-h-full"
+                            className="w-full lg:w-[50%] bg-[#FFFBF5] backdrop-blur-md p-6 min-h-full"
                             style={{
                                 boxShadow: '0 25px 50px 50px #FFFBF5'
                                 // boxShadow: '0 25px 50px 100px black'
@@ -79,7 +79,7 @@ function ProcurementConciergeCTR() {
                                     </React.Fragment>
                                 ))}
                             </div>
-                            <div className="flex flex-col flex-wrap md:flex-row items-center gap-4">
+                            <div className="flex flex-col flex-wrap md:flex-row items-center gap-4 max-w-100">
                                 <button className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Join the waitlist
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
@@ -226,10 +226,10 @@ function ProcurementConciergeCTR() {
                 </section>
             </div>
 
-            {/* Our Packages */}
+            {/* Your Investment Options */}
             <section className='flex flex-col gap-y-5'>
                 <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] leading-none max-w-2xl">
-                    Our Packages
+                    Your Investment Options
                 </h3>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4'>
                     <OurPackagesComp
@@ -273,6 +273,12 @@ function ProcurementConciergeCTR() {
                         bgColor="bg-[#EAC6FF]"
                         text="Plug Concierge+"
                         description="Procurement booking and management of wellbeing, coaching, and more"
+                    />
+                    <OurPackagesComp
+                        textColor="text-[#85009D]"
+                        bgColor="bg-[#EFCB91]"
+                        text="Advisory call"
+                        description="Specialised Procurement guidance tailored to your needs"
                     />
                 </div>
                 <Link href="/business-hub/procurement-concierge/pricing-plan">
@@ -321,7 +327,7 @@ function ProcurementConciergeCTR() {
 
             {/* Strategic Oval shaped section*/}
             < section className='flex flex-col gap-y-5' >
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] leading-none max-w-2xl">
+                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] leading-none max-w-160">
                     Strategic and simple credit based system Real time spend visibility
                 </h3>
                 <p className="md:text-xl text-[#1B1B1B]">
@@ -364,7 +370,7 @@ function ProcurementConciergeCTR() {
                     supplier short-list to comprehensive projects such as a full supplier audit or contract negotiation.
                 </p>
                 <div className="bg-[#FFFBF5] border border-[#DBBB89] rounded-[6px]">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-center mb-6">
                         <button
                             onClick={() => setActiveTab("Light")}
                             className={`${getButtonClass("Light")} md:rounded-tl-[6px] md:rounded-bl-[6px]`}
@@ -379,37 +385,63 @@ function ProcurementConciergeCTR() {
                         </button>
                         <button
                             onClick={() => setActiveTab("Heavy")}
-                            className={`${getButtonClass("Heavy")} md:rounded-tr-[6px] md:rounded-br-[6px]`}
+                            className={`${getButtonClass("Heavy")}`}
                         >
                             Heavy
+                        </button>
+                        <button
+                            onClick={() => setActiveTab("Strategic ")}
+                            className={`${getButtonClass("Strategic ")} md:rounded-tr-[6px] md:rounded-br-[6px]`}
+                        >
+                            Strategic 
                         </button>
                     </div>
                     <div className="px-5 pb-5">
                         {activeTab === "Light" && (
                             <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Red-Flag Scan</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto ">Interview support</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Audits</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Shortlists</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">RFP drafting</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Communication & Outreach</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto ">Research</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Templates & Documents</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Training & Knowledge</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Analysis & Reporting</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Planning & Frameworks</p>
+                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Communication & Outreach</p>
+                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
+                                 <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Research & Benchmarking</p>
                             </div>
                         )}
                         {activeTab === "Medium" && (
                             <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Advanced Risk Scan</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">In-depth Legal Reviews</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Onsite Supplier Audits</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance Checks</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Tailored Supplier Shortlists</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Contract & Legal</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Data & Analytics</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Strategy & Planning</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Process Improvement</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Management</p>                                
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">ESG & Sustainability</p>
                             </div>
                         )}
                         {activeTab === "Heavy" && (
                             <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Full RFP Management</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Contract Drafting & Negotiation</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Post-Award Compliance</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Custom Vendor Strategy</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Global Risk Analysis</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Advanced Data & Analytics</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence & Scenario Planning</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence & Scenario Planning</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Development & Risk</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Strategy & Operating Mode</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">M&A & Integration</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">ESG & Sustainability</p>
+                            </div>
+                        )}
+                        {activeTab === "Strategic " && (
+                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Transformation & Operating Model</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Risk & Resilience</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">ESG & Sustainability Leadership</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Stakeholder & Governance</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">M&A & Synergy Realization</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Capability & Culture</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Advanced Analytics & Insights</p>
+                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Innovation & Ecosystem</p>
                             </div>
                         )}
                         <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
@@ -542,7 +574,7 @@ function ProcurementConciergeCTR() {
 
             <section className='flex items-center justify-center'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                    <Link
+                    <div
                         href={"/business-hub/procurement-concierge/plug-concierge-experts"}
                         // onClick={() => setIsJoinModalOpen(true)}
                         className="rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
@@ -562,26 +594,34 @@ function ProcurementConciergeCTR() {
                             <p className="text-[#1B1B1B] text-base group-hover:text-white">We handle it all – from red flag scans to full sourcing strategies.</p>
                         </div>
                         <div className="flex flex-wrap gap-4">
+
                             <span className="flex items-center self-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
                                 Join the waitlist
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </span>
-                            <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
-                                Download Full Task List
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </span>
-                            <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] group-hover:text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
-                                Book a Discovery Call
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] group-hover:border-white transform rotate-45"></div>
-                            </span>
-                            <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] group-hover:text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
-                                Explore Concierge+ Services
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] group-hover:border-[white] transform rotate-45"></div>
-                            </span>
-                        </div>
-                    </Link>
+                            <Link href="" download>
+                                <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
+                                    Download Full Task List
+                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                                </span>
+                            </Link>
 
-                    <Link
+                            <Link href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">
+                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] group-hover:text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
+                                    Book a Discovery Call
+                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] group-hover:border-white transform rotate-45"></div>
+                                </span>
+                            </Link>
+                            <Link href="/business-hub/procurement-concierge/plug-concierge-services">
+                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] group-hover:text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
+                                    Explore Concierge+ Services
+                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] group-hover:border-[white] transform rotate-45"></div>
+                                </span>
+                            </Link>
+                        </div>
+
+                    </div>
+                    <div
                         href={"/business-hub/procurement-concierge/plug-concierge-experts"}
                         // onClick={() => setIsJoinModalOpen(true)}
                         className="rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
@@ -604,7 +644,8 @@ function ProcurementConciergeCTR() {
                             Join Now
                             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                         </span>
-                    </Link>
+                    </div>
+
                 </div>
             </section >
 
@@ -614,7 +655,9 @@ function ProcurementConciergeCTR() {
                 link1={"concierge@theprocurementplug.com"}
                 link2={"Concierge.expert@theprocurementplug.com "}
                 btnText1={"Download Pricing & Package Sheet"}
-                btnText2={"Book a Discovery Call"} />
+                btnText2={"Book a Discovery Call"} 
+                Btnlink1={"https://drive.google.com/file/d/1JqFYrSUrgFuIorVVXs6AR__GPrRXSCOn/view"}
+                Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}/>
 
             <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>

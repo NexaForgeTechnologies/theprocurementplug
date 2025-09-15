@@ -126,10 +126,10 @@ const Footer = () => {
           {showAlert && (
             <div
               className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${message.includes("successful")
-                  ? "bg-green-900/50 text-green-400"
-                  : message.includes("already subscribed")
-                    ? "bg-yellow-900/50 text-yellow-400"
-                    : "bg-red-900/50 text-red-400"
+                ? "bg-green-900/50 text-green-400"
+                : message.includes("already subscribed")
+                  ? "bg-yellow-900/50 text-yellow-400"
+                  : "bg-red-900/50 text-red-400"
                 }`}
             >
               <span>{message}</span>
@@ -222,6 +222,17 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className=" bg-[#121212] p-[20px] flex flex-col lg:flex-row justify-between items-center rounded-md">
         <span>© 2025 The Procurement Plug. All rights reserved.</span>
+        
+         <span className="mt-2 lg:mt-0">
+          <Link
+            href="https://achiever-grp.com/"
+            target="_blank"
+            className="font-semibold text-white hover:text-[#b08d57]"
+          >
+            An Achiever Group Company
+          </Link>
+        </span>
+
         <span className="mt-2 lg:mt-0">
           Powered By{" "}
           <Link

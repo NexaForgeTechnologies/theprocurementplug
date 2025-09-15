@@ -21,6 +21,7 @@ function PricingPlanCTR() {
         "Plug QA Reviews": { bgColor: "#85009D", textColor: "#FFFFFF" },
         "Plug Fractional CPO": { bgColor: "#EFCB91", textColor: "#85009D" },
         "Plug Concierge+": { bgColor: "#85009D", textColor: "#FFFFFF" },
+        "Advisory Call": { bgColor: "#EAC6FF", textColor: "#85009D" },
     };
 
     const pricingplan = [
@@ -113,6 +114,20 @@ function PricingPlanCTR() {
             tag: "Plug Concierge+",
             // heading: "£3,250",
             credit: "Credits",
+            creditvalue: "8",
+            name: "Rollover Grace",
+            data: "Up to 2 credit",
+            workingday: "Working days SLA",
+            workingdayvalue: "≤  5 days",
+            btntext: "Register your interest",
+            url: "",
+            // isAnnual: false,
+        },
+        {
+            id: 8,
+            tag: "Advisory Call",
+            // heading: "£3,250",
+            credit: "Hourly",
             creditvalue: "8",
             name: "Rollover Grace",
             data: "Up to 2 credit",

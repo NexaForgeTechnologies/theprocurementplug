@@ -1,5 +1,5 @@
-
-export default function ReadyToWorkBannerComp({ title, description, link1, link2, btnText1, btnText2 }) {
+import Link from "next/link";
+export default function ReadyToWorkBannerComp({ title, description, link1, link2, btnText1, btnText2, Btnlink1, Btnlink2 }) {
     return (
         <>
             <section className="bg-[#85009D] w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20 relative py-20 flex flex-col gap-y-5 justify-center items-center">
@@ -28,21 +28,25 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
                     </div>
 
                     <div className="flex lg:justify-end">
-                        <span className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
-                            <span className="text-center">
-                                {btnText1}
+                        <Link href={Btnlink1} download>
+                            <span className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
+                                <span className="text-center">
+                                    {btnText1}
+                                </span>
+                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </span>
-                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                        </span>
+                        </Link>
                     </div>
 
                     <div className="flex justify-start">
-                        <span className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
-                            <span className="text-center">
-                                {btnText2}
+                        <Link href={Btnlink2}>
+                            <span className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
+                                <span className="text-center">
+                                    {btnText2}
+                                </span>
+                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </span>
-                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                        </span>
+                        </Link>
                     </div>
                 </div>
 

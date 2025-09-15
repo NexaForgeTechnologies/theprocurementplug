@@ -1,27 +1,10 @@
+import Breadcrumb from "@/components/BreadCrumbs";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import ReadyToWorkBannerComp from "@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp";
 import Link from "next/link";
 
 export default function HowItWorks() {
-    function Breadcrumb() {
-        return (
-            <nav className="text-sm breadcrumbs my-4 md:my-10">
-                <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                    <li>
-                        <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                    </li>
-                    <li>/</li>
-                    <li className="text-[#696969]">
-                        The Procurement Plug Concierge
-                    </li>
-                    <li>/</li>
-                    <li className="text-[#696969]">
-                        How it works
-                    </li>
-                </ol>
-            </nav>
-        )
-    }
+    
     return (
         <>
             <section>
@@ -78,7 +61,6 @@ export default function HowItWorks() {
                             You let us know what you need – whether it&apos;s a one-off task, leadership support, or a complex procurement
                             challenge. We guide you through a structured intake to capture objectives, timelines, and scope.
                         </p>
-
                     </div>
                     {[
                         { step: "03", title: "Task Scoping & Matching", description: "Every request is reviewed and scoped by our concierge team. Based on your requirements, we match you with the most suitable Plug Expert – a vetted procurement professional with direct experience in your industry or category.", listItems: ["Expert matching by skill, category, and seniority", "Real-world experience from former Heads of Procurement, Buyers, Analysts, and SMEs", "Flexible involvement: short-term, project-based, or advisory"] },
@@ -151,7 +133,7 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                                 </button>
                             </Link>
-                            <Link href={""}>
+                            <Link href={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}>
                                 <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Book a Discovery Call
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
