@@ -5,36 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-// import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import TaskListForm from "@/components/business-hub/procurement-concierge/TaskListForm";
+import TaskListForm from "@/components/forms/business-hub/concierge/TaskListForm";
 import OurValuePropositionDivComp from '@/components/business-hub/procurement-concierge/OurValuePropositionDivComp';
-import { optional } from 'zod';
 import OurPackagesComp from '@/components/business-hub/procurement-concierge/OurPackagesComp';
 import WhyChooseThePlugComp from '@/components/business-hub/procurement-concierge/WhyChooseThePlugComp';
 import ReadyToWorkBannerComp from '@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp';
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969]">
-                    Procurement Concierge Hub
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import Breadcrumb from '@/components/BreadCrumbs';
 
 function ProcurementConciergeCTR() {
 
     const [activeTab, setActiveTab] = useState("Light");
-    const [openIndex, setOpenIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
 
     const getButtonClass = (tabName) => {
         const baseClasses = "w-full text-center text-2xl py-4 font-semibold";
@@ -44,58 +25,6 @@ function ProcurementConciergeCTR() {
             return `${baseClasses} border border-[#85009D] text-[#BC1ED9]`;
         }
     };
-
-    const toggle = (index) => {
-        setOpenIndex(openIndex === index ? null : index);
-    };
-
-    const faqs = [
-        {
-            question: "What tasks do you handle?",
-            answer: `Submit your task through the dashboard. We’ll review it and assign the
-            right expert. You’ll receive updates and a completed deliverable—fast
-            and hassle-free.`
-        },
-        {
-            question: "What’s included in my subscription?",
-            answer: "Your subscription includes access to experts, task submission, progress tracking, and guaranteed SLAs."
-        },
-        {
-            question: "What tasks do you handle?",
-            answer: "We cover sourcing, contract review, vendor management, and more."
-        },
-        {
-            question: "How fast can I get my task done",
-            answer: "Turnaround is typically within 48–120 hours depending on task complexity."
-        }
-    ];
-
-    // const partnerWithUs = [
-    //     {
-    //         id: 1,
-    //         heading: "The Procurement Plug Academy",
-    //         text: "",
-    //         link: "",
-    //         linkText: "View",
-    //         bgColor: "#85009D"
-    //     },
-    //     {
-    //         id: 2,
-    //         heading: "Resources Library",
-    //         text: "",
-    //         link: "",
-    //         linkText: "View",
-    //         bgColor: "#85009D"
-    //     },
-    //     {
-    //         id: 3,
-    //         heading: "The Personal Development Hub",
-    //         text: "",
-    //         link: "",
-    //         linkText: "View",
-    //         bgColor: "#85009D"
-    //     }
-    // ]
 
     return (
         <>
@@ -258,25 +187,6 @@ function ProcurementConciergeCTR() {
                     />
                 </section>
             </div >
-            {/* <div className="flex gap-2 md:gap-4 items-start mb-4">
-                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
-                    <div>
-                        <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">The UK's first procurement concierge for companies of all sizes.</p>
-                    </div>
-                </div>
-                <div className="flex gap-2 md:gap-4 items-start mb-4">
-                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
-                    <div>
-                        <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Flexibility & scalability – tasks on-demand when your team is at capacity.</p>
-                    </div>
-                </div>
-                <div className="flex gap-2 md:gap-4 items-start mb-4">
-                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
-                    <div>
-                        <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Credits-based system – transparent pricing without hidden fees .</p>
-                    </div>
-                </div> 
-            <div>*/}
 
             {/* Built in ROI */}
             <div className='flex flex-col gap-y-4'>
@@ -363,7 +273,6 @@ function ProcurementConciergeCTR() {
                         text="Plug Concierge+"
                         description="Procurement booking and management of wellbeing, coaching, and more"
                     />
-
                 </div>
                 <Link href="/business-hub/procurement-concierge/pricing-plan">
                     <button
@@ -444,7 +353,6 @@ function ProcurementConciergeCTR() {
                     </div>
                 </div>
             </section >
-
 
             <div>
                 <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
@@ -577,7 +485,6 @@ function ProcurementConciergeCTR() {
                 <div className='w-full md:flex-1'>
                     <h3 className="font-medium text-2xl md:text-[42px] text-[#85009D]">
                         Powered by
-
                     </h3>
                     <h3 className='font-semibold text-2xl md:text-[42px] text-[#85009D]'>The Procurement Plug  <span className="font-medium">Ecosystem</span></h3>
 
@@ -627,11 +534,11 @@ function ProcurementConciergeCTR() {
                 </div>
             </section>
 
-
             {/* FAQs section */}
             <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] ">
                 Have Questions? We Have Answers
             </h3>
+
             <section className='flex items-center justify-center'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <Link
@@ -699,7 +606,7 @@ function ProcurementConciergeCTR() {
                     </Link>
                 </div>
             </section >
-            {/* <PartnerWithUsComp data={partnerWithUs} /> */}
+
             <ReadyToWorkBannerComp
                 title={"Ready to Work Together?"}
                 description={"Let’s build a better procurement function – task by task, strategy by strategy."}
@@ -707,8 +614,8 @@ function ProcurementConciergeCTR() {
                 link2={"Concierge.expert@theprocurementplug.com "}
                 btnText1={"Download Pricing & Package Sheet"}
                 btnText2={"Book a Discovery Call"} />
-            < TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)
-            } />
+
+            <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }

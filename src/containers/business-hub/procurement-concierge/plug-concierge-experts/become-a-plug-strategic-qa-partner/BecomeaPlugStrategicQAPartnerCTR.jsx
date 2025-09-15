@@ -2,11 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from "next/link";
-import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-// import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import PersonalDetailForm from '@/components/business-hub/procurement-concierge/plug-concierge-experts/become-a-plug-strategic-qa-partner/PersonalDetailForm';
+import QaPartnerForm from '@/components/forms/business-hub/concierge/QaPartnerForm';
 
 
 function Breadcrumb() {
@@ -204,7 +202,7 @@ function BecomeaPlugStrategicQAPartnerCTR() {
             </div>
 
             {/* <PartnerWithUsComp data={partnerWithUs} /> */}
-            <PersonalDetailForm isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
+            <QaPartnerForm isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
         </>
     );
 }

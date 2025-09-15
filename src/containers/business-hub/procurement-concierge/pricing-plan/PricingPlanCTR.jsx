@@ -5,29 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import PricingPlanTile from '@/components/business-hub/procurement-concierge/pricing-plan/PricingPlanTile';
-import ExpertForm from "@/components/business-hub/procurement-concierge/pricing-plan/ExpertForm";
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/procurement-concierge" className="hover:underline">The Procurement Plug Concierge</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969]">
-                    Pricing Plan
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import RegisterInterestForm from "@/components/forms/business-hub/concierge/RegisterInterestForm";
+import Breadcrumb from '@/components/BreadCrumbs';
 
 function PricingPlanCTR() {
 
@@ -144,33 +124,6 @@ function PricingPlanCTR() {
         }
     ];
 
-    // const partnerWithUs = [
-    //     {
-    //         id: 1,
-    //         heading: "The Procurement Plug Academy",
-    //         text: "",
-    //         link: "",
-    //         linkText: "View",
-    //         bgColor: "#85009D"
-    //     },
-    //     {
-    //         id: 2,
-    //         heading: "Resources Library",
-    //         text: "",
-    //         link: "",
-    //         linkText: "View",
-    //         bgColor: "#85009D"
-    //     },
-    //     {
-    //         id: 3,
-    //         heading: "The Personal Development Hub",
-    //         text: "",
-    //         link: "",
-    //         linkText: "View",
-    //         bgColor: "#85009D"
-    //     }
-    // ]
-
     return (
         <>
             <div>
@@ -276,7 +229,7 @@ function PricingPlanCTR() {
                             <p className="text-[#ffff] text-sm md:text-2xl font-medium leading-normal md:leading-relaxed mt-4">
                                 Contact us at -{' '}
                                 <Link className="font-semibold" href="/business-hub/procurement-concierge">
-                                     concierge@theprocurementplug.com
+                                    concierge@theprocurementplug.com
                                 </Link>
                             </p>
                         </div>
@@ -286,7 +239,7 @@ function PricingPlanCTR() {
 
 
             {/* <PartnerWithUsComp data={partnerWithUs} /> */}
-            <ExpertForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <RegisterInterestForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }
