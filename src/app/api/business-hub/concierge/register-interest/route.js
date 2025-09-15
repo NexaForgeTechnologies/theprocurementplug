@@ -11,7 +11,7 @@ export async function POST(request) {
         const body = await request.json();
         const saved = await ConciergeRepo.saveRegisterInterestForm(body);
 
-        // Send confirmation email
+        // Send email
         await registerInterestEmail(body);
 
 

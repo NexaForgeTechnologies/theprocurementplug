@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
  * Reusable function to send emails with different Outlook accounts.
  *
  * @param {Object} options
- * @param {"partnerships"|"contact"|"marketing"|"events"} options.type - Which account to use
+ * @param {"concierge"|"becomeQaPartner"|"becomeExpert"|"registerInterest"} options.type - Which account to use
  * @param {string} options.to - Recipient email
  * @param {string} options.subject - Email subject
  * @param {string} options.html - Email body (HTML)

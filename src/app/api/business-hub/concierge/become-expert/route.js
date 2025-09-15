@@ -11,7 +11,7 @@ export async function POST(request) {
         const body = await request.json();
         const saved = await ConciergeRepo.saveBecomeExpertForm(body);
 
-        // Send confirmation email
+        // Send email
         await BecomeExpertEmail(body);
 
         return NextResponse.json({ success: true, data: saved });

@@ -27,7 +27,7 @@ export async function registerInterestEmail({ email, name }) {
             <p><b>Hi ${name},</b></p>
             <p>Thank you for registering your interest in The Procurement Concierge by The Procurement Plug.</p>
             <p>Our team will be in touch shortly, but in the meantime, here’s a quick overview of how we support procurement teams like yours:</p>
-            <ul style="list-style-type: disc; margin-left: 10px;">
+            <ul style="list-style-type: disc; padding-left: 15px; margin: 0;">
             <li>Mobilisation in 24 hours.</li>
             <li>Flexible credit-based support model.</li>
             <li>Quality assurance on every deliverable, led by senior procurement professionals.</li>
@@ -74,7 +74,7 @@ export async function BecomeQaPartnerEmail({ email, name }) {
             <p>Thank you for registering your interest in joining The Procurement Concierge Experts Network.</p>
             <p>Over the coming days, our team will review your profile and confirm the level you will sit on within the network. This ensures every task is matched to the right skillset to deliver quality for our clients.</p>
             <p>As part of our network, you’ll gain:</p>
-            <ul style="list-style-type: disc; margin-left: 10px;">
+            <ul style="list-style-type: disc; padding-left: 15px; margin: 0;">
             <li>Opportunities to support on-demand client tasks.</li>
             <li>Access to collaboration with other vetted experts.</li>
             <li>Recognition as a trusted professional within our growing community.</li>

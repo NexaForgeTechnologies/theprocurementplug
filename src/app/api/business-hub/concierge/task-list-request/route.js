@@ -19,7 +19,7 @@ export async function POST(request) {
 
         const saved = await ConciergeRepo.saveTaskListForm(data);
 
-        // Send confirmation email
+        // Send email
         await TaskListDownloadEmail(data);
 
         return NextResponse.json({ success: true, data: saved });
