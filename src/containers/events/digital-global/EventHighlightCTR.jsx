@@ -7,21 +7,12 @@ function EventHighlightCTR() {
     {
       id: 1,
       heading: `TPRM: Practical Tools Every Professional Must Master`,
-      text: `Gain hands-on expertise at our TPRM Masterclass. This focused session delivers practical strategies to identify, assess, 
-      and mitigate third-party risks across supplier networks. 
-      Learn step-by-step how to apply modern tools and frameworks that strengthen compliance, 
-      reduce exposure, and build resilience in procurement operations.`,
+      text: `Gain hands-on expertise at our TPRM Masterclass. This focused session delivers practical strategies to identify, assess, and mitigate third-party risks across supplier networks. Learn step-by-step how to apply modern tools and frameworks that strengthen compliance, reduce exposure, and build resilience in procurement operations.`,    
     },
     {
       id: 2,
-      heading: `Career Accelerator Framework – Building Influence,
-Visibility & Global Credentials`,
-      text: `Speaker Type: Executive coach, LinkedIn career strategist,
-or senior procurement leader who’s made the leap to
-global roles. Definition: Step-by-step system to help mid-level
-professionals grow influence, showcase their impact,
-and position themselves for promotions or international
-opportunities.`,
+      heading: `Cross-Industry Insights: Lessons from Healthcare, Tech & Energy`,
+      text: `Broaden your strategic outlook with insights from beyond procurement. This Cross-Industry Masterclass highlights lessons from healthcare, technology, energy, and non-procurement functions. Discover fresh approaches and proven practices that can be adapted to procurement to drive innovation, agility, and long-term impact.`,
     },
 
   ];
@@ -29,24 +20,13 @@ opportunities.`,
   const eventHighlight2 = [
     {
       id: 1,
-      heading: `Boardroom Finance Mastery – Interpreting Balance
-Sheets, Valuations & Enterprise Risk`,
-      text: `Speaker Type: Finance professor, CFO, or corporate
-treasurer who teaches boards/NEDs. Definition: A practical financial literacy bootcamp for
-senior leaders. Attendees learn how to read balance
-sheets, understand financial ratios, and spot enterprise
-risks like a board director.`,
+      heading: `Career Accelerator Framework: Building Influence, Visibility & Global Credentials`,
+      text: `Take control of your career growth at our Career Accelerator Masterclass. Learn a step-by-step framework to enhance your visibility, build influence, and secure international credentials. Designed for ambitious professionals, this session equips you to showcase your impact, stand out in your organization, and prepare for global opportunities.`,
     },
     {
       id: 2,
-      heading: ` Crisis Room Simulation – Making Enterprise-Level
-Decisions Under Pressure`,
-      text: `Speaker Type: Former CEO, risk strategist, or crisis
-management expert. Definition: A live simulation masterclass where attendees
-walk through a high-stakes board-level crisis (e.g.,
-cyberattack, supply chain collapse, reputational scandal)
-and learn how leaders make decisions under extreme
-pressure.`,
+      heading: `Crisis Room Simulation: Making Enterprise-Level Decisions Under Pressure`,
+      text: `Step into the heat of decision-making at our Crisis Room Simulation Masterclass. Experience a live scenario where you’ll navigate enterprise-level challenges like cyberattacks, supply chain collapse, or reputational risk. Build confidence, sharpen judgment, and develop the leadership skills needed to perform under pressure.`,
     },
   ];
 
