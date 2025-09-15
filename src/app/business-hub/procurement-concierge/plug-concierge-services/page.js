@@ -76,9 +76,9 @@ export default function plugConciergeServices() {
 
                     ].map((items, index) => (
                         <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
-                            <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                            <div className="w-[15px] h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B] ">
+                            <p className="text-[20px] md:text-xl text-[#1B1B1B] ">
                                 <span className="font-semibold mr-2">
                                     {items.heading}
                                 </span>
