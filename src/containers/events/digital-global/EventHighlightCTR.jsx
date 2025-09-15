@@ -6,11 +6,11 @@ function EventHighlightCTR() {
   const eventHighlight1 = [
     {
       id: 1,
-      heading: `AI, Analytics & Automation – Practical Tools Every Professional Must Master`,
-      text: `Speaker Type: Procurement technology vendor, data
-scientist, or digital transformation trainer. Definition: A practical deep dive into tools (e.g., Power BI,
-ChatGPT, SAP Ariba AI) with step-by-step examples of
-how to use them in everyday procurement work.`,
+      heading: `TPRM: Practical Tools Every Professional Must Master`,
+      text: `Gain hands-on expertise at our TPRM Masterclass. This focused session delivers practical strategies to identify, assess, 
+      and mitigate third-party risks across supplier networks. 
+      Learn step-by-step how to apply modern tools and frameworks that strengthen compliance, 
+      reduce exposure, and build resilience in procurement operations.`,
     },
     {
       id: 2,
