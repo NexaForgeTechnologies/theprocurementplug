@@ -11,7 +11,7 @@ function PartnershipsCTR() {
     {
       id: 1,
       title: 1,
-      heading: "Targeted Market Exposure",
+      heading: "1Targeted Market Exposure",
       text: "Showcase your brand, services, and products to procurement professionals actively searching for industry solutions.",
     },
     {
