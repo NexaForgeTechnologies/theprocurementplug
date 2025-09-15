@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
+
+// Repository
 import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo";
-// import { sendConfirmationEmail } from "@/lib/emails/TaskListEmail";
+
+// Emails
+import { TaskListDownloadEmail } from "@/lib/emails/ConciergeEmail";
 
 export async function POST(request) {
     try {
@@ -16,7 +20,7 @@ export async function POST(request) {
         const saved = await ConciergeRepo.saveTaskListForm(data);
 
         // Send confirmation email
-        // await sendConfirmationEmail(data);
+        await TaskListDownloadEmail(data);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {

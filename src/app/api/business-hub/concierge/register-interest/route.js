@@ -1,10 +1,19 @@
 import { NextResponse } from "next/server";
+
+// Repository
 import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo";
+
+// Emails
+import { registerInterestEmail } from "@/lib/emails/ConciergeEmail";
 
 export async function POST(request) {
     try {
         const body = await request.json();
         const saved = await ConciergeRepo.saveRegisterInterestForm(body);
+
+        // Send confirmation email
+        await registerInterestEmail(body);
+
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {

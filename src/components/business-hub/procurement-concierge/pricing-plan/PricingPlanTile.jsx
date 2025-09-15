@@ -1,10 +1,8 @@
 import React from "react";
-import Link from "next/link";
 
-function PricingPlanTile({ tag, heading, credit, creditvalue, name, data, workingday, workingdayvalue, btntext, url = "", bgColor, textColor, isAnnual }) {
+function PricingPlanTile({ tag, heading, credit, creditvalue, name, data, workingday, workingdayvalue, btntext, url = "", bgColor, textColor, isAnnual, onRegister }) {
     return (
-        <Link
-            href={url}
+        <div
             className="w-full rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
         >
             <div>
@@ -28,10 +26,10 @@ function PricingPlanTile({ tag, heading, credit, creditvalue, name, data, workin
                 {workingdayvalue && (<p className="text-[#7B7B7B] group-hover:text-white">{workingdayvalue}</p>)}
 
             </div>
-            <span className="flex justify-center items-center cursor-pointer border border-[#85009D] text-[#85009D] group-hover:text-white group-hover:border-white px-4 py-2 rounded-[6px] w-full">
+            <span onClick={onRegister} className="flex justify-center items-center cursor-pointer border border-[#85009D] text-[#85009D] group-hover:text-white group-hover:border-white px-4 py-2 rounded-[6px] w-full">
                 {btntext}
             </span>
-        </Link>
+        </div>
     );
 }
 

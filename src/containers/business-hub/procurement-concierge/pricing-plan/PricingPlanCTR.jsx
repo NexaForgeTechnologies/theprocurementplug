@@ -176,6 +176,7 @@ function PricingPlanCTR() {
                                 bgColor={tagStyles[plan.tag].bgColor}
                                 textColor={tagStyles[plan.tag].textColor}
                                 isAnnual={plan.isAnnual}
+                                onRegister={() => setIsModalOpen(true)}
                             />
                         ))
                     ) : (

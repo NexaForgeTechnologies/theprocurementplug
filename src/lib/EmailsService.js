@@ -14,25 +14,15 @@ import nodemailer from "nodemailer";
 export async function sendEmail({ type, to, subject, html }) {
     // Map account type → env vars
     const accounts = {
-        partnerships: {
-            user: process.env.SMTP_PARTNERSHIPS_USER,
-            pass: process.env.SMTP_PARTNERSHIPS_PASS,
-            label: "Procurement Plug Partnerships",
+        concierge: {
+            user: process.env.SMTP_CONCIERGE_USER,
+            pass: process.env.SMTP_CONCIERGE_PASS,
+            label: "Procurement Plug Concierge",
         },
-        contact: {
-            user: process.env.SMTP_CONTACT_USER,
-            pass: process.env.SMTP_CONTACT_PASS,
-            label: "Procurement Plug Support",
-        },
-        marketing: {
-            user: process.env.SMTP_MARKETING_USER,
-            pass: process.env.SMTP_MARKETING_PASS,
-            label: "Procurement Plug Marketing",
-        },
-        events: {
-            user: process.env.SMTP_EVENT_USER,
-            pass: process.env.SMTP_EVENT_PASS,
-            label: "Procurement Plug Events",
+        registerInterest: {
+            user: process.env.SMTP_CONCIERGE_USER,
+            pass: process.env.SMTP_CONCIERGE_PASS,
+            label: "Procurement Plug Concierge",
         },
     };
 

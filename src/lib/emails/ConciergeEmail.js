@@ -1,32 +1,41 @@
 import { sendEmail } from "@/lib/EmailsService";
 
-// Task List Download Email (uses Marketing account)
-export async function sendConfirmationEmail({ email, name }) {
+// Task List Download Email
+export async function TaskListDownloadEmail({ email, name }) {
     await sendEmail({
-        type: "marketing",
+        type: "concierge",
         to: email,
-        subject: "Your Task List Download",
+        subject: "Your Procurement Task List is Ready",
         html: `
-      <p>Hi ${name},</p>
-      <p>Thanks for requesting our Task List! You can download it here:</p>
-      <a href="https://example.com/task-list.pdf">Download Task List</a>
-      <p>Best regards,<br/>Procurement Plug Team</p>
-    `,
+            <p><b>Hi ${name},</b></p>
+            <p>Thanks for downloading our Procurement Concierge Task List.</p>
+            <a href="https://staging.theprocurementplug.com/files/CONCIERGE_TASKS.pdf">👉 [Download Your Task List Here]</a>
+            <p>Inside, you’ll find examples of light, medium, and heavy tasks that our Concierge can handle — giving your team back time, reducing overhead, and ensuring every deliverable is quality-assured.</p>
+            <p>If you’d like to learn more about how these tasks translate into real business value, simply email us at concierge@theprocurementplug.com or book a discovery call.</p>
+            <p>Best regards,<br/>The Procurement Concierge Team</p>
+        `,
     });
 }
 
-// Expert Form Email (uses Contact/Support account)
-export async function sendExpertFormEmail({ email, name }) {
+// Register Interest Form Email
+export async function registerInterestEmail({ email, name }) {
     await sendEmail({
-        type: "contact",
+        type: "registerInterest",
         to: email,
-        subject: "Thank you for applying as a Plug Concierge Expert",
+        subject: "Thank You for Registering Your Interest",
         html: `
-        <p>Hi ${name},</p>
-        <p>Thank you for submitting your application to become a <b>Plug Concierge Expert</b>.</p>
-        <p>Our team will carefully review your profile and reach out to you if your application matches our current opportunities.</p>
-        <p>We appreciate your interest in joining our growing network!</p>
-        <p>Best regards,<br/>Procurement Plug Team</p>
-    `,
+            <p><b>Hi ${name},</b></p>
+            <p>Thank you for registering your interest in The Procurement Concierge by The Procurement Plug.</p>
+            <p>Our team will be in touch shortly, but in the meantime, here’s a quick overview of how we support procurement teams like yours:</p>
+            <ul style="list-style-type: disc; margin-left: 10px;">
+            <li>Mobilisation in 24 hours.</li>
+            <li>Flexible credit-based support model.</li>
+            <li>Quality assurance on every deliverable, led by senior procurement professionals.</li>
+            </ul>
+            <p>To make things easy, you can book a discovery call right away:
+            <br/>👉<br/>  
+            We’re looking forward to exploring how we can support your business</p>
+            <p>Best regards,<br/>The Procurement Concierge Team</p>
+        `,
     });
 }
