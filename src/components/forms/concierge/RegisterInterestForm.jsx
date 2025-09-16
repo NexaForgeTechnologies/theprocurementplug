@@ -71,7 +71,7 @@ export default function ExpertForm({ isOpen, onClose }) {
         setIsLoading(true);
 
         try {
-            const response = await fetch("/api/business-hub/concierge/register-interest", {
+            const response = await fetch("/api/concierge/register-interest", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

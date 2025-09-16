@@ -140,7 +140,7 @@ export default function JoinForm({ isOpen, onClose }) {
         setIsLoading(true);
 
         try {
-            const response = await fetch("/api/business-hub/concierge/become-expert", {
+            const response = await fetch("/api/concierge/become-expert", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),

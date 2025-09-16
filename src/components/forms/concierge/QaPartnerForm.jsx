@@ -96,7 +96,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
         setIsLoading(true);
 
         try {
-            const response = await fetch("/api/business-hub/concierge/become-qa-partner", {
+            const response = await fetch("/api/concierge/become-qa-partner", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(formData),
