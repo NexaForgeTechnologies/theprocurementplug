@@ -601,10 +601,13 @@ function ProcurementConciergeCTR() {
             </section>
 
             {/* FAQs section */}
-            <h3 className="font-semibold text-xl md:text-2xl relative md:top-5 text-[#1B1B1B] ">
-                Have Questions? We Have Answers
-            </h3>
 
+            <div>
+                <h3 className="font-semibold text-xl md:text-2xl mb-4 text-[#1B1B1B] ">
+                    Have Questions? We Have Answers
+                </h3>
+                <FAQS />
+            </div>
             <section className='flex items-center justify-center'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <div
@@ -694,7 +697,6 @@ function ProcurementConciergeCTR() {
                 </div>
 
             </section >
-
             <ReadyToWorkBannerComp
                 title={"Ready to Work Together?"}
                 description={"Let’s build a better procurement function – task by task, strategy by strategy."}
@@ -705,7 +707,7 @@ function ProcurementConciergeCTR() {
                 Btnlink1={"/"}
                 Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
             />
-            <FAQS />
+
 
 
             <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
