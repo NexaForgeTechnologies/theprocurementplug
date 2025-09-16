@@ -11,6 +11,7 @@ import OurPackagesComp from '@/components/business-hub/procurement-concierge/Our
 import WhyChooseThePlugComp from '@/components/business-hub/procurement-concierge/WhyChooseThePlugComp';
 import ReadyToWorkBannerComp from '@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp';
 import Breadcrumb from '@/components/BreadCrumbs';
+import FAQS from './FAQS';
 
 function ProcurementConciergeCTR() {
 
@@ -281,7 +282,7 @@ function ProcurementConciergeCTR() {
                         description="Specialised Procurement guidance tailored to your needs"
                     />
                 </div>
-                <Link href="/business-hub/procurement-concierge/pricing-plan">
+                <Link href="/business-hub/procurement-concierge/pricing-plan" className='flex justify-center'>
                     <button
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] self-start">
                         View more details on Pricing Plan
@@ -704,6 +705,7 @@ function ProcurementConciergeCTR() {
                 Btnlink1={"/"}
                 Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
             />
+            <FAQS />
 
 
             <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
