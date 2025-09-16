@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
@@ -6,7 +7,7 @@ import ReadyToWorkBannerComp from "@/components/concierge/ReadyToWorkBannerComp"
 import TaskListForm from "@/components/forms/concierge/TaskListForm";
 import Breadcrumb from "@/components/BreadCrumbs";
 
-export default function plugConciergeServices() {
+export default function PlugConciergeServices() {
 
     const [taskListHeading, setTaskListHeading] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
