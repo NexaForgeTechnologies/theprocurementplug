@@ -1,9 +1,16 @@
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+
 import Breadcrumb from "@/components/BreadCrumbs";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import ReadyToWorkBannerComp from "@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp";
-import Link from "next/link";
+import TaskListForm from "@/components/forms/business-hub/concierge/TaskListForm";
 
 export default function HowItWorks() {
+
+    const [taskListHeading, setTaskListHeading] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <>
@@ -129,13 +136,23 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
 
                         <div className="flex flex-wrap items-center gap-4 max-w-100 mt-4">
 
-                            <button className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                Join the waitlist
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Join the Waitlist");
+                                }}
+                                className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                Join the Waitlist
                                 <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                             </button>
 
 
-                            <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Download Full Task List");
+                                }}
+                                className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                 Download Full Task List
                                 <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                             </button>
@@ -181,6 +198,9 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                     Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
                 />
             </section>
+
+            {/* Task List Modal */}
+            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }

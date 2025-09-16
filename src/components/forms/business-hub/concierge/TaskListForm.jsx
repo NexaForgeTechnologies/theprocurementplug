@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 
-export default function TaskListForm({ isOpen, onClose }) {
+export default function TaskListForm({ heading, isOpen, onClose }) {
     const [formData, setFormData] = useState({
         name: "",
         company: "",
@@ -169,7 +169,7 @@ export default function TaskListForm({ isOpen, onClose }) {
             >
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D]">
-                        Task List Download Form
+                        {heading || "Task List Download Form"}
                     </h3>
                     <button
                         className="absolute top-4 right-4 text-2xl text-[#85009D]"

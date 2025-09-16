@@ -16,6 +16,7 @@ import FAQS from './FAQS';
 function ProcurementConciergeCTR() {
 
     const [activeTab, setActiveTab] = useState("Light");
+    const [taskListHeading, setTaskListHeading] = useState("");
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const getButtonClass = (tabName) => {
@@ -30,7 +31,6 @@ function ProcurementConciergeCTR() {
     return (
         <>
             <div>
-
                 <HeroCTR
                     img="/images/bussiness-hub/firsttile.png"
                     heading={
@@ -81,7 +81,12 @@ function ProcurementConciergeCTR() {
                                 ))}
                             </div>
                             <div className="flex flex-col flex-wrap md:flex-row items-center gap-4 max-w-100">
-                                <button className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                <button
+                                    onClick={() => {
+                                        setIsModalOpen(true);
+                                        setTaskListHeading("Join the waitlist");
+                                    }}
+                                    className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Join the waitlist
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                                 </button>
@@ -99,15 +104,9 @@ function ProcurementConciergeCTR() {
                                 </Link>
                             </div>
                         </div>
-
-                        {/* Optional right section (e.g., Image on large screens) */}
-                        {/* <div className="hidden md:block w-full md:w-1/2 h-[285px]"> */}
-                        {/* Leave empty or add another image/div if needed */}
-                        {/* </div> */}
-
                     </div>
                 </div>
-            </div>
+            </div >
 
             <div>
                 <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
@@ -495,9 +494,12 @@ function ProcurementConciergeCTR() {
                         )}
                         <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
                             <button
-                                onClick={() => setIsModalOpen(true)}
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Download Full Task List");
+                                }}
                                 className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                                Download full task list
+                                Download Full Task List
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </button>
                         </div>
@@ -608,6 +610,7 @@ function ProcurementConciergeCTR() {
                 </h3>
                 <FAQS />
             </div>
+
             <section className='flex items-center justify-center'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <div
@@ -633,17 +636,26 @@ function ProcurementConciergeCTR() {
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-4">
-                            <span className="flex items-center self-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Join the waitlist")
+                                }}
+                                className="flex items-center self-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
                                 Join the waitlist
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </span>
+                            </button>
 
-                            <Link href="\">
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Download Full Task List");
+                                }}>
                                 <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Download Full Task List
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                                 </span>
-                            </Link>
+                            </button>
 
                             <Link href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">
                                 <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
@@ -697,6 +709,7 @@ function ProcurementConciergeCTR() {
                 </div>
 
             </section >
+
             <ReadyToWorkBannerComp
                 title={"Ready to Work Together?"}
                 description={"Let’s build a better procurement function – task by task, strategy by strategy."}
@@ -708,9 +721,8 @@ function ProcurementConciergeCTR() {
                 Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
             />
 
-
-
-            <TaskListForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            {/* Task List Modal */}
+            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }

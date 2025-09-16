@@ -1,29 +1,16 @@
+"use client";
+import { useState } from "react";
+
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import ReadyToWorkBannerComp from "@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp";
-import Link from "next/link";
+import TaskListForm from "@/components/forms/business-hub/concierge/TaskListForm";
+import Breadcrumb from "@/components/BreadCrumbs";
 
 export default function plugConciergeServices() {
-    function Breadcrumb() {
-        return (
 
+    const [taskListHeading, setTaskListHeading] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-            <nav className="text-sm breadcrumbs my-4 md:my-10">
-                <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                    <li>
-                        <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                    </li>
-                    <li>/</li>
-                    <li className="text-[#696969]">
-                        The Procurement Plug Concierge
-                    </li>
-                    <li>/</li>
-                    <li className="text-[#696969]">
-                        Plug Concierge + Services
-                    </li>
-                </ol>
-            </nav>
-        )
-    }
     return (
         <>
             <section>
@@ -196,7 +183,12 @@ export default function plugConciergeServices() {
                     <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
                         Your team stays focused. We manage the rest.
                     </p>
-                    <button className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer self-start">
+                    <button
+                        onClick={() => {
+                            setIsModalOpen(true);
+                            setTaskListHeading("Download and Explore Concierge+ Services");
+                        }}
+                        className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer self-start">
                         Download and Explore Concierge+ Services
                         <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                     </button>
@@ -213,6 +205,9 @@ export default function plugConciergeServices() {
                     Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
                 />
             </section>
+
+            {/* Task List Modal */}
+            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }
