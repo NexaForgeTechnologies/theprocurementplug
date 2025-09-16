@@ -14,7 +14,6 @@ export async function POST(request) {
         // Send email
         await RegisterInterestEmail(body);
 
-
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {
         console.error("Error in POST /register interest:", error);
