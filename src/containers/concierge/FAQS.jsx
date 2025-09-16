@@ -37,9 +37,6 @@ export default function FAQS() {
 
     return (
         <section className="space-y-6">
-            {/* <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
-                Have Questions? We Have Answers
-            </h3> */}
 
             {faqs.map((faq, index) => (
                 <div key={index} className="border-b pb-4">

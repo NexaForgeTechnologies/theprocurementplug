@@ -57,8 +57,8 @@ function BussinessHubCTR() {
       id: 1,
       heading: "The Procurement Plug Concierge",
       para: "The Procurement Plug Concierge service is the first of its kind in the UK---providing on-demand. expert procurement support for teams of all sizes",
-      btntext: "Coming Soon",
-      url: "/business-hub/procurement-concierge",
+      btntext: "View Details",
+      url: "/concierge",
     },
     {
       id: 2,

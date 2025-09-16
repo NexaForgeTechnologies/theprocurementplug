@@ -5,11 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-import TaskListForm from "@/components/forms/business-hub/concierge/TaskListForm";
-import OurValuePropositionDivComp from '@/components/business-hub/procurement-concierge/OurValuePropositionDivComp';
-import OurPackagesComp from '@/components/business-hub/procurement-concierge/OurPackagesComp';
-import WhyChooseThePlugComp from '@/components/business-hub/procurement-concierge/WhyChooseThePlugComp';
-import ReadyToWorkBannerComp from '@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp';
+import TaskListForm from "@/components/forms/concierge/TaskListForm";
+import OurValuePropositionDivComp from '@/components/concierge/OurValuePropositionDivComp';
+import OurPackagesComp from '@/components/concierge/OurPackagesComp';
+import WhyChooseThePlugComp from '@/components/concierge/WhyChooseThePlugComp';
+import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
 import Breadcrumb from '@/components/BreadCrumbs';
 import FAQS from './FAQS';
 
@@ -44,7 +44,7 @@ function ProcurementConciergeCTR() {
                 <Breadcrumb />
                 <div className="relative border border-[#DBBB89] rounded-[6px] overflow-hidden">
                     {/* Background Image Layer */}
-                    <div className="absolute inset-0 bg-[url('/images/bussiness-hub/procurement-concierge/firstimg.png')] bg-cover bg-center z-0" />
+                    <div className="absolute inset-0 bg-[url('/images/concierge/firstimg.png')] bg-cover bg-center z-0" />
 
                     {/* Content Layer */}
                     <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-x-6 gap-y-2">
@@ -90,13 +90,13 @@ function ProcurementConciergeCTR() {
                                     Join the waitlist
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                                 </button>
-                                <Link href={"/business-hub/procurement-concierge/how-it-works"}>
+                                <Link href={"/concierge/how-it-works"}>
                                     <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                         How It Works
                                         <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
                                     </button>
                                 </Link>
-                                <Link href={"/business-hub/procurement-concierge/plug-concierge-services"}>
+                                <Link href={"/concierge/plug-concierge-services"}>
                                     <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                         Concierge+ Services
                                         <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
@@ -142,47 +142,47 @@ function ProcurementConciergeCTR() {
                 </h3>
                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4'>
                     <OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/task.png"}
+                        src={"/images/concierge/task.png"}
                         heading={"Task-Based Delivery"}
                         text={"Quick turnaround tasks delivered by vetted procurement experts"}
                     /><OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/credit.png"}
+                        src={"/images/concierge/credit.png"}
                         heading={"Credit System"}
                         text={"Purchase credits and use them anytime throughout the year."}
                     /><OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/expert.png"}
+                        src={"/images/concierge/expert.png"}
                         heading={"Expert Pool"}
                         text={"Immediate access to procurement talent without long recruitment processes."}
                     /><OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/task.png"}
+                        src={"/images/concierge/task.png"}
                         heading={"QA Reviews"}
                         text={"Optional or mandatory Quality Assurance reviews ensure output is best-in-class."}
                     /><OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/cpo.png"}
+                        src={"/images/concierge/cpo.png"}
                         heading={"Fractional CPO Services"}
                         text={"Executive-level procurement leadership without the full-time cost."}
                     /><OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/hour.png"}
+                        src={"/images/concierge/hour.png"}
                         heading={"24-hour Mobilisation"}
                         text={"Ready when you need us"}
                     /><OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/Concierge.png"}
+                        src={"/images/concierge/Concierge.png"}
                         heading={"Concierge+ Services"}
                         text={"booking for coaching, wellbeing, retreats & training"}
                     /><OurValuePropositionDivComp
-                        src={"/images/bussiness-hub/procurement-concierge/qa.png"}
+                        src={"/images/concierge/qa.png"}
                         heading={"QA Reviews"}
                         text={"Optional or mandatory Quality Assurance reviews ensure output is best-in-class."}
                     />
                     <OurValuePropositionDivComp
                         colspan={"lg:col-span-2"}
-                        src={"/images/bussiness-hub/procurement-concierge/support.png"}
+                        src={"/images/concierge/support.png"}
                         heading={"Strategic Procurement Support"}
                         text={"High-impact advisory and delivery for transformation or complex projects."}
                     />
                     <OurValuePropositionDivComp
                         colspan={"lg:col-span-2"}
-                        src={"/images/bussiness-hub/procurement-concierge/snapshot.png"}
+                        src={"/images/concierge/snapshot.png"}
                         heading={"Concierge ROI Snapshot"}
                         text={"Personalized performance dashboard showing time saved, cost  efficiency, risk mitigation, and procurement maturity uplift. Delivered as a downloadable PDF and internal presentation pack."}
                     />
@@ -281,7 +281,7 @@ function ProcurementConciergeCTR() {
                         description="Specialised Procurement guidance tailored to your needs"
                     />
                 </div>
-                <Link href="/business-hub/procurement-concierge/pricing-plan" className='flex justify-center'>
+                <Link href="/concierge/pricing-plan" className='flex justify-center'>
                     <button
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] self-start">
                         View more details on Pricing Plan
@@ -614,14 +614,14 @@ function ProcurementConciergeCTR() {
             <section className='flex items-center justify-center'>
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <div
-                        href={"/business-hub/procurement-concierge/plug-concierge-experts"}
+                        href={"/concierge/plug-concierge-experts"}
                         // onClick={() => setIsJoinModalOpen(true)}
                         className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 flex flex-col text-center md:text-start gap-6 text-[#85009D]"
                     >
                         <div className="self-center md:self-start bg-white px-5 py-6.5 rounded-full border border-[#85009D]/35 w-26">
                             <Image
                                 className="w-full h-full"
-                                src={"/images/bussiness-hub/procurement-concierge/want-to.png"}
+                                src={"/images/concierge/want-to.png"}
                                 alt={"Procurement Concierge Icon"}
                                 width={100}
                                 height={100}
@@ -664,7 +664,7 @@ function ProcurementConciergeCTR() {
                                 </span>
                             </Link>
 
-                            <Link href="/business-hub/procurement-concierge/plug-concierge-services">
+                            <Link href="/concierge/plug-concierge-services">
                                 <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Explore Concierge+ Services
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
@@ -674,14 +674,14 @@ function ProcurementConciergeCTR() {
                     </div>
 
                     <div
-                        href={"/business-hub/procurement-concierge/plug-concierge-experts"}
+                        href={"/concierge/plug-concierge-experts"}
                         // onClick={() => setIsJoinModalOpen(true)}
                         className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6 text-[#85009D]"
                     >
                         <div className="self-center md:self-start">
                             <Image
                                 className="w-25 h-25"
-                                src={"/images/bussiness-hub/procurement-concierge/icon.png"}
+                                src={"/images/concierge/icon.png"}
                                 alt={"Procurement Concierge Icon"}
                                 width={100}
                                 height={100}
@@ -697,7 +697,7 @@ function ProcurementConciergeCTR() {
                             </p>
                         </div>
                         <Link
-                            href={"/business-hub/procurement-concierge/plug-concierge-experts"}
+                            href={"/concierge/plug-concierge-experts"}
                             className="self-start"
                         >
                             <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">

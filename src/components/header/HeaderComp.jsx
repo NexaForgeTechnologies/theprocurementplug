@@ -117,9 +117,9 @@ const HeaderComp = () => {
             </li>
             <li>
               <Link
-                href="/business-hub/procurement-concierge"
+                href="/concierge"
                 className="text-sm font-medium hover:text-[#85009D]"
-                onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
+                onClick={() => handleLinkClick("/concierge")}
               >
                 The Procurement Concierge
               </Link>
@@ -197,9 +197,9 @@ const HeaderComp = () => {
             </Link>
             <li>
               <Link
-                href="/business-hub/procurement-concierge"
+                href="/concierge"
                 className="text-sm font-semibold hover:text-[#85009D]"
-                onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
+                onClick={() => handleLinkClick("/concierge")}
               >
                 The Plug Concierge
               </Link>

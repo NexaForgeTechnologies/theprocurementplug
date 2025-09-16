@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 import Image from "next/image";
-import Checkbox from "@/components/business-hub/procurement-concierge/Checkbox";
+import Checkbox from "@/components/concierge/Checkbox";
 
 export default function JoinForm({ isOpen, onClose }) {
     // checkbox and drop down data

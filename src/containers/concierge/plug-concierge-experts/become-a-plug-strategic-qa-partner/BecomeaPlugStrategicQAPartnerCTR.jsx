@@ -1,36 +1,11 @@
 "use client";
 
 import React, { useState } from 'react';
-import Link from "next/link";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-import QaPartnerForm from '@/components/forms/business-hub/concierge/QaPartnerForm';
-import ReadyToWorkBannerComp from '@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp';
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol
-                className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-            >
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/procurement-concierge" className="hover:underline">The Procurement Plug Concierge</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/procurement-concierge/plug-concierge-experts" className="hover:underline">Plug Concierge Experts</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969]">Become a Plug Strategic QA Partner</li>
-            </ol>
-        </nav>
-    );
-}
+import QaPartnerForm from '@/components/forms/concierge/QaPartnerForm';
+import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
+import Breadcrumb from '@/components/BreadCrumbs';
 
 function BecomeaPlugStrategicQAPartnerCTR() {
     const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
@@ -64,7 +39,7 @@ function BecomeaPlugStrategicQAPartnerCTR() {
         <>
             <div>
                 <HeroCTR
-                    img="/images/bussiness-hub/procurement-concierge/plug-concierge-experts/become-a-plug-strategic-qa-partner/herosection.png"
+                    img="/images/concierge/plug-concierge-experts/become-a-plug-strategic-qa-partner/herosection.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
                             <span className="font-extrabold">Become a Plug Strategic QA Partner</span>

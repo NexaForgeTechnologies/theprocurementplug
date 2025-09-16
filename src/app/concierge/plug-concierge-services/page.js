@@ -2,8 +2,8 @@
 import { useState } from "react";
 
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
-import ReadyToWorkBannerComp from "@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp";
-import TaskListForm from "@/components/forms/business-hub/concierge/TaskListForm";
+import ReadyToWorkBannerComp from "@/components/concierge/ReadyToWorkBannerComp";
+import TaskListForm from "@/components/forms/concierge/TaskListForm";
 import Breadcrumb from "@/components/BreadCrumbs";
 
 export default function plugConciergeServices() {
@@ -15,7 +15,7 @@ export default function plugConciergeServices() {
         <>
             <section>
                 <HeroCTR
-                    img="/images/bussiness-hub/procurement-concierge/plug-concierge-services/hero-ctr.png"
+                    img="/images/concierge/plug-concierge-services/hero-ctr.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
                             <span className="font-semibold">Plug Concierge + Services</span>

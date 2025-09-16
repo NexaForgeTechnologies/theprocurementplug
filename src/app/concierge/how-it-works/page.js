@@ -4,8 +4,8 @@ import { useState } from "react";
 
 import Breadcrumb from "@/components/BreadCrumbs";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
-import ReadyToWorkBannerComp from "@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp";
-import TaskListForm from "@/components/forms/business-hub/concierge/TaskListForm";
+import ReadyToWorkBannerComp from "@/components/concierge/ReadyToWorkBannerComp";
+import TaskListForm from "@/components/forms/concierge/TaskListForm";
 
 export default function HowItWorks() {
 
@@ -16,7 +16,7 @@ export default function HowItWorks() {
         <>
             <section>
                 <HeroCTR
-                    img="/images/bussiness-hub/procurement-concierge/plug-concierge-how-it-works/hero-ctr.png"
+                    img="/images/concierge/plug-concierge-how-it-works/hero-ctr.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
                             <span className="font-extrabold">The Procurement Plug Concierge</span>

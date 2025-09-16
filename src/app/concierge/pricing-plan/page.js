@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PricingPlanCTR from '@/containers/business-hub/procurement-concierge/pricing-plan/PricingPlanCTR'
+import PricingPlanCTR from '@/containers/concierge/pricing-plan/PricingPlanCTR'
 
 const page = () => {
     return (

@@ -4,9 +4,9 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
     return (
         <>
             <section className="bg-[#85009D] w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20 relative py-20 flex flex-col gap-y-5 justify-center items-center">
-                <img src="/images/bussiness-hub/procurement-concierge/plug-l.png" alt="plug-icon-left"
+                <img src="/images/concierge/plug-l.png" alt="plug-icon-left"
                     className="absolute left-0 top-5" />
-                <img src="/images/bussiness-hub/procurement-concierge/plug-r.png" alt="plug-icon-right"
+                <img src="/images/concierge/plug-r.png" alt="plug-icon-right"
                     className="absolute right-0 top-5" />
 
                 <div className="flex flex-col gap-y-5 justify-center items-center">
@@ -16,13 +16,13 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-center justify-center max-w-[976px] mx-auto w-full">
                     <div className="w-full bg-[#FFFBF5] text-[#85009D] rounded border border-[#D09B48] p-4 flex items-center gap-x-3">
-                        <img src="/images/bussiness-hub/procurement-concierge/globe.png" className="w-7 h-7" alt="globe-icon" />
+                        <img src="/images/concierge/globe.png" className="w-7 h-7" alt="globe-icon" />
                         <p className="md:text-xl text-[#85009D] font-medium break-all ">
                             {link1}
                         </p>
                     </div>
                     <div className="w-full bg-[#FFFBF5] text-[#85009D] rounded border border-[#D09B48] p-4 flex items-center gap-x-3">
-                        <img src="/images/bussiness-hub/procurement-concierge/mail.png" className="h-5" alt="mail-icon" />
+                        <img src="/images/concierge/mail.png" className="h-5" alt="mail-icon" />
                         <p className="md:text-xl text-[#85009D] font-medium break-all ">
                             {link2}
                         </p>

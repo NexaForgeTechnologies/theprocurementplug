@@ -1,14 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
-import Link from "next/link";
-import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-import PricingPlanTile from '@/components/business-hub/procurement-concierge/pricing-plan/PricingPlanTile';
-import RegisterInterestForm from "@/components/forms/business-hub/concierge/RegisterInterestForm";
+import PricingPlanTile from '@/components/concierge/pricing-plan/PricingPlanTile';
+import RegisterInterestForm from "@/components/forms/concierge/RegisterInterestForm";
 import Breadcrumb from '@/components/BreadCrumbs';
-import ReadyToWorkBannerComp from '@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp';
+import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
 
 function PricingPlanCTR() {
 
@@ -144,7 +142,7 @@ function PricingPlanCTR() {
         <>
             <div>
                 <HeroCTR
-                    img="/images/bussiness-hub/procurement-concierge/pricing-plan/herosection.png"
+                    img="/images/concierge/pricing-plan/herosection.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
                             <span className="font-extrabold">Pricing Plan</span>
@@ -209,49 +207,6 @@ function PricingPlanCTR() {
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </div>
-            {/* </div>
-            <div
-                className="relative flex flex-col gap-6 md:gap-8 py-5"
-                style={{
-                    width: "100vw",
-                    left: "50%",
-                    right: "50%",
-                    marginLeft: "-50vw",
-                    marginRight: "-50vw",
-                    backgroundColor: "#85009D",
-                }}
-            >
-                <Image
-                    width={76}
-                    height={163}
-                    src="/images/bussiness-hub/plug1.png"
-                    alt="The Procurement Plug Logo"
-                    className="absolute top-0  left-0"
-                />
-                <Image
-                    width={136}
-                    height={154}
-                    src="/images/bussiness-hub/plug2.png"
-                    alt="The Procurement Plug Logo"
-                    className="absolute bottom-0 right-0 md:top-1/2 md:-translate-y-1/2"
-                />
-
-                <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-lg py-5 md:py-10 mx-auto max-w-[1440px] w-full
-      px-6 sm:px-10 md:px-14 lg:px-20">
-                    <div>
-                        <div className="max-w-[780px] m-auto text-center">
-                            <h3 className="max-w-[521px] m-auto leading-none font-semibold text-[32px] text-[#ffff]">
-                                Need a bespoke task?
-                            </h3>
-                            <p className="text-[#ffff] text-sm md:text-2xl font-medium leading-normal md:leading-relaxed mt-4">
-                                Contact us at -{' '}
-                                <Link className="font-semibold" href="/business-hub/procurement-concierge">
-                                    concierge@theprocurementplug.com
-                                </Link>
-                            </p>
-                        </div>
-                    </div>
-                </div> */}
             </div>
             <ReadyToWorkBannerComp
                 title={"Ready to Work Together?"}

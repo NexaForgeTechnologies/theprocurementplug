@@ -5,23 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-// import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import JoinForm from '@/components/forms/business-hub/concierge/JoinForm';
-import ReadyToWorkBannerComp from '@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp';
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li><Link href="/business-hub" className="hover:underline">Business Hub</Link></li>
-                <li>/</li>
-                <li><Link href="/business-hub/procurement-concierge" className="hover:underline">The Procurement Plug Concierge</Link></li>
-                <li>/</li>
-                <li className="text-[#696969]">Plug Concierge Experts</li>
-            </ol>
-        </nav>
-    );
-}
+import JoinForm from '@/components/forms/concierge/JoinForm';
+import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
+import Breadcrumb from '@/components/BreadCrumbs';
 
 function PlugConciergeExpertsCTR() {
     const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
@@ -95,7 +81,7 @@ function PlugConciergeExpertsCTR() {
         <>
             <div>
                 <HeroCTR
-                    img="/images/bussiness-hub/procurement-concierge/plug-concierge-experts/herosection.png"
+                    img="/images/concierge/plug-concierge-experts/herosection.png"
                     heading={<span className="flex flex-col gap-0 leading-none"><span className="font-extrabold">Plug Concierge Experts</span></span>}
                     para="Plug Concierge Experts connect you with skilled professionals on demand—get expert help, when you need it, without the hassle."
                 />
@@ -197,7 +183,7 @@ function PlugConciergeExpertsCTR() {
                     </div>
                 ))}
                 <Link
-                    href={"/business-hub/procurement-concierge/plug-concierge-experts/become-a-plug-strategic-qa-partner"}
+                    href={"/concierge/plug-concierge-experts/become-a-plug-strategic-qa-partner"}
                     className="text-[12px] md:text-[16px] inline-flex items-center cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                     Become a Plug Strategic QA Partner
                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
