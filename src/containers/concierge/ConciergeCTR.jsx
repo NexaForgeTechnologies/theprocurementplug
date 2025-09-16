@@ -166,7 +166,7 @@ function ProcurementConciergeCTR() {
                         heading={"24-hour Mobilisation"}
                         text={"Ready when you need us"}
                     /><OurValuePropositionDivComp
-                        src={"/images/concierge/Concierge.png"}
+                        src={"/images/concierge/concierge.png"}
                         heading={"Concierge+ Services"}
                         text={"booking for coaching, wellbeing, retreats & training"}
                     /><OurValuePropositionDivComp

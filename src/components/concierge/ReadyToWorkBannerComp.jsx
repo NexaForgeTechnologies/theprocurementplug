@@ -1,6 +1,13 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
+import TaskListForm from "../forms/concierge/TaskListForm";
 
 export default function ReadyToWorkBannerComp({ title, description, link1, link2, btnText1, btnText2, Btnlink1, Btnlink2 }) {
+
+    const [taskListHeading, setTaskListHeading] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     return (
         <>
             <section className="bg-[#85009D] w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20 relative py-20 flex flex-col gap-y-5 justify-center items-center">
@@ -30,12 +37,17 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
 
                     <div className="flex lg:justify-end">
                         {Btnlink1 ? (
-                            <a href={Btnlink1} className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
+                            <button
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading(btnText1);
+                                }}
+                                className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
                                 <span className="text-center">
                                     {btnText1}
                                 </span>
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </a>
+                            </button>
                         ) : null}
                     </div>
 
@@ -55,6 +67,9 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
                 </div>
 
             </section>
+
+            {/* Task List Modal */}
+            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }
