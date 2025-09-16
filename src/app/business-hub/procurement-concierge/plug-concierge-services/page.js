@@ -31,7 +31,7 @@ export default function plugConciergeServices() {
                     img="/images/bussiness-hub/procurement-concierge/plug-concierge-services/hero-ctr.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Plug Concierge + Services</span>
+                            <span className="font-semibold">Plug Concierge + Services</span>
                         </span>
                     }
                     para="Welcome to The Procurement Plug Concierge Your On-Demand Procurement Office"
@@ -43,12 +43,12 @@ export default function plugConciergeServices() {
                 </h3>
                 <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
                     Go beyond tasks. Plug Concierge+ supports your team’s productivity, wellbeing, and growth.
-                    All used as part of your credits .
+                    All used as part of your credits.
                 </p>
                 <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
                     Let us coordinate and book:
                 </p>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mt-4 mb-4">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mt-8 mb-4">
                     Plug Concierge + Services
                 </h3>
                 <div className="flex flex-col gap-y-3">
@@ -76,9 +76,9 @@ export default function plugConciergeServices() {
 
                     ].map((items, index) => (
                         <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
-                            <div className="w-[15px] h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                            <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                            <p className="text-[20px] md:text-xl text-[#1B1B1B] ">
+                            <p className="md:text-lg text-[#1B1B1B] ">
                                 <span className="font-semibold mr-2">
                                     {items.heading}
                                 </span>
@@ -86,13 +86,13 @@ export default function plugConciergeServices() {
                         </div>
                     ))}
                 </div>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] my-4">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mt-8 mb-4">
                     Plug Concierge + Services
                 </h3>
                 <div className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
-                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                    <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                    <p className="text-[20px] md:text-[24px] text-[#1B1B1B] ">
+                    <p className="md:text-lg text-[#1B1B1B] ">
                         <span className="font-semibold mr-2">
                             Plug Academy Bookings –
                         </span>
@@ -101,34 +101,36 @@ export default function plugConciergeServices() {
                         or teams.</p>
                 </div>
 
-                <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] my-4">
-                    Executive Coaching & Mentoring
-                </h3>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
-                    Access top-tier mentors and coaches for:
-                </p>
-                <div className="flex flex-col gap-y-3">
-                    {[
-                        { heading: "CPO or Director-level coaching" },
-                        { heading: "Group mentoring/coaching sessions" },
-                        { heading: "Career progression check-ins tied to capacity building with experts" },
-                        {
-                            heading: "Productivity & Wellbeing Add-Ons – ",
-                            list: `Let Plug Concierge+ protect your team's performance
+                <div className="my-6 md:my-8">
+                    <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mb-4">
+                        Executive Coaching & Mentoring
+                    </h3>
+                    <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                        Access top-tier mentors and coaches for:
+                    </p>
+                    <div className="flex flex-col gap-y-3">
+                        {[
+                            { heading: "CPO or Director-level coaching" },
+                            { heading: "Group mentoring/coaching sessions" },
+                            { heading: "Career progression check-ins tied to capacity building with experts" },
+                            {
+                                heading: "Productivity & Wellbeing Add-Ons – ",
+                                list: `Let Plug Concierge+ protect your team's performance
                           and wellbeing with tailored support that builds resilience, alignment, and growth. Our
                           services include but not limited:`,
-                        }
-                    ].map((items, index) => (
-                        <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
-                            <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                            }
+                        ].map((items, index) => (
+                            <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
+                                <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B] ">
-                                <span className="font-semibold mr-2">
-                                    {items.heading}
-                                </span>
-                                {items.list}</p>
-                        </div>
-                    ))}
+                                <p className="md:text-lg text-[#1B1B1B] ">
+                                    <span className="font-semibold mr-2">
+                                        {items.heading}
+                                    </span>
+                                    {items.list}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <section className="my-15 grid grid-cols-1 lg:grid-cols-2 gap-5">
@@ -159,7 +161,7 @@ export default function plugConciergeServices() {
                             <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mb-4 mt-2">
                                 {items.heading}
                             </h3>
-                            <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
+                            <p className="md:text-lg text-[#1B1B1B]">
                                 <strong className="mr-1">{items.boldtxt}</strong>
                                 {items.para}
                             </p>
@@ -181,10 +183,10 @@ export default function plugConciergeServices() {
 
                     ].map((items, index) => (
                         <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
-                            <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                            <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B] ">
-                                <span className="font-semibold mr-2">
+                            <p className="md:text-lg text-[#1B1B1B] ">
+                                <span className="font-medium mr-2">
                                     {items.heading}
                                 </span>
                                 {items.list}</p>
@@ -204,9 +206,12 @@ export default function plugConciergeServices() {
                     title={"Ready to Work Together?"}
                     description={"Let’s build a better procurement function – task by task, strategy by strategy."}
                     link1={"concierge@theprocurementplug.com"}
-                    link2={"Concierge.expert@theprocurementplug.com "}
+                    link2={"Concierge.expert@theprocurementplug.com"}
                     btnText1={"Download Pricing & Package Sheet"}
-                    btnText2={"Book a Discovery Call"} />
+                    btnText2={"Book a Discovery Call"}
+                    Btnlink1={"/"}
+                    Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
+                />
             </section>
         </>
     );

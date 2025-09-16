@@ -100,7 +100,7 @@ const HeaderComp = () => {
             <li>
               <Link
                 href="/resources"
-                className="text-sm font-semibold hover:text-[#85009D]"
+                className="text-sm font-medium hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/resources")}
               >
                 Resources
@@ -109,7 +109,7 @@ const HeaderComp = () => {
             <li>
               <Link
                 href="/business-hub"
-                className="text-sm font-semibold hover:text-[#85009D]"
+                className="text-sm font-medium hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/business-hub")}
               >
                 Business Hub
@@ -118,23 +118,23 @@ const HeaderComp = () => {
             <li>
               <Link
                 href="/business-hub/procurement-concierge"
-                className="text-sm font-semibold hover:text-[#85009D]"
+                className="text-sm font-medium hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/business-hub/procurement-concierge")}
               >
-                Procurement Concierge Hub
+                The Procurement Concierge
               </Link>
             </li>
             <li>
               <Link
                 href="/business-hub/vip-lounge"
-                className="text-sm font-semibold hover:text-[#85009D]"
+                className="text-sm font-medium hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/business-hub/vip-lounge")}
               >
                 VIP Business Lounge
               </Link>
             </li>
             <li className="flex items-center bounce-right">
-              <p className="text-sm font-semibold pr-3 text-[#010101]">
+              <p className="text-sm font-medium pr-3 text-[#010101]">
                 Reach Out To Our Team
               </p>
               <Icon name="arrow" color="black" size={24} />

@@ -34,10 +34,10 @@ function ProcurementConciergeCTR() {
                     img="/images/bussiness-hub/firsttile.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Procurement Concierge Hub</span>
+                            <span className="font-extrabold">The Procurement Concierge</span>
                         </span>
                     }
-                    para="Welcome to The Procurement Plug Concierge Your On-Demand
+                    para="Welcome to The Procurement Concierge Your On-Demand
                     Procurement Office"
                 />
                 <Breadcrumb />
@@ -46,7 +46,7 @@ function ProcurementConciergeCTR() {
                     <div className="absolute inset-0 bg-[url('/images/bussiness-hub/procurement-concierge/firstimg.png')] bg-cover bg-center z-0" />
 
                     {/* Content Layer */}
-                    <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-x-6">
+                    <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-x-6 gap-y-2">
 
                         {/* Left: Text Content */}
                         <div
@@ -57,8 +57,8 @@ function ProcurementConciergeCTR() {
                             }}
                         >
 
-                            <h3 className="relative inline-block font-semibold text-2xl text-[#85009D] pb-6">
-                                The Procurement Plug Concierge
+                            <h3 className="relative inline-block font-semibold text-xl md:text-2xl text-[#85009D] pb-6">
+                                The Procurement Concierge
                                 <span className="absolute right-0 bottom-0 text-[#1B1B1B] text-xs">
                                     Powered by The Procurement Plug
                                 </span>
@@ -109,27 +109,27 @@ function ProcurementConciergeCTR() {
             </div>
 
             <div>
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
                     Welcome to The Procurement Concierge
                 </h3>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
                     The UK’s first procurement concierge service built for speed, flexibility, and strategic delivery.
                 </p>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
                     Whether you're facing resource gaps, leadership vacancies, or major procurement priorities, Plug Concierge connects you with vetted experts to deliver tasks, lead transformation, and support your team’s development – all with guaranteed speed and quality.
                 </p>
             </div>
 
             <div>
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
                     The Procurement Plug Concierge
                 </h3>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
                     Plug Concierge gives you fast, flexible access to procurement experts across all categories and industries. Whether
                     you need strategic sourcing, contract drafting, supplier onboarding, or high-level advisory, our on-demand support
                     clears your backlog and drives results – without additional hires.
                 </p>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
                     Need help beyond tasks? We also manage training bookings, leadership retreats, executive coaching, and bespoke
                     procurement services – all coordinated through our Concierge+ offering for complete support at every stage.
                 </p>
@@ -137,7 +137,7 @@ function ProcurementConciergeCTR() {
 
             {/* Our Value Proposition */}
             <div>
-                <h3 className="font-semibold text-2xl text-[#1B1B1B] mb-4">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] mb-4">
                     Our Value Proposition
                 </h3>
                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4'>
@@ -190,8 +190,8 @@ function ProcurementConciergeCTR() {
             </div >
 
             {/* Built in ROI */}
-            <div className='flex flex-col gap-y-4'>
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] leading-none">
+            <div className='flex flex-col gap-y-4 mt-2'>
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none">
                     Built-In ROI, Not Just Delivery
                 </h3>
                 <p className="md:text-xl text-[#1B1B1B]">
@@ -228,7 +228,7 @@ function ProcurementConciergeCTR() {
 
             {/* Your Investment Options */}
             <section className='flex flex-col gap-y-5'>
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] leading-none max-w-2xl">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none max-w-2xl">
                     Your Investment Options
                 </h3>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4'>
@@ -291,14 +291,14 @@ function ProcurementConciergeCTR() {
             </section>
 
             {/* Fractional CPO Service */}
-            <section className='flex flex-col gap-y-5'>
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] leading-none max-w-2xl">
+            <section className='flex flex-col gap-y-2 md:gap-y-4'>
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none max-w-2xl">
                     Fractional CPO Services
                 </h3>
-                <p className="md:text-xl text-[#1B1B1B]">
+                <p className="text-sm md:text-lg text-[#1B1B1B]">
                     Executive procurement leadership –
                 </p>
-                <p className="md:text-xl text-[#1B1B1B] max-w-250">
+                <p className="text-sm md:text-lg text-[#1B1B1B] max-w-250">
                     Access senior procurement leaders (CPO/Director level) to drive performance, stabilise delivery, and guide transformation.
                 </p>
 
@@ -309,9 +309,9 @@ function ProcurementConciergeCTR() {
                         "Ideal for scaling teams, leadership vacancies, or strategic change"
                     ].map((list, index) => (
                         <div key={index} className="flex gap-2 md:gap-4 items-start">
-                            <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                            <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                             <div>
-                                <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">{list}</p>
+                                <p className="md:text-lg text-[#1B1B1B]">{list}</p>
                             </div>
                         </div>
                     ))}
@@ -327,7 +327,7 @@ function ProcurementConciergeCTR() {
 
             {/* Strategic Oval shaped section*/}
             < section className='flex flex-col gap-y-5' >
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] leading-none max-w-160">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none">
                     Strategic and simple credit based system Real time spend visibility
                 </h3>
                 <p className="md:text-xl text-[#1B1B1B]">
@@ -337,32 +337,38 @@ function ProcurementConciergeCTR() {
                 </p>
 
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                    <div className="text-center flex flex-col items-center w-1/3">
-                        <p className="text-[20px] text-[#1B1B1B] mb-2">Light</p>
-                        <p className="bg-[#D44CED] font-semibold text-[32px] text-[#FFFFFF] p-5 rounded-full w-20 h-20 flex items-center justify-center mb-2">1</p>
-                        <p className="text-[20px] text-[#1B1B1B]">Red Flag Scan</p>
-                    </div>
-                    <div className="w-[1px] rounded-[2px] self-stretch bg-[#B08D57] hidden md:block"></div>
+                    {[
+                        { title: "Light", num: "1", color: "#D44CED", text: "Red Flag Scan" },
+                        { title: "Medium", num: "2", color: "#BC1ED9", text: "Contract Drafting" },
+                        { title: "Heavy", num: "3", color: "#85009D", text: "Supplier Audit" },
+                    ].map((item, idx) => (
+                        <React.Fragment key={idx}>
+                            <div className="text-center flex flex-col items-center w-1/3">
+                                <p className="text-lg text-[#1B1B1B] mb-2">{item.title}</p>
+                                <p
+                                    className="font-semibold text-[32px] text-[#FFFFFF] p-5 rounded-full w-15 h-15 flex items-center justify-center mb-2"
+                                    style={{ backgroundColor: item.color }}
+                                >
+                                    {item.num}
+                                </p>
+                                <p className="text-lg text-[#1B1B1B]">{item.text}</p>
+                            </div>
 
-                    <div className="w-full h-[1px] bg-[#B08D57] block md:hidden"></div>
-                    <div className="text-center flex flex-col items-center w-1/3">
-                        <p className="text-[20px] text-[#1B1B1B] mb-2">Medium</p>
-                        <p className="bg-[#BC1ED9] font-semibold text-[32px] text-[#FFFFFF] p-5 rounded-full w-20 h-20 flex items-center justify-center mb-2">2</p>
-                        <p className="text-[20px] text-[#1B1B1B]">Contract Drafting</p>
-                    </div>
-
-                    <div className="w-[1px] rounded-[2px] self-stretch bg-[#B08D57] hidden md:block"></div>
-                    <div className="w-full h-[1px] bg-[#B08D57] block md:hidden"></div>
-                    <div className="text-center flex flex-col items-center w-1/3">
-                        <p className="text-[20px] text-[#1B1B1B] mb-2">Heavy</p>
-                        <p className="bg-[#85009D] font-semibold text-[32px] text-[#FFFFFF] p-5 rounded-full w-20 h-20 flex items-center justify-center mb-2">3</p>
-                        <p className="text-[20px] text-[#1B1B1B]">Supplier Audit</p>
-                    </div>
+                            {/* Divider (only between items, not after last) */}
+                            {idx < 2 && (
+                                <>
+                                    <div className="w-[1px] rounded-[2px] self-stretch bg-[#B08D57] hidden md:block"></div>
+                                    <div className="w-full h-[1px] bg-[#B08D57] block md:hidden"></div>
+                                </>
+                            )}
+                        </React.Fragment>
+                    ))}
                 </div>
+
             </section >
 
             <div>
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
                     What Tasks Can You Delegate?
                 </h3>
                 <p className="max-w-[976px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
@@ -370,78 +376,120 @@ function ProcurementConciergeCTR() {
                     supplier short-list to comprehensive projects such as a full supplier audit or contract negotiation.
                 </p>
                 <div className="bg-[#FFFBF5] border border-[#DBBB89] rounded-[6px]">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-center mb-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-center mb-6 lg:mb-8">
                         <button
                             onClick={() => setActiveTab("Light")}
-                            className={`${getButtonClass("Light")} md:rounded-tl-[6px] md:rounded-bl-[6px]`}
+                            className={`${getButtonClass("Light")} md:rounded-tl-[6px] md:rounded-bl-[6px] font-normal text-lg`}
                         >
                             Light
                         </button>
                         <button
                             onClick={() => setActiveTab("Medium")}
-                            className={getButtonClass("Medium")}
+                            className={`${getButtonClass("Medium")} font-normal text-lg`}
                         >
                             Medium
                         </button>
                         <button
                             onClick={() => setActiveTab("Heavy")}
-                            className={`${getButtonClass("Heavy")}`}
+                            className={`${getButtonClass("Heavy")} font-normal text-lg`}
                         >
                             Heavy
                         </button>
                         <button
                             onClick={() => setActiveTab("Strategic ")}
-                            className={`${getButtonClass("Strategic ")} md:rounded-tr-[6px] md:rounded-br-[6px]`}
+                            className={`${getButtonClass("Strategic ")} font-normal md:rounded-tr-[6px] md:rounded-br-[6px] text-lg`}
                         >
                             Strategic
                         </button>
                     </div>
                     <div className="px-5 pb-5">
                         {activeTab === "Light" && (
-                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Communication & Outreach</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto ">Research</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Templates & Documents</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Training & Knowledge</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Analysis & Reporting</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Planning & Frameworks</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Communication & Outreach</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Research & Benchmarking</p>
+                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-medium mb-6 lg:mb-8">
+                                {[
+                                    "Communication & Outreach",
+                                    "Research",
+                                    "Templates & Documents",
+                                    "Training & Knowledge",
+                                    "Analysis & Reporting",
+                                    "Planning & Frameworks",
+                                    "Communication & Outreach",
+                                    "Compliance & Risk",
+                                    "Research & Benchmarking",
+                                ].map((text, idx) => (
+                                    <p
+                                        key={idx}
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                    >
+                                        {text}
+                                    </p>
+                                ))}
                             </div>
                         )}
+
                         {activeTab === "Medium" && (
-                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Contract & Legal</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Compliance & Risk</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Data & Analytics</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Strategy & Planning</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Process Improvement</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Management</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">ESG & Sustainability</p>
+                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-medium mb-4">
+                                {[
+                                    "Compliance & Risk",
+                                    "Contract & Legal",
+                                    "Compliance & Risk",
+                                    "Data & Analytics",
+                                    "Strategy & Planning",
+                                    "Process Improvement",
+                                    "Market Intelligence",
+                                    "Supplier Management",
+                                    "Market Intelligence",
+                                    "ESG & Sustainability",
+                                ].map((text, idx) => (
+                                    <p
+                                        key={idx}
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                    >
+                                        {text}
+                                    </p>
+                                ))}
                             </div>
                         )}
+
                         {activeTab === "Heavy" && (
-                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Advanced Data & Analytics</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence & Scenario Planning</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Market Intelligence & Scenario Planning</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Supplier Development & Risk</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Strategy & Operating Mode</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">M&A & Integration</p><p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">ESG & Sustainability</p>
+                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-medium mb-4">
+                                {[
+                                    "Advanced Data & Analytics",
+                                    "Market Intelligence & Scenario Planning",
+                                    "Market Intelligence & Scenario Planning",
+                                    "Supplier Development & Risk",
+                                    "Strategy & Operating Mode",
+                                    "M&A & Integration",
+                                    "ESG & Sustainability",
+                                ].map((text, idx) => (
+                                    <p
+                                        key={idx}
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                    >
+                                        {text}
+                                    </p>
+                                ))}
                             </div>
                         )}
+
                         {activeTab === "Strategic " && (
-                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-semibold mb-4">
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Transformation & Operating Model</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Risk & Resilience</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">ESG & Sustainability Leadership</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Stakeholder & Governance</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">M&A & Synergy Realization</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Capability & Culture</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Advanced Analytics & Insights</p>
-                                <p className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl w-full md:w-auto">Innovation & Ecosystem</p>
+                            <div className="text-[#85009D] flex max-w-[1000px] items-center justify-center mx-auto flex-wrap gap-6 text-center font-medium mb-4">
+                                {[
+                                    "Transformation & Operating Model",
+                                    "Risk & Resilience",
+                                    "ESG & Sustainability Leadership",
+                                    "Stakeholder & Governance",
+                                    "M&A & Synergy Realization",
+                                    "Capability & Culture",
+                                    "Advanced Analytics & Insights",
+                                    "Innovation & Ecosystem",
+                                ].map((text, idx) => (
+                                    <p
+                                        key={idx}
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                    >
+                                        {text}
+                                    </p>
+                                ))}
                             </div>
                         )}
                         <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
@@ -457,7 +505,7 @@ function ProcurementConciergeCTR() {
             </div>
 
             <section>
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
                     Why Choose The Plug Concierge?
                 </h3>
                 <p className="max-w-[976px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
@@ -516,10 +564,10 @@ function ProcurementConciergeCTR() {
                 className="flex flex-col md:flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#FBE3FF] to-[#FFFBF5] py-6 md:py-10 w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20">
 
                 <div className='w-full md:flex-1'>
-                    <h3 className="font-medium text-2xl md:text-[42px] text-[#85009D]">
+                    <h3 className="font-medium text-xl md:text-2xl text-[#85009D]">
                         Powered by
                     </h3>
-                    <h3 className='font-semibold text-2xl md:text-[42px] text-[#85009D]'>The Procurement Plug  <span className="font-medium">Ecosystem</span></h3>
+                    <h3 className='font-semibold text-xl md:text-2xl text-[#85009D]'>The Procurement Plug  <span className="font-medium">Ecosystem</span></h3>
 
                     <p className="md:max-w-[567px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
                         Your Concierge access unlocks premium support from across our ecosystem:
@@ -527,48 +575,32 @@ function ProcurementConciergeCTR() {
                 </div>
 
                 <div>
-                    <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">✓</div>
-                        <div>
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Innovation Vault – Procurement tech & tools</p>
+                    {[
+                        "Innovation Vault – Procurement tech & tools",
+                        "Business Hub – Pre-vetted legal, ESG & consultancies",
+                        "Plug Academy – Preferential CPD training access",
+                        "Mentors & Coaches – Career leadership support",
+                        "Market Reports – Benchmarks and trend insights",
+                        "Plug Prestige – Earn rewards through usage and referrals",
+                    ].map((text, idx) => (
+                        <div
+                            key={idx}
+                            className="flex gap-2 md:gap-4 items-start mb-2 lg:mb-4"
+                        >
+                            <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">
+                                ✓
+                            </div>
+                            <div>
+                                <p className="text-md md:text-lg text-[#1B1B1B]">{text}</p>
+                            </div>
                         </div>
-                    </div>
-                    <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">✓</div>
-                        <div>
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Business Hub – Pre-vetted legal, ESG & consultancies</p>
-                        </div>
-                    </div>
-                    <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">✓</div>
-                        <div>
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Plug Academy – Preferential CPD training access</p>
-                        </div>
-                    </div>
-                    <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">✓</div>
-                        <div>
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Mentors & Coaches – Career leadership support</p>
-                        </div>
-                    </div>
-                    <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">✓</div>
-                        <div>
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Market Reports – Benchmarks and trend insights</p>
-                        </div>
-                    </div>
-                    <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        {/* <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div> */}
-                        <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">✓</div>
-                        <div>
-                            <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">Plug Prestige – Earn rewards through usage and referrals</p>
-                        </div>
-                    </div>
+                    ))}
                 </div>
+
             </section>
 
             {/* FAQs section */}
-            <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] ">
+            <h3 className="font-semibold text-xl md:text-2xl relative md:top-5 text-[#1B1B1B] ">
                 Have Questions? We Have Answers
             </h3>
 
@@ -577,10 +609,9 @@ function ProcurementConciergeCTR() {
                     <div
                         href={"/business-hub/procurement-concierge/plug-concierge-experts"}
                         // onClick={() => setIsJoinModalOpen(true)}
-                        className="rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
+                        className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 flex flex-col text-center md:text-start gap-6 text-[#85009D]"
                     >
-                        <div className=" self-center md:self-start bg-white px-5 py-6.5 rounded-full 
-                        border border-[#85009D]/35 w-26">
+                        <div className="self-center md:self-start bg-white px-5 py-6.5 rounded-full border border-[#85009D]/35 w-26">
                             <Image
                                 className="w-full h-full"
                                 src={"/images/bussiness-hub/procurement-concierge/want-to.png"}
@@ -590,43 +621,48 @@ function ProcurementConciergeCTR() {
                             />
                         </div>
                         <div>
-                            <h2 className="text-xl md:text-2xl font-semibold mb-4">Want to Delegate a Task?</h2>
-                            <p className="text-[#1B1B1B] text-base group-hover:text-white">We handle it all – from red flag scans to full sourcing strategies.</p>
+                            <h2 className="text-xl md:text-2xl font-semibold mb-4">
+                                Want to Delegate a Task?
+                            </h2>
+                            <p className="text-[#1B1B1B] text-base">
+                                We handle it all – from red flag scans to full sourcing strategies.
+                            </p>
                         </div>
                         <div className="flex flex-wrap gap-4">
-
                             <span className="flex items-center self-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
                                 Join the waitlist
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </span>
+
                             <Link href="\">
-                                <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
+                                <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Download Full Task List
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                                 </span>
                             </Link>
 
                             <Link href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">
-                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] group-hover:text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
+                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Book a Discovery Call
-                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] group-hover:border-white transform rotate-45"></div>
+                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
                                 </span>
                             </Link>
+
                             <Link href="/business-hub/procurement-concierge/plug-concierge-services">
-                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] group-hover:text-white px-4 py-2 rounded-[6px] border border-[#85009D] group-hover:border-[white]">
+                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Explore Concierge+ Services
-                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] group-hover:border-[white] transform rotate-45"></div>
+                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
                                 </span>
                             </Link>
                         </div>
-
                     </div>
+
                     <div
                         href={"/business-hub/procurement-concierge/plug-concierge-experts"}
                         // onClick={() => setIsJoinModalOpen(true)}
-                        className="rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
+                        className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6 text-[#85009D]"
                     >
-                        <div className=" self-center md:self-start">
+                        <div className="self-center md:self-start">
                             <Image
                                 className="w-25 h-25"
                                 src={"/images/bussiness-hub/procurement-concierge/icon.png"}
@@ -636,19 +672,26 @@ function ProcurementConciergeCTR() {
                             />
                         </div>
                         <div>
-                            <h2 className="text-xl md:text-2xl font-semibold mb-4">Join The Plug Concierge as a
-                                fractional expert</h2>
-                            <p className="text-[#1B1B1B] text-base group-hover:text-white">Support top procurement teams on a flexible, fractional basis.Apply to become a Plug Expert or QA Reviewer.</p>
+                            <h2 className="text-xl md:text-2xl font-semibold mb-4">
+                                Join The Plug Concierge as a fractional expert
+                            </h2>
+                            <p className="text-[#1B1B1B] text-base">
+                                Support top procurement teams on a flexible, fractional basis.
+                                Apply to become a Plug Expert or QA Reviewer.
+                            </p>
                         </div>
-                        <Link href={"/business-hub/procurement-concierge/plug-concierge-experts"} className='self-start'>
+                        <Link
+                            href={"/business-hub/procurement-concierge/plug-concierge-experts"}
+                            className="self-start"
+                        >
                             <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
                                 Join Now
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </span>
                         </Link>
                     </div>
-
                 </div>
+
             </section >
 
             <ReadyToWorkBannerComp

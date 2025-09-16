@@ -128,18 +128,18 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                         </div>
 
                         <div className="flex flex-wrap items-center gap-4 max-w-100 mt-4">
-                            
-                                <button className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                    Join the waitlist
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                                </button>
-                           
-                            
-                                <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                    Download Full Task List
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                                </button>
-                            
+
+                            <button className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                Join the waitlist
+                                <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
+                            </button>
+
+
+                            <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                Download Full Task List
+                                <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
+                            </button>
+
                             <Link href={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}>
                                 <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Book a Discovery Call
@@ -173,10 +173,13 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                 <ReadyToWorkBannerComp
                     title={"Ready to Work Together?"}
                     description={"Let’s build a better procurement function – task by task, strategy by strategy."}
-                    link1={"/"}
-                    link2={"Concierge.expert@theprocurementplug.com "}
+                    link1={"concierge@theprocurementplug.com"}
+                    link2={"Concierge.expert@theprocurementplug.com"}
                     btnText1={"Download Pricing & Package Sheet"}
-                    btnText2={"Book a Discovery Call"} />
+                    btnText2={"Book a Discovery Call"}
+                    Btnlink1={"/"}
+                    Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
+                />
             </section>
         </>
     );

@@ -8,6 +8,7 @@ import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PricingPlanTile from '@/components/business-hub/procurement-concierge/pricing-plan/PricingPlanTile';
 import RegisterInterestForm from "@/components/forms/business-hub/concierge/RegisterInterestForm";
 import Breadcrumb from '@/components/BreadCrumbs';
+import ReadyToWorkBannerComp from '@/components/business-hub/procurement-concierge/ReadyToWorkBannerComp';
 
 function PricingPlanCTR() {
 
@@ -208,7 +209,7 @@ function PricingPlanCTR() {
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </div>
-            </div>
+            {/* </div>
             <div
                 className="relative flex flex-col gap-6 md:gap-8 py-5"
                 style={{
@@ -250,9 +251,18 @@ function PricingPlanCTR() {
                             </p>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
-
+            <ReadyToWorkBannerComp
+                title={"Ready to Work Together?"}
+                description={"Let’s build a better procurement function – task by task, strategy by strategy."}
+                link1={"concierge@theprocurementplug.com"}
+                link2={"Concierge.expert@theprocurementplug.com"}
+                btnText1={"Download Pricing & Package Sheet"}
+                btnText2={"Book a Discovery Call"}
+                Btnlink1={"/"}
+                Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
+            />
 
             {/* <PartnerWithUsComp data={partnerWithUs} /> */}
             <RegisterInterestForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
