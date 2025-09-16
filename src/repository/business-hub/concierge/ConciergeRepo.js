@@ -2,6 +2,7 @@ import { db } from "@/lib/db";
 
 export class ConciergeRepo {
     static async saveTaskListForm({ name, company, email, interest }) {
+        console.log(name, company, email, interest);
 
         try {
             const [result] = await db.query(

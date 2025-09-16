@@ -17,13 +17,12 @@ export async function POST(request) {
             interest: formData.get("interest"),
         };
 
-        // const saved = await ConciergeRepo.saveTaskListForm(data);
+        const saved = await ConciergeRepo.saveTaskListForm(data);
 
         // Send email
-        await TaskListDownloadEmail(data);
+        // await TaskListDownloadEmail(data);
 
-        // return NextResponse.json({ success: true, data: saved });
-        return NextResponse.json({ success: true });
+        return NextResponse.json({ success: true, data: saved });
     } catch (error) {
         console.error("Error in POST /task-list-download:", error);
         return NextResponse.json(

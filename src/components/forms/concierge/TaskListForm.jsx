@@ -153,11 +153,11 @@ export default function TaskListForm({ heading, isOpen, onClose }) {
     if (!isOpen) return null;
 
     const interestOptions = [
-        { value: "", label: "Main interest in The Procurement Plug Concierge" },
-        { value: "consulting", label: "Consulting Services" },
-        { value: "procurement", label: "Procurement Solutions" },
-        { value: "training", label: "Training Programs" },
-        { value: "other", label: "Other" },
+        { value: "Main interest in The Procurement Plug Concierge", label: "Main interest in The Procurement Plug Concierge" },
+        { value: "Consulting Services", label: "Consulting Services" },
+        { value: "Procurement Solutions", label: "Procurement Solutions" },
+        { value: "Training Programs", label: "Training Programs" },
+        { value: "Other", label: "Other" },
     ];
 
     return (
