@@ -55,8 +55,8 @@ function BussinessHubCTR() {
   const bussinesstile = [
     {
       id: 1,
-      heading: "The Procurement Plug Concierge",
-      para: "The Procurement Plug Concierge service is the first of its kind in the UK---providing on-demand. expert procurement support for teams of all sizes",
+      heading: "The Procurement Concierge",
+      para: "The Procurement Concierge service is the first of its kind in the UK---providing on-demand. expert procurement support for teams of all sizes",
       btntext: "View Details",
       url: "/concierge",
     },
