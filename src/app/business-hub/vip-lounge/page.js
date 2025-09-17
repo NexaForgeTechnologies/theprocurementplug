@@ -73,7 +73,7 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/herosection.png"
                     heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">VIP BUSINESS Lounge</span>
+                        <span className="font-extrabold">VIP BUSINESS LOUNGE</span>
                     </span>}
                     para="A VIP Business Lounge offers a quiet, comfortable space
                 with premium services like Wi-Fi, refreshments, and
