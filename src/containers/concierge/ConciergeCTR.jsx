@@ -82,19 +82,11 @@ function ProcurementConciergeCTR() {
                                 ))}
                             </div>
                             <div className="flex flex-col flex-wrap md:flex-row items-center gap-4 max-w-100">
-                                {/* <button
-                                    onClick={() => {
-                                        setIsModalOpen(true);
-                                        setTaskListHeading("Join the waitlist");
-                                    }}
-                                    className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                    Join the waitlist
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" /> 
-                                    </button> */}
+
                                 <div
                                     onClick={() => {
                                         setIsModalOpen(true);
-                                        setTaskListHeading("Join the waitlist");
+                                        setTaskListHeading("Register");
                                     }}>
                                     <ArrowButtonCom
                                         text={"Join the waitlist"}
@@ -105,11 +97,8 @@ function ProcurementConciergeCTR() {
                                         borderColor='border-[#b08d57]'
                                         arrowColor="hover:border-[#b08d57]" />
                                 </div>
+
                                 <Link href={"/concierge/how-it-works"}>
-                                    {/* <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                        How It Works
-                                        <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                                    </button> */}
                                     <ArrowButtonCom
                                         text={"How It Works"}
                                         bgColor="bg-[#85009D]"
@@ -119,12 +108,8 @@ function ProcurementConciergeCTR() {
                                         borderColor='border-[#85009D]'
                                         arrowColor="hover:border-[#85009D]" />
                                 </Link>
-                                <Link href={"/concierge/plug-concierge-services"}>
-                                    {/* <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                        Concierge+ Services
-                                        <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
-                                    </button> */}
 
+                                <Link href={"/concierge/plug-concierge-services"}>
                                     <ArrowButtonCom
                                         text={"Concierge+ Services"}
                                         bgColor="bg-transparent"
@@ -700,19 +685,10 @@ function ProcurementConciergeCTR() {
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-4">
-                            {/* <button
-                                onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Join the waitlist")
-                                }}
-                                className="flex items-center self-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
-                                Join the waitlist
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </button> */}
                             <div
                                 onClick={() => {
                                     setIsModalOpen(true);
-                                    setTaskListHeading("Join the waitlist");
+                                    setTaskListHeading("Register");
                                 }}>
                                 <ArrowButtonCom
                                     text={"Join the waitlist"}
@@ -724,16 +700,6 @@ function ProcurementConciergeCTR() {
                                     arrowColor="hover:border-[#b08d57]" />
                             </div>
 
-                            {/* <button
-                                onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Download Full Task List");
-                                }}>
-                               <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D]">
-                                    Download Full Task List
-                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                                </span> 
-                            </button> */}
                             <div
                                 onClick={() => {
                                     setIsModalOpen(true);
@@ -750,10 +716,6 @@ function ProcurementConciergeCTR() {
                             </div>
 
                             <Link href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">
-                                {/* <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
-                                    Book a Discovery Call
-                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
-                                </span> */}
                                 <ArrowButtonCom
                                     text={"Book a Discovery Call"}
                                     bgColor="bg-transparent"
@@ -765,11 +727,7 @@ function ProcurementConciergeCTR() {
                             </Link>
 
                             <Link href="/concierge/plug-concierge-services">
-                                {/* <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
-                                    Explore Concierge+ Services
-                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
-                                </span> */}
-                                 <ArrowButtonCom
+                                <ArrowButtonCom
                                     text={"Explore Concierge+ Services"}
                                     bgColor="bg-transparent"
                                     textColor="text-[#85009D]"
@@ -783,7 +741,6 @@ function ProcurementConciergeCTR() {
 
                     <div
                         href={"/concierge/plug-concierge-experts"}
-                        // onClick={() => setIsJoinModalOpen(true)}
                         className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6 text-[#85009D]"
                     >
                         <div className="self-center md:self-start">
@@ -808,18 +765,14 @@ function ProcurementConciergeCTR() {
                             href={"/concierge/plug-concierge-experts"}
                             className="self-start"
                         >
-                            {/* <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
-                                Join Now
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </span> */}
                             <ArrowButtonCom
-                                    text={"Join Now"}
-                                    bgColor="bg-[#b08d57]"
-                                    textColor="text-white"
-                                    hoverBgColor="hover:bg-transparent"
-                                    hoverTextColor="hover:text-[#b08d57]"
-                                    borderColor='border-[#b08d57]'
-                                    arrowColor="hover:border-[#b08d57]" />
+                                text={"Join Now"}
+                                bgColor="bg-[#b08d57]"
+                                textColor="text-white"
+                                hoverBgColor="hover:bg-transparent"
+                                hoverTextColor="hover:text-[#b08d57]"
+                                borderColor='border-[#b08d57]'
+                                arrowColor="hover:border-[#b08d57]" />
                         </Link>
                     </div>
                 </div>

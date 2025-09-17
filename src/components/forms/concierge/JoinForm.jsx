@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import IconComponent from "@/components/icon/Icon";
 import Image from "next/image";
+
+import IconComponent from "@/components/icon/Icon";
 import Checkbox from "@/components/concierge/Checkbox";
 
 export default function JoinForm({ isOpen, onClose }) {
@@ -91,48 +92,10 @@ export default function JoinForm({ isOpen, onClose }) {
         });
     };
 
+    // Success Popup & Prevent Background Scroll
     const modalRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        if (isOpen) {
-            const scrollY = window.scrollY;
-            document.body.style.position = "fixed";
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = "100%";
-
-            // Prevent touchmove on background, allow in modal
-            const preventTouch = (e) => {
-                if (!modalRef.current) return;
-                const isInsideModal = modalRef.current.contains(e.target);
-                if (!isInsideModal) {
-                    e.preventDefault();
-                    return;
-                }
-                // Allow scrolling within modal if it has scrollable content
-                const { scrollTop, scrollHeight, clientHeight } = modalRef.current;
-                const atTop = scrollTop === 0;
-                const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-                const scrollingUp = e.touches[0].clientY > e.targetTouches[0].clientY;
-                const scrollingDown = e.touches[0].clientY < e.targetTouches[0].clientY;
-
-                if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
-                    e.preventDefault();
-                }
-            };
-            document.addEventListener("touchmove", preventTouch, { passive: false });
-
-            return () => {
-                // Restore scroll position and remove styles
-                const top = parseInt(document.body.style.top || "0", 10);
-                document.body.style.position = "";
-                document.body.style.top = "";
-                document.body.style.width = "";
-                window.scrollTo(0, -top);
-                document.removeEventListener("touchmove", preventTouch);
-            };
-        }
-    }, [isOpen]);
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
     // ✅ Submit form
     const handleSubmit = async (e) => {
@@ -150,7 +113,12 @@ export default function JoinForm({ isOpen, onClose }) {
 
             if (response.ok && result.success) {
                 setFormData(initialFormData);
-                onClose(); // ✅ just close modal on success
+                setShowSuccessPopup(true);
+
+                setTimeout(() => {
+                    setShowSuccessPopup(false);
+                    onClose();
+                }, 3000);
             } else {
                 console.error(result.error || "Failed to submit application.");
             }
@@ -161,7 +129,6 @@ export default function JoinForm({ isOpen, onClose }) {
         }
     };
 
-
     if (!isOpen) return null;
 
     return (
@@ -171,21 +138,19 @@ export default function JoinForm({ isOpen, onClose }) {
                 className="max-w-[1134px] w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
-                {alert.show && (
-                    <div
-                        className={`w-full p-3 rounded-md flex justify-between items-center ${alert.type === "success" ? "bg-green-900/50 text-green-400" : "bg-red-900/50 text-red-400"
-                            }`}
-                        role="alert"
-                        aria-live="polite"
-                        dangerouslySetInnerHTML={{ __html: alert.message }}
-                    >
-                        <span></span>
-                        <button
-                            onClick={handleCloseAlert}
-                            className="text-white hover:text-gray-300 focus:outline-none"
-                        >
-                            ✕
-                        </button>
+
+                {/* ✅ Success Popup */}
+                {showSuccessPopup && (
+                    <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/40">
+                        <div className="bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center text-center animate-fadeIn">
+                            <div className="text-6xl mb-4">✅</div>
+                            <h3 className="text-xl font-semibold text-[#85009D] mb-2">
+                                Thank you!
+                            </h3>
+                            <p className="text-gray-700 max-w-sm">
+                                Thanks for applying to join The Plug Concierge as a fractional expert! Our team will review your profile and contact you soon with the next steps.
+                            </p>
+                        </div>
                     </div>
                 )}
 
@@ -240,6 +205,7 @@ export default function JoinForm({ isOpen, onClose }) {
                 <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
                     About You
                 </h3>
+
                 <form onSubmit={handleSubmit} className="space-y-4 mb-4">
                     <input
                         type="text"
@@ -251,6 +217,7 @@ export default function JoinForm({ isOpen, onClose }) {
                         required
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
+
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
                             type="email"
@@ -320,6 +287,7 @@ export default function JoinForm({ isOpen, onClose }) {
                             <IconComponent name="drop-down" color="#808080" size={16} />
                         </div>
                     </div>
+
                     {/* Experties */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
                         {/* Label */}

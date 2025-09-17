@@ -1,17 +1,20 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+
 import IconComponent from "@/components/icon/Icon";
+import SuccessPopup from "@/components/SuccessMessageComp";
 
 export default function ExpertForm({ isOpen, onClose }) {
-    const [isLoading, setIsLoading] = useState(false); // ✅ FIX added
+    const modalRef = useRef(null);
+    const [isLoading, setIsLoading] = useState(false);
 
-    // Form Data
+    // Form data
     const initialFormData = {
         name: "",
         company: "",
         email: "",
-        interest: "",
+        interest: [],
         subscribe: false,
     };
     const [formData, setFormData] = useState(initialFormData);
@@ -23,49 +26,10 @@ export default function ExpertForm({ isOpen, onClose }) {
         }));
     };
 
-    const modalRef = useRef(null);
+    // Success Popup
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
-    useEffect(() => {
-        if (isOpen) {
-            const scrollY = window.scrollY;
-            document.body.style.position = "fixed";
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = "100%";
-
-            // Prevent touchmove on background, allow in modal
-            const preventTouch = (e) => {
-                if (!modalRef.current) return;
-                const isInsideModal = modalRef.current.contains(e.target);
-                if (!isInsideModal) {
-                    e.preventDefault();
-                    return;
-                }
-                // Allow scrolling within modal if it has scrollable content
-                const { scrollTop, scrollHeight, clientHeight } = modalRef.current;
-                const atTop = scrollTop === 0;
-                const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-                const scrollingUp = e.touches[0].clientY > e.targetTouches[0].clientY;
-                const scrollingDown = e.touches[0].clientY < e.targetTouches[0].clientY;
-
-                if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
-                    e.preventDefault();
-                }
-            };
-            document.addEventListener("touchmove", preventTouch, { passive: false });
-
-            return () => {
-                // Restore scroll position and remove styles
-                const top = parseInt(document.body.style.top || "0", 10);
-                document.body.style.position = "";
-                document.body.style.top = "";
-                document.body.style.width = "";
-                window.scrollTo(0, -top);
-                document.removeEventListener("touchmove", preventTouch);
-            };
-        }
-    }, [isOpen]);
-
-    // ✅ Submit form
+    // submit handler
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
@@ -80,8 +44,17 @@ export default function ExpertForm({ isOpen, onClose }) {
             const result = await response.json();
 
             if (response.ok && result.success) {
+                // Clear form
                 setFormData(initialFormData);
-                onClose();
+
+                // show success popup
+                setShowSuccessPopup(true);
+
+                // Close popup after timeout
+                setTimeout(() => {
+                    setShowSuccessPopup(false);  // hide popup
+                    onClose();                   // close modal
+                }, 3000);
             } else {
                 console.error(result.error || "Failed to submit application.");
             }
@@ -92,22 +65,30 @@ export default function ExpertForm({ isOpen, onClose }) {
         }
     };
 
+    // Interest Options
+    const interestOptions = [
+        { value: "Concierge + Services", label: "Concierge + Services" },
+        { value: "Fractional Experts", label: "Fractional Experts" },
+        { value: "Fractional CPO", label: "Fractional CPO" },
+        { value: "Advisory Services", label: "Advisory Services" },
+    ];
+    const [open, setOpen] = useState(false);
+    const toggleOption = (value) => {
+        setFormData((prev) => ({
+            ...prev,
+            interest: prev.interest.includes(value)
+                ? prev.interest.filter((v) => v !== value)
+                : [...prev.interest, value],
+        }));
+    };
 
     if (!isOpen) return null;
-
-    const interestOptions = [
-        { value: "", label: "What procurement support are you most interested in?" },
-        { value: "consulting", label: "Consulting Services" },
-        { value: "procurement", label: "Procurement Solutions" },
-        { value: "training", label: "Training Programs" },
-        { value: "other", label: "Other" },
-    ];
 
     return (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
             <div
                 ref={modalRef}
-                className="max-w-[1140px] w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
+                className="max-w-[1140px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border border-[#DBBB89] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-4">
@@ -118,14 +99,16 @@ export default function ExpertForm({ isOpen, onClose }) {
                         className="absolute top-4 right-4 text-2xl text-[#85009D]"
                         onClick={onClose}
                     >
-                        <IconComponent name="close" color='#7C7C7C' size={16} />
+                        <IconComponent name="close" color="#7C7C7C" size={16} />
                     </button>
                 </div>
+
                 <p className="md:max-w-[910px] md:text-xl text-[#1B1B1B] mb-4">
                     Thank you for your interest in The Procurement Plug Concierge. Our expert procurement
                     support team will be available very soon. Register your interest below to be the first to know
                     when we launch fully.
                 </p>
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <input
                         type="text"
@@ -135,8 +118,9 @@ export default function ExpertForm({ isOpen, onClose }) {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="w-full p-4 text-[#010101] border border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
+
                     <input
                         type="text"
                         id="company"
@@ -145,8 +129,9 @@ export default function ExpertForm({ isOpen, onClose }) {
                         value={formData.company}
                         onChange={handleChange}
                         required
-                        className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="w-full p-4 text-[#010101] border border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
+
                     <input
                         type="email"
                         id="email"
@@ -155,27 +140,41 @@ export default function ExpertForm({ isOpen, onClose }) {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="w-full p-4 text-[#010101] border border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
-                    <div className="relative">
-                        <select
-                            id="interest"
-                            name="interest"
-                            value={formData.interest}
-                            onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] appearance-none"
+
+                    <div className="relative w-full">
+                        <div
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-[2px] bg-white cursor-pointer flex justify-between items-center"
+                            onClick={() => setOpen((o) => !o)}
                         >
-                            {interestOptions.map((option) => (
-                                <option key={option.value} value={option.value}>
-                                    {option.label}
-                                </option>
-                            ))}
-                        </select>
-                        <div className="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2">
-                            <IconComponent name="drop-down" color="#808080" size={16} />
+                            <span className="truncate">
+                                {formData.interest.length > 0
+                                    ? formData.interest.join(", ")
+                                    : "Main interest in The Procurement Plug Concierge"}
+                            </span>
+                            <IconComponent name="drop-down" color="black" size={16} />
                         </div>
+
+                        {open && (
+                            <div className="absolute mt-1 w-full bg-white border border-[#85009D] rounded-[2px] shadow-lg z-10 max-h-60 overflow-auto text-[#010101]">
+                                {interestOptions.map((option) => (
+                                    <label
+                                        key={option.value}
+                                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                                    >
+                                        <input
+                                            type="checkbox"
+                                            checked={formData.interest.includes(option.value)}
+                                            onChange={() => toggleOption(option.value)}
+                                        />
+                                        <span>{option.label}</span>
+                                    </label>
+                                ))}
+                            </div>
+                        )}
                     </div>
+
                     <div className="flex items-start gap-2">
                         <input
                             type="checkbox"
@@ -187,20 +186,31 @@ export default function ExpertForm({ isOpen, onClose }) {
                             className="p-2 border border-[#85009D] rounded focus:outline-none mt-[8px]"
                         />
                         <label
-                            htmlFor="Subscribe"
+                            htmlFor="subscribe"
                             className="block md:text-[20px] text-[#1B1B1B] font-medium"
                         >
                             I’d like to receive early access updates and pilot invitations
                         </label>
                     </div>
+
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className={`flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}>
+                        className={`flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
+                    >
                         {isLoading ? "Submitting..." : "Register My Interest"}
-                        {!isLoading && <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>}
+                        {!isLoading && (
+                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                        )}
                     </button>
                 </form>
+
+                {/* ✅ Success Popup */}
+                <SuccessPopup
+                    isOpen={showSuccessPopup}
+                    title="Thank you!"
+                    message="We will be in touch shortly. In the meantime, feel free to connect with us."
+                />
             </div>
         </div>
     );

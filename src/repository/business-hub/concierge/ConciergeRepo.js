@@ -2,13 +2,11 @@ import { db } from "@/lib/db";
 
 export class ConciergeRepo {
     static async saveTaskListForm({ name, company, email, interest }) {
-        console.log(name, company, email, interest);
-
         try {
             const [result] = await db.query(
                 `INSERT INTO concierge_task_list_download (name, company, email, interest)
                 VALUES (?, ?, ?, ?)`,
-                [name, company, email, interest]
+                [name, company, email, JSON.stringify(interest)]
             );
 
             return {
@@ -95,7 +93,7 @@ export class ConciergeRepo {
                     data.name,
                     data.company,
                     data.email,
-                    data.interest,
+                    JSON.stringify(data.interest || []),
                     data.subscribe
                 ]
             );
