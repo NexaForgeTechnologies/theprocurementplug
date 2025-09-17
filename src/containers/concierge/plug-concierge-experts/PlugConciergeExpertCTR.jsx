@@ -8,6 +8,7 @@ import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import JoinForm from '@/components/forms/concierge/JoinForm';
 import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
 import Breadcrumb from '@/components/BreadCrumbs';
+import ArrowButtonCom from '@/components/buttons/ArrowButtonCom';
 
 function PlugConciergeExpertsCTR() {
     const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
@@ -91,12 +92,24 @@ function PlugConciergeExpertsCTR() {
                         <h3 className="font-semibold text-2xl text-[#FFFFFF]">Ready to become a Plug Concierge Expert</h3>
                         <p className="text-[#FFFFFF] mt-4 mb-4 md:mb-0">Join our exclusive network of procurement specialists with us</p>
                     </div>
-                    <button
+                    {/* <button
                         onClick={() => setIsJoinModalOpen(true)}
                         className="text-[12px] md:text-[16px] flex self-center items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Apply to become a Plug Concierge Expert
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button>
+                    </button> */}
+
+                    <div
+                        onClick={() => setIsJoinModalOpen(true)}>
+                        <ArrowButtonCom
+                            text={"Apply to become a Plug Concierge Expert"}
+                            bgColor="bg-[#b08d57]"
+                            textColor="text-white"
+                            hoverBgColor="hover:bg-white"
+                            hoverTextColor="hover:text-[#b08d57]"
+                            borderColor='border-[#b08d57]'
+                            arrowColor="hover:border-[#b08d57]" />
+                    </div>
                 </div>
             </div>
 
@@ -182,12 +195,24 @@ function PlugConciergeExpertsCTR() {
                         <p className="md:text-lg text-[#1B1B1B]">{perk}</p>
                     </div>
                 ))}
-                <Link
+                {/* <Link
                     href={"/concierge/plug-concierge-experts/become-a-plug-strategic-qa-partner"}
                     className="text-[12px] md:text-[16px] inline-flex items-center cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                     Become a Plug Strategic QA Partner
                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                </Link> */}
+                <Link
+                    href={"/concierge/plug-concierge-experts/become-a-plug-strategic-qa-partner"}>
+                    <ArrowButtonCom
+                        text={"Become a Plug Strategic QA Partner"}
+                        bgColor="bg-[#85009D]"
+                        textColor="text-white"
+                        hoverBgColor="hover:bg-white"
+                        hoverTextColor="hover:text-[#85009D]"
+                        borderColor='border-[#85009D]'
+                        arrowColor="hover:border-[#85009D]" />
                 </Link>
+
             </div>
 
             <ReadyToWorkBannerComp

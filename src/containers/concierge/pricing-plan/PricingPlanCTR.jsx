@@ -7,6 +7,7 @@ import PricingPlanTile from '@/components/concierge/pricing-plan/PricingPlanTile
 import RegisterInterestForm from "@/components/forms/concierge/RegisterInterestForm";
 import Breadcrumb from '@/components/BreadCrumbs';
 import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
+import ArrowButtonCom from '@/components/buttons/ArrowButtonCom';
 
 function PricingPlanCTR() {
 
@@ -200,12 +201,24 @@ function PricingPlanCTR() {
                 />
                 <p className='md:text-[20px] text-[#1B1B1B]'><span className='font-semibold'>Sign In</span> or <span className='font-semibold'>Register</span> to begin using your plan.</p>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
-                    <button
+                    {/* <button
                         onClick={() => setIsModalOpen(true)}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Register your Interest
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button>
+                    </button> */}
+                    <div
+                        onClick={() => setIsModalOpen(true)}
+                    >
+                        <ArrowButtonCom
+                            text={"Register your Interest"}
+                            bgColor="bg-[#b08d57]"
+                            textColor="text-white"
+                            hoverBgColor="hover:bg-white"
+                            hoverTextColor="hover:text-[#b08d57]"
+                            borderColor='border-[#b08d57]'
+                            arrowColor="hover:border-[#b08d57]" />
+                    </div>
                 </div>
             </div>
             <ReadyToWorkBannerComp

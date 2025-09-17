@@ -6,6 +6,7 @@ import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import ReadyToWorkBannerComp from "@/components/concierge/ReadyToWorkBannerComp";
 import TaskListForm from "@/components/forms/concierge/TaskListForm";
 import Breadcrumb from "@/components/BreadCrumbs";
+import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 
 export default function PlugConciergeServices() {
 
@@ -184,7 +185,7 @@ export default function PlugConciergeServices() {
                     <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
                         Your team stays focused. We manage the rest.
                     </p>
-                    <button
+                    {/* <button
                         onClick={() => {
                             setIsModalOpen(true);
                             setTaskListHeading("Download and Explore Concierge+ Services");
@@ -192,7 +193,22 @@ export default function PlugConciergeServices() {
                         className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer self-start">
                         Download and Explore Concierge+ Services
                         <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                    </button>
+                    </button> */}
+                    <div
+                        onClick={() => {
+                            setIsModalOpen(true);
+                            setTaskListHeading("Download and Explore Concierge+ Services");
+                        }}
+                    >
+                        <ArrowButtonCom
+                            text={"Download and Explore Concierge+ Services"}
+                            bgColor="bg-[#b08d57]"
+                            textColor="text-white"
+                            hoverBgColor="hover:bg-white"
+                            hoverTextColor="hover:text-[#b08d57]"
+                            borderColor='border-[#b08d57]'
+                            arrowColor="hover:border-[#b08d57]" />
+                    </div>
                 </div>
 
                 <ReadyToWorkBannerComp

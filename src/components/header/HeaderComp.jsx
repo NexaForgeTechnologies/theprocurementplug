@@ -11,24 +11,20 @@ const HeaderComp = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Handle scroll for shadow effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Disable body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "auto";
     }
-
     return () => {
       document.body.style.overflow = "auto";
     };
@@ -50,10 +46,7 @@ const HeaderComp = () => {
 
   return (
     <>
-      <nav
-        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""
-          }`}
-      >
+      <nav className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
         <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-20 2xl:px-0 py-4 flex items-center justify-between">
           <Link
             href="/"
@@ -73,18 +66,8 @@ const HeaderComp = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="py-2 text-gray-500 hover:bg-gray-100 rounded-lg cursor-pointer"
             >
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
             {showLoginButton && (
@@ -94,47 +77,69 @@ const HeaderComp = () => {
             )}
           </div>
 
-
           {/* Desktop Menu */}
-          <ul className="hidden xl:flex gap-3 items-center">
+          <ul className="hidden xl:flex gap-5 items-center">
             <li>
               <Link
                 href="/resources"
-                className="text-sm font-medium hover:text-[#85009D]"
+                className="text-sm font-semibold hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/resources")}
               >
                 Resources
               </Link>
             </li>
-            <li>
-              <Link
-                href="/business-hub"
-                className="text-sm font-medium hover:text-[#85009D]"
-                onClick={() => handleLinkClick("/business-hub")}
-              >
-                Business Hub
-              </Link>
+
+            {/* Business Hub with Dropdown */}
+            <li className="relative group cursor-pointer">
+              <div className="flex items-center space-x-1 text-sm font-semibold hover:text-[#85009D]">
+                <Link
+                  href="/business-hub"
+                  onClick={() => handleLinkClick("/business-hub")}
+                >
+                  Business Hub
+                </Link>
+                <svg
+                  className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </div>
+
+              <ul className="absolute top-full left-0 hidden group-hover:block mt-0.5 min-w-[200px] z-50 rounded-lg shadow-xl bg-white/30 backdrop-blur-md backdrop-saturate-150 border border-white/20">
+                <li>
+                  <Link
+                    href="/business-hub/vip-lounge"
+                    className="block px-4 py-2 text-sm text-black hover:bg-white/40 hover:text-[#85009D] border-b border-white/30 whitespace-nowrap transition-all duration-200 font-semibold"
+                    onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+                  >
+                    VIP Business Lounge
+                  </Link>
+                </li>
+                
+              </ul>
+
+
             </li>
+
             <li>
               <Link
                 href="/concierge"
-                className="text-sm font-medium hover:text-[#85009D]"
+                className="text-sm font-semibold hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/concierge")}
               >
                 The Procurement Concierge
               </Link>
             </li>
-            <li>
-              <Link
-                href="/business-hub/vip-lounge"
-                className="text-sm font-medium hover:text-[#85009D]"
-                onClick={() => handleLinkClick("/business-hub/vip-lounge")}
-              >
-                VIP Business Lounge
-              </Link>
-            </li>
             <li className="flex items-center bounce-right">
-              <p className="text-sm font-medium pr-3 text-[#010101]">
+              <p className="text-sm font-semibold pr-3 text-[#010101]">
                 Reach Out To Our Team
               </p>
               <Icon name="arrow" color="black" size={24} />
@@ -188,29 +193,34 @@ const HeaderComp = () => {
                 Resources
               </Link>
             </li>
-            <Link
-              href="/business-hub"
-              className="text-sm font-semibold hover:text-[#85009D]"
-              onClick={() => handleLinkClick("/business-hub")}
-            >
-              Business Hub
-            </Link>
+
+            {/* Business Hub + VIP Lounge Nested */}
+            <li>
+              <div className="flex flex-col">
+                <Link
+                  href="/business-hub"
+                  className="text-sm font-semibold hover:text-[#85009D]"
+                  onClick={() => handleLinkClick("/business-hub")}
+                >
+                  Business Hub
+                </Link>
+                <Link
+                  href="/business-hub/vip-lounge"
+                  className="ml-4 mt-2 text-sm font-normal hover:text-[#85009D]"
+                  onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+                >
+                  └ VIP Business Lounge
+                </Link>
+              </div>
+            </li>
+
             <li>
               <Link
                 href="/concierge"
                 className="text-sm font-semibold hover:text-[#85009D]"
                 onClick={() => handleLinkClick("/concierge")}
               >
-                The Plug Concierge
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/business-hub/vip-lounge"
-                className="text-sm font-semibold hover:text-[#85009D]"
-                onClick={() => handleLinkClick("/business-hub/vip-lounge")}
-              >
-                VIP Business Lounge
+                The Procurement Concierge
               </Link>
             </li>
             <li className="flex gap-[4px] items-center bounce-right">
@@ -233,13 +243,12 @@ const HeaderComp = () => {
           </ul>
         </div>
 
-        {/* Overlay with Blur Effect */}
+        {/* Overlay */}
         {isMobileMenuOpen && (
           <div
             className="fixed inset-0 bg-opacity-40 backdrop-blur-md z-40 transition-all duration-300"
             onClick={() => setIsMobileMenuOpen(false)}
-          >
-          </div>
+          ></div>
         )}
       </nav>
     </>

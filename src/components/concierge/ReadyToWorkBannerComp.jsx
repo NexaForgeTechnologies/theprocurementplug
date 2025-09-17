@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import TaskListForm from "../forms/concierge/TaskListForm";
+import ArrowButtonCom from "../buttons/ArrowButtonCom";
 
 export default function ReadyToWorkBannerComp({ title, description, link1, link2, btnText1, btnText2, Btnlink1, Btnlink2 }) {
 
@@ -37,39 +38,62 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
 
                     <div className="flex lg:justify-end">
                         {Btnlink1 ? (
-                            <button
+                            // <button
+                            //     onClick={() => {
+                            //         setIsModalOpen(true);
+                            //         setTaskListHeading(btnText1);
+                            //     }}
+                            //     className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
+                            //     <span className="text-center">
+                            //        {btnText1}
+                            //     </span>
+                            //     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                            // </button>
+                            <div
                                 onClick={() => {
                                     setIsModalOpen(true);
                                     setTaskListHeading(btnText1);
-                                }}
-                                className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
-                                <span className="text-center">
-                                    {btnText1}
-                                </span>
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </button>
+                                }}>
+                                <ArrowButtonCom
+                                    text={btnText1}
+                                    bgColor="bg-[#b08d57]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-white"
+                                    hoverTextColor="hover:text-[#b08d57]"
+                                    borderColor='border-[#b08d57]'
+                                    arrowColor="hover:border-[#b08d57]" />
+                            </div>
                         ) : null}
                     </div>
 
                     <div className="flex justify-start">
                         {Btnlink2 ? (
                             <Link href={Btnlink2}>
-                                <span className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
+                                {/* <span className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
                                     <span className="text-center">
                                         {btnText2}
                                     </span>
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                                </span>
+                                </span> */}
+                                <ArrowButtonCom
+                                    text={btnText2}
+                                    bgColor="bg-[#b08d57]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-white"
+                                    hoverTextColor="hover:text-[#b08d57]"
+                                    borderColor='border-[#b08d57]'
+                                    arrowColor="hover:border-[#b08d57]" />
                             </Link>
                         ) : null}
                     </div>
 
                 </div>
 
-            </section>
+            </section >
 
             {/* Task List Modal */}
-            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            < TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)
+            } />
         </>
     );
 }

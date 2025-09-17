@@ -39,7 +39,7 @@ export default function FAQS() {
         <section className="space-y-6">
 
             {faqs.map((faq, index) => (
-                <div key={index} className="border-b pb-4">
+                <div key={index} className="border-b border-[#85009D] pb-4">
                     <div
                         className="flex justify-between items-center cursor-pointer"
                         onClick={() => toggleFAQ(index)}
@@ -53,7 +53,7 @@ export default function FAQS() {
                     </div>
 
                     {openStates[index] && (
-                        <p className="text-[#1B1B1B] text-base font-normal mt-2 max-w-3xl">
+                        <p className="text-[#1B1B1B] text-base font-normal mt-2 pr-5">
                             {faq.answer}
                         </p>
                     )}

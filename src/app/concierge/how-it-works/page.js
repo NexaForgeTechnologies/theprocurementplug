@@ -6,6 +6,7 @@ import Breadcrumb from "@/components/BreadCrumbs";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import ReadyToWorkBannerComp from "@/components/concierge/ReadyToWorkBannerComp";
 import TaskListForm from "@/components/forms/concierge/TaskListForm";
+import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 
 export default function HowItWorks() {
 
@@ -38,9 +39,9 @@ export default function HowItWorks() {
                 <section className="grid grid-cols-1 gap-y-4 my-5">
 
                     <div className="flex flex-col gap-y-4 rounded justify-start bg-[#FFFBF5] border border-[#DBBB89] p-6">
-                        <span className="bg-[#85009D] text-white rounded-full self-start w-20 md:w-25 h-20 md:h-25 text-center flex flex-col items-center justify-center mb-2">
+                        <span className="bg-[#85009D] text-white rounded-full self-start w-22 h-22 text-center flex flex-col items-center justify-center mb-2">
                             <span className="font-medium text-xl relative top-2">STEP</span>
-                            <span className="text-3xl font-extrabold">01</span>
+                            <span className="text-3xl font-bold">01</span>
                         </span>
 
                         <h3 className="font-semibold text-xl md:text-2xl text-[#85009D]">
@@ -56,9 +57,9 @@ export default function HowItWorks() {
                     </div>
 
                     <div className="flex flex-col gap-y-4 rounded justify-start bg-[#FFFBF5] border border-[#DBBB89] p-6">
-                        <span className="bg-[#85009D] text-white rounded-full self-start w-20 md:w-25 h-20 md:h-25 text-center flex flex-col items-center justify-center mb-2">
+                        <span className="bg-[#85009D] text-white rounded-full self-start w-22 h-22 text-center flex flex-col items-center justify-center mb-2">
                             <span className="font-medium text-xl relative top-2">STEP</span>
-                            <span className="text-3xl font-extrabold">02</span>
+                            <span className="text-3xl font-bold">02</span>
                         </span>
 
                         <h3 className="font-semibold text-xl md:text-2xl text-[#85009D]">
@@ -93,9 +94,9 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                     ].map((item, index) => (
                         <div key={index} className="flex flex-col gap-y-4 rounded justify-start bg-[#FFFBF5] border border-[#DBBB89] p-6">
                             {/* Step Indicator */}
-                            <span className="bg-[#85009D] text-white rounded-full self-start w-20 md:w-25 h-20 md:h-25 text-center flex flex-col items-center justify-center mb-2">
+                            <span className="bg-[#85009D] text-white rounded-full self-start w-22 h-22 text-center flex flex-col items-center justify-center mb-2">
                                 <span className="font-medium text-xl relative top-2">STEP</span>
-                                <span className="text-3xl font-extrabold">{item.step}</span>
+                                <span className="text-3xl font-bold">{item.step}</span>
                             </span>
 
                             {/* Step Title */}
@@ -107,9 +108,9 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                             {/* List Items for the step */}
                             {item.listItems.map((listItem, idx) => (
                                 <div key={idx} className="flex gap-2 md:gap-4 items-start">
-                                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                                    <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                                     <div>
-                                        <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">{listItem}</p>
+                                        <p className="text-base md:text-lg text-[#1B1B1B]">{listItem}</p>
                                     </div>
                                 </div>
                             ))}
@@ -127,16 +128,16 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                     <div className='md:flex-1 flex items-start justify-evenly flex-col'>
 
                         <div className="">
-                            <h3 className='font-medium text-2xl md:text-[42px] text-[#85009D]'>
+                            <h3 className='font-medium text-xl md:text-2xl lg:text-3xl text-[#85009D]'>
                                 What Makes
-                                <strong className=" mr-1 md:text-[42px]"> The Plug Concierge</strong>
+                                <strong className=" mr-1 font-semibold text-xl md:text-2xl lg:text-3xl"> The Plug Concierge</strong>
 
                                 <br /> Workflow Unique?</h3>
                         </div>
 
                         <div className="flex flex-wrap items-center gap-4 max-w-100 mt-4">
 
-                            <button
+                            {/* <button
                                 onClick={() => {
                                     setIsModalOpen(true);
                                     setTaskListHeading("Join the Waitlist");
@@ -144,10 +145,24 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                                 className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                 Join the Waitlist
                                 <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                            </button>
+                            </button> */}
+                            <div
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Join the Waitlist");
+                                }}>
+                                <ArrowButtonCom
+                                    text={"Join the Waitlist"}
+                                    bgColor="bg-[#b08d57]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-white"
+                                    hoverTextColor="hover:text-[#b08d57]"
+                                    borderColor='border-[#b08d57]'
+                                    arrowColor="hover:border-[#b08d57]" />
+                            </div>
 
 
-                            <button
+                            {/* <button
                                 onClick={() => {
                                     setIsModalOpen(true);
                                     setTaskListHeading("Download Full Task List");
@@ -155,13 +170,35 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                                 className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                 Download Full Task List
                                 <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                            </button>
+                            </button> */}
+                            <div
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Download Full Task List");
+                                }}>
+                                <ArrowButtonCom
+                                    text={"Download Full Task List"}
+                                    bgColor="bg-[#85009D]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-white"
+                                    hoverTextColor="hover:text-[#85009D]"
+                                    borderColor='border-[#85009D]'
+                                    arrowColor="hover:border-[#85009D]" />
+                            </div>
 
                             <Link href={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}>
-                                <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                {/* <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Book a Discovery Call
                                     <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
-                                </button>
+                                </button> */}
+                                <ArrowButtonCom
+                                    text={"Book a Discovery Call"}
+                                    bgColor="bg-white"
+                                    textColor="text-[#85009D]"
+                                    hoverBgColor="hover:bg-[#85009D]"
+                                    hoverTextColor="hover:text-white"
+                                    borderColor='border-[#85009D]'
+                                    arrowColor="hover:border-[#85009D]" />
                             </Link>
                         </div>
                     </div>
@@ -177,7 +214,7 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                             <div key={idx} className="flex gap-2 md:gap-4 items-start mb-4 max-w-110">
                                 <div className="font-semibold text-[#B08D57] text-xl md:text-2xl mt-[4px]">✓</div>
                                 <div>
-                                    <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">
+                                    <p className="text-md md:text-lg text-[#1B1B1B]">
                                         {list}
                                     </p>
                                 </div>

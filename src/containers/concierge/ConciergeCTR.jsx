@@ -12,6 +12,7 @@ import WhyChooseThePlugComp from '@/components/concierge/WhyChooseThePlugComp';
 import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
 import Breadcrumb from '@/components/BreadCrumbs';
 import FAQS from './FAQS';
+import ArrowButtonCom from '@/components/buttons/ArrowButtonCom';
 
 function ProcurementConciergeCTR() {
 
@@ -81,26 +82,57 @@ function ProcurementConciergeCTR() {
                                 ))}
                             </div>
                             <div className="flex flex-col flex-wrap md:flex-row items-center gap-4 max-w-100">
-                                <button
+                                {/* <button
                                     onClick={() => {
                                         setIsModalOpen(true);
                                         setTaskListHeading("Join the waitlist");
                                     }}
                                     className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                     Join the waitlist
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                                </button>
+                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" /> 
+                                    </button> */}
+                                <div
+                                    onClick={() => {
+                                        setIsModalOpen(true);
+                                        setTaskListHeading("Join the waitlist");
+                                    }}>
+                                    <ArrowButtonCom
+                                        text={"Join the waitlist"}
+                                        bgColor="bg-[#b08d57]"
+                                        textColor="text-white"
+                                        hoverBgColor="hover:bg-transparent"
+                                        hoverTextColor="hover:text-[#b08d57]"
+                                        borderColor='border-[#b08d57]'
+                                        arrowColor="hover:border-[#b08d57]" />
+                                </div>
                                 <Link href={"/concierge/how-it-works"}>
-                                    <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                    {/* <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                         How It Works
                                         <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                                    </button>
+                                    </button> */}
+                                    <ArrowButtonCom
+                                        text={"How It Works"}
+                                        bgColor="bg-[#85009D]"
+                                        textColor="text-white"
+                                        hoverBgColor="hover:bg-white"
+                                        hoverTextColor="hover:text-[#85009D]"
+                                        borderColor='border-[#85009D]'
+                                        arrowColor="hover:border-[#85009D]" />
                                 </Link>
                                 <Link href={"/concierge/plug-concierge-services"}>
-                                    <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
+                                    {/* <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
                                         Concierge+ Services
                                         <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
-                                    </button>
+                                    </button> */}
+
+                                    <ArrowButtonCom
+                                        text={"Concierge+ Services"}
+                                        bgColor="bg-transparent"
+                                        textColor="text-[#85009D]"
+                                        hoverBgColor="hover:bg-[#85009D]"
+                                        hoverTextColor="hover:text-white"
+                                        borderColor='border-[#85009D]'
+                                        arrowColor="hover:border-white" />
                                 </Link>
                             </div>
                         </div>
@@ -282,11 +314,19 @@ function ProcurementConciergeCTR() {
                     />
                 </div>
                 <Link href="/concierge/pricing-plan" className='flex justify-center'>
-                    <button
+                    {/* <button
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] self-start">
                         View more details on Pricing Plan
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button>
+                    </button> */}
+                    <ArrowButtonCom
+                        text={"View more details on Pricing Plan"}
+                        bgColor="bg-[#b08d57]"
+                        textColor="text-white"
+                        hoverBgColor="hover:bg-transparent"
+                        hoverTextColor="hover:text-[#b08d57]"
+                        borderColor='border-[#b08d57]'
+                        arrowColor="hover:border-[#b08d57]" />
                 </Link>
             </section>
 
@@ -316,12 +356,23 @@ function ProcurementConciergeCTR() {
                         </div>
                     ))}
 
-                    <button
+                    {/* <button
                         onClick={() => { alert("Available soon!") }}
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] ">
                         Request a Fractional CPO Intro
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button>
+                    </button> */}
+
+                    <div onClick={() => { alert("Available soon!") }}>
+                        <ArrowButtonCom
+                            text={"Request a Fractional CPO Intro"}
+                            bgColor="bg-[#b08d57]"
+                            textColor="text-white"
+                            hoverBgColor="hover:bg-transparent"
+                            hoverTextColor="hover:text-[#b08d57]"
+                            borderColor='border-[#b08d57]'
+                            arrowColor="hover:border-[#b08d57]" />
+                    </div>
                 </div>
             </section >
 
@@ -493,7 +544,7 @@ function ProcurementConciergeCTR() {
                             </div>
                         )}
                         <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
-                            <button
+                            {/* <button
                                 onClick={() => {
                                     setIsModalOpen(true);
                                     setTaskListHeading("Download Full Task List");
@@ -501,7 +552,21 @@ function ProcurementConciergeCTR() {
                                 className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                                 Download Full Task List
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </button>
+                            </button> */}
+                            <div
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Download Full Task List");
+                                }}>
+                                <ArrowButtonCom
+                                    text={"Download Full Task List"}
+                                    bgColor="bg-[#b08d57]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-transparent"
+                                    hoverTextColor="hover:text-[#b08d57]"
+                                    borderColor='border-[#b08d57]'
+                                    arrowColor="hover:border-[#b08d57]" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -567,10 +632,10 @@ function ProcurementConciergeCTR() {
                 className="flex flex-col md:flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#FBE3FF] to-[#FFFBF5] py-6 md:py-10 w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20">
 
                 <div className='w-full md:flex-1'>
-                    <h3 className="font-medium text-xl md:text-2xl text-[#85009D]">
+                    <h3 className="font-medium text-xl md:text-2xl lg:text-3xl text-[#85009D]">
                         Powered by
                     </h3>
-                    <h3 className='font-semibold text-xl md:text-2xl text-[#85009D]'>The Procurement Plug  <span className="font-medium">Ecosystem</span></h3>
+                    <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl text-[#85009D]'>The Procurement Plug  <span className="font-medium">Ecosystem</span></h3>
 
                     <p className="md:max-w-[567px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
                         Your Concierge access unlocks premium support from across our ecosystem:
@@ -603,7 +668,6 @@ function ProcurementConciergeCTR() {
             </section>
 
             {/* FAQs section */}
-
             <div>
                 <h3 className="font-semibold text-xl md:text-2xl mb-4 text-[#1B1B1B] ">
                     Have Questions? We Have Answers
@@ -636,7 +700,7 @@ function ProcurementConciergeCTR() {
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-4">
-                            <button
+                            {/* <button
                                 onClick={() => {
                                     setIsModalOpen(true);
                                     setTaskListHeading("Join the waitlist")
@@ -644,31 +708,75 @@ function ProcurementConciergeCTR() {
                                 className="flex items-center self-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
                                 Join the waitlist
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </button>
+                            </button> */}
+                            <div
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Join the waitlist");
+                                }}>
+                                <ArrowButtonCom
+                                    text={"Join the waitlist"}
+                                    bgColor="bg-[#b08d57]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-transparent"
+                                    hoverTextColor="hover:text-[#b08d57]"
+                                    borderColor='border-[#b08d57]'
+                                    arrowColor="hover:border-[#b08d57]" />
+                            </div>
 
-                            <button
+                            {/* <button
                                 onClick={() => {
                                     setIsModalOpen(true);
                                     setTaskListHeading("Download Full Task List");
                                 }}>
-                                <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D]">
+                               <span className="flex items-center self-start cursor-pointer bg-[#85009D] text-white px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Download Full Task List
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                                </span>
-                            </button>
+                                </span> 
+                            </button> */}
+                            <div
+                                onClick={() => {
+                                    setIsModalOpen(true);
+                                    setTaskListHeading("Download Full Task List");
+                                }}>
+                                <ArrowButtonCom
+                                    text={"Download Full Task List"}
+                                    bgColor="bg-[#85009D]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-white"
+                                    hoverTextColor="hover:text-[#85009D]"
+                                    borderColor='border-[#85009D]'
+                                    arrowColor="hover:border-[#85009D]" />
+                            </div>
 
                             <Link href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">
-                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
+                                {/* <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Book a Discovery Call
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
-                                </span>
+                                </span> */}
+                                <ArrowButtonCom
+                                    text={"Book a Discovery Call"}
+                                    bgColor="bg-transparent"
+                                    textColor="text-[#85009D]"
+                                    hoverBgColor="hover:bg-[#85009D]"
+                                    hoverTextColor="hover:text-white"
+                                    borderColor='border-[#85009D]'
+                                    arrowColor="hover:border-white" />
                             </Link>
 
                             <Link href="/concierge/plug-concierge-services">
-                                <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
+                                {/* <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
                                     Explore Concierge+ Services
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
-                                </span>
+                                </span> */}
+                                 <ArrowButtonCom
+                                    text={"Explore Concierge+ Services"}
+                                    bgColor="bg-transparent"
+                                    textColor="text-[#85009D]"
+                                    hoverBgColor="hover:bg-[#85009D]"
+                                    hoverTextColor="hover:text-white"
+                                    borderColor='border-[#85009D]'
+                                    arrowColor="hover:border-white" />
                             </Link>
                         </div>
                     </div>
@@ -700,10 +808,18 @@ function ProcurementConciergeCTR() {
                             href={"/concierge/plug-concierge-experts"}
                             className="self-start"
                         >
-                            <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
+                            {/* <span className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
                                 Join Now
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </span>
+                            </span> */}
+                            <ArrowButtonCom
+                                    text={"Join Now"}
+                                    bgColor="bg-[#b08d57]"
+                                    textColor="text-white"
+                                    hoverBgColor="hover:bg-transparent"
+                                    hoverTextColor="hover:text-[#b08d57]"
+                                    borderColor='border-[#b08d57]'
+                                    arrowColor="hover:border-[#b08d57]" />
                         </Link>
                     </div>
                 </div>
