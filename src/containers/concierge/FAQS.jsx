@@ -4,7 +4,7 @@ export default function FAQS() {
     const faqs = [
         {
             question: "What tasks do you handle?",
-            answer: "Submit your task through the dashboard. We’ll review it and assign the right expert. You’ll receive updates and a completed deliverable—fast and hassle-free.",
+            answer: "The Concierge supports all your needs. Simply submit your task through the dashboard, and we’ll review it and assign the right expert. You’ll receive updates and a completed deliverable—fast and hassle-free.",
         },
         {
             question: "How long does it take to complete a task?",
