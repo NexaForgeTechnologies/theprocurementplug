@@ -694,7 +694,7 @@ function ProcurementConciergeCTR() {
                             <div
                                 onClick={() => {
                                     setIsModalOpen(true);
-                                    setTaskListHeading("Register");
+                                    setTaskListHeading("Join the waitlist");
                                 }}>
                                 <ArrowButtonCom
                                     text={"Join the waitlist"}
