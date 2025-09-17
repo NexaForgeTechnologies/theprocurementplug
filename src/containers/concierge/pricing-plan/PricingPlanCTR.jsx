@@ -20,7 +20,7 @@ function PricingPlanCTR() {
         "Plug Strategic": { bgColor: "#B08D57", textColor: "#FFFFFF" },
         "Plug QA Reviews": { bgColor: "#85009D", textColor: "#FFFFFF" },
         "Plug Fractional CPO": { bgColor: "#EFCB91", textColor: "#85009D" },
-        "Plug Concierge+": { bgColor: "#85009D", textColor: "#FFFFFF" },
+        // "Plug Concierge+": { bgColor: "#85009D", textColor: "#FFFFFF" },
         "Advisory Call": { bgColor: "#EAC6FF", textColor: "#85009D" },
     };
 
@@ -30,7 +30,7 @@ function PricingPlanCTR() {
             tag: "Plug lite",
             // heading: "£21,300",
             credit: "Credits",
-            creditvalue: "8",
+            creditvalue: "6",
             name: "Rollover Grace",
             data: "Up to 2 credit",
             workingday: "Working days SLA",
@@ -44,7 +44,7 @@ function PricingPlanCTR() {
             tag: "Plug Prime",
             // heading: "£42,000",
             credit: "Credits",
-            creditvalue: "16",
+            creditvalue: "12",
             name: "Rollover Grace",
             data: "Up to 3 credit",
             workingday: "Working days SLA",
@@ -58,7 +58,7 @@ function PricingPlanCTR() {
             tag: "Plug Single Task",
             // heading: "£73,900",
             credit: "Credits",
-            creditvalue: "30",
+            creditvalue: "1",
             name: "Rollover Grace",
             data: "Up to 5 credit",
             workingday: "Working days SLA",
@@ -72,7 +72,7 @@ function PricingPlanCTR() {
             tag: "Plug Strategic",
             // heading: "£3,250",
             credit: "Credits",
-            creditvalue: "8",
+            creditvalue: "Scoped",
             name: "Rollover Grace",
             data: "Up to 2 credit",
             workingday: "Working days SLA",
@@ -86,7 +86,7 @@ function PricingPlanCTR() {
             tag: "Plug QA Reviews",
             // heading: "£3,250",
             credit: "Credits",
-            creditvalue: "16",
+            creditvalue: "From 2",
             name: "Rollover Grace",
             data: "Up to 3 credit",
             workingday: "Working days SLA",
@@ -100,7 +100,7 @@ function PricingPlanCTR() {
             tag: "Plug Fractional CPO",
             // heading: "£3,250",
             credit: "Credits",
-            creditvalue: "30",
+            creditvalue: "Scoped",
             name: "Rollover Grace",
             data: "Up to 5 credit",
             workingday: "Working days SLA",
@@ -109,26 +109,26 @@ function PricingPlanCTR() {
             url: "",
             // isAnnual: false,
         },
-        {
-            id: 7,
-            tag: "Plug Concierge+",
-            // heading: "£3,250",
-            credit: "Credits",
-            creditvalue: "8",
-            name: "Rollover Grace",
-            data: "Up to 2 credit",
-            workingday: "Working days SLA",
-            workingdayvalue: "≤  5 days",
-            btntext: "Register your interest",
-            url: "",
-            // isAnnual: false,
-        },
+        // {
+        //     id: 7,
+        //     tag: "Plug Concierge+",
+        //     // heading: "£3,250",
+        //     credit: "Credits",
+        //     creditvalue: "8",
+        //     name: "Rollover Grace",
+        //     data: "Up to 2 credit",
+        //     workingday: "Working days SLA",
+        //     workingdayvalue: "≤  5 days",
+        //     btntext: "Register your interest",
+        //     url: "",
+        //     // isAnnual: false,
+        // },
         {
             id: 8,
             tag: "Advisory Call",
             // heading: "£3,250",
-            credit: "Hourly",
-            creditvalue: "8",
+            credit: "Credits",
+            creditvalue: "Hours",
             name: "Rollover Grace",
             data: "Up to 2 credit",
             workingday: "Working days SLA",
@@ -143,10 +143,10 @@ function PricingPlanCTR() {
         <>
             <div>
                 <HeroCTR
-                    img="/images/concierge/pricing-plan/herosection.png"
+                    img="/images/concierge/pricing-plan/herosection2.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Pricing Plan</span>
+                            <span className="font-extrabold">Investment Plan</span>
                         </span>
                     }
                     para="Choose the plan that fits your needs—Lite, Prime, Elite,

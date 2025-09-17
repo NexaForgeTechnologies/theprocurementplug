@@ -43,100 +43,91 @@ function ProcurementConciergeCTR() {
                     Procurement Office"
                 />
                 <Breadcrumb />
+
                 <div className="relative border border-[#DBBB89] rounded-[6px] overflow-hidden">
                     {/* Background Image Layer */}
-                    <div className="absolute inset-0 bg-[url('/images/concierge/firstimg.png')] bg-cover bg-center z-0" />
+                    <div className="absolute inset-0 bg-[url('/images/concierge/firstimg2.png')] bg-cover bg-center z-0" />
 
                     {/* Content Layer */}
                     <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-x-6 gap-y-2">
-
                         {/* Left: Text Content */}
                         <div
                             className="w-full lg:w-[50%] bg-[#FFFBF5] backdrop-blur-md p-6 min-h-full"
                             style={{
                                 boxShadow: '0 25px 50px 50px #FFFBF5'
-                                // boxShadow: '0 25px 50px 100px black'
                             }}
                         >
+                            <div className="flex flex-col gap-y-5">
+                                <h3 className="relative inline-block font-semibold text-xl md:text-2xl lg:text-4xl text-[#85009D] pb-8">
+                                    The Procurement Concierge
+                                    <span className="absolute left-0 bottom-0 text-[#1B1B1B] text-sm font-medium">
+                                        Powered by The Procurement Plug
+                                    </span>
+                                </h3>
 
-                            <h3 className="relative inline-block font-semibold text-xl md:text-2xl text-[#85009D] pb-6">
-                                The Procurement Concierge
-                                <span className="absolute right-0 bottom-0 text-[#1B1B1B] text-xs">
-                                    Powered by The Procurement Plug
-                                </span>
-                            </h3>
+                                <p className="text-[#1B1B1B] font-semibold md:text-lg">
+                                    Your On-Demand Procurement Office
+                                </p>
 
-                            <p className="mt-4 mb-2 text-[#1B1B1B] font-semibold">
-                                Your On-Demand Procurement Office
-                            </p>
-                            <div className="flex items-center gap-x-2 flex-wrap mb-4">
-                                {[
-                                    "Tasks", "Fractional CPO", "Concierge+ Services", "Strategy", "Advisory"
-                                ].map((item, index, arr) => (
-                                    <React.Fragment key={index}>
-                                        <p className="text-[#1B1B1B] font-normal">{item}</p>
-                                        {index !== arr.length - 1 && (
-                                            <span className="inline-block rounded-full h-2 w-2 bg-[#85009D] shrink-0" />
-                                        )}
-                                    </React.Fragment>
-                                ))}
-                            </div>
-                            <div className="flex flex-col flex-wrap md:flex-row items-center gap-4 max-w-100">
-                                {/* <button
-                                    onClick={() => {
-                                        setIsModalOpen(true);
-                                        setTaskListHeading("Join the waitlist");
-                                    }}
-                                    className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                    Join the waitlist
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" /> 
-                                    </button> */}
-                                <div
-                                    onClick={() => {
-                                        setIsModalOpen(true);
-                                        setTaskListHeading("Join the waitlist");
-                                    }}>
-                                    <ArrowButtonCom
-                                        text={"Join the waitlist"}
-                                        bgColor="bg-[#b08d57]"
-                                        textColor="text-white"
-                                        hoverBgColor="hover:bg-transparent"
-                                        hoverTextColor="hover:text-[#b08d57]"
-                                        borderColor='border-[#b08d57]'
-                                        arrowColor="hover:border-[#b08d57]" />
+                                <div className="flex items-center gap-x-2 flex-wrap max-w-100">
+                                    {[
+                                        "Tasks", "Fractional CPO", "Concierge+ Services", "Strategy", "Advisory"
+                                    ].map((item, index, arr) => (
+                                        <React.Fragment key={index}>
+                                            <p className="text-[#1B1B1B] font-normal">{item}</p>
+                                            {index !== arr.length - 1 && (
+                                                <span className="inline-block rounded-full h-2 w-2 bg-[#85009D] shrink-0" />
+                                            )}
+                                        </React.Fragment>
+                                    ))}
                                 </div>
-                                <Link href={"/concierge/how-it-works"}>
-                                    {/* <button className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                        How It Works
-                                        <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                                    </button> */}
-                                    <ArrowButtonCom
-                                        text={"How It Works"}
-                                        bgColor="bg-[#85009D]"
-                                        textColor="text-white"
-                                        hoverBgColor="hover:bg-white"
-                                        hoverTextColor="hover:text-[#85009D]"
-                                        borderColor='border-[#85009D]'
-                                        arrowColor="hover:border-[#85009D]" />
-                                </Link>
-                                <Link href={"/concierge/plug-concierge-services"}>
-                                    {/* <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                        Concierge+ Services
-                                        <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
-                                    </button> */}
 
-                                    <ArrowButtonCom
-                                        text={"Concierge+ Services"}
-                                        bgColor="bg-transparent"
-                                        textColor="text-[#85009D]"
-                                        hoverBgColor="hover:bg-[#85009D]"
-                                        hoverTextColor="hover:text-white"
-                                        borderColor='border-[#85009D]'
-                                        arrowColor="hover:border-white" />
-                                </Link>
+                                <div className="flex flex-col flex-wrap md:flex-row items-center gap-4 max-w-100">
+                                    <div
+                                        onClick={() => {
+                                            setIsModalOpen(true);
+                                            setTaskListHeading("Join the waitlist");
+                                        }}
+                                    >
+                                        <ArrowButtonCom
+                                            text={"Join the waitlist"}
+                                            bgColor="bg-[#b08d57]"
+                                            textColor="text-white"
+                                            hoverBgColor="hover:bg-transparent"
+                                            hoverTextColor="hover:text-[#b08d57]"
+                                            borderColor='border-[#b08d57]'
+                                            arrowColor="hover:border-[#b08d57]"
+                                        />
+                                    </div>
+
+                                    <Link href={"/concierge/how-it-works"}>
+                                        <ArrowButtonCom
+                                            text={"How It Works"}
+                                            bgColor="bg-[#85009D]"
+                                            textColor="text-white"
+                                            hoverBgColor="hover:bg-white"
+                                            hoverTextColor="hover:text-[#85009D]"
+                                            borderColor='border-[#85009D]'
+                                            arrowColor="hover:border-[#85009D]"
+                                        />
+                                    </Link>
+
+                                    <Link href={"/concierge/plug-concierge-services"}>
+                                        <ArrowButtonCom
+                                            text={"Concierge+ Services"}
+                                            bgColor="bg-transparent"
+                                            textColor="text-[#85009D]"
+                                            hoverBgColor="hover:bg-[#85009D]"
+                                            hoverTextColor="hover:text-white"
+                                            borderColor='border-[#85009D]'
+                                            arrowColor="hover:border-white"
+                                        />
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div >
 
@@ -300,12 +291,12 @@ function ProcurementConciergeCTR() {
                         text="Plug Fractional CPO"
                         description="Executive Interim procurement leadership and transformation support - without the overhead "
                     />
-                    <OurPackagesComp
+                    {/* <OurPackagesComp
                         textColor="text-[#85009D]"
                         bgColor="bg-[#EAC6FF]"
                         text="Plug Concierge+"
                         description="Procurement booking and management of wellbeing, coaching, and more"
-                    />
+                    /> */}
                     <OurPackagesComp
                         textColor="text-[#85009D]"
                         bgColor="bg-[#EFCB91]"
@@ -320,7 +311,7 @@ function ProcurementConciergeCTR() {
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button> */}
                     <ArrowButtonCom
-                        text={"View more details on Pricing Plan"}
+                        text={"View more details on Investment Plan"}
                         bgColor="bg-[#b08d57]"
                         textColor="text-white"
                         hoverBgColor="hover:bg-transparent"
@@ -378,7 +369,7 @@ function ProcurementConciergeCTR() {
 
             {/* Strategic Oval shaped section*/}
             < section className='flex flex-col gap-y-5' >
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none">
+                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] max-w-120">
                     Strategic and simple credit based system Real time spend visibility
                 </h3>
                 <p className="md:text-xl text-[#1B1B1B]">
@@ -389,9 +380,9 @@ function ProcurementConciergeCTR() {
 
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
                     {[
-                        { title: "Light", num: "1", color: "#D44CED", text: "Red Flag Scan" },
-                        { title: "Medium", num: "2", color: "#BC1ED9", text: "Contract Drafting" },
-                        { title: "Heavy", num: "3", color: "#85009D", text: "Supplier Audit" },
+                        { title: "Light", num: "1", color: "#D44CED", text: "" },
+                        { title: "Medium", num: "2", color: "#BC1ED9", text: "" },
+                        { title: "Heavy", num: "3", color: "#85009D", text: "" },
                     ].map((item, idx) => (
                         <React.Fragment key={idx}>
                             <div className="text-center flex flex-col items-center w-1/3">
@@ -769,7 +760,7 @@ function ProcurementConciergeCTR() {
                                     Explore Concierge+ Services
                                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
                                 </span> */}
-                                 <ArrowButtonCom
+                                <ArrowButtonCom
                                     text={"Explore Concierge+ Services"}
                                     bgColor="bg-transparent"
                                     textColor="text-[#85009D]"
@@ -813,13 +804,13 @@ function ProcurementConciergeCTR() {
                                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                             </span> */}
                             <ArrowButtonCom
-                                    text={"Join Now"}
-                                    bgColor="bg-[#b08d57]"
-                                    textColor="text-white"
-                                    hoverBgColor="hover:bg-transparent"
-                                    hoverTextColor="hover:text-[#b08d57]"
-                                    borderColor='border-[#b08d57]'
-                                    arrowColor="hover:border-[#b08d57]" />
+                                text={"Join Now"}
+                                bgColor="bg-[#b08d57]"
+                                textColor="text-white"
+                                hoverBgColor="hover:bg-transparent"
+                                hoverTextColor="hover:text-[#b08d57]"
+                                borderColor='border-[#b08d57]'
+                                arrowColor="hover:border-[#b08d57]" />
                         </Link>
                     </div>
                 </div>
