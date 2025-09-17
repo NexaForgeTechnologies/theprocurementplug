@@ -1,12 +1,16 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
 
 import IconComponent from "@/components/icon/Icon";
 import Checkbox from "@/components/concierge/Checkbox";
+import SuccessPopup from "@/components/SuccessMessageComp";
 
 export default function JoinForm({ isOpen, onClose }) {
+    const modalRef = useRef(null);
+    const [isLoading, setIsLoading] = useState(false);
+
     // checkbox and drop down data
     const experienceOptions = [
         { value: "", label: "Years of Procurement Experience" },
@@ -92,9 +96,7 @@ export default function JoinForm({ isOpen, onClose }) {
         });
     };
 
-    // Success Popup & Prevent Background Scroll
-    const modalRef = useRef(null);
-    const [isLoading, setIsLoading] = useState(false);
+    // Success Popup
     const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
     // ✅ Submit form
@@ -112,12 +114,16 @@ export default function JoinForm({ isOpen, onClose }) {
             const result = await response.json();
 
             if (response.ok && result.success) {
+                // Clear form
                 setFormData(initialFormData);
+
+                // show success popup
                 setShowSuccessPopup(true);
 
+                // Close popup after timeout
                 setTimeout(() => {
-                    setShowSuccessPopup(false);
-                    onClose();
+                    setShowSuccessPopup(false);  // hide popup
+                    onClose();                   // close modal
                 }, 3000);
             } else {
                 console.error(result.error || "Failed to submit application.");
@@ -138,21 +144,6 @@ export default function JoinForm({ isOpen, onClose }) {
                 className="max-w-[1134px] w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
-
-                {/* ✅ Success Popup */}
-                {showSuccessPopup && (
-                    <div className="fixed inset-0 z-[300] flex items-center justify-center bg-black/40">
-                        <div className="bg-white p-8 rounded-2xl shadow-xl flex flex-col items-center text-center animate-fadeIn">
-                            <div className="text-6xl mb-4">✅</div>
-                            <h3 className="text-xl font-semibold text-[#85009D] mb-2">
-                                Thank you!
-                            </h3>
-                            <p className="text-gray-700 max-w-sm">
-                                Thanks for applying to join The Plug Concierge as a fractional expert! Our team will review your profile and contact you soon with the next steps.
-                            </p>
-                        </div>
-                    </div>
-                )}
 
                 <div className="flex justify-between items-center">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D]">
@@ -463,6 +454,13 @@ export default function JoinForm({ isOpen, onClose }) {
                     </button>
                 </form>
             </div>
+
+            {/* ✅ Success Popup */}
+            <SuccessPopup
+                isOpen={showSuccessPopup}
+                title="Thank you!"
+                message="Thanks for applying to join The Plug Concierge. Our team will review your profile and contact you soon with the next steps."
+            />
         </div>
     );
 }

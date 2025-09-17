@@ -191,7 +191,7 @@ export default function TaskListForm({ heading, isOpen, onClose }) {
                     <button
                         type="submit"
                         disabled={isLoading}
-                        className="flex items-center justify-center bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+                        className="flex items-center justify-center bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto cursor-pointer"
                     >
                         {isLoading ? "Submitting..." : "Download"}
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>

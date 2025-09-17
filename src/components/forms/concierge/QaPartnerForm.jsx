@@ -1,9 +1,15 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+
 import IconComponent from "@/components/icon/Icon";
+import SuccessPopup from "@/components/SuccessMessageComp";
 
 export default function PersonalDetailForm({ isOpen, onClose }) {
+    const modalRef = useRef(null);
+    const [isLoading, setIsLoading] = useState(false);
+
+    // Experience dropdown data
     const experienceOptions = [
         { value: "Years of Procurement Experience", label: "Years of Procurement Experience" },
         { value: "Consulting Services", label: "Consulting Services" },
@@ -47,48 +53,8 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
         }));
     };
 
-    const modalRef = useRef(null);
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        if (isOpen) {
-            const scrollY = window.scrollY;
-            document.body.style.position = "fixed";
-            document.body.style.top = `-${scrollY}px`;
-            document.body.style.width = "100%";
-
-            // Prevent touchmove on background, allow in modal
-            const preventTouch = (e) => {
-                if (!modalRef.current) return;
-                const isInsideModal = modalRef.current.contains(e.target);
-                if (!isInsideModal) {
-                    e.preventDefault();
-                    return;
-                }
-                // Allow scrolling within modal if it has scrollable content
-                const { scrollTop, scrollHeight, clientHeight } = modalRef.current;
-                const atTop = scrollTop === 0;
-                const atBottom = scrollTop + clientHeight >= scrollHeight - 1;
-                const scrollingUp = e.touches[0].clientY > e.targetTouches[0].clientY;
-                const scrollingDown = e.touches[0].clientY < e.targetTouches[0].clientY;
-
-                if ((atTop && scrollingUp) || (atBottom && scrollingDown)) {
-                    e.preventDefault();
-                }
-            };
-            document.addEventListener("touchmove", preventTouch, { passive: false });
-
-            return () => {
-                // Restore scroll position and remove styles
-                const top = parseInt(document.body.style.top || "0", 10);
-                document.body.style.position = "";
-                document.body.style.top = "";
-                document.body.style.width = "";
-                window.scrollTo(0, -top);
-                document.removeEventListener("touchmove", preventTouch);
-            };
-        }
-    }, [isOpen]);
+    // Success Popup
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
     // ✅ Submit form
     const handleSubmit = async (e) => {
@@ -105,8 +71,17 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
             const result = await response.json();
 
             if (response.ok && result.success) {
+                // Clear form
                 setFormData(initialFormData);
-                onClose(); // ✅ just close modal on success
+
+                // show success popup
+                setShowSuccessPopup(true);
+
+                // Close popup after timeout
+                setTimeout(() => {
+                    setShowSuccessPopup(false);  // hide popup
+                    onClose();                   // close modal
+                }, 3000);
             } else {
                 console.error(result.error || "Failed to submit application.");
             }
@@ -339,24 +314,15 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         {isLoading ? "Submitting..." : "Submit"}
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    {alert.show && (
-                        <div
-                            className={`w-full p-3 rounded-md flex justify-between items-center ${alert.type === "success" ? "bg-[#85009D] text-white" : "bg-red-900/50 text-red-400"
-                                } mt-4`}
-                            role="alert"
-                            aria-live="polite"
-                        >
-                            <span dangerouslySetInnerHTML={{ __html: alert.message }} />
-                            <button
-                                onClick={handleCloseAlert}
-                                className="text-white hover:text-gray-300 focus:outline-none"
-                            >
-                                ✕
-                            </button>
-                        </div>
-                    )}
                 </form>
             </div>
-        </div >
+
+            {/* ✅ Success Popup */}
+            <SuccessPopup
+                isOpen={showSuccessPopup}
+                title="Thank you!"
+                message="Thanks for applying to join The Plug Concierge. Our team will review your profile and contact you soon with the next steps."
+            />
+        </div>
     );
 }
