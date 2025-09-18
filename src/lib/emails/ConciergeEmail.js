@@ -9,7 +9,7 @@ export async function UserTaskListDownloadEmail({ email, name }) {
         html: `
             <p><b>Hi ${name},</b></p>
             <p>Thanks for downloading our Procurement Concierge Task List.</p>
-            <a target="_blank" href="https://staging.theprocurementplug.com/files/CONCIERGE_TASKS.pdf">👉 [Download Your Task List Here]</a>
+            <a target="_blank" href="https://staging.theprocurementplug.com/files/CONCIERGE_TASKS.pdf">Download Your Task List Here</a>
             <p>Inside, you’ll find examples of light, medium, and heavy tasks that our Concierge can handle — giving your team back time, reducing overhead, and ensuring every deliverable is quality-assured.</p>
             <p>If you’d like to learn more about how these tasks translate into real business value, simply email us at concierge@theprocurementplug.com or <a target="_blank" href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">book a discovery call.</a></p>
             <p>Best regards,<br/>The Procurement Concierge Team</p>
@@ -62,7 +62,7 @@ export async function AdminWaitlistListFormEmail({ name, company, email, interes
     await sendEmail({
         type: "concierge",
         to: process.env.SMTP_CONCIERGE_USER,
-        subject: "📩 New Task List Download Request",
+        subject: "New Task List Download Request",
         html: `
             <p>Hello Team,</p>
             <p>A new user has downloaded the Procurement Concierge Task List.<br/>
@@ -93,7 +93,7 @@ export async function UserPricicngPackagingFormEmail({ email, name }) {
         html: `
             <p><b>Hi ${name},</b></p>
             <p>Thank you for your interest in The Procurement Concierge by The Procurement Plug.</p>
-            <a target="_blank" href="https://staging.theprocurementplug.com/files/THE_PROCUREMENT_CONCIERGER_BROCHURE.pdf">👉 Download Your Brochure Here</a>
+            <a target="_blank" href="https://staging.theprocurementplug.com/files/THE_PROCUREMENT_CONCIERGER_BROCHURE.pdf">Download Your Brochure Here</a>
             <p>Our Concierge gives your procurement team instant access to vetted expertise, rapid task delivery, and senior QA support — without ongoing POs or lengthy onboarding.</p>
             <p>If you have questions or would like to explore how this could work for your organisation, simply email us at concierge@theprocurementplug.com or <a target="_blank" href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">book a discovery call.</a></p>
             <p>Best regards,<br/>The Procurement Concierge Team</p>
@@ -104,7 +104,7 @@ export async function AdminPricicngPackagingFormEmail({ name, company, email, in
     await sendEmail({
         type: "concierge",
         to: process.env.SMTP_CONCIERGE_USER,
-        subject: "📩 New Task List Download Request",
+        subject: "New Task List Download Request",
         html: `
             <p>Hello Team,</p>
             <p>A new user has downloaded the Procurement Concierge Task List.<br/>
@@ -190,7 +190,7 @@ export async function UserBecomeExpertEmail({ email, name }) {
             <li>Recognition as a trusted professional within our growing community.</li>
             </ul>
             <p>We’ll be in touch shortly with your onboarding details.</p>
-            <p>👉 👉 In the meantime, feel free to share this link with other trusted professionals who may want to join: <a target="_blank" href="https://staging.theprocurementplug.com/concierge/plug-concierge-experts">Join the Concierge Experts Network</a></p>
+            <p>In the meantime, feel free to share this link with other trusted professionals who may want to join: <a target="_blank" href="https://staging.theprocurementplug.com/concierge/plug-concierge-experts">Join the Concierge Experts Network</a></p>
             <p>Best regards,<br/>The Procurement Concierge Team</p>
         `,
     });
@@ -231,7 +231,7 @@ export async function UserBecomeQaPartnerEmail({ email, name }) {
             <li>Recognition as a trusted professional within our growing community.</li>
             </ul>
             <p>We’ll be in touch shortly with your onboarding details.</p>
-            <p>👉 In the meantime, feel free to share this link with other trusted professionals who may want to join: concierge.expert@theprocurementplug.com</p>
+            <p>In the meantime, feel free to share this link with other trusted professionals who may want to join: concierge.expert@theprocurementplug.com</p>
             <p>Best regards,<br/>The Procurement Concierge Team</p>
         `,
     });
