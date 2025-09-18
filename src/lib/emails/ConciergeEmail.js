@@ -231,7 +231,7 @@ export async function UserBecomeQaPartnerEmail({ email, name }) {
             <li>Recognition as a trusted professional within our growing community.</li>
             </ul>
             <p>We’ll be in touch shortly with your onboarding details.</p>
-            <p>In the meantime, feel free to share this link with other trusted professionals who may want to join: concierge.expert@theprocurementplug.com</p>
+            <p>In the meantime, feel free to share this link with other trusted professionals who may want to join: <a target="_blank" href="https://staging.theprocurementplug.com/concierge/plug-concierge-experts">Join the Concierge Experts Network</a></p>  
             <p>Best regards,<br/>The Procurement Concierge Team</p>
         `,
     });
