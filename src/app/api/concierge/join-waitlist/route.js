@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo";
 
 // Emails
-import { WaitlistListFormEmail } from "@/lib/emails/ConciergeEmail";
+import { UserWaitlistListFormEmail, AdminWaitlistListFormEmail } from "@/lib/emails/ConciergeEmail";
 
 export async function POST(request) {
     try {
@@ -20,7 +20,8 @@ export async function POST(request) {
         const saved = await ConciergeRepo.saveWaitlistListForm(data);
 
         // Send email
-        await WaitlistListFormEmail(data);
+        await UserWaitlistListFormEmail(data);
+        await AdminWaitlistListFormEmail(data);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {

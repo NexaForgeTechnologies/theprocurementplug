@@ -41,7 +41,6 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
                             <div
                                 onClick={() => {
                                     setIsPricingPackagingFormOpen(true);
-                                    setTaskListHeading(btnText1);
                                 }}>
                                 <ArrowButtonCom
                                     text={btnText1}

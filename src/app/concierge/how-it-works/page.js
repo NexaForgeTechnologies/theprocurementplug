@@ -6,12 +6,13 @@ import Breadcrumb from "@/components/BreadCrumbs";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import ReadyToWorkBannerComp from "@/components/concierge/ReadyToWorkBannerComp";
 import TaskListForm from "@/components/forms/concierge/TaskListForm";
+import JoinWaitlistForm from "@/components/forms/concierge/JoinWaitlistForm";
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 
 export default function HowItWorks() {
 
-    const [taskListHeading, setTaskListHeading] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDownloadFormOpen, setIsDownloadFormOpen] = useState(false);
+    const [isWaitlistFormOpen, setWaitlistFormOpen] = useState(false);
 
     return (
         <>
@@ -136,20 +137,9 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                         </div>
 
                         <div className="flex flex-wrap items-center gap-4 max-w-100 mt-4">
-
-                            {/* <button
-                                onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Join the Waitlist");
-                                }}
-                                className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                Join the Waitlist
-                                <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                            </button> */}
                             <div
                                 onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Join the Waitlist");
+                                    setWaitlistFormOpen(true);
                                 }}>
                                 <ArrowButtonCom
                                     text={"Join the Waitlist"}
@@ -161,20 +151,9 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                                     arrowColor="hover:border-[#b08d57]" />
                             </div>
 
-
-                            {/* <button
-                                onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Download Full Task List");
-                                }}
-                                className="bg-[#85009D] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                Download Full Task List
-                                <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                            </button> */}
                             <div
                                 onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Download Full Task List");
+                                    setIsDownloadFormOpen(true);
                                 }}>
                                 <ArrowButtonCom
                                     text={"Download Full Task List"}
@@ -187,10 +166,6 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                             </div>
 
                             <Link href={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}>
-                                {/* <button className="bg-transparent border border-[#85009D] text-[#85009D] px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer">
-                                    Book a Discovery Call
-                                    <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45" />
-                                </button> */}
                                 <ArrowButtonCom
                                     text={"Book a Discovery Call"}
                                     bgColor="bg-white"
@@ -236,8 +211,11 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                 />
             </section>
 
-            {/* Task List Modal */}
-            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            {/* Task List Form */}
+            <TaskListForm isOpen={isDownloadFormOpen} onClose={() => setIsDownloadFormOpen(false)} />
+
+            {/* Join Waitlist Form */}
+            <JoinWaitlistForm isOpen={isWaitlistFormOpen} onClose={() => setWaitlistFormOpen(false)} />
         </>
     );
 }

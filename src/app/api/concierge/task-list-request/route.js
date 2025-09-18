@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo";
 
 // Emails
-import { TaskListDownloadEmail } from "@/lib/emails/ConciergeEmail";
+import { UserTaskListDownloadEmail, AdminTaskListDownloadEmail } from "@/lib/emails/ConciergeEmail";
 
 export async function POST(request) {
     try {
@@ -20,7 +20,8 @@ export async function POST(request) {
         const saved = await ConciergeRepo.saveTaskListForm(data);
 
         // Send email
-        await TaskListDownloadEmail(data);
+        await UserTaskListDownloadEmail(data);
+        await AdminTaskListDownloadEmail(data);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {

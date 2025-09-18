@@ -4,14 +4,13 @@ import { useState } from "react";
 
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import ReadyToWorkBannerComp from "@/components/concierge/ReadyToWorkBannerComp";
-import TaskListForm from "@/components/forms/concierge/TaskListForm";
+import PricingPackageForm from "@/components/forms/concierge/PricingPackageForm";
 import Breadcrumb from "@/components/BreadCrumbs";
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 
 export default function PlugConciergeServices() {
 
-    const [taskListHeading, setTaskListHeading] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPricingPackagingFormOpen, setIsPricingPackagingFormOpen] = useState(false);
 
     return (
         <>
@@ -185,19 +184,9 @@ export default function PlugConciergeServices() {
                     <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
                         Your team stays focused. We manage the rest.
                     </p>
-                    {/* <button
-                        onClick={() => {
-                            setIsModalOpen(true);
-                            setTaskListHeading("Download and Explore Concierge+ Services");
-                        }}
-                        className="bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto flex items-center justify-center cursor-pointer self-start">
-                        Download and Explore Concierge+ Services
-                        <div className="ml-2 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45" />
-                    </button> */}
                     <div
                         onClick={() => {
-                            setIsModalOpen(true);
-                            setTaskListHeading("Download and Explore Concierge+ Services");
+                            setIsPricingPackagingFormOpen(true);
                         }}
                     >
                         <ArrowButtonCom
@@ -223,8 +212,8 @@ export default function PlugConciergeServices() {
                 />
             </section>
 
-            {/* Task List Modal */}
-            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            {/* Pricing & Packaging Form */}
+            <PricingPackageForm isOpen={isPricingPackagingFormOpen} onClose={() => setIsPricingPackagingFormOpen(false)} />
         </>
     );
 }

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo";
 
 // Emails
-import { BecomeQaPartnerEmail } from "@/lib/emails/ConciergeEmail";
+import { UserBecomeQaPartnerEmail, AdminBecomeQaPartnerEmail } from "@/lib/emails/ConciergeEmail";
 
 export async function POST(request) {
     try {
@@ -12,7 +12,8 @@ export async function POST(request) {
         const saved = await ConciergeRepo.saveBecomeQaPartnerForm(body);
 
         // Send email
-        await BecomeQaPartnerEmail(body);
+        await UserBecomeQaPartnerEmail(body);
+        await AdminBecomeQaPartnerEmail(body);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {

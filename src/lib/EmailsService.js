@@ -17,22 +17,12 @@ export async function sendEmail({ type, to, subject, html }) {
         concierge: {
             user: process.env.SMTP_CONCIERGE_USER,
             pass: process.env.SMTP_CONCIERGE_PASS,
-            label: "Procurement Plug Concierge",
+            label: "The Procurement Plug Concierge",
         },
-        registerInterest: {
-            user: process.env.SMTP_CONCIERGE_USER,
-            pass: process.env.SMTP_CONCIERGE_PASS,
-            label: "Procurement Plug Concierge",
-        },
-        becomeExpert: {
+        conciergeExpert: {
             user: process.env.SMTP_CONCIERGE_EXPERT_USER,
             pass: process.env.SMTP_CONCIERGE_EXPERT_PASS,
-            label: "Procurement Plug Concierge",
-        },
-        becomeQaPartner: {
-            user: process.env.SMTP_CONCIERGE_EXPERT_USER,
-            pass: process.env.SMTP_CONCIERGE_EXPERT_PASS,
-            label: "Procurement Plug Concierge",
+            label: "The Procurement Plug Concierge Expert",
         },
     };
 
