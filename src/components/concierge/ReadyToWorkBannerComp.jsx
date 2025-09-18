@@ -1,13 +1,13 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import TaskListForm from "../forms/concierge/TaskListForm";
-import ArrowButtonCom from "../buttons/ArrowButtonCom";
+
+import PricingPackageForm from "@/components/forms/concierge/PricingPackageForm";
+import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 
 export default function ReadyToWorkBannerComp({ title, description, link1, link2, btnText1, btnText2, Btnlink1, Btnlink2 }) {
 
-    const [taskListHeading, setTaskListHeading] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isPricingPackagingFormOpen, setIsPricingPackagingFormOpen] = useState(false);
 
     return (
         <>
@@ -38,20 +38,9 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
 
                     <div className="flex lg:justify-end">
                         {Btnlink1 ? (
-                            // <button
-                            //     onClick={() => {
-                            //         setIsModalOpen(true);
-                            //         setTaskListHeading(btnText1);
-                            //     }}
-                            //     className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
-                            //     <span className="text-center">
-                            //        {btnText1}
-                            //     </span>
-                            //     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            // </button>
                             <div
                                 onClick={() => {
-                                    setIsModalOpen(true);
+                                    setIsPricingPackagingFormOpen(true);
                                     setTaskListHeading(btnText1);
                                 }}>
                                 <ArrowButtonCom
@@ -69,12 +58,6 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
                     <div className="flex justify-start">
                         {Btnlink2 ? (
                             <Link href={Btnlink2}>
-                                {/* <span className="flex items-center justify-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] min-w-70">
-                                    <span className="text-center">
-                                        {btnText2}
-                                    </span>
-                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                                </span> */}
                                 <ArrowButtonCom
                                     text={btnText2}
                                     bgColor="bg-[#b08d57]"
@@ -86,14 +69,11 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
                             </Link>
                         ) : null}
                     </div>
-
                 </div>
+            </section>
 
-            </section >
-
-            {/* Task List Modal */}
-            < TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)
-            } />
+            {/* Pricing & Packaging Form */}
+            <PricingPackageForm isOpen={isPricingPackagingFormOpen} onClose={() => setIsPricingPackagingFormOpen(false)} />
         </>
     );
 }

@@ -17,7 +17,41 @@ export async function TaskListDownloadEmail({ email, name }) {
     });
 }
 
-// Register Interest Form Email
+// Waitlist Email
+export async function WaitlistListFormEmail({ email, name }) {
+    await sendEmail({
+        type: "concierge",
+        to: email,
+        subject: "Your Procurement Task List is Ready",
+        html: `
+            <p><b>Hi ${name},</b></p>
+            <p>Thanks for downloading our Procurement Concierge Task List.</p>
+            <a href="https://staging.theprocurementplug.com/files/CONCIERGE_TASKS.pdf">👉 [Download Your Task List Here]</a>
+            <p>Inside, you’ll find examples of light, medium, and heavy tasks that our Concierge can handle — giving your team back time, reducing overhead, and ensuring every deliverable is quality-assured.</p>
+            <p>If you’d like to learn more about how these tasks translate into real business value, simply email us at concierge@theprocurementplug.com or book a discovery call.</p>
+            <p>Best regards,<br/>The Procurement Concierge Team</p>
+        `,
+    });
+}
+
+// Pricing Packaging Email
+export async function pricicngPackagingFormEmail({ email, name }) {
+    await sendEmail({
+        type: "concierge",
+        to: email,
+        subject: "Your Procurement Task List is Ready",
+        html: `
+            <p><b>Hi ${name},</b></p>
+            <p>Thanks for downloading our Procurement Concierge Task List.</p>
+            <a href="https://staging.theprocurementplug.com/files/CONCIERGE_TASKS.pdf">👉 [Download Your Task List Here]</a>
+            <p>Inside, you’ll find examples of light, medium, and heavy tasks that our Concierge can handle — giving your team back time, reducing overhead, and ensuring every deliverable is quality-assured.</p>
+            <p>If you’d like to learn more about how these tasks translate into real business value, simply email us at concierge@theprocurementplug.com or book a discovery call.</p>
+            <p>Best regards,<br/>The Procurement Concierge Team</p>
+        `,
+    });
+}
+
+// Register Interest Email
 export async function RegisterInterestEmail({ email, name }) {
     await sendEmail({
         type: "registerInterest",

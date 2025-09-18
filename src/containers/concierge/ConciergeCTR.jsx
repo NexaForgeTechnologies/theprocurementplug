@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import TaskListForm from "@/components/forms/concierge/TaskListForm";
+import JoinWaitlistForm from "@/components/forms/concierge/JoinWaitlistForm";
 import OurValuePropositionDivComp from '@/components/concierge/OurValuePropositionDivComp';
 import OurPackagesComp from '@/components/concierge/OurPackagesComp';
 import WhyChooseThePlugComp from '@/components/concierge/WhyChooseThePlugComp';
@@ -17,8 +18,9 @@ import ArrowButtonCom from '@/components/buttons/ArrowButtonCom';
 function ProcurementConciergeCTR() {
 
     const [activeTab, setActiveTab] = useState("Light");
-    const [taskListHeading, setTaskListHeading] = useState("");
-    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const [isDownloadFormOpen, setIsDownloadFormOpen] = useState(false);
+    const [isWaitlistFormOpen, setWaitlistFormOpen] = useState(false);
 
     const getButtonClass = (tabName) => {
         const baseClasses = "w-full text-center text-2xl py-4 font-semibold";
@@ -85,8 +87,7 @@ function ProcurementConciergeCTR() {
                                 <div className="flex flex-col flex-wrap md:flex-row items-center gap-4 max-w-100">
                                     <div
                                         onClick={() => {
-                                            setIsModalOpen(true);
-                                            setTaskListHeading("Join the waitlist");
+                                            setWaitlistFormOpen(true);
                                         }}
                                     >
                                         <ArrowButtonCom
@@ -291,12 +292,6 @@ function ProcurementConciergeCTR() {
                         text="Plug Fractional CPO"
                         description="Executive Interim procurement leadership and transformation support - without the overhead "
                     />
-                    {/* <OurPackagesComp
-                        textColor="text-[#85009D]"
-                        bgColor="bg-[#EAC6FF]"
-                        text="Plug Concierge+"
-                        description="Procurement booking and management of wellbeing, coaching, and more"
-                    /> */}
                     <OurPackagesComp
                         textColor="text-[#85009D]"
                         bgColor="bg-[#EFCB91]"
@@ -305,11 +300,6 @@ function ProcurementConciergeCTR() {
                     />
                 </div>
                 <Link href="/concierge/pricing-plan" className='flex justify-center'>
-                    {/* <button
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] self-start">
-                        View more details on Pricing Plan
-                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button> */}
                     <ArrowButtonCom
                         text={"View more details on Investment Plan"}
                         bgColor="bg-[#b08d57]"
@@ -346,13 +336,6 @@ function ProcurementConciergeCTR() {
                             </div>
                         </div>
                     ))}
-
-                    {/* <button
-                        onClick={() => { alert("Available soon!") }}
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] ">
-                        Request a Fractional CPO Intro
-                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button> */}
 
                     <div onClick={() => { alert("Available soon!") }}>
                         <ArrowButtonCom
@@ -535,19 +518,9 @@ function ProcurementConciergeCTR() {
                             </div>
                         )}
                         <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
-                            {/* <button
-                                onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Download Full Task List");
-                                }}
-                                className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                                Download Full Task List
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            </button> */}
                             <div
                                 onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Download Full Task List");
+                                    setIsDownloadFormOpen(true);
                                 }}>
                                 <ArrowButtonCom
                                     text={"Download Full Task List"}
@@ -670,7 +643,6 @@ function ProcurementConciergeCTR() {
                 <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                     <div
                         href={"/concierge/plug-concierge-experts"}
-                        // onClick={() => setIsJoinModalOpen(true)}
                         className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-5 flex flex-col text-center md:text-start gap-6 text-[#85009D]"
                     >
                         <div className="self-center md:self-start bg-white px-5 py-6.5 rounded-full border border-[#85009D]/35 w-26">
@@ -693,8 +665,7 @@ function ProcurementConciergeCTR() {
                         <div className="flex flex-wrap gap-4">
                             <div
                                 onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Join the waitlist");
+                                    setWaitlistFormOpen(true);
                                 }}>
                                 <ArrowButtonCom
                                     text={"Join the waitlist"}
@@ -708,8 +679,7 @@ function ProcurementConciergeCTR() {
 
                             <div
                                 onClick={() => {
-                                    setIsModalOpen(true);
-                                    setTaskListHeading("Download Full Task List");
+                                    setIsDownloadFormOpen(true);
                                 }}>
                                 <ArrowButtonCom
                                     text={"Download Full Task List"}
@@ -733,10 +703,6 @@ function ProcurementConciergeCTR() {
                             </Link>
 
                             <Link href="/concierge/plug-concierge-services">
-                                {/* <span className="flex items-center self-start cursor-pointer bg-transparent text-[#85009D] px-4 py-2 rounded-[6px] border border-[#85009D]">
-                                    Explore Concierge+ Services
-                                    <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-[#85009D] transform rotate-45"></div>
-                                </span> */}
                                 <ArrowButtonCom
                                     text={"Explore Concierge+ Services"}
                                     bgColor="bg-transparent"
@@ -800,8 +766,11 @@ function ProcurementConciergeCTR() {
                 Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
             />
 
-            {/* Task List Modal */}
-            <TaskListForm heading={taskListHeading} isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            {/* Task List Form */}
+            <TaskListForm isOpen={isDownloadFormOpen} onClose={() => setIsDownloadFormOpen(false)} />
+
+            {/* Join Waitlist Form */}
+            <JoinWaitlistForm isOpen={isWaitlistFormOpen} onClose={() => setWaitlistFormOpen(false)} />
         </>
     );
 }

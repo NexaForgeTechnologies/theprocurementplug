@@ -22,6 +22,48 @@ export class ConciergeRepo {
         }
     }
 
+    static async saveWaitlistListForm({ name, company, email, interest }) {
+        try {
+            const [result] = await db.query(
+                `INSERT INTO concierge_join_waitlist (name, company, email, interest)
+                VALUES (?, ?, ?, ?)`,
+                [name, company, email, JSON.stringify(interest)]
+            );
+
+            return {
+                id: result.insertId,
+                name,
+                company,
+                email,
+                interest,
+            };
+        } catch (error) {
+            console.error("Error saving form:", error);
+            throw new Error("Unable to save form to the database");
+        }
+    }
+
+    static async savePricicngPackagingForm({ name, company, email, interest }) {
+        try {
+            const [result] = await db.query(
+                `INSERT INTO concierge_pricing_packaging (name, company, email, interest)
+                VALUES (?, ?, ?, ?)`,
+                [name, company, email, JSON.stringify(interest)]
+            );
+
+            return {
+                id: result.insertId,
+                name,
+                company,
+                email,
+                interest,
+            };
+        } catch (error) {
+            console.error("Error saving form:", error);
+            throw new Error("Unable to save form to the database");
+        }
+    }
+
     static async saveBecomeExpertForm(data) {
         try {
             const [result] = await db.query(

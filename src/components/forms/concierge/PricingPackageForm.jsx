@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 import SuccessPopup from "@/components/SuccessMessageComp";
 
-export default function TaskListForm({ isOpen, onClose }) {
+export default function JoinWaitlistListForm({ heading, isOpen, onClose }) {
     const modalRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -51,7 +51,7 @@ export default function TaskListForm({ isOpen, onClose }) {
                 formDataToSend.append(key, Array.isArray(value) ? value.join(", ") : value);
             });
 
-            const response = await fetch("/api/concierge/task-list-request", {
+            const response = await fetch("/api/concierge/pricing-packaging", {
                 method: "POST",
                 body: formDataToSend,
             });
@@ -115,7 +115,7 @@ export default function TaskListForm({ isOpen, onClose }) {
             >
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D]">
-                        Download Full Task List
+                        Download Pricing & Package Sheet
                     </h3>
                     <button
                         className="absolute top-4 right-4 text-2xl text-[#85009D]"
@@ -202,7 +202,7 @@ export default function TaskListForm({ isOpen, onClose }) {
                 <SuccessPopup
                     isOpen={showSuccessPopup}
                     title="Thank you!"
-                    message="Your download is ready! Thanks for requesting our Task List. Check your inbox in a moment for the download link."
+                    message="Your download is on the way! Please check your inbox shortly for the Pricing & Package Sheet."
                 />
             </div>
         </div>

@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 import SuccessPopup from "@/components/SuccessMessageComp";
 
-export default function TaskListForm({ isOpen, onClose }) {
+export default function JoinWaitlistListForm({ heading, isOpen, onClose }) {
     const modalRef = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -51,7 +51,7 @@ export default function TaskListForm({ isOpen, onClose }) {
                 formDataToSend.append(key, Array.isArray(value) ? value.join(", ") : value);
             });
 
-            const response = await fetch("/api/concierge/task-list-request", {
+            const response = await fetch("/api/concierge/join-waitlist", {
                 method: "POST",
                 body: formDataToSend,
             });
@@ -115,7 +115,7 @@ export default function TaskListForm({ isOpen, onClose }) {
             >
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D]">
-                        Download Full Task List
+                        Join the Waitlist
                     </h3>
                     <button
                         className="absolute top-4 right-4 text-2xl text-[#85009D]"
@@ -193,7 +193,7 @@ export default function TaskListForm({ isOpen, onClose }) {
                         disabled={isLoading}
                         className="flex items-center justify-center bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto cursor-pointer"
                     >
-                        {isLoading ? "Downloading..." : "Download Now"}
+                        {isLoading ? "Registering..." : "Register Now"}
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </form>
@@ -202,7 +202,7 @@ export default function TaskListForm({ isOpen, onClose }) {
                 <SuccessPopup
                     isOpen={showSuccessPopup}
                     title="Thank you!"
-                    message="Your download is ready! Thanks for requesting our Task List. Check your inbox in a moment for the download link."
+                    message="Thank you for joining the waitlist. We'll notify you as soon as your spot becomes available!"
                 />
             </div>
         </div>
