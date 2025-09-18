@@ -176,7 +176,7 @@ export async function AdminRegisterInterestEmail({ name, company, email, interes
 // -------------------------Become Expert Form Email
 export async function UserBecomeExpertEmail({ email, name }) {
     await sendEmail({
-        type: "becomeExpert",
+        type: "conciergeExpert",
         to: email,
         subject: "Welcome to The Procurement Concierge Experts Network",
         html: `
