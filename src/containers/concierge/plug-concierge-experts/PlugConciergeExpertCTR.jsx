@@ -2,10 +2,9 @@
 
 import React, { useState } from 'react';
 import Link from "next/link";
-import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-import JoinForm from '@/components/forms/concierge/JoinForm';
+import ExpertForm from '@/components/forms/concierge/ExpertForm';
 import ReadyToWorkBannerComp from '@/components/concierge/ReadyToWorkBannerComp';
 import Breadcrumb from '@/components/BreadCrumbs';
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom';
@@ -226,7 +225,7 @@ function PlugConciergeExpertsCTR() {
                 Btnlink2={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}
             />
 
-            <JoinForm isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
+            <ExpertForm isOpen={isJoinModalOpen} onClose={() => setIsJoinModalOpen(false)} />
         </>
     );
 }
