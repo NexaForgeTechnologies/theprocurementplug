@@ -155,7 +155,7 @@ function PricingPlanCTR() {
                     pay for what you use."
                 />
                 <Breadcrumb />
-                <h3 className="text-center font-semibold text-2xl md:text-[32px] text-[#1B1B1B] mb-4">
+                <h3 className="text-center font-semibold text-lg md:text-xl text-[#1B1B1B] mb-4">
                     Investment Plans
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-7">
@@ -189,7 +189,7 @@ function PricingPlanCTR() {
 
 
             <div className='flex flex-col items-center justify-center gap-4'>
-                <h3 className="text-center font-semibold text-2xl md:text-[32px] text-[#1B1B1B]">
+                <h3 className="text-center font-semibold text-lg md:text-xl text-[#1B1B1B]">
                     Additional Tasks
                 </h3>
                 <input
@@ -199,7 +199,7 @@ function PricingPlanCTR() {
                     placeholder="Buy Extra Credits"
                     className="w-full md:max-w-[538px] mx-auto p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                 />
-                <p className='md:text-[20px] text-[#1B1B1B]'><span className='font-semibold'>Sign In</span> or <span className='font-semibold'>Register</span> to begin using your plan.</p>
+                <p className='md:text-base text-[#1B1B1B]'><span className='font-medium'>Sign In</span> or <span className='font-semibold'>Register</span> to begin using your plan.</p>
                 <div className="flex flex-col md:flex-row justify-center items-center gap-4 ">
                     {/* <button
                         onClick={() => setIsModalOpen(true)}

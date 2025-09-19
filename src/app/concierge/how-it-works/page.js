@@ -28,10 +28,10 @@ export default function HowItWorks() {
                     Procurement Office"
                 />
                 <Breadcrumb />
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
                     How It Works: From Task to Transformation
                 </h3>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4 mb-4">
                     Our concierge workflow is built for speed, quality, and impact – giving you a seamless route from
                     request to results
                 </p>
@@ -45,14 +45,14 @@ export default function HowItWorks() {
                             <span className="text-3xl font-bold">01</span>
                         </span>
 
-                        <h3 className="font-semibold text-xl md:text-2xl text-[#85009D]">
+                        <h3 className="font-semibold text-lg md:text-xl text-[#85009D]">
                             Onboard with Plug Concierge
                         </h3>
 
-                        <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
+                        <p className="max-w-[954px] md:text-lg text-[#1B1B1B]">
                             Get started with a simple 1-year Master ServicesAgreement (MSA).
                         </p>
-                        <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
+                        <p className="max-w-[954px] md:text-lg text-[#1B1B1B]">
                             Our minimum entry package, Plug Lite, gives you flexible access to task support when you need it.
                         </p>
                     </div>
@@ -63,10 +63,10 @@ export default function HowItWorks() {
                             <span className="text-3xl font-bold">02</span>
                         </span>
 
-                        <h3 className="font-semibold text-xl md:text-2xl text-[#85009D]">
+                        <h3 className="font-semibold text-lg md:text-xl text-[#85009D]">
                             Submit Your Request
                         </h3>
-                        <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
+                        <p className="max-w-[954px] md:text-lg text-[#1B1B1B]">
                             You let us know what you need – whether it&apos;s a one-off task, leadership support, or a complex procurement
                             challenge. We guide you through a structured intake to capture objectives, timelines, and scope.
                         </p>
@@ -101,17 +101,17 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                             </span>
 
                             {/* Step Title */}
-                            <h3 className="font-semibold text-xl md:text-2xl text-[#85009D]">{item.title}</h3>
+                            <h3 className="font-semibold text-lg md:text-xl text-[#85009D]">{item.title}</h3>
 
                             {/* Step Description */}
-                            <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">{item.description}</p>
+                            <p className="max-w-[954px] md:text-lg text-[#1B1B1B]">{item.description}</p>
 
                             {/* List Items for the step */}
                             {item.listItems.map((listItem, idx) => (
                                 <div key={idx} className="flex gap-2 md:gap-4 items-start">
                                     <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                                     <div>
-                                        <p className="text-base md:text-lg text-[#1B1B1B]">{listItem}</p>
+                                        <p className="text-base text-[#1B1B1B]">{listItem}</p>
                                     </div>
                                 </div>
                             ))}
@@ -129,9 +129,9 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                     <div className='md:flex-1 flex items-start justify-evenly flex-col'>
 
                         <div className="">
-                            <h3 className='font-medium text-xl md:text-2xl lg:text-3xl text-[#85009D]'>
+                            <h3 className='font-medium text-xl md:text-2xl text-[#85009D]'>
                                 What Makes
-                                <strong className=" mr-1 font-semibold text-xl md:text-2xl lg:text-3xl"> The Plug Concierge</strong>
+                                <strong className=" mr-1 font-semibold text-xl md:text-2xl"> The Plug Concierge</strong>
 
                                 <br /> Workflow Unique?</h3>
                         </div>

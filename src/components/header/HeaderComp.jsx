@@ -47,7 +47,7 @@ const HeaderComp = () => {
   return (
     <>
       <nav className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""}`}>
-        <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-20 2xl:px-0 py-4 flex items-center justify-between">
+        <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-30 2xl:px-0 py-4 flex items-center justify-between">
           <Link
             href="/"
             className="flex items-center space-x-3 cursor-pointer"
@@ -57,7 +57,7 @@ const HeaderComp = () => {
               width={200}
               height={40}
               src="/images/header/headerlogo.png"
-              className="lg:w-[220px] md:w-[220px] sm:w-[150px] w-[150px]"
+              className="lg:w-[200px] md:w-[190px] sm:w-[150px] w-[150px]"
               alt="Logo"
             />
           </Link>

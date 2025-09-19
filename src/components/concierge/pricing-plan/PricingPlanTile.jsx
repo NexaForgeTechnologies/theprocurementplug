@@ -6,7 +6,7 @@ function PricingPlanTile({ tag, heading, credit, creditvalue, name, data, workin
             className="w-full rounded-[6px] hover:border-[#85009D] border border-[#DBBB89] hover:bg-[#85009D] bg-[#FFFBF5] p-5 flex flex-col justify-between text-center md:text-start gap-6  text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
         >
             <div>
-                <h2 className="font-medium text-lg px-3 py-1 rounded-[2px] inline-block w-full text-center"
+                <h2 className="font-medium text-sm md:text-base px-3 py-1 rounded-[2px] inline-block w-full text-center"
                     style={{ color: textColor, backgroundColor: bgColor }}
                 >{tag}</h2>
                 <h2 className="text-xl md:text-[42px] font-semibold">

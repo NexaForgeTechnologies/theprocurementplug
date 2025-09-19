@@ -49,10 +49,10 @@ function BecomeaPlugStrategicQAPartnerCTR() {
                     digital experiences."
                 />
                 <Breadcrumb />
-                <h3 className="font-semibold text-lg md:text-2xl text-[#1B1B1B] mb-4">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] mb-4">
                     Elevate Procurement Outcomes
                 </h3>
-                <p className="max-w-[1029px] font-semibold text-lg md:text-2xl text-[#1B1B1B] mb-4">
+                <p className="max-w-[1029px] font-medium -mt-2 text-lg text-[#1B1B1B] mb-4">
                     Join our exclusive circle of Plug Strategic Quality Assurance Partners — senior experts
                     trusted to safeguard client deliverables at the highest level.
                 </p>
@@ -62,7 +62,7 @@ function BecomeaPlugStrategicQAPartnerCTR() {
                     <div key={idx} className={`flex gap-2 md:gap-4 items-start ${idx !== qaPartnerPoints.length - 1 ? "mb-4" : ""}`}>
                         <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                         <div>
-                            <p className="max-w-[872px] text-[16px] md:text-[20px] text-[#1B1B1B]">{text}</p>
+                            <p className="max-w-[872px] text-base text-[#1B1B1B]">{text}</p>
                         </div>
                     </div>
                 ))}
@@ -76,7 +76,7 @@ function BecomeaPlugStrategicQAPartnerCTR() {
                 className="flex flex-col md:flex-row items-center justify-between gap-4 bg-[#FFFBF5] py-6 md:py-10"
             >
                 <div className="w-full md:flex-1">
-                    <h3 className="font-medium text-xl md:text-3xl text-[#85009D]">
+                    <h3 className="font-medium text-lg md:text-2xl text-[#85009D]">
                         Who Should <strong>Apply?</strong>
                     </h3>
                 </div>
@@ -85,7 +85,7 @@ function BecomeaPlugStrategicQAPartnerCTR() {
                         <div key={idx} className="flex gap-2 md:gap-4 items-start md:items-center mb-4">
                             <div className="font-semibold text-[#B08D57] text-lg md:text-2xl mt-[4px] md:mt-0">✓</div>
                             <div>
-                                <p className="text-sm md:text-lg text-[#1B1B1B]">{text}</p>
+                                <p className="text-base text-[#1B1B1B]">{text}</p>
                             </div>
                         </div>
                     ))}
@@ -93,24 +93,24 @@ function BecomeaPlugStrategicQAPartnerCTR() {
             </div>
 
             <div>
-                <h3 className="font-semibold text-lg md:text-2xl text-[#1B1B1B] mb-4">Why Join?</h3>
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] mb-4">Why Join?</h3>
                 {whyJoin.map((text, idx) => (
                     <div key={idx} className={`flex gap-2 md:gap-4 items-start md:items-center ${idx !== whyJoin.length - 1 ? "mb-4" : ""}`}>
                         <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                         <div>
-                            <p className="max-w-[872px] text-sm md:text-lg text-[#1B1B1B]">{text}</p>
+                            <p className="max-w-[872px] text-base text-[#1B1B1B]">{text}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
             <div>
-                <h3 className="font-semibold text-lg md:text-2xl text-[#1B1B1B] mb-4">How It Works</h3>
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] mb-4">How It Works</h3>
                 {howItWorks.map((text, idx) => (
                     <div key={idx} className="flex gap-2 md:gap-4 items-start md:items-center mb-4">
                         <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                         <div>
-                            <p className="max-w-[872px] text-sm md:text-lg text-[#1B1B1B]">{text}</p>
+                            <p className="max-w-[872px] text-base md:text-base text-[#1B1B1B]">{text}</p>
                         </div>
                     </div>
                 ))}

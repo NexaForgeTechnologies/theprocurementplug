@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-
 import Icon from "@/components/icon/Icon";
 import Image from "next/image";
 
@@ -27,17 +26,6 @@ const Footer = () => {
     setMessage("");
     setShowAlert(false);
 
-    // try {
-    //   const response = await fetch("/api/send-email", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ 
-    //       userEmail: email,
-    //       name: "Newsletter Subscriber",
-    //       message: "New newsletter subscription request",
-    //       type: "newsletter_subscription"
-    //     }),
-    //   });
     try {
       const response = await fetch("/api/subscribe", {
         method: "POST",
@@ -73,9 +61,10 @@ const Footer = () => {
         boxShadow: "0 0 0 100vmax #212121",
         clipPath: "inset(0 -100vmax)",
       }}
-      className="bg-[#212121] text-white py-20"
+      className="bg-[#212121] text-white py-20 text-sm"
     >
       <div className="flex flex-col lg:flex-row justify-between gap-6 md:gap-[80px] pb-[20px]">
+        {/* Left Section */}
         <div className="w-full lg:w-1/2 flex flex-col self-start justify-start items-start gap-[25px]">
           <Link href="/" className="block mb-4 w-[260px] h-[71px]">
             <Image
@@ -87,49 +76,35 @@ const Footer = () => {
             />
           </Link>
           <div className="max-w-[695px]">
-            <p className="text-[17px] mb-[-10px] w-full">
+            <p className="text-[15px] mb-[-10px] w-full">
               Join our newsletter to stay up to date on features and releases.
             </p>
           </div>
-          <form
-            onSubmit={handleSubscribe}
-            className="w-full flex flex-col gap-6"
-          >
+          <form onSubmit={handleSubscribe} className="w-full flex flex-col gap-6">
             <input
               type="email"
               placeholder="Your Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full mb-[-18px] p-3 rounded-md text-black bg-white"
+              className="w-full mb-[-18px] p-3 rounded-md text-sm text-black bg-white"
             />
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-[#85009D] hover:bg-purple-800 text-white py-3 rounded-md cursor-pointer disabled:opacity-50"
+              className="w-full bg-[#85009D] hover:bg-purple-800 text-white py-3 rounded-md cursor-pointer disabled:opacity-50 text-sm"
             >
               {isLoading ? "Subscribing..." : "Subscribe"}
             </button>
           </form>
-          {/* {message && (
-                        <p
-                            className={`mt-2 text-sm ${message.includes("successful")
-                                    ? "text-green-400"
-                                    : message.includes("already subscribed")
-                                        ? "text-yellow-400"
-                                        : "text-red-400"
-                                }`}
-                        >
-                            {message}
-                        </p>
-                    )} */}
+
           {showAlert && (
             <div
-              className={`mt-2 w-full p-3 rounded-md flex justify-between items-center ${message.includes("successful")
-                ? "bg-green-900/50 text-green-400"
-                : message.includes("already subscribed")
-                  ? "bg-yellow-900/50 text-yellow-400"
-                  : "bg-red-900/50 text-red-400"
+              className={`mt-2 w-full p-3 rounded-md flex justify-between items-center text-sm ${message.includes("successful")
+                  ? "bg-green-900/50 text-green-400"
+                  : message.includes("already subscribed")
+                    ? "bg-yellow-900/50 text-yellow-400"
+                    : "bg-red-900/50 text-red-400"
                 }`}
             >
               <span>{message}</span>
@@ -141,45 +116,40 @@ const Footer = () => {
               </button>
             </div>
           )}
-          <div className="flex items-center gap-4 mt-3">
+
+          <div className="flex items-center gap-4 mt-3 text-sm">
             <Link
               href="https://www.linkedin.com/company/the-procurement-plug/"
               target="_blank"
               className="flex gap-1 items-center"
             >
-              <Icon name="linkedin" size={24} color="#ffff" />
-              <span>Linkedin</span>
+              <Icon name="linkedin" size={20} color="#ffff" />
+              <span>LinkedIn</span>
             </Link>
             <Link
               href="https://www.tiktok.com/@the.procurement.p"
               target="_blank"
               className="flex gap-1 items-center"
             >
-              <Icon name="tiktok" size={24} color="#ffff" />
+              <Icon name="tiktok" size={20} color="#ffff" />
               <span>TikTok</span>
             </Link>
           </div>
         </div>
 
-        {/* Links Section */}
+        {/* Right Section */}
         <div className="w-full lg:w-[76%] self-start justify-start grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-5">
           {/* Useful Links */}
-          <div className="flex flex-col gap-[20px] w-full p-8 bg-[#121212] rounded-[10px] h-full">
-            <h3 className="text-xl font-bold text-[#b58c4a]">Useful Links</h3>
-            <ul>
+          <div className="flex flex-col gap-[20px] w-full p-8 bg-[#121212] rounded-[10px] h-full text-sm">
+            <h3 className="text-base font-bold text-[#b58c4a]">Useful Links</h3>
+            <ul className="text-sm">
               <li className="mb-2">
-                <Link
-                  href="/partnerships"
-                  className="hover:text-[#85009D] cursor-pointer"
-                >
+                <Link href="/partnerships" className="hover:text-[#85009D] cursor-pointer">
                   Partnerships
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/ico-registered"
-                  className="hover:text-[#85009D] cursor-pointer"
-                >
+                <Link href="/ico-registered" className="hover:text-[#85009D] cursor-pointer">
                   ICO Registration
                 </Link>
               </li>
@@ -187,9 +157,9 @@ const Footer = () => {
           </div>
 
           {/* Policies */}
-          <div className="flex flex-col gap-5 w-full p-8 bg-[#121212] rounded-[10px] h-full">
-            <h3 className="text-xl font-bold text-[#b58c4a]">Policies</h3>
-            <ul>
+          <div className="flex flex-col gap-5 w-full p-8 bg-[#121212] rounded-[10px] h-full text-sm">
+            <h3 className="text-base font-bold text-[#b58c4a]">Policies</h3>
+            <ul className="text-sm">
               <li className="mb-2">
                 <Link
                   href="/general-terms-conditions/terms-conditions-mentee"
@@ -222,8 +192,8 @@ const Footer = () => {
       {/* Bottom Bar */}
       <div className=" bg-[#121212] p-[20px] flex flex-col lg:flex-row justify-between items-center rounded-md">
         <span>© 2025 The Procurement Plug. All rights reserved.</span>
-        
-         <span className="mt-2 lg:mt-0">
+
+        <span className="mt-2 lg:mt-0">
           <Link
             href="https://achiever-grp.com/"
             target="_blank"

@@ -23,11 +23,11 @@ function ProcurementConciergeCTR() {
     const [isWaitlistFormOpen, setWaitlistFormOpen] = useState(false);
 
     const getButtonClass = (tabName) => {
-        const baseClasses = "w-full text-center text-2xl py-4 font-semibold";
+        const baseClasses = "w-full text-center text-base py-4 font-semibold";
         if (activeTab === tabName) {
             return `${baseClasses} bg-[#D44CED] text-[#FFFBF5]`;
         } else {
-            return `${baseClasses} border border-[#85009D] text-[#BC1ED9]`;
+            return `${baseClasses} border border-[#85009D]/30 text-[#BC1ED9]`;
         }
     };
 
@@ -54,13 +54,13 @@ function ProcurementConciergeCTR() {
                     <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-between gap-x-6 gap-y-2">
                         {/* Left: Text Content */}
                         <div
-                            className="w-full lg:w-[50%] bg-[#FFFBF5] backdrop-blur-md p-6 min-h-full"
+                            className="w-full lg:w-[53%] bg-[#FFFBF5] backdrop-blur-md p-6 min-h-full"
                             style={{
                                 boxShadow: '0 25px 50px 50px #FFFBF5'
                             }}
                         >
-                            <div className="flex flex-col gap-y-5">
-                                <h3 className="relative inline-block font-semibold text-xl md:text-2xl lg:text-4xl text-[#85009D] pb-8">
+                            <div className="flex flex-col gap-y-4">
+                                <h3 className="relative inline-block font-semibold text-base sm:text-lg md:text-xl lg:text-2xl text-[#85009D] pb-8">
                                     The Procurement Concierge
                                     <span className="absolute left-0 bottom-0 text-[#1B1B1B] text-sm font-medium">
                                         Powered by The Procurement Plug
@@ -71,7 +71,7 @@ function ProcurementConciergeCTR() {
                                     Your On-Demand Procurement Office
                                 </p>
 
-                                <div className="flex items-center gap-x-2 flex-wrap max-w-100">
+                                <div className="flex items-center gap-x-2 flex-wrap">
                                     {[
                                         "Tasks", "Fractional CPO", "Concierge+ Services", "Strategy", "Advisory"
                                     ].map((item, index, arr) => (
@@ -133,27 +133,27 @@ function ProcurementConciergeCTR() {
             </div >
 
             <div>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
                     Welcome to The Procurement Concierge
                 </h3>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
+                <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4">
                     The UK’s first procurement concierge service built for speed, flexibility, and strategic delivery.
                 </p>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
+                <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4">
                     Whether you're facing resource gaps, leadership vacancies, or major procurement priorities, Plug Concierge connects you with vetted experts to deliver tasks, lead transformation, and support your team’s development – all with guaranteed speed and quality.
                 </p>
             </div>
 
             <div>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
                     The Procurement Plug Concierge
                 </h3>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
+                <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4">
                     Plug Concierge gives you fast, flexible access to procurement experts across all categories and industries. Whether
                     you need strategic sourcing, contract drafting, supplier onboarding, or high-level advisory, our on-demand support
                     clears your backlog and drives results – without additional hires.
                 </p>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4">
+                <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4">
                     Need help beyond tasks? We also manage training bookings, leadership retreats, executive coaching, and bespoke
                     procurement services – all coordinated through our Concierge+ offering for complete support at every stage.
                 </p>
@@ -161,7 +161,7 @@ function ProcurementConciergeCTR() {
 
             {/* Our Value Proposition */}
             <div>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] mb-4">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] mb-4">
                     Our Value Proposition
                 </h3>
                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-4 gap-x-4'>
@@ -215,10 +215,10 @@ function ProcurementConciergeCTR() {
 
             {/* Built in ROI */}
             <div className='flex flex-col gap-y-4 mt-2'>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] leading-none">
                     Built-In ROI, Not Just Delivery
                 </h3>
-                <p className="md:text-xl text-[#1B1B1B]">
+                <p className="md:text-lg text-[#1B1B1B]">
                     Every task and booking comes with:
                 </p>
 
@@ -238,7 +238,7 @@ function ProcurementConciergeCTR() {
                     }
                     ].map((item, index) => (
                         <div key={index} className='flex flex-row justify-start items-center gap-1 px-4 py-5 bg-[#FFFBF5] border border-[#DBBB89] rounded'>
-                            <p className="md:text-lg font-semibold text-[#1B1B1B]">{item.text}</p>
+                            <p className="text-base font-medium text-[#1B1B1B]">{item.text}</p>
                             {index === 1 && (
                                 <span className="ml-1 text-xs font-medium text-[#1B1B1B]">
                                     {item.optional}
@@ -252,7 +252,7 @@ function ProcurementConciergeCTR() {
 
             {/* Your Investment Options */}
             <section className='flex flex-col gap-y-5'>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none max-w-2xl">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] leading-none max-w-2xl">
                     Your Investment Options
                 </h3>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-5 gap-x-4'>
@@ -292,12 +292,15 @@ function ProcurementConciergeCTR() {
                         text="Plug Fractional CPO"
                         description="Executive Interim procurement leadership and transformation support - without the overhead "
                     />
-                    <OurPackagesComp
-                        textColor="text-[#85009D]"
-                        bgColor="bg-[#EFCB91]"
-                        text="Advisory call"
-                        description="Specialised Procurement guidance tailored to your needs"
-                    />
+                    <div className="lg:col-start-2">
+                        <OurPackagesComp
+                            textColor="text-[#85009D]"
+                            bgColor="bg-[#EFCB91]"
+                            text="Advisory call"
+                            description="Specialised Procurement guidance tailored to your needs"
+                        />
+                    </div>
+
                 </div>
                 <Link href="/concierge/pricing-plan" className='flex justify-center'>
                     <ArrowButtonCom
@@ -313,7 +316,7 @@ function ProcurementConciergeCTR() {
 
             {/* Fractional CPO Service */}
             <section className='flex flex-col gap-y-2 md:gap-y-4'>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] leading-none max-w-2xl">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] leading-none max-w-2xl">
                     Fractional CPO Services
                 </h3>
                 <p className="text-sm md:text-lg text-[#1B1B1B]">
@@ -332,7 +335,7 @@ function ProcurementConciergeCTR() {
                         <div key={index} className="flex gap-2 md:gap-4 items-start">
                             <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                             <div>
-                                <p className="md:text-lg text-[#1B1B1B]">{list}</p>
+                                <p className="md:text-base text-[#1B1B1B]">{list}</p>
                             </div>
                         </div>
                     ))}
@@ -352,10 +355,10 @@ function ProcurementConciergeCTR() {
 
             {/* Strategic Oval shaped section*/}
             < section className='flex flex-col gap-y-5' >
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B] max-w-120">
-                    Strategic and simple credit based system Real time spend visibility
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B] max-w-110">
+                    Strategic and simple credit based system <span className="font-medium"> Real time spend visibility </span>
                 </h3>
-                <p className="md:text-xl text-[#1B1B1B]">
+                <p className="md:text-lg text-[#1B1B1B]">
                     With our easy-to-use credit system, each task is mapped to 1-3 credits based on complexity. You only
                     pay for what you need. Each plan includes credits that can be used throughout the year. Once credits
                     are used, you have the flexibility to buy a Task Pass or upgrade to a higher-tier plan.
@@ -393,10 +396,10 @@ function ProcurementConciergeCTR() {
             </section >
 
             <div>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
                     What Tasks Can You Delegate?
                 </h3>
-                <p className="max-w-[976px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[976px] md:text-lg text-[#1B1B1B] mt-4 mb-4">
                     Whether it’s sourcing, legal, risk management, or reporting, we handle it all. From small tasks like a
                     supplier short-list to comprehensive projects such as a full supplier audit or contract negotiation.
                 </p>
@@ -404,25 +407,25 @@ function ProcurementConciergeCTR() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 justify-items-center mb-6 lg:mb-8">
                         <button
                             onClick={() => setActiveTab("Light")}
-                            className={`${getButtonClass("Light")} md:rounded-tl-[6px] md:rounded-bl-[6px] font-normal text-lg`}
+                            className={`${getButtonClass("Light")} md:rounded-tl-[6px] md:rounded-bl-[6px]`}
                         >
                             Light
                         </button>
                         <button
                             onClick={() => setActiveTab("Medium")}
-                            className={`${getButtonClass("Medium")} font-normal text-lg`}
+                            className={`${getButtonClass("Medium")}`}
                         >
                             Medium
                         </button>
                         <button
                             onClick={() => setActiveTab("Heavy")}
-                            className={`${getButtonClass("Heavy")} font-normal text-lg`}
+                            className={`${getButtonClass("Heavy")}`}
                         >
                             Heavy
                         </button>
                         <button
                             onClick={() => setActiveTab("Strategic ")}
-                            className={`${getButtonClass("Strategic ")} font-normal md:rounded-tr-[6px] md:rounded-br-[6px] text-lg`}
+                            className={`${getButtonClass("Strategic ")} md:rounded-tr-[6px] md:rounded-br-[6px]`}
                         >
                             Strategic
                         </button>
@@ -443,7 +446,7 @@ function ProcurementConciergeCTR() {
                                 ].map((text, idx) => (
                                     <p
                                         key={idx}
-                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-base w-full md:w-auto"
                                     >
                                         {text}
                                     </p>
@@ -467,7 +470,7 @@ function ProcurementConciergeCTR() {
                                 ].map((text, idx) => (
                                     <p
                                         key={idx}
-                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-base w-full md:w-auto"
                                     >
                                         {text}
                                     </p>
@@ -488,7 +491,7 @@ function ProcurementConciergeCTR() {
                                 ].map((text, idx) => (
                                     <p
                                         key={idx}
-                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-base w-full md:w-auto"
                                     >
                                         {text}
                                     </p>
@@ -510,7 +513,7 @@ function ProcurementConciergeCTR() {
                                 ].map((text, idx) => (
                                     <p
                                         key={idx}
-                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-md md:text-lg w-full md:w-auto"
+                                        className="border py-3 px-5 border-[#D09B48] bg-[#FFFBF5] rounded-md text-base w-full md:w-auto"
                                     >
                                         {text}
                                     </p>
@@ -537,10 +540,10 @@ function ProcurementConciergeCTR() {
             </div>
 
             <section>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
                     Why Choose The Plug Concierge?
                 </h3>
-                <p className="max-w-[976px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[976px] md:text-lg text-[#1B1B1B] mt-4 mb-4">
                     Whether you’re a large corporation or a small business, the Procurement Plug Concierge ensures you access top-tier procurement expertise exactly when you need it. Our credit system ensures that your spend is predictable while giving you flexibility.
                 </p>
 
@@ -593,15 +596,15 @@ function ProcurementConciergeCTR() {
 
             {/* Powered By Procurement PLug */}
             <section
-                className="flex flex-col md:flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#FBE3FF] to-[#FFFBF5] py-6 md:py-10 w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20">
+                className="flex flex-col md:flex-row items-center justify-between gap-4 bg-gradient-to-r from-[#FBE3FF] to-[#FFFBF5] py-6 md:py-10 w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-30">
 
                 <div className='w-full md:flex-1'>
-                    <h3 className="font-medium text-xl md:text-2xl lg:text-3xl text-[#85009D]">
+                    <h3 className="font-medium text-lg md:text-2xl text-[#85009D]">
                         Powered by
                     </h3>
-                    <h3 className='font-semibold text-xl md:text-2xl lg:text-3xl text-[#85009D]'>The Procurement Plug  <span className="font-medium">Ecosystem</span></h3>
+                    <h3 className='font-semibold text-xl md:text-2xl text-[#85009D]'>The Procurement Plug  <span className="font-medium">Ecosystem</span></h3>
 
-                    <p className="md:max-w-[567px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                    <p className="md:max-w-[567px] md:text-lg text-[#1B1B1B] mt-4 mb-4">
                         Your Concierge access unlocks premium support from across our ecosystem:
                     </p>
                 </div>
@@ -623,7 +626,7 @@ function ProcurementConciergeCTR() {
                                 ✓
                             </div>
                             <div>
-                                <p className="text-md md:text-lg text-[#1B1B1B]">{text}</p>
+                                <p className="text-base text-[#1B1B1B]">{text}</p>
                             </div>
                         </div>
                     ))}
@@ -633,7 +636,7 @@ function ProcurementConciergeCTR() {
 
             {/* FAQs section */}
             <div>
-                <h3 className="font-semibold text-xl md:text-2xl mb-4 text-[#1B1B1B] ">
+                <h3 className="font-semibold text-lg md:text-xl mb-4 text-[#1B1B1B] ">
                     Have Questions? We Have Answers
                 </h3>
                 <FAQS />
@@ -655,7 +658,7 @@ function ProcurementConciergeCTR() {
                             />
                         </div>
                         <div>
-                            <h2 className="text-xl md:text-2xl font-semibold mb-4">
+                            <h2 className="text-lg md:text-xl font-semibold mb-4">
                                 Want to Delegate a Task?
                             </h2>
                             <p className="text-[#1B1B1B] text-base">
@@ -729,7 +732,7 @@ function ProcurementConciergeCTR() {
                             />
                         </div>
                         <div>
-                            <h2 className="text-xl md:text-2xl font-semibold mb-4">
+                            <h2 className="text-lg md:text-xl font-semibold mb-4">
                                 Join The Plug Concierge as a fractional expert
                             </h2>
                             <p className="text-[#1B1B1B] text-base">

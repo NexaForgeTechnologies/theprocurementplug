@@ -26,17 +26,17 @@ export default function PlugConciergeServices() {
                 />
                 <Breadcrumb />
 
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+                <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
                     Plug Concierge + Services
                 </h3>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4 mb-4">
                     Go beyond tasks. Plug Concierge+ supports your team’s productivity, wellbeing, and growth.
                     All used as part of your credits.
                 </p>
-                <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4 mb-4">
                     Let us coordinate and book:
                 </p>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mt-8 mb-4">
+                <h3 className="font-semibold text-lg md:text-xl text-[#85009D] mt-4 mb-4">
                     Plug Concierge + Services
                 </h3>
                 <div className="flex flex-col gap-y-3">
@@ -66,7 +66,7 @@ export default function PlugConciergeServices() {
                         <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
                             <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                            <p className="md:text-lg text-[#1B1B1B] ">
+                            <p className="md:text-base text-[#1B1B1B] ">
                                 <span className="font-semibold mr-2">
                                     {items.heading}
                                 </span>
@@ -74,13 +74,13 @@ export default function PlugConciergeServices() {
                         </div>
                     ))}
                 </div>
-                <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mt-8 mb-4">
+                <h3 className="font-semibold text-lg md:text-xl text-[#85009D] mt-8 mb-4">
                     Plug Concierge + Services
                 </h3>
                 <div className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
                     <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                    <p className="md:text-lg text-[#1B1B1B] ">
+                    <p className="md:text-base text-[#1B1B1B] ">
                         <span className="font-semibold mr-2">
                             Plug Academy Bookings –
                         </span>
@@ -90,10 +90,10 @@ export default function PlugConciergeServices() {
                 </div>
 
                 <div className="my-6 md:my-8">
-                    <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mb-4">
+                    <h3 className="font-semibold text-lg md:text-xl text-[#85009D] mb-2">
                         Executive Coaching & Mentoring
                     </h3>
-                    <p className="max-w-[954px] md:text-xl text-[#1B1B1B] mt-4 mb-4">
+                    <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-2 mb-4">
                         Access top-tier mentors and coaches for:
                     </p>
                     <div className="flex flex-col gap-y-3">
@@ -111,7 +111,7 @@ export default function PlugConciergeServices() {
                             <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
                                 <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                                <p className="md:text-lg text-[#1B1B1B] ">
+                                <p className="md:text-base text-[#1B1B1B] ">
                                     <span className="font-semibold mr-2">
                                         {items.heading}
                                     </span>
@@ -146,10 +146,10 @@ export default function PlugConciergeServices() {
                         },
                     ].map((items, index) => (
                         <div key={index} className="bg-[#FFFBF5] rounded border border-[#DBBB89] p-8">
-                            <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mb-4 mt-2">
+                            <h3 className="font-semibold text-lg md:text-xl text-[#85009D] mb-4 mt-2">
                                 {items.heading}
                             </h3>
-                            <p className="md:text-lg text-[#1B1B1B]">
+                            <p className="md:text-base text-[#1B1B1B]">
                                 <strong className="mr-1">{items.boldtxt}</strong>
                                 {items.para}
                             </p>
@@ -158,10 +158,10 @@ export default function PlugConciergeServices() {
                 </section>
 
                 <div className="flex flex-col justify-start gap-y-4 mt-7 mb-20">
-                    <h3 className="font-semibold text-xl md:text-2xl text-[#85009D]">
+                    <h3 className="font-semibold text-lg md:text-xl text-[#85009D]">
                         Venue, Team & Leadership Retreat Bookings
                     </h3>
-                    <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
+                    <p className="max-w-[954px] md:text-lg text-[#1B1B1B]">
                         Need a reset or leadership breakthrough? We’ll handle:
                     </p>
 
@@ -173,7 +173,7 @@ export default function PlugConciergeServices() {
                         <div key={index} className="flex gap-x-2 md:gap-x-4 gap-y-5 items-start">
                             <div className="w-[10px] md:w-[15px] h-[10px] md:h-[15px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
 
-                            <p className="md:text-lg text-[#1B1B1B] ">
+                            <p className="md:text-base text-[#1B1B1B] ">
                                 <span className="font-medium mr-2">
                                     {items.heading}
                                 </span>
@@ -181,7 +181,7 @@ export default function PlugConciergeServices() {
                         </div>
                     ))}
 
-                    <p className="max-w-[954px] md:text-xl text-[#1B1B1B]">
+                    <p className="max-w-[954px] md:text-lg text-[#1B1B1B]">
                         Your team stays focused. We manage the rest.
                     </p>
                     <div

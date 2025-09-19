@@ -11,7 +11,7 @@ const ArrowButtonCom = ({
 }) => {
   return (
     <button
-      className={`flex items-center justify-center cursor-pointer px-4 py-2 rounded-[6px] w-full sm:w-auto transition-colors duration-200 border font-medium hover:shadow-md ${bgColor} ${textColor} ${borderColor} ${hoverBgColor} ${hoverTextColor}`}
+      className={`flex items-center justify-center cursor-pointer px-4 py-2 rounded-[6px] w-full sm:w-auto transition-colors duration-200 border font-medium text-sm hover:shadow-md ${bgColor} ${textColor} ${borderColor} ${hoverBgColor} ${hoverTextColor}`}
     >
       {text}
       <div
