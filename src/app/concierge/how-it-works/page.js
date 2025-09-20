@@ -131,7 +131,7 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
                         <div className="">
                             <h3 className='font-medium text-xl md:text-2xl text-[#85009D]'>
                                 What Makes
-                                <strong className=" mr-1 font-semibold text-xl md:text-2xl"> The Plug Concierge</strong>
+                                <strong className=" mr-1 font-semibold text-xl md:text-2xl"> The Procurement Concierge</strong>
 
                                 <br /> Workflow Unique?</h3>
                         </div>
