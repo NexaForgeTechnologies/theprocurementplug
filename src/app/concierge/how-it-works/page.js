@@ -21,10 +21,10 @@ export default function HowItWorks() {
                     img="/images/concierge/plug-concierge-how-it-works/hero-ctr.png"
                     heading={
                         <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">The Procurement Plug Concierge</span>
+                            <span className="font-extrabold">The Procurement Concierge</span>
                         </span>
                     }
-                    para="Welcome to The Procurement Plug Concierge Your On-Demand
+                    para="Welcome to The Procurement Concierge Your On-Demand
                     Procurement Office"
                 />
                 <Breadcrumb />
@@ -121,7 +121,7 @@ delivery summary, insights, or next-step recommendations.`, listItems: [`Deliver
 
                 </section>
 
-                {/* What Makes The Plug Concierge Workflow Unique? */}
+                {/* What Makes The Procurement Concierge Workflow Unique? */}
                 <section
                     className="flex flex-col md:flex-row items-center justify-evenly gap-4 bg-gradient-to-r from-[#FBE3FF] to-[#FFFBF5] py-6 md:py-10 w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20 my-20">
 
