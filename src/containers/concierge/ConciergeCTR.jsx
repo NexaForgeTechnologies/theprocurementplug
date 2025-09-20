@@ -146,7 +146,7 @@ function ProcurementConciergeCTR() {
 
             <div>
                 <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
-                    The Procurement Plug Concierge
+                    The Procurement Concierge
                 </h3>
                 <p className="max-w-[954px] md:text-lg text-[#1B1B1B] mt-4">
                     Plug Concierge gives you fast, flexible access to procurement experts across all categories and industries. Whether
@@ -195,8 +195,8 @@ function ProcurementConciergeCTR() {
                         text={"booking for coaching, wellbeing, retreats & training"}
                     /><OurValuePropositionDivComp
                         src={"/images/concierge/qa.png"}
-                        heading={"QA Reviews"}
-                        text={"Optional or mandatory Quality Assurance reviews ensure output is best-in-class."}
+                        heading={"Structured Workflow"}
+                        text={"You requests are managed within our custom built workfkow to ensure streamlined project management."}
                     />
                     <OurValuePropositionDivComp
                         colspan={"lg:col-span-2"}
@@ -224,7 +224,7 @@ function ProcurementConciergeCTR() {
 
                 <section className='grid grid-cols-1 md:grid-cols-2 gap-y-5 gap-x-4'>
                     {[{
-                        text: "Real-time status updates in The Plug Concierge Dashboard",
+                        text: "Real-time status updates in The Procurement Concierge Dashboard",
                     },
                     {
                         text: "Optional ROI snapshot",
@@ -541,10 +541,10 @@ function ProcurementConciergeCTR() {
 
             <section>
                 <h3 className="font-semibold text-lg md:text-xl text-[#1B1B1B]">
-                    Why Choose The Plug Concierge?
+                    Why Choose The Procurement Concierge?
                 </h3>
                 <p className="max-w-[976px] md:text-lg text-[#1B1B1B] mt-4 mb-4">
-                    Whether you’re a large corporation or a small business, the Procurement Plug Concierge ensures you access top-tier procurement expertise exactly when you need it. Our credit system ensures that your spend is predictable while giving you flexibility.
+                    Whether you’re a large corporation or a small business, the Procurement Concierge ensures you access top-tier procurement expertise exactly when you need it. Our credit system ensures that your spend is predictable while giving you flexibility.
                 </p>
 
                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4'>
@@ -733,7 +733,7 @@ function ProcurementConciergeCTR() {
                         </div>
                         <div>
                             <h2 className="text-lg md:text-xl font-semibold mb-4">
-                                Join The Plug Concierge as a fractional expert
+                                Join The Procurement Concierge as a fractional expert
                             </h2>
                             <p className="text-[#1B1B1B] text-base">
                                 Support top procurement teams on a flexible, fractional basis.
