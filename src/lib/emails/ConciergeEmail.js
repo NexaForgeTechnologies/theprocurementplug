@@ -62,10 +62,10 @@ export async function AdminWaitlistListFormEmail({ name, company, email, interes
     await sendEmail({
         type: "concierge",
         to: process.env.SMTP_CONCIERGE_USER,
-        subject: "New Task List Download Request",
+        subject: "New Waitlist Form Submission – The Procurement Concierge",
         html: `
             <p>Hello Team,</p>
-            <p>A new user has downloaded the Procurement Concierge Task List.<br/>
+            <p>A new user has registered their interest in The Procurement Concierge Waitlist.<br/>
             Here are the details submitted:</p>
             <ul style="list-style-type: disc; padding-left: 15px; margin: 0;">
                 <li><b>Full Name:</b> ${name || "N/A"}</li>
