@@ -22,7 +22,7 @@ export default function PlugConciergeServices() {
                             <span className="font-semibold">Plug Concierge + Services</span>
                         </span>
                     }
-                    para="Welcome to The Procurement Plug Concierge Your On-Demand Procurement Office"
+                    para="Welcome to The Procurement Concierge Your On-Demand Procurement Office"
                 />
                 <Breadcrumb />
 
