@@ -129,7 +129,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="Email Address (Email)"
+                            placeholder="Email Address"
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -141,7 +141,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                             type="url"
                             id="linkedIn"
                             name="linkedin"
-                            placeholder="LinkedIn Profile URL (Optional)"
+                            placeholder="LinkedIn Profile URL"
                             value={formData.linkedin}
                             onChange={handleChange}
                             required
@@ -151,7 +151,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                             type="text"
                             id="location"
                             name="location"
-                            placeholder="Location / Time Zone (Short text)"
+                            placeholder="Location / Time Zone"
                             value={formData.location}
                             onChange={handleChange}
                             required
