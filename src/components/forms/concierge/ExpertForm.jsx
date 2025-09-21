@@ -217,7 +217,7 @@ export default function JoinForm({ isOpen, onClose }) {
                             type="email"
                             id="email"
                             name="email"
-                            placeholder="Email Address (Email)"
+                            placeholder="Email Address"
                             value={formData.email}
                             onChange={handleChange}
                             required
@@ -227,7 +227,7 @@ export default function JoinForm({ isOpen, onClose }) {
                             type="tel"
                             id="phone"
                             name="phone"
-                            placeholder="Phone Number (Optional)"
+                            placeholder="Phone Number"
                             value={formData.phone}
                             onChange={handleChange}
                             required
@@ -240,7 +240,7 @@ export default function JoinForm({ isOpen, onClose }) {
                             type="url"
                             id="linkedIn"
                             name="linkedIn"
-                            placeholder="LinkedIn Profile URL (Optional)"
+                            placeholder="LinkedIn Profile URL"
                             value={formData.linkedIn}
                             onChange={handleChange}
                             required
@@ -250,7 +250,7 @@ export default function JoinForm({ isOpen, onClose }) {
                             type="text"
                             id="location"
                             name="location"
-                            placeholder="Location / Time Zone (Short text)"
+                            placeholder="Location / Time Zone"
                             value={formData.location}
                             onChange={handleChange}
                             required
@@ -426,7 +426,7 @@ export default function JoinForm({ isOpen, onClose }) {
 
                     {/* CV Upload */}
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
-                        Optional Upload
+                        Upload
                     </h3>
                     <div
                         className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4 relative"
