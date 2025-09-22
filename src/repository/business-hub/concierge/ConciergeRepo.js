@@ -82,7 +82,7 @@ export class ConciergeRepo {
                     data.experience_details,
                     JSON.stringify(data.availability || []),
                     JSON.stringify(data.workload || []),
-                    data.cv,
+                    JSON.stringify(data.cv || []),
                     data.Subscribe ? 1 : 0,
                 ]
             );
@@ -98,8 +98,8 @@ export class ConciergeRepo {
         try {
             const [result] = await db.query(
                 `INSERT INTO concierge_become_qa_partner
-                (name, email, linkedin, location, company, role, experience, designation, industry, services, example, quality_risk_mindset, hours_per_month, interest_reason)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                (name, email, linkedin, location, company, role, experience, designation, industry, services, example, quality_risk_mindset, hours_per_month, interest_reason, cv)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
                 [
                     data.name,
                     data.email,
@@ -115,6 +115,7 @@ export class ConciergeRepo {
                     data.quality_risk_mindset,
                     data.hours_per_month,
                     data.interest_reason,
+                    JSON.stringify(data.cv || []),
                 ]
             );
 

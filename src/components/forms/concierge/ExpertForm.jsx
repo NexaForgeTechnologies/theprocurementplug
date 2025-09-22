@@ -19,8 +19,6 @@ export default function JoinForm({ isOpen, onClose }) {
         { value: "5-10", label: "5–10" },
         { value: "7-12", label: "7–12" },
         { value: "12+", label: "12+" }
-
-
     ];
     const expertiseOptions = [
         { key: "mcipsCips", label: "MCIPS / CIPS qualified" },
@@ -534,52 +532,6 @@ export default function JoinForm({ isOpen, onClose }) {
                         </div>
                     </div>
 
-
-                    {/* CV Upload */}
-                    {/* <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
-                        Optional Upload
-                    </h3>
-                    <div
-                        className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
-                        onClick={() => document.getElementById('fileInput').click()}
-                    >
-                        <Image
-                            src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
-                            alt="upload banner"
-                            width={128}
-                            height={128}
-                            className="w-[128px] h-[128px] object-cover mb-4"
-                        />
-                        <p className="text-[#1B1B1B] text-center">
-                            <span className="font-semibold">Upload your CV</span> (PDF or DOC) (File upload, optional)
-                        </p>
-                        <input
-                            id="fileInput"
-                            type="file"
-                            accept=".pdf,.doc,.docx"
-                            className="hidden"
-                            onChange={(e) => {
-                                const file = e.target.files[0];
-                                if (file) {
-                                    const validTypes = [
-                                        "application/pdf",
-                                        "application/msword",
-                                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
-                                    ];
-                                    if (!validTypes.includes(file.type)) {
-                                        alert("Please upload a valid PDF or Word document (.pdf, .doc, .docx).");
-                                        return;
-                                    }
-                                    const reader = new FileReader();
-                                    reader.onloadend = () => {
-                                        setFormData((prev) => ({ ...prev, cv: reader.result }));
-                                    };
-                                    reader.readAsDataURL(file); // convert to Base64
-                                }
-                            }}
-                        />
-                    </div> */}
-
                     {/* CV Upload */}
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
                         Upload
@@ -593,7 +545,7 @@ export default function JoinForm({ isOpen, onClose }) {
                         }}
                     >
                         <Image
-                            src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
+                            src="/images/concierge/upload-banner.png"
                             alt="upload banner"
                             width={128}
                             height={128}
