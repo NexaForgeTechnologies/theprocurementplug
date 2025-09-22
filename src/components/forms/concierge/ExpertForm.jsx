@@ -342,62 +342,67 @@ export default function JoinForm({ isOpen, onClose }) {
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
                             {expertiseOptions.map((opt) => {
                                 const isOther = opt.key === "other";
-                                const hasOther = formData.experties.some(item => item !== "other" && typeof item === "string");
-                                const otherValue = hasOther
-                                    ? formData.experties.find(item => item !== "other" && typeof item === "string")
-                                    : "";
-
-                                const checked = isOther ? hasOther : formData.experties.includes(opt.key);
 
                                 return (
                                     <div key={opt.key} className="flex items-center space-x-2">
                                         <Checkbox
                                             id={opt.key}
                                             name={opt.key}
-                                            checked={checked}
+                                            checked={
+                                                isOther
+                                                    ? formData.experties.some((item) => item.startsWith("other:"))
+                                                    : formData.experties.includes(opt.key)
+                                            }
                                             onChange={() => {
                                                 if (isOther) {
-                                                    if (checked) {
-                                                        // Remove other string if unchecked
-                                                        setFormData(prev => ({
-                                                            ...prev,
-                                                            experties: prev.experties.filter(item => typeof item !== "string")
-                                                        }));
-                                                    } else {
-                                                        // Add placeholder empty string for other input
-                                                        setFormData(prev => ({
-                                                            ...prev,
-                                                            experties: [...prev.experties.filter(item => item !== "other"), ""]
-                                                        }));
-                                                    }
+                                                    const hasOther = formData.experties.some((item) =>
+                                                        item.startsWith("other:")
+                                                    );
+                                                    setFormData((prev) => ({
+                                                        ...prev,
+                                                        experties: hasOther
+                                                            ? prev.experties.filter((item) => !item.startsWith("other:"))
+                                                            : [...prev.experties, "other:"],
+                                                    }));
                                                 } else {
                                                     handleCheckboxArray("experties", opt.key);
                                                 }
                                             }}
                                             label={opt.label}
                                         />
-                                        {isOther && checked && (
-                                            <input
-                                                type="text"
-                                                className="border-b border-gray-400 focus:outline-none w-48"
-                                                placeholder=""
-                                                value={otherValue}
-                                                onChange={e => {
-                                                    const val = e.target.value;
-                                                    setFormData(prev => ({
-                                                        ...prev,
-                                                        experties: [
-                                                            ...prev.experties.filter(item => typeof item !== "string"),
-                                                            ...(val ? [val] : [])
-                                                        ]
-                                                    }));
-                                                }}
-                                            />
-                                        )}
+
+                                        {/* "Other" input inline */}
+                                        {isOther &&
+                                            formData.experties.some((item) => item.startsWith("other:")) && (
+                                                <input
+                                                    type="text"
+                                                    className="border-b border-gray-400 focus:outline-none w-48"
+                                                    placeholder=""
+                                                    required
+                                                    value={
+                                                        formData.experties.find((item) =>
+                                                            item.startsWith("other:")
+                                                        )?.split("other:")[1] || ""
+                                                    }
+                                                    onChange={(e) => {
+                                                        const val = e.target.value;
+                                                        setFormData((prev) => ({
+                                                            ...prev,
+                                                            experties: [
+                                                                ...prev.experties.filter(
+                                                                    (item) => !item.startsWith("other:")
+                                                                ),
+                                                                val ? `other:${val}` : "other:",
+                                                            ],
+                                                        }));
+                                                    }}
+                                                />
+                                            )}
                                     </div>
                                 );
                             })}
                         </div>
+
 
                     </div>
                     {/* Procurement Areas */}
@@ -411,62 +416,67 @@ export default function JoinForm({ isOpen, onClose }) {
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
                             {procurementAreasOptions.map((opt) => {
                                 const isOther = opt.key === "other";
-                                const hasOther = formData.procurementAreas.some(item => item !== "other" && typeof item === "string");
-                                const otherValue = hasOther
-                                    ? formData.procurementAreas.find(item => item !== "other" && typeof item === "string")
-                                    : "";
-
-                                const checked = isOther ? hasOther : formData.procurementAreas.includes(opt.key);
 
                                 return (
                                     <div key={opt.key} className="flex items-center space-x-2">
                                         <Checkbox
                                             id={opt.key}
                                             name={opt.key}
-                                            checked={checked}
+                                            checked={
+                                                isOther
+                                                    ? formData.procurementAreas.some(item =>
+                                                        item.startsWith("other:")
+                                                    )
+                                                    : formData.procurementAreas.includes(opt.key)
+                                            }
                                             onChange={() => {
                                                 if (isOther) {
-                                                    if (checked) {
-                                                        // Remove other string if unchecked
-                                                        setFormData(prev => ({
-                                                            ...prev,
-                                                            procurementAreas: prev.procurementAreas.filter(item => typeof item !== "string")
-                                                        }));
-                                                    } else {
-                                                        // Add placeholder empty string for other input
-                                                        setFormData(prev => ({
-                                                            ...prev,
-                                                            procurementAreas: [...prev.procurementAreas.filter(item => item !== "other"), ""]
-                                                        }));
-                                                    }
+                                                    const hasOther = formData.procurementAreas.some(item =>
+                                                        item.startsWith("other:")
+                                                    );
+                                                    setFormData(prev => ({
+                                                        ...prev,
+                                                        procurementAreas: hasOther
+                                                            ? prev.procurementAreas.filter(item => !item.startsWith("other:"))
+                                                            : [...prev.procurementAreas, "other:"],
+                                                    }));
                                                 } else {
                                                     handleCheckboxArray("procurementAreas", opt.key);
                                                 }
                                             }}
                                             label={opt.label}
                                         />
-                                        {isOther && checked && (
-                                            <input
-                                                type="text"
-                                                className="border-b border-gray-400 focus:outline-none w-48"
-                                                placeholder=""
-                                                value={otherValue}
-                                                onChange={e => {
-                                                    const val = e.target.value;
-                                                    setFormData(prev => ({
-                                                        ...prev,
-                                                        procurementAreas: [
-                                                            ...prev.procurementAreas.filter(item => typeof item !== "string"),
-                                                            ...(val ? [val] : [])
-                                                        ]
-                                                    }));
-                                                }}
-                                            />
-                                        )}
+
+                                        {/* Inline input for "Other" */}
+                                        {isOther &&
+                                            formData.procurementAreas.some(item => item.startsWith("other:")) && (
+                                                <input
+                                                    type="text"
+                                                    className="border-b border-gray-400 focus:outline-none w-48"
+                                                    placeholder=""
+                                                    required
+                                                    value={
+                                                        formData.procurementAreas.find(item =>
+                                                            item.startsWith("other:")
+                                                        )?.split("other:")[1] || ""
+                                                    }
+                                                    onChange={e => {
+                                                        const val = e.target.value;
+                                                        setFormData(prev => ({
+                                                            ...prev,
+                                                            procurementAreas: [
+                                                                ...prev.procurementAreas.filter(item => !item.startsWith("other:")),
+                                                                val ? `other:${val}` : "other:",
+                                                            ],
+                                                        }));
+                                                    }}
+                                                />
+                                            )}
                                     </div>
                                 );
                             })}
                         </div>
+
 
                     </div>
                     {/* Brief Message */}
