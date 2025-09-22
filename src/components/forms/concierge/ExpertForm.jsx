@@ -573,7 +573,7 @@ export default function JoinForm({ isOpen, onClose }) {
                             <p className="text-[#1B1B1B] text-center">
                                 <span className="font-semibold">Upload your CV</span> (PDF or DOC)
                                 <br />
-                                /*<span className="text-sm text-gray-500">(File upload)</span>*/
+                                <span className="text-sm text-gray-500">(File upload)</span>
                             </p>
                         )}
 
