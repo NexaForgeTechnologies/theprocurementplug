@@ -14,15 +14,19 @@ export default function JoinForm({ isOpen, onClose }) {
     // checkbox and drop down data
     const experienceOptions = [
         { value: "", label: "Years of Procurement Experience" },
-        { value: "consulting", label: "Consulting Services" },
-        { value: "procurement", label: "Procurement Solutions" },
-        { value: "training", label: "Training Programs" },
-        { value: "other", label: "Other" },
+        { value: "1-3", label: "1–3" },
+        { value: "3-5", label: "3–5" },
+        { value: "5-10", label: "5–10" },
+        { value: "7-12", label: "7–12" },
+        { value: "12+", label: "12+" }
+
+
     ];
     const expertiseOptions = [
         { key: "mcipsCips", label: "MCIPS / CIPS qualified" },
         { key: "projectManagement", label: "Project Management (PRINCE2 / PMP)" },
         { key: "sixSigma", label: "Six Sigma / Lean" },
+        { key: "ProcurementAct2023", label: "Procurement Act 2023 (TPP)" },
         { key: "other", label: "Other" },
     ];
     const procurementAreasOptions = [
@@ -103,6 +107,51 @@ export default function JoinForm({ isOpen, onClose }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsLoading(true);
+        console.log("Form submitted:", formData);
+
+        // Check that at least one workload is selected
+        if (formData.experience.trim() === '') {
+            alert("Please enter your experience.");
+            setIsLoading(false);
+            return;
+        }
+
+        if (formData.experties.length === 0) {
+            alert("Please select at least one expertise option.");
+            setIsLoading(false);
+            return;
+        }
+
+        if (formData.procurementAreas.length === 0) {
+            alert("Please select at least one procurement area option.");
+            setIsLoading(false);
+            return;
+        }
+
+        if (formData.experience_details.trim() === '') {
+            alert("Please provide experience details.");
+            setIsLoading(false);
+            return;
+        }
+
+        if (formData.availability.length === 0) {
+            alert("Please select at least one availability option.");
+            setIsLoading(false);
+            return;
+        }
+
+        if (formData.workload.length === 0) {
+            alert("Please select at least one workload option.");
+            setIsLoading(false);
+            return;
+        }
+
+        if (formData.cv === '') {
+            alert("Please upload your CV.");
+            setIsLoading(false);
+            return;
+        }
+
 
         try {
             const response = await fetch("/api/concierge/become-expert", {
@@ -291,18 +340,65 @@ export default function JoinForm({ isOpen, onClose }) {
 
                         {/* Checkboxes */}
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
-                            {expertiseOptions.map((opt) => (
-                                <Checkbox
-                                    key={opt.key}
-                                    id={opt.key}
-                                    name={opt.key}
-                                    checked={formData.experties.includes(opt.key)}
-                                    onChange={() => handleCheckboxArray("experties", opt.key)}
-                                    label={opt.label}
-                                />
-                            ))}
+                            {expertiseOptions.map((opt) => {
+                                const isOther = opt.key === "other";
+                                const hasOther = formData.experties.some(item => item !== "other" && typeof item === "string");
+                                const otherValue = hasOther
+                                    ? formData.experties.find(item => item !== "other" && typeof item === "string")
+                                    : "";
 
+                                const checked = isOther ? hasOther : formData.experties.includes(opt.key);
+
+                                return (
+                                    <div key={opt.key} className="flex items-center space-x-2">
+                                        <Checkbox
+                                            id={opt.key}
+                                            name={opt.key}
+                                            checked={checked}
+                                            onChange={() => {
+                                                if (isOther) {
+                                                    if (checked) {
+                                                        // Remove other string if unchecked
+                                                        setFormData(prev => ({
+                                                            ...prev,
+                                                            experties: prev.experties.filter(item => typeof item !== "string")
+                                                        }));
+                                                    } else {
+                                                        // Add placeholder empty string for other input
+                                                        setFormData(prev => ({
+                                                            ...prev,
+                                                            experties: [...prev.experties.filter(item => item !== "other"), ""]
+                                                        }));
+                                                    }
+                                                } else {
+                                                    handleCheckboxArray("experties", opt.key);
+                                                }
+                                            }}
+                                            label={opt.label}
+                                        />
+                                        {isOther && checked && (
+                                            <input
+                                                type="text"
+                                                className="border-b border-gray-400 focus:outline-none w-48"
+                                                placeholder=""
+                                                value={otherValue}
+                                                onChange={e => {
+                                                    const val = e.target.value;
+                                                    setFormData(prev => ({
+                                                        ...prev,
+                                                        experties: [
+                                                            ...prev.experties.filter(item => typeof item !== "string"),
+                                                            ...(val ? [val] : [])
+                                                        ]
+                                                    }));
+                                                }}
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            })}
                         </div>
+
                     </div>
                     {/* Procurement Areas */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
@@ -313,17 +409,65 @@ export default function JoinForm({ isOpen, onClose }) {
 
                         {/* Checkboxes */}
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
-                            {procurementAreasOptions.map((opt) => (
-                                <Checkbox
-                                    key={opt.key}
-                                    id={opt.key}
-                                    name={opt.key}
-                                    checked={formData.procurementAreas.includes(opt.key)}
-                                    onChange={() => handleCheckboxArray("procurementAreas", opt.key)}
-                                    label={opt.label}
-                                />
-                            ))}
+                            {procurementAreasOptions.map((opt) => {
+                                const isOther = opt.key === "other";
+                                const hasOther = formData.procurementAreas.some(item => item !== "other" && typeof item === "string");
+                                const otherValue = hasOther
+                                    ? formData.procurementAreas.find(item => item !== "other" && typeof item === "string")
+                                    : "";
+
+                                const checked = isOther ? hasOther : formData.procurementAreas.includes(opt.key);
+
+                                return (
+                                    <div key={opt.key} className="flex items-center space-x-2">
+                                        <Checkbox
+                                            id={opt.key}
+                                            name={opt.key}
+                                            checked={checked}
+                                            onChange={() => {
+                                                if (isOther) {
+                                                    if (checked) {
+                                                        // Remove other string if unchecked
+                                                        setFormData(prev => ({
+                                                            ...prev,
+                                                            procurementAreas: prev.procurementAreas.filter(item => typeof item !== "string")
+                                                        }));
+                                                    } else {
+                                                        // Add placeholder empty string for other input
+                                                        setFormData(prev => ({
+                                                            ...prev,
+                                                            procurementAreas: [...prev.procurementAreas.filter(item => item !== "other"), ""]
+                                                        }));
+                                                    }
+                                                } else {
+                                                    handleCheckboxArray("procurementAreas", opt.key);
+                                                }
+                                            }}
+                                            label={opt.label}
+                                        />
+                                        {isOther && checked && (
+                                            <input
+                                                type="text"
+                                                className="border-b border-gray-400 focus:outline-none w-48"
+                                                placeholder=""
+                                                value={otherValue}
+                                                onChange={e => {
+                                                    const val = e.target.value;
+                                                    setFormData(prev => ({
+                                                        ...prev,
+                                                        procurementAreas: [
+                                                            ...prev.procurementAreas.filter(item => typeof item !== "string"),
+                                                            ...(val ? [val] : [])
+                                                        ]
+                                                    }));
+                                                }}
+                                            />
+                                        )}
+                                    </div>
+                                );
+                            })}
                         </div>
+
                     </div>
                     {/* Brief Message */}
                     <textarea
@@ -362,7 +506,7 @@ export default function JoinForm({ isOpen, onClose }) {
                     {/* Work Load */}
                     <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4">
                         <p className="lg:col-span-1 text-[#1B1B1B] mb-4 lg:mb-0">
-                            Preferred workload
+                            Preferred workload <span className="text-red-500">*</span>
                         </p>
 
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
@@ -376,8 +520,10 @@ export default function JoinForm({ isOpen, onClose }) {
                                     label={opt.label}
                                 />
                             ))}
+
                         </div>
                     </div>
+
 
                     {/* CV Upload */}
                     {/* <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">

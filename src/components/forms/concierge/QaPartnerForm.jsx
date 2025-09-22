@@ -12,10 +12,9 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
     // Experience dropdown data
     const experienceOptions = [
         { value: "Years of Procurement Experience", label: "Years of Procurement Experience" },
-        { value: "Consulting Services", label: "Consulting Services" },
-        { value: "Procurement Solutions", label: "Procurement Solutions" },
-        { value: "Training Programs", label: "Training Programs" },
-        { value: "Other", label: "Other" },
+        { value: "12–15", label: "12–15" },
+        { value: "15–20", label: "15–20" },
+        { value: "20+", label: "20+" },
     ];
 
     const initialFormData = {

@@ -124,6 +124,18 @@ function ProcurementConciergeCTR() {
                                             arrowColor="hover:border-white"
                                         />
                                     </Link>
+
+                                    <Link href={"https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile"}>
+                                        <ArrowButtonCom
+                                            text={"Book a Discovery Call"}
+                                            bgColor="bg-[#b08d57]"
+                                            textColor="text-white"
+                                            hoverBgColor="hover:bg-transparent"
+                                            hoverTextColor="hover:text-[#b08d57]"
+                                            borderColor='border-[#b08d57]'
+                                            arrowColor="hover:border-[#b08d57]"
+                                        />
+                                    </Link>
                                 </div>
                             </div>
                         </div>
