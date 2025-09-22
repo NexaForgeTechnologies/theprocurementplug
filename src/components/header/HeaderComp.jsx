@@ -81,9 +81,8 @@ const HeaderComp = () => {
       </style>
 
       <nav
-        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
-          isScrolled ? "shadow-md" : ""
-        }`}
+        className={`bg-white text-black fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${isScrolled ? "shadow-md" : ""
+          }`}
       >
         <div className="max-w-screen md:max-w-screen-lg lg:max-w-screen-xl mx-auto w-full px-6 sm:px-10 md:px-14 lg:px-20 2xl:px-0 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-3">
@@ -120,6 +119,14 @@ const HeaderComp = () => {
                 className="text-[15px] hover:text-[#85009D]"
               >
                 Resources
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/concierge"
+                className="text-[15px] hover:text-[#85009D]"
+              >
+                The Procurement Concierge
               </Link>
             </li>
             <li
@@ -195,9 +202,8 @@ const HeaderComp = () => {
 
         {/* Mobile Sidebar */}
         <div
-          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${
-            isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-          }`}
+          className={`fixed top-0 left-0 h-full w-[100vw] max-w-[412px] bg-white shadow-lg transform transition-transform duration-300 z-50 ${isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
         >
           <div className="p-4 flex justify-between items-center">
             <Link href="/">
@@ -221,6 +227,14 @@ const HeaderComp = () => {
                 className="text-[15px] font-semibold hover:text-[#85009D]"
               >
                 Resources
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/concierge"
+                className="text-[15px] hover:text-[#85009D]"
+              >
+                The Procurement Concierge
               </Link>
             </li>
             <li>

@@ -183,6 +183,58 @@ const IconComponent = ({ name, size = 16, color = "#565656" }) => {
         </g>
       </svg>
     ),
+    close: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 17 17"
+        fill="none"
+      >
+        <path
+          d="M1 1L16 16"
+          stroke={color}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M1 16L16 1"
+          stroke={color}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
+    search: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 17 17"
+        fill={color}
+      >
+        <path d="M13.1064 7.30273C13.1063 4.09795 10.5076 1.5 7.30273 1.5C4.09804 1.50014 1.50014 4.09804 1.5 7.30273C1.5 10.5076 4.09795 13.1063 7.30273 13.1064C10.5076 13.1064 13.1064 10.5076 13.1064 7.30273ZM14.1064 7.30273C14.1064 11.0599 11.0599 14.1064 7.30273 14.1064C3.54566 14.1063 0.5 11.0598 0.5 7.30273C0.500142 3.54575 3.54575 0.500142 7.30273 0.5C11.0598 0.5 14.1063 3.54566 14.1064 7.30273Z" fill="#9D9D9D" />
+        <path d="M16.1722 16.858C16.3616 17.0472 16.6686 17.0472 16.858 16.858C17.0472 16.6686 17.0472 16.3616 16.858 16.1722L16.1722 16.858ZM16.858 16.1722L12.0095 11.3237L11.3237 12.0095L16.1722 16.858L16.858 16.1722Z" fill="#9D9D9D" />
+      </svg>
+    ),
+    "drop-down": (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width={size}
+        height={size}
+        viewBox="0 0 17 9"
+        fill="none"
+      >
+        <path
+          d="M16 0.5L8.5 8L1 0.500001"
+          stroke={color}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    ),
   };
 
   return (
