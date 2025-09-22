@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 import IconComponent from "@/components/icon/Icon";
 import SuccessPopup from "@/components/SuccessMessageComp";
@@ -35,13 +36,15 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
         services: "",
         example: "",
 
+        // cv upload
+        cv: "",
+
         // Quality & Risk Mindset
         quality_risk_mindset: "",
 
         // Availability & Interest
         hours_per_month: "",
         interest_reason: "",
-
     }
     const [formData, setFormData] = useState(initialFormData);
     const handleChange = (e) => {
@@ -90,6 +93,9 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
             setIsLoading(false);
         }
     };
+
+    // ✅ State to hold selected file name
+    const [selectedFileName, setSelectedFileName] = useState("");
 
     if (!isOpen) return null;
 
@@ -305,6 +311,81 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         required
                         className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
+
+                    {/* CV Upload */}
+                    <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
+                        Upload
+                    </h3>
+                    <div
+                        className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4 relative"
+                        onClick={() => {
+                            if (!selectedFileName) {
+                                document.getElementById("fileInput").click();
+                            }
+                        }}
+                    >
+                        <Image
+                            src="/images/bussiness-hub/upload-banner.png"
+                            alt="upload banner"
+                            width={128}
+                            height={128}
+                            className="w-[128px] h-[128px] object-cover mb-4"
+                        />
+
+                        {/* ✅ If file selected, show name + remove button */}
+                        {selectedFileName ? (
+                            <div className="flex items-center gap-2">
+                                <p className="text-[#1B1B1B] text-center font-medium">{selectedFileName}</p>
+                                <button
+                                    type="button"
+                                    className="text-red-500 text-sm font-bold"
+                                    onClick={(e) => {
+                                        e.stopPropagation(); // prevent triggering fileInput
+                                        setSelectedFileName("");
+                                        setFormData((prev) => ({ ...prev, cv: "" }));
+                                        document.getElementById("fileInput").value = ""; // reset input
+                                    }}
+                                >
+                                    ❌
+                                </button>
+                            </div>
+                        ) : (
+                            <p className="text-[#1B1B1B] text-center">
+                                <span className="font-semibold">Upload your CV</span> (PDF or DOC)
+                                <br />
+                                <span className="text-sm text-gray-500">(File upload, optional)</span>
+                            </p>
+                        )}
+
+                        <input
+                            id="fileInput"
+                            type="file"
+                            accept=".pdf,.doc,.docx"
+                            className="hidden"
+                            onChange={(e) => {
+                                const file = e.target.files[0];
+                                if (file) {
+                                    const validTypes = [
+                                        "application/pdf",
+                                        "application/msword",
+                                        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                                    ];
+                                    if (!validTypes.includes(file.type)) {
+                                        alert("Please upload a valid PDF or Word document (.pdf, .doc, .docx).");
+                                        return;
+                                    }
+
+                                    setSelectedFileName(file.name); // ✅ show file name
+
+                                    const reader = new FileReader();
+                                    reader.onloadend = () => {
+                                        setFormData((prev) => ({ ...prev, cv: reader.result }));
+                                    };
+                                    reader.readAsDataURL(file); // convert to Base64
+                                }
+                            }}
+                        />
+                    </div>
 
                     <button
                         type="submit"
