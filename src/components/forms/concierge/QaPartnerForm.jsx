@@ -314,7 +314,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
 
                     {/* CV Upload */}
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#85009D] mb-4">
-                        Upload
+                        Upload CV or Proposal
                     </h3>
                     <div
                         className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4 relative"
@@ -351,9 +351,9 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                             </div>
                         ) : (
                             <p className="text-[#1B1B1B] text-center">
-                                <span className="font-semibold">Upload your CV</span> (PDF or DOC)
+                                <span className="font-semibold">Upload your CV or Proposal</span> (PDF or DOC)
                                 <br />
-                                <span className="text-sm text-gray-500">(File upload, optional)</span>
+                                <span className="text-sm text-gray-500">(File upload)</span>
                             </p>
                         )}
 
