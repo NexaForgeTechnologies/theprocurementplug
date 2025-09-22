@@ -325,7 +325,7 @@ export default function PersonalDetailForm({ isOpen, onClose }) {
                         }}
                     >
                         <Image
-                            src="/images/bussiness-hub/upload-banner.png"
+                            src="/images/concierge/upload-banner.png"
                             alt="upload banner"
                             width={128}
                             height={128}

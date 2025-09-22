@@ -545,7 +545,7 @@ export default function JoinForm({ isOpen, onClose }) {
                         }}
                     >
                         <Image
-                            src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
+                            src="/images/concierge/upload-banner.png"
                             alt="upload banner"
                             width={128}
                             height={128}
