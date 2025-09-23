@@ -1,8 +1,20 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function CookieConsent() {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const consent = localStorage.getItem("cookie_consent");
+    if (!consent) {
+      setVisible(true);
+    }
+  }, []);
+
+  const handleConsent = (choice) => {
+    localStorage.setItem("cookie_consent", choice);
+    setVisible(false);
+  };
 
   if (!visible) return null;
 
@@ -17,20 +29,17 @@ export default function CookieConsent() {
         </h3>
         <p className="text-gray-600 mb-4 text-sm">
           This website uses cookies to help you have a superior and more
-          admissible browsing experience on the website.{" "}
-          {/* <a href="#" className="text-[#85009D] underline">
-            Read more
-          </a> */}
+          admissible browsing experience.
         </p>
         <div className="flex justify-center gap-3">
           <button
-            onClick={() => setVisible(false)}
+            onClick={() => handleConsent("accepted")}
             className="bg-[#85009D] text-white px-4 py-2 rounded hover:bg-[#6a007f]"
           >
             Accept
           </button>
           <button
-            onClick={() => setVisible(false)}
+            onClick={() => handleConsent("declined")}
             className="border border-[#85009D] text-[#85009D] px-4 py-2 rounded hover:bg-gray-100"
           >
             Decline
