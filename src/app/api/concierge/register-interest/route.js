@@ -5,6 +5,7 @@ import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo
 
 // Emails
 import { UserRegisterInterestEmail, AdminRegisterInterestEmail } from "@/lib/emails/ConciergeEmail";
+import {UserRegisterInterestEmail as UserRegisterInterestEmailCron} from "@/lib/emails/ConciergeCronEmails";
 
 export async function POST(request) {
     try {
@@ -14,6 +15,7 @@ export async function POST(request) {
         // Send email
         await UserRegisterInterestEmail(body);
         await AdminRegisterInterestEmail(body);
+        await UserRegisterInterestEmailCron(body);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {
