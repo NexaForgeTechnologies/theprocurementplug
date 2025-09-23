@@ -82,7 +82,7 @@ export class ConciergeRepo {
                     data.experience_details,
                     JSON.stringify(data.availability || []),
                     JSON.stringify(data.workload || []),
-                    JSON.stringify(data.cv || []),
+                    data.cv,
                     data.Subscribe ? 1 : 0,
                 ]
             );
@@ -115,7 +115,7 @@ export class ConciergeRepo {
                     data.quality_risk_mindset,
                     data.hours_per_month,
                     data.interest_reason,
-                    JSON.stringify(data.cv || []),
+                    data.cv,
                 ]
             );
 
