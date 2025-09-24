@@ -8,23 +8,23 @@ import PartnerCTR from "@/containers/home/partners/PartnerCTR";
 import HeroCTR from "@/containers/home/hero/HeroCTR";
 
 export const metadata = {
-  title: 'Home',
+  title: 'The Procurement Plug',
   description: 'Welcome to The Procurement Plug Your Ultimate Ecosystem for Procurement Excellence.',
   openGraph: {
-    title: 'Home',
+    title: 'The Procurement Plug',
     description: 'Welcome to The Procurement Plug Your Ultimate Ecosystem for Procurement Excellence.',
     images: [
       {
         url: 'https://theprocurementplug.com/images/og/main.jpg',
         width: 1200,
         height: 630,
-        alt: 'Home',
+        alt: 'The Procurement Plug',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Home',
+    title: 'The Procurement Plug',
     description: 'Welcome to The Procurement Plug Your Ultimate Ecosystem for Procurement Excellence.',
     images: ['https://theprocurementplug.com/images/og/main.jpg'],
   },

@@ -19,12 +19,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://theprocurementplug.com'),
+  metadataBase: new URL('https://theprocurementplug.com/images/og/main.jpg'),
   title: {
     default: 'The Procurement Plug',
     template: '%s | The Procurement Plug',
   },
-  description: 'Your go-to hub for procurement insights, events, and resources.',
+  description: 'Welcome to The Procurement Concierge Your On-Demand Procurement Office.',
   openGraph: {
     siteName: 'The Procurement Plug',
     type: 'website',
