@@ -5,6 +5,7 @@
   --background: #ffffff;
   --foreground: #171717;
   --font-sans: 'Poppins', sans-serif;
+  --font-bodoni-moda: 'Bodoni Moda', serif;  /* Add the custom variable for Bodoni Moda */
 }
 
 @theme inline {
@@ -12,6 +13,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-bodoni-moda: var(--font-bodoni-moda);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -32,17 +34,21 @@ body {
 
 
 /* Elipses text */
+/* Elipses text */
 @layer utilities {
   .md\:no-clamp {
     display: block;
     -webkit-line-clamp: unset;
     -webkit-box-orient: unset;
+    line-clamp: unset;  /* Add the standard property */
+    -webkit-box-orient: unset; /* already included */
   }
 
   .clamp-1 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    line-clamp: 1;  /* Add the standard property */
     overflow: hidden;
   }
 
@@ -51,6 +57,7 @@ body {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 4;
+      line-clamp: 4;  /* Add the standard property */
       overflow: hidden;
     }
   }

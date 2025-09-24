@@ -313,7 +313,7 @@ const Footer = () => {
           {
             title: "Quick Links",
             links: [
-              { name: "Personal Development Hub", href: null },
+              { name: "Personal Development Hub", href: '/personaldevelopmenthub' },
               { name: "Business Hub", href: "/business-hub" },
               { name: "The Procurement Concierge", href: "/concierge" },
               { name: "Community Hub", href: null },
