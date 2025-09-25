@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-export default function Breadcrumb() {
+export default function Breadcrumb({ textColor="text-[#9C9C9C]", ChildTxtClr="text-[#696969]" }) {
     const pathname = usePathname(); // e.g. "/business-hub/procuretech-solution/source-to-contract"
     const segments = pathname.split("/").filter(Boolean); // ["business-hub", "procuretech-solution", "source-to-contract"]
 
     return (
         <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex flex-wrap gap-2 text-[#9C9C9C]">
+            <ol className={`list-reset flex flex-wrap gap-2 ${textColor}`}>
                 {segments.map((segment, index) => {
                     const href = "/" + segments.slice(0, index + 1).join("/"); // Build link up to this segment
                     const isLast = index === segments.length - 1;
@@ -20,7 +20,7 @@ export default function Breadcrumb() {
                                     {segment.replace(/-/g, " ")}
                                 </Link>
                             ) : (
-                                <span className="text-[#696969] capitalize">
+                                <span className={`${ChildTxtClr} capitalize`}>
                                     {segment.replace(/-/g, " ")}
                                 </span>
                             )}

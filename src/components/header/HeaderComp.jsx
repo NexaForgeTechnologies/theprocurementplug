@@ -113,7 +113,7 @@ const HeaderComp = () => {
                 </svg>
               </div>
 
-              <ul className="absolute top-full left-0 hidden group-hover:block mt-0.5 min-w-[200px] z-50 rounded-lg shadow-xl bg-white/30 backdrop-blur-md backdrop-saturate-150 border border-white/20">
+              <ul className="absolute top-full left-0 hidden group-hover:block mt-0.5 min-w-[200px] z-50 rounded-lg overflow-hidden shadow-xl bg-white/30 backdrop-blur-md backdrop-saturate-150 border border-white/20">
                 <li>
                   <Link
                     href="/business-hub/vip-lounge"
@@ -123,7 +123,15 @@ const HeaderComp = () => {
                     VIP Business Lounge
                   </Link>
                 </li>
-                
+                <li>
+                  <Link
+                    href="/personaldevelopmenthub"
+                    className="block px-4 py-2 text-sm text-black hover:bg-white/40 hover:text-[#85009D] border-b border-white/30 whitespace-nowrap transition-all duration-200 font-semibold"
+                    onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+                  >
+                    Personal Development Hub
+                  </Link>
+                </li>                
               </ul>
 
 

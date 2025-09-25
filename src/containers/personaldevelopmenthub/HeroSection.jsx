@@ -1,4 +1,5 @@
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
+import Link from "next/link";
 
 export default function HeroSection() {
     return (
@@ -16,12 +17,14 @@ export default function HeroSection() {
                 <p className="max-w-2xl">Access to the hub supports career growth, skills development and knowledge for individuals,
                     groups and corporate teams.</p>
 
-                <ArrowButtonCom
-                    text="Subscribe Now"
-                    bgColor="bg-gradient-to-r from-[#FEF989] via-[#DEAE1A] to-[#FBF687]"
-                    textColor="text-black font-bold"
-                    arrowColor="border-black"
-                />
+                <Link href="/personaldevelopmenthub/membershipplans">
+                    <ArrowButtonCom
+                        text="Subscribe Now"
+                        bgColor="bg-gradient-to-r from-[#FEF989] via-[#DEAE1A] to-[#FBF687]"
+                        textColor="text-black font-bold"
+                        arrowColor="border-black"
+                    />
+                </Link>
             </div>
         </>
     );
