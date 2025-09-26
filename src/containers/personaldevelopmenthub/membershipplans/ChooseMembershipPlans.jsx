@@ -1,6 +1,6 @@
 "use client";
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
-import MembershipPlansComp from "@/components/personaldevelopmenthub/MembershipPlansComp";
+import MembershipPlansComp from "@/components/personaldevelopmenthub/membershipplans/MembershipPlansComp";
 import Link from "next/link";
 import { useState } from "react";
 export default function ChooseMembershipPlans() {
@@ -14,7 +14,7 @@ export default function ChooseMembershipPlans() {
                     <p className="max-w-2xl text-center text-sm lg:text-base">Save 10% on an annual subscription</p>
 
 
-                    <ul className="flex justify-center items-center bg-[#85009D66] border border-[#F3B3FF]/50 text-white rounded text-sm md:text-base">
+                    <ul className="flex justify-center items-center bg-[#85009D66] border border-[#F3B3FF]/50 text-white rounded text-xs md:text-base overflow-hidden">
                         <li
                             className={`${tab === "Monthly"
                                 ? "bg-gradient-to-r from-[#FEF989] via-[#DEAE1A] to-[#FBF687] w-full h-full text-black py-3 px-6"
@@ -65,6 +65,7 @@ export default function ChooseMembershipPlans() {
                                 price="£25.99"
                                 period="/ Month"
                                 btnName="Select"
+                                BtnLnk={"/"}
                                 data={[
                                     { title: `Expand your skills, network, and career opportunities`, para: `` },
                                     { title: `Everything in Free`, para: `plus` },
@@ -107,6 +108,7 @@ export default function ChooseMembershipPlans() {
                                     },
                                 ]}
                             />
+                            
                             <MembershipPlansComp
                                 titletxtclr="text-[white]"
                                 titlebgclr="bg-[#85009D]"
@@ -114,6 +116,7 @@ export default function ChooseMembershipPlans() {
                                 price="Custom Pricing"
                                 period=""
                                 btnName="Learn More"
+                                href="/personaldevelopmenthub/membershipplans/plugenterprise"
                                 data={[
                                     {
                                         title: `For companies investing in procurement team growth & strategic capability.`, para: ``
@@ -125,11 +128,98 @@ export default function ChooseMembershipPlans() {
                                     { para: `Private masterclasses / AMAs tailored to your team` },
                                 ]}
                             />
+                            
                         </>
                     )}
                     {tab === "Yearly" && (
                         <>
+                            <MembershipPlansComp
+                                titletxtclr="text-[#85009D]"
+                                titlebgclr="bg-[#EAC6FF]"
+                                plugType="Plug Ascend"
+                                price="Free"
+                                btnName="Select"
+                                data={[
+                                    { title: `Your first step into the growth ecosystem`, para: `` },
+                                    { title: `My Elevate Bloom Journal`, para: `capture insights & commitments from events` },
+                                    { title: `Knowledge Analyser quiz tool`, para: `Benchmark your procurement knowledge` },
+                                    {
+                                        title: `Directory access to mentors & coaches`, para: `(view profiles & book direct)`
+                                    },
+                                    { title: `Earn basic Plug Badges`, para: `Start tracking your journey` },
+                                    { title: `Salary Tracker (lite view)`, para: `Explore general salary benchmarks` },
+                                    { title: `Select procurement career blogs & community forums`, para: `` },
 
+                                ]} />
+
+                            <MembershipPlansComp
+                                titletxtclr="text-[#85009D]"
+                                titlebgclr="bg-[#FEF989]"
+                                plugType="Plug Grower"
+                                price="£280.69"
+                                period="/ Annual"
+                                btnName="Select"
+                                data={[
+                                    { title: `Expand your skills, network, and career opportunities`, para: `` },
+                                    { title: `Everything in Free`, para: `plus` },
+                                    { title: `Monthly career guides & ready-to-use templates`, para: `(negotiation, leadership, branding)` },
+                                    {
+                                        title: `Full mentorship & coaching directory messaging`, para: `connect & grow`
+                                    },
+                                    { title: `Salary Tracker (full interactive access)`, para: `Compare roles, industries & regions` },
+                                    { title: `Unlock more Plug Badges`, para: `Celebrate bigger milestones` },
+                                    {
+                                        title: `Productivity tools & personal branding downloads`, para: ``
+                                    },
+                                    {
+                                        title: `10% off Elevate Bloom events`, para: ``
+                                    },
+
+                                ]} />
+                            <MembershipPlansComp
+                                titletxtclr="text-[white]"
+                                titlebgclr="bg-[#B08D57CC]"
+                                plugType="Plug Ascend"
+                                price="£377.89"
+                                period="/ Annual"
+                                btnName="Select"
+                                data={[
+                                    {
+                                        title: `Reach the peak of procurement excellence and leadership`, para: ``
+                                    },
+                                    { title: `Everything in Grower`, para: `plus` },
+                                    { title: `Monthly Masterclasses (live & on-demand)`, para: `Learn from procurement leaders` },
+                                    { title: `Real-world challenges & 30-day career sprints`, para: `Sharpen your edge` },
+                                    { title: `Premium planners`, para: `SWOT analysis, inspiration boards, networking plans, decision tools` },
+                                    { title: `Advanced Salary Tracker filters & insights`, para: `Get strategic with your data` },
+                                    { title: `Unlock all Plug Badges`, para: `showcase your complete journey` },
+                                    {
+                                        title: `Procurement Goody Bags & Expert Q&A sessions`, para: ``
+                                    },
+                                    {
+                                        title: `20% off Elevate Bloom events & VIP experiences`, para: ``
+                                    },
+                                ]}
+                            />
+                            <MembershipPlansComp
+                                titletxtclr="text-[white]"
+                                titlebgclr="bg-[#85009D]"
+                                plugType="Plug Enterprise"
+                                price="Custom Pricing"
+                                period=""
+                                btnName="Learn More"
+                                href="/personaldevelopmenthub/membershipplans/plugenterprise"
+                                data={[
+                                    {
+                                        title: `For companies investing in procurement team growth & strategic capability.`, para: ``
+                                    },
+                                    { para: `All benefits of Plug Ascend for each user` },
+                                    { para: `Admin dashboard & team progress tracking` },
+                                    { para: `Central billing & easy seat management` },
+                                    { para: `Bespoke quarterly impact reports on team skills & career progress` },
+                                    { para: `Private masterclasses / AMAs tailored to your team` },
+                                ]}
+                            />
                         </>
                     )}
                 </section>

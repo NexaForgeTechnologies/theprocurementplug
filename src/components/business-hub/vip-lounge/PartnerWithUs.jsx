@@ -33,14 +33,14 @@ function BusinesFeatureComp({ data }) {
         height={190}
         src="/images/bussiness-hub/plug1.png"
         alt="The Procurement Plug Logo"
-        className="absolute top-0 md:top-6 left-0"
+        className="absolute top-0 md:top-6 left-0 w-[8%] md:w-[5%]"
       />
       <Image
         width={291}
         height={329}
         src="/images/bussiness-hub/plug2.png"
         alt="The Procurement Plug Logo"
-        className="absolute bottom-0 right-0 md:top-1/2 md:-translate-y-1/2"
+        className="absolute bottom-0 right-0 md:top-1/2 md:-translate-y-1/2 md:w-[17%]"
       />
 
       <div className="relative z-10 flex flex-col gap-6 md:gap-8 rounded-lg py-5 md:py-10 mx-auto max-w-[1440px] w-full

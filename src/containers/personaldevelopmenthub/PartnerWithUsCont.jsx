@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function PartnerWithUsCont() {
     const partnerWithUs = {
         Partnerheader: {
-            h3: "Partner With Us",
+            h3: "Resources for your growth",
             p: (
                 <>
                     <a

@@ -274,7 +274,7 @@ const Footer = () => {
               className="w-full"
             />
           </Link>
-          <div className="max-w-[695px]">
+          {/* <div className="max-w-[695px]">
             <p className="text-md mb-[-10px] w-full">
               <Link
                 href="https://achiever-grp.com/"
@@ -283,7 +283,7 @@ const Footer = () => {
                 An Achiever Group Company
               </Link>
             </p>
-          </div>
+          </div> */}
 
           <div className="text-sm">
             <h3 className="text-center w-fit px-5 py-2 rounded-lg text-xl font-semibold text-[#B08D57] bg-[#121212]">Our Socials</h3>
@@ -304,20 +304,42 @@ const Footer = () => {
                 <Icon name="linkedin" size={20} color="#ffff" />
                 <span>LinkedIn</span>
               </Link>
+              <Link
+                href="https://www.youtube.com/@TheProcurementPlug"
+                target="_blank"
+                className="flex gap-1 items-center justify-center"
+              >
+                {/* <Icon name="linkedin" size={20} color="#ffff" /> */}
+                <img src="/images/footer/youtube.png" alt="" className="w-5 h-5 relative top-1" />
+                <span className="material-symbols-outlined">Youtube</span>
+              </Link>
             </div>
           </div>
         </section>
 
         {/* Dynamic Columns */}
         {[
+          // {
+          //   title: "Quick Links",
+          //   links: [
+          //     { name: "Personal Development Hub", href: '/personaldevelopmenthub' },
+          //     { name: "Business Hub", href: "/business-hub" },
+          //     { name: "The Procurement Concierge", href: "/concierge" },
+          //     { name: "Community Hub", href: null },
+          //     { name: "VIP Business Lounge", href: "/business-hub/vip-lounge" },
+          //   ],
+          // },
           {
             title: "Quick Links",
             links: [
-              { name: "Personal Development Hub", href: '/personaldevelopmenthub' },
-              { name: "Business Hub", href: "/business-hub" },
+              { name: "The Plug Career and Personal Growth Hub", href: '/personaldevelopmenthub' },
+              { name: "The Plug Business Hub", href: "/business-hub" },
               { name: "The Procurement Concierge", href: "/concierge" },
-              { name: "Community Hub", href: null },
-              { name: "VIP Business Lounge", href: "/business-hub/vip-lounge" },
+              { name: "The Plug Community Hub", href: null },
+              { name: "The Plug Resources Hub", href: null },
+              { name: "The Plug Social Value Hub", href: null },
+              { name: "The Plug Academy ", href: null },
+              { name: "The Plug VIP Lounge", href: "/business-hub/vip-lounge" },
             ],
           },
           {

@@ -13,25 +13,25 @@ export default function ReadyToWorkBannerComp({ title, description, link1, link2
         <>
             <section className="bg-[#85009D] w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20 relative py-20 flex flex-col gap-y-5 justify-center items-center">
                 <img src="/images/concierge/plug-l.png" alt="plug-icon-left"
-                    className="absolute left-0 top-5" />
+                    className="absolute left-0 top-5 w-[8%]" />
                 <img src="/images/concierge/plug-r.png" alt="plug-icon-right"
-                    className="absolute right-0 top-5" />
+                    className="absolute right-0 top-5 w-[20%]" />
 
                 <div className="flex flex-col gap-y-5 justify-center items-center">
-                    <h2 className="font-semibold text-2xl md:text-3xl text-white">{title}</h2>
-                    <p className="max-w-[976px] md:text-xl text-white">{description}</p>
+                    <h2 className="font-semibold text-xl md:text-2xl text-white">{title}</h2>
+                    <p className="max-w-[976px] md:text-lg text-white">{description}</p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-center justify-center max-w-[976px] mx-auto w-full">
-                    <div className="w-full bg-[#FFFBF5] text-[#85009D] rounded border border-[#D09B48] p-4 flex items-center gap-x-3">
-                        <img src="/images/concierge/globe.png" className="w-7 h-7" alt="globe-icon" />
-                        <p className="md:text-xl text-[#85009D] font-medium break-all ">
+                    <div className="w-full bg-[#FFFBF5] text-[#85009D] rounded border border-[#D09B48] p-2 md:p-3 flex items-center gap-x-3">
+                        <img src="/images/concierge/globe.png" className="w-5 md:w-7 h-5 md:h-7" alt="globe-icon" />
+                        <p className="text-xs sm:text-sm md:text-lg text-[#85009D] font-medium break-all ">
                             {link1}
                         </p>
                     </div>
-                    <div className="w-full bg-[#FFFBF5] text-[#85009D] rounded border border-[#D09B48] p-4 flex items-center gap-x-3">
-                        <img src="/images/concierge/mail.png" className="h-5" alt="mail-icon" />
-                        <p className="md:text-xl text-[#85009D] font-medium break-all ">
+                    <div className="w-full bg-[#FFFBF5] text-[#85009D] rounded border border-[#D09B48] p-2 md:p-3 flex items-center gap-x-3">
+                        <img src="/images/concierge/mail.png" className="h-4 md:h-5" alt="mail-icon" />
+                        <p className="text-xs sm:text-sm md:text-lg text-[#85009D] font-medium break-all ">
                             {link2}
                         </p>
                     </div>
