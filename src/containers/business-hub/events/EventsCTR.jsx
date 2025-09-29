@@ -265,7 +265,7 @@ function ResourceLibraryCTR() {
             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
           </Link>
           <Link
-            href={"/event/become-a-speaker"}
+            href={"/business-hub/event/become-a-speaker"}
             className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
             Become a Speaker
             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
