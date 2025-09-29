@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import EventComp from "@/components/events/EventComp";
 import Link from "next/link";
+
+import EventComp from "@/components/events/EventComp";
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import ElevateCard from '@/components/events/ElevateCardComp';
 import IconComponent from "@/components/icon/Icon";
@@ -26,7 +27,7 @@ function ResourceLibraryCTR() {
       location: "4Th Floor, City Tower, New York Street, Manchester M1 4BT",
       designFor:
         "Manchester Edition is designed for procurement professionals, focusing on innovation, strategy, and leadership in procurement.",
-      link: "/event/elevate2025-manchester",
+      link: "/business-hub/event/elevate2025-manchester",
       tagColor: "#B08D57",
     },
     {
@@ -39,7 +40,7 @@ function ResourceLibraryCTR() {
       date: "2025-08-26",
       location: "3rd Floor, Beacon Building 176 St Vincent St Glasgow G2 5SG",
       designFor: "Senior procurement leaders, CPOs, Procurement Directors.",
-      link: "/event/elevate2025-scotland",
+      link: "/business-hub/event/elevate2025-scotland",
       tagColor: "#85009D",
     },
     {
@@ -53,7 +54,7 @@ function ResourceLibraryCTR() {
       location: "Location will be provide soon. Stay Tuned!",
       designFor:
         "Chief Procurement Officers (CPO), Vice Presidents & Directors of Procurement, Senior Managers in Supply Chain & Procurement.",
-      link: "/event/elevate2025-caribbean",
+      link: "/business-hub/event/elevate2025-caribbean",
       tagColor: "#000000",
     },
     {
@@ -67,7 +68,7 @@ function ResourceLibraryCTR() {
       date: "2025-07-17",
       location: "Virtual Webinar",
       designFor: "Keynote Speaker, Interactive Q&A.",
-      link: "/event/boardroom-preparedness-for-senior-procurement-professionals",
+      link: "/business-hub/event/boardroom-preparedness-for-senior-procurement-professionals",
       tagColor: "#B08D57",
     },
   ];
@@ -100,7 +101,7 @@ function ResourceLibraryCTR() {
       location: "4Th Floor, City Tower, New York Street, Manchester M1 4BT",
       designFor:
         "Manchester Edition is designed for procurement professionals, focusing on innovation, strategy, and leadership in procurement.",
-      link: "/event/elevate2025-manchester",
+      link: "/business-hub/event/elevate2025-manchester",
       tagColor: "#B08D57",
     },
     {
@@ -113,7 +114,7 @@ function ResourceLibraryCTR() {
       date: "2025-08-26",
       location: "3rd Floor, Beacon Building 176 St Vincent St Glasgow G2 5SG",
       designFor: "Senior procurement leaders, CPOs, Procurement Directors.",
-      link: "/event/elevate2025-scotland",
+      link: "/business-hub/event/elevate2025-scotland",
       tagColor: "#85009D",
     },
     {
@@ -127,7 +128,7 @@ function ResourceLibraryCTR() {
       location: "Location will be provide soon. Stay Tuned!",
       designFor:
         "Chief Procurement Officers (CPO), Vice Presidents & Directors of Procurement, Senior Managers in Supply Chain & Procurement.",
-      link: "/event/elevate2025-caribbean",
+      link: "/business-hub/event/elevate2025-caribbean",
       tagColor: "#000000",
     },
   ];
