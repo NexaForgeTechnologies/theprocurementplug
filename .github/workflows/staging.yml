@@ -54,6 +54,7 @@ jobs:
            echo "${{ secrets.DOCKERPWD }}" | docker login -u "${{ secrets.DOCKERLOGIN }}" --password-stdin
            export STAGING_TAG=${{ steps.prep.outputs.image_tag }}
            export PROD_TAG=${{ steps.prep.outputs.image_tag }}
+           export ADMIN_TAG=${{ steps.prep.outputs.image_tag }}
            docker compose pull nextapp-staging
            docker compose up -d nextapp-staging
            docker image prune -f
