@@ -1,6 +1,8 @@
-import Link from "next/link";
+"use client"
+import { useContactUsFormStore } from "@/store/ContactusFormStore";
 
 export default function LetsTalk() {
+    const { isOpen, setIsOpen } = useContactUsFormStore();
     return (
         <>
             <section className="text-white flex flex-col gap-y-10 pb-15 ">
@@ -21,7 +23,10 @@ export default function LetsTalk() {
                         ))}
                     </ul>
                     <div>
-                        <button className="mt-auto flex items-center justify-center cursor-pointer border  border-transparent text-black bg-gradient-to-r from-[#FEF989] via-[#DEAE1A] to-[#FBF687] px-4 py-2 rounded-[6px] w-full text-sm md:text-base">
+                        <button
+                            onClick={() => setIsOpen(!isOpen)}
+                            className="mt-auto flex items-center justify-center cursor-pointer border  border-transparent text-black bg-gradient-to-r from-[#FEF989] via-[#DEAE1A]
+                         to-[#FBF687] px-4 py-2 rounded-[6px] w-full text-xs md:text-base">
                             Contact Us to Build Your Team Plan
                         </button>
                     </div>
@@ -33,6 +38,7 @@ export default function LetsTalk() {
                     <p className="text-sm font-light">Cancel anytime  |  No hidden fees  |  Encrypted payments</p>
                 </div>
             </section>
+
         </>
     );
 }

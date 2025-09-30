@@ -5,19 +5,19 @@ export default function PartnerWithUsCont() {
     const partnerWithUs = {
         Partnerheader: {
             h3: "Resources for your growth",
-            p: (
-                <>
-                    <a
-                        href="mailto:partnerships@theprocurementplug.com"
-                        className="font-semibold text-white hover:underline"
-                    >
-                        partnerships@theprocurementplug.com
-                    </a> -{' '}
-                    <Link className="font-light" href="/partnerships">
-                        Visit our partnership page
-                    </Link>
-                </>
-            )
+            // p: (
+            //     <>
+            //         <a
+            //             href="mailto:partnerships@theprocurementplug.com"
+            //             className="font-semibold text-white hover:underline"
+            //         >
+            //             partnerships@theprocurementplug.com
+            //         </a> -{' '}
+            //         <Link className="font-light" href="/partnerships">
+            //             Visit our partnership page
+            //         </Link>
+            //     </>
+            // )
         },
         items: [
             {
