@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@stripe/stripe-js": "^8.0.0",
     "axios": "^1.10.0",
     "bcryptjs": "^3.0.2",
     "dotenv": "^17.2.1",
@@ -22,7 +23,7 @@
     "react-hot-toast": "^2.5.2",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
-    "stripe": "^18.3.0",
+    "stripe": "^18.5.0",
     "zod": "^4.0.15",
     "zustand": "^5.0.8"
   },

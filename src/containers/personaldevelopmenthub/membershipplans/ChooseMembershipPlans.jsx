@@ -45,6 +45,7 @@ export default function ChooseMembershipPlans() {
                                 plugType="Plug Ascend"
                                 price="Free"
                                 btnName="Select"
+                                href="/personaldevelopmenthub/membershipplans/payment-checkout"
                                 data={[
                                     { title: `Your first step into the growth ecosystem`, para: `` },
                                     { title: `My Elevate Bloom Journal`, para: `capture insights & commitments from events` },
@@ -65,6 +66,7 @@ export default function ChooseMembershipPlans() {
                                 price="£25.99"
                                 period="/ Month"
                                 btnName="Select"
+                                href="/personaldevelopmenthub/membershipplans/payment-checkout"
                                 BtnLnk={"/"}
                                 data={[
                                     { title: `Expand your skills, network, and career opportunities`, para: `` },
@@ -90,6 +92,7 @@ export default function ChooseMembershipPlans() {
                                 price="£34.99"
                                 period="/ Month"
                                 btnName="Select"
+                                href="/personaldevelopmenthub/membershipplans/payment-checkout"
                                 data={[
                                     {
                                         title: `Reach the peak of procurement excellence and leadership`, para: ``
@@ -139,6 +142,7 @@ export default function ChooseMembershipPlans() {
                                 plugType="Plug Ascend"
                                 price="Free"
                                 btnName="Select"
+                                href="/personaldevelopmenthub/membershipplans/payment-checkout"
                                 data={[
                                     { title: `Your first step into the growth ecosystem`, para: `` },
                                     { title: `My Elevate Bloom Journal`, para: `capture insights & commitments from events` },
@@ -159,6 +163,7 @@ export default function ChooseMembershipPlans() {
                                 price="£280.69"
                                 period="/ Annual"
                                 btnName="Select"
+                                href="/personaldevelopmenthub/membershipplans/payment-checkout"
                                 data={[
                                     { title: `Expand your skills, network, and career opportunities`, para: `` },
                                     { title: `Everything in Free`, para: `plus` },
@@ -183,6 +188,7 @@ export default function ChooseMembershipPlans() {
                                 price="£377.89"
                                 period="/ Annual"
                                 btnName="Select"
+                                href="/personaldevelopmenthub/membershipplans/payment-checkout"
                                 data={[
                                     {
                                         title: `Reach the peak of procurement excellence and leadership`, para: ``

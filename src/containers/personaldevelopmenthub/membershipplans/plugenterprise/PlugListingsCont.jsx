@@ -48,7 +48,7 @@ export default function PlugListingsCont() {
             <section className="flex flex-col gap-10">
                 {data.map((item, index) => (
                     <div key={index} className="flex flex-col items-start justify-start gap-y-4 text-white">
-                        <h1 className="text-2xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#FEF989] via-[#DEAE1A] to-[#FBF687] bg-clip-text text-transparent text-center">
+                        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-[#FEF989] via-[#DEAE1A] to-[#FBF687] bg-clip-text text-transparent text-center">
                             {item.title}
                         </h1>
                         {item.description1 && <p>{item.description1}</p>}

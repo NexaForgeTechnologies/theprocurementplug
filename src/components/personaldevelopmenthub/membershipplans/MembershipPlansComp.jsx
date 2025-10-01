@@ -7,7 +7,8 @@ export default function MembershipPlansComp({
     price,
     period,
     btnName = "Select",
-    href="/",
+    href = "/",
+    btnHide,
     data = [{ title: "", para: "" }] }) {
 
     return (
@@ -27,8 +28,8 @@ export default function MembershipPlansComp({
                     </div>
                 ))}
                 <Link href={href} className="mt-auto">
-                    <button className="flex items-center justify-center cursor-pointer bg-transparent border border-[#D7D7D7] hover:border-none text-white hover:text-black hover:bg-gradient-to-r hover:from-[#FEF989] hover:via-[#DEAE1A] hover:to-[#FBF687] 
-                px-4 py-2 rounded-[6px] w-full text-sm md:text-base">
+                    <button className={`${btnHide} flex items-center justify-center cursor-pointer bg-transparent border border-[#D7D7D7] hover:border-none text-white hover:text-black hover:bg-gradient-to-r hover:from-[#FEF989] hover:via-[#DEAE1A] hover:to-[#FBF687] 
+                px-4 py-2 rounded-[6px] w-full text-sm md:text-base`}>
                         {btnName}
                     </button>
                 </Link>
