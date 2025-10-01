@@ -17,7 +17,6 @@ function GuessCTR() {
       id: 2,
       img: "/images/guess/guest-20.jpg",
       heading: "Craig Elvin",
-      // subHeading: "Panellist",
       text1:
         "Director | Executive Search Consultant",
       text2: "Executive Heads",
@@ -26,7 +25,6 @@ function GuessCTR() {
       id: 3,
       img: "/images/elevate-scotland/davidloseby.jpg",
       heading: "David Loseby",
-      // subHeading: "Panellist",
       text1:
         "Senior Advisor & Educator in Procurement ESG & Behavioural Transformation",
       text2: "Editor in Chief Eurasia Academic Publishing Group Limited",
@@ -35,7 +33,6 @@ function GuessCTR() {
       id: 4,
       img: "/images/elevate-scotland/susanwalsh.jpg",
       heading: "Susan Walsh",
-      // subHeading: "Panellist",
       text1: "Founder & Managing Director",
       text2: "The Classification Guru Ltd",
     },
