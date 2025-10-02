@@ -39,7 +39,7 @@ export async function POST(request) {
                 firstName,
                 phoneNumber,
             },
-            success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/success`,
+            success_url: `${process.env.NEXT_PUBLIC_BASE_URL}/personaldevelopmenthub/membershipplans/payment-checkout`,
             cancel_url: `${process.env.NEXT_PUBLIC_BASE_URL}/cancel`,
         });
 
