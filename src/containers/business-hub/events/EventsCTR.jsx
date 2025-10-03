@@ -300,7 +300,7 @@ function ResourceLibraryCTR() {
         </p>
         <div className="flex flex-col md:flex-row items-center mb-4 md:mb-8 gap-4">
           <Link
-            href={"/event/elevate-by-the-procurement-plug"}
+            href={"/business-hub/event/elevate-by-the-procurement-plug"}
             className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
           >
             learn more
