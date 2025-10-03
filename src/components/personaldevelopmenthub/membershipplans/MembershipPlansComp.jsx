@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import useMembershipStore from "@/store/useMembershipstore";
+import useMembershipStore from "@/store/useMembershipStore";
 
 export default function MembershipPlansComp({
     titletxtclr = "text-[#85009D]",
