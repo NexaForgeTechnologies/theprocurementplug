@@ -16,10 +16,20 @@ export async function POST(request) {
         }
 
         // Send Emails only after DB insertion
-        await Promise.all([
-            UserDownloadPartnershipEmail(body),
-            AdminDownloadPartnershipEmail(body),
-        ]);
+        try {
+            await Promise.all([
+                UserDownloadPartnershipEmail(body),
+                AdminDownloadPartnershipEmail(body),
+            ]);
+        } catch (emailError) {
+            console.error("❌ Email sending failed:", emailError);
+
+            return NextResponse.json(
+                { success: false, message: "Email sending failed", error: emailError.message },
+                { status: 500 }
+            );
+        }
+
 
         console.log("📨 Emails sent & data stored successfully");
         return NextResponse.json({ success: true });
