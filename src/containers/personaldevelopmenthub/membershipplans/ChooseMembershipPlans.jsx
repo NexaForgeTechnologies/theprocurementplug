@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import MembershipPlansComp from "@/components/personaldevelopmenthub/membershipplans/MembershipPlansComp";
-import useMembershipStore from "@/store/useMembershipstore";
+import useMembershipStore from "@/store/useMembershipStore";
 import Link from "next/link";
 import { useRouter } from 'next/navigation';
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";

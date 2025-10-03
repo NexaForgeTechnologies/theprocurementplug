@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import MembershipPlansComp from "@/components/personaldevelopmenthub/membershipplans/MembershipPlansComp";
-import useMembershipStore from "@/store/useMembershipstore";
+import useMembershipStore from "@/store/useMembershipStore";
 import toast from "react-hot-toast";
 
 export default function PlansSummaryCont() {
