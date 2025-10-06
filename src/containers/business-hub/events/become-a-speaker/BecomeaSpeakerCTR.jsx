@@ -7,6 +7,7 @@ import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import FeatureSpeakerTile from "@/components/events/become-a-speaker/ConsultingPartnerTile";
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
+import toast from "react-hot-toast";
 
 
 function Breadcrumb() {
@@ -40,24 +41,48 @@ function BecomeaSpeaker() {
         proposal: "",
     });
 
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        setFormData({
-            name: "",
-            email: "",
-            role: "",
-            company: "",
-            proposedtopic: "",
-            interestin: "",
-            proposal: "",
-        });
-        // onClose(); 
+        setIsLoading(true);
+
+        try {
+            const res = await fetch("/api/event/become-a-speaker", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!res.ok) throw new Error("Form submission failed!");
+
+            toast.success("Form submitted successfully!");
+
+            setFormData({
+                name: "",
+                email: "",
+                role: "",
+                company: "",
+                proposedtopic: "",
+                interestin: "",
+                proposal: "",
+            });
+
+            // onClose(); // Optional
+        } catch (error) {
+            toast.error("Form submission unsuccessful!");
+            console.error("Submission error:", error);
+        } finally {
+            setIsLoading(false); // Stop loading
+        }
     };
 
     const featurespeaker = [
@@ -225,71 +250,60 @@ function BecomeaSpeaker() {
                     </h3>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder="Name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Email Address"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
+                            {[
+                                { id: 'name', type: 'text', placeholder: 'Name' },
+                                { id: 'email', type: 'email', placeholder: 'Email Address' },
+                            ].map(({ id, type, placeholder }) => (
+                                <input
+                                    key={id}
+                                    type={type}
+                                    id={id}
+                                    name={id}
+                                    placeholder={placeholder}
+                                    value={formData[id]}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                />
+                            ))}
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input
-                                type="text"
-                                id="role"
-                                name="role"
-                                placeholder="Role"
-                                value={formData.role}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
 
-                            <input
-                                type="text"
-                                id="company"
-                                name="company"
-                                placeholder="Company"
-                                value={formData.company}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
-                        </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input
-                                type="text"
-                                id="proposedtopic"
-                                name="proposedtopic"
-                                placeholder="Proposed Topic"
-                                value={formData.proposedtopic}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
-                            <input
-                                type="text"
-                                id="interestin"
-                                name="interestin"
-                                placeholder="Events Interest In"
-                                value={formData.interestin}
-                                onChange={handleChange}
-                                required
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                            />
+                            {[
+                                { id: 'role', type: 'text', placeholder: 'Role' },
+                                { id: 'company', type: 'text', placeholder: 'Company' },
+                            ].map(({ id, type, placeholder }) => (
+                                <input
+                                    key={id}
+                                    type={type}
+                                    id={id}
+                                    name={id}
+                                    placeholder={placeholder}
+                                    value={formData[id]}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                />
+                            ))}
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {[
+                                { id: 'proposedtopic', type: 'text', placeholder: 'Proposed Topic' },
+                                { id: 'interestin', type: 'text', placeholder: 'Events Interest In' },
+                            ].map(({ id, type, placeholder }) => (
+                                <input
+                                    key={id}
+                                    type={type}
+                                    id={id}
+                                    name={id}
+                                    placeholder={placeholder}
+                                    value={formData[id]}
+                                    onChange={handleChange}
+                                    required
+                                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                />
+                            ))}
                         </div>
                         <div>
                             <textarea
@@ -304,10 +318,16 @@ function BecomeaSpeaker() {
                         </div>
                         <button
                             type="submit"
-                            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                            Submit
-                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                            disabled={isLoading}
+                            className={`flex items-center justify-center md:justify-start px-4 py-2 rounded-[6px] w-full md:w-auto 
+        ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-[#b08d57] cursor-pointer"} text-white`}
+                        >
+                            {isLoading ? "Submitting..." : "Submit"}
+                            {!isLoading && (
+                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                            )}
                         </button>
+
                     </form>
                 </div>
             </div>

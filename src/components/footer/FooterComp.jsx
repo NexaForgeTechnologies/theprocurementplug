@@ -263,7 +263,7 @@ const Footer = () => {
       </div>
 
       {/* Middle Section */}
-      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-20 py-10 md:py-15 text-white">
+      <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-10 py-10 md:py-15 text-white">
         <section className="flex flex-col gap-y-8">
           <Link href="/" className="block w-[260px] h-[71px]">
             <Image
@@ -271,7 +271,7 @@ const Footer = () => {
               height={200}
               src="/images/footer/Horizontal-V1-copy.png"
               alt="The Procurement Plug Logo"
-              className="w-full"
+              className="w-[80%]"
             />
           </Link>
           {/* <div className="max-w-[695px]">
@@ -287,13 +287,13 @@ const Footer = () => {
 
           <div className="text-sm">
             <h3 className="text-center w-fit px-5 py-2 rounded-lg text-xl font-semibold text-[#B08D57] bg-[#121212]">Our Socials</h3>
-            <div className="flex items-center gap-4 mt-5">
+            <div className="flex items-center flex-wrap gap-4 mt-5">
               <Link
                 href="https://www.tiktok.com/@the.procurement.p"
                 target="_blank"
                 className="flex gap-1 items-center"
               >
-                <Icon name="tiktok" size={20} color="#ffff" />
+                <Icon name="tiktok" size={18} color="#ffff" />
                 <span>TikTok</span>
               </Link>
               <Link
@@ -301,7 +301,7 @@ const Footer = () => {
                 target="_blank"
                 className="flex gap-1 items-center"
               >
-                <Icon name="linkedin" size={20} color="#ffff" />
+                <Icon name="linkedin" size={18} color="#ffff" />
                 <span>LinkedIn</span>
               </Link>
               <Link

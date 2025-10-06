@@ -1,11 +1,13 @@
-import React from "react";
+"use client"
+import React, { useState } from "react";
 
 import BenifitsComp from "@/components/benifit/BenifitsComp";
 import Icon from "@/components/icon/Icon";
 import Link from "next/link";
 import PartnerCTR from "@/containers/home/partners/PartnerCTR";
 import Image from "next/image";
-
+import BecomeAPartner from "@/components/business-hub/consulting-partner/BecomeAPartner";
+import DownloadPartnership from "@/components/business-hub/consulting-partner/DownloadPartnership";
 function PartnershipsCTR() {
   const partneringContent = [
     {
@@ -53,6 +55,9 @@ function PartnershipsCTR() {
       text: "Get featured in TPP’s reports and insights on procurement trends.",
     },
   ];
+
+  const[isOpen, setIsOpen] = useState(false);
+  const[isOpenDownload, setIsOpenDownload] = useState(false);
   return (
     <>
       <div className="flex gap-6 md:gap-8 flex-col-reverse lg:flex-row items-center min-h-[80vh]">
@@ -69,13 +74,14 @@ function PartnershipsCTR() {
             solutions, services, and suppliers.
           </p>
           <div className="flex flex-wrap gap-2 items-center mt-6">
-            <Link
-              href="mailto:request@theprocurementplug.com"
+            <div
+              // href="mailto:request@theprocurementplug.com"
+              onClick={() => setIsOpen(!isOpen)}
               className="text-[#ffff] bg-[#85009D] text-sm md:text-lg cursor-pointer flex items-center gap-2 py-3 px-5 rounded-md w-full md:w-max"
             >
               <Icon name="email" color="white" size={20} />
               Become A Partner
-            </Link>
+            </div>
 
             <Link
               href="mailto:request@theprocurementplug.com"
@@ -92,15 +98,16 @@ function PartnershipsCTR() {
               <Icon name="email" color="white" size={20} />
               Explore Partnership Opportunities
             </Link>
-            
+
             <button
+            onClick={() => setIsOpenDownload(!isOpen)}
               className="text-[#ffff] bg-[#b08d57] text-sm md:text-lg cursor-pointer flex items-center 
             gap-2 py-3 px-5 rounded-md w-full md:w-max"
             >
               <span className="rotate-90">
                 <Icon name="arrow" color="white" size={20} />
               </span>
-              Download Patnership & Sponsorship Pack
+              Download Partnership & Sponsorship Pack
             </button>
           </div>
         </div>
@@ -193,6 +200,8 @@ function PartnershipsCTR() {
         </div>
       </div>
       <PartnerCTR />
+      <BecomeAPartner isOpen={isOpen} onClose={() => setIsOpen(false)} title="Become a partner"/>
+      <DownloadPartnership isOpen={isOpenDownload} onClose={() => setIsOpenDownload(false)} title="Download Partnership & Sponsorship Pack"/>
     </>
   );
 }
