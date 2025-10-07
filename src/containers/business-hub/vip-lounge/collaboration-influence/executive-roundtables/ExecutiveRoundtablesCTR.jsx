@@ -1,7 +1,9 @@
 "use client"
+import { useState } from "react";
+import JoinTheWaitlistForm from "./JoinTheWaitlistForm";
 
 function ExecutiveRoundtablesCTR() {
-
+const [isOpen, setIsOpen] = useState(false);
     return (
         <div>
             <div className="max-w-[803px] mb-4 md:mb-8">
@@ -56,10 +58,13 @@ function ExecutiveRoundtablesCTR() {
                     <p className="text-[16px] md:text-[20px] text-[#808080]">Books, whitepapers, roundtable transcrip</p>
                 </div>
             </div>
-            <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+            <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                 Join the Waitlist for XecXchange Access
                 <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
             </button>
+            <JoinTheWaitlistForm isOpen={isOpen} onClose={() => setIsOpen(false)} />
         </div>
     );
 }

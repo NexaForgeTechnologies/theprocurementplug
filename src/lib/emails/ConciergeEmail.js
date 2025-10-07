@@ -1,10 +1,92 @@
 import { sendEmail } from "@/lib/EmailsService";
 
 
+
+// -------------------------  Request a Introduction Partner Emails
+export async function UserIntroRequestEmail({ email, fullName, areaOfInterest }) {
+    await sendEmail({
+        type: "partner",
+        to: email,
+        subject: "Your introduction request is received",
+        html: `
+            <p><b>Hi ${fullName},</b></p>
+            <p>
+                Thanks for requesting an introduction to our vetted partner ecosystem for <b>${areaOfInterest}</b>.
+                We’ll be in touch within 24 hours with your curated connection.
+            </p>
+            <p>If you have any immediate questions, just reply to this email.</p>
+            <p>Best regards,<br>The Procurement Plug Partnerships Team</p>
+        `,
+    });
+}
+
+
+export async function AdminIntroRequestEmail({ fullName, email, company, role, areaOfInterest, briefNote }) {
+    await sendEmail({
+        type: "partner",
+        to: process.env.SMTP_PARTNER_USER,
+        subject: `New partner-intro request: ${fullName} (${company})`,
+        html: `
+            <p>A new “Request an Introduction” submission just came in:</p>
+            <ul style="list-style-type: disc; padding-left: 20px;">
+                <li><b>Name:</b> ${fullName}</li>
+                <li><b>Email:</b> ${email}</li>
+                <li><b>Company:</b> ${company}</li>
+                <li><b>Role/Title:</b> ${role}</li>
+                <li><b>Area of Interest:</b> ${areaOfInterest}</li>
+                <li><b>Note:</b> “${briefNote}”</li>
+            </ul>
+            <p>📌 Please assign a Partner Manager to connect them within 24 hours.</p>
+        `,
+    });
+}
+
+
+// ------------------------- XecXchange Join the waitlist Emails
+export async function UserXecXchangeEmail({ email, name }) {
+    const firstName = name?.split(" ")[0] || "there";
+
+    await sendEmail({
+        type: "xecXchange",
+        to: email,
+        subject: "You’re on the XecXchange beta waitlist!",
+        html: `
+            <p><b>Hi ${firstName},</b></p>
+            <p>Thanks for joining our early-access waitlist for <b>XecXchange</b>. We’re hard at work building the platform and expect to start sending beta invites in the next few months.</p>
+            <p>While you wait, feel free to:</p>
+            <ul>
+                <li>Follow Our Dev Blog for regular sneak peeks: <a href="https://theprocurementplug.com/dev-blog" target="_blank">Dev Blog</a></li>
+                <li>Join the Community to share feedback: <a href="https://www.linkedin.com/company/theprocurementplug/" target="_blank">LinkedIn</a></li>
+            </ul>
+            <p>We appreciate your patience and can’t wait to get you in the beta!</p>
+            <p>—The XecXchange Team</p>
+        `,
+    });
+}
+
+
+export async function AdminXecXchangeEmail({ name, email, company, role }) {
+    await sendEmail({
+        type: "xecXchange",
+        to: process.env.SMTP_XECXCHANGE_USER, // Internal team email
+        subject: `New XecXchange beta waitlist signup – ${name}`,
+        html: `
+            <p>A new user signed up for the XecXchange beta:</p>
+            <ul>
+                <li><b>Name:</b> ${name || "N/A"}</li>
+                <li><b>Email:</b> ${email || "N/A"}</li>
+                <li><b>Company/Role :</b> ${company || "N/A"}, ${role || "N/A"}</li>
+            </ul>
+        `,
+    });
+}
+
+
+
 // ------------------------- Become a Speaker Emails
 export async function UserSpeakerEmail({ email, name }) {
     await sendEmail({
-        type: "concierge",
+        type: "events",
         to: email,
         subject: "Your Procurement Task List is Ready",
         html: `
@@ -20,8 +102,8 @@ export async function UserSpeakerEmail({ email, name }) {
 
 export async function AdminSpeakerEmail({ name, company, email, interest = [] }) {
     await sendEmail({
-        type: "concierge",
-        to: process.env.SMTP_CONCIERGE_USER,
+        type: "events",
+        to: process.env.SMTP_EVENT_USER,
         subject: "New Task List Download Request",
         html: `
             <p>Hello Team,</p>
@@ -48,7 +130,7 @@ export async function AdminSpeakerEmail({ name, company, email, interest = [] })
 // ------------------------- Download Partnership & Sponsorship pack Emails
 export async function UserDownloadPartnershipEmail({ email, name }) {
     await sendEmail({
-        type: "concierge",
+        type: "events",
         to: email,
         subject: "Your Procurement Task List is Ready",
         html: `
@@ -64,8 +146,8 @@ export async function UserDownloadPartnershipEmail({ email, name }) {
 
 export async function AdminDownloadPartnershipEmail({ name, company, email, interest = [] }) {
     await sendEmail({
-        type: "concierge",
-        to: process.env.SMTP_CONCIERGE_USER,
+        type: "events",
+        to: process.env.SMTP_EVENT_USER,
         subject: "New Task List Download Request",
         html: `
             <p>Hello Team,</p>
@@ -92,7 +174,7 @@ export async function AdminDownloadPartnershipEmail({ name, company, email, inte
 // ------------------------- Become a Partner Emails
 export async function UserBecomePartnerEmail({ email, name }) {
     await sendEmail({
-        type: "concierge",
+        type: "events",
         to: email,
         subject: "Your Procurement Task List is Ready",
         html: `
@@ -108,8 +190,8 @@ export async function UserBecomePartnerEmail({ email, name }) {
 
 export async function AdminBecomePartnerEmail({ name, company, email, interest = [] }) {
     await sendEmail({
-        type: "concierge",
-        to: process.env.SMTP_CONCIERGE_USER,
+        type: "events",
+        to: process.env.SMTP_EVENT_USER,
         subject: "New Task List Download Request",
         html: `
             <p>Hello Team,</p>
