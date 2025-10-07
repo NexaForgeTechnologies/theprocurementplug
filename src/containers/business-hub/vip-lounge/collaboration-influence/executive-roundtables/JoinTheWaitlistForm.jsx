@@ -80,6 +80,12 @@ export default function JoinTheWaitlistForm({ isOpen, onClose }) {
             if (!res.ok) throw new Error("Failed to submit form");
 
             toast.success("Form submitted successfully!");
+            toast.success(`XecXchange Is Coming Soon! \n
+ You’re now signed up for priority early access. \n
+  We’ll reach out with your activation invite once the beta is ready. \n `,
+                {
+                    duration: 10000, // in milliseconds
+                });
 
             console.log("Form submitted:", formData);
             setFormData({

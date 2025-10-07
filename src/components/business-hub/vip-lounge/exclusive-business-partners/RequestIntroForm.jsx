@@ -80,6 +80,12 @@ export default function RequestIntroductionForm({ isOpen, onClose, title }) {
             if (!res.ok) throw new Error("Failed to submit form");
 
             toast.success("Form submitted successfully!");
+            toast.success(`Thanks for requesting an introduction! \n
+             We’ve received your inquiry and one of our Partner Managers will reach 
+             out within 24 hours to connect you with the right expert. \n`,
+                {
+                    duration: 10000, // in milliseconds
+                });
             // Reset the form
             setFormData({
                 fullName: "",
@@ -201,8 +207,8 @@ export default function RequestIntroductionForm({ isOpen, onClose, title }) {
                         type="submit"
                         disabled={isLoading}
                         className={`flex items-center justify-center md:justify-start cursor-pointer px-4 py-2 rounded-[6px] w-full md:w-auto transition-all duration-200 ${isLoading
-                                ? "bg-[#b08d57]/70 cursor-not-allowed"
-                                : "bg-[#b08d57] hover:bg-[#a07b45]"
+                            ? "bg-[#b08d57]/70 cursor-not-allowed"
+                            : "bg-[#b08d57] hover:bg-[#a07b45]"
                             } text-white`}
                     >
                         {isLoading ? (

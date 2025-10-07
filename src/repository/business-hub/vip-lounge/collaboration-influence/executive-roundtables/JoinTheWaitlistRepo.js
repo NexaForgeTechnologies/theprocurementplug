@@ -25,10 +25,10 @@ export async function JoinTheWaitlistRepo(data) {
 
         await db.query(sql, values);
 
-        console.log("✅ Become-a-Speaker form saved to DB");
+        console.log("✅ join the waitlist form saved to DB");
         return { success: true };
     } catch (error) {
-        console.error("❌ Error in BecomeASpeakerRepo:", error);
+        console.error("❌ Error in join the waitlist form Repo:", error);
         return { success: false, error: error.message };
     }
 }
