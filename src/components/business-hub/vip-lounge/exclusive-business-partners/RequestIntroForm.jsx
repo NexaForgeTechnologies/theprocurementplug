@@ -3,8 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
-export default function RequestIntroductionForm({ isOpen, onClose }) {
+export default function RequestIntroductionForm({ isOpen, onClose, title }) {
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
@@ -13,6 +14,7 @@ export default function RequestIntroductionForm({ isOpen, onClose }) {
         areaOfInterest: "",
         briefNote: "",
     });
+    const [isLoading, setIsLoading] = useState(false);
 
     const modalRef = useRef(null);
 
@@ -61,19 +63,48 @@ export default function RequestIntroductionForm({ isOpen, onClose }) {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        setFormData({
-            fullName: "",
-            email: "",
-            company: "",
-            role: "",
-            areaOfInterest: "",
-            briefNote: "",
-        });
-        onClose();
+        setIsLoading(true);
+
+        try {
+            // You can replace this with actual submission logic
+            console.log("Form submitted:", formData);
+            const res = await fetch("/api/business-hub/vip-lounge/exclusive-business-partners", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            })
+            if (!res.ok) throw new Error("Failed to submit form");
+
+            toast.success("Form submitted successfully!");
+            toast.success(`Thanks for requesting an introduction! \n
+             We’ve received your inquiry and one of our Partner Managers will reach 
+             out within 24 hours to connect you with the right expert. \n`,
+                {
+                    duration: 10000, // in milliseconds
+                });
+            // Reset the form
+            setFormData({
+                fullName: "",
+                email: "",
+                company: "",
+                role: "",
+                areaOfInterest: "",
+                briefNote: "",
+            });
+
+            onClose();
+        } catch (error) {
+            console.error("Submission failed:", error);
+            toast.error("Submission failed. Please try again.");
+        } finally {
+            setIsLoading(false);
+        }
     };
+
 
     if (!isOpen) return null;
 
@@ -86,7 +117,7 @@ export default function RequestIntroductionForm({ isOpen, onClose }) {
             >
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-                        Request an Introduction
+                        {title || "Request an Introduction"}
                     </h3>
                     <button
                         className="absolute top-4 right-4 text-2xl text-[#85009D]"
@@ -174,11 +205,25 @@ export default function RequestIntroductionForm({ isOpen, onClose }) {
                     </div>
                     <button
                         type="submit"
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+                        disabled={isLoading}
+                        className={`flex items-center justify-center md:justify-start cursor-pointer px-4 py-2 rounded-[6px] w-full md:w-auto transition-all duration-200 ${isLoading
+                            ? "bg-[#b08d57]/70 cursor-not-allowed"
+                            : "bg-[#b08d57] hover:bg-[#a07b45]"
+                            } text-white`}
                     >
-                        Request My Introduction
-                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                        {isLoading ? (
+                            <>
+                                Submitting...
+                                <div className="ml-2 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                            </>
+                        ) : (
+                            <>
+                                Request My Introduction
+                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                            </>
+                        )}
                     </button>
+
                 </form>
             </div>
         </div>

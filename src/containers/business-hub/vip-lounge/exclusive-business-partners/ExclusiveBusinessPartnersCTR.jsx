@@ -9,6 +9,7 @@ import RequestIntroForm from "@/components/business-hub/vip-lounge/exclusive-bus
 function ExclusiveBusinessPartnersCTR() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
+    const [title, setTitle] = useState('');
 
     const slides = [
         {
@@ -101,12 +102,21 @@ function ExclusiveBusinessPartnersCTR() {
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                     <button
-                        onClick={() => setIsModalOpen(true)}
+                        onClick={() => {
+                            setIsModalOpen(true);
+                            setTitle("Request an Introduction");
+                        }}
+
                         className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Request an Introduction
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button
+                        onClick={() => {
+                            setIsModalOpen(true);
+                            setTitle("Apply to partner with us");
+                        }}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Apply to Partner with Us
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -189,17 +199,6 @@ function ExclusiveBusinessPartnersCTR() {
                             </div>
                         </div>
                     </div>
-                    {/* {collaboration.map((partner) => (
-                        <ConsultingPartnerTile
-                            key={partner.id}
-                            bigimg={partner.bigimg}
-                            heading={partner.heading}
-                            para={partner.para}
-                            category={partner.category}
-                            btntext={partner.btntext}
-                            url={partner.url}
-                        />
-                    ))} */}
                     {filteredCollaboration.length > 0 ? (
                         filteredCollaboration.map((partner) => (
                             <ConsultingPartnerTile
@@ -247,52 +246,7 @@ function ExclusiveBusinessPartnersCTR() {
                     </div>
                 </div>
             </div>
-            {/* <div className="w-full h-[2px] bg-[#85009D] mb-4 md:mb-8"></div>
-            <div className='rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5]  p-5 w-full'>
-                <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1B1B1B]">
-                    Partnership Inquiry Form
-                </h3>
-                <div className="flex flex-col gap-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input
-                            required
-                            type="text"
-                            name="companyname"
-                            placeholder="Company Name"
-                            className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3  px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
-                        />
-                        <select
-                            required
-                            name="tag"
-                            defaultValue=""
-                            className="w-full border-1 text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] focus:outline-none focus:border-[#85009D]"
-                        >
-                            <option value="" disabled>
-                                Select Category
-                            </option>
-                            <option value="Technology">Technology</option>
-                            <option value="Business">Business</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Design">Design</option>
-                        </select>
-                    </div>
-                    <textarea
-                        required
-                        name="message"
-                        placeholder="Enter Summary"
-                        rows="6"
-                        className="w-full border text-[#1b1b1b] font-normal text-[16px] border-[#85009D] bg-[#ffff] py-3 px-4 rounded-[2px] resize-none focus:outline-none focus:border-[#85009D]"
-                    >
-                    </textarea>
-                    <div className="flex justify-start">
-                        <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                            Join the Partner Network
-                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                        </button>
-                    </div>
-                </div>
-            </div> */}
-            <RequestIntroForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <RequestIntroForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={title} />
         </div>
     );
 }
