@@ -1,11 +1,18 @@
 import React from "react";
 import Link from "next/link";
 
-function EventComp({ data }) {
+import { useEventStore } from "@/store/eventStore";
+
+function EventComp({ data, url }) {
+  if (!data) return null;
+
+  const setEvent = useEventStore((state) => state.setEvent);
+
   // Default rendering for all other events
   return (
     <Link
-      href="#"
+      href={url || '#'}
+      onClick={() => setEvent(data)}
       className="w-full border border-[#D09B48] transition-all duration-200 ease-in-out transform hover:shadow-2xl hover:border-[#A020F0] bg-white rounded-[6px]"
     >
       <div className="p-5">

@@ -220,13 +220,13 @@ function ResourceLibraryCTR() {
 
     const matchesDate = selectedDate
       ? (() => {
-          const selected = new Date(selectedDate);
-          const eventDate = new Date(event.event_date);
-          return (
-            selected.getMonth() === eventDate.getMonth() &&
-            selected.getFullYear() === eventDate.getFullYear()
-          );
-        })()
+        const selected = new Date(selectedDate);
+        const eventDate = new Date(event.event_date);
+        return (
+          selected.getMonth() === eventDate.getMonth() &&
+          selected.getFullYear() === eventDate.getFullYear()
+        );
+      })()
       : true;
 
     const matchesHeading = searchText
@@ -374,7 +374,7 @@ function ResourceLibraryCTR() {
         <div className="grid gap-6 md:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {filteredEvents.length > 0 ? (
             filteredEvents.map((event) => (
-              <EventComp key={event.id} data={event} />
+              <EventComp key={event.id} data={event} url={`/business-hub/event/${event.id}`} />
             ))
           ) : (
             <div className="col-span-full text-center text-gray-500">
