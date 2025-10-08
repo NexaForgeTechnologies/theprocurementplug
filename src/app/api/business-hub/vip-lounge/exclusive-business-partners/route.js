@@ -1,4 +1,5 @@
-import { AdminIntroRequestEmail, UserIntroRequestEmail } from "@/lib/emails/ConciergeEmail";
+// import { AdminIntroRequestEmail, UserIntroRequestEmail } from "@/lib/emails/ConciergeEmail";
+import { AdminIntroRequestEmail, UserIntroRequestEmail } from "@/lib/emails/PartnerEmail";
 import { RequestAnIntroRepo } from "@/repository/business-hub/vip-lounge/exclusive-business-partners/RequestAnIntroRepo";
 import { NextResponse } from "next/server";
 

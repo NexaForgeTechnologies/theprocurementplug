@@ -1,4 +1,5 @@
-import { AdminXecXchangeEmail, UserXecXchangeEmail } from "@/lib/emails/ConciergeEmail";
+// import { AdminXecXchangeEmail, UserXecXchangeEmail } from "@/lib/emails/ConciergeEmail";
+import { AdminXecXchangeEmail, UserXecXchangeEmail } from "@/lib/emails/XecXchangeEmail";
 import { JoinTheWaitlistRepo } from "@/repository/business-hub/vip-lounge/collaboration-influence/executive-roundtables/JoinTheWaitlistRepo";
 import { NextResponse } from "next/server";
 

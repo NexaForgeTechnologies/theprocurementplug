@@ -1,0 +1,116 @@
+import { sendEmail } from "@/lib/EmailsService";
+
+// ------------------------- Become a Partner Emails
+export async function UserBecomePartnerEmail({ email, name }) {
+    try {
+        if (!email) throw new Error("User email is missing");
+        console.log("📨 Sending UserBecomePartnerEmail to:", email);
+
+        await sendEmail({
+            type: "events",
+            to: email,
+            subject: "Your Procurement Task List is Ready",
+            html: `
+                <p><b>Hi ${name},</b></p>
+                <p>Thanks for downloading our Procurement Concierge Task List.</p>
+                <a target="_blank" href="https://staging.theprocurementplug.com/files/CONCIERGE_TASKS.pdf">Download Your Task List Here</a>
+                <p>Inside, you’ll find examples of light, medium, and heavy tasks that our Concierge can handle — giving your team back time, reducing overhead, and ensuring every deliverable is quality-assured.</p>
+                <p>If you’d like to learn more about how these tasks translate into real business value, simply email us at concierge@theprocurementplug.com or <a target="_blank" href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">book a discovery call.</a></p>
+                <p>Best regards,<br/>The Procurement Concierge Team</p>
+            `,
+        });
+        console.log("✅ UserBecomePartnerEmail sent to:", email);
+    } catch (err) {
+        console.error("❌ Failed to send UserBecomePartnerEmail:", err.message);
+    }
+}
+
+export async function AdminBecomePartnerEmail({ name, company, email, interest = [] }) {
+    try {
+        const adminEmail = process.env.SMTP_EVENT_USER;
+        if (!adminEmail) throw new Error("Admin email (SMTP_EVENT_USER) is not defined");
+        console.log("📨 Sending AdminBecomePartnerEmail to:", adminEmail);
+
+        await sendEmail({
+            type: "events",
+            to: adminEmail,
+            subject: "New Task List Download Request",
+            html: `
+                <p>Hello Team,</p>
+                <p>A new user has downloaded the Procurement Concierge Task List.<br/>
+                Here are the details submitted:</p>
+                <ul style="list-style-type: disc; padding-left: 15px; margin: 0;">
+                    <li><b>Full Name:</b> ${name || "N/A"}</li>
+                    <li><b>Company Name:</b> ${company || "N/A"}</li>
+                    <li><b>Work Email:</b> ${email || "N/A"}</li>
+                </ul>
+                <p><b>Selected Services:</b></p>
+                <ul style="list-style-type: disc; padding-left: 15px; margin: 0;">
+                    <li>Concierge + Services: ${interest.includes("Concierge + Services") ? "Yes" : "No"}</li>
+                    <li>Fractional Experts: ${interest.includes("Fractional Experts") ? "Yes" : "No"}</li>
+                    <li>Fractional CPO: ${interest.includes("Fractional CPO") ? "Yes" : "No"}</li>
+                    <li>Advisory Services: ${interest.includes("Advisory Services") ? "Yes" : "No"}</li>
+                </ul>
+                <p>📌 Please review and follow up as required.</p>
+            `,
+        });
+        console.log("✅ AdminBecomePartnerEmail sent to:", adminEmail);
+    } catch (err) {
+        console.error("❌ Failed to send AdminBecomePartnerEmail:", err.message);
+    }
+}
+
+// -------------------------  Request an Introduction Partner Emails
+export async function UserIntroRequestEmail({ email, fullName, areaOfInterest }) {
+    try {
+        if (!email) throw new Error("User email is missing");
+        console.log("📨 Sending UserIntroRequestEmail to:", email);
+
+        await sendEmail({
+            type: "partner",
+            to: email,
+            subject: "Your introduction request is received",
+            html: `
+                <p><b>Hi ${fullName},</b></p>
+                <p>
+                    Thanks for requesting an introduction to our vetted partner ecosystem for <b>${areaOfInterest}</b>.
+                    We’ll be in touch within 24 hours with your curated connection.
+                </p>
+                <p>If you have any immediate questions, just reply to this email.</p>
+                <p>Best regards,<br>The Procurement Plug Partnerships Team</p>
+            `,
+        });
+        console.log("✅ UserIntroRequestEmail sent to:", email);
+    } catch (err) {
+        console.error("❌ Failed to send UserIntroRequestEmail:", err.message);
+    }
+}
+
+export async function AdminIntroRequestEmail({ fullName, email, company, role, areaOfInterest, briefNote }) {
+    try {
+        const adminEmail = process.env.SMTP_PARTNERSHIPS_USER;
+        if (!adminEmail) throw new Error("Admin email (SMTP_PARTNER_USER) is not defined");
+        console.log("📨 Sending AdminIntroRequestEmail to:", adminEmail);
+
+        await sendEmail({
+            type: "partner",
+            to: adminEmail,
+            subject: `New partner-intro request: ${fullName} (${company})`,
+            html: `
+                <p>A new “Request an Introduction” submission just came in:</p>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li><b>Name:</b> ${fullName}</li>
+                    <li><b>Email:</b> ${email}</li>
+                    <li><b>Company:</b> ${company}</li>
+                    <li><b>Role/Title:</b> ${role}</li>
+                    <li><b>Area of Interest:</b> ${areaOfInterest}</li>
+                    <li><b>Note:</b> “${briefNote}”</li>
+                </ul>
+                <p>📌 Please assign a Partner Manager to connect them within 24 hours.</p>
+            `,
+        });
+        console.log("✅ AdminIntroRequestEmail sent to:", adminEmail);
+    } catch (err) {
+        console.error("❌ Failed to send AdminIntroRequestEmail:", err.message);
+    }
+}

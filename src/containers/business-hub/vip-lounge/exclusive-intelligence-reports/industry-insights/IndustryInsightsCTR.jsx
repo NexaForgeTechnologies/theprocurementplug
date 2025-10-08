@@ -5,9 +5,10 @@ import ReportTile from "@/components/business-hub/vip-lounge/exclusive-intellige
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom'
 import Form from '@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/Form'
-
+import LatestReportForm from '@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/LatestReportForm'
 function IndustryInsightsCTR() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
 
     const collaboration = [
         {
@@ -114,7 +115,9 @@ function IndustryInsightsCTR() {
                 <p className="max-w-[800px] text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-8">Procurement trends, sector spotlights, and forward-looking intelligence to guide your
                     strategy.</p>
                 <div className="flex flex-col md:flex-row items-center gap-4">
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button
+                        onClick={() => setIsDownloadModalOpen(true)}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Download the Latest Report
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -122,8 +125,10 @@ function IndustryInsightsCTR() {
                         Subscribe for Monthly Insights
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                        Request a Sector Briefing
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                        Request a Custom Brief
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </div>
@@ -195,6 +200,7 @@ function IndustryInsightsCTR() {
                     <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                 </button>
             </div>
+            <LatestReportForm isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
             <Form isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
