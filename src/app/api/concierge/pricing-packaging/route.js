@@ -5,7 +5,7 @@ import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo
 
 // Emails
 import { UserPricicngPackagingFormEmail, AdminPricicngPackagingFormEmail } from "@/lib/emails/ConciergeEmail";
-import {UserPricicngPackagingFormEmailCron} from "@/lib/emails/ConciergeCronEmails";
+// import {UserPricicngPackagingFormEmailCron} from "@/lib/emails/ConciergeCronEmails";
 
 export async function POST(request) {
     try {
@@ -23,7 +23,7 @@ export async function POST(request) {
         // Send email
         await UserPricicngPackagingFormEmail(data);
         await AdminPricicngPackagingFormEmail(data);
-        await UserPricicngPackagingFormEmailCron(data);
+        // await UserPricicngPackagingFormEmailCron(data);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {
