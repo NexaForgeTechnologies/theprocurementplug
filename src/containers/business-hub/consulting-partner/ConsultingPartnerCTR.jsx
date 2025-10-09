@@ -60,7 +60,7 @@ function ConsultingPartnerCTR() {
 
   const partnerWithUs = {
     Partnerheader: {
-      crossSellh3: "Explore the Collaboration and Thought Leadership Zone",
+      crossSellh3: "Thought Leadership Zone",
       h3: "",
       p: "",
     },
