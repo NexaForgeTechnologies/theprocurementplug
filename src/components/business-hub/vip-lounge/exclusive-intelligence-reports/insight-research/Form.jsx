@@ -3,8 +3,10 @@
 import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
 import Image from "next/image";
+import toast from "react-hot-toast";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         fullName: "",
         email: "",
@@ -65,24 +67,65 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         console.log("Form submitted:", formData);
-        setFormData({
-            fullName: "",
-            email: "",
-            company: "",
-            role: "",
-            topic: "",
-            objectives: "",
-            desiredDeliveryDate: "",
-            budgetRange: "",
-            documents: null,
-        });
-        if (fileInputRef.current) {
-            fileInputRef.current.value = "";
+        setIsLoading(true);
+
+        try {
+            // 🚫 Basic client-side validation
+            if (!formData.budgetRange) {
+                toast.error("Please select a budget range.");
+                return;
+            }
+            if (!formData.documents) {
+                toast.error("Please attach a document (PDF, DOCX, or XLSX).");
+                return;
+            }
+
+            const res = await fetch("/api/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/request-a-custom-brief", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json();
+                toast.error(errorData.message || "Failed to submit form.");
+                return;
+            }
+
+            toast.success("Form submitted successfully!");
+
+            // ✅ Reset form
+            setFormData({
+                fullName: "",
+                email: "",
+                company: "",
+                role: "",
+                topic: "",
+                objectives: "",
+                desiredDeliveryDate: "",
+                budgetRange: "",
+                // documents: null,
+            });
+
+            if (fileInputRef.current) {
+                fileInputRef.current.value = "";
+            }
+
+            // ✅ Close modal
+            onClose();
+
+        } catch (error) {
+            console.error("Error submitting form to API server:", error);
+            toast.error("An unexpected error occurred.");
+
+        } finally {
+            setIsLoading(false);
         }
-        onClose();
     };
 
     const handleFileChange = (e) => {
@@ -225,7 +268,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     </div>
                     <div>
                         <div
-                            className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                            className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-2"
                             onClick={() => fileInputRef.current.click()}
                         >
                             <Image
@@ -239,6 +282,12 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                                 <span className="font-semibold">Attach Supporting Documents</span> (PDF, DOCX, XLSX, Max 5MB)
                             </p>
                         </div>
+
+                        {/* ✔ Confirmation line when file is selected */}
+                        {formData.documents && (
+                            <p className="text-green-600 text-sm mb-4 text-center">✔ File selected: {formData.documents.name}</p>
+                        )}
+
                         <input
                             type="file"
                             id="documents"
@@ -249,13 +298,18 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             className="hidden"
                         />
                     </div>
+
                     <button
                         type="submit"
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+                        disabled={isLoading}
+                        className={`flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
                     >
-                        Request My Briefing
-                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                        {isLoading ? "Submitting..." : "Request My Briefing"}
+                        {!isLoading && (
+                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                        )}
                     </button>
+
                 </form>
             </div>
         </div>

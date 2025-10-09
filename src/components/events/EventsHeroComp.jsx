@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-function EventsHeroComp({ heading, name, date, comment, img }) {
+function EventsHeroComp({ data }) {
   return (
     <div className="relative min-h-screen pb-10">
       <div
@@ -27,44 +27,40 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
       </div>
       <div className="relative z-10 py-20">
         <div className="block lg:flex gap-6 md:gap-8">
-          <div className="flex-2">
+          <div className="flex-2 space-y-6 md:space-y-8">
             <div className="flex gap-4 md:gap-8">
               <div className="border-l-[10px] border-[#b08d57]"></div>
               <h3 className="leading-10 md:leading-20 font-extrabold text-3xl md:text-7xl text-white">
-                <span className="block">ELEVATE MANCHESTER</span>
-                <span className="text-[#b08d57]">June 2025</span>
+                <span className="block">{data.event_name}</span>
+                <span className="text-[#b08d57]">{data.event_date}</span>
               </h3>
             </div>
-            <div className="text-white my-6 md:my-8">
-              <h2 className="font-extrabold text-xl md:text-3xl">
-                In Collaboration with:
-              </h2>
-              <Image
-                width={250}
-                height={70}
-                className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
-                src="/images/events/collaboration.png"
-                alt="collaboration"
-              />
-            </div>
+
+            {data.collaboration?.length > 0 && (
+              <div className="text-white">
+                <h2 className="font-extrabold text-xl md:text-3xl">
+                  In Collaboration with:
+                </h2>
+                <Image
+                  width={250}
+                  height={70}
+                  className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
+                  src={data.collaboration[0]} // ✅ Use actual image from event data
+                  alt="collaboration"
+                />
+              </div>
+            )}
+
             <div className="flex flex-col gap-6 text-white">
               <h2 className="font-extrabold text-xl">
-                Fast-Track Your Procurement Career & Elevate Your Leadership
-                Skills with Elevate 2025!{" "}
+                {data.event_heading}
               </h2>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
-                Are you looking to accelerate your career in procurement?
-                Whether you're a mid-level professional aiming for leadership or
-                an aspiring procurement specialist eager to break into the
-                industry, this event is for you!
-              </p>
-              <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
-                Join industry experts and senior procurement leaders as they
-                share insider strategies for career growth, skills development,
-                and securing leadership roles.
+                {data.heading_detail}
               </p>
             </div>
           </div>
+
           <div className="flex-1 bg-white rounded-2xl p-6 md:p-8 mt-6 md:mt-0 flex flex-col gap-6 md:gap-8">
             <h2 className="text-[#9c27b0] font-extrabold text-xl md:text-3xl">
               Event Details
@@ -72,23 +68,21 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
             <div className="text-[#363636] flex flex-col gap-2">
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
                 <strong className="font-extrabold">Event Date & Time: </strong>
-                25th June 2025, 8:30am to 5pm
+                {data.event_date_time}
               </p>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
-                <strong className="font-extrabold">Location: </strong>4Th Floor,
-                City Tower, New York Street, Manchester M1 4BT
+                <strong className="font-extrabold">Location: </strong>{data.event_location}
               </p>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
                 <strong className="font-extrabold">Designed For: </strong>
-                Manchester Edition is designed for procurement professionals,
-                focusing on innovation, strategy, and leadership in procurement.
+                {data.event_designedfor}
               </p>
             </div>
             <p className="text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
-              <strong className="font-extrabold">Tickets: </strong>£149
+              <strong className="font-extrabold">Tickets: </strong>{data.event_ticket}
             </p>
             <Link
-              href="https://www.trybooking.com/uk/ERLV"
+              href={data.event_booking_url}
               target="_blank"
               className="mt-auto bg-[#9c27b0] rounded-md block text-center md:p-4 p-3"
             >
@@ -96,12 +90,6 @@ function EventsHeroComp({ heading, name, date, comment, img }) {
             </Link>
           </div>
         </div>
-        {/* <div className='relative z-10 mt-6 md:mt-8 flex gap-4 md:gap-8 items-center'>
-                    <h3 className="text-[#b08d57] leading-10 md:leading-20 font-extrabold text-2xl md:text-7xl">
-                        Register Interest
-                    </h3>
-                    <IconComponent name="arrow" color='#b08d57' size={40} />
-                </div> */}
       </div>
     </div>
   );

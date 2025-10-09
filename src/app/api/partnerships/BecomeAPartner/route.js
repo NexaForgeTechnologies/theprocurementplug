@@ -1,4 +1,4 @@
-import { AdminBecomePartnerEmail, UserBecomePartnerEmail } from "@/lib/emails/ConciergeEmail";
+import { AdminBecomePartnerEmail, UserBecomePartnerEmail } from "@/lib/emails/PartnerEmail";
 import { BecomeAPartnerRepo } from "@/repository/partnerships/BecomeAPartnerRepo";
 import { NextResponse } from "next/server";
 
