@@ -37,14 +37,14 @@ export const metadata = {
 function page() {
     return (
         <>
-            <EventsHeroComp />
-            <EventBenifitsCTR />
-            <EventHighlightCTR />
-            <AgendaCTR />
-            <GuestCTR />
-            <EventsOppertunityCTR />
+            {/* <EventsHeroComp /> */}
+            {/* <EventBenifitsCTR /> */}
+            {/* <EventHighlightCTR /> */}
+            {/* <AgendaCTR /> */}
+            {/* <GuestCTR /> */}
+            {/* <EventsOppertunityCTR /> */}
             {/* <EventReviewCTR /> */}
-            <EventSponserComp />
+            {/* <EventSponserComp /> */}
         </>
     )
 }

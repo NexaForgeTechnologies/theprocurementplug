@@ -131,7 +131,7 @@ function GuessCTR() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {guessDetails.map((guess) => (
           <GuestComp
             key={guess.id}
@@ -143,7 +143,7 @@ function GuessCTR() {
             bgColor={guess.bgColor}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
