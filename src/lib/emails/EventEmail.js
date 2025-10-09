@@ -19,7 +19,7 @@ export async function UserSpeakerEmail({ email, name }) {
 
 export async function AdminSpeakerEmail({ name, company, email, interest = [] }) {
     await sendEmail({
-        type: "events",
+        type: "xecXchange",
         to: process.env.SMTP_XECXCHANGE_USER,
         subject: "New Task List Download Request",
         html: `

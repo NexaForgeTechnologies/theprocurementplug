@@ -9,7 +9,7 @@ export async function UserBecomePartnerEmail({ email, name }) {
         await sendEmail({
             type: "xecXchange",
             to: email,
-            subject: "Your Procurement Task List is Ready",
+            subject: "Your Partner Task List is Ready",
             html: `
                 <p><b>Hi ${name},</b></p>
                 <p>Thanks for downloading our Procurement Concierge Task List.</p>
@@ -32,9 +32,9 @@ export async function AdminBecomePartnerEmail({ name, company, email, interest =
         console.log("📨 Sending AdminBecomePartnerEmail to:", adminEmail);
 
         await sendEmail({
-            type: "events",
+            type: "xecXchange",
             to: adminEmail,
-            subject: "New Task List Download Request",
+            subject: "Partner Task List Download Request",
             html: `
                 <p>Hello Team,</p>
                 <p>A new user has downloaded the Procurement Concierge Task List.<br/>
@@ -67,7 +67,7 @@ export async function UserIntroRequestEmail({ email, fullName, areaOfInterest })
         console.log("📨 Sending UserIntroRequestEmail to:", email);
 
         await sendEmail({
-            type: "partner",
+            type: "xecXchange",
             to: email,
             subject: "Your introduction request is received",
             html: `
@@ -88,12 +88,12 @@ export async function UserIntroRequestEmail({ email, fullName, areaOfInterest })
 
 export async function AdminIntroRequestEmail({ fullName, email, company, role, areaOfInterest, briefNote }) {
     try {
-        const adminEmail = process.env.SMTP_PARTNERSHIPS_USER;
+        const adminEmail = process.env.SMTP_XECXCHANGE_USER;
         if (!adminEmail) throw new Error("Admin email (SMTP_PARTNER_USER) is not defined");
         console.log("📨 Sending AdminIntroRequestEmail to:", adminEmail);
 
         await sendEmail({
-            type: "partner",
+            type: "xecXchange",
             to: adminEmail,
             subject: `New partner-intro request: ${fullName} (${company})`,
             html: `
