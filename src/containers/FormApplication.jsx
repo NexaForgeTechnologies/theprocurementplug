@@ -128,7 +128,7 @@ export default function FormApplication() {
                         className="appearance-none w-4 h-4 rounded border border-gray-400 checked:bg-[white] checked:border-[white] mr-2 cursor-pointer "
                       />
                       <span className='text-[#C2C2C2] text-base md:text-lg'>
-                        An Individual Procurement Executive
+                        An Individual Executive
                       </span>
                     </div>
                   </label>
