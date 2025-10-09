@@ -412,7 +412,7 @@ function ResourceLibraryCTR() {
             </h3>
           </div>
           {events.map((event) => (
-            <EventComp key={event.id} data={event} />
+            <EventComp key={event.id} data={event} url={`/business-hub/event/${event.id}`} />
           ))}
         </div>
       </div>

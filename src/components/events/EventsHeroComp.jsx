@@ -3,6 +3,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 function EventsHeroComp({ data }) {
+  const collaborationImages = Array.isArray(data.collaboration)
+    ? data.collaboration
+    : JSON.parse(data.collaboration || "[]");
+
   return (
     <div className="relative min-h-screen pb-10">
       <div
@@ -26,7 +30,7 @@ function EventsHeroComp({ data }) {
         ></div>
       </div>
       <div className="relative z-10 py-20">
-        <div className="block lg:flex gap-6 md:gap-8">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-8">
           <div className="flex-2 space-y-6 md:space-y-8">
             <div className="flex gap-4 md:gap-8">
               <div className="border-l-[10px] border-[#b08d57]"></div>
@@ -36,7 +40,7 @@ function EventsHeroComp({ data }) {
               </h3>
             </div>
 
-            {data.collaboration?.length > 0 && (
+            {collaborationImages.length > 0 && (
               <div className="text-white">
                 <h2 className="font-extrabold text-xl md:text-3xl">
                   In Collaboration with:
@@ -45,16 +49,14 @@ function EventsHeroComp({ data }) {
                   width={250}
                   height={70}
                   className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
-                  src={data.collaboration[0]} // ✅ Use actual image from event data
+                  src={collaborationImages || ""}
                   alt="collaboration"
                 />
               </div>
             )}
 
             <div className="flex flex-col gap-6 text-white">
-              <h2 className="font-extrabold text-xl">
-                {data.event_heading}
-              </h2>
+              <h2 className="font-extrabold text-xl">{data.event_heading}</h2>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
                 {data.heading_detail}
               </p>
@@ -71,7 +73,8 @@ function EventsHeroComp({ data }) {
                 {data.event_date_time}
               </p>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
-                <strong className="font-extrabold">Location: </strong>{data.event_location}
+                <strong className="font-extrabold">Location: </strong>
+                {data.event_location}
               </p>
               <p className="text-sm md:text-lg leading-normal md:leading-relaxed">
                 <strong className="font-extrabold">Designed For: </strong>
@@ -79,7 +82,8 @@ function EventsHeroComp({ data }) {
               </p>
             </div>
             <p className="text-[#363636] text-sm md:text-lg leading-normal md:leading-relaxed">
-              <strong className="font-extrabold">Tickets: </strong>{data.event_ticket}
+              <strong className="font-extrabold">Tickets: </strong>
+              {data.event_ticket}
             </p>
             <Link
               href={data.event_booking_url}

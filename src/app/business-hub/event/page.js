@@ -24,7 +24,6 @@ export const metadata = {
     },
 };
 
-
 function page() {
     return (
         <>

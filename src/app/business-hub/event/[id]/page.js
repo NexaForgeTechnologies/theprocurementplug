@@ -2,6 +2,7 @@
 
 import React from 'react'
 
+// Containers
 import EventBenifitsCTR from '@/containers/business-hub/events/manchester/EventBenifitsCTR'
 import EventHighlightCTR from '@/containers/business-hub/events/manchester/EventHighlightCTR'
 import GuestCTR from '@/containers/business-hub/events/manchester/GuestCTR'
@@ -9,9 +10,11 @@ import EventsOppertunityCTR from '@/containers/business-hub/events/manchester/Ev
 import EventReviewCTR from '@/containers/business-hub/events/manchester/EventReviewCTR'
 import AgendaCTR from '@/containers/business-hub/events/manchester/AgendaCTR'
 
+// Components
 import EventsHeroComp from '@/components/events/EventsHeroComp'
 import EventSponserComp from '@/components/events/EventSponserComp'
 
+// Store
 import { useEventStore } from '@/store/eventStore'
 
 // export const metadata = {
@@ -39,19 +42,48 @@ import { useEventStore } from '@/store/eventStore'
 
 function page() {
     const event = useEventStore((state) => state.event);
+    console.log(event);
+
+    // Check Workshops exists and has valid data
+    const workshops = Array.isArray(event.workshops) ? event.workshops : JSON.parse(event.workshops || "[]");
+    const hasValidWorkshops = Array.isArray(workshops) && workshops.some(group =>
+        group.tiles.some(
+            tile => tile.heading?.trim() || tile.details?.trim()
+        )
+    );
+
+    // Check Agenda exists
+    let parsedAgenda = {};
+    try {
+        if (typeof agenda === "string") {
+            const trimmed = agenda.trim();
+            parsedAgenda = trimmed ? JSON.parse(trimmed) : {};
+        } else {
+            parsedAgenda = agenda || {};
+        }
+    } catch (e) {
+        parsedAgenda = {};
+    }
+    const hasAgendaData = parsedAgenda && typeof parsedAgenda === "object" && !Array.isArray(parsedAgenda) && Object.keys(parsedAgenda).length > 0;
 
     return (
         <>
             <EventsHeroComp data={event} />
             <EventBenifitsCTR />
-            <EventHighlightCTR />
-            <AgendaCTR />
-            <GuestCTR />
-            <EventsOppertunityCTR />
-            <EventReviewCTR />
+            {hasValidWorkshops && <EventHighlightCTR data={workshops} />}
+            {hasAgendaData && <AgendaCTR data={parsedAgenda} />}
+
+            <GuestCTR speakers={event.speakers} heading={event.speakers_heading} />
+
+            <EventsOppertunityCTR data={event} />
+
+            {event.event_name === "ELEVATE MANCHESTER" && (
+                <EventReviewCTR />
+            )}
+
             <EventSponserComp />
         </>
     )
 }
 
-export default page
+export default page;
