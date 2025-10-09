@@ -218,3 +218,44 @@ export async function AdminBecomeExpertEmail({ name, email, linkedin }) {
         `,
     });
 }
+
+// -------------------------Become QA Partner Form Email
+export async function UserBecomeQaPartnerEmail({ email, name }) {
+    await sendEmail({
+        type: "conciergeExpert",
+        to: email,
+        subject: "Welcome to The Procurement Concierge Experts Network",
+        html: `
+            <p><b>Hi ${name},</b></p>
+            <p>Thank you for registering your interest in joining The Procurement Concierge Experts Network.</p>
+            <p>Over the coming days, our team will review your profile and confirm the level you will sit on within the network. This ensures every task is matched to the right skillset to deliver quality for our clients.</p>
+            <p>As part of our network, you’ll gain:</p>
+            <ul style="list-style-type: disc; padding-left: 15px; margin: 0;">
+            <li>Opportunities to support on-demand client tasks.</li>
+            <li>Access to collaboration with other vetted experts.</li>
+            <li>Recognition as a trusted professional within our growing community.</li>
+            </ul>
+            <p>We’ll be in touch shortly with your onboarding details.</p>
+            <p>👉 In the meantime, feel free to share this link with other trusted professionals who may want to join: concierge.expert@theprocurementplug.com</p>
+            <p>Best regards,<br/>The Procurement Concierge Team</p>
+        `,
+    });
+}
+export async function AdminBecomeQaPartnerEmail({ name, email, linkedin }) {
+    await sendEmail({
+        type: "conciergeExpert",
+        to: process.env.SMTP_CONCIERGE_EXPERT_USER,
+        subject: "New The Procurement Concierge Experts Network Request",
+        html: `
+            <p>Hello Team,</p>
+            <p>A new user has join us at The Procurement Concierge Experts Network.<br/>
+            Here are the details submitted:</p>
+            <ul style="list-style-type: disc; padding-left: 15px; margin: 0;">
+                <li><b>Full Name:</b> ${name || "N/A"}</li>
+                <li><b>Email:</b> ${email || "N/A"}</li>
+                <li><b>Linkedin Profile:</b> ${linkedin || "N/A"}</li>
+            </ul>
+            <p>📌 Please review and follow up as required.</p>
+        `,
+    });
+}

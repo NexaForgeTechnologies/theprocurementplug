@@ -19,7 +19,7 @@ function cronForDaysLater(days) {
 /**
  * User Task List Download Cron Emails
  */
-export async function UserTaskListDownloadEmail({ email, name }) {
+export async function UserTaskListDownloadEmailCron({ email, name }) {
   // Email 2 after 3 days
   cron.schedule(cronForDaysLater(3), async () => {
     await sendEmail({
@@ -98,7 +98,7 @@ export async function UserTaskListDownloadEmail({ email, name }) {
 /**
  * User Pricing & Packaging Cron Emails
  */
-export async function UserPricicngPackagingFormEmail({ email, name }) {
+export async function UserPricicngPackagingFormEmailCron({ email, name }) {
   // Email 2 after 3 days
   cron.schedule(cronForDaysLater(3), async () => {
     await sendEmail({
@@ -175,7 +175,7 @@ export async function UserPricicngPackagingFormEmail({ email, name }) {
 /**
  * User Register Interest Cron Emails
  */
-export async function UserRegisterInterestEmail({ email, name }) {
+export async function UserRegisterInterestEmailCron({ email, name }) {
   // Email 2 after 3 days
   cron.schedule(cronForDaysLater(3), async () => {
     await sendEmail({
@@ -247,7 +247,7 @@ export async function UserRegisterInterestEmail({ email, name }) {
 /**
  * User Become Expert Cron Emails
  */
-export async function UserBecomeExpertEmail({ email, name }) {
+export async function UserBecomeExpertEmailCron({ email, name }) {
   // Email 2 after 3 days
   cron.schedule(cronForDaysLater(3), async () => {
     await sendEmail({

@@ -40,7 +40,7 @@ import { useEventStore } from '@/store/eventStore'
 //     },
 // };
 
-function page() {
+function Page() {
     const event = useEventStore((state) => state.event);
     console.log(event);
 
@@ -86,4 +86,4 @@ function page() {
     )
 }
 
-export default page;
+export default Page;

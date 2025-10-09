@@ -5,7 +5,7 @@ import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo
 
 // Emails
 import { UserTaskListDownloadEmail, AdminTaskListDownloadEmail } from "@/lib/emails/ConciergeEmail";
-import {UserTaskListDownloadEmail as UserTaskListDownloadEmailCron} from "@/lib/emails/ConciergeCronEmails";
+import {UserTaskListDownloadEmailCron} from "@/lib/emails/ConciergeCronEmails";
 
 export async function POST(request) {
     try {

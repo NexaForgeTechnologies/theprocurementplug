@@ -5,7 +5,7 @@ import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo
 
 // Emails
 import { UserBecomeQaPartnerEmail, AdminBecomeQaPartnerEmail } from "@/lib/emails/ConciergeEmail";
-import {UserBecomeExpertEmail as UserBecomeQaPartnerEmailCron} from "@/lib/emails/ConciergeCronEmails";
+import { UserBecomeExpertEmailCron } from "@/lib/emails/ConciergeCronEmails";
 
 export async function POST(request) {
     try {
@@ -15,7 +15,7 @@ export async function POST(request) {
         // Send email
         await UserBecomeQaPartnerEmail(body);
         await AdminBecomeQaPartnerEmail(body);
-        await UserBecomeQaPartnerEmailCron(body);
+        await UserBecomeExpertEmailCron(body);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {
