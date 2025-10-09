@@ -1,4 +1,5 @@
-import { AdminSpeakerEmail, UserSpeakerEmail } from "@/lib/emails/ConciergeEmail";
+// import { AdminSpeakerEmail, UserSpeakerEmail } from "@/lib/emails/ConciergeEmail";
+import { AdminSpeakerEmail, UserSpeakerEmail } from "@/lib/emails/EventEmail";
 import { BecomeASpeakerRepo } from "@/repository/business-hub/BecomeASpeakerRepo";
 import { NextResponse } from "next/server";
 

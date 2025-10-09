@@ -7,7 +7,7 @@ export async function UserBecomePartnerEmail({ email, name }) {
         console.log("📨 Sending UserBecomePartnerEmail to:", email);
 
         await sendEmail({
-            type: "events",
+            type: "xecXchange",
             to: email,
             subject: "Your Procurement Task List is Ready",
             html: `
@@ -27,7 +27,7 @@ export async function UserBecomePartnerEmail({ email, name }) {
 
 export async function AdminBecomePartnerEmail({ name, company, email, interest = [] }) {
     try {
-        const adminEmail = process.env.SMTP_EVENT_USER;
+        const adminEmail = process.env.SMTP_XECXCHANGE_USER
         if (!adminEmail) throw new Error("Admin email (SMTP_EVENT_USER) is not defined");
         console.log("📨 Sending AdminBecomePartnerEmail to:", adminEmail);
 

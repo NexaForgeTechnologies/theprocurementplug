@@ -3,7 +3,7 @@ import { sendEmail } from "@/lib/EmailsService";
 // ------------------------- Become a Speaker Emails
 export async function UserSpeakerEmail({ email, name }) {
     await sendEmail({
-        type: "events",
+        type: "xecXchange",
         to: email,
         subject: "Your Procurement Task List is Ready",
         html: `
@@ -20,7 +20,7 @@ export async function UserSpeakerEmail({ email, name }) {
 export async function AdminSpeakerEmail({ name, company, email, interest = [] }) {
     await sendEmail({
         type: "events",
-        to: process.env.SMTP_EVENT_USER,
+        to: process.env.SMTP_XECXCHANGE_USER,
         subject: "New Task List Download Request",
         html: `
             <p>Hello Team,</p>
