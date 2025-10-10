@@ -5,7 +5,7 @@ export async function RequestACustomBriefRepo(data) {
     const { fullName, email, company, role, topic, objectives, desiredDeliveryDate, budgetRange, documents } = data;
     try {
         const sql = `
-            INSERT INTO request_a_custom_brief (
+            INSERT INTO vip_request_custom_brief (
                 full_name,
                 email,
                 company,
@@ -27,9 +27,7 @@ export async function RequestACustomBriefRepo(data) {
             objectives,
             desiredDeliveryDate,
             budgetRange,
-            documents && Object.keys(documents).length > 0
-                ? JSON.stringify(documents)
-                : null
+            documents || null,
 
         ];
 

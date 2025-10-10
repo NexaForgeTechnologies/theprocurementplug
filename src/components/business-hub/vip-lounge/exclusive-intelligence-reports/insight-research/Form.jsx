@@ -82,13 +82,18 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 toast.error("Please attach a document (PDF, DOCX, or XLSX).");
                 return;
             }
+            // ✅ Convert state to FormData
+            const FormDataObj = new FormData();
+            for (const key in formData) {
+                const value = formData[key];
+                if (value !== null && value !== undefined && value !== "") {
+                    FormDataObj.append(key, value);
+                }
+            }
 
             const res = await fetch("/api/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/request-a-custom-brief", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
+                body: FormDataObj,
             });
 
             if (!res.ok) {

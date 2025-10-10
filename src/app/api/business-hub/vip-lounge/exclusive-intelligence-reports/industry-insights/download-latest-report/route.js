@@ -1,4 +1,4 @@
-import { AdminLatestReportEmail, UserLatestReportEmail } from "@/lib/emails/XecXchangeEmail";
+import { AdminLatestReportEmail, UserLatestReportEmail } from "@/lib/emails/BusinessHubEmail";
 import { DownloadLatestReportRepo } from "@/repository/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/DownloadLatestReportRepo";
 import { NextResponse } from "next/server";
 

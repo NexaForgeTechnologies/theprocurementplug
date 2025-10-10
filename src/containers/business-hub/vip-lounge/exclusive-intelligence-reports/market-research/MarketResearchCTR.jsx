@@ -1,9 +1,10 @@
 "use client"
 import { useState } from "react";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/FeatureReportTile";
-import ImageSlider from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/ImageSlider"
+import SponsorReportForm from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/SponsorReportForm"
 import Image from "next/image";
 import IconComponent from "@/components/icon/Icon";
+import ImageSlider from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/ImageSlider";
 
 function MarketResearchCTR() {
 
@@ -220,6 +221,7 @@ function MarketResearchCTR() {
         setVisibleItems((prev) => prev + 4);
     };
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
     return (
         <div>
             <div className="mb-4 md:mb-8">
@@ -334,12 +336,15 @@ function MarketResearchCTR() {
                     images={images}
                 />
                 <div className="flex justify-center flex-col md:flex-row items-center gap-4 mt-25">
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button 
+                    onClick={() => setIsModalOpen(!isModalOpen)}
+                    className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Sponsor a Report
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </div>
             </div>
+            <SponsorReportForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 }

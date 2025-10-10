@@ -63,40 +63,41 @@ export default function BecomeAPartner({ isOpen, onClose, title }) {
         }));
     };
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
 
-    try {
-        const res = await fetch("/api/partnerships/BecomeAPartner", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        });
+        try {
+            const res = await fetch("/api/partnerships/BecomeAPartner", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
 
-        if (!res.ok) throw new Error("Failed to submit form");
+            if (!res.ok) throw new Error("Failed to submit form");
 
-        toast.success("Form submitted successfully!");
+            toast.success("Form submitted successfully!");
 
-        console.log("Form submitted:", formData);
-        setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            industryInterests: "",
-            description: "",
-        });
 
-        onClose();
-    } catch (error) {
-        console.error("Submission error:", error.message);
-        toast.error("Submission failed. Please try again.");
-    } finally {
-        setIsLoading(false);
-    }
-};
+            console.log("Form submitted:", formData);
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                industryInterests: "",
+                description: "",
+            });
+
+            onClose();
+        } catch (error) {
+            console.error("Submission error:", error.message);
+            toast.error("Submission failed. Please try again.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
 
     if (!isOpen) return null;
@@ -137,7 +138,7 @@ const handleSubmit = async (e) => {
             >
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-                        {title || "Become a Partner"}
+                        {title || "Explore Partnership Opportunities"}
                     </h3>
                     <button
                         className="absolute top-4 right-4 text-2xl text-[#85009D] cursor-pointer"
@@ -179,8 +180,8 @@ const handleSubmit = async (e) => {
                         type="submit"
                         disabled={isLoading}
                         className={`flex items-center justify-center md:justify-start cursor-pointer px-4 py-2 rounded-[6px] w-full md:w-auto transition-all duration-200 ${isLoading
-                                ? "bg-[#b08d57]/70 cursor-not-allowed"
-                                : "bg-[#b08d57] hover:bg-[#a07b45]"
+                            ? "bg-[#b08d57]/70 cursor-not-allowed"
+                            : "bg-[#b08d57] hover:bg-[#a07b45]"
                             } text-white`}
                     >
                         {isLoading ? (

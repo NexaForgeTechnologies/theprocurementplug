@@ -80,7 +80,7 @@ function PartnershipsCTR() {
               className="text-[#ffff] bg-[#85009D] text-sm md:text-lg cursor-pointer flex items-center gap-2 py-3 px-5 rounded-md w-full md:w-max"
             >
               <Icon name="email" color="white" size={20} />
-              Become A Partner
+              Explore Partnership Opportunities
             </div>
 
             <Link
@@ -91,13 +91,13 @@ function PartnershipsCTR() {
               Become A Media Partner
             </Link>
 
-            <Link
+            {/* <Link
               href="mailto:request@theprocurementplug.com"
               className="text-[#ffff] bg-[#85009D] text-sm md:text-lg cursor-pointer flex items-center gap-2 py-3 px-5 rounded-md w-full md:w-max"
             >
               <Icon name="email" color="white" size={20} />
               Explore Partnership Opportunities
-            </Link>
+            </Link> */}
 
             <button
             onClick={() => setIsOpenDownload(!isOpen)}
@@ -200,7 +200,7 @@ function PartnershipsCTR() {
         </div>
       </div>
       <PartnerCTR />
-      <BecomeAPartner isOpen={isOpen} onClose={() => setIsOpen(false)} title="Become a partner"/>
+      <BecomeAPartner isOpen={isOpen} onClose={() => setIsOpen(false)}/>
       <DownloadPartnership isOpen={isOpenDownload} onClose={() => setIsOpenDownload(false)} title="Download Partnership & Sponsorship Pack"/>
     </>
   );

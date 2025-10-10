@@ -13,7 +13,7 @@ export async function DownloadLatestReportRepo(data) {
         } = data;
 
         const sql = `
-            INSERT INTO download_latest_report (
+            INSERT INTO vip_download_latest_report (
                 full_name,
                 email,
                 company,
