@@ -11,12 +11,12 @@ function StrategyVolatileMarketCTR() {
                     <h3 className="max-w-[820px] leading-none font-semibold text-[24px] md:text-[52px] mb-4 text-[#85009D]">
                         Category Strategy in a <span className="font-normal">Volatile Market</span>
                     </h3>
-                    <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Maria</span></p>
+                    <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Maria Jackson</span></p>
                     {/* <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Time: <span className="font-normal">12:00am to 6:00pm Local time</span></p> */}
-                    <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 font-semibold">Access level: <span className="font-normal">Request to join</span></p>
-                    <h3 className="font-normal text-[24px] md:text-[42px] text-[#B08D57]">
+                    <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 font-semibold">Company: <span className="font-normal">---</span></p>
+                    {/* <h3 className="font-normal text-[24px] md:text-[42px] text-[#B08D57]">
                         Sponsored by <span className="font-semibold">Logo</span>
-                    </h3>
+                    </h3> */}
                 </div>
                 <div className="mb-4 md:mb-0">
                     <Image
@@ -35,13 +35,13 @@ function StrategyVolatileMarketCTR() {
                 <p className="text-[16px] md:text-[24px] mb-4">Welcome! This roundtable explores emerging models for resilient supply chains. Share
                     your insights, case studies, and frameworks.
                 </p>
-                <div className="flex flex-col md:flex-row items-center gap-4">
+                {/* <div className="flex flex-col md:flex-row items-center gap-4">
                     <button className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">Request Access</button>
                     <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Submit a Question
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                </div>
+                </div> */}
             </div>
             <div className="flex flex-col md:flex-row  gap-4">
                 <div>
@@ -130,7 +130,7 @@ function StrategyVolatileMarketCTR() {
                         </div>
                     </div>
                 </div>
-                <div>
+                {/* <div>
                     <h3 className="text-[#1B1B1B] font-semibold text-[24px] md:text-[32px] mb-4">Sponsorship</h3>
                     <div className="bg-[#FFFBF5] border-2 border-[#DBBB89] p-5 rounded-[6px]">
                         <Image
@@ -147,7 +147,7 @@ function StrategyVolatileMarketCTR() {
                             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                         </button>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

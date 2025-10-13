@@ -7,8 +7,8 @@ export async function POST(req) {
         const data = await req.json();
         console.log("Request Data from Frontend:", data);
         await DownloadLatestReportRepo(data);
-        await UserLatestReportEmail(data);
-        await AdminLatestReportEmail(data);
+        // await UserLatestReportEmail(data);
+        // await AdminLatestReportEmail(data);
         return NextResponse.json({ success: true, message: "Form submitted successfully" }, { status: 200 });
 
     } catch (error) {

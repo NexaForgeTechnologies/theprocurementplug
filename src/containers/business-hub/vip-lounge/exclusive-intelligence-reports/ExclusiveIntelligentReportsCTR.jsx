@@ -9,8 +9,8 @@ function ExclusiveBusinessPartnersCTR() {
             id: 1,
             tag: "Report",
             heading: "Industry Insights",
-            para: "Sponsor label",
-            logo: "",
+            // para: "Sponsor label",
+            logo: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry_insights.svg",
             sponsor: "",
             btntext: "View",
             bigimg: "",
@@ -20,8 +20,8 @@ function ExclusiveBusinessPartnersCTR() {
             id: 2,
             tag: "Report",
             heading: "Market Research",
-            para: "Sponsor label",
-            logo: "",
+            // para: "Sponsor label",
+            logo: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market_research.svg",
             sponsor: "",
             btntext: "View",
             bigimg: "",
@@ -31,8 +31,8 @@ function ExclusiveBusinessPartnersCTR() {
             id: 3,
             tag: "Benchmark",
             heading: "Expert Opinions",
-            para: "Sponsor label",
-            logo: "",
+            // para: "Sponsor label",
+            logo: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/expert_opinion.svg",
             sponsor: "",
             btntext: "View",
             bigimg: "",
@@ -42,8 +42,8 @@ function ExclusiveBusinessPartnersCTR() {
             id: 4,
             tag: "Forecast",
             heading: "Strategic Guidance",
-            para: "Sponsor label",
-            logo: "",
+            // para: "Sponsor label",
+            logo: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/strategic_guidance.svg",
             sponsor: "",
             btntext: "View",
             bigimg: "",
@@ -75,7 +75,7 @@ function ExclusiveBusinessPartnersCTR() {
                         key={partner.id}
                         tag={partner.tag}
                         heading={partner.heading}
-                        para={partner.para}
+                        // para={partner.para}
                         vom={partner.vom}
                         pick={partner.pick}
                         logo={partner.logo}

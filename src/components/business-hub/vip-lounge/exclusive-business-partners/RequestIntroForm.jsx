@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import IconComponent from "@/components/icon/Icon";
-import Image from "next/image";
 import toast from "react-hot-toast";
 
 export default function RequestIntroductionForm({ isOpen, onClose, title }) {

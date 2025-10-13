@@ -5,6 +5,7 @@ import Image from "next/image";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-business-partners/ConsultingPartnerTile";
 import IconComponent from "@/components/icon/Icon";
 import RequestIntroForm from "@/components/business-hub/vip-lounge/exclusive-business-partners/RequestIntroForm"
+import Link from 'next/link';
 
 function ExclusiveBusinessPartnersCTR() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -111,15 +112,17 @@ function ExclusiveBusinessPartnersCTR() {
                         Request an Introduction
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    <button
-                        onClick={() => {
-                            setIsModalOpen(true);
-                            setTitle("Apply to partner with us");
-                        }}
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                        Apply to Partner with Us
-                        <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                    </button>
+                    <Link href="/partnerships">
+                        <button
+                            // onClick={() => {
+                            //     setIsModalOpen(true);
+                            //     setTitle("Apply to partner with us");
+                            // }}
+                            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                            Apply to Partner with Us
+                            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                        </button>
+                    </Link>
                 </div>
             </div>
             <div className="bg-[#85009D] rounded-[6px] gap-6 md:gap-12 flex flex-col lg:flex-row items-center p-5 relative mb-4">

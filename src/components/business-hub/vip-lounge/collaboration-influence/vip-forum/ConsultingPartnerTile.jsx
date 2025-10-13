@@ -14,13 +14,15 @@ function ConsultingPartnerTile({ heading, para, sponsor, btntext, bigimg, smalli
         <div className="flex items-center gap-4">
           {para && <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff]">{para}</p>}
           {logo &&
-            <Image
-              src={logo}
-              alt={`logo`}
-              width={24}
-              height={24}
-              className="w-[24px] h-[24px] object-cover"
-            />
+            <div className="w-[40px] md:w-[60px] h-[40px] md:h-[60px] p-1 bg-white rounded-full">
+              <Image
+                src={logo}
+                alt={`logo`}
+                width={24}
+                height={24}
+                className="w-full h-full object-cover"
+              />
+            </div>
           }
         </div>
         {sponsor && <p className="text-[#B08D57] text-base group-hover:text-[#ffff]">{sponsor}</p>}

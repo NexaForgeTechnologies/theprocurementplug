@@ -17,14 +17,14 @@ const SalaryRoleTrackerCTR = () => {
             id: 2,
             heading: "Role tracker",
             para: "Invite only discussion board",
-            btntext: "Start a discussion",
+            btntext: "View",
             url: "/business-hub/vip-lounge/talent-hiring-intelligence/salary-and-role-tracker",
         },
         {
             id: 3,
             heading: "Employer insights",
             para: "Invite only discussion board",
-            btntext: "Start a discussion",
+            btntext: "View",
             url: "/business-hub/vip-lounge/talent-hiring-intelligence/salary-and-role-tracker",
         },
     ];
