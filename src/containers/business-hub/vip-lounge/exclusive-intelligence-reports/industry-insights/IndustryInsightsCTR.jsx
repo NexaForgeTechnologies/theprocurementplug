@@ -4,7 +4,7 @@ import MonthHightlightTile from "@/components/business-hub/vip-lounge/exclusive-
 import ReportTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/reportTile";
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom'
-import Form from '@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/Form'
+import Form from '@/containers/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/Form'
 import LatestReportForm from '@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/LatestReportForm'
 function IndustryInsightsCTR() {
     const [isModalOpen, setIsModalOpen] = useState(false);

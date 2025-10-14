@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/FeatureReportTile";
-import SponsorReportForm from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/SponsorReportForm"
+import SponsorReportForm from "@/containers/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/SponsorReportForm"
 import Image from "next/image";
 import IconComponent from "@/components/icon/Icon";
 import ImageSlider from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/ImageSlider";

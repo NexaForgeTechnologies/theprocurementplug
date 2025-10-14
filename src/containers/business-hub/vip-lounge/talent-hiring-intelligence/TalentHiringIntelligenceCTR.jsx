@@ -4,10 +4,9 @@ import FutureProcurementTile from "@/components/business-hub/vip-lounge/talent-h
 import InsightsSection from "@/components/business-hub/vip-lounge/talent-hiring-intelligence/InsightSection";
 import Image from "next/image";
 import Link from "next/link";
-
+import RequestCustomHiringForm from '@/components/forms/business-hub/RequestCustomHiringForm';
 
 function ExclusiveBusinessPartnersCTR() {
-
     const collaboration = [
         {
             id: 1,
@@ -17,7 +16,6 @@ function ExclusiveBusinessPartnersCTR() {
             para: "Cut product development time by 35% through smarter workflows and team collaboration.",
             btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
-            url: "",
         },
         {
             id: 2,
@@ -27,7 +25,6 @@ function ExclusiveBusinessPartnersCTR() {
             para: "Reduced logistics costs by 20% by streamlining vendor negotiations and delivery schedules.",
             btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member2.png",
-            url: "",
         },
         {
             id: 3,
@@ -37,7 +34,6 @@ function ExclusiveBusinessPartnersCTR() {
             para: "Identified $500K in annual savings through category management and spend analysis.",
             btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member3.png",
-            url: "",
         },
         {
             id: 4,
@@ -47,7 +43,6 @@ function ExclusiveBusinessPartnersCTR() {
             para: "Enhanced procurement processes with automated PO systems and compliance tracking.",
             btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member3.png",
-            url: "",
         },
         {
             id: 5,
@@ -57,7 +52,6 @@ function ExclusiveBusinessPartnersCTR() {
             para: "Led international procurement projects resulting in 15% cost reduction globally.",
             btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/member2.png",
-            url: "",
         },
         {
             id: 6,
@@ -67,7 +61,6 @@ function ExclusiveBusinessPartnersCTR() {
             para: "Improved vendor reliability by 40% through data-driven supplier performance tracking.",
             btntext: "Request Intro",
             bigimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/procurementmember.png",
-            url: "",
         }
     ];
 
@@ -76,6 +69,7 @@ function ExclusiveBusinessPartnersCTR() {
     const [touchStart, setTouchStart] = useState(null);
     const [touchEnd, setTouchEnd] = useState(null);
     const totalSlides = Math.ceil(collaboration.length / tilesPerSlide);
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const getTilesPerSlide = () => {
         if (typeof window === 'undefined') return 1;
@@ -196,7 +190,9 @@ function ExclusiveBusinessPartnersCTR() {
                         View Salary & Talent Tracker
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button 
+                    onClick={()=> setIsModalOpen(!isModalOpen)}
+                    className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Request a Custom Hiring Brief
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -256,7 +252,7 @@ function ExclusiveBusinessPartnersCTR() {
                                 para={partner.para}
                                 btntext={partner.btntext}
                                 bigimg={partner.bigimg}
-                                url={partner.url}
+
                             />
                         ))}
                     </div>
@@ -357,6 +353,7 @@ function ExclusiveBusinessPartnersCTR() {
                     </div>
                 </div>
             </div>
+            <RequestCustomHiringForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </div>
     );
 }

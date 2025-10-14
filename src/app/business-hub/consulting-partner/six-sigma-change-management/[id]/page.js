@@ -5,7 +5,7 @@ import { useState } from "react";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 
-import RequestDemoForm from "@/components/business-hub/consulting-partner/BecomeAPartner";
+import RequestDemoForm from "@/components/forms/business-hub/BecomeAPartner";
 import { useConsultantStore } from "@/store/consultantStore";
 import Breadcrumb from "@/components/BreadCrumbs";
 

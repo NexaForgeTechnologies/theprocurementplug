@@ -6,8 +6,8 @@ import Icon from "@/components/icon/Icon";
 import Link from "next/link";
 import PartnerCTR from "@/containers/home/partners/PartnerCTR";
 import Image from "next/image";
-import BecomeAPartner from "@/components/business-hub/consulting-partner/BecomeAPartner";
-import DownloadPartnership from "@/components/business-hub/consulting-partner/DownloadPartnership";
+import BecomeAPartner from "@/components/forms/business-hub/BecomeAPartner";
+import DownloadPartnership from "@/components/forms/business-hub/DownloadPartnership";
 function PartnershipsCTR() {
   const partneringContent = [
     {
