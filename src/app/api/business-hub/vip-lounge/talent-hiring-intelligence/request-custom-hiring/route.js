@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
     try {
         const formData = await req.formData();
-
+        const base64Document = await convertFileToBase64(formData.get("documents"));
         const data = {
             fullName: formData.get("fullName"),
             email: formData.get("email"),
@@ -18,7 +18,7 @@ export async function POST(req) {
             documents: base64Document, // now contains base64 string
         };
 
-        await RequestIntroRepo(data);
+        await RequestCustomHiringRepo(data);
 
         return NextResponse.json({ success: true, message: "Form submitted successfully" }, { status: 200 });
 
