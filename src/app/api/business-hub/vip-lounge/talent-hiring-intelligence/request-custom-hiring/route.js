@@ -18,7 +18,13 @@ export async function POST(req) {
             documents: base64Document, // now contains base64 string
         };
 
-        await RequestCustomHiringRepo(data);
+        const result = await RequestCustomHiringRepo(data);
+        console.log("📥 DB Insert result:", result);
+
+        if (!result.success) {
+            console.error("❌ Insert failed:", result.error);
+            return NextResponse.json({ success: false, message: "Database insert failed" }, { status: 500 });
+        }
 
         return NextResponse.json({ success: true, message: "Form submitted successfully" }, { status: 200 });
 
