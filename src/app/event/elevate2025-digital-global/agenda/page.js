@@ -231,7 +231,7 @@ export default function Home() {
                         <h2 className="text-lg font-semibold text-[#010101]">View the Full Agenda</h2>
                     </div>
                     <p className="text-gray-600 mb-4">
-                        Download or browse the complete Elevate 2025 agenda below. Sessions include masterclasses, panel talks, live networking corners, and more
+                        Download or browse the complete Elevate 2026 agenda below. Sessions include masterclasses, panel talks, live networking corners, and more
                     </p>
                     <div className="bg-[#85009D] text-white p-4 rounded flex justify-between items-center">
                         <div className="flex items-center space-x-2">
