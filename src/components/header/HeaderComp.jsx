@@ -131,7 +131,16 @@ const HeaderComp = () => {
                   >
                     Personal Development Hub
                   </Link>
-                </li>                
+                </li>   
+                <li>
+                  <Link
+                    href="/business-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board"
+                    className="block px-4 py-2 text-sm text-black hover:bg-white/40 hover:text-[#85009D] border-b border-white/30 whitespace-nowrap transition-all duration-200 font-semibold"
+                    onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+                  >
+                    The Plug Job Board
+                  </Link>
+                </li>              
               </ul>
 
 
@@ -155,7 +164,7 @@ const HeaderComp = () => {
             <li>
               <Link
                 href="/contact-us"
-                className="cursor-pointer bg-[#85009D] text-white text-[20px] px-[20px] py-[10px] rounded-md"
+                className="cursor-pointer bg-[#85009D] text-white text-sm px-[20px] py-[10px] rounded-md"
                 onClick={() => handleLinkClick("/contact-us")}
               >
                 Contact Us

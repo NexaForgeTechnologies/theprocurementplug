@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function GetStartedCont() {
     return (
         <>
-            <section>
+            <section className="my-10">
 
                 <h3 className="font-semibold text-[24px] md:text-[32px] mt-4 mb-4 text-[#1B1B1B]">
                     Get Started Today

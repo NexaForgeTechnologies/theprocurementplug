@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export default function ThePlugJobBoardCTR() {
     return (
-        <> <section>
+        <> <section className="">
             <div className="mb-4 md:mb-8">
                 <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#1B1B1B]">
                     Welcome to The Plug Job Board
                 </h3>
-                <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-4">Your Gateway to Procurement Career Growth & Talent Discovery</p>
+                <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-2">Your Gateway to Procurement Career Growth & Talent Discovery</p>
                 <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-8">Whether you're climbing the ladder or hiring your next top performer, you're in the right place.</p>
             </div>
 
@@ -21,12 +21,10 @@ export default function ThePlugJobBoardCTR() {
                             "Apply directly through the platform",
                             "Access jobs aligned to your development goals",],
                         btnText: "View all Jobs",
-                        Url: "/"
+                        Url: "/business-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/job-listing"
                     },
                     {
-                        image: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/employers.png", title: "For Employers & Recruiters", description1: `Tap into our diverse and verified talent pool of procurement
-professionals.`, description2: `Whether you're hiring for a permanent post or a short-term
-contract, The Plug is where smart sourcing begins.`,
+                        image: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/employers.png", title: "For Employers & Recruiters", description1: `Tap into our diverse and verified talent pool of procurement professionals.`, description2: `Whether you're hiring for a permanent post or a short-term contract, The Plug is where smart sourcing begins.`,
                         list: [
                             "Post your procurement roles to our network",
                             "Get visibility with engaged professionals actively developing their careers",

@@ -1,10 +1,10 @@
 import Breadcrumb from '@/components/BreadCrumbs'
 import HeroCTR from '@/components/business-hub/BussinessHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import GetStartedCont from '@/containers/business-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/GetStartedCont'
-import ThePlugJobBoardCTR from '@/containers/business-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/ThePlugJobBoardCTR'
+import JobListingCTR from '@/containers/business-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/job-listing/JobListingCTR'
 import Link from 'next/link'
-export default function ThePlugJobBoard() {
+
+export default function JobListing() {
     const partnerWithUs = {
         Partnerheader: {
             h3: "Partner With Us",
@@ -33,7 +33,7 @@ export default function ThePlugJobBoard() {
             },
             {
                 id: 2,
-                heading: "Collaboration and Thought Leadership ZONE",
+                heading: `Collaboration and Thought Leadership ZONE`,
                 text: "",
                 link: "",
                 linkText: "View Details",
@@ -49,29 +49,20 @@ export default function ThePlugJobBoard() {
             }
         ]
     }
+
     return (
         <>
-            <section className='flex flex-col'>
-                <HeroCTR
-                    img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/herosection.png"
-                    heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Welcome to
-                            The Plug Job Board
-                        </span>
+            <HeroCTR
+                img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/job-listing/herosection.png"
+                heading={
+                    <span className='flex flex-col gap-0 leading-none'>
+                        <span className="font-extrabold">Job Listing page</span>
                     </span>}
-                    para={
-                        <>
-                            Your Gateway to Procurement Career Growth & Talent Discovery
-                            <span className="min-h-15 w-10 bg-transparent inline-block" />
-                        </>
-                    }
-                />
-                <Breadcrumb />
-                <ThePlugJobBoardCTR />
-                <GetStartedCont />
-            </section>
+                para={`Your Gateway to Procurement Career Growth & Talent Discovery`}
+            />
+            <Breadcrumb />
+            <JobListingCTR />
             <PartnerWithUsComp data={partnerWithUs} />
-
         </>
     )
 }

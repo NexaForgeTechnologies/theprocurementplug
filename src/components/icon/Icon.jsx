@@ -2,6 +2,7 @@ import React from "react";
 
 const IconComponent = ({ name, size = 16, color = "#565656" }) => {
   const icons = {
+    
     arrow: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
