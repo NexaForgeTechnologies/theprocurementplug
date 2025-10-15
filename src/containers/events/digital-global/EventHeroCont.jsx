@@ -5,7 +5,7 @@ export default function EventHeroCont() {
         <>
             <section className="bg-[url('/images/events/digital-global/digital-global-hero.png')] bg-cover bg-center w-screen ml-[calc(50%-50vw)] px-6 sm:px-10 md:px-14 lg:px-20 grid grid-cols-1 lg:grid-cols-2 gap-y-4  lg:gap-x-15 py-10 md:py-15 lg:py-20">
                 <div className="flex flex-col gap-y-4.5">
-                    <h1 className="font-bodoni-moda bg-clip-text bg-gradient-to-b from-[#E6BF88] to-[#AE835A] text-transparent text-5xl md:text-6xl lg:text-7xl max-w-90 font-extrabold">ELEVATE 2025</h1>
+                    <h1 className="font-bodoni-moda bg-clip-text bg-gradient-to-b from-[#E6BF88] to-[#AE835A] text-transparent text-5xl md:text-6xl lg:text-7xl max-w-90 font-extrabold">ELEVATE 2026</h1>
                     <h2 className="font-extrabold text-2xl md:text-4xl text-white">Digital Global Edition</h2>
                     <h2 className="font-bold text-xl md:text-3xl text-white">Key Focus Areas:</h2>
 
