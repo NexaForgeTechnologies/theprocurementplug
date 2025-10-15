@@ -51,7 +51,7 @@ contract, The Plug is where smart sourcing begins.`,
                                     <span className="mr-1">✔</span>
                                     {item}</li>))}
                         </ul>
-                        <Link href={job.Url}>
+                        <Link href={job.Url} className="mt-auto self-start">
                             <ArrowButtonCom text={job.btnText} textColor={"text-[white] mt-auto self-start"} bgColor={"bg-[#B08D57]"} hoverBgColor={"hover:bg-transparent"} borderColor={"border-[#B08D57]"} hoverTextColor={"hover:text-[#B08D57]"} />
                         </Link>
                     </div>
