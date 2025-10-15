@@ -18,8 +18,7 @@ function ConsultingPartnerTile({ data, url }) {
       <div className="flex justify-center">
         <img
           className="rounded-full w-[160px] md:w-[227px] h-[160px] md:h-[227px] object-cover"
-          src="https://procurementplug-dashboard.vercel.app/images/consultant-alternate.png"
-        // src={data.img || ""}
+        src={data.img || "/images/default-circle.png"}
         />
       </div>
       <div>

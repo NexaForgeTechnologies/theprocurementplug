@@ -98,8 +98,7 @@ export default function ConsultantDetailClient() {
           <div className="flex justify-center items-center w-full md:w-auto">
             <img
               className="rounded-full w-[200px] md:w-[300px] h-[200px] md:h-[300px] object-cover"
-              src="https://procurementplug-dashboard.vercel.app/images/consultant-alternate.png"
-              // src={consultant.img}
+              src={consultant.img || "/images/default-circle.png"}
               alt={consultant.name}
             />
           </div>
