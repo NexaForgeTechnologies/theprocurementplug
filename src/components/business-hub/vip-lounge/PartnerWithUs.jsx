@@ -87,13 +87,13 @@ function BusinesFeatureComp({ data }) {
             </div>
           )}
 
-          {/* {data.Partnerheader.p && (
+          {data.Partnerheader.p && (
             <div className="max-w-[780px] m-auto text-center">
               <p className="text-[#ffff] text-sm md:text-base font-medium leading-normal md:leading-relaxed">
                 {data.Partnerheader.p}
               </p>
             </div>
-          )} */}
+          )}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
