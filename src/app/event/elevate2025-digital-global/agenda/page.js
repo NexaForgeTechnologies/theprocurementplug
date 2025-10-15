@@ -265,7 +265,7 @@ export default function Home() {
                     <div className="mt-4 p-2 bg-white rounded">
                         <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2025</h3>
                         <p className="text-center text-gray-600">PROCUREMENT CAREER & INNOVATION SUMMIT</p>
-                        <p className="text-center text-gray-600">17th & 18th, Nov 2025 | Digital Global Edition, UK</p>
+                        <p className="text-center text-gray-600">17th & 18th, Nov 2026 | Digital Global Edition, UK</p>
                         <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
                         <p className="text-center text-gray-600 text-2xl">Available Soon ...</p>
 
