@@ -166,7 +166,7 @@ export default function Home() {
             doc.setTextColor(96, 96, 96);
             doc.text("PROCUREMENT CAREER & INNOVATION SUMMIT", padding + contentWidth / 2, yOffset, { align: "center" });
             yOffset += 8;
-            doc.text("25 JUNE 2025 | Digital Global Edition, UK", padding + contentWidth / 2, yOffset, { align: "center" });
+            doc.text("25 JUNE 2026 | Digital Global Edition, UK", padding + contentWidth / 2, yOffset, { align: "center" });
             yOffset += 10;
             doc.setDrawColor(133, 0, 157);
             doc.line(padding, yOffset, pageWidth - padding, yOffset);
@@ -263,7 +263,7 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="mt-4 p-2 bg-white rounded">
-                        <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2025</h3>
+                        <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2026</h3>
                         <p className="text-center text-gray-600">PROCUREMENT CAREER & INNOVATION SUMMIT</p>
                         <p className="text-center text-gray-600">17th & 18th, Nov 2026 | Digital Global Edition, UK</p>
                         <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
