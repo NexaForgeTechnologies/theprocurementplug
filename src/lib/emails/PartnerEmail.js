@@ -1,11 +1,59 @@
 import { sendEmail } from "@/lib/EmailsService";
 
+
+// /business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights
+export async function UserRequestCustomBriefEmail({ email, fullName, topic }) {
+    await sendEmail({
+        type: "partner",
+        to: email,
+        subject: "We’ve received your custom briefing request",
+        html: `
+        <p>Hi ${fullName},</p>
+
+        <p>Thanks for requesting a tailored procurement intelligence briefing. Our team is reviewing your input on <strong>${topic}</strong> and will reach out within the next 24 hours to clarify any details and lock in your delivery timeline.</p>
+
+        <p>In the meantime, you might browse our latest published reports here: 
+        <a href="https://theprocurementplug.com/reports-library" target="_blank">Reports Library</a>
+        </p>
+
+        <p>Talk soon,<br>
+        The Procurement Plug Intelligence Team</p>
+`
+        ,
+    });
+}
+
+
+export async function AdminRequestCustomBriefEmail({ fullName, email, role, company, topic, objectives, desiredDeliveryDate }) {
+    await sendEmail({
+        type: "partner",
+        to: process.env.SMTP_XECXCHANGE_USER,
+        subject: `New custom briefing request: ${fullName}`,
+        html: `
+    <p>A new “Custom Briefing” request has arrived:</p>
+
+    <ul>
+        <li><strong>Name:</strong> ${fullName}</li>
+        <li><strong>Email:</strong> ${email}</li>
+        <li><strong>Company:</strong> ${company}</li>
+        <li><strong>Role:</strong> ${role}</li>
+        <li><strong>Topic / Scope:</strong> ${topic}</li>
+        <li><strong>Key Questions / Objectives:</strong> “${objectives}”</li>
+        <li><strong>Desired Delivery Date:</strong> ${desiredDeliveryDate}</li>
+    </ul>
+
+    <p>Please review and follow up within 24 hours to confirm details.</p>
+`
+    });
+}
+
+
 export async function UserSalaryRoleDownloadEmail({ email, name, SelectedTile }) {
     // Get the tile-specific download link
     const downloadLink = `https://staging.theprocurementplug.com/${SelectedTile?.pathName || "/files/dummy.pdf"}`;
     try {
         await sendEmail({
-            type: "xecXchange",
+            type: "partner",
             to: email,
             subject: `Here's your copy of: ${SelectedTile?.heading || "Requested Report"}`,
             html: `
@@ -25,7 +73,7 @@ export async function UserSalaryRoleDownloadEmail({ email, name, SelectedTile })
 
 export async function AdminSalaryRoleDownloadEmail({ name, email, role, company, SelectedTile }) {
     await sendEmail({
-        type: "xecXchange",
+        type: "partner",
         to: process.env.SMTP_PARTNERSHIPS_USER,
         subject: `Report downloaded by ${name}`,
         html: `

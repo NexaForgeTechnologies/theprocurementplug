@@ -1,5 +1,4 @@
-// import { AdminRequestCustomBriefEmail, UserRequestCustomBriefEmail } from "@/lib/emails/XecXchangeEmail";
-import { AdminRequestCustomBriefEmail, UserRequestCustomBriefEmail } from "@/lib/emails/BusinessHubEmail";
+import { AdminRequestCustomBriefEmail, UserRequestCustomBriefEmail } from "@/lib/emails/PartnerEmail";
 import { convertFileToBase64 } from "@/lib/upload/convertFileToBase64";
 import { RequestACustomBriefRepo } from "@/repository/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/RequestACustomBriefRepo";
 import { NextResponse } from "next/server";
