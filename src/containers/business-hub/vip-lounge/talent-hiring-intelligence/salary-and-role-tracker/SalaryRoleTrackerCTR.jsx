@@ -1,10 +1,14 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/ConsultingPartnerTile";
-import FeaturedReportTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/FeatureReportTile";
 import Image from "next/image";
+import SalaryDownloadForm from "./SalaryDownloadForm";
+import FeatureReportTile from "@/components/business-hub/vip-lounge/exclusive-intelligence-reports/market-research/FeatureReportTile";
 
 const SalaryRoleTrackerCTR = () => {
+    const [ShowForm, setShowForm] = useState(false)
+    const [selectedTile, setSelectedTile] = useState(null);
+
     const collaboration = [
         {
             id: 1,
@@ -48,7 +52,8 @@ const SalaryRoleTrackerCTR = () => {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/futuristic.png",
-            url: "/files/dummy.pdf",
+            // url: "/files/dummy.pdf",
+            pathName: "/files/dummy.pdf"
         },
         {
             id: 2,
@@ -68,7 +73,8 @@ const SalaryRoleTrackerCTR = () => {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/modernonitior.png",
-            url: "/files/dummy.pdf",
+            // url: "/files/dummy.pdf",
+            pathName: "/files/dummy.pdf"
         },
         {
             id: 3,
@@ -88,7 +94,8 @@ const SalaryRoleTrackerCTR = () => {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/bussiness.png",
-            url: "/files/dummy.pdf",
+            // url: "/files/dummy.pdf",
+            pathName: "/files/dummy.pdf"
         },
         {
             id: 4,
@@ -108,7 +115,8 @@ const SalaryRoleTrackerCTR = () => {
             ),
             btntext: "Download",
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/market-research/table.png",
-            url: "/files/dummy.pdf",
+            // url: "/files/dummy.pdf",
+            pathName: "/files/dummy.pdf"
         },
     ];
 
@@ -141,7 +149,7 @@ const SalaryRoleTrackerCTR = () => {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8 mb-4 md:mb-8">
                 {featuretile.map((partner) => (
-                    <FeaturedReportTile
+                    <FeatureReportTile
                         key={partner.id}
                         tag={partner.tag}
                         heading={partner.heading}
@@ -149,9 +157,19 @@ const SalaryRoleTrackerCTR = () => {
                         btntext={partner.btntext}
                         bigimg={partner.bigimg}
                         url={partner.url}
+                        onButtonClick={() => {
+                            setSelectedTile(partner);
+                            setShowForm(true);
+                        }}
                     />
                 ))}
             </div>
+            <SalaryDownloadForm
+                isOpen={ShowForm}
+                onClose={() => setShowForm(false)}
+                tile={selectedTile}
+            />
+
         </>
     );
 };

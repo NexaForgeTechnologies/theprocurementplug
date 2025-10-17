@@ -1,7 +1,5 @@
 import { sendEmail } from "@/lib/EmailsService";
 
-
-
 // /business-hub/vip-lounge/exclusive-intelligence-reports/market-research
 export async function UserSponsorReportEmail({ email, fullName }) {
     await sendEmail({

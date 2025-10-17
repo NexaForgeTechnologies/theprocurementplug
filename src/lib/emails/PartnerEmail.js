@@ -1,5 +1,44 @@
 import { sendEmail } from "@/lib/EmailsService";
 
+export async function UserSalaryRoleDownloadEmail({ email, name, SelectedTile }) {
+    // Get the tile-specific download link
+    const downloadLink = `https://staging.theprocurementplug.com/${SelectedTile?.pathName || "/files/dummy.pdf"}`;
+    try {
+        await sendEmail({
+            type: "xecXchange",
+            to: email,
+            subject: `Here's your copy of: ${SelectedTile?.heading || "Requested Report"}`,
+            html: `
+            Hi ${name},<br><br>
+            Thanks for requesting <strong>${SelectedTile?.heading || "the report"}</strong>.<br><br>
+            👉 <a href="${downloadLink}" target="_blank" style="color: #1a73e8;">Click here to download your report</a><br><br>
+            Best,<br>
+            The Procurement Plug Team
+        `,
+        });
+    }
+    catch (err) {
+        console.log("error : ", err)
+    }
+}
+
+
+export async function AdminSalaryRoleDownloadEmail({ name, email, role, company, SelectedTile }) {
+    await sendEmail({
+        type: "xecXchange",
+        to: process.env.SMTP_PARTNERSHIPS_USER,
+        subject: `Report downloaded by ${name}`,
+        html: `
+            A new download occurred:<br><br>
+            • Name: ${name}<br>
+            • Email: ${email}<br>
+            • Role / Title: ${role}<br>
+            • Company: ${company}<br>
+            • Report: ${SelectedTile?.heading || "Unknown"}<br>
+        `,
+    });
+}
+
 // ------------------------- Become a Partner Emails
 export async function UserBecomePartnerEmail({ email, name }) {
     try {
@@ -7,7 +46,7 @@ export async function UserBecomePartnerEmail({ email, name }) {
         console.log("📨 Sending UserBecomePartnerEmail to:", email);
 
         await sendEmail({
-            type: "xecXchange",
+            type: "partner",
             to: email,
             subject: "Your Partner Task List is Ready",
             html: `
@@ -27,12 +66,12 @@ export async function UserBecomePartnerEmail({ email, name }) {
 
 export async function AdminBecomePartnerEmail({ name, company, email, interest = [] }) {
     try {
-        const adminEmail = process.env.SMTP_XECXCHANGE_USER
+        const adminEmail = process.env.SMTP_PARTNERSHIPS_USER
         if (!adminEmail) throw new Error("Admin email (SMTP_EVENT_USER) is not defined");
         console.log("📨 Sending AdminBecomePartnerEmail to:", adminEmail);
 
         await sendEmail({
-            type: "xecXchange",
+            type: "partner",
             to: adminEmail,
             subject: "Partner Task List Download Request",
             html: `
@@ -67,7 +106,7 @@ export async function UserIntroRequestEmail({ email, fullName, areaOfInterest })
         console.log("📨 Sending UserIntroRequestEmail to:", email);
 
         await sendEmail({
-            type: "xecXchange",
+            type: "partner",
             to: email,
             subject: "Your introduction request is received",
             html: `
@@ -88,12 +127,12 @@ export async function UserIntroRequestEmail({ email, fullName, areaOfInterest })
 
 export async function AdminIntroRequestEmail({ fullName, email, company, role, areaOfInterest, briefNote }) {
     try {
-        const adminEmail = process.env.SMTP_XECXCHANGE_USER;
+        const adminEmail = process.env.SMTP_PARTNERSHIPS_USER;
         if (!adminEmail) throw new Error("Admin email (SMTP_PARTNER_USER) is not defined");
         console.log("📨 Sending AdminIntroRequestEmail to:", adminEmail);
 
         await sendEmail({
-            type: "xecXchange",
+            type: "partner",
             to: adminEmail,
             subject: `New partner-intro request: ${fullName} (${company})`,
             html: `

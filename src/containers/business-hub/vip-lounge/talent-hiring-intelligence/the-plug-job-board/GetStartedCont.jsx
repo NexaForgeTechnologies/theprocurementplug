@@ -23,7 +23,7 @@ export default function GetStartedCont() {
 ecosystem, live dashboard tools, and
 curated talent access.`,
                             btnText: "Partner With Us",
-                            Url: "/"
+                            Url: "/partnerships"
                         },
                         {
                             title: "Already a Partner",

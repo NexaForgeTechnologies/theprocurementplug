@@ -35,8 +35,8 @@ export async function sendEmail({ type, to, subject, html }) {
             label: "XecXchange",
         },
         partner:{
-            user: process.env.SMTP_PARTNER_USER,
-            pass: process.env.SMTP_PARTNER_PASS,
+            user: process.env.SMTP_PARTNERSHIPS_USER,
+            pass: process.env.SMTP_PARTNERSHIPS_PASS,
             label: "Partner",
         }
     };

@@ -30,7 +30,7 @@ export default function ThePlugJobBoardCTR() {
                             "Get visibility with engaged professionals actively developing their careers",
                             "Join our  full ecosystem with access to events, roundtables and more",],
                         btnText: "View Partnerships",
-                        Url: "/"
+                        Url: "/partnerships"
                     },
 
                 ].map((job, index) => (
