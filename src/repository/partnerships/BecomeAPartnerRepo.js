@@ -2,25 +2,38 @@ import { db } from "@/lib/db";
 
 export async function BecomeAPartnerRepo(data) {
     try {
-        const { name, email, phone, industryInterests, description } = data;
+        const {
+            name,
+            email,
+            phone,
+            company,
+            description,
+            partnerTypes,
+        } = data;
 
         // Make sure all required fields are present, otherwise throw error
-        if (!name || !email || !phone || !industryInterests || !description) {
+        if (!name || !email || !phone || !company || !description || !partnerTypes) {
             throw new Error("All fields are required");
         }
 
+        // ✅ Convert partnerTypes array to comma-separated string
+        const partnerTypesStr = Array.isArray(partnerTypes)
+            ? partnerTypes.join(", ")
+            : "";
+
         const sql = `
             INSERT INTO become_a_partner
-            (name, email, phone, industry_interests, description)
-            VALUES (?, ?, ?, ?, ?)
+            (name, email, phone, company, description, partnerTypes)
+            VALUES (?, ?, ?, ?, ?, ?)
         `;
 
         const values = [
             name,
             email,
             phone,
-            industryInterests,
+            company,
             description,
+            partnerTypesStr,
         ];
 
         await db.query(sql, values);

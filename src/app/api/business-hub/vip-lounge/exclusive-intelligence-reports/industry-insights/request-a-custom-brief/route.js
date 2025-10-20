@@ -27,8 +27,14 @@ export async function POST(req) {
         };
 
         await RequestACustomBriefRepo(data);
-        await AdminRequestCustomBriefEmail(data);
-        await UserRequestCustomBriefEmail(data);
+
+        try {
+            await UserRequestCustomBriefEmail(data);
+            await AdminRequestCustomBriefEmail(data);
+            console.log("✅ Email sent ");
+        } catch (error) {
+            console.log("❌ Email not sent : ", error);
+        }
 
         return NextResponse.json({ success: true, message: "Form submitted successfully" }, { status: 200 });
 

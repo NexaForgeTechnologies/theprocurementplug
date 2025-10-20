@@ -9,12 +9,17 @@ export default function BecomeAPartner({ isOpen, onClose, title }) {
         name: "",
         email: "",
         phone: "",
-        industryInterests: "",
+        company: "",
         description: "",
+        partnerTypes: [],
     });
 
     const [isLoading, setIsLoading] = useState(false);
+    const [open, setOpen] = useState(false);
     const modalRef = useRef(null);
+    const [otherSelected, setOtherSelected] = useState(false);
+    const [otherValue, setOtherValue] = useState("");
+
 
     useEffect(() => {
         if (isOpen) {
@@ -63,42 +68,6 @@ export default function BecomeAPartner({ isOpen, onClose, title }) {
         }));
     };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-
-        try {
-            const res = await fetch("/api/partnerships/BecomeAPartner", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (!res.ok) throw new Error("Failed to submit form");
-
-            toast.success("Form submitted successfully!");
-
-
-            console.log("Form submitted:", formData);
-            setFormData({
-                name: "",
-                email: "",
-                phone: "",
-                industryInterests: "",
-                description: "",
-            });
-
-            onClose();
-        } catch (error) {
-            console.error("Submission error:", error.message);
-            toast.error("Submission failed. Please try again.");
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
 
     if (!isOpen) return null;
 
@@ -113,7 +82,7 @@ export default function BecomeAPartner({ isOpen, onClose, title }) {
             id: "email",
             name: "email",
             type: "email",
-            placeholder: "Email*",
+            placeholder: "Company Email",
         },
         {
             id: "phone",
@@ -122,12 +91,106 @@ export default function BecomeAPartner({ isOpen, onClose, title }) {
             placeholder: "Phone",
         },
         {
-            id: "industryInterests",
-            name: "industryInterests",
+            id: "company",
+            name: "company",
             type: "text",
-            placeholder: "Industry Interests",
+            placeholder: "Company Name",
         },
     ];
+
+    const partnerTypes = [
+        { value: "Events", label: "Events" },
+        { value: "Consulting", label: "Consulting" },
+        { value: "Venue", label: "Venue" },
+        { value: "Protech", label: "Protech" },
+        { value: "Legal Compliance", label: "Legal Compliance" },
+        { value: "Social", label: "Social" },
+        { value: "Other", label: "Other" },
+    ];
+
+
+    const toggleOption = (value) => {
+        if (value === "Other") {
+            setOtherSelected((prev) => {
+                const newState = !prev;
+                if (!newState) {
+                    // If unchecking "Other", remove previous otherValue
+                    setFormData((prevData) => ({
+                        ...prevData,
+                        partnerTypes: prevData.partnerTypes.filter(
+                            (v) => v !== otherValue
+                        ),
+                    }));
+                    setOtherValue("");
+                }
+                return newState;
+            });
+            return;
+        }
+
+        setFormData((prev) => {
+            const isSelected = prev.partnerTypes.includes(value);
+            return {
+                ...prev,
+                partnerTypes: isSelected
+                    ? prev.partnerTypes.filter((v) => v !== value)
+                    : [...prev.partnerTypes, value],
+            };
+        });
+    };
+
+    const handleOtherChange = (e) => {
+        const newVal = e.target.value;
+        setOtherValue(newVal);
+
+        setFormData((prev) => {
+            // Remove any existing "Other" value first
+            const updated = prev.partnerTypes.filter(
+                (v) => v !== otherValue
+            );
+            return {
+                ...prev,
+                partnerTypes: newVal ? [...updated, newVal] : updated,
+            };
+        });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        console.log("Form submitted:", formData);
+
+        try {
+            const res = await fetch("/api/partnerships/BecomeAPartner", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (!res.ok) throw new Error("Failed to submit form");
+
+            toast.success("Form submitted successfully!");
+
+            setFormData({
+                name: "",
+                email: "",
+                phone: "",
+                comapny: "",
+                description: "",
+                partnerTypes: [],
+            });
+            setOtherValue("");
+            onClose();
+        } catch (error) {
+            console.error("Submission error:", error.message);
+            toast.error("Submission failed. Please try again.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
 
     return (
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
@@ -163,6 +226,62 @@ export default function BecomeAPartner({ isOpen, onClose, title }) {
                                 className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                             />
                         ))}
+                    </div>
+                    <div className="relative w-full">
+                        <div
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-[2px] bg-white cursor-pointer flex justify-between items-center"
+                            onClick={() => setOpen((o) => !o)}
+                        >
+                            <span className="truncate">
+                                {formData.partnerTypes.length > 0
+                                    ? formData.partnerTypes.join(", ")
+                                    : "Partnership types"}
+                            </span>
+                            <IconComponent name="drop-down" color="black" size={16} />
+                        </div>
+
+                        {open && (
+                            <div className="absolute mt-1 w-full bg-white border border-[#85009D] rounded-[2px] shadow-lg z-10 max-h-60 overflow-auto text-[#010101]">
+                                {partnerTypes.map((option) => (
+                                    <div key={option.value}>
+                                        {option.value === "Other" ? (
+                                            <div
+                                                className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                                                onClick={() => toggleOption(option.value)}
+                                            >
+                                                <input
+                                                    type="checkbox"
+                                                    checked={otherSelected}
+                                                    readOnly // prevent double toggle
+                                                />
+                                                <span>{option.label}</span>
+
+                                                {otherSelected && (
+                                                    <input
+                                                        type="text"
+                                                        value={otherValue}
+                                                        onClick={(e) => e.stopPropagation()} // prevent toggling when typing
+                                                        onChange={handleOtherChange}
+                                                        placeholder="Please specify"
+                                                        className="flex-1 p-2 border border-gray-300 rounded"
+                                                    />
+                                                )}
+                                            </div>
+                                        ) : (
+                                            <label className="flex items-center gap-2 px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                                                <input
+                                                    type="checkbox"
+                                                    checked={formData.partnerTypes.includes(option.value)}
+                                                    onChange={() => toggleOption(option.value)}
+                                                />
+                                                <span>{option.label}</span>
+                                            </label>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+
                     </div>
 
                     <textarea
