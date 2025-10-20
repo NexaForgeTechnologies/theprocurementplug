@@ -4,7 +4,7 @@ import { ConciergeRepo } from "@/repository/business-hub/concierge/ConciergeRepo
 
 // Emails
 import { UserTaskListDownloadEmail, AdminTaskListDownloadEmail } from "@/lib/emails/ConciergeEmail";
-import { UserTaskListDownloadEmailCron } from "@/lib/emails/ConciergeCronEmails";
+// import { UserTaskListDownloadEmailCron } from "@/lib/emails/ConciergeCronEmails";
 
 export async function POST(request) {
     try {
@@ -22,7 +22,7 @@ export async function POST(request) {
         // Send email
         await UserTaskListDownloadEmail(data);
         await AdminTaskListDownloadEmail(data);
-        await UserTaskListDownloadEmailCron(data);
+        // await UserTaskListDownloadEmailCron(data);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {

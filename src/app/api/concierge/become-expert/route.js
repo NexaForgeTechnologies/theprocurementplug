@@ -15,7 +15,7 @@ export async function POST(request) {
         // Send email
         await UserBecomeExpertEmail(body);
         await AdminBecomeExpertEmail(body);
-        await UserBecomeExpertEmailCron(body);
+        // await UserBecomeExpertEmailCron(body);
 
         return NextResponse.json({ success: true, data: saved });
     } catch (error) {
