@@ -6,7 +6,7 @@ export default function WebPopUp({ isOpen, onClose, item }) {
     if (!isOpen || !item) return null;
 
     return (
-        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center">
+        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center p-6">
             <div className="bg-white rounded-lg p-6 max-w-md w-full relative shadow-lg border-1 border-[#DBBB89]">
                 <button
                     onClick={onClose}
