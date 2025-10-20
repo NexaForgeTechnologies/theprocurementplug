@@ -8,7 +8,13 @@ export async function POST(request) {
         console.log("✅ Form successfully received by API server:", body);
 
         // Save to DB
-        const dbResult = await BecomeAPartnerRepo(body);
+        try {
+            const dbResult = await BecomeAPartnerRepo(body);
+            console.log("Data stored to DB successfully");
+        } catch (error) {
+            console.log("Error storing data to DB:", error);
+        }
+
 
         if (!dbResult.success) {
             console.error("❌ DB Insertion failed:", dbResult.error);
