@@ -5,18 +5,10 @@ export default function PartnerToolsCont() {
         <>
             <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 my-10">
                 <PartnerToolsComp
-                    title={`Partner Tools`}
-                    description={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, accusantium.`}
-                    btnName={"Apply now"}
-                />
-                <PartnerToolsComp
-                    title={`Partner Tools`}
-                    description={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, accusantium.`}
-                    btnName={"Apply now"}
-                />
-                <PartnerToolsComp
-                    title={`Partner Tools`}
-                    description={`Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, accusantium.`}
+                    src={'/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png'}
+                    title={`GlowCart`}
+                    tagline={`Tagline: Where Trends Light Up`}
+                    category={`Category: E-commerce`}
                     btnName={"Apply now"}
                 />
             </section>

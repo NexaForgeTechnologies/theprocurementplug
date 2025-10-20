@@ -6,11 +6,24 @@ import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusiv
 import IconComponent from "@/components/icon/Icon";
 import RequestIntroForm from "@/components/business-hub/vip-lounge/exclusive-business-partners/RequestIntroForm"
 import Link from 'next/link';
+import WebPopUp from './WebPopUp';
 
 function ExclusiveBusinessPartnersCTR() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeIndex, setActiveIndex] = useState(0);
     const [title, setTitle] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedPartner, setSelectedPartner] = useState(null);
+
+    const openPopup = (partner) => {
+        setSelectedPartner(partner);
+        setIsOpen(true);
+    };
+
+    const closePopup = () => {
+        setIsOpen(false);
+        setSelectedPartner(null);
+    };
 
     const slides = [
         {
@@ -51,28 +64,31 @@ function ExclusiveBusinessPartnersCTR() {
             id: 1,
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png",
             heading: "GlowCart",
-            para: "Tagline: Where Trends Light Up",
+            tagline: "Tagline: Where Trends Light Up",
             category: "ecommerce",
             btntext: "View More",
             url: "",
+            href:"/",
         },
         {
             id: 2,
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png",
             heading: "NetSecurex",
-            para: "Tagline: Guarding Your Digital World",
+            tagline: "Tagline: Guarding Your Digital World",
             category: "cybersecurity",
             btntext: "View More",
             url: "",
+            href:"/",
         },
         {
             id: 3,
             bigimg: "/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png",
             heading: "Naturally Forever",
-            para: "Tagline: Naturally Forever",
+            tagline: "Tagline: Naturally Forever",
             category: "sustainable",
             btntext: "View More",
             url: "",
+            href:"/",
         },
     ];
 
@@ -83,7 +99,7 @@ function ExclusiveBusinessPartnersCTR() {
     const filteredCollaboration = collaboration.filter((partner) => {
         const matchesSearch =
             partner.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            partner.para.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            partner.tagline.toLowerCase().includes(searchQuery.toLowerCase()) ||
             partner.category.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesCategory = selectedCategory ? partner.category === selectedCategory : true;
         return matchesSearch && matchesCategory;
@@ -211,15 +227,17 @@ function ExclusiveBusinessPartnersCTR() {
                                 key={partner.id}
                                 bigimg={partner.bigimg}
                                 heading={partner.heading}
-                                para={partner.para}
+                                para={partner.tagline}
                                 category={`Category: ${categoryLabels[partner.category]}`}
                                 btntext={partner.btntext}
                                 url={partner.url}
+                                BtnLink={() => openPopup(partner)} // ✅ works fine now
                             />
                         ))
                     ) : (
                         <p className="text-[#9D9D9D]">No partners found.</p>
                     )}
+
                 </div>
                 <div className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5]  p-5 w-full lg:self-start hover:text-[#ffff] flex-1 mt-0 lg:mt-[89.5px]">
                     <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#85009D]">
@@ -252,6 +270,7 @@ function ExclusiveBusinessPartnersCTR() {
                     </div>
                 </div>
             </div>
+            <WebPopUp isOpen={isOpen} onClose={closePopup} item={selectedPartner}  />
             <RequestIntroForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={title} />
         </div>
     );
