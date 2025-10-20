@@ -3,15 +3,28 @@ import { sendEmail } from "@/lib/EmailsService";
 import cron from "node-cron";
 
 // Helper to build cron expression for N days later
-function cronForDaysLater(days) {
+// function cronForDaysLater(days) {
+//   const now = new Date();
+//   const future = new Date(now.getTime() + days * 24 * 60 * 60 * 1000);
+
+//   const minute = future.getMinutes();
+//   const hour = future.getHours();
+//   const day = future.getDate();
+//   const month = future.getMonth() + 1; // JS months 0–11
+
+//   return `${minute} ${hour} ${day} ${month} *`;
+// }
+
+function cronForDaysLater(minutesLater) {
   const now = new Date();
-  const future = new Date(now.getTime() + days * 24 * 60 * 60 * 1000);
+  const future = new Date(now.getTime() + minutesLater * 60 * 1000);
 
   const minute = future.getMinutes();
   const hour = future.getHours();
   const day = future.getDate();
   const month = future.getMonth() + 1; // JS months 0–11
 
+  // Cron format: minute hour day month dayOfWeek
   return `${minute} ${hour} ${day} ${month} *`;
 }
 
