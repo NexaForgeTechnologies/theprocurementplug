@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import ReCaptchaProvider from "@/components/ReCaptchaProvider";
 
 import Icon from "@/components/icon/Icon";
 
@@ -16,6 +17,10 @@ const contactus = () => {
   });
   const [alert, setAlert] = useState({ message: "", type: "", show: false });
   const [isLoading, setIsLoading] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const handleCaptchaChange = (token) => {
+    setCaptchaToken(token); // store the token when captcha is completed
+  };
 
   useEffect(() => {
     if (alert.show) {
@@ -45,52 +50,64 @@ const contactus = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setAlert({ message: "", type: "", show: false });
+  e.preventDefault();
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: formData.email,
-          // userEmail: formData?.email,
-          message: formData.message,
-          name: formData.name
-        }),
+  // If CAPTCHA is not completed, show an error alert
+  if (!captchaToken) {
+    setAlert({
+      message: "Please complete the CAPTCHA",
+      type: "error",
+      show: true,
+    });
+    return; // Stop form submission
+  }
+
+  console.log("Captcha Token:", captchaToken);
+  setIsLoading(true);
+  setAlert({ message: "", type: "", show: false });
+
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: formData.email,
+        message: formData.message,
+        name: formData.name,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok && result.success) {
+      console.log("Server returned:", result.data); // contains name, email, message
+
+      setAlert({
+        message:
+          "Thanks for reaching out! We’ve received your message and will get back to you within 24 hours. In the meantime, feel free to explore our Help Center or check out our latest blog posts",
+        type: "success",
+        show: true,
       });
 
-      const result = await response.json();
-
-      if (response.ok && result.success) {
-        console.log('Server returned:', result.data); // contains name, email, message
-
-        setAlert({
-          message: "Thanks for reaching out! We’ve received your message and will get back to you within 24 hours. In the meantime, feel free to explore our Help Center or check out our latest blog posts",
-          type: "success",
-          show: true,
-        });
-
-        setFormData({ name: "", email: "", message: "" }); // Reset form
-      } else {
-        setAlert({
-          message: result.error || "Failed to send message. Please try again.",
-          type: "error",
-          show: true,
-        });
-      }
-    } catch (error) {
-      console.error("Client error:", error);
+      setFormData({ name: "", email: "", message: "" }); // Reset form
+    } else {
       setAlert({
-        message: "An error occurred. Please try again later.",
+        message: result.error || "Failed to send message. Please try again.",
         type: "error",
         show: true,
       });
-    } finally {
-      setIsLoading(false);
     }
-  };
+  } catch (error) {
+    console.error("Client error:", error);
+    setAlert({
+      message: "An error occurred. Please try again later.",
+      type: "error",
+      show: true,
+    });
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   const handleCloseAlert = () => {
     setAlert({ message: "", type: "", show: false });
@@ -172,7 +189,7 @@ const contactus = () => {
             <div
               className={`w-full p-3 rounded-md flex justify-between items-center ${alert.type === "success"
                 ? "bg-[#85009D]/50 text-white"
-                : "bg-red-900/50 text-red-400"
+                : "bg-red-400/50 text-red-900"
                 }`}
               role="alert"
               aria-live="polite"
@@ -213,6 +230,7 @@ const contactus = () => {
             onChange={handleInputChange}
             className="w-full border text-[#363636] border-[#e0e0e0] bg-[#ffff] p-2 rounded-md resize-none"
           ></textarea>
+          <ReCaptchaProvider onChange={handleCaptchaChange} />
           <button
             type="submit"
             disabled={isLoading}
@@ -220,6 +238,7 @@ const contactus = () => {
           >
             {isLoading ? "Submitting..." : "Submit Message"}
           </button>
+          
         </form>
       </div>
       <PartnerCTR />
