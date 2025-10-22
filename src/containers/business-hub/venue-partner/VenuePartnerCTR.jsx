@@ -27,21 +27,25 @@ function ConsultantPartnerCTR() {
   const [selectedLocation, setSelectedLocation] = useState("");
   const [selectedCapacity, setSelectedCapacity] = useState("");
   const [selectedAmenity, setSelectedAmenity] = useState("");
+
   const [visibleCount, setVisibleCount] = useState(3);
 
   const filteredVenuePartners = venues.filter((venue) => {
     const matchesLocation = selectedLocation
-      ? venue.location === selectedLocation
+      ? String(venue.location_id) === selectedLocation
       : true;
+
     const matchesCapacity = selectedCapacity
-      ? venue.capacity_name === selectedCapacity
+      ? String(venue.capacity_id) === selectedCapacity
       : true;
-    const matchesAmenity = selectedCapacity
-      ? venue.capacity_name === selectedCapacity
+
+    const matchesAmenity = selectedAmenity
+      ? String(venue.amenity_id) === selectedAmenity
       : true;
 
     return matchesLocation && matchesCapacity && matchesAmenity;
   });
+
 
   const handleClearFilters = () => {
     setSelectedLocation("");
@@ -124,7 +128,7 @@ function ConsultantPartnerCTR() {
 
           {/* Capicity */}
           <select
-            id="Capicity"
+            id="capacity"
             value={selectedCapacity}
             onChange={(e) => setSelectedCapacity(e.target.value)}
             className="border-r-8 border-r-[white] pr-2 cursor-pointer outline outline-[#e0e0e0] p-3 rounded-md w-full"

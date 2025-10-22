@@ -4,35 +4,35 @@ export class LegalRepo {
     static async getAllLegal() {
         try {
             const [rows] = await db.query(`
-        SELECT 
-            lc.id,
-            lc.legal_compliance_type_id,
-            lct.value AS legal_compliance_type_name,
-            lc.industry_id,
-            i.value AS industry_name,
-            lc.region_id,
-            r.value AS region_name,
-            lc.img,
-            lc.name,
-            lc.experties,
-            lc.overview,
-            lc.email,
-            lc.jurisdictional_coverage,
-            lc.company_logo,
-            lc.practice_areas,
-            lc.services,
-            lc.sample_templates,
-            lc.testimonials,
-            lc.created_at,
-            lc.updated_at,
-            lc.deleted_at
-        FROM legal_compliance lc
-        LEFT JOIN legal_compliance_types lct ON lc.legal_compliance_type_id = lct.id
-        LEFT JOIN industries i ON lc.industry_id = i.id
-        LEFT JOIN regions r ON lc.region_id = r.id
-        WHERE lc.deleted_at IS NULL
-        ORDER BY lc.id DESC;
-      `);
+                SELECT 
+                    lc.id,
+                    lc.legal_compliance_type_id,
+                    lct.value AS legal_compliance_type_name,
+                    lc.industry_id,
+                    i.value AS industry_name,
+                    lc.region_id,
+                    r.value AS region_name,
+                    lc.img,
+                    lc.name,
+                    lc.experties,
+                    lc.overview,
+                    lc.email,
+                    lc.jurisdictional_coverage,
+                    lc.company_logo,
+                    lc.practice_areas,
+                    lc.services,
+                    lc.sample_templates,
+                    lc.testimonials,
+                    lc.created_at,
+                    lc.updated_at,
+                    lc.deleted_at
+                FROM legal_compliance lc
+                LEFT JOIN legal_compliance_types lct ON lc.legal_compliance_type_id = lct.id
+                LEFT JOIN industries i ON lc.industry_id = i.id
+                LEFT JOIN regions r ON lc.region_id = r.id
+                WHERE lc.deleted_at IS NULL
+                ORDER BY lc.id DESC;
+            `);
 
             return rows.map((row) => ({
                 id: row.id,

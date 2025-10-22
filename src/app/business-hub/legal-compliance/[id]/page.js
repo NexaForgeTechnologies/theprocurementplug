@@ -1,34 +1,26 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import RequestDemoForm from "@/components/business-hub/legal-compliance/RequestDemoForm";
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/legal-compliance" className="hover:underline">Legal & Compliance</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969]">
-                    Law Practitioners Profile
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import Breadcrumb from "@/components/BreadCrumbs";
+import { useLegalStore } from "@/store/LegalComplianceStore";
 
 function ConsultantPartnerCTR() {
+    const legal = useLegalStore((state) => state.legal);
+    if (!legal) {
+        return (
+            <div className="max-w-[1200px] m-auto text-center p-8">
+                <h1 className="font-extrabold text-4xl md:text-6xl mb-6 text-[#010101]">
+                    Featured Practitioners & Firms Not Found
+                </h1>
+            </div>
+        );
+    }
+
     const [isModalOpen, setIsModalOpen] = useState(false);
     const partnerWithUs = {
         Partnerheader: {
@@ -81,7 +73,7 @@ function ConsultantPartnerCTR() {
                 <div className="flex flex-col-reverse md:flex-row justify-between items-start gap-4 md:gap-0">
                     <div className="w-full md:w-auto">
                         <h1 className="text-3xl md:text-[52px] font-semibold text-[#85009D]">
-                            Grace Robinson
+                            {legal.name}
                         </h1>
                         <span className="text-[#F89800] text-2xl md:text-[63px]">
                             ★★★★
@@ -90,9 +82,7 @@ function ConsultantPartnerCTR() {
                             Overview
                         </h3>
                         <p className="max-w-[553px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Porro accusamus quo animi distinctio nulla
-                            unde vero voluptatibus, laborum officia nisi.
+                            {legal.overview}
                         </p>
                         <div className="flex flex-col md:flex-row items-center gap-4">
                             <button
@@ -114,7 +104,7 @@ function ConsultantPartnerCTR() {
                     <div className="flex justify-center items-center w-full md:w-auto">
                         <Image
                             className="rounded-full w-[200px] md:w-[300px] h-[200px] md:h-[300px] object-cover"
-                            src={"/images/bussiness-hub/legal-compliance/member.png"}
+                            src={legal.img || "/images/default-circle.png"}
                             alt={"member"}
                             width={300}
                             height={300}

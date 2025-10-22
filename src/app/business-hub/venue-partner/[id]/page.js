@@ -65,8 +65,8 @@ function Page() {
                     Venue Partners overview
                 </h3>
                 <Image
-                    className="w-full h-[200px] md:h-[451px] object-cover mb-4"
-                    src="/images/bussiness-hub/venue-partner/venue-partner-detail/mainimg.png"
+                    className="rounded-md w-full h-[200px] md:h-[451px] object-cover mb-4"
+                    src={venue.img || "/images/default-rectangle.webp"}
                     alt="Venue Partner Image"
                     width={1140}
                     height={451}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 import { useConsultantStore } from "@/store/consultantStore";
 
@@ -8,7 +9,6 @@ import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import RequestDemoForm from "@/components/forms/business-hub/BecomeAPartner";
 import Breadcrumb from "@/components/BreadCrumbs";
-import Image from "next/image";
 
 export default function ConsultantDetailClient() {
   const consultant = useConsultantStore((state) => state.consultant);
