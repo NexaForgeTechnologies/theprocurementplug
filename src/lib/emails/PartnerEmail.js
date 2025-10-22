@@ -4,7 +4,7 @@ import { sendEmail } from "@/lib/EmailsService";
 // /business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights
 export async function UserRequestCustomBriefEmail({ email, fullName, topic }) {
     await sendEmail({
-        type: "partner",
+        type: "xecXchange",
         to: email,
         subject: "We’ve received your custom briefing request",
         html: `
@@ -26,7 +26,7 @@ export async function UserRequestCustomBriefEmail({ email, fullName, topic }) {
 
 export async function AdminRequestCustomBriefEmail({ fullName, email, role, company, topic, objectives, desiredDeliveryDate }) {
     await sendEmail({
-        type: "partner",
+        type: "xecXchange",
         to: process.env.SMTP_XECXCHANGE_USER,
         subject: `New custom briefing request: ${fullName}`,
         html: `
@@ -53,7 +53,7 @@ export async function UserSalaryRoleDownloadEmail({ email, name, SelectedTile })
     const downloadLink = `https://staging.theprocurementplug.com/${SelectedTile?.pathName || "/files/dummy.pdf"}`;
     try {
         await sendEmail({
-            type: "partner",
+            type: "xecXchange",
             to: email,
             subject: `Here's your copy of: ${SelectedTile?.heading || "Requested Report"}`,
             html: `
@@ -73,7 +73,7 @@ export async function UserSalaryRoleDownloadEmail({ email, name, SelectedTile })
 
 export async function AdminSalaryRoleDownloadEmail({ name, email, role, company, SelectedTile }) {
     await sendEmail({
-        type: "partner",
+        type: "xecXchange",
         to: process.env.SMTP_PARTNERSHIPS_USER,
         subject: `Report downloaded by ${name}`,
         html: `
@@ -94,9 +94,9 @@ export async function UserBecomePartnerEmail({ email, name }) {
         console.log("📨 Sending UserBecomePartnerEmail to:", email);
 
         await sendEmail({
-            type: "partner",
+            type: "xecXchange",
             to: email,
-            subject: "Your Partner Task List is Ready",
+            subject: "Your Become a Partner Task List is Ready",
             html: `
                 <p><b>Hi ${name},</b></p>
                 <p>Thanks for downloading our Procurement Concierge Task List.</p>
@@ -119,9 +119,9 @@ export async function AdminBecomePartnerEmail({ name, company, email, interest =
         console.log("📨 Sending AdminBecomePartnerEmail to:", adminEmail);
 
         await sendEmail({
-            type: "partner",
+            type: "xecXchange",
             to: adminEmail,
-            subject: "Partner Task List Download Request",
+            subject: "Become a Partner Task List Download Request",
             html: `
                 <p>Hello Team,</p>
                 <p>A new user has downloaded the Procurement Concierge Task List.<br/>
@@ -154,7 +154,7 @@ export async function UserIntroRequestEmail({ email, fullName, areaOfInterest })
         console.log("📨 Sending UserIntroRequestEmail to:", email);
 
         await sendEmail({
-            type: "partner",
+            type: "xecXchange",
             to: email,
             subject: "Your introduction request is received",
             html: `
@@ -180,7 +180,7 @@ export async function AdminIntroRequestEmail({ fullName, email, company, role, a
         console.log("📨 Sending AdminIntroRequestEmail to:", adminEmail);
 
         await sendEmail({
-            type: "partner",
+            type: "xecXchange",
             to: adminEmail,
             subject: `New partner-intro request: ${fullName} (${company})`,
             html: `

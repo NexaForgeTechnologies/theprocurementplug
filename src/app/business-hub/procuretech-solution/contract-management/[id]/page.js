@@ -7,6 +7,7 @@ import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import Link from 'next/link'
 import Image from "next/image";
+import DownloadSheetsForm from "@/containers/business-hub/procuretech-solution/contract-management/DownloadSheetsForm";
 
 function Breadcrumb() {
     return (
@@ -33,6 +34,7 @@ function Breadcrumb() {
 }
 
 function VendorDetailCTR() {
+    const [isDownloadOpen, setIsDownloadOpen] = useState(false);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const partnerWithUs = {
         Partnerheader: {
@@ -164,7 +166,9 @@ function VendorDetailCTR() {
                         Contact Sales
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button
+                        onClick={() => setIsDownloadOpen(true)}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
                         Download Data Sheets
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -180,6 +184,7 @@ function VendorDetailCTR() {
                 </div>
             </div>
             <PartnerWithUsComp data={partnerWithUs} />
+            <DownloadSheetsForm isOpen={isDownloadOpen} onClose={() => setIsDownloadOpen(false)}/>
             <RequestDemoForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
