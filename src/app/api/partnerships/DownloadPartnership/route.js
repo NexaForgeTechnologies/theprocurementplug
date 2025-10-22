@@ -1,4 +1,4 @@
-import { AdminDownloadPartnershipEmail, UserDownloadPartnershipEmail } from "@/lib/emails/EventEmail";
+import { AdminDownloadPartnershipEmail, UserDownloadPartnershipEmail } from "@/lib/emails/PartnerEmail";
 import { DownloadPartnershipRepo } from "@/repository/partnerships/DownloadPartnershipRepo";
 import { NextResponse } from "next/server";
 

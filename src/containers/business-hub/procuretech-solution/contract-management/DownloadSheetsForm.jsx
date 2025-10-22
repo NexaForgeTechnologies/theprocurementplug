@@ -105,7 +105,7 @@ export default function DownloadSheetsForm({ isOpen, onClose }) {
         >
             <div
                 ref={modalRef}
-                className="bg-[#FFFBF5] rounded-md border border-[#DBBB89] p-6 w-full max-w-xl max-h-[90vh] overflow-y-auto relative"
+                className="bg-[#FFFBF5] rounded-md border border-[#DBBB89] p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto relative"
                 onClick={(e) => e.stopPropagation()}
             >
                 <button
