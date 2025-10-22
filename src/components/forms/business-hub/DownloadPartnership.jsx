@@ -79,14 +79,15 @@ export default function DownloadPartnership({ isOpen, onClose, title }) {
             if (!res.ok) throw new Error("Failed to submit form");
 
             toast.success("Form submitted successfully!");
+            toast.success("Check your Email Box for the Partnership & Sponsorship pack")
 
             // ✅ Trigger PDF download from public folder
-            const link = document.createElement("a");
-            link.href = "/files/download/Partnership Prospectus.pdf"; // ✅ Do NOT include "public"
-            link.download = "PartnershipDetails.pdf";
-            document.body.appendChild(link);
-            link.click();
-            link.remove();
+            // const link = document.createElement("a");
+            // link.href = "/files/download/Partnership_Prospectus.pdf";
+            // link.download = "PartnershipDetails.pdf";
+            // document.body.appendChild(link);
+            // link.click();
+            // link.remove();
 
             console.log("Form submitted:", formData);
             setFormData({

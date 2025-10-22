@@ -10,9 +10,9 @@ export async function UserDownloadSheetsEmail({ email, name }) {
             <p><b>Hi ${name},</b></p>
             <p>Thank you for requesting a demo with <b>The Procurement Plug</b>.</p>
             <p>We’ve received your request.</p>
-            <p>You can download our solutions overview here:</p>
-            <a href="https://staging.theprocurementplug.com/files/download/Partnership_Prospectus.pdf" download>
-                📄 Click here to download the PDF
+            <p>You can explore our solutions overview here:</p>
+            <a target="_blank" href="https://staging.theprocurementplug.com/files/download/Partnership_Prospectus.pdf">
+                Download the Overview PDF
             </a>
             <p>This document includes insights into our tools, process automation, and integration capabilities that help businesses streamline procurement management efficiently.</p>
             <p>If you have any questions, simply reply to this email or reach out at <a href="mailto:info@theprocurementplug.com">info@theprocurementplug.com</a>.</p>
@@ -27,11 +27,11 @@ export async function UserDownloadPartnershipEmail({ email, name }) {
     await sendEmail({
         type: "xecXchange",
         to: email,
-        subject: "Your Procurement Task List is Ready",
+        subject: "Your Download Partnership & Sponsorship pack is Ready",
         html: `
             <p><b>Hi ${name},</b></p>
             <p>Thanks for downloading our Procurement Concierge Task List.</p>
-            <a target="_blank" href="https://staging.theprocurementplug.com/files/PartnershipDetails.pdf">Download Your Task List Here</a>
+            <a target="_blank" href="https://staging.theprocurementplug.com/files/CONCIERGE_TASKS.pdf">Download Your Task List Here</a>
             <p>Inside, you’ll find examples of light, medium, and heavy tasks that our Concierge can handle — giving your team back time, reducing overhead, and ensuring every deliverable is quality-assured.</p>
             <p>If you’d like to learn more about how these tasks translate into real business value, simply email us at concierge@theprocurementplug.com or <a target="_blank" href="https://outlook.office.com/bookwithme/user/8e972724e33941cc97d6343e75912f92@theprocurementplug.com/meetingtype/hLubckipTEuEbpXYBmnMYg2?anonymous&ep=mLinkFromTile">book a discovery call.</a></p>
             <p>Best regards,<br/>The Procurement Concierge Team</p>

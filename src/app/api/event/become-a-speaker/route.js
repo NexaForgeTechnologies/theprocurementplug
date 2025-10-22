@@ -17,11 +17,16 @@ export async function POST(request) {
         }
 
         // Send Emails
-        await Promise.all([
-            UserSpeakerEmail(body),
-            AdminSpeakerEmail(body),
-        ]);
-
+        try {
+            await Promise.all([
+                UserSpeakerEmail(body),
+                AdminSpeakerEmail(body),
+            ]);
+            console.log("✅ Emails sent successfully");
+        }
+        catch (err) {
+            console.log("❌ Email sending failed:", err);
+        }
         console.log("✅ Form successfully processed");
         return NextResponse.json({ success: true }, { status: 200 });
 

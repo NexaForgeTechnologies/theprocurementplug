@@ -5,7 +5,7 @@ export async function UserSpeakerEmail({ email, name }) {
     await sendEmail({
         type: "xecXchange",
         to: email,
-        subject: "Your Procurement Task List is Ready",
+        subject: "Your Become a Speaker form has been Received",
         html: `
             <p><b>Hi ${name},</b></p>
             <p>Thanks for downloading our Procurement Concierge Task List.</p>
