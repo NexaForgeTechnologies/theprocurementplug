@@ -121,12 +121,13 @@ function ConsultantPartnerCTR() {
         </h3>
         <div className="text-[#85009D] flex gap-2 items-center mb-4">
           {legal.jurisdictional_coverage
+            ?.split(",") // converts string → array
             .map((item, index) => (
               <p
                 key={index}
                 className="border p-3 border-[#D09B48] bg-[#FFFBF5] rounded-md md:text-2xl"
               >
-                {item}
+                {item.trim()}
               </p>
             ))}
         </div>

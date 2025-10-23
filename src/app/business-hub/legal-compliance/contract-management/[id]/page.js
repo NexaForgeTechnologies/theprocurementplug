@@ -7,10 +7,13 @@ import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import RequestDemoForm from "@/components/business-hub/legal-compliance/RequestDemoForm";
 import Breadcrumb from "@/components/BreadCrumbs";
+
 import { useLegalStore } from "@/store/LegalComplianceStore";
 
 function ConsultantPartnerCTR() {
   const legal = useLegalStore((state) => state.legal);
+  console.log(legal);
+
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -23,6 +26,7 @@ function ConsultantPartnerCTR() {
       </div>
     );
   }
+
   const partnerWithUs = {
     Partnerheader: {
       crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",

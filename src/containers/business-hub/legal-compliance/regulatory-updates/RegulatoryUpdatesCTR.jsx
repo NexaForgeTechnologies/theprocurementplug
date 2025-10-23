@@ -12,7 +12,7 @@ import ConsultantTile from "@/components/business-hub/consulting-partner/Consult
 import Breadcrumb from "@/components/BreadCrumbs";
 
 function RegulatoryUpdatesCTR() {
-  const { legals } = useLegalCompliance();
+  const { legals } = useLegalCompliance(4);
 
   const { data: industries } = useGenericTable("industries");
   const { data: regions } = useGenericTable("regions");

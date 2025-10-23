@@ -8,11 +8,11 @@ import { useGenericTable } from "@/hooks/GetGenericType";
 import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import ConsultantType from "@/components/business-hub/consulting-partner/ConsultantTypeComp";
-import ConsultantTile from "@/components/business-hub/consulting-partner/ConsultantTileComp";
 import Breadcrumb from "@/components/BreadCrumbs";
+import LegalTile from "@/components/business-hub/legal-compliance/LegalTileComp";
 
 function ContractManagementCTR() {
-  const { legals } = useLegalCompliance();
+  const { legals } = useLegalCompliance(1);
 
   const { data: industries } = useGenericTable("industries");
   const { data: regions } = useGenericTable("regions");
@@ -173,13 +173,13 @@ function ContractManagementCTR() {
           </button>
         </div>
 
-        {/* Consultant Cards */}
+        {/* Legal Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {filteredLegalCompliance.length > 0 ? (
             filteredLegalCompliance
               .slice(0, visibleCount)
               .map((legal) => (
-                <ConsultantTile
+                <LegalTile
                   key={legal.id}
                   data={legal}
                   url={`/business-hub/legal-compliance/contract-management/${legal.id}`}
