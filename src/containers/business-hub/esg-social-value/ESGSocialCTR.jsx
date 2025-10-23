@@ -12,7 +12,7 @@ import ConsultantTile from "@/components/business-hub/consulting-partner/Consult
 import Breadcrumb from "@/components/BreadCrumbs";
 
 function ESGSocialPartnerCTR() {
-    const { consultants } = useConsultants();
+    const { consultants } = useConsultants(6);
 
     const {
         data: industries

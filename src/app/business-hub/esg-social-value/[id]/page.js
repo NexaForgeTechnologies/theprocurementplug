@@ -8,6 +8,7 @@ import HeroCTR from "@/components/business-hub/BussinessHeroSection";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import RequestDemoForm from "@/components/forms/business-hub/BecomeAPartner";
 import Breadcrumb from "@/components/BreadCrumbs";
+import Image from "next/image";
 
 export default function ConsultantDetailClient() {
   const consultant = useConsultantStore((state) => state.consultant);
@@ -99,11 +100,12 @@ export default function ConsultantDetailClient() {
             </div>
           </div>
           <div className="flex justify-center items-center w-full md:w-auto">
-            <img
-              className="rounded-full w-[200px] md:w-[300px] h-[200px] md:h-[300px] object-cover"
-              src="https://procurementplug-dashboard.vercel.app/images/consultant-alternate.png"
-              // src={consultant.img}
-              alt={consultant.name}
+            <Image
+              width={160}
+              height={160}
+              className="rounded-full w-[200px] h-[200px] md:w-[300px] md:h-[300px] object-cover"
+              src={consultant.img || "/images/default-circle.png"}
+              alt={"consultant"}
             />
           </div>
         </div>
