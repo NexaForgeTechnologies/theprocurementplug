@@ -6,22 +6,17 @@ import { useGenericTable } from "@/hooks/GetGenericType";
 import { useProcuretech } from "@/hooks/GetProcureTech";
 
 import ProcureTechTile from "@/components/business-hub/procuretech-solution/ProcureTechTile";
-import HeroCTR from '@/components/business-hub/BussinessHeroSection';
-import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
+import HeroCTR from "@/components/business-hub/BussinessHeroSection";
+import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import Breadcrumb from "@/components/BreadCrumbs";
 
 function ConsultantPartnerCTR() {
   const { procuretechSolutions } = useProcuretech(1);
+  console.log(procuretechSolutions);
 
-  const {
-    data: deployment_models,
-  } = useGenericTable("deployment_model");
-  const {
-    data: pricing_models,
-  } = useGenericTable("pricing_model");
-  const {
-    data: integration_models,
-  } = useGenericTable("integration_model");
+  const { data: deployment_models } = useGenericTable("deployment_model");
+  const { data: pricing_models } = useGenericTable("pricing_model");
+  const { data: integration_models } = useGenericTable("integration_model");
 
   const [selectedDeployment, setSelectedDeployment] = useState("");
   const [selectedPricing, setSelectedPricing] = useState("");
@@ -31,13 +26,13 @@ function ConsultantPartnerCTR() {
 
   const filteredProcuretech = procuretechSolutions.filter((solution) => {
     const matchesDeployment = selectedDeployment
-      ? solution.deployment_id.toString() === selectedDeployment
+      ? solution.deployment_model_id.toString() === selectedDeployment
       : true;
     const matchesPricing = selectedPricing
-      ? solution.pricing_id.toString() === selectedPricing
+      ? solution.pricing_model_id.toString() === selectedPricing
       : true;
     const matchesIntegration = selectedIntegration
-      ? solution.integration_id.toString() === selectedIntegration
+      ? solution.integration_model_id.toString() === selectedIntegration
       : true;
 
     return matchesDeployment && matchesIntegration && matchesPricing;
@@ -57,7 +52,7 @@ function ConsultantPartnerCTR() {
     Partnerheader: {
       crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
       h3: "",
-      p: ""
+      p: "",
     },
     items: [
       {
@@ -66,7 +61,7 @@ function ConsultantPartnerCTR() {
         text: "",
         link: "",
         linkText: "View Details",
-        bgColor: "#85009D"
+        bgColor: "#85009D",
       },
       {
         id: 2,
@@ -74,7 +69,7 @@ function ConsultantPartnerCTR() {
         text: "",
         link: "",
         linkText: "View Details",
-        bgColor: "#85009D"
+        bgColor: "#85009D",
       },
       {
         id: 3,
@@ -82,9 +77,9 @@ function ConsultantPartnerCTR() {
         text: "",
         link: "",
         linkText: "View Details",
-        bgColor: "#85009D"
-      }
-    ]
+        bgColor: "#85009D",
+      },
+    ],
   };
 
   return (
@@ -99,17 +94,20 @@ function ConsultantPartnerCTR() {
         />
 
         <Breadcrumb />
-        
+
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
           Source-to-Contract
         </h3>
-        
+
         <p className="max-w-[843px] md:text-xl text-[#1B1B1B] mt-4">
-          End-to-end process covering supplier identification, sourcing, negotiation, contract
-          creation, approval, and e-signature
+          End-to-end process covering supplier identification, sourcing,
+          negotiation, contract creation, approval, and e-signature
         </p>
 
-        <p className="max-w-[843px] md:text-xl text-[#1B1B1B] mb-4 md:mb-8">Explore solutions that automate each stage of your S2C workflow, boost compliance, and accelerate time-to-value.</p>
+        <p className="max-w-[843px] md:text-xl text-[#1B1B1B] mb-4 md:mb-8">
+          Explore solutions that automate each stage of your S2C workflow, boost
+          compliance, and accelerate time-to-value.
+        </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-6 md:mb-10 text-[#363636]">
           {/* Deployment Model */}
@@ -188,7 +186,8 @@ function ConsultantPartnerCTR() {
           {visibleCount < filteredProcuretech.length && (
             <button
               onClick={handleShowMore}
-              className="flex items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]">
+              className="flex items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]"
+            >
               View All ProcureTech
               <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
             </button>

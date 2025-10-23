@@ -11,10 +11,18 @@ import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithU
 import Breadcrumb from "@/components/BreadCrumbs";
 
 function VendorDetailCTR() {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const procuretech = useProcureTechStore((state) => state.procuretech);
+    if (!procuretech) {
+        return (
+            <div className="max-w-[1200px] m-auto text-center p-8">
+                <h1 className="font-extrabold text-4xl md:text-6xl mb-6 text-[#010101]">
+                    Procuretech Not Found
+                </h1>
+            </div>
+        );
+    }
 
-    const data = useProcureTechStore((state) => state.procuretech);
-    if (!data) return null;
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     const partnerWithUs = {
         Partnerheader: {
@@ -62,11 +70,11 @@ function VendorDetailCTR() {
                 />
 
                 <Breadcrumb />
-                
+
                 <div className="flex flex-col-reverse md:flex-row justify-between items-start md:gap-4">
                     <div className="w-full md:w-auto">
                         <h1 className="text-3xl md:text-[52px] font-semibold text-[#85009D]">
-                            Procurement Heads
+                            {procuretech.name}
                         </h1>
                         <span className="text-[#F89800] text-2xl md:text-[63px]">
                             ★★★★★
@@ -75,18 +83,23 @@ function VendorDetailCTR() {
                             Overview
                         </h3>
                         <p className="max-w-[553px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Porro accusamus quo animi distinctio nulla
-                            unde vero voluptatibus, laborum officia nisi.
+                            {procuretech.overview}
                         </p>
                     </div>
                     <div className="flex justify-center items-center w-full md:w-auto">
-                        <Image
+                        {/* <Image
                             className="w-[250px] md:w-[451px] h-[145px] md:h-[145px] object-contain"
-                            src={"/images/bussiness-hub/procuretech-solution/procuretech-solution-detail/stcicon1.png"}
-                            alt={"member"}
+                            src={procuretech.img || "/images/default-rectangle.webp"}
+                            alt="member"
                             width={451}
                             height={145}
+                        /> */}
+                        <Image
+                            className="rounded-md w-[250px] md:w-[451px] h-[145px] md:h-[145px] object-cover my-2"
+                            src={procuretech.img || "/images/default-rectangle.webp"}
+                            alt={"Procure tech solution"}
+                            width={160}
+                            height={160}
                         />
                     </div>
                 </div>
