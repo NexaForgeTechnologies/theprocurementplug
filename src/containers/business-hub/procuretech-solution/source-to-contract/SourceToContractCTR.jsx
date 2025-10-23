@@ -12,7 +12,6 @@ import Breadcrumb from "@/components/BreadCrumbs";
 
 function ConsultantPartnerCTR() {
   const { procuretechSolutions } = useProcuretech(1);
-  console.log(procuretechSolutions);
 
   const { data: deployment_models } = useGenericTable("deployment_model");
   const { data: pricing_models } = useGenericTable("pricing_model");

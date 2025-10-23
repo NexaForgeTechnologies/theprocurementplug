@@ -95,7 +95,7 @@ export class ProcureTechRepo {
       type_id: row.type_id,
       type_name: row.type_name,
       overview: row.overview,
-      key_features: row.key_features ? JSON.parse(row.key_features) : [],
+      key_features: row.key_features || [],
       develpment: row.develpment || "",
       integration: row.integration || "",
       pricing: row.pricing || "",
