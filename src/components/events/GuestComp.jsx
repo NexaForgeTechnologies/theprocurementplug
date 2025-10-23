@@ -12,7 +12,7 @@ function GuessComp({ data }) {
       >
         <Image
           className="rounded-full w-32 h-32 object-cover"
-          src={data.img || "/images/events/consultant-alternate.png"}
+          src={data.img || "/images/default-circle.png"}
           alt={"speaker img"}
           width={130}
           height={130}
