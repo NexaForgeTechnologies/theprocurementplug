@@ -12,8 +12,6 @@ import { useLegalStore } from "@/store/LegalComplianceStore";
 
 function ConsultantPartnerCTR() {
   const legal = useLegalStore((state) => state.legal);
-  console.log(legal);
-
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
