@@ -11,6 +11,7 @@ import { useLegalStore } from "@/store/LegalComplianceStore";
 
 function ConsultantPartnerCTR() {
     const legal = useLegalStore((state) => state.legal);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     if (!legal) {
         return (
             <div className="max-w-[1200px] m-auto text-center p-8">
@@ -21,7 +22,7 @@ function ConsultantPartnerCTR() {
         );
     }
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const partnerWithUs = {
         Partnerheader: {
             crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
