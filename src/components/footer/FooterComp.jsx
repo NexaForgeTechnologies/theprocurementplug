@@ -319,23 +319,13 @@ const Footer = () => {
 
         {/* Dynamic Columns */}
         {[
-          // {
-          //   title: "Quick Links",
-          //   links: [
-          //     { name: "Personal Development Hub", href: '/personaldevelopmenthub' },
-          //     { name: "Business Hub", href: "/business-hub" },
-          //     { name: "The Procurement Concierge", href: "/concierge" },
-          //     { name: "Community Hub", href: null },
-          //     { name: "VIP Business Lounge", href: "/business-hub/vip-lounge" },
-          //   ],
-          // },
           {
             title: "Quick Links",
             links: [
               { name: "The Plug Career and Personal Growth Hub", href: '/personaldevelopmenthub' },
               { name: "The Plug Business Hub", href: "/business-hub" },
               { name: "The Procurement Concierge", href: "/concierge" },
-              { name: "The Plug Community Hub", href: null },
+              { name: "The Plug Community Hub", href: "/the-plug-community-hub" },
               { name: "The Plug Resources Hub", href: null },
               { name: "The Plug Social Value Hub", href: null },
               { name: "The Plug Academy ", href: null },

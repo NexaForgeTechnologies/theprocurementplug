@@ -140,7 +140,16 @@ const HeaderComp = () => {
                   >
                     The Plug Job Board
                   </Link>
-                </li>              
+                </li>       
+                <li>
+                  <Link
+                    href="/the-plug-community-hub"
+                    className="block px-4 py-2 text-sm text-black hover:bg-white/40 hover:text-[#85009D] border-b border-white/30 whitespace-nowrap transition-all duration-200 font-semibold"
+                    onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+                  >
+                    Community Hub
+                  </Link>
+                </li>           
               </ul>
 
 
@@ -227,6 +236,13 @@ const HeaderComp = () => {
                   onClick={() => handleLinkClick("/business-hub/vip-lounge")}
                 >
                   └ VIP Business Lounge
+                </Link>
+                <Link
+                  href="/the-plug-community-hub"
+                  className="ml-4 mt-2 text-sm font-normal hover:text-[#85009D]"
+                  onClick={() => handleLinkClick("/business-hub/vip-lounge")}
+                >
+                  └ Community Hub
                 </Link>
               </div>
             </li>
