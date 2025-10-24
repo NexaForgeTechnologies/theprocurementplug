@@ -52,16 +52,18 @@ export default function JobListing() {
 
     return (
         <>
-            <HeroCTR
-                img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/job-listing/herosection.png"
-                heading={
-                    <span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Job Listing page</span>
-                    </span>}
-                para={`Your Gateway to Procurement Career Growth & Talent Discovery`}
-            />
-            <Breadcrumb />
-            <JobListingCTR />
+            <section>
+                <HeroCTR
+                    img="/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/the-plug-job-board/job-listing/herosection.png"
+                    heading={
+                        <span className='flex flex-col gap-0 leading-none'>
+                            <span className="font-extrabold">Job Listing page</span>
+                        </span>}
+                    para={`Your Gateway to Procurement Career Growth & Talent Discovery`}
+                />
+                <Breadcrumb />
+                <JobListingCTR />
+            </section>
             <PartnerWithUsComp data={partnerWithUs} />
         </>
     )
