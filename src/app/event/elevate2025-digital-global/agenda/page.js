@@ -143,83 +143,83 @@ export default function Home() {
         }
     };
 
-    const generatePDF = () => {
-        const doc = new jsPDF();
-        const itemsPerPage = 5;
-        const padding = 15;
-        const pageWidth = 210;
-        const pageHeight = 297;
-        const contentWidth = pageWidth - 2 * padding;
+    // const generatePDF = () => {
+    //     const doc = new jsPDF();
+    //     const itemsPerPage = 5;
+    //     const padding = 15;
+    //     const pageWidth = 210;
+    //     const pageHeight = 297;
+    //     const contentWidth = pageWidth - 2 * padding;
 
-        for (let page = 0; page < Math.ceil(agendaItems.length / itemsPerPage); page++) {
-            if (page > 0) doc.addPage();
-            let yOffset = padding;
+    //     for (let page = 0; page < Math.ceil(agendaItems.length / itemsPerPage); page++) {
+    //         if (page > 0) doc.addPage();
+    //         let yOffset = padding;
 
-            // Header
-            doc.setFont("Helvetica", "bold");
-            doc.setFontSize(36);
-            doc.setTextColor(133, 0, 157);
-            doc.text("ELEVATE 2025", padding + contentWidth / 2, yOffset, { align: "center" });
-            yOffset += 12;
-            doc.setFont("Helvetica", "normal");
-            doc.setFontSize(12);
-            doc.setTextColor(96, 96, 96);
-            doc.text("PROCUREMENT CAREER & INNOVATION SUMMIT", padding + contentWidth / 2, yOffset, { align: "center" });
-            yOffset += 8;
-            doc.text("25 JUNE 2026 | Digital Global Edition, UK", padding + contentWidth / 2, yOffset, { align: "center" });
-            yOffset += 10;
-            doc.setDrawColor(133, 0, 157);
-            doc.line(padding, yOffset, pageWidth - padding, yOffset);
-            yOffset += 16;
+    //         // Header
+    //         doc.setFont("Helvetica", "bold");
+    //         doc.setFontSize(36);
+    //         doc.setTextColor(133, 0, 157);
+    //         doc.text("ELEVATE 2025", padding + contentWidth / 2, yOffset, { align: "center" });
+    //         yOffset += 12;
+    //         doc.setFont("Helvetica", "normal");
+    //         doc.setFontSize(12);
+    //         doc.setTextColor(96, 96, 96);
+    //         doc.text("PROCUREMENT CAREER & INNOVATION SUMMIT", padding + contentWidth / 2, yOffset, { align: "center" });
+    //         yOffset += 8;
+    //         doc.text("25 JUNE 2026 | Digital Global Edition, UK", padding + contentWidth / 2, yOffset, { align: "center" });
+    //         yOffset += 10;
+    //         doc.setDrawColor(133, 0, 157);
+    //         doc.line(padding, yOffset, pageWidth - padding, yOffset);
+    //         yOffset += 16;
 
-            // Agenda Items
-            const startIndex = page * itemsPerPage;
-            const pageItems = agendaItems.slice(startIndex, startIndex + itemsPerPage);
-            pageItems.forEach((item) => {
-                doc.setFontSize(12);
-                doc.setTextColor(176, 141, 87);
-                doc.setFont("Helvetica", "bold");
-                doc.text(item.time, padding, yOffset);
+    //         // Agenda Items
+    //         const startIndex = page * itemsPerPage;
+    //         const pageItems = agendaItems.slice(startIndex, startIndex + itemsPerPage);
+    //         pageItems.forEach((item) => {
+    //             doc.setFontSize(12);
+    //             doc.setTextColor(176, 141, 87);
+    //             doc.setFont("Helvetica", "bold");
+    //             doc.text(item.time, padding, yOffset);
 
-                doc.setTextColor(133, 0, 157);
-                doc.setFont("Helvetica", "bold");
-                const titleWidth = contentWidth - 45;
-                const titleLines = doc.splitTextToSize(item.title, titleWidth);
-                doc.text(titleLines, padding + 45, yOffset);
-                yOffset += titleLines.length * 6 + 2;
+    //             doc.setTextColor(133, 0, 157);
+    //             doc.setFont("Helvetica", "bold");
+    //             const titleWidth = contentWidth - 45;
+    //             const titleLines = doc.splitTextToSize(item.title, titleWidth);
+    //             doc.text(titleLines, padding + 45, yOffset);
+    //             yOffset += titleLines.length * 6 + 2;
 
-                doc.setTextColor(54, 54, 54);
-                doc.setFont("Helvetica", "normal");
-                if (item.description) {
-                    const descriptionLines = doc.splitTextToSize(item.description, titleWidth);
-                    doc.text(descriptionLines, padding + 45, yOffset);
-                    yOffset += descriptionLines.length * 6 + 4;
-                }
+    //             doc.setTextColor(54, 54, 54);
+    //             doc.setFont("Helvetica", "normal");
+    //             if (item.description) {
+    //                 const descriptionLines = doc.splitTextToSize(item.description, titleWidth);
+    //                 doc.text(descriptionLines, padding + 45, yOffset);
+    //                 yOffset += descriptionLines.length * 6 + 4;
+    //             }
 
-                if (item.speakers) {
-                    const speakerWidth = titleWidth;
-                    const speakerLines = doc.splitTextToSize(`${item.speakers}`, speakerWidth);
-                    doc.text(speakerLines, padding + 45, yOffset);
-                    yOffset += speakerLines.length * 6 + 2;
-                }
+    //             if (item.speakers) {
+    //                 const speakerWidth = titleWidth;
+    //                 const speakerLines = doc.splitTextToSize(`${item.speakers}`, speakerWidth);
+    //                 doc.text(speakerLines, padding + 45, yOffset);
+    //                 yOffset += speakerLines.length * 6 + 2;
+    //             }
 
-                if (item.moderator) {
-                    doc.text(`${item.moderator}`, padding + 45, yOffset);
-                    yOffset += 6;
-                }
+    //             if (item.moderator) {
+    //                 doc.text(`${item.moderator}`, padding + 45, yOffset);
+    //                 yOffset += 6;
+    //             }
 
-                yOffset += 12;
-            });
+    //             yOffset += 12;
+    //         });
 
-            // Footer
-            doc.setFontSize(10);
-            doc.setTextColor(96, 96, 96);
-            // doc.text("hello@theprocurementplug.com | +44 7447 163285", padding, pageHeight - padding);
-            doc.text("© 2025 The Procurement Plug. All rights reserved", pageWidth - padding, pageHeight - padding, { align: "right" });
-        }
+    //         // Footer
+    //         doc.setFontSize(10);
+    //         doc.setTextColor(96, 96, 96);
+    //         // doc.text("hello@theprocurementplug.com | +44 7447 163285", padding, pageHeight - padding);
+    //         doc.text("© 2025 The Procurement Plug. All rights reserved", pageWidth - padding, pageHeight - padding, { align: "right" });
+    //     }
 
-        doc.save("Elevate_2025_Agenda.pdf");
-    };
+    //     doc.save("Elevate_2025_Agenda.pdf");
+    // };
     return (
         <div className=" w-full flex flex-col items-center">
             <main className="flex-1">
@@ -253,14 +253,22 @@ export default function Home() {
                                 </button>
                             </div>
                         </div>
-                        <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
+                        // <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
+                        //     <button
+                        //         onClick={generatePDF}
+                        //         className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
+                        //     >
+                        //         Download PDF
+                        //     </button>
+                        // </div>
+                            <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
                             <button
-                                onClick={generatePDF}
+                                onClick={() => alert("Available Soon")}
                                 className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
                             >
                                 Download PDF
                             </button>
-                        </div>
+                        </div>             
                     </div>
                     <div className="mt-4 p-2 bg-white rounded">
                         <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2026</h3>
