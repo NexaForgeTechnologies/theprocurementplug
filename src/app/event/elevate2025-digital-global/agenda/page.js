@@ -253,22 +253,22 @@ export default function Home() {
                                 </button>
                             </div>
                         </div>
-                        // <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
-                        //     <button
-                        //         onClick={generatePDF}
-                        //         className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
-                        //     >
-                        //         Download PDF
-                        //     </button>
-                        // </div>
-                            <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
+                        {/*<div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
+                             <button
+                                 onClick={generatePDF}
+                                 className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
+                             >
+                                 Download PDF
+                             </button>
+                         </div> */}
+                        <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
                             <button
                                 onClick={() => alert("Available Soon")}
                                 className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
                             >
                                 Download PDF
                             </button>
-                        </div>             
+                        </div>
                     </div>
                     <div className="mt-4 p-2 bg-white rounded">
                         <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2026</h3>
