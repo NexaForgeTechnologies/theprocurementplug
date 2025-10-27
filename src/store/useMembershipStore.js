@@ -14,7 +14,7 @@ const useMembershipStore = create(
             price: "Free",
             period: "",
             btnName: "Select",
-            href: "/personaldevelopmenthub/membershipplans/payment-checkout",
+            href: "/personal-development-hub/membership-plans/payment-checkout",
             data: [
               { title: "Your first step into the growth ecosystem", para: "" },
               { title: "My Elevate Bloom Journal", para: "capture insights & commitments from events" },
@@ -33,7 +33,7 @@ const useMembershipStore = create(
             price: "£25.99",
             period: "/ Month",
             btnName: "Select",
-            href: "/personaldevelopmenthub/membershipplans/payment-checkout",
+            href: "/personal-development-hub/membership-plans/payment-checkout",
             data: [
               { title: "Expand your skills, network, and career opportunities", para: "" },
               { title: "Everything in Free", para: "plus" },
@@ -53,7 +53,7 @@ const useMembershipStore = create(
             price: "£34.99",
             period: "/ Month",
             btnName: "Select",
-            href: "/personaldevelopmenthub/membershipplans/payment-checkout",
+            href: "/personal-development-hub/membership-plans/payment-checkout",
             data: [
               { title: "Reach the peak of procurement excellence and leadership", para: "" },
               { title: "Everything in Grower", para: "plus" },
@@ -74,7 +74,7 @@ const useMembershipStore = create(
             price: "Custom Pricing",
             period: "",
             btnName: "Learn More",
-            href: "/personaldevelopmenthub/membershipplans/plugenterprise",
+            href: "/personal-development-hub/membership-plans/plug-enterprise",
             data: [
               { title: "For companies investing in procurement team growth & strategic capability.", para: "" },
               { para: "All benefits of Plug Ascend for each user" },
@@ -94,7 +94,7 @@ const useMembershipStore = create(
             price: "Free",
             period: "",
             btnName: "Select",
-            href: "/personaldevelopmenthub/membershipplans/payment-checkout",
+            href: "/personal-development-hub/membership-plans/payment-checkout",
             data: [
               { title: "Your first step into the growth ecosystem", para: "" },
               { title: "My Elevate Bloom Journal", para: "capture insights & commitments from events" },
@@ -113,7 +113,7 @@ const useMembershipStore = create(
             price: "£280.69",
             period: "/ Annual",
             btnName: "Select",
-            href: "/personaldevelopmenthub/membershipplans/payment-checkout",
+            href: "/personal-development-hub/membership-plans/payment-checkout",
             data: [
               { title: "Expand your skills, network, and career opportunities", para: "" },
               { title: "Everything in Free", para: "plus" },
@@ -133,7 +133,7 @@ const useMembershipStore = create(
             price: "£377.89",
             period: "/ Annual",
             btnName: "Select",
-            href: "/personaldevelopmenthub/membershipplans/payment-checkout",
+            href: "/personal-development-hub/membership-plans/payment-checkout",
             data: [
               { title: "Reach the peak of procurement excellence and leadership", para: "" },
               { title: "Everything in Grower", para: "plus" },
@@ -154,7 +154,7 @@ const useMembershipStore = create(
             price: "Custom Pricing",
             period: "",
             btnName: "Learn More",
-            href: "/personaldevelopmenthub/membershipplans/plugenterprise",
+            href: "/personal-development-hub/membership-plans/plug-enterprise",
             data: [
               { title: "For companies investing in procurement team growth & strategic capability.", para: "" },
               { para: "All benefits of Plug Ascend for each user" },

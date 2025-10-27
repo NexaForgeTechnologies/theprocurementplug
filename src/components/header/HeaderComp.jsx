@@ -125,7 +125,7 @@ const HeaderComp = () => {
                 </li>
                 <li>
                   <Link
-                    href="/personaldevelopmenthub"
+                    href="/personal-development-hub"
                     className="block px-4 py-2 text-sm text-black hover:bg-white/40 hover:text-[#85009D] border-b border-white/30 whitespace-nowrap transition-all duration-200 font-semibold"
                     onClick={() => handleLinkClick("/business-hub/vip-lounge")}
                   >

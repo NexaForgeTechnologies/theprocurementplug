@@ -322,7 +322,7 @@ const Footer = () => {
           {
             title: "Quick Links",
             links: [
-              { name: "The Plug Career and Personal Growth Hub", href: '/personaldevelopmenthub' },
+              { name: "The Plug Career and Personal Growth Hub", href: '/personal-development-hub' },
               { name: "The Plug Business Hub", href: "/business-hub" },
               { name: "The Procurement Concierge", href: "/concierge" },
               { name: "The Plug Community Hub", href: "/the-plug-community-hub" },
