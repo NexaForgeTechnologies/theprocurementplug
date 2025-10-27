@@ -172,7 +172,7 @@ const HeaderComp = () => {
                     href="/event/elevate2025-digital-global"
                     className="block py-2 text-white hover:text-[#85009D]"
                   >
-                    Elevate 2026 - Digital Global Edition
+                    Elevate 2026 - Digital Global
                   </Link>
                   <Link
                     href="/event/boardroom-preparedness-for-senior-procurement-professionals"
@@ -268,7 +268,7 @@ const HeaderComp = () => {
                     href="/event/elevate2025-digital-global"
                     className="block text-white hover:text-[#85009D]"
                   >
-                    Elevate 2026 - Digital Global Edition
+                    Elevate 2026 - Digital Global
                   </Link>
                   <Link
                     href="/event/boardroom-preparedness-for-senior-procurement-professionals"
