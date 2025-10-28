@@ -16,7 +16,7 @@ export default function ConsultantDetailClient() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const partnerWithUs = {
     Partnerheader: {
-      crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
+      crossSellh3: "Thought Leadership Zone",
       h3: "",
       p: "",
     },
