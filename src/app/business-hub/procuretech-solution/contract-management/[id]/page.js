@@ -11,8 +11,10 @@ import Breadcrumb from "@/components/BreadCrumbs";
 import { useProcureTechStore } from "@/store/ProcuretechStore";
 
 function VendorDetailCTR() {
-  const procuretech = useProcureTechStore((state) => state.procuretech);
+  const [isDownloadOpen, setIsDownloadOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const procuretech = useProcureTechStore((state) => state.procuretech);
   if (!procuretech) {
     return (
       <div className="max-w-[1200px] m-auto text-center p-8">
@@ -23,8 +25,6 @@ function VendorDetailCTR() {
     );
   }
 
-  const [isDownloadOpen, setIsDownloadOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const partnerWithUs = {
     Partnerheader: {
       crossSellh3: "Cross Sell the Collaboration and Thought Leadership Zone",
@@ -106,7 +106,7 @@ function VendorDetailCTR() {
             Key Features
           </h3>
           {procuretech.key_features.map((feature, index) => (
-            <div className="flex gap-2 md:gap-4 items-start mb-4">
+            <div key={index} className="flex gap-2 md:gap-4 items-start mb-4">
               <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[3px] md:mt-[5px] shrink-0"></div>
               <div>
                 <p className="text-[16px] md:text-[20px] text-[#1B1B1B]">{feature}</p>

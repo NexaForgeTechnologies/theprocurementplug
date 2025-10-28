@@ -134,6 +134,7 @@ function ConsultantPartnerCTR() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 justify-items-center">
           {legal.company_logo.map((logo, index) => (
             <Image
+              key={index}
               className="w-[200px] md:w-[321px] md:h-[103px] object-contain"
               src={logo}
               alt={"member"}
@@ -167,7 +168,7 @@ function ConsultantPartnerCTR() {
           Services
         </h3>
         <div className="flex gap-2 md:gap-4 items-start mb-4">
-          {legal.services.map((service, index) => (
+          {legal.services.map((service) => (
             <>
               <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
               <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">{service}</p>
@@ -179,7 +180,7 @@ function ConsultantPartnerCTR() {
           Sample Templates
         </h3>
         <div className="flex gap-2 md:gap-4 items-start mb-4">
-          {legal.sample_templates.map((template, index) => (
+          {legal.sample_templates.map((template) => (
             <>
               <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
               <p className="text-[20px] md:text-[24px] text-[#1B1B1B]">{template}</p>
