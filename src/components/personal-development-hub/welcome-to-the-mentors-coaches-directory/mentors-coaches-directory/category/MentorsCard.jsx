@@ -1,6 +1,7 @@
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
+import Link from "next/link";
 
-export default function MentorsCard({ src, title, btnName = "View Details" }) {
+export default function MentorsCard({ src, title, btnName = "View Details", href }) {
     return (
         <>
             <div className="border border-[#DBBB89] bg-[#FFFBF5] p-4 flex flex-col gap-y-3 rounded-md">
@@ -35,14 +36,27 @@ export default function MentorsCard({ src, title, btnName = "View Details" }) {
                 <p className="max-w-[954px] text-sm md:text-base text-[#808080]">
                     Seasoned Six Sigma expert wuyth a track rec-minizing manufacturing processes,
                 </p>
-                <ArrowButtonCom
-                    text={btnName}
-                    bgColor="bg-[#B08D57]"
-                    textColor="text-white self-start mt-auto"
-                    hoverBgColor="hover:bg-[white]"
-                    hoverTextColor="hover:text-[#B08D57]"
-                    borderColor="border-[#B08D57]"
-                />
+                {href ? (
+                    <Link href={href} className="self-start mt-auto">
+                        <ArrowButtonCom
+                            text={btnName}
+                            bgColor="bg-[#B08D57]"
+                            textColor="text-white"
+                            hoverBgColor="hover:bg-[white]"
+                            hoverTextColor="hover:text-[#B08D57]"
+                            borderColor="border-[#B08D57]"
+                        />
+                    </Link>
+                ) : (
+                    <ArrowButtonCom
+                        text={btnName}
+                        bgColor="bg-[#B08D57]"
+                        textColor="text-white self-start mt-auto"
+                        hoverBgColor="hover:bg-[white]"
+                        hoverTextColor="hover:text-[#B08D57]"
+                        borderColor="border-[#B08D57]"
+                    />
+                )}
             </div>
         </>
     )
