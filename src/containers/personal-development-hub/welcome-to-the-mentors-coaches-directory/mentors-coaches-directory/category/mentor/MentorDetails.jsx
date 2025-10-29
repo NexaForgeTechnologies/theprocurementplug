@@ -4,8 +4,10 @@ import InfoTile from "./InfoTitle";
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 import BookIntroCall from "@/components/forms/personal-development-hub/BookIntroCallForm";
 import { useState } from "react";
+import RequestMentoringSession from "@/components/forms/personal-development-hub/RequestMentoringSession";
 export default function MentorDetails() {
     const [isBookIntroCall, setisBookIntroCall] = useState(false)
+    const [isMentoringSession, setisMentoringSession] = useState(false)
     return (
         <>
             <InfoTile
@@ -43,7 +45,7 @@ export default function MentorDetails() {
                             borderColor="border-[#B08D57]"
                         />
                     </div>
-                    <div onClick={() => alert("Boom Form Opened")}>
+                    <div onClick={() => setisMentoringSession(!isMentoringSession)}>
                         <ArrowButtonCom
                             text="Request Mentoring Session"
                             bgColor="bg-white"
@@ -55,6 +57,7 @@ export default function MentorDetails() {
                     </div>
                 </div>
                 <BookIntroCall isOpen={isBookIntroCall} onClose={() => setisBookIntroCall(false)} />
+                <RequestMentoringSession isOpen={isMentoringSession} onClose={() => setisMentoringSession(false)} />
             </section>
         </>
     )
