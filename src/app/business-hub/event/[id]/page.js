@@ -42,7 +42,6 @@ import { useEventStore } from '@/store/eventStore'
 
 function Page() {
     const event = useEventStore((state) => state.event);
-    console.log(event);
 
     // Check Workshops exists and has valid data
     const workshops = Array.isArray(event.workshops) ? event.workshops : JSON.parse(event.workshops || "[]");

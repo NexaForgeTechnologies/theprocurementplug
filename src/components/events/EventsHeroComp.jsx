@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 function EventsHeroComp({ data }) {
+
   const collaborationImages = Array.isArray(data.collaboration)
     ? data.collaboration
     : JSON.parse(data.collaboration || "[]");
@@ -45,13 +46,19 @@ function EventsHeroComp({ data }) {
                 <h2 className="font-extrabold text-xl md:text-3xl">
                   In Collaboration with:
                 </h2>
-                <Image
-                  width={250}
-                  height={70}
-                  className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
-                  src={collaborationImages || ""}
-                  alt="collaboration"
-                />
+                <div className="flex items-center gap-2">
+                  {collaborationImages.map((imgSrc, index) => (
+                    <Image
+                      key={index}
+                      src={imgSrc}
+                      alt="collaboration"
+                      width={250}
+                      height={70}
+                      unoptimized
+                      className="bg-white max-w-[240px] md:max-w-[400px] mt-4"
+                    />
+                  ))}
+                </div>
               </div>
             )}
 
