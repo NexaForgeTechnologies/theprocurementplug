@@ -200,7 +200,7 @@ function ExclusiveBusinessPartnersCTR() {
               <input
                 type="text"
                 placeholder="Search"
-                className="border border-[#85009D] rounded-[6px] py-2 px-3 pr-10 text-[#1b1b1b] flex-2 focus:outline-none focus:border-[#85009D]"
+                className="border border-[#85009D] rounded py-2 px-3 pr-10 text-[#1b1b1b] flex-2 focus:outline-none focus:border-[#85009D]"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
@@ -212,7 +212,7 @@ function ExclusiveBusinessPartnersCTR() {
             {/* Category */}
             <div className="relative w-full flex-1">
               <select
-                className="appearance-none border border-[#85009D] rounded-[6px] py-2 px-3 pr-10 text-[#1b1b1b] w-full focus:outline-none focus:border-[#85009D]"
+                className="appearance-none border border-[#85009D] rounded py-2 px-3 pr-10 text-[#1b1b1b] w-full focus:outline-none focus:border-[#85009D]"
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
               >

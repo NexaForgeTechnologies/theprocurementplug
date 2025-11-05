@@ -34,7 +34,6 @@ function ConsultingPartnerTile({ heading, para, category, btntext, bigimg, url =
             {category}
           </p>
         )}
-
         {btntext && (
           BtnLink && typeof BtnLink === "string" ? (
             // If BtnLink is a URL string, render a link
