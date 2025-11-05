@@ -21,7 +21,7 @@ function ConsultingPartnerTile({ heading, para, description, category, btntext, 
             alt="logo"
             width={250}
             height={153}
-            className="w-full max-w-[250px] h-auto md:w-full"
+            className="w-full max-w-[150px] h-auto md:w-full"
             style={{ height: 'auto' }}
           />
         </div>

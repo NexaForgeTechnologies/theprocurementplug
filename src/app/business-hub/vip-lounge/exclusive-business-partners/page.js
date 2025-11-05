@@ -78,8 +78,8 @@ function page() {
                 <HeroCTR
                     img="/images/bussiness-hub/vip-lounge/exclusive-business-partners/herosection.png"
                     heading={
-                        <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold whitespace-nowrap">Exclusive Business partner</span>
+                        <span className="flex flex-col gap-0 leading-none break-all">
+                            <span className="font-extrabold whitespace-nowrap break-all ">Exclusive <br/> Business partner</span>
                         </span>
                     }
                     para="An Exclusive Business Partner enjoys priority
