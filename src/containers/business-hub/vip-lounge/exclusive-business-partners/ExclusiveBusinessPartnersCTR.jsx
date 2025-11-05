@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from "next/image";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/exclusive-business-partners/ConsultingPartnerTile";
 import IconComponent from "@/components/icon/Icon";
@@ -14,6 +14,7 @@ function ExclusiveBusinessPartnersCTR() {
     const [title, setTitle] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const [selectedPartner, setSelectedPartner] = useState(null);
+    const [partners, setPartners] = useState([]);
 
     const openPopup = (partner) => {
         setSelectedPartner(partner);
@@ -24,6 +25,31 @@ function ExclusiveBusinessPartnersCTR() {
         setIsOpen(false);
         setSelectedPartner(null);
     };
+
+    useEffect(() => {
+        const getAllPartners = async () => {
+            try {
+                const res = await fetch('/api/business-hub/vip-lounge/exclusive-business-partners', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' },
+                });
+
+                if (!res.ok) {
+                    throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+
+                const data = await res.json();
+                console.log("Fetched partners:", data);
+
+                setPartners(data.data); // ✅ only set the array of partners
+            } catch (error) {
+                console.error("❌ Error fetching partners:", error);
+            }
+        };
+
+        getAllPartners();
+    }, []);
+
 
     const slides = [
         {
@@ -68,28 +94,28 @@ function ExclusiveBusinessPartnersCTR() {
             category: "ecommerce",
             btntext: "View More",
             url: "",
-            href:"/",
+            href: "/",
         },
-        {
-            id: 2,
-            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png",
-            heading: "NetSecurex",
-            tagline: "Tagline: Guarding Your Digital World",
-            category: "cybersecurity",
-            btntext: "View More",
-            url: "",
-            href:"/",
-        },
-        {
-            id: 3,
-            bigimg: "/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png",
-            heading: "Naturally Forever",
-            tagline: "Tagline: Naturally Forever",
-            category: "sustainable",
-            btntext: "View More",
-            url: "",
-            href:"/",
-        },
+        // {
+        //     id: 2,
+        //     bigimg: "/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png",
+        //     heading: "NetSecurex",
+        //     tagline: "Tagline: Guarding Your Digital World",
+        //     category: "cybersecurity",
+        //     btntext: "View More",
+        //     url: "",
+        //     href: "/",
+        // },
+        // {
+        //     id: 3,
+        //     bigimg: "/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png",
+        //     heading: "Naturally Forever",
+        //     tagline: "Tagline: Naturally Forever",
+        //     category: "sustainable",
+        //     btntext: "View More",
+        //     url: "",
+        //     href: "/",
+        // },
     ];
 
     const [searchQuery, setSearchQuery] = useState('');
@@ -187,6 +213,7 @@ function ExclusiveBusinessPartnersCTR() {
                         onClick={() => handleDotClick(index)}
                     ></button>
                 ))}
+
             </div>
             {/*  */}
             <div className="flex flex-col lg:flex-row  gap-4 mb-4 md:mb-8">
@@ -221,6 +248,23 @@ function ExclusiveBusinessPartnersCTR() {
                             </div>
                         </div>
                     </div>
+                    {partners.length > 0 ? (
+                        partners.map((partner) => (
+                            <ConsultingPartnerTile
+                                key={partner.id}
+                                bigimg={partner.logo}       // logo from API
+                                heading={partner.title}     // title from API
+                                para={partner.tagline}      // tagline
+                                category={`Category: ${categoryLabels[partner.category]}`} // if category exists
+                                btntext="View More"
+                                url="#"
+                                BtnLink={() => openPopup(partner)}
+                            />
+                        ))
+                    ) : (
+                        <p className="text-[#9D9D9D]">No partners found.</p>
+                    )}
+
                     {filteredCollaboration.length > 0 ? (
                         filteredCollaboration.map((partner) => (
                             <ConsultingPartnerTile
@@ -231,7 +275,7 @@ function ExclusiveBusinessPartnersCTR() {
                                 category={`Category: ${categoryLabels[partner.category]}`}
                                 btntext={partner.btntext}
                                 url={partner.url}
-                                BtnLink={() => openPopup(partner)} // ✅ works fine now
+                                BtnLink={() => openPopup(partner)}
                             />
                         ))
                     ) : (
@@ -270,7 +314,7 @@ function ExclusiveBusinessPartnersCTR() {
                     </div>
                 </div>
             </div>
-            <WebPopUp isOpen={isOpen} onClose={closePopup} item={selectedPartner}  />
+            <WebPopUp isOpen={isOpen} onClose={closePopup} item={selectedPartner} />
             <RequestIntroForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} title={title} />
         </div>
     );
