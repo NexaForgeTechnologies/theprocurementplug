@@ -183,9 +183,8 @@ function ExclusiveBusinessPartnersCTR() {
         {slides.map((_, index) => (
           <button
             key={index}
-            className={`h-[6px] rounded-[8px] cursor-pointer ${
-              activeIndex === index ? "w-[64px] bg-[#b08d57]" : "w-[20px] bg-[#B08D5766]"
-            }`}
+            className={`h-[6px] rounded-[8px] cursor-pointer ${activeIndex === index ? "w-[64px] bg-[#b08d57]" : "w-[20px] bg-[#B08D5766]"
+              }`}
             onClick={() => handleDotClick(index)}
           ></button>
         ))}
