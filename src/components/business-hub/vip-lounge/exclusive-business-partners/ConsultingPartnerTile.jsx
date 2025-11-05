@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 
-function ConsultingPartnerTile({ heading, para, category, btntext, bigimg, url = "", BtnLink }) {
+function ConsultingPartnerTile({ heading, para, description, category, btntext, bigimg, url = "", BtnLink }) {
   const handleClick = (e) => {
     e.stopPropagation(); // prevent bubbling
     if (BtnLink && typeof BtnLink === "function") {
@@ -21,7 +21,7 @@ function ConsultingPartnerTile({ heading, para, category, btntext, bigimg, url =
             alt="logo"
             width={250}
             height={153}
-            className="w-[250px] h-[153px] md:w-full"
+            className="w-[250px] h-[153px] md:w-[50%]"
           />
         </div>
       )}
@@ -29,6 +29,7 @@ function ConsultingPartnerTile({ heading, para, category, btntext, bigimg, url =
       <div className="flex-1 flex flex-col items-center md:items-start gap-4">
         <h2 className="text-xl md:text-2xl font-semibold">{heading}</h2>
         {para && <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff]">{para}</p>}
+        {description && <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff]">{description}</p>}
         {category && (
           <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff] mb-0 md:mb-8">
             {category}

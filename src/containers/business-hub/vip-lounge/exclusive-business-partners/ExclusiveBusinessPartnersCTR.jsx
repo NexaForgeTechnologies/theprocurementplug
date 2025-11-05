@@ -240,6 +240,7 @@ function ExclusiveBusinessPartnersCTR() {
                   bigimg={partner.logo}
                   heading={partner.title}
                   para={`Tagline: ${partner.tagline}`}
+                  description={`Description: ${partner.description}`}
                   category={`Category: ${categoryName}`}
                   btntext="Website Link"
                   BtnLink={partner.website}
