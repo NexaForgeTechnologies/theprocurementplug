@@ -36,20 +36,34 @@ function ConsultingPartnerTile({ heading, para, category, btntext, bigimg, url =
         )}
 
         {btntext && (
-          <button
-            type="button"
-            onClick={handleClick}
-            className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] focus:outline-none"
-          >
-            {btntext}
-            <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-          </button>
+          BtnLink && typeof BtnLink === "string" ? (
+            // If BtnLink is a URL string, render a link
+            <a
+              href={BtnLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] focus:outline-none"
+            >
+              {btntext}
+              <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+            </a>
+          ) : (
+            // Otherwise, call the function (popup)
+            <button
+              type="button"
+              onClick={handleClick}
+              className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] focus:outline-none"
+            >
+              {btntext}
+              <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+            </button>
+          )
         )}
       </div>
     </div>
   );
 
-  // If url is provided and BtnLink is not, make it a link (original behavior preserved)
+  // If url is provided and BtnLink is not, wrap in Next.js Link
   return url && !BtnLink ? <Link href={url}>{content}</Link> : content;
 }
 
