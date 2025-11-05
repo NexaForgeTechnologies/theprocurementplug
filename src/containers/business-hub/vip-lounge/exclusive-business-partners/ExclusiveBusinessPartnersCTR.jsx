@@ -26,6 +26,13 @@ function ExclusiveBusinessPartnersCTR() {
         setSelectedPartner(null);
     };
 
+    const categories = [
+        { id: 1, name: 'Business' },
+        { id: 2, name: 'Retail' },
+        { id: 3, name: 'Construction' },
+        { id: 4, name: 'Public Sector' },
+    ];
+
     useEffect(() => {
         const getAllPartners = async () => {
             try {
@@ -141,7 +148,7 @@ function ExclusiveBusinessPartnersCTR() {
 
                 <div className="flex flex-col md:flex-row items-center gap-4">
                     <Link href={"/business-hub/vip-lounge/exclusive-business-partners/partner-directory"}>
-                        <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                        <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded w-full md:w-auto">
                             View Partner Directory
                             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                         </button>
@@ -153,7 +160,7 @@ function ExclusiveBusinessPartnersCTR() {
                             setTitle("Request an Introduction");
                         }}
 
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded w-full md:w-auto">
                         Request an Introduction
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -163,14 +170,14 @@ function ExclusiveBusinessPartnersCTR() {
                             //     setIsModalOpen(true);
                             //     setTitle("Apply to partner with us");
                             // }}
-                            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded w-full md:w-auto">
                             Apply to Partner with Us
                             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                         </button>
                     </Link>
                 </div>
             </div>
-            <div className="bg-[#85009D] rounded-[6px] gap-6 md:gap-12 flex flex-col lg:flex-row items-center p-5 relative mb-4">
+            <div className="bg-[#85009D] rounded gap-6 md:gap-12 flex flex-col lg:flex-row items-center p-5 relative mb-4">
                 <div className="mt-10 lg:mt-0">
                     <Image
                         src={slides[activeIndex].logoSrc}
@@ -187,7 +194,7 @@ function ExclusiveBusinessPartnersCTR() {
                     <p className="max-w-[850px] text-[16px] md:text-[20px] mb-4">
                         {slides[activeIndex].description}
                     </p>
-                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                    <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded w-full md:w-auto">
                         View Profile
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
@@ -265,7 +272,7 @@ function ExclusiveBusinessPartnersCTR() {
                         <p className="text-[#9D9D9D]">No partners found.</p>
                     )}
 
-                    {filteredCollaboration.length > 0 ? (
+                    {/* {filteredCollaboration.length > 0 ? (
                         filteredCollaboration.map((partner) => (
                             <ConsultingPartnerTile
                                 key={partner.id}
@@ -280,36 +287,36 @@ function ExclusiveBusinessPartnersCTR() {
                         ))
                     ) : (
                         <p className="text-[#9D9D9D]">No partners found.</p>
-                    )}
+                    )} */}
 
                 </div>
-                <div className="rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5]  p-5 w-full lg:self-start hover:text-[#ffff] flex-1 mt-0 lg:mt-[89.5px]">
-                    <h3 className="font-semibold text-[24px] md:text-[32px] mb-4 text-[#85009D]">
+                <div className="rounded border border-[#DBBB89] bg-[#FFFBF5]  p-5 w-full lg:self-start hover:text-[#ffff] flex-1 mt-0 lg:mt-[89.5px]">
+                    <h3 className="font-semibold text-[24px] md:text-2xl mb-4 text-[#85009D]">
                         Why Partner with
                         Procurement Plug?
                     </h3>
                     <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                        <div className="w-3 h-3 bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                         <div>
-                            <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Dedicated feature in Business Lounge</p>
+                            <p className="text-base md:text-lg text-[#1B1B1B]">Dedicated feature in Business Lounge</p>
                         </div>
                     </div>
                     <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                        <div className="w-3 h-3 bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                         <div>
-                            <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Monthly lead report (clicks + engagement)</p>
+                            <p className="text-base md:text-lg text-[#1B1B1B]">Monthly lead report (clicks + engagement)</p>
                         </div>
                     </div>
                     <div className="flex gap-2 md:gap-4 items-start mb-4">
-                        <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                        <div className="w-3 h-3 bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                         <div>
-                            <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Sponsored content & co-hosting rights</p>
+                            <p className="text-base md:text-lg text-[#1B1B1B]">Sponsored content & co-hosting rights</p>
                         </div>
                     </div>
                     <div className="flex gap-2 md:gap-4 items-start mb-4 ">
-                        <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+                        <div className="w-3 h-3 bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
                         <div>
-                            <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">VIP event exposure & roundtable slots</p>
+                            <p className="text-base md:text-lg text-[#1B1B1B]">VIP event exposure & roundtable slots</p>
                         </div>
                     </div>
                 </div>

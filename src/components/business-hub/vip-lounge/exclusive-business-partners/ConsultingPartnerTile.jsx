@@ -12,7 +12,7 @@ function ConsultingPartnerTile({ heading, para, category, btntext, bigimg, url =
 
   const content = (
     <div
-      className="w-full rounded-[6px] border border-[#DBBB89] hover:border-[#85009D] bg-[#FFFBF5] hover:bg-[#85009D] p-5 flex flex-col md:flex-row text-center md:text-start justify-between items-center gap-6 text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
+      className="w-full rounded border border-[#DBBB89] hover:border-[#85009D] bg-[#FFFBF5] hover:bg-[#85009D] p-5 flex flex-col md:flex-row text-center md:text-start justify-between items-center gap-6 text-[#85009D] hover:text-white transition-all duration-200 ease-in-out group"
     >
       {bigimg && (
         <div className="flex justify-center md:justify-end">
