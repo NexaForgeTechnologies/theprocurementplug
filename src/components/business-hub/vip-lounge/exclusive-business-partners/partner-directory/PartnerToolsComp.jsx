@@ -30,8 +30,23 @@ export default function PartnerToolsComp({
     return (
         <div className="bg-[#FFFBF5] border border-[#D09B48] p-4 rounded flex flex-col gap-3">
             {/* Logo / Image */}
-            <div className="min-h-40 rounded overflow-hidden w-full">
-                <img src={src} alt={title} className="object-cover w-full" />
+            <div className="relative w-full overflow-hidden rounded">
+                <img
+                    src={src}
+                    alt={title}
+                    className="
+                        w-full
+                        h-40              
+                        sm:h-48           
+                        md:h-56 
+                        lg:h-64           
+                        xl:h-72         
+                        object-contain    
+                        transition-transform
+                        duration-300
+                        hover:scale-105  
+                    "
+                />
             </div>
 
             {/* Title + Category */}
