@@ -37,7 +37,7 @@ export default function PartnerToolsCont() {
                 {partners.map((partner, i) => (
                     <PartnerToolsComp
                         key={i}
-                        src={partner.logo_url || '/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png'}
+                        src={partner.logo || '/images/bussiness-hub/vip-lounge/exclusive-business-partners/categorylogo.png'}
                         title={partner.title}
                         tagline={`${partner.tagline}`}
                         category={`${getCategoryName(partner.category_id)}`}
