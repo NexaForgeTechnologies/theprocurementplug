@@ -229,26 +229,29 @@ function ExclusiveBusinessPartnersCTR() {
 
           {/* Partners List */}
           {filteredPartners.length > 0 ? (
-            filteredPartners.map((partner) => {
-              const categoryKey = categoryIdToKey[Number(partner.category_id)];
-              const categoryName = categoryLabels[categoryKey] || "Unknown Category";
+            filteredPartners
+              .slice(0, 3) // ✅ Only take the first 3 partners
+              .map((partner) => {
+                const categoryKey = categoryIdToKey[Number(partner.category_id)];
+                const categoryName = categoryLabels[categoryKey] || "Unknown Category";
 
-              return (
-                <ConsultingPartnerTile
-                  key={partner.id}
-                  bigimg={partner.logo}
-                  heading={partner.title}
-                  para={`Tagline: ${partner.tagline}`}
-                  description={`Description: ${partner.description}`}
-                  category={`Category: ${categoryName}`}
-                  btntext="Website Link"
-                  BtnLink={partner.website}
-                />
-              );
-            })
+                return (
+                  <ConsultingPartnerTile
+                    key={partner.id}
+                    bigimg={partner.logo}
+                    heading={partner.title}
+                    para={`${partner.tagline}`}
+                    description={`${partner.description}`}
+                    category={`${categoryName}`}
+                    btntext="Website Link"
+                    BtnLink={partner.website}
+                  />
+                );
+              })
           ) : (
             <p className="text-[#9D9D9D]">No partners found.</p>
           )}
+
         </div>
 
         {/* Why Partner Section */}

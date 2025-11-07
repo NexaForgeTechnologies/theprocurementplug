@@ -1,13 +1,43 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 
 function ConsultingPartnerTile({ heading, para, description, category, btntext, bigimg, url = "", BtnLink }) {
+  const [showFullPara, setShowFullPara] = useState(false);
+  const [showFullDesc, setShowFullDesc] = useState(false);
+
   const handleClick = (e) => {
     e.stopPropagation(); // prevent bubbling
     if (BtnLink && typeof BtnLink === "function") {
       BtnLink(); // handle popup toggle or any custom logic
     }
+  };
+
+  // Helper to truncate text and toggle
+  const renderTextWithToggle = (text, showFull, setShowFull) => {
+    if (!text) return null;
+    const limit = 120;
+    const isLong = text.length > limit;
+    const displayedText = showFull || !isLong ? text : text.slice(0, limit) + "...";
+
+    return (
+      <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff] flex flex-col">
+        {displayedText}
+        {isLong && (
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setShowFull(!showFull);
+            }}
+            className="text-[#85009D] group-hover:text-[#DBBB89] font-semibold text-sm mt-1 self-start"
+          >
+            {showFull ? "View Less" : "View More"}
+          </button>
+        )}
+      </p>
+    );
   };
 
   const content = (
@@ -22,23 +52,36 @@ function ConsultingPartnerTile({ heading, para, description, category, btntext, 
             width={250}
             height={153}
             className="w-full max-w-[150px] h-auto md:w-full"
-            style={{ height: 'auto' }}
+            style={{ height: "auto" }}
           />
         </div>
       )}
 
       <div className="flex-1 flex flex-col items-center md:items-start gap-4">
         <h2 className="text-xl md:text-2xl font-semibold">{heading}</h2>
-        {para && <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff]">{para}</p>}
-        {description && <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff]">{description}</p>}
+
+        {para && (
+          <div className="flex flex-col">
+            <span className="font-medium">Tagline:</span>
+            {renderTextWithToggle(para, showFullPara, setShowFullPara)}
+          </div>
+        )}
+
+        {description && (
+          <div className="flex flex-col">
+            <span className="font-medium">Description:</span>
+            {renderTextWithToggle(description, showFullDesc, setShowFullDesc)}
+          </div>
+        )}
+
         {category && (
-          <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff] mb-0 md:mb-8">
-            {category}
+          <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff] mb-0 md:mb-8 flex flex-col">
+            <span className="font-medium text-[#85009D] group-hover:text-[#ffff]">Category:</span> {category}
           </p>
         )}
+
         {btntext && (
           BtnLink && typeof BtnLink === "string" ? (
-            // If BtnLink is a URL string, render a link
             <a
               href={BtnLink}
               target="_blank"
@@ -49,7 +92,6 @@ function ConsultingPartnerTile({ heading, para, description, category, btntext, 
               <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
             </a>
           ) : (
-            // Otherwise, call the function (popup)
             <button
               type="button"
               onClick={handleClick}
@@ -64,7 +106,6 @@ function ConsultingPartnerTile({ heading, para, description, category, btntext, 
     </div>
   );
 
-  // If url is provided and BtnLink is not, wrap in Next.js Link
   return url && !BtnLink ? <Link href={url}>{content}</Link> : content;
 }
 
