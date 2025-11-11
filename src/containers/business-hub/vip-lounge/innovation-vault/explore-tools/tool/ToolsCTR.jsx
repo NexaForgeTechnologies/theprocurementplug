@@ -1,138 +1,84 @@
-import React from "react";
+"use client";
 
+import React, { useState, useEffect } from "react";
 import ToolComp from "@/components/business-hub/vip-lounge/innovation-vault/explore-tool/ToolComp";
 
 const ToolsCTR = () => {
-  const tools = [
-    {
-      id: 1,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool-video.png",
-      isBeta: false,
-      heading: "This Month’s Highlighted Tool",
-      text: "",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Download Deck",
-    },
-    {
-      id: 2,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
-    {
-      id: 3,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
-    {
-      id: 4,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
-    {
-      id: 5,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
-    {
-      id: 6,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
-    {
-      id: 7,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
-    {
-      id: 8,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
-    {
-      id: 9,
-      img: "/images/bussiness-hub/vip-lounge/innovation-vault/tool.png",
-      isBeta: true,
-      heading: "VaultMetrics",
-      text: "Rapidly capture, refine and organize innovative ideas with collaborative input.",
-      url: "/business-hub/vip-lounge/innovation-vault/explore-tools/tool-profile",
-      urlText: "Request Demo",
-    },
+  const [tools, setTools] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+
+  // Categories for the filter dropdown
+  const categoryOptions = [
+    { id: 1, value: "Live" },
+    { id: 2, value: "Beta Access" },
+    { id: 3, value: "Pilot Open" },
+    { id: 4, value: "In Development - download deck" },
   ];
 
-  const filterOptions = {
-    category: ["All", "Category 1", "Category 2"],
-    stage: [ "live", "beta access", "pilot open", "In development - download Deck"],
-    partner: ["All", "Partner A", "Partner B"],
-    tag: ["All", "Tag 1", "Tag 2"],
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          "/api/business-hub/vip-lounge/innovation-vault/explore-tools"
+        );
+        if (!res.ok) throw new Error("Failed to fetch tools");
+
+        const data = await res.json();
+        console.log(data); // log the API response
+
+        // Map categoryId to category value
+        const mappedData = data.map((tool) => {
+          const category =
+            categoryOptions.find((cat) => cat.id === Number(tool.category_id))?.value ||
+            "No Tag";
+
+          return {
+            ...tool,
+            category,
+          };
+        });
+
+
+        setTools(mappedData);
+      } catch (error) {
+        console.error("Error fetching tools:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  // Filter tools based on selected category
+  const filteredTools =
+    selectedCategory === "All"
+      ? tools
+      : tools.filter((tool) => tool.category === selectedCategory);
+
   return (
-    <>
-      <div>
-        {/* Filter Bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-6 md:my-8">
-          <select className="cursor-pointer border border-purple-500 rounded-md px-2 py-3 text-gray-700">
-            <option>Category</option>
-            {filterOptions.category.map((item, idx) => (
-              <option key={idx}>{item}</option>
-            ))}
-          </select>
-
-          <select className="cursor-pointer border border-purple-500 rounded-md px-2 py-3 text-gray-700">
-            <option>Stage</option>
-            {filterOptions.stage.map((item, idx) => (
-              <option key={idx}>{item}</option>
-            ))}
-          </select>
-
-          <select className="cursor-pointer border border-purple-500 rounded-md px-2 py-3 text-gray-700">
-            <option>Partner</option>
-            {filterOptions.partner.map((item, idx) => (
-              <option key={idx}>{item}</option>
-            ))}
-          </select>
-
-          <select className="cursor-pointer border border-purple-500 rounded-md px-2 py-3 text-gray-700">
-            <option>Tag</option>
-            {filterOptions.tag.map((item, idx) => (
-              <option key={idx}>{item}</option>
-            ))}
-          </select>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-          {tools.map((tool) => (
-            <ToolComp key={tool.id} data={tool} />
+    <div>
+      {/* Filter Bar */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 my-6 md:my-8">
+        <select
+          className="cursor-pointer border border-purple-500 rounded-md px-2 py-3 text-gray-700"
+          value={selectedCategory}
+          onChange={(e) => setSelectedCategory(e.target.value)}
+        >
+          <option value="All">All</option>
+          {categoryOptions.map((cat) => (
+            <option key={cat.id} value={cat.value}>
+              {cat.value}
+            </option>
           ))}
-        </div>
+        </select>
       </div>
-    </>
+
+      {/* Tools Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+        {filteredTools.map((tool) => (
+          <ToolComp key={tool.id} data={tool} />
+        ))}
+      </div>
+    </div>
   );
 };
 

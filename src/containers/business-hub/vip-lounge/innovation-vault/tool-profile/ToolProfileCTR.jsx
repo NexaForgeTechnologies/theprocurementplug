@@ -1,55 +1,63 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-
 import HeroCTR from "@/components/business-hub/vip-lounge/VipHeroSection";
 import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import Image from "next/image";
-
-function Breadcrumb() {
-  return (
-    <nav className="text-sm breadcrumbs my-6 md:my-10">
-      <ol
-        className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
-        <li>
-          <Link href="/business-hub" className="hover:underline">
-            Business Hub
-          </Link>
-        </li>
-        <li>/</li>
-        <li>
-          <Link href="/business-hub/vip-lounge" className="hover:underline">
-            Vip lounge
-          </Link>
-        </li>
-        <li>/</li>
-        <li>
-          <Link
-            href="/business-hub/vip-lounge/innovation-vault"
-            className="hover:underline"
-          >
-            Innovation Vault
-          </Link>
-        </li>
-        <li>/</li>
-        <li>
-          <Link
-            href="/business-hub/vip-lounge/innovation-vault/explore-tools"
-            className="hover:underline"
-          >
-            Explore Innovation Tools
-          </Link>
-        </li>
-        <li>/</li>
-        <li className="text-[#696969] ">VaultMetric Sync</li>
-      </ol>
-    </nav>
-  );
-}
+import { useParams } from "next/navigation";
+import Breadcrumb from "@/components/BreadCrumbs";
 
 const ToolProfileCTR = () => {
+  const [details, setDetails] = useState([]);
+  const params = useParams();
+  const id = params.tools;
+
+  const categoryOptions = [
+    { id: 1, value: "Live" },
+    { id: 2, value: "Beta Access" },
+    { id: 3, value: "Pilot Open" },
+    { id: 4, value: "In Development - download deck" },
+  ];
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          "/api/business-hub/vip-lounge/innovation-vault/explore-tools"
+        );
+        if (!res.ok) throw new Error("Failed to fetch tools");
+
+        const data = await res.json();
+
+        const mappedData = data.map((tool) => ({
+          ...tool,
+          category:
+            categoryOptions.find((cat) => cat.id === Number(tool.category_id))
+              ?.value || "No Tag",
+          key_features: tool.key_features ? JSON.parse(tool.key_features) : [],
+          related_tools: tool.related_tools
+            ? JSON.parse(tool.related_tools) // parse JSON string to array
+            : [], // fallback empty array
+        }));
+
+        setDetails(mappedData);
+      } catch (error) {
+        console.error("Error fetching tools:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const selectedTool = details.find((tool) => tool.id === Number(id));
+
+  if (!selectedTool) {
+    return (
+      <div className="text-center py-20 text-lg">Loading tool details...</div>
+    );
+  }
+
   const partnerWithUs = {
     Partnerheader: {
       h3: "Partner With Us",
@@ -60,159 +68,101 @@ const ToolProfileCTR = () => {
             className="font-semibold text-white hover:underline"
           >
             partnerships@theprocurementplug.com
-          </a> -{' '}
+          </a>{" "}
+          -{" "}
           <Link className="font-light" href="/partnerships">
             Visit our partnership page
           </Link>
         </>
-      )
+      ),
     },
     items: [
-      {
-        id: 1,
-        heading: "Partners hub",
-        text: "",
-        link: "",
-        linkText: "View Details",
-        bgColor: ""
-      },
-      {
-        id: 2,
-        heading: "Events hub",
-        text: "",
-        link: "",
-        linkText: "View Details",
-        bgColor: ""
-      },
-      {
-        id: 3,
-        heading: "Business hub",
-        text: "",
-        link: "",
-        linkText: "View Details",
-        bgColor: ""
-      }
-    ]
-  }
+      { id: 1, heading: "Partners hub", text: "", link: "", linkText: "View Details", bgColor: "" },
+      { id: 2, heading: "Events hub", text: "", link: "", linkText: "View Details", bgColor: "" },
+      { id: 3, heading: "Business hub", text: "", link: "", linkText: "View Details", bgColor: "" },
+    ],
+  };
+
   return (
     <>
       <div className="border-b-2 border-[#85009D] pb-8 sm:pb-12">
         <HeroCTR
-          img="/images/bussiness-hub/vip-lounge/innovation-vault/tool-profile.png"
+          img={selectedTool.heroImg || "/images/bussiness-hub/vip-lounge/innovation-vault/tool-profile.png"}
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">VaultMetric Sync</span>
+              <span className="font-extrabold">{selectedTool.title}</span>
             </span>
           }
-          para="VaultMetric Sync integrates seamlessly with your HR workflows to track and visualise procurement career progression."
+          para={selectedTool.description}
         />
         <Breadcrumb />
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-          VaultMetric Sync
+          {selectedTool.title} - <span className="text-[#85009D]">{selectedTool.category}</span>
         </h3>
-        <p className="md:text-xl text-[#1B1B1B] my-4">
-          VaultMetric Sync integrates seamlessly with your HR workflows to track
-          and visualise procurement career progression.
-        </p>
+        <p className="md:text-xl text-[#1B1B1B] my-4">{selectedTool.description}</p>
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <ArrowButtonCom text="Request Demo" />
-          <ArrowButtonCom text="Apply To Join Pilot" />
-          <ArrowButtonCom text="Visit Partner Website" />
+          <ArrowButtonCom text="Request Demo" link={selectedTool.demoLink || "#"} />
+          <ArrowButtonCom text="Apply To Join Pilot" link={"#"} />
+          <ArrowButtonCom text="Visit Partner Website" link={"#"} />
         </div>
       </div>
 
+      {/* KEY FEATURES */}
       <div>
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B] mb-4">
           KEY FEATURES
         </h3>
-        <div className="grid gap-4 md:place-items-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 border border-[#DBBB89] bg-[#FFFBF5] p-4 rounded-md">
-          <div className="flex gap-2 items-center">
-            <div className="border border-[#85009D] p-4 rounded-full">
-              <Image
-                src="/images/bussiness-hub/vip-lounge/innovation-vault/icon-1.png"
-                alt="img"
-                width={80}
-                height={80}
-                className="object-cover max-w-[50px]"
-              />
+        <div className="space-y-2">
+          {selectedTool.key_features?.map((feature, idx) => (
+            <div key={idx} className="flex gap-2 items-center">
+              <span className="w-[16px] h-[16px] rounded-full bg-[#B08D57]"></span>
+              <p className="text-[#1B1B1B] font-medium">{feature}</p>
             </div>
-            <p className="md:text-xl text-[#1B1B1B] font-medium">
-              AI-Based Learning Milestones
-            </p>
-          </div>
-          <div className="flex gap-2 items-center">
-            <div className="border border-[#85009D] p-4 rounded-full">
-              <Image
-                src="/images/bussiness-hub/vip-lounge/innovation-vault/icon-3.png"
-                alt="img"
-                width={80}
-                height={80}
-                className="object-cover max-w-[50px]"
-              />
-            </div>
-            <p className="md:text-xl text-[#1B1B1B] font-medium">
-              Smart KPI Sync
-            </p>
-          </div>
-          <div className="flex gap-2 items-center">
-            <div className="border border-[#85009D] p-4 rounded-full">
-              <Image
-                src="/images/bussiness-hub/vip-lounge/innovation-vault/icon-2.png"
-                alt="img"
-                width={80}
-                height={80}
-                className="object-cover max-w-[50px]"
-              />
-            </div>
-            <p className="md:text-xl text-[#1B1B1B] font-medium">
-              Performance Dashboard for HR & CPOs
-            </p>
-          </div>
+          ))}
         </div>
       </div>
 
+      {/* BETA SECTION */}
       <div
-        style={{
-          boxShadow: "0 0 0 100vmax #FBE3FF",
-          clipPath: "inset(0 -100vmax)",
-        }}
+        style={{ boxShadow: "0 0 0 100vmax #FBE3FF", clipPath: "inset(0 -100vmax)" }}
         className="flex flex-col items-center md:flex-row gap-6 md:gap-8 bg-[#FBE3FF] text-white py-20"
       >
         <div className="flex-1">
           <div className="mb-6 md:mb-8">
             <h3 className="text-[#85009D] mb-2 font-medium text-2xl md:text-4xl">
-              Currently in Beta
+              Currently in {selectedTool.category}
             </h3>
             <p className="md:text-xl text-[#1B1B1B] font-medium">
-              Accepting enterprise users for pilot access.
+              {selectedTool.category_description}
             </p>
           </div>
-          <h3 className="font-medium text-2xl md:text-4xl text-[#85009D] mb-4">
-            TOOLS OFTEN USED WITH THIS:
-          </h3>
-          <div className="space-y-2">
-            <div className="flex gap-2 items-center">
-              <span className="w-[16px] h-[16px] rounded-full bg-[#B08D57]"></span>
-              <p className="text-[#1B1B1B] font-medium">Talent Xchange</p>
-            </div>
-            <div className="flex gap-2 items-center">
-              <span className="w-[16px] h-[16px] rounded-full bg-[#B08D57]"></span>
-              <p className="text-[#1B1B1B] font-medium">
-                ProcureLytiOS Insight Suite
-              </p>
-            </div>
-            <div className="flex gap-2 items-center">
-              <span className="w-[16px] h-[16px] rounded-full bg-[#B08D57]"></span>
-              <p className="text-[#1B1B1B] font-medium">MyAchieve Sync</p>
+
+          {/* RELATED TOOLS */}
+          <div className="my-8">
+            <h3 className="font-semibold text-xl md:text-2xl text-[#85009D] mb-4">
+              TOOLS OFTEN USED WITH THIS:
+            </h3>
+            <div className="space-y-2">
+              {selectedTool.related_tools?.length > 0 ? (
+                selectedTool.related_tools.map((tool, idx) => (
+                  <div key={idx} className="flex gap-2 items-center">
+                    <span className="w-[16px] h-[16px] rounded-full bg-[#B08D57]"></span>
+                    <p className="text-[#1B1B1B] font-medium">{tool}</p>
+                  </div>
+                ))
+              ) : (
+                <p className="text-gray-500">No related tools available.</p>
+              )}
             </div>
           </div>
+
           <p className="text-[#B08D57] font-medium mt-6">
-            Sponsored by <strong>Quantum Insight</strong>.
+            Sponsored by <strong>{selectedTool.sponsored_by || "No Data Found"}</strong>.
           </p>
         </div>
         <div className="flex-1">
           <Image
-            src="/images/bussiness-hub/vip-lounge/innovation-vault/desktop-computer.png"
+            src={"/images/bussiness-hub/vip-lounge/innovation-vault/desktop-computer.png"}
             alt="img"
             width="510"
             height="448"
@@ -220,6 +170,7 @@ const ToolProfileCTR = () => {
           />
         </div>
       </div>
+
       <PartnerWithUsComp data={partnerWithUs} />
     </>
   );

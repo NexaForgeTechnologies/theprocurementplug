@@ -86,7 +86,7 @@ function ConsultingPartnerTile({ heading, para, description, category, btntext, 
               href={BtnLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] focus:outline-none"
+              className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded focus:outline-none"
             >
               {btntext}
               <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
@@ -95,7 +95,7 @@ function ConsultingPartnerTile({ heading, para, description, category, btntext, 
             <button
               type="button"
               onClick={handleClick}
-              className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] focus:outline-none"
+              className="flex self-center md:self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded focus:outline-none"
             >
               {btntext}
               <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
