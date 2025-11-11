@@ -30,22 +30,27 @@ const ToolProfileCTR = () => {
 
         const data = await res.json();
 
-        const safeJSONParse = (str) => {
-          try {
-            const parsed = JSON.parse(str);
-            return Array.isArray(parsed) ? parsed : [];
-          } catch {
-            return [];
+        const safeJSONParse = (val) => {
+          if (!val) return [];
+          if (typeof val === "string") {
+            try {
+              const parsed = JSON.parse(val);
+              return Array.isArray(parsed) ? parsed : [];
+            } catch {
+              return [];
+            }
           }
+          // Already an array (MySQL JSON returns array)
+          if (Array.isArray(val)) return val;
+
+          return [];
         };
 
         const mappedData = data.map((tool) => ({
           ...tool,
-          category:
-            categoryOptions.find((cat) => cat.id === Number(tool.category_id))
-              ?.value || "No Tag",
-          key_features: tool.key_features ? safeJSONParse(tool.key_features) : [],
-          related_tools: tool.related_tools ? safeJSONParse(tool.related_tools) : [],
+          category: categoryOptions.find((cat) => cat.id === Number(tool.category_id))?.value || "No Tag",
+          key_features: safeJSONParse(tool.key_features),
+          related_tools: safeJSONParse(tool.related_tools),
         }));
 
         setDetails(mappedData);
