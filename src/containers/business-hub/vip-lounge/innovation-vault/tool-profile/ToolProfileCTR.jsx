@@ -30,15 +30,22 @@ const ToolProfileCTR = () => {
 
         const data = await res.json();
 
+        const safeJSONParse = (str) => {
+          try {
+            const parsed = JSON.parse(str);
+            return Array.isArray(parsed) ? parsed : [];
+          } catch {
+            return [];
+          }
+        };
+
         const mappedData = data.map((tool) => ({
           ...tool,
           category:
             categoryOptions.find((cat) => cat.id === Number(tool.category_id))
               ?.value || "No Tag",
-          key_features: tool.key_features ? JSON.parse(tool.key_features) : [],
-          related_tools: tool.related_tools
-            ? JSON.parse(tool.related_tools) // parse JSON string to array
-            : [], // fallback empty array
+          key_features: tool.key_features ? safeJSONParse(tool.key_features) : [],
+          related_tools: tool.related_tools ? safeJSONParse(tool.related_tools) : [],
         }));
 
         setDetails(mappedData);
@@ -50,12 +57,10 @@ const ToolProfileCTR = () => {
     fetchData();
   }, []);
 
-  const selectedTool = details.find((tool) => tool.id === Number(id));
+  const selectedTool = details.find((tool) => tool.id === Number(id)) || {};
 
-  if (!selectedTool) {
-    return (
-      <div className="text-center py-20 text-lg">Loading tool details...</div>
-    );
+  if (!selectedTool.id) {
+    return <div className="text-center py-20 text-lg">Tool not found.</div>;
   }
 
   const partnerWithUs = {
@@ -90,20 +95,21 @@ const ToolProfileCTR = () => {
           img={selectedTool.heroImg || "/images/bussiness-hub/vip-lounge/innovation-vault/tool-profile.png"}
           heading={
             <span className="flex flex-col gap-0 leading-none">
-              <span className="font-extrabold">{selectedTool.title}</span>
+              <span className="font-extrabold">{selectedTool.title || ""}</span>
             </span>
           }
-          para={selectedTool.description}
+          para={selectedTool.description || ""}
         />
         <Breadcrumb />
         <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-          {selectedTool.title} - <span className="text-[#85009D]">{selectedTool.category}</span>
+          {selectedTool.title || "Tool Title"} -{" "}
+          <span className="text-[#85009D]">{selectedTool.category || "No Category"}</span>
         </h3>
-        <p className="md:text-xl text-[#1B1B1B] my-4">{selectedTool.description}</p>
+        <p className="md:text-xl text-[#1B1B1B] my-4">{selectedTool.description || ""}</p>
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <ArrowButtonCom text="Request Demo" link={selectedTool.demoLink || "#"} />
-          <ArrowButtonCom text="Apply To Join Pilot" link={"#"} />
-          <ArrowButtonCom text="Visit Partner Website" link={"#"} />
+          <ArrowButtonCom text="Apply To Join Pilot" link={selectedTool.pilotLink || "#"} />
+          <ArrowButtonCom text="Visit Partner Website" link={selectedTool.partnerWebsite || "#"} />
         </div>
       </div>
 
@@ -113,12 +119,16 @@ const ToolProfileCTR = () => {
           KEY FEATURES
         </h3>
         <div className="space-y-2">
-          {selectedTool.key_features?.map((feature, idx) => (
-            <div key={idx} className="flex gap-2 items-center">
-              <span className="w-[16px] h-[16px] rounded-full bg-[#B08D57]"></span>
-              <p className="text-[#1B1B1B] font-medium">{feature}</p>
-            </div>
-          ))}
+          {selectedTool.key_features?.length > 0 ? (
+            selectedTool.key_features.map((feature, idx) => (
+              <div key={idx} className="flex gap-2 items-center">
+                <span className="w-[16px] h-[16px] rounded-full bg-[#B08D57]"></span>
+                <p className="text-[#1B1B1B] font-medium">{feature}</p>
+              </div>
+            ))
+          ) : (
+            <p className="text-gray-500">No key features available.</p>
+          )}
         </div>
       </div>
 
@@ -130,10 +140,10 @@ const ToolProfileCTR = () => {
         <div className="flex-1">
           <div className="mb-6 md:mb-8">
             <h3 className="text-[#85009D] mb-2 font-medium text-2xl md:text-4xl">
-              Currently in {selectedTool.category}
+              Currently in {selectedTool.category || "No Category"}
             </h3>
             <p className="md:text-xl text-[#1B1B1B] font-medium">
-              {selectedTool.category_description}
+              {selectedTool.category_description || ""}
             </p>
           </div>
 
