@@ -4,9 +4,9 @@ const ArrowButtonCom = ({
   text,
   bgColor,
   textColor,
-  hoverBgColor,
-  hoverTextColor,
-  borderColor="border-none",
+  hoverBgColor="hover:bg-[#B08D57]",
+  hoverTextColor="hover:text-white",
+  borderColor="border border-[#85009D] hover:border-[#B08D57]",
   arrowColor, // optional for arrow color
 }) => {
   return (

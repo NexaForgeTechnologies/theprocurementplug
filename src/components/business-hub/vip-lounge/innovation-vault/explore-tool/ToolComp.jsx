@@ -14,9 +14,15 @@ const ToolComp = ({ data }) => {
   // Fallback image
   const imageSrc = data?.img || data?.logo || "/images/placeholder.png";
 
-  // Limit description to 10 characters
+  // Description logic
   const description = data.text || data.description || "";
-  const truncatedDesc = description.length > 20 ? description.slice(0, 35) + "..." : description;
+  const limit = 35;
+  const isLong = description.length > limit;
+  const displayedText = showFull
+    ? description
+    : isLong
+    ? description.slice(0, limit) + "..."
+    : description;
 
   return (
     <Link
@@ -45,24 +51,24 @@ const ToolComp = ({ data }) => {
         <h2 className="text-[#85009D] font-bold text-2xl group-hover:text-white">
           {data.heading || data.title}
         </h2>
-        {data.isBeta && <div>⭐⭐⭐⭐⭐</div>}
+        <div>⭐⭐⭐⭐⭐</div>
       </div>
 
-      {/* Category tag - always visible */}
+      {/* Category tag */}
       <span className="self-start text-xs px-2 py-0.5 rounded bg-white text-[#1B1B1B] group-hover:bg-white group-hover:text-[#85009D] border border-[#85009D]">
         {data.category || "No Tag"}
       </span>
 
-      {/* Description with View More / View Less */}
+      {/* Description with conditional "View More / Less" */}
       {description && (
         <p className="text-[#1B1B1B] group-hover:text-white text-sm">
-          {showFull ? description : truncatedDesc}{" "}
-          {description.length > 10 && (
+          {displayedText}{" "}
+          {isLong && (
             <button
               type="button"
-              className="text-blue-500 hover:underline ml-1"
+              className="text-[#B08D57] hover:underline ml-1"
               onClick={(e) => {
-                e.preventDefault();
+                e.preventDefault(); // prevent Link navigation
                 setShowFull(!showFull);
               }}
             >

@@ -6,10 +6,11 @@ import ArrowButtonCom from "@/components/buttons/ArrowButtonCom";
 import PartnerWithUsComp from "@/components/business-hub/vip-lounge/PartnerWithUs";
 import Image from "next/image";
 import { useParams } from "next/navigation";
-import Breadcrumb from "@/components/BreadCrumbs";
 
 const ToolProfileCTR = () => {
   const [details, setDetails] = useState([]);
+  const [loading, setLoading] = useState(true); // 👈 loading state
+  const [error, setError] = useState(""); // 👈 optional error handling
   const params = useParams();
   const id = params.tools;
 
@@ -22,6 +23,7 @@ const ToolProfileCTR = () => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const res = await fetch(
           "/api/business-hub/vip-lounge/innovation-vault/explore-tools"
@@ -40,15 +42,15 @@ const ToolProfileCTR = () => {
               return [];
             }
           }
-          // Already an array (MySQL JSON returns array)
-          if (Array.isArray(val)) return val;
-
-          return [];
+          return Array.isArray(val) ? val : [];
         };
 
         const mappedData = data.map((tool) => ({
           ...tool,
-          category: categoryOptions.find((cat) => cat.id === Number(tool.category_id))?.value || "No Tag",
+          category:
+            categoryOptions.find(
+              (cat) => cat.id === Number(tool.category_id)
+            )?.value || "No Tag",
           key_features: safeJSONParse(tool.key_features),
           related_tools: safeJSONParse(tool.related_tools),
         }));
@@ -56,18 +58,80 @@ const ToolProfileCTR = () => {
         setDetails(mappedData);
       } catch (error) {
         console.error("Error fetching tools:", error);
+        setError("Failed to load tools. Please try again later.");
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
   }, []);
 
+  // 👇 handle loading state
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center py-40">
+        <div className="w-12 h-12 border-4 border-[#85009D] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
+
+  // 👇 handle no data or fetch error
+  if (error) {
+    return (
+      <div className="text-center py-20 text-lg text-red-500">{error}</div>
+    );
+  }
+
+  if (details.length === 0) {
+    return (
+      <div className="text-center py-20 text-lg text-gray-600">
+        No tools found.
+      </div>
+    );
+  }
+
   const selectedTool = details.find((tool) => tool.id === Number(id)) || {};
 
   if (!selectedTool.id) {
     return <div className="text-center py-20 text-lg">Tool not found.</div>;
   }
-
+  function Breadcrumb() {
+    return (
+      <nav className="text-sm breadcrumbs my-6 md:my-10">
+        <ol
+          className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        >
+          <li>
+            <Link href="/business-hub" className="hover:underline">
+              Business Hub
+            </Link>
+          </li>
+          <li>/</li>
+          <li>
+            <Link href="/business-hub/vip-lounge" className="hover:underline">
+              VIP Business Lounge
+            </Link>
+          </li>
+          <li>/</li>
+          <li className="text-[#696969] ">
+            <Link href="/business-hub/vip-lounge/innovation-vault" className="hover:underline">
+              Innovation Vault
+            </Link>
+          </li>
+          <li>/</li>
+          <li className="text-[#696969]">
+            <Link href="/business-hub/vip-lounge/innovation-vault/explore-tools" className="hover:underline">
+              Explore Tools
+            </Link>
+          </li>
+          <li>/</li>
+          <li className="text-[#696969] ">{selectedTool.title}</li>
+        </ol>
+      </nav>
+    );
+  }
   const partnerWithUs = {
     Partnerheader: {
       h3: "Partner With Us",
@@ -87,9 +151,9 @@ const ToolProfileCTR = () => {
       ),
     },
     items: [
-      { id: 1, heading: "Partners hub", text: "", link: "", linkText: "View Details", bgColor: "" },
-      { id: 2, heading: "Events hub", text: "", link: "", linkText: "View Details", bgColor: "" },
-      { id: 3, heading: "Business hub", text: "", link: "", linkText: "View Details", bgColor: "" },
+      { id: 1, heading: "Partners hub", text: "", link: "", linkText: "View Details" },
+      { id: 2, heading: "Events hub", text: "", link: "", linkText: "View Details" },
+      { id: 3, heading: "Business hub", text: "", link: "", linkText: "View Details" },
     ],
   };
 
@@ -97,7 +161,10 @@ const ToolProfileCTR = () => {
     <>
       <div className="border-b-2 border-[#85009D] pb-8 sm:pb-12">
         <HeroCTR
-          img={selectedTool.heroImg || "/images/bussiness-hub/vip-lounge/innovation-vault/tool-profile.png"}
+          img={
+            selectedTool.heroImg ||
+            "/images/bussiness-hub/vip-lounge/innovation-vault/tool-profile.png"
+          }
           heading={
             <span className="flex flex-col gap-0 leading-none">
               <span className="font-extrabold">{selectedTool.title || ""}</span>
@@ -106,15 +173,40 @@ const ToolProfileCTR = () => {
           para={selectedTool.description || ""}
         />
         <Breadcrumb />
-        <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-          {selectedTool.title || "Tool Title"} -{" "}
-          <span className="text-[#85009D]">{selectedTool.category || "No Category"}</span>
-        </h3>
-        <p className="md:text-xl text-[#1B1B1B] my-4">{selectedTool.description || ""}</p>
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <ArrowButtonCom text="Request Demo" link={selectedTool.demoLink || "#"} />
-          <ArrowButtonCom text="Apply To Join Pilot" link={selectedTool.pilotLink || "#"} />
-          <ArrowButtonCom text="Visit Partner Website" link={selectedTool.partnerWebsite || "#"} />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div>
+            <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+              {selectedTool.title || "Tool Title"} -{" "}
+              <span className="text-[#85009D]">
+                {selectedTool.category || "No Category"}
+              </span>
+            </h3>
+            <p className="md:text-xl text-[#1B1B1B] my-4">
+              {selectedTool.description || ""}
+            </p>
+
+            <div className="flex flex-wrap gap-4">
+              <ArrowButtonCom
+                text="Request Demo"
+                link={selectedTool.demoLink || "#"}
+              />
+              <ArrowButtonCom
+                text="Apply To Join Pilot"
+                link={selectedTool.pilotLink || "#"}
+              />
+              <ArrowButtonCom
+                text="Visit Partner Website"
+                link={selectedTool.partnerWebsite || "#"}
+              />
+            </div>
+          </div>
+          <div className="flex justify-center items-start pt-5 md:pt-0">
+            <img
+              src={selectedTool.logo}
+              alt="logo"
+              className="object-contain h-20 sm:h-24 md:h-30 lg:h-45"
+            />
+          </div>
         </div>
       </div>
 
@@ -172,12 +264,14 @@ const ToolProfileCTR = () => {
           </div>
 
           <p className="text-[#B08D57] font-medium mt-6">
-            Sponsored by <strong>{selectedTool.sponsored_by || "No Data Found"}</strong>.
+            Sponsored by <strong>{selectedTool.sponsored_by || "No Data Found"}</strong>.
           </p>
         </div>
         <div className="flex-1">
           <Image
-            src={"/images/bussiness-hub/vip-lounge/innovation-vault/desktop-computer.png"}
+            src={
+              "/images/bussiness-hub/vip-lounge/innovation-vault/desktop-computer.png"
+            }
             alt="img"
             width="510"
             height="448"
