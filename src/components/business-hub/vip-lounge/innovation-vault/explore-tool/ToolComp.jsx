@@ -79,7 +79,7 @@ const ToolComp = ({ data }) => {
       )}
 
       {/* Arrow button */}
-      <div>
+      <div className="self-start mt-auto">
         <ArrowButtonCom
           text={data.urlText || "View details"}
           borderColor="border-[#DBBB89]"
