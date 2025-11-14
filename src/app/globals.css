@@ -5,7 +5,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --font-sans: 'Poppins', sans-serif;
-  --font-bodoni-moda: 'Bodoni Moda', serif;  /* Add the custom variable for Bodoni Moda */
+  --font-bodoni-moda: 'Bodoni Moda', serif;
+  /* Add the custom variable for Bodoni Moda */
 }
 
 @theme inline {
@@ -40,15 +41,18 @@ body {
     display: block;
     -webkit-line-clamp: unset;
     -webkit-box-orient: unset;
-    line-clamp: unset;  /* Add the standard property */
-    -webkit-box-orient: unset; /* already included */
+    line-clamp: unset;
+    /* Add the standard property */
+    -webkit-box-orient: unset;
+    /* already included */
   }
 
   .clamp-1 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    line-clamp: 1;  /* Add the standard property */
+    line-clamp: 1;
+    /* Add the standard property */
     overflow: hidden;
   }
 
@@ -57,7 +61,8 @@ body {
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 4;
-      line-clamp: 4;  /* Add the standard property */
+      line-clamp: 4;
+      /* Add the standard property */
       overflow: hidden;
     }
   }
@@ -143,19 +148,47 @@ body {
 
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
+
 .animate-fadeIn {
   animation: fadeIn 0.3s ease-out;
 }
 
 /* styles.css or globals.css */
 .hide-scrollbar {
-    scrollbar-width: none;     /* Firefox */
-    -ms-overflow-style: none;  /* IE 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-    display: none;             /* Chrome, Safari */
+  display: none;
+  /* Chrome, Safari */
 }
+
+/* .slick-prev-custom,
+.slick-next-custom {
+  background-color: #b08d57;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slick-prev-custom:hover,
+.slick-next-custom:hover {
+  background-color: #8f7043;
+  transition: background-color 0.3s ease;
+} */

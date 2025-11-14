@@ -27,7 +27,7 @@ const ToolComp = ({ data }) => {
   return (
     <Link
       href={href}
-      className="cursor-pointer flex gap-2 flex-col w-full rounded-[6px] border-2 border-[#DBBB89]
+      className="cursor-pointer flex gap-2 flex-col w-full rounded border-2 border-[#DBBB89]
       hover:border-[#85009D] bg-[#FFFBF5] hover:bg-[#85009D] p-4 text-[#85009D] hover:text-white 
       transition-all duration-200 ease-in-out group"
     >
@@ -41,7 +41,7 @@ const ToolComp = ({ data }) => {
 
       {/* Beta label if applicable */}
       {data.isBeta && (
-        <h2 className="rounded-[2px] text-xs max-w-max px-1 border border-[#85009D] group-hover:border-white text-[#1B1B1B] group-hover:text-white">
+        <h2 className="rounded text-xs max-w-max px-1 border border-[#85009D] group-hover:border-white text-[#1B1B1B] group-hover:text-white">
           Beta Access
         </h2>
       )}
