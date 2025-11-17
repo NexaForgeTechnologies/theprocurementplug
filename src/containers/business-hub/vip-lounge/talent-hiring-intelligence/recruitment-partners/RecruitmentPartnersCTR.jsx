@@ -1,111 +1,41 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import RecruitmentPartnerComp from "@/components/business-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/RecruitmentPartnersTile";
 import IconComponent from "@/components/icon/Icon";
 
-
 const RecruitmentPartnersCTR = () => {
     const [searchQuery, setSearchQuery] = useState("");
-    const newTech = [
-        {
-            id: 1,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 2,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 3,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 4,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 5,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 6,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 7,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 8,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-        {
-            id: 9,
-            img: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/natquest.png",
-            smallimg: "/images/bussiness-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/member.png",
-            heading: "Grace Robinson",
-            text: "Procurement specialist",
-            email: "ABC@gmail.com",
-            urlText: "Link to Website",
-            url: "",
-        },
-    ];
+    const [partners, setPartners] = useState([]);
 
-    const filteredPartners = newTech.filter((item) =>
-        item.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.email.toLowerCase().includes(searchQuery.toLowerCase())
+    useEffect(() => {
+        const fetchPartners = async () => {
+            try {
+                const res = await fetch(
+                    "/api/business-hub/vip-lounge/talent-hiring-intelligence/vip-recruitment-partners"
+                );
+
+                const data = await res.json();
+                console.log("Fetched Partners:", data);
+                setPartners(data);
+
+            } catch (err) {
+                console.error("Failed to fetch partners:", err);
+            }
+        };
+
+        fetchPartners();
+    }, []);
+
+
+    const filteredPartners = partners.filter((item) =>
+        (item.company_name || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.company_about || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.company_email || "").toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // Handle search input change
+
+
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
     };
@@ -121,10 +51,12 @@ const RecruitmentPartnersCTR = () => {
                     and easy connection.
                 </p>
             </div>
+
             <div>
                 <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
                     Recruitment Partners Profile
                 </h3>
+
                 <div className="relative flex items-center mt-4 w-full md:w-[456px]">
                     <input
                         type="text"
@@ -137,10 +69,14 @@ const RecruitmentPartnersCTR = () => {
                         <IconComponent name="search" color="#85009D" size={16} />
                     </span>
                 </div>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6">
                     {filteredPartners.length > 0 ? (
                         filteredPartners.map((item) => (
-                            <RecruitmentPartnerComp key={item.id} data={item} />
+                            <RecruitmentPartnerComp
+                                key={item.id}
+                                data={item} // just pass the object as-is
+                            />
                         ))
                     ) : (
                         <p className="text-[#1B1B1B] col-span-full">
@@ -149,7 +85,6 @@ const RecruitmentPartnersCTR = () => {
                     )}
                 </div>
             </div>
-
         </>
     );
 };
