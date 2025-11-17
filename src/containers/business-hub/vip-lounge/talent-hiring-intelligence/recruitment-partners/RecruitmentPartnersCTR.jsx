@@ -1,40 +1,37 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import RecruitmentPartnerComp from "@/components/business-hub/vip-lounge/talent-hiring-intelligence/recruitment-partners/RecruitmentPartnersTile";
 import IconComponent from "@/components/icon/Icon";
 
 const RecruitmentPartnersCTR = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [partners, setPartners] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchPartners = async () => {
+            setIsLoading(true); // start loading
             try {
                 const res = await fetch(
                     "/api/business-hub/vip-lounge/talent-hiring-intelligence/vip-recruitment-partners"
                 );
-
                 const data = await res.json();
-                console.log("Fetched Partners:", data);
                 setPartners(data);
-
             } catch (err) {
                 console.error("Failed to fetch partners:", err);
+            } finally {
+                setIsLoading(false); // stop loading
             }
         };
 
         fetchPartners();
     }, []);
 
-
     const filteredPartners = partners.filter((item) =>
         (item.company_name || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
         (item.company_about || "").toLowerCase().includes(searchQuery.toLowerCase()) ||
         (item.company_email || "").toLowerCase().includes(searchQuery.toLowerCase())
     );
-
-
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -47,8 +44,7 @@ const RecruitmentPartnersCTR = () => {
                     Recruitment Partners
                 </h3>
                 <p className="max-w-[709px] md:text-xl text-[#1B1B1B] my-4">
-                    Discover trusted recruitment partners with key contact details for quick
-                    and easy connection.
+                    Discover trusted recruitment partners with key contact details for quick and easy connection.
                 </p>
             </div>
 
@@ -71,15 +67,19 @@ const RecruitmentPartnersCTR = () => {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4 md:mt-6">
-                    {filteredPartners.length > 0 ? (
+                    {isLoading ? (
+                        <div className="col-span-full flex justify-center items-center py-20">
+                            <div className="w-12 h-12 border-4 border-[#85009D] border-t-transparent rounded-full animate-spin"></div>
+                        </div>
+                    ) : filteredPartners.length > 0 ? (
                         filteredPartners.map((item) => (
                             <RecruitmentPartnerComp
                                 key={item.id}
-                                data={item} // just pass the object as-is
+                                data={item} // pass the object as-is
                             />
                         ))
                     ) : (
-                        <p className="text-[#1B1B1B] col-span-full">
+                        <p className="text-[#1B1B1B] col-span-full text-center py-10">
                             No partners found matching your search.
                         </p>
                     )}
