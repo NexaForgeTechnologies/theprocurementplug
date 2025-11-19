@@ -1,4 +1,5 @@
 import { db } from './db'
+
 export function buildWhere(filters = {}) {
   let whereSQL = "";
   let values = [];
@@ -13,6 +14,7 @@ export function buildWhere(filters = {}) {
   }
   return { whereSQL, values };
 }
+
 export async function insert(tableName, entries) {
   try {
     if (!tableName || typeof tableName !== "string") {
@@ -52,6 +54,7 @@ export async function insert(tableName, entries) {
     throw validationError;
   }
 }
+
 export async function get(table, filters = {}, options = {}) {
   let selectSQL = options.select || "*";
   let query = `SELECT ${selectSQL} FROM ${table}`;
@@ -145,7 +148,6 @@ export async function get(table, filters = {}, options = {}) {
     page: options.page || 1
   };
 }
-
 
 export async function update(table, data, filters) {
   const setClauses = Object.keys(data).map(col => `${col} = ?`).join(", ");

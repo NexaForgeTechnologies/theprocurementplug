@@ -6,34 +6,13 @@ import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithU
 import VipForumCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/vip-forum/VipForumCTR'
 import ToastHandler from '@/components/ToasterProvider'
 import { VerifyStripe } from './VerifyStripe'
+import Breadcrumb from '@/components/BreadCrumbs'
 
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/vip-lounge" className="hover:underline">VIP Business Lounge</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/vip-lounge/collaboration-influence" className="hover:underline"> Collaboration & Influence Zone</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969] ">
-                    VIP Forum
-                </li>
-            </ol>
-        </nav>
-    )
-}
 
 async function Page({ searchParams }) {
     const params = await searchParams; // no need for await
+    console.log(params);
+    
 
     // If session_id is present, only render verification page
     if (params?.session_id) {
