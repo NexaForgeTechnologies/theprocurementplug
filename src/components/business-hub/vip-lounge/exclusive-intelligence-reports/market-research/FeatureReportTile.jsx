@@ -21,21 +21,30 @@ export default function FeatureReportTile({
   return (
     <div className="w-full rounded-[6px] border border-[#DBBB89] bg-[#FFFBF5] p-2 flex flex-col justify-between gap-4 text-[#85009D]">
       <div className="flex flex-col items-start">
+        {/* Render image only if `bigimg` prop is passed */}
         {bigimg && (
           <Image
             src={bigimg}
-            alt={`images`}
+            alt="Report Image"
             width={259}
             height={60}
             className="mb-4 w-full object-cover"
           />
         )}
+
+        {/* Render tag only if `tag` prop is passed */}
         {tag && (
           <p className="mb-2 text-[12px] border-1 border-[#85009D] rounded-[0.5px] px-1 bg-[#ffff] text-[#1B1B1B]">
             {tag}
           </p>
         )}
-        <h2 className="mb-2 text-xl md:text-2xl font-semibold">{heading}</h2>
+
+        {/* Render heading */}
+        {heading && (
+          <h2 className="mb-2 text-xl md:text-2xl font-semibold">{heading}</h2>
+        )}
+
+        {/* Render paragraph only if `para` prop is passed */}
         {para && (
           <p className="text-[#1B1B1B] text-base group-hover:text-[#ffff]">
             {para}
@@ -43,9 +52,10 @@ export default function FeatureReportTile({
         )}
       </div>
 
+      {/* Render button only if `btntext` prop is passed */}
       {btntext && (
         <a
-          href={onButtonClick ? "#" : url}
+          href={onButtonClick ? "#" : url}  // If onButtonClick is passed, prevent default href behavior
           onClick={handleClick}
           className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px]"
         >

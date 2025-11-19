@@ -93,7 +93,7 @@ function VipLoungeCTR() {
     },
     {
       id: 3,
-      heading: "Exclusive Intelligence",
+      heading: "Exclusive Intelligence & Reports",
       btntext: "View Details",
       url: "/business-hub/vip-lounge/exclusive-intelligence-reports",
     },
