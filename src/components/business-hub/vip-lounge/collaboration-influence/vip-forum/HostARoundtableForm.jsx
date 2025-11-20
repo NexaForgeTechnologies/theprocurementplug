@@ -20,6 +20,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     payment: "",
     already_partner: 0,
   });
+
   const [step, setStep] = useState(1);
   const modalRef = useRef(null);
   const [bannerPreview, setBannerPreview] = useState(null);
@@ -31,7 +32,11 @@ export default function RequestDemoForm({ isOpen, onClose }) {
   const getCompletionPercentage = (step) => {
     switch (step) {
       case 1: {
-        const requiredFields = [formData.name, formData.company, formData.email];
+        const requiredFields = [
+          formData.name,
+          formData.company,
+          formData.email,
+        ];
         const filledFields = requiredFields.filter(Boolean).length;
         return (filledFields / 3) * 100; // 3 required fields
       }
@@ -111,9 +116,16 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     if (!file) return;
 
     // Validate file type
-    const validTypes = field === "bannerImage" ? ["image/jpeg", "image/png"] : ["image/png", "image/svg+xml"];
+    const validTypes =
+      field === "bannerImage"
+        ? ["image/jpeg", "image/png"]
+        : ["image/png", "image/svg+xml"];
     if (!validTypes.includes(file.type)) {
-      alert(`Please select a valid ${field === "bannerImage" ? "JPG or PNG" : "PNG or SVG"} image file.`);
+      alert(
+        `Please select a valid ${
+          field === "bannerImage" ? "JPG or PNG" : "PNG or SVG"
+        } image file.`
+      );
       return;
     }
 
@@ -134,11 +146,11 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         return newPreview;
       });
     }
-    console.log(`Uploading ${field}:`, {
-      name: file.name,
-      size: file.size,
-      type: file.type,
-    });
+    // console.log(`Uploading ${field}:`, {
+    //   name: file.name,
+    //   size: file.size,
+    //   type: file.type,
+    // });
   };
 
   const handleSubmit = async (e) => {
@@ -163,14 +175,17 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         }
 
         // Send as multipart/form-data
-        const response = await axios.post("/api/round-table/create-checkout-session", formDataToSend, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        const response = await axios.post(
+          "/api/round-table/create-checkout-session",
+          formDataToSend,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
 
         if (response.data.url) {
-
           window.location.href = response.data.url;
         } else {
           throw new Error("No checkout URL returned from server.");
@@ -182,13 +197,13 @@ export default function RequestDemoForm({ isOpen, onClose }) {
 
         if (Array.isArray(resData?.details)) {
           // Validation errors → only messages
-          setError(resData.details.map(err => err.message));
+          setError(resData.details.map((err) => err.message));
         } else {
           // General error → single string
           setError(
             resData?.details ||
-            resData?.error ||
-            "Failed to initiate checkout. Please try again."
+              resData?.error ||
+              "Failed to initiate checkout. Please try again."
           );
         }
       } finally {
@@ -209,21 +224,21 @@ export default function RequestDemoForm({ isOpen, onClose }) {
 
     try {
       const res = await axios.get("/api/round-table/check-partner", {
-        params: { email: formData.email }
+        params: { email: formData.email },
       });
 
-      if (res.data.exists && res.data.already_partner === 1) {
+      if (res.data.exists) {
         setIsPartner(true);
-
-        // Apply 2-week partner pricing
-        setFormData(prev => ({
+        setFormData((prev) => ({
           ...prev,
-          payment: "existing-partner-2-week",
-          package: "partner"
+          already_partner: 1,
         }));
-
       } else {
         setIsPartner(false);
+        setFormData((prev) => ({
+          ...prev,
+          already_partner: 0, // reset
+        }));
       }
     } catch (err) {
       console.error("Error checking email:", err);
@@ -231,7 +246,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
       setCheckingEmail(false);
     }
   };
-
 
   if (!isOpen) return null;
 
@@ -248,10 +262,11 @@ export default function RequestDemoForm({ isOpen, onClose }) {
               <React.Fragment key={s}>
                 <div className="flex items-center">
                   <div
-                    className={`w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] md:w-[100px] md:h-[100px] text-[20px] sm:text-[24px] md:text-[50px] font-bold flex items-center justify-center rounded-full ${step === s
-                      ? "bg-[#85009D] text-white"
-                      : "bg-white text-[#B08D57] border border-[#85009D]"
-                      }`}
+                    className={`w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] md:w-[100px] md:h-[100px] text-[20px] sm:text-[24px] md:text-[50px] font-bold flex items-center justify-center rounded-full ${
+                      step === s
+                        ? "bg-[#85009D] text-white"
+                        : "bg-white text-[#B08D57] border border-[#85009D]"
+                    }`}
                   >
                     {s}
                   </div>
@@ -266,8 +281,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                           step > s || (step === s && areRequiredFieldsFilled(s))
                             ? "100%"
                             : step === s
-                              ? `${getCompletionPercentage(s)}%`
-                              : "0%",
+                            ? `${getCompletionPercentage(s)}%`
+                            : "0%",
                       }}
                     />
                   </div>
@@ -319,10 +334,20 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     required
                     className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                   />
-                  {checkingEmail && <p className="absolute text-red-600 text-sm">Checking...</p>}
+                  {checkingEmail && (
+                    <p className="absolute text-red-600 text-sm">Checking...</p>
+                  )}
 
-                  {isPartner && <p className="absolute text-green-600 text-sm">Already a partner — special pricing applied.</p>}
-                  {isPartner === false && !checkingEmail && <p className="absolute text-gray-600 text-sm">Not a partner yet.</p>}
+                  {isPartner && (
+                    <p className="absolute text-green-600 text-sm">
+                      Already a partner — special pricing applied.
+                    </p>
+                  )}
+                  {isPartner === false && !checkingEmail && (
+                    <p className="absolute text-gray-600 text-sm">
+                      Not a partner yet.
+                    </p>
+                  )}
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                   <input
@@ -344,8 +369,17 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 How long would you like your digital Roundtable to run?
               </label>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <label htmlFor="package1" className="block cursor-pointer h-full">
-                  <div className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group`} style={{ background: formData.package === "1 Week" ? '#85009D' : "" }}>
+                <label
+                  htmlFor="package1"
+                  className="block cursor-pointer h-full"
+                >
+                  <div
+                    className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group`}
+                    style={{
+                      background:
+                        formData.package === "1 Week" ? "#85009D" : "",
+                    }}
+                  >
                     <input
                       type="radio"
                       id="package1"
@@ -356,21 +390,50 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                       required
                       className="hidden"
                     />
-                    <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">1 Week</span>
-                    <p className="text-[#1B1B1B] text-[24px] md:text-[42px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{ color: formData.package === "1 Week" ? 'white' : "" }}>
+                    <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">
+                      1 Week
+                    </span>
+                    <p
+                      className="text-[#1B1B1B] text-[24px] md:text-[42px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out"
+                      style={{
+                        color: formData.package === "1 Week" ? "white" : "",
+                      }}
+                    >
                       £150
                     </p>
                     <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
-                    <p className="text-[#7B7B7B] mb-4 md:mb-8 group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{ color: formData.package === "1 Week" ? 'white' : "" }}>
-                      Note below: “First week is FREE for returning Business Hub partners – 2 free sessions per year
+                    <p
+                      className="text-[#7B7B7B] mb-4 md:mb-8 group-hover:text-white group-hover:transition-all duration-200 ease-in-out"
+                      style={{
+                        color: formData.package === "1 Week" ? "white" : "",
+                      }}
+                    >
+                      Note below: “First week is FREE for returning Business Hub
+                      partners – 2 free sessions per year
                     </p>
-                    <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out" style={{ color: formData.package === "1 Week" ? 'white' : "", borderColor: formData.package === "1 Week" ? 'white' : "" }}>
+                    <p
+                      className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out"
+                      style={{
+                        color: formData.package === "1 Week" ? "white" : "",
+                        borderColor:
+                          formData.package === "1 Week" ? "white" : "",
+                      }}
+                    >
                       Select
                     </p>
                   </div>
                 </label>
-                <label htmlFor="package2" className="block cursor-pointer h-full">
-                  <div className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group `} style={{ background: formData.package === "2 Weeks" ? '#85009D' : "" }}>
+                <label
+                  htmlFor="package2"
+                  className="block cursor-pointer h-full"
+                >
+                  <div
+                    className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group `}
+                    style={{
+                      background:
+                        formData.package === "2 Weeks" ? "#85009D" : "",
+                    }}
+                  >
                     <input
                       type="radio"
                       id="package2"
@@ -381,15 +444,40 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                       required
                       className="hidden"
                     />
-                    <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">2 Weeks</span>
+                    <span className="text-[#B08D57] text-[24px] md:text-[42px] leading-none">
+                      2 Weeks
+                    </span>
                     <p className="text-[#1B1B1B] text-[24px] md:text-[42px] flex items-center gap-2 group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
-                      £275<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{ color: formData.package === "2 Weeks" ? 'white' : "" }}>(Non-Partner)</span>
+                      £275
+                      <span
+                        className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out"
+                        style={{
+                          color: formData.package === "2 Weeks" ? "white" : "",
+                        }}
+                      >
+                        (Non-Partner)
+                      </span>
                     </p>
                     <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
                     <p className="text-[#1B1B1B] text-[24px] md:text-[42px] flex items-center gap-2 mb-4 md:mb-8 leading-none group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
-                      £150<span className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out" style={{ color: formData.package === "2 Weeks" ? 'white' : "" }}>(Existing Partner)</span>
+                      £150
+                      <span
+                        className="text-[#808080] text-[16px] group-hover:text-white group-hover:transition-all duration-200 ease-in-out"
+                        style={{
+                          color: formData.package === "2 Weeks" ? "white" : "",
+                        }}
+                      >
+                        (Existing Partner)
+                      </span>
                     </p>
-                    <p className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out" style={{ color: formData.package === "2 Weeks" ? 'white' : "", borderColor: formData.package === "1 Week" ? 'white' : "" }}>
+                    <p
+                      className="text-[#85009D] group-hover:text-white text-center border group-hover:border-white border-[#85009D] w-full py-[5px] rounded-md group-hover:transition-all duration-200 ease-in-out"
+                      style={{
+                        color: formData.package === "2 Weeks" ? "white" : "",
+                        borderColor:
+                          formData.package === "1 Week" ? "white" : "",
+                      }}
+                    >
                       Select
                     </p>
                   </div>
@@ -450,10 +538,13 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     className="w-[128px] h-[128px] object-cover mb-4"
                   />
                   <p className="text-[#1B1B1B] text-center">
-                    <span className="font-semibold">Banner Image</span> (file, 1440×440 px, JPG/PNG)
+                    <span className="font-semibold">Banner Image</span> (file,
+                    1440×440 px, JPG/PNG)
                   </p>
                   {formData.bannerImage && (
-                    <p className="text-sm text-gray-600 mt-2">{formData.bannerImage.name}</p>
+                    <p className="text-sm text-gray-600 mt-2">
+                      {formData.bannerImage.name}
+                    </p>
                   )}
                   <input
                     id="bannerInput"
@@ -475,10 +566,13 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     className="w-[128px] h-[128px] object-cover mb-4"
                   />
                   <p className="text-[#1B1B1B] text-center">
-                    <span className="font-semibold">Logo Upload</span> (file, max 300×100 px, PNG/SVG)
+                    <span className="font-semibold">Logo Upload</span> (file,
+                    max 300×100 px, PNG/SVG)
                   </p>
                   {formData.logoImage && (
-                    <p className="text-sm text-gray-600 mt-2">{formData.logoImage.name}</p>
+                    <p className="text-sm text-gray-600 mt-2">
+                      {formData.logoImage.name}
+                    </p>
                   )}
                   <input
                     id="logoInput"
@@ -496,19 +590,26 @@ export default function RequestDemoForm({ isOpen, onClose }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full space-y-4">
                   <p className="text-[#1b1b1b]">
-                    Company Name: <span className="text-[#505050]">{formData.companyName}</span>
+                    Company Name:{" "}
+                    <span className="text-[#505050]">
+                      {formData.companyName}
+                    </span>
                   </p>
                   <p className="text-[#1b1b1b]">
-                    Host Full Name: <span className="text-[#505050]">{formData.name}</span>
+                    Host Full Name:{" "}
+                    <span className="text-[#505050]">{formData.name}</span>
                   </p>
                   <p className="text-[#1b1b1b]">
-                    Selected Package & Duration: <span className="text-[#505050]">{formData.package}</span>
+                    Selected Package & Duration:{" "}
+                    <span className="text-[#505050]">{formData.package}</span>
                   </p>
                   <p className="text-[#1b1b1b]">
-                    Topic: <span className="text-[#505050]">{formData.title}</span>
+                    Topic:{" "}
+                    <span className="text-[#505050]">{formData.title}</span>
                   </p>
                   <p className="text-[#1b1b1b]">
-                    Start Date: <span className="text-[#505050]">{formData.date}</span>
+                    Start Date:{" "}
+                    <span className="text-[#505050]">{formData.date}</span>
                   </p>
                   <p className="text-[#1b1b1b]">Banner:</p>
                   {bannerPreview ? (
@@ -533,18 +634,22 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 </div>
                 <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full space-y-4">
                   <p className="text-[#1b1b1b]">
-                    Click on <span className="font-semibold">"Pay & Submit for Review"</span> to be redirected to the Stripe
-                    payment gateway.
+                    Click on{" "}
+                    <span className="font-semibold">
+                      "Pay & Submit for Review"
+                    </span>{" "}
+                    to be redirected to the Stripe payment gateway.
                   </p>
-                  {error && (
-                    Array.isArray(error) ? (
+                  {error &&
+                    (Array.isArray(error) ? (
                       error.map((msg, i) => (
-                        <p key={i} className="text-red-500 text-sm">{msg}</p>
+                        <p key={i} className="text-red-500 text-sm">
+                          {msg}
+                        </p>
                       ))
                     ) : (
                       <p className="text-red-500 text-sm">{error}</p>
-                    )
-                  )}
+                    ))}
                 </div>
               </div>
             </div>
@@ -570,10 +675,13 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             <button
               type="submit"
               disabled={loading}
-              className={`flex items-center justify-center md:justify-start cursor-pointer text-[14px] md:text-[16px] bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${loading ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`flex items-center justify-center md:justify-start cursor-pointer text-[14px] md:text-[16px] bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
-              {loading ? "Processing..." : (
+              {loading ? (
+                "Processing..."
+              ) : (
                 <>
                   {step === 1 && "Next: Choose Your Hosting Package"}
                   {step === 2 && "Next: Tell Us About Your Roundtable"}

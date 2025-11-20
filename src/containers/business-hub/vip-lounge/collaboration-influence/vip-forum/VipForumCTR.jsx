@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import ConsultingPartnerTile from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/ConsultingPartnerTile";
 import React, { useState, useEffect, useRef } from "react";
 // import axios from 'axios';
-import HostARoundaTableForm from '@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/HostARoundtableForm'
+import HostARoundaTableForm from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/HostARoundtableForm";
 
 function VipForumCTR() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -58,7 +58,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
     {
@@ -67,7 +68,8 @@ function VipForumCTR() {
       para: "Name: Timothy",
       sponsor: "Sponsored by Globex",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
     },
     {
@@ -76,7 +78,8 @@ function VipForumCTR() {
       para: "Name: Martha",
       sponsor: "Sponsored by Initech",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/emerging-technologies-in-procurement",
     },
     {
@@ -85,7 +88,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
     {
@@ -94,7 +98,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
     {
@@ -103,7 +108,8 @@ function VipForumCTR() {
       para: "Name: Timothy",
       sponsor: "Sponsored by Globex",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
     },
     {
@@ -112,7 +118,8 @@ function VipForumCTR() {
       para: "Name: Martha",
       sponsor: "Sponsored by Initech",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/emerging-technologies-in-procurement",
     },
     {
@@ -121,7 +128,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
     {
@@ -130,7 +138,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
     {
@@ -139,7 +148,8 @@ function VipForumCTR() {
       para: "Name: Timothy",
       sponsor: "Sponsored by Globex",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
     },
     {
@@ -148,7 +158,8 @@ function VipForumCTR() {
       para: "Name: Martha",
       sponsor: "Sponsored by Initech",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/emerging-technologies-in-procurement",
     },
     {
@@ -157,7 +168,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
     {
@@ -166,7 +178,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
     {
@@ -175,7 +188,8 @@ function VipForumCTR() {
       para: "Name: Timothy",
       sponsor: "Sponsored by Globex",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership",
     },
     {
@@ -184,7 +198,8 @@ function VipForumCTR() {
       para: "Name: Martha",
       sponsor: "Sponsored by Initech",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member3.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/emerging-technologies-in-procurement",
     },
     {
@@ -193,7 +208,8 @@ function VipForumCTR() {
       para: "Name: Maria",
       sponsor: "Sponsored by Logo",
       btntext: "View",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
+      bigimg:
+        "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
       url: "/business-hub/vip-lounge/collaboration-influence/vip-forum/future-proofing-procurement",
     },
   ];
@@ -203,7 +219,10 @@ function VipForumCTR() {
 
   // Get items for the current page
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentItems = collaboration.slice(startIndex, startIndex + itemsPerPage);
+  const currentItems = collaboration.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   // Handle page change
   const handlePageChange = (page) => {
@@ -219,7 +238,9 @@ function VipForumCTR() {
           <h3 className="font-semibold text-[24px] md:text-[32px] md:text-5xl mb-4 text-[#1B1B1B]">
             VIP Forum
           </h3>
-          <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-0">Host or join exclusive conversations shaping procurement leadership.</p>
+          <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-0">
+            Host or join exclusive conversations shaping procurement leadership.
+          </p>
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
@@ -234,7 +255,8 @@ function VipForumCTR() {
         <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
           <div
             ref={modalRef}
-            className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+            className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full"
+          >
             <h3 className="text-xl font-semibold mb-4 text-[#1B1B1B]">
               Enter Amount
             </h3>
@@ -248,9 +270,7 @@ function VipForumCTR() {
               min="1"
               step="0.01"
             />
-            {error && (
-              <p className="text-red-500 text-sm mb-4">{error}</p>
-            )}
+            {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
             <div className="flex flex-col-reverse md:flex-row justify-end gap-2">
               <button
                 onClick={() => {
@@ -265,10 +285,11 @@ function VipForumCTR() {
               <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className={`px-4 py-2 rounded bg-[#b08d57] text-white ${loading ? 'opacity-50 cursor-not-allowed' : ''
-                  }`}
+                className={`px-4 py-2 rounded bg-[#b08d57] text-white ${
+                  loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
               >
-                {loading ? 'Processing...' : 'Proceed to Payment'}
+                {loading ? "Processing..." : "Proceed to Payment"}
               </button>
             </div>
           </div>
@@ -297,39 +318,51 @@ function VipForumCTR() {
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] bg-[#ffff] border-1 border-[#EDEDED] text-lg ${currentPage === 1 ? "opacity-50 cursor-not-allowed" : "hover:text-[#1B1B1B]"
-              }`}
+            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] bg-[#ffff] border-1 border-[#EDEDED] text-lg ${
+              currentPage === 1
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:text-[#1B1B1B]"
+            }`}
           >
             &lt;
           </button>
 
           {/* Page Numbers */}
-          {Array.from({ length: totalPages }, (_, index) => index + 1).map((page) => (
-            <button
-              key={page}
-              onClick={() => handlePageChange(page)}
-              className={`text-lg ${currentPage === page
-                ? "text-[#1B1B1B] font-semibold px-4  py-2 rounded-[10px] bg-[#EFEFEF]"
-                : "text-[#7D7D7D] hover:text-[#1B1B1B]  px-4  py-2 rounded-[10px]"
+          {Array.from({ length: totalPages }, (_, index) => index + 1).map(
+            (page) => (
+              <button
+                key={page}
+                onClick={() => handlePageChange(page)}
+                className={`text-lg ${
+                  currentPage === page
+                    ? "text-[#1B1B1B] font-semibold px-4  py-2 rounded-[10px] bg-[#EFEFEF]"
+                    : "text-[#7D7D7D] hover:text-[#1B1B1B]  px-4  py-2 rounded-[10px]"
                 }`}
-            >
-              {page}
-            </button>
-          ))}
+              >
+                {page}
+              </button>
+            )
+          )}
 
           {/* Next Button */}
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] border-1 border-[#EDEDED] bg-[#ffff] text-lg ${currentPage === totalPages ? "opacity-50 cursor-not-allowed" : "hover:text-[#1B1B1B]"
-              }`}
+            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] border-1 border-[#EDEDED] bg-[#ffff] text-lg ${
+              currentPage === totalPages
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:text-[#1B1B1B]"
+            }`}
           >
             &gt;
           </button>
         </div>
       )}
 
-      <HostARoundaTableForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <HostARoundaTableForm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

@@ -6,6 +6,8 @@ export async function POST(req) {
   try {
     const formData = await req.formData();
 
+    const origin = req.headers.get("origin");
+
     const textFields = {
       companyName: formData.get("companyName") || "",
       name: formData.get("name") || "",
@@ -15,18 +17,19 @@ export async function POST(req) {
       title: formData.get("title") || "",
       description: formData.get("description") || "",
       targetAudience: formData.get("targetAudience") || "",
-      date: formData.get("date") || ""
+      date: formData.get("date") || "",
+      already_partner: Number(formData.get("already_partner") || 0), // ← convert to number
     };
 
     // 2️⃣ Validate text fields with Zod
     const parsed = await validate(textFields, "hostRoundTableSchema");
 
-    let priceId = process.env.price_id_week;
+    let priceId = process.env.price_id_week_1;
 
-    const origin = req.headers.get("origin");
-
-    if (parsed.package === "2 Weeks") {
-      priceId = process.env.price_id_2week
+    if (parsed.package === "2 Weeks" && parsed.already_partner === 1) {
+      priceId = process.env.price_id_week_2_existing_partner;
+    } else if (parsed.package === "2 Weeks") {
+      priceId = process.env.price_id_week_2_non_partner;
     }
 
     let stripe = await createStripeSession({ origin, priceId })

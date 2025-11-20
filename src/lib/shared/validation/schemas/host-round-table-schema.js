@@ -13,7 +13,6 @@ export const hostRoundTableSchema = z.object({
   email: z.string().email("Invalid email address"),
   website: z
     .string()
-  
     .optional()
     .or(z.literal("")),
   package: z.string().min(1, "Package is required"),
@@ -27,6 +26,7 @@ export const hostRoundTableSchema = z.object({
   }, z.date({ invalid_type_error: "Invalid date" })),
   bannerImage: imageSchema,
   logoImage: imageSchema,
+  already_partner: z.coerce.number().default(0)
 });
 
 

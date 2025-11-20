@@ -6,10 +6,10 @@ export class PartnerRepo {
       const [rows] = await db.query(
         `SELECT id, email, already_partner 
          FROM round_table 
-         WHERE email = ? AND payment IS NOT NULL`,
+         WHERE email = ? AND payment IS NOT NULL LIMIT 1`,
         [email]
       );
-
+      
       return rows[0] || null;
     } catch (error) {
       console.error("Error fetching partner:", error);
