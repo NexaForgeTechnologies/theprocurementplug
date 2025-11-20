@@ -2,6 +2,7 @@ import { PartnerRepo } from "@/repository/round-table/PartnerRepo";
 
 export async function GET(request) {
   try {
+    // test
     const { searchParams } = new URL(request.url);
     const email = searchParams.get("email");
 
