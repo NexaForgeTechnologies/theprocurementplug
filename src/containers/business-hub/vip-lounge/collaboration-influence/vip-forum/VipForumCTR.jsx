@@ -4,7 +4,13 @@ import React, { useState, useEffect, useRef } from "react";
 // import axios from 'axios';
 import HostARoundaTableForm from "@/components/business-hub/vip-lounge/collaboration-influence/vip-forum/HostARoundtableForm";
 
+import { useRoundtable } from "@/hooks/GetROundtables";
+
+
 function VipForumCTR() {
+  const { data } = useRoundtable();
+  console.log(data);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
@@ -285,9 +291,8 @@ function VipForumCTR() {
               <button
                 onClick={handleSubmit}
                 disabled={loading}
-                className={`px-4 py-2 rounded bg-[#b08d57] text-white ${
-                  loading ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+                className={`px-4 py-2 rounded bg-[#b08d57] text-white ${loading ? "opacity-50 cursor-not-allowed" : ""
+                  }`}
               >
                 {loading ? "Processing..." : "Proceed to Payment"}
               </button>
@@ -298,15 +303,14 @@ function VipForumCTR() {
 
       {/* Pages */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-        {currentItems.map((partner) => (
-          // {collaboration.map((partner) => (
+        {data.map((partner) => (
           <ConsultingPartnerTile
             key={partner.id}
-            heading={partner.heading}
-            para={partner.para}
+            heading={partner.title}
+            para={partner.name}
             sponsor={partner.sponsor}
-            btntext={partner.btntext}
-            bigimg={partner.bigimg}
+            btntext="View"
+            bigimg="/uploads/1763652665566-sunset-silhouettes-trees-mountains-generative-ai.jpg"
             url={partner.url}
           />
         ))}
@@ -318,11 +322,10 @@ function VipForumCTR() {
           <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] bg-[#ffff] border-1 border-[#EDEDED] text-lg ${
-              currentPage === 1
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:text-[#1B1B1B]"
-            }`}
+            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] bg-[#ffff] border-1 border-[#EDEDED] text-lg ${currentPage === 1
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:text-[#1B1B1B]"
+              }`}
           >
             &lt;
           </button>
@@ -333,11 +336,10 @@ function VipForumCTR() {
               <button
                 key={page}
                 onClick={() => handlePageChange(page)}
-                className={`text-lg ${
-                  currentPage === page
-                    ? "text-[#1B1B1B] font-semibold px-4  py-2 rounded-[10px] bg-[#EFEFEF]"
-                    : "text-[#7D7D7D] hover:text-[#1B1B1B]  px-4  py-2 rounded-[10px]"
-                }`}
+                className={`text-lg ${currentPage === page
+                  ? "text-[#1B1B1B] font-semibold px-4  py-2 rounded-[10px] bg-[#EFEFEF]"
+                  : "text-[#7D7D7D] hover:text-[#1B1B1B]  px-4  py-2 rounded-[10px]"
+                  }`}
               >
                 {page}
               </button>
@@ -348,11 +350,10 @@ function VipForumCTR() {
           <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] border-1 border-[#EDEDED] bg-[#ffff] text-lg ${
-              currentPage === totalPages
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:text-[#1B1B1B]"
-            }`}
+            className={`text-[#1B1B1B] px-4  py-2 rounded-[10px] border-1 border-[#EDEDED] bg-[#ffff] text-lg ${currentPage === totalPages
+              ? "opacity-50 cursor-not-allowed"
+              : "hover:text-[#1B1B1B]"
+              }`}
           >
             &gt;
           </button>
