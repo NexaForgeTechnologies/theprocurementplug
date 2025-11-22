@@ -60,8 +60,17 @@ export async function POST(req) {
       ? await saveFile(logoImageFile)
       : null;
 
+    const slug = parsed.title
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')  // remove invalid characters
+      .replace(/\s+/g, '-')          // spaces to dashes
+      .replace(/-+/g, '-');          // remove multiple dashes
+    const public_url = `${origin}/business-hub/vip-lounge/collaboration-influence/vip-forum/${slug}?status=false&session_id=null`;
+    const secret_url = `${origin}/business-hub/vip-lounge/collaboration-influence/vip-forum/${slug}?status=true&session_id=${stripe.id}`;
+
     // 6️⃣ Continue with DB insert / Stripe
-    await insert("round_table", { ...textFields, banner_image: bannerImagePath, logo_image: logoImagePath, session_id: stripe.id })
+    await insert("round_table", { ...textFields, banner_image: bannerImagePath, logo_image: logoImagePath, session_id: stripe.id, public_url: public_url, secret_url: secret_url });
 
     return new Response(JSON.stringify({ url: stripe.url }), { status: 200 });
   } catch (error) {

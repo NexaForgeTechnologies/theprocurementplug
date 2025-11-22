@@ -6,11 +6,8 @@ import HostARoundaTableForm from "@/components/business-hub/vip-lounge/collabora
 
 import { useRoundtable } from "@/hooks/GetROundtables";
 
-
 function VipForumCTR() {
   const { data } = useRoundtable();
-  console.log(data);
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const modalRef = useRef(null);
@@ -311,7 +308,7 @@ function VipForumCTR() {
             sponsor={partner.sponsor}
             btntext="View"
             bigimg="/uploads/1763652665566-sunset-silhouettes-trees-mountains-generative-ai.jpg"
-            url={partner.url}
+            url={partner.public_url}
           />
         ))}
       </div>
