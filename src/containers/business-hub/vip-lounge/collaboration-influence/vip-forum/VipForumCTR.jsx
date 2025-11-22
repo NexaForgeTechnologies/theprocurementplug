@@ -307,7 +307,7 @@ function VipForumCTR() {
             para={partner.name}
             sponsor={partner.sponsor}
             btntext="View"
-            bigimg="/uploads/1763652665566-sunset-silhouettes-trees-mountains-generative-ai.jpg"
+            bigimg={partner.banner_image}
             url={partner.public_url}
           />
         ))}

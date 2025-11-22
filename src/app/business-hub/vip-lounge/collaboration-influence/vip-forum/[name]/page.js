@@ -1,101 +1,222 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import StrategicSupplierPartnershipCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/vip-forum/strategic-supplier-partnership/StrategicSupplierPartnershipCTR'
-
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/vip-lounge" className="hover:underline">VIP Business Lounge</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/vip-lounge/collaboration-influence" className="hover:underline">Collaboration & Influence Zone</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/vip-lounge/collaboration-influence/vip-forum" className="hover:underline">VIP Forum</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969] ">
-                    Strategic Supplier Partnership
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import Breadcrumb from '@/components/BreadCrumbs'
 
 function page() {
-    const partnerWithUs = {
-        Partnerheader: {
-            h3: "Partner With Us",
-            p: (
-                <>
-                    <a
-                        href="mailto:partnerships@theprocurementplug.com"
-                        className="font-semibold text-white hover:underline"
-                    >
-                        partnerships@theprocurementplug.com
-                    </a> -{' '}
-                    <Link className="font-light" href="/partnerships">
-                        Visit our partnership page
-                    </Link>
-                </>
-            )
-        },
-        items: [
-            {
-                id: 1,
-                heading: "Partners hub",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: ""
-            },
-            {
-                id: 2,
-                heading: "Events hub",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: ""
-            },
-            {
-                id: 3,
-                heading: "Business hub",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: ""
-            }
-        ]
-    }
-
-    return (
+  const partnerWithUs = {
+    Partnerheader: {
+      h3: "Partner With Us",
+      p: (
         <>
-            <div>
-                <HeroCTR
-                    img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
-                    heading={<span className='flex flex-col gap-0 leading-none'>
-                        <span className="font-extrabold">Strategic Supplier Partnership</span>
-                    </span>}
-                    para="Strategic supplier partnerships use collaboration and technology to future-proof procurement. They boost efficiency, cut risks, and enable quick adaptation to market shifts, ensuring a resilient supply chain."
-                />
-                <Breadcrumb />
-                <StrategicSupplierPartnershipCTR />
-            </div>
-            <PartnerWithUsComp data={partnerWithUs} />
+          <a
+            href="mailto:partnerships@theprocurementplug.com"
+            className="font-semibold text-white hover:underline"
+          >
+            partnerships@theprocurementplug.com
+          </a> -{' '}
+          <Link className="font-light" href="/partnerships">
+            Visit our partnership page
+          </Link>
         </>
-    )
+      )
+    },
+    items: [
+      {
+        id: 1,
+        heading: "Partners hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: ""
+      },
+      {
+        id: 2,
+        heading: "Events hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: ""
+      },
+      {
+        id: 3,
+        heading: "Business hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: ""
+      }
+    ]
+  }
+
+  return (
+    <>
+      <div>
+        <HeroCTR
+          img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
+          heading={<span className='flex flex-col gap-0 leading-none'>
+            <span className="font-extrabold">Strategic Supplier Partnership</span>
+          </span>}
+          para="Strategic supplier partnerships use collaboration and technology to future-proof procurement. They boost efficiency, cut risks, and enable quick adaptation to market shifts, ensuring a resilient supply chain."
+        />
+
+        <Breadcrumb />
+
+        <div>
+          <div className="flex justify-between items-center text-start flex-col-reverse md:flex-row mb-6 md:mb-8">
+            <div>
+              <h3 className="font-semibold text-[24px] md:text-[52px] mb-4 text-[#85009D]">
+                Strategic Supplier <span className="font-normal">Partnership</span>
+              </h3>
+              <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Timothy</span></p>
+              <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 font-semibold">Access level: <span className="font-normal">Request to join</span></p>
+              <h3 className="font-normal text-[24px] md:text-[42px] text-[#B08D57]">
+                Sponsored by <span className="font-semibold">Globex</span>
+              </h3>
+            </div>
+            <div className="mb-4 md:mb-0">
+              <Image
+                src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png"}
+                alt={`memeber`}
+                width={300}
+                height={300}
+                className="w-full md:w-[300px] md:h-[300px] object-contain"
+              />
+            </div>
+          </div>
+          <div className="bg-[#85009D] rounded-[6px] p-5 text-[#ffff] mb-6 md:mb-8">
+            <h3 className="font-semibold text-[24px] md:text-[32px] mb-4">
+              Welcome <span className="font-normal">Note👋</span>
+            </h3>
+            <p className="text-[16px] md:text-[24px] mb-4">Welcome! This roundtable explores emerging models for resilient supply chains. Share
+              your insights, case studies, and frameworks.
+            </p>
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <button className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">Request Access</button>
+              <button className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+                Submit a Question
+                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col md:flex-row  gap-4">
+            <div>
+              <h3 className="text-[#1B1B1B] font-semibold text-[24px] md:text-[32px] mb-4">Live Discussion Thread</h3>
+              <div className="bg-[#FFFBF5] border-2 border-[#DBBB89] p-5 rounded-[6px]">
+                <div className="mb-4 md:mb-8">
+                  <div className="flex flex-wrap gap-2 md:gap-4 items-center mb-4">
+                    <Image
+                      src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/reply2.png"}
+                      alt={`reply`}
+                      width={44}
+                      height={44}
+                      className="w-[44px] h-[44px] object-cover"
+                    />
+                    <p className="text-[#1B1B1B] font-medium">John Mathew</p>
+                    <p className="text-[#ffff] bg-[#E2AD5C] rounded-[6px] p-1 text-[8px]">Top Contributor</p>
+                    <p className="text-[#919191] font-medium text-[12px]">2 minutes ago</p>
+                  </div>
+                  <p className="text-[#000000] text-[16px] md:text-[20px] mb-4">Procurement teams are the unsung heroes—so much work goes on behind the
+                    scenes to keep everything running smoothly!</p>
+                  <p className="text-[#505050]">Reply</p>
+                </div>
+                <div className="mb-4 md:mb-8">
+                  <div className="flex gap-4 items-center mb-4">
+                    <Image
+                      src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/reply3.png"}
+                      alt={`reply`}
+                      width={44}
+                      height={44}
+                      className="w-[44px] h-[44px] object-cover"
+                    />
+                    <p className="text-[#1B1B1B] font-medium">Alexa White</p>
+                    <p className="text-[#919191] font-medium text-[12px]">2 minutes ago</p>
+                  </div>
+                  <p className="text-[#000000] text-[16px] md:text-[20px] mb-4">It’s interesting how procurement has shifted from just buying stuff to actually
+                    shaping company strategy.</p>
+                  <p className="text-[#505050]">Reply</p>
+                </div>
+                <div className="mb-4 md:mb-8">
+                  <div className="flex gap-4 items-center mb-4">
+                    <Image
+                      src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/reply1.png"}
+                      alt={`reply`}
+                      width={44}
+                      height={44}
+                      className="w-[44px] h-[44px] object-cover"
+                    />
+                    <p className="text-[#1B1B1B] font-medium">Jason Mamoa</p>
+                    <p className="text-[#919191] font-medium text-[12px]">2 minutes ago</p>
+                  </div>
+                  <p className="text-[#000000] text-[16px] md:text-[20px] mb-4">Been learning a lot about how important supplier relationships are—procurement
+                    really is about people as much as process.</p>
+                  <p className="text-[#505050]">Reply</p>
+                </div>
+                <div className="mb-4 md:mb-8">
+                  <div className="flex gap-4 items-center mb-4">
+                    <Image
+                      src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/reply3.png"}
+                      alt={`reply`}
+                      width={44}
+                      height={44}
+                      className="w-[44px] h-[44px] object-cover"
+                    />
+                    <p className="text-[#1B1B1B] font-medium">Alexa White</p>
+                    <p className="text-[#919191] font-medium text-[12px]">2 minutes ago</p>
+                  </div>
+                  <p className="text-[#000000] text-[16px] md:text-[20px] mb-4">It’s interesting how procurement has shifted from just buying stuff to actually
+                    shaping company strategy.</p>
+                  <p className="text-[#505050]">Reply</p>
+                </div>
+                <div>
+                  <div className="flex gap-4 items-center mb-4">
+                    <Image
+                      src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/reply1.png"}
+                      alt={`reply`}
+                      width={44}
+                      height={44}
+                      className="w-[44px] h-[44px] object-cover"
+                    />
+                    <p className="text-[#1B1B1B] font-medium">Jason Mamoa</p>
+                    <p className="text-[#919191] font-medium text-[12px]">2 minutes ago</p>
+                  </div>
+                  <p className="text-[#000000] text-[16px] md:text-[20px] mb-4">Been learning a lot about how important supplier relationships are—procurement
+                    really is about people as much as process.</p>
+                  <p className="text-[#505050]">Reply</p>
+                </div>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-[#1B1B1B] font-semibold text-[24px] md:text-[32px] mb-4">Sponsorship</h3>
+              <div className="bg-[#FFFBF5] border-2 border-[#DBBB89] p-5 rounded-[6px]">
+                <Image
+                  src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/logo.png"}
+                  alt={`logo`}
+                  width={162}
+                  height={107}
+                  className="w-[110px] h-[73px] md:w-[162px] md:h-[107px] object-cover mb-4"
+                />
+                <p className="text-[#000000] mb-4">This Roundtable is
+                  Sponsored by [logo]</p>
+                <button
+                  className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+                >
+                  Sponsor Profile
+                  <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <PartnerWithUsComp data={partnerWithUs} />
+    </>
+  )
 }
 
 export default page
