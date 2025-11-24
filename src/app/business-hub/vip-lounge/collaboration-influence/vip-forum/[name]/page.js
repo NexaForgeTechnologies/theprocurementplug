@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -6,7 +8,11 @@ import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import Breadcrumb from '@/components/BreadCrumbs'
 
+import { useRoundtableStore } from "@/store/roundTableStore";
+
 function page() {
+  const selected = useRoundtableStore((state) => state.selectedRoundtable);
+
   const partnerWithUs = {
     Partnerheader: {
       h3: "Partner With Us",
@@ -211,7 +217,6 @@ function page() {
             </div>
           </div>
         </div>
-
       </div>
 
       <PartnerWithUsComp data={partnerWithUs} />
