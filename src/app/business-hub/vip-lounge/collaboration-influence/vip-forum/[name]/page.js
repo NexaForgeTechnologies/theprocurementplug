@@ -12,6 +12,7 @@ import { useRoundtableStore } from "@/store/roundTableStore";
 
 function page() {
   const selected = useRoundtableStore((state) => state.selectedRoundtable);
+  console.log(selected);
 
   const partnerWithUs = {
     Partnerheader: {
@@ -62,27 +63,24 @@ function page() {
     <>
       <div>
         <HeroCTR
-          img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"
-          heading={<span className='flex flex-col gap-0 leading-none'>
-            <span className="font-extrabold">Strategic Supplier Partnership</span>
-          </span>}
-          para="Strategic supplier partnerships use collaboration and technology to future-proof procurement. They boost efficiency, cut risks, and enable quick adaptation to market shifts, ensuring a resilient supply chain."
+          img={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"}
+          heading={selected?.title}
+          para={selected?.description}
         />
-
         <Breadcrumb />
 
         <div>
           <div className="flex justify-between items-center text-start flex-col-reverse md:flex-row mb-6 md:mb-8">
             <div>
               <h3 className="font-semibold text-[24px] md:text-[52px] mb-4 text-[#85009D]">
-                Strategic Supplier <span className="font-normal">Partnership</span>
+                {selected?.title || "N/A"}
               </h3>
-              <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">Name: <span className="font-normal">Timothy</span></p>
-              <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 font-semibold">Access level: <span className="font-normal">Request to join</span></p>
-              <h3 className="font-normal text-[24px] md:text-[42px] text-[#B08D57]">
-                Sponsored by <span className="font-semibold">Globex</span>
-              </h3>
+
+              <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-2 font-semibold">
+                Name: <span className="font-normal">{selected?.name || "N/A"}</span>
+              </p>
             </div>
+
             <div className="mb-4 md:mb-0">
               <Image
                 src={"/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member2.png"}
@@ -195,7 +193,7 @@ function page() {
                 </div>
               </div>
             </div>
-            <div>
+            {/* <div>
               <h3 className="text-[#1B1B1B] font-semibold text-[24px] md:text-[32px] mb-4">Sponsorship</h3>
               <div className="bg-[#FFFBF5] border-2 border-[#DBBB89] p-5 rounded-[6px]">
                 <Image
@@ -214,7 +212,7 @@ function page() {
                   <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
