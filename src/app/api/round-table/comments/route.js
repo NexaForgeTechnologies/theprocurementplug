@@ -1,0 +1,48 @@
+import { NextResponse } from "next/server";
+import { CommentRepo } from "@/repository/round-table/CommentsRepo";
+
+// 🔹 GET — Get all comments for roundtable
+export async function GET(req) {
+    try {
+        const { searchParams } = new URL(req.url);
+        const roundtable_id = searchParams.get("roundtable_id");
+
+        if (!roundtable_id) {
+            return NextResponse.json(
+                { error: "roundtable_id is required" },
+                { status: 400 }
+            );
+        }
+
+        const comments = await CommentRepo.getByRoundtableId(roundtable_id);
+        return NextResponse.json(comments);
+
+    } catch (error) {
+        console.error("Error fetching comments:", error);
+        return NextResponse.json(
+            { error: "Failed to fetch comments" },
+            { status: 500 }
+        );
+    }
+}
+
+// 🔹 POST — Create a comment or reply
+export async function POST(req) {
+    try {
+        const body = await req.json();
+
+        const saved = await CommentRepo.createComment(body);
+
+        return NextResponse.json({
+            message: "Comment saved",
+            id: saved.id,
+        });
+
+    } catch (error) {
+        console.error("Error saving comment:", error);
+        return NextResponse.json(
+            { error: "Failed to save comment" },
+            { status: 500 }
+        );
+    }
+}
