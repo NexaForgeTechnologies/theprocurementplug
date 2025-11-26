@@ -9,6 +9,23 @@ export default function CommentItem({
   can_delete = false,
   isSecret,
 }) {
+  function formatTime(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now - date;
+
+    const minutes = Math.floor(diffMs / 60000);
+    const hours = Math.floor(minutes / 60);
+    const days = Math.floor(hours / 24);
+
+    if (minutes < 1) return "Just now";
+    if (minutes < 60) return `${minutes} min ago`;
+    if (hours < 24) return `${hours} hr ago`;
+
+    // Format: DD-MM-YYYY
+    return date.toLocaleDateString("en-GB");
+  }
+
   const [isEditing, setIsEditing] = useState(false);
   const [updatedText, setUpdatedText] = useState(comment.comment);
 
@@ -41,7 +58,9 @@ export default function CommentItem({
           className="w-[36px] h-[36px] rounded-full"
         />
         <p className="text-[#1B1B1B] font-medium">{comment.user_name}</p>
-        <p className="text-[#919191] text-sm">2 minutes ago</p>
+        <p className="text-[#919191] text-sm">
+          {formatTime(comment.created_at)}
+        </p>
       </div>
 
       {/* Comment or Edit Mode */}

@@ -63,6 +63,8 @@ export default function CommentSection({ id, isSecret }) {
     loadComments();
   };
 
+  console.log(comments);
+
   return (
     <div className="text-[#000000] bg-[#FFFBF5] border border-[#D09B48] p-6 rounded-md">
       <h3 className="text-[#1B1B1B] font-semibold text-[24px] mb-6">
