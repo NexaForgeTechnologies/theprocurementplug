@@ -93,7 +93,7 @@ export default function CommentItem({
               className="text-blue-600 hover:underline"
               onClick={() => setIsEditing(true)}
             >
-              Edit
+              ✏️
             </button>
           ) : (
             <button
@@ -123,7 +123,7 @@ export default function CommentItem({
               className="text-red-600 hover:underline"
               onClick={() => onDelete(comment.id)}
             >
-              Delete
+              🗑️
             </button>
           )}
         </div>
