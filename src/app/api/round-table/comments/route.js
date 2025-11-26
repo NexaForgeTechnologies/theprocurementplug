@@ -46,3 +46,43 @@ export async function POST(req) {
         );
     }
 }
+
+// PUT - Update comment
+export async function PUT(req) {
+    try {
+        const body = await req.json();
+
+        const comment = await CommentRepo.updateComment(body);
+
+        return NextResponse.json({
+            message: "Comment updated",
+            id: comment.id,
+        });
+
+    } catch (error) {
+        console.error("Error updating comment:", error);
+        return NextResponse.json(
+            { error: "Failed to update comment" },
+            { status: 500 }
+        );
+    }
+}
+
+// DELETE - delete comment
+export async function DELETE(req) {
+    try {
+        const body = await req.json();
+        const comment = await CommentRepo.deleteComment(body);
+
+        return NextResponse.json({
+            message: "Comment deleted",
+            id: comment.id,
+        });
+    } catch (error) {
+        console.error("Error deleting comment:", error);
+        return NextResponse.json(
+            { error: "Failed to delete comment" },
+            { status: 500 }
+        );
+    }
+}

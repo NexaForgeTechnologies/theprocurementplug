@@ -30,4 +30,40 @@ export class PartnerRepo {
       throw new Error("Database error");
     }
   }
+
+  // static async getAll() {
+  //   try {
+  //     const [rows] = await db.query(`
+  //     SELECT 
+  //       rt.*,
+  //       (
+  //         SELECT JSON_ARRAYAGG(
+  //           JSON_OBJECT(
+  //             'id', c.id,
+  //             'parent_id', c.parent_id,
+  //             'round_table_id', c.roundtable_id,
+  //             'user_name', c.user_name,
+  //             'comment', c.comment,
+  //             'created_at', c.created_at
+  //           )
+  //         )
+  //         FROM (
+  //           SELECT *
+  //           FROM round_table_comments
+  //           WHERE roundtable_id = rt.id
+  //           ORDER BY created_at ASC
+  //         ) AS c
+  //       ) AS comments
+  //     FROM round_table rt
+  //     WHERE rt.payment IS NOT NULL 
+  //       AND rt.status = 'Approved'
+  //     ORDER BY rt.id DESC
+  //   `);
+
+  //     return rows;
+  //   } catch (error) {
+  //     console.error("Error fetching round tables:", error);
+  //     throw new Error("Database error");
+  //   }
+  // }
 }

@@ -23,7 +23,7 @@ export class CommentRepo {
     }
 
 
-    // 🔹 Add comment or reply
+    // Add comment or reply
     static async createComment({ roundtable_id, parent_id, user_name, comment }) {
         // console.log({ roundtable_id, parent_id, user_name, comment });
 
@@ -60,4 +60,45 @@ export class CommentRepo {
             throw new Error("Database error");
         }
     }
+
+    // Update comment
+    static async updateComment({ id, comment }) {
+        console.log(id, comment);
+
+        try {
+            const [result] = await db.query(
+                `
+                    UPDATE round_table_comments 
+                    SET comment = ?
+                    WHERE id = ?
+                `,
+                [comment, id]
+            );
+
+            return { updated: result.affectedRows > 0 };
+        } catch (error) {
+            console.error("Error updating comment:", error);
+            throw new Error("Database error");
+        }
+    }
+
+    // Delete comment
+    static async deleteComment({ id }) {
+        try {
+            const [result] = await db.query(
+                `
+                    DELETE FROM round_table_comments 
+                    WHERE id = ? OR parent_id = ?
+                `,
+                [id, id]
+            );
+
+            return { id };
+        } catch (error) {
+            console.error("Error deleting comment:", error);
+            throw new Error("Database error");
+        }
+    }
+
+
 }

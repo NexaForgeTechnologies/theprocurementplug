@@ -12,6 +12,7 @@ import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithU
 import Breadcrumb from '@/components/BreadCrumbs'
 
 import { useRoundtableStore } from "@/store/roundTableStore";
+
 import CommentSection from '@/containers/business-hub/vip-lounge/comment-section/CommentSectionCTR';
 
 function page() {
@@ -221,7 +222,7 @@ function page() {
             </div>
           </div>
 
-          <CommentSection id={selected.id} />
+          <CommentSection id={selected.id} isSecret={canShare} />
         </div>
       </div>
 
