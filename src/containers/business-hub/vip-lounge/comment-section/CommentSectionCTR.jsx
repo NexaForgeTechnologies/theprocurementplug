@@ -35,14 +35,15 @@ export default function CommentSection({ id, isSecret }) {
     loadComments();
   };
 
-  const handleReplyClick = (commentId) => {
-    setReplyTo(commentId);
+  const handleReplySubmit = async (parentId, text) => {
+    await axios.post("/api/round-table/comments", {
+      roundtable_id: id,
+      parent_id: parentId,
+      user_name: "John Mathew",
+      comment: text,
+    });
 
-    const replyBox = document.getElementById("reply-box");
-    if (replyBox) {
-      replyBox.scrollIntoView({ behavior: "smooth", block: "center" });
-      replyBox.focus();
-    }
+    loadComments();
   };
 
   const handleEditComment = async (commentId, updatedText) => {
@@ -54,8 +55,6 @@ export default function CommentSection({ id, isSecret }) {
   };
 
   const handleDeleteComment = async (commentId) => {
-    if (!confirm("Are you sure you want to delete this comment?")) return;
-
     await axios.delete(`/api/round-table/comments`, {
       data: { id: commentId },
     });
@@ -69,16 +68,20 @@ export default function CommentSection({ id, isSecret }) {
         Comments Section
       </h3>
 
+      {comments.length === 0 && (
+        <p className="text-[#919191] text-center">No comments yet. Be the first to comment! Try Submit a Question?</p>
+      )}
+
       {/* Comment List */}
       <div>
         {comments.map((c) => (
           <CommentItem
             key={c.id}
             comment={c}
-            onReplyClick={handleReplyClick}
+            onReplySubmit={handleReplySubmit}
             onEdit={handleEditComment}
             onDelete={handleDeleteComment}
-            can_delete={true} // or false
+            can_delete={true}
             isSecret={isSecret}
           />
         ))}

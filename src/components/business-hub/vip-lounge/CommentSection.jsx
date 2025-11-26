@@ -1,9 +1,9 @@
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export default function CommentItem({
   comment,
-  onReplyClick,
+  onReplySubmit,
   onEdit,
   onDelete,
   can_delete = false,
@@ -22,12 +22,16 @@ export default function CommentItem({
     if (minutes < 60) return `${minutes} min ago`;
     if (hours < 24) return `${hours} hr ago`;
 
-    // Format: DD-MM-YYYY
     return date.toLocaleDateString("en-GB");
   }
 
   const [isEditing, setIsEditing] = useState(false);
   const [updatedText, setUpdatedText] = useState(comment.comment);
+
+  // NEW STATES
+  const [showReplyBox, setShowReplyBox] = useState(false);
+  const [replyText, setReplyText] = useState("");
+  const replyInputRef = useRef(null);
 
   const handleSaveEdit = () => {
     if (updatedText.trim() === "") return;
@@ -35,15 +39,22 @@ export default function CommentItem({
     setIsEditing(false);
   };
 
-  const handleReplyClick = () => {
-    onReplyClick(comment.id);
+  const openReplyBox = () => {
+    setShowReplyBox(true);
+    const prefill = `@${comment.user_name} `;
+    setReplyText(prefill);
 
-    // 👇 SCROLL TO REPLY BOX
-    const replyBox = document.getElementById("reply-box");
-    if (replyBox) {
-      replyBox.scrollIntoView({ behavior: "smooth", block: "center" });
-      replyBox.focus(); // auto focus input
-    }
+    setTimeout(() => {
+      replyInputRef.current?.focus();
+    }, 100);
+  };
+
+  const submitReply = () => {
+    if (!replyText.trim()) return;
+
+    onReplySubmit(comment.id, replyText);
+    setReplyText("");
+    setShowReplyBox(false);
   };
 
   return (
@@ -82,7 +93,7 @@ export default function CommentItem({
           {/* Reply */}
           <button
             className="text-[#505050] hover:underline"
-            onClick={handleReplyClick}
+            onClick={openReplyBox}
           >
             Reply
           </button>
@@ -117,7 +128,7 @@ export default function CommentItem({
             </button>
           )}
 
-          {/* Delete (Only Show If Allowed) */}
+          {/* Delete */}
           {can_delete && (
             <button
               className="text-red-600 hover:underline"
@@ -129,6 +140,36 @@ export default function CommentItem({
         </div>
       )}
 
+      {/* Reply Box (NEW) */}
+      {showReplyBox && (
+        <div className="mt-3 ml-12">
+          <textarea
+            ref={replyInputRef}
+            value={replyText}
+            onChange={(e) => setReplyText(e.target.value)}
+            className="w-full p-2 border rounded-md"
+            placeholder={`Reply to ${comment.user_name}`}
+          />
+          <div className="flex items-center gap-4 text-sm mt-2">
+            <button
+              className="text-gray-500 hover:underline"
+              onClick={() => {
+                setReplyText("");
+                setShowReplyBox(false);
+              }}
+            >
+              Cancel
+            </button>
+            <button
+              className="text-green-600 hover:underline"
+              onClick={submitReply}
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Replies */}
       {comment.replies?.length > 0 && (
         <div className="ml-10 mt-4 border-l border-l-gray-400 pl-4">
@@ -136,10 +177,11 @@ export default function CommentItem({
             <CommentItem
               key={r.id}
               comment={r}
-              onReplyClick={onReplyClick}
+              onReplySubmit={onReplySubmit}
               onEdit={onEdit}
               onDelete={onDelete}
               can_delete={can_delete}
+              isSecret={isSecret}
             />
           ))}
         </div>
