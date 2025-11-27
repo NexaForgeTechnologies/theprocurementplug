@@ -2,6 +2,12 @@ import { validate } from '@/lib/shared/validation/validation';
 import { createStripeSession, saveFile } from '@/lib/shared/helper';
 import { insert } from '@/lib/shared/database/db-query';
 
+import crypto from "crypto";
+
+function generateToken() {
+  return crypto.randomBytes(32).toString("hex");  // 64-char token
+}
+
 export async function POST(req) {
   try {
     const formData = await req.formData();
@@ -69,8 +75,11 @@ export async function POST(req) {
     const public_url = `${origin}/business-hub/vip-lounge/collaboration-influence/vip-forum/${slug}?status=false&session_id=null`;
     const secret_url = `${origin}/business-hub/vip-lounge/collaboration-influence/vip-forum/${slug}?status=true&session_id=${stripe.id}`;
 
+    // Generate secure token
+    const access_token = generateToken();
+
     // 6️⃣ Continue with DB insert / Stripe
-    await insert("round_table", { ...textFields, banner_image: bannerImagePath, logo_image: logoImagePath, session_id: stripe.id, public_url: public_url, secret_url: secret_url });
+    await insert("round_table", { ...textFields, banner_image: bannerImagePath, logo_image: logoImagePath, session_id: stripe.id, public_url: public_url, secret_url: secret_url, access_token: access_token });
 
     return new Response(JSON.stringify({ url: stripe.url }), { status: 200 });
   } catch (error) {

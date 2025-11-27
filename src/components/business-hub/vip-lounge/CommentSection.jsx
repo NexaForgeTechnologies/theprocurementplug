@@ -8,6 +8,7 @@ export default function CommentItem({
   onDelete,
   can_delete = false,
   isSecret,
+  secretToken,
 }) {
   function formatTime(dateString) {
     const date = new Date(dateString);

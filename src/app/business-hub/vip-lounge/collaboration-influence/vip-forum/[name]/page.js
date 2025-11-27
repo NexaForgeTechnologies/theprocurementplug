@@ -222,7 +222,7 @@ function page() {
             </div>
           </div>
 
-          <CommentSection id={selected.id} isSecret={canShare} />
+          <CommentSection id={selected.id} isSecret={canShare} secretToken={selected.access_token} />
         </div>
       </div>
 
