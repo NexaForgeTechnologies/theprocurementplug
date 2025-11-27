@@ -115,10 +115,6 @@
 //   );
 // }
 
-
-
-
-
 // --------------------------------
 "use client";
 import { useEffect, useState } from "react";
@@ -132,7 +128,9 @@ export default function CommentSection({ id, isSecret }) {
   const [replyTo, setReplyTo] = useState(null);
 
   const loadComments = async () => {
-    const res = await axios.get(`/api/round-table/comments?roundtable_id=${id}`);
+    const res = await axios.get(
+      `/api/round-table/comments?roundtable_id=${id}`
+    );
     setComments(buildNestedComments(res.data));
   };
 
@@ -156,6 +154,12 @@ export default function CommentSection({ id, isSecret }) {
   // Submit main comment
   const submitComment = async () => {
     if (!newComment.trim()) return;
+
+    // If user not verified → open captcha instead of posting
+    if (!userName) {
+      setShowCaptcha(true);
+      return;
+    }
 
     await axios.post("/api/round-table/comments", {
       roundtable_id: id,
@@ -228,18 +232,8 @@ export default function CommentSection({ id, isSecret }) {
         ))}
       </div>
 
-      {/* Write Comment Button (only if not verified) */}
-      {!userName && isSecret && (
-        <button
-          onClick={() => setShowCaptcha(true)}
-          className="bg-[#1B1B1B] text-white px-4 py-2 mt-6 rounded-md"
-        >
-          Write a Comment
-        </button>
-      )}
-
       {/* Comment Input Area - Only when user is verified */}
-      {userName && isSecret && (
+      {isSecret && (
         <div className="mt-6">
           {replyTo && (
             <p className="text-sm text-gray-600 mb-2">
