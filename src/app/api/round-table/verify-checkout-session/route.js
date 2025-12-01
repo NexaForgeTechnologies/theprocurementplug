@@ -1,3 +1,5 @@
+export const runtime = 'nodejs'; // important
+export const dynamic = 'force-dynamic';
 
 import { update, get } from '@/lib/shared/database/db-query';
 import { emailParser, varifyStripeSession } from '@/lib/shared/helper';

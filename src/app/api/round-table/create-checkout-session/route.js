@@ -1,3 +1,6 @@
+export const runtime = 'nodejs'; // important
+export const dynamic = 'force-dynamic';
+
 import { validate } from '@/lib/shared/validation/validation';
 import { createStripeSession, saveFile } from '@/lib/shared/helper';
 import { insert } from '@/lib/shared/database/db-query';
