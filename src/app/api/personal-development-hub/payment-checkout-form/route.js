@@ -1,3 +1,6 @@
+export const runtime = 'nodejs'; // important
+export const dynamic = 'force-dynamic';
+
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 import { PaymentCheckoutFormRepo } from "@/repository/personaldevelopmenthub/PaymentCheckoutFormRepo";
