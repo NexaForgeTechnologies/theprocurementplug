@@ -4,31 +4,7 @@ import React from 'react'
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import SalaryRoleTrackerCTR from '@/containers/business-hub/vip-lounge/talent-hiring-intelligence/salary-and-role-tracker/SalaryRoleTrackerCTR'
-
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/vip-lounge" className="hover:underline">VIP Business Lounge</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/business-hub/vip-lounge/talent-hiring-intelligence" className="hover:underline">Talent & Hiring Intelligence</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969] ">
-                    Salary and Role Tracker
-                </li>
-            </ol>
-        </nav>
-    )
-}
+import Breadcrumb from '@/components/BreadCrumbs'
 
 function page() {
     const partnerWithUs = {

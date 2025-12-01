@@ -70,7 +70,7 @@ function ExclusiveBusinessPartnersCTR() {
                 </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                {collaboration.map((partner) => (
+                {/* {collaboration.map((partner) => (
                     <ConsultingPartnerTile
                         key={partner.id}
                         tag={partner.tag}
@@ -84,7 +84,7 @@ function ExclusiveBusinessPartnersCTR() {
                         bigimg={partner.bigimg}
                         url={partner.url}
                     />
-                ))}
+                ))} */}
             </div>
         </div>
     );

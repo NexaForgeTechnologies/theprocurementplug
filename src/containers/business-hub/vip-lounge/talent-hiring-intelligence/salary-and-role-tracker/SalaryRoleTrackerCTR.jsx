@@ -132,7 +132,7 @@ const SalaryRoleTrackerCTR = () => {
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {collaboration.map((partner) => (
+                {/* {collaboration.map((partner) => (
                     <ConsultingPartnerTile
                         key={partner.id}
                         heading={partner.heading}
@@ -140,7 +140,7 @@ const SalaryRoleTrackerCTR = () => {
                         btntext={partner.btntext}
                         url={partner.url}
                     />
-                ))}
+                ))} */}
             </div>
             <div className="">
                 <h3 className="font-semibold text-2xl md:text-3xl my-8 text-[#1B1B1B]">

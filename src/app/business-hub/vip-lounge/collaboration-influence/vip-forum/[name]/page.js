@@ -15,7 +15,7 @@ import { useRoundtableStore } from "@/store/roundTableStore";
 
 import CommentSection from '@/containers/business-hub/vip-lounge/comment-section/CommentSectionCTR';
 
-function page() {
+function Page() {
   const selected = useRoundtableStore((state) => state.selectedRoundtable);
 
   const partnerWithUs = {
@@ -231,7 +231,7 @@ function page() {
   )
 }
 
-export default page;
+export default Page;
 
 
 
