@@ -3,7 +3,7 @@ import { sendEmail } from "@/lib/EmailsService";
 // ------------------------- Roundtable Emails
 export async function UserSecretRoundtableLinkEmail({ email, title, date, secret_url }) {
     await sendEmail({
-        type: "round-table",
+        type: "roundTable",
         to: email,
         subject: "Roundtable Secret Link",
         html: `
