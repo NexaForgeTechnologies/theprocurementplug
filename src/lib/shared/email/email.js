@@ -2,12 +2,12 @@ import nodemailer from "nodemailer";
 export async function sendEmail(to,subject,html,from=""){
   try{
 const transporter = nodemailer.createTransport({
-   host: process.env.SMTP_HOST,
-   port: process.env.SMTP_PORT,
+   host: process.env.SMTP_HOST || "",
+   port: process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT) : 587,
    secure: false,
         auth: {
-            user: process.env.SMTP_REQUEST_USER,
-            pass: process.env.SMTP_REQUEST_PASS,
+            user: process.env.SMTP_REQUEST_USER || "",
+            pass: process.env.SMTP_REQUEST_PASS || "",
         },
 });
 
