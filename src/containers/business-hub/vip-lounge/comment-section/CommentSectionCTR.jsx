@@ -7,6 +7,8 @@ import { buildNestedComments } from "@/utils/buildNestedComments";
 import CommentItem from "@/components/business-hub/vip-lounge/CommentSection";
 
 export default function CommentSection({ id, isSecret, secretToken }) {
+  console.log(id, isSecret, secretToken);
+
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
   const [replyTo, setReplyTo] = useState(null);
@@ -26,6 +28,8 @@ export default function CommentSection({ id, isSecret, secretToken }) {
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [accessToken, setAccessToken] = useState("");
+
+  const isAdmin = secretToken === accessToken;
 
   // Captcha popup
   const [showCaptcha, setShowCaptcha] = useState(false);
@@ -113,7 +117,7 @@ export default function CommentSection({ id, isSecret, secretToken }) {
             onDelete={handleDeleteComment}
             can_delete={true}
             isSecret={isSecret}
-            secretToken={accessToken}
+            isAdmin={isAdmin}
           />
         ))}
       </div>

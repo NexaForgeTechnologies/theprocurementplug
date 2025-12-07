@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 
-
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
 import Breadcrumb from '@/components/BreadCrumbs'
@@ -67,13 +66,12 @@ function Page() {
   const [showPopup, setShowPopup] = useState(false);
   const status = searchParams.get("status");
   const session_id = searchParams.get("session_id");
-  const canShare = status === "true" && session_id !== null && session_id != selected.session_id;
+  const canShare = status === "true" && session_id !== null && session_id == selected.session_id;
 
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
   const handleSendEmail = async () => {
     setError("");
     setSuccess("");
@@ -153,7 +151,7 @@ function Page() {
                   Introduction / Description: <span className="font-normal text-[#1B1B1B]/60">{selected?.description || "N/A"}</span>
                 </p>
                 <p className="text-[#1B1B1B]/90 font-semibold">
-                  Date (dd-mm-yyyy) : <span className="font-normal text-[#1B1B1B]/60">{selected?.date || "N/A"}</span>
+                  Date (yyyy-mm-dd) : <span className="font-normal text-[#1B1B1B]/60">{selected?.date || "N/A"}</span>
                 </p>
               </div>
               {/* Buttons */}
