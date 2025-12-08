@@ -554,6 +554,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     onChange={(e) => handleFileChange(e, "bannerImage")}
                   />
                 </div>
+
                 <div
                   className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
                   onClick={() => document.getElementById("logoInput").click()}

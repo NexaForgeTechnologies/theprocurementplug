@@ -1,34 +1,19 @@
-"use client"
+"use client";
 import { useState } from "react";
 
 import PostTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/PostTile";
 
-import { useRoundtable } from "@/hooks/GetROundtables";
+import { usePost } from "@/hooks/GetInsightsPost";
 
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import SubmissionModalForm from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/RequestDemoForm";
-import NominationForm from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/NominationForm"
-// import Image from "next/image";
+import NominationForm from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/NominationForm";
 
 function ThoughtLeadershipWallCTR() {
-  const { data = [] } = useRoundtable(); // default empty array
+  const { data = [] } = usePost(); // default empty array
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [isNominationOpen, setIsNominationOpen] = useState(false);
-
-  const collaboration = [
-    {
-      id: 1,
-      tag: "ARTICLE",
-      heading: "Category Strategy in a Volatile Market",
-      para: "Name: Maria",
-      logo: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/linkidin.png",
-      sponsor: "Sponsored by Logo",
-      btntext: "View Full Post",
-      bigimg: "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/member1.png",
-      url: "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/category-strategy-in-a-volatile-market",
-    }
-  ];
 
   const categories = [
     "Strategic Sourcing",
@@ -58,17 +43,22 @@ function ThoughtLeadershipWallCTR() {
         <h3 className="font-semibold text-[24px] md:text-[32px] md:text-5xl mb-4 md:mb-8 text-[#1B1B1B]">
           Thought Leadership Wall
         </h3>
-        <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-8">Your space to share, spotlight, and shape the future of procurement thinking.</p>
+        <p className="text-[16px] md:text-[20px] text-[#1B1B1B] mb-4 md:mb-8">
+          Your space to share, spotlight, and shape the future of procurement
+          thinking.
+        </p>
         <div className="flex flex-col md:flex-row items-center gap-4">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+          >
             Submit Your Insight
             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
           </button>
           <button
             onClick={() => setIsNominationOpen(true)}
-            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
+            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+          >
             Nominate a Contributor
             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
           </button>
@@ -97,10 +87,11 @@ function ThoughtLeadershipWallCTR() {
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${currentPage === 1
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:text-[#1B1B1B]"
-                }`}
+              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${
+                currentPage === 1
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:text-[#1B1B1B]"
+              }`}
             >
               &lt;
             </button>
@@ -111,10 +102,11 @@ function ThoughtLeadershipWallCTR() {
                 <button
                   key={page}
                   onClick={() => handlePageChange(page)}
-                  className={`text-lg px-4 py-2 rounded-[10px] ${currentPage === page
-                    ? "text-[#1B1B1B] font-semibold bg-[#EFEFEF]"
-                    : "text-[#7D7D7D] hover:text-[#1B1B1B]"
-                    }`}
+                  className={`text-lg px-4 py-2 rounded-[10px] ${
+                    currentPage === page
+                      ? "text-[#1B1B1B] font-semibold bg-[#EFEFEF]"
+                      : "text-[#7D7D7D] hover:text-[#1B1B1B]"
+                  }`}
                 >
                   {page}
                 </button>
@@ -125,10 +117,11 @@ function ThoughtLeadershipWallCTR() {
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${currentPage === totalPages
-                ? "opacity-50 cursor-not-allowed"
-                : "hover:text-[#1B1B1B]"
-                }`}
+              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${
+                currentPage === totalPages
+                  ? "opacity-50 cursor-not-allowed"
+                  : "hover:text-[#1B1B1B]"
+              }`}
             >
               &gt;
             </button>
@@ -137,8 +130,14 @@ function ThoughtLeadershipWallCTR() {
       </div>
 
       {/* <div className="w-full h-[2px] bg-[#85009D] mb-4 md:mb-8"></div> */}
-      <SubmissionModalForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-      <NominationForm isOpen={isNominationOpen} onClose={() => setIsNominationOpen(false)} />
+      <SubmissionModalForm
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
+      <NominationForm
+        isOpen={isNominationOpen}
+        onClose={() => setIsNominationOpen(false)}
+      />
     </div>
   );
 }
