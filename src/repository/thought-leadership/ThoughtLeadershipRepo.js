@@ -5,7 +5,7 @@ export class ThoughtLeadershipRepo {
     try {
       const [rows] = await db.query(
         `SELECT id, email, already_partner 
-         FROM round_table 
+         FROM viplounge_insight_posts 
          WHERE email = ? AND payment IS NOT NULL LIMIT 1`,
         [email]
       );
@@ -20,7 +20,7 @@ export class ThoughtLeadershipRepo {
   static async getAll() {
     try {
       const [rows] = await db.query(
-        `SELECT * FROM viplounge_thought_leadership
+        `SELECT * FROM viplounge_insight_posts
        WHERE status = 'Approved' ORDER BY id DESC`
       );
 

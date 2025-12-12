@@ -50,14 +50,14 @@ function ThoughtLeadershipWallCTR() {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-md w-full md:w-auto"
           >
             Submit Your Insight
             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
           </button>
           <button
             onClick={() => setIsNominationOpen(true)}
-            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+            className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-md w-full md:w-auto"
           >
             Nominate a Contributor
             <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
