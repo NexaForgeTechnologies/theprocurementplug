@@ -122,8 +122,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         : ["image/png", "image/svg+xml"];
     if (!validTypes.includes(file.type)) {
       alert(
-        `Please select a valid ${
-          field === "bannerImage" ? "JPG or PNG" : "PNG or SVG"
+        `Please select a valid ${field === "bannerImage" ? "JPG or PNG" : "PNG or SVG"
         } image file.`
       );
       return;
@@ -202,8 +201,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
           // General error → single string
           setError(
             resData?.details ||
-              resData?.error ||
-              "Failed to initiate checkout. Please try again."
+            resData?.error ||
+            "Failed to initiate checkout. Please try again."
           );
         }
       } finally {
@@ -250,10 +249,10 @@ export default function RequestDemoForm({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
+    <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-200 flex items-center justify-center px-6">
       <div
         ref={modalRef}
-        className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
+        className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border border-[#DBBB89] custom-scrollbar"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex flex-col justify-center">
@@ -262,11 +261,10 @@ export default function RequestDemoForm({ isOpen, onClose }) {
               <React.Fragment key={s}>
                 <div className="flex items-center">
                   <div
-                    className={`w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] md:w-[100px] md:h-[100px] text-[20px] sm:text-[24px] md:text-[50px] font-bold flex items-center justify-center rounded-full ${
-                      step === s
-                        ? "bg-[#85009D] text-white"
-                        : "bg-white text-[#B08D57] border border-[#85009D]"
-                    }`}
+                    className={`w-[30px] h-[30px] sm:w-[50px] sm:h-[50px] md:w-[100px] md:h-[100px] text-[20px] sm:text-[24px] md:text-[50px] font-bold flex items-center justify-center rounded-full ${step === s
+                      ? "bg-[#85009D] text-white"
+                      : "bg-white text-[#B08D57] border border-[#85009D]"
+                      }`}
                   >
                     {s}
                   </div>
@@ -281,8 +279,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                           step > s || (step === s && areRequiredFieldsFilled(s))
                             ? "100%"
                             : step === s
-                            ? `${getCompletionPercentage(s)}%`
-                            : "0%",
+                              ? `${getCompletionPercentage(s)}%`
+                              : "0%",
                       }}
                     />
                   </div>
@@ -309,7 +307,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 value={formData.companyName}
                 onChange={handleChange}
                 required
-                className="w-full p-4 mb-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                className="w-full p-4 mb-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <input
@@ -320,7 +318,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                  className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                 />
                 <div className="relative">
                   <input
@@ -332,7 +330,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     onChange={handleChange}
                     onBlur={checkEmail}
                     required
-                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                    className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                   />
                   {checkingEmail && (
                     <p className="absolute text-red-600 text-sm">Checking...</p>
@@ -357,7 +355,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     placeholder="Company Website / LinkedIn URL (URL)"
                     value={formData.website}
                     onChange={handleChange}
-                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                    className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                   />
                 </div>
               </div>
@@ -374,7 +372,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                   className="block cursor-pointer h-full"
                 >
                   <div
-                    className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group`}
+                    className={`p-4 border hover:bg-[#85009D] border-[#85009D] rounded-xs bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group`}
                     style={{
                       background:
                         formData.package === "1 Week" ? "#85009D" : "",
@@ -401,7 +399,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     >
                       £150
                     </p>
-                    <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
+                    <div className="w-full h-0.5 bg-[#B08D57] rounded-md mb-4"></div>
                     <p
                       className="text-[#7B7B7B] mb-4 md:mb-8 group-hover:text-white group-hover:transition-all duration-200 ease-in-out"
                       style={{
@@ -428,7 +426,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                   className="block cursor-pointer h-full"
                 >
                   <div
-                    className={`p-4 border-1 hover:bg-[#85009D] border-[#85009D] rounded-[2px] bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group `}
+                    className={`p-4 border hover:bg-[#85009D] border-[#85009D] rounded-xs bg-white h-full flex flex-col justify-between transition-all duration-200 ease-in-out group `}
                     style={{
                       background:
                         formData.package === "2 Weeks" ? "#85009D" : "",
@@ -458,7 +456,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                         (Non-Partner)
                       </span>
                     </p>
-                    <div className="w-full h-[2px] bg-[#B08D57] rounded-md mb-4"></div>
+                    <div className="w-full h-0.5 bg-[#B08D57] rounded-md mb-4"></div>
                     <p className="text-[#1B1B1B] text-[24px] md:text-[42px] flex items-center gap-2 mb-4 md:mb-8 leading-none group-hover:text-white group-hover:transition-all duration-200 ease-in-out">
                       £150
                       <span
@@ -494,7 +492,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 placeholder="Roundtable Title / Topic"
                 value={formData.title}
                 onChange={handleChange}
-                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
               />
               <textarea
                 id="message"
@@ -502,7 +500,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 placeholder="Introduction / Description"
                 value={formData.description}
                 onChange={handleChange}
-                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
+                className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                 rows="4"
               />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -513,7 +511,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                   placeholder="Target Audience / Key Participants"
                   value={formData.targetAudience}
                   onChange={handleChange}
-                  className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                  className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                 />
                 <input
                   type="date"
@@ -522,12 +520,12 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                   placeholder="Preferred Start Date"
                   value={formData.date}
                   onChange={handleChange}
-                  className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                  className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div
-                  className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                  className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-xs cursor-pointer mb-4"
                   onClick={() => document.getElementById("bannerInput").click()}
                 >
                   <Image
@@ -535,7 +533,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     alt="upload banner"
                     width={128}
                     height={128}
-                    className="w-[128px] h-[128px] object-cover mb-4"
+                    className="w-32 h-32 object-cover mb-4"
                   />
                   <p className="text-[#1B1B1B] text-center">
                     <span className="font-semibold">Banner Image</span> (file,
@@ -556,7 +554,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 </div>
 
                 <div
-                  className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                  className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-xs cursor-pointer mb-4"
                   onClick={() => document.getElementById("logoInput").click()}
                 >
                   <Image
@@ -564,7 +562,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     alt="upload logo"
                     width={128}
                     height={128}
-                    className="w-[128px] h-[128px] object-cover mb-4"
+                    className="w-32 h-32 object-cover mb-4"
                   />
                   <p className="text-[#1B1B1B] text-center">
                     <span className="font-semibold">Logo Upload</span> (file,
@@ -589,7 +587,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
           {step === 4 && (
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full space-y-4">
+                <div className="p-4 border border-[#85009D] rounded-xs bg-white h-full space-y-4">
                   <p className="text-[#1b1b1b]">
                     Company Name:{" "}
                     <span className="text-[#505050]">
@@ -617,7 +615,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     <img
                       src={bannerPreview}
                       alt="Banner Preview"
-                      className="w-full h-[100px] object-cover rounded-[2px]"
+                      className="w-full h-[100px] object-cover rounded-xs"
                     />
                   ) : (
                     <p className="text-[#505050]">No banner uploaded</p>
@@ -627,13 +625,13 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     <img
                       src={logoPreview}
                       alt="Logo Preview"
-                      className="w-full max-w-[150px] h-auto object-contain rounded-[2px]"
+                      className="w-full max-w-[150px] h-auto object-contain rounded-xs"
                     />
                   ) : (
                     <p className="text-[#505050]">No logo uploaded</p>
                   )}
                 </div>
-                <div className="p-4 border-1 border-[#85009D] rounded-[2px] bg-white h-full space-y-4">
+                <div className="p-4 border border-[#85009D] rounded-xs bg-white h-full space-y-4">
                   <p className="text-[#1b1b1b]">
                     Click on{" "}
                     <span className="font-semibold">
@@ -660,7 +658,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
               <button
                 type="button"
                 onClick={onClose}
-                className="bg-[#6C6C6C] text-[#ffff] text-[14px] md:text-[16px] px-4 py-2 rounded-[6px]"
+                className="bg-[#6C6C6C] text-[#ffff] text-[14px] md:text-[16px] px-4 py-2 rounded-md"
               >
                 Cancel
               </button>
@@ -668,7 +666,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
               <button
                 type="button"
                 onClick={prevStep}
-                className="bg-[#6C6C6C] text-[#ffff] text-[14px] md:text-[16px] px-4 py-2 rounded-[6px]"
+                className="bg-[#6C6C6C] text-[#ffff] text-[14px] md:text-[16px] px-4 py-2 rounded-md"
               >
                 Back
               </button>
@@ -676,9 +674,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             <button
               type="submit"
               disabled={loading}
-              className={`flex items-center justify-center md:justify-start cursor-pointer text-[14px] md:text-[16px] bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto ${
-                loading ? "opacity-50 cursor-not-allowed" : ""
-              }`}
+              className={`flex items-center justify-center md:justify-start cursor-pointer text-[14px] md:text-[16px] bg-[#b08d57] text-white px-4 py-2 rounded-md w-full md:w-auto ${loading ? "opacity-50 cursor-not-allowed" : ""
+                }`}
             >
               {loading ? (
                 "Processing..."
