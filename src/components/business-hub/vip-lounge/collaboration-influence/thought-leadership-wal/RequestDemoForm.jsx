@@ -1,22 +1,24 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import axios from "axios";
+
+import RectangularImgUploader from "@/components/img-uploader/RectangularImgUploaderComp";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
-  const [bannerPreview, setBannerPreview] = useState(null);
-  const [logoPreview, setLogoPreview] = useState(null);
+  const [selectedBanner, setSelectedBanner] = useState(null);
+  const [selectedLogo, setSelectedLogo] = useState(null);
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  console.log(bannerPreview, logoPreview);
 
   const [formData, setFormData] = useState({
     heading: "",
     categoryType: "",
     description: "",
     contentType: "",
-    bannerImage: null,
-    logoImage: null,
+    bannerImage: "",
+    logoImage: "",
     sponsorship: false,
   });
 
@@ -26,42 +28,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
       ...prev,
       [name]: type === "checkbox" ? checked : value,
     }));
-  };
-
-  const handleFileChange = (e, field) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    // Validate file type
-    const validTypes =
-      field === "bannerImage"
-        ? ["image/jpeg", "image/png"]
-        : ["image/png", "image/svg+xml"];
-    if (!validTypes.includes(file.type)) {
-      alert(
-        `Please select a valid ${field === "bannerImage" ? "JPG or PNG" : "PNG or SVG"
-        } image file.`
-      );
-      return;
-    }
-
-    // Update formData and preview URL
-    setFormData((prev) => ({
-      ...prev,
-      [field]: file,
-    }));
-    const newPreview = URL.createObjectURL(file);
-    if (field === "bannerImage") {
-      setBannerPreview((prev) => {
-        if (prev) URL.revokeObjectURL(prev);
-        return newPreview;
-      });
-    } else {
-      setLogoPreview((prev) => {
-        if (prev) URL.revokeObjectURL(prev);
-        return newPreview;
-      });
-    }
   };
 
   const modalRef = useRef(null);
@@ -107,18 +73,55 @@ export default function RequestDemoForm({ isOpen, onClose }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+
+    let bannerUrl = formData.bannerImage;
+    let logoUrl = formData.logoImage;
+
+    // Upload image
+    if (selectedBanner) {
+      const bannerFormData = new FormData();
+      bannerFormData.append("file", selectedBanner);
+      try {
+        const res = await fetch("/api/img-uploads", { method: "POST", body: bannerFormData });
+        if (!res.ok) throw new Error("Image upload failed");
+        const data = await res.json();
+        bannerUrl = data.url;
+        handleChange("bannerImage", bannerUrl);
+      } catch (error) {
+        console.error("Banner Image upload failed:", error);
+        alert("Banner Image upload failed");
+        // setIsSubmitting(false);
+        return;
+      }
+    }
+
+    // Upload image
+    if (selectedLogo) {
+      const logoFormData = new FormData();
+      logoFormData.append("file", selectedLogo);
+      try {
+        const res = await fetch("/api/img-uploads", { method: "POST", body: logoFormData });
+        if (!res.ok) throw new Error("Image upload failed");
+        const data = await res.json();
+        logoUrl = data.url;
+        handleChange("logoImage", logoUrl);
+      } catch (error) {
+        console.error("Logo Image upload failed:", error);
+        alert("Logo Image upload failed");
+        // setIsSubmitting(false);
+        return;
+      }
+    }
+
+    const newFormData = {
+      ...formData,
+      bannerImage: bannerUrl,
+      logoImage: logoUrl,
+    };
 
     try {
-      const response = await axios.post(
-        "/api/thought-leadership/create-checkout",
-        formData,
-        {
-          headers: {
-            "Content-Type": "form-data",
-          },
-        }
-      );
-
+      const response = await axios.post("/api/thought-leadership/create-checkout", newFormData);
       if (response.data.url) {
         window.location.href = response.data.url;
       } else {
@@ -220,60 +223,18 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             </select>
 
             {/* Banner & Logo */}
-            <div
-              className="col-span-2 sm:col-span-1 flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-xs cursor-pointer"
-              onClick={() => document.getElementById("bannerInput").click()}
-            >
-              <Image
-                src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
-                alt="upload banner"
-                width={128}
-                height={128}
-                className="w-32 h-32 object-cover mb-4"
-              />
-              <p className="text-[#1B1B1B] text-center">
-                <span className="font-semibold">Banner Image</span> (file,
-                1440×440 px, JPG/PNG)
-              </p>
-              {formData.bannerImage && (
-                <p className="text-sm text-gray-600 mt-2">
-                  {formData.bannerImage.name}
-                </p>
-              )}
-              <input
-                id="bannerInput"
-                type="file"
-                accept="image/jpeg,image/png"
-                className="hidden"
-                onChange={(e) => handleFileChange(e, "bannerImage")}
+            <div className="col-span-2 sm:col-span-1">
+              <RectangularImgUploader
+                label="Banner Image (file, 1440×440 px, JPG/PNG)"
+                value={formData.bannerImage}
+                onImageSelect={(file) => setSelectedBanner(file)}
               />
             </div>
-            <div
-              className="col-span-2 sm:col-span-1 flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-xs cursor-pointer"
-              onClick={() => document.getElementById("logoInput").click()}
-            >
-              <Image
-                src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
-                alt="upload logo"
-                width={128}
-                height={128}
-                className="w-32 h-32 object-cover mb-4"
-              />
-              <p className="text-[#1B1B1B] text-center">
-                <span className="font-semibold">Logo Upload</span> (file, max
-                300×100 px, PNG/SVG)
-              </p>
-              {formData.logoImage && (
-                <p className="text-sm text-gray-600 mt-2">
-                  {formData.logoImage.name}
-                </p>
-              )}
-              <input
-                id="logoInput"
-                type="file"
-                accept="image/png,image/svg+xml"
-                className="hidden"
-                onChange={(e) => handleFileChange(e, "logoImage")}
+            <div className="col-span-2 sm:col-span-1">
+              <RectangularImgUploader
+                label="Logo Upload (file, max 300×100 px, JPG/PNG)"
+                value={formData.logoImage}
+                onImageSelect={(file) => setSelectedLogo(file)}
               />
             </div>
 
@@ -294,7 +255,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             type="submit"
             className="flex items-center justify-center md:justify-start cursor-pointer text-[14px] md:text-[16px] bg-[#b08d57] text-white px-4 py-2 rounded-md w-full md:w-auto"
           >
-            Submit
+            {loading ? "Submiting..." : "Submit"}
           </button>
         </form>
       </div>
