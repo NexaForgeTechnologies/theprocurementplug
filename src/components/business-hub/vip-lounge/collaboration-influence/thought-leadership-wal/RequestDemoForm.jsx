@@ -30,6 +30,93 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     }));
   };
 
+  const setFieldValue = (name, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    let bannerUrl = formData.bannerImage;
+    let logoUrl = formData.logoImage;
+
+    // Upload image
+    if (selectedBanner) {
+      const bannerFormData = new FormData();
+      bannerFormData.append("file", selectedBanner);
+      try {
+        const res = await fetch("/api/img-uploads", { method: "POST", body: bannerFormData });
+        if (!res.ok) throw new Error("Image upload failed");
+        const data = await res.json();
+        bannerUrl = data.url;
+        setFieldValue("bannerImage", bannerUrl);
+      } catch (error) {
+        console.error("Banner Image upload failed:", error);
+        alert("Banner Image upload failed");
+        // setIsSubmitting(false);
+        return;
+      }
+    }
+
+    // Upload image
+    if (selectedLogo) {
+      const logoFormData = new FormData();
+      logoFormData.append("file", selectedLogo);
+      try {
+        const res = await fetch("/api/img-uploads", { method: "POST", body: logoFormData });
+        if (!res.ok) throw new Error("Image upload failed");
+        const data = await res.json();
+        logoUrl = data.url;
+        setFieldValue("logoImage", logoUrl);
+
+      } catch (error) {
+        console.error("Logo Image upload failed:", error);
+        alert("Logo Image upload failed");
+        // setIsSubmitting(false);
+        return;
+      }
+    }
+
+    const newFormData = {
+      ...formData,
+      bannerImage: bannerUrl,
+      logoImage: logoUrl,
+    };
+
+    try {
+      const response = await axios.post("/api/thought-leadership/create-checkout", newFormData);
+      if (response.data.url) {
+        window.location.href = response.data.url;
+      } else {
+        throw new Error("No checkout URL returned from server.");
+      }
+
+    } catch (error) {
+      console.error("Frontend error:", error);
+
+      const resData = error.response?.data;
+
+      if (Array.isArray(resData?.details)) {
+        // Validation errors → only messages
+        setError(resData.details.map((err) => err.message));
+      } else {
+        // General error → single string
+        setError(
+          resData?.details ||
+          resData?.error ||
+          "Failed to initiate checkout. Please try again."
+        );
+      }
+    }
+    finally {
+      setLoading(false);
+    }
+  };
+
   const modalRef = useRef(null);
   useEffect(() => {
     if (isOpen) {
@@ -70,84 +157,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
       };
     }
   }, [isOpen]);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-
-    let bannerUrl = formData.bannerImage;
-    let logoUrl = formData.logoImage;
-
-    // Upload image
-    if (selectedBanner) {
-      const bannerFormData = new FormData();
-      bannerFormData.append("file", selectedBanner);
-      try {
-        const res = await fetch("/api/img-uploads", { method: "POST", body: bannerFormData });
-        if (!res.ok) throw new Error("Image upload failed");
-        const data = await res.json();
-        bannerUrl = data.url;
-        handleChange("bannerImage", bannerUrl);
-      } catch (error) {
-        console.error("Banner Image upload failed:", error);
-        alert("Banner Image upload failed");
-        // setIsSubmitting(false);
-        return;
-      }
-    }
-
-    // Upload image
-    if (selectedLogo) {
-      const logoFormData = new FormData();
-      logoFormData.append("file", selectedLogo);
-      try {
-        const res = await fetch("/api/img-uploads", { method: "POST", body: logoFormData });
-        if (!res.ok) throw new Error("Image upload failed");
-        const data = await res.json();
-        logoUrl = data.url;
-        handleChange("logoImage", logoUrl);
-      } catch (error) {
-        console.error("Logo Image upload failed:", error);
-        alert("Logo Image upload failed");
-        // setIsSubmitting(false);
-        return;
-      }
-    }
-
-    const newFormData = {
-      ...formData,
-      bannerImage: bannerUrl,
-      logoImage: logoUrl,
-    };
-
-    try {
-      const response = await axios.post("/api/thought-leadership/create-checkout", newFormData);
-      if (response.data.url) {
-        window.location.href = response.data.url;
-      } else {
-        throw new Error("No checkout URL returned from server.");
-      }
-
-    } catch (error) {
-      console.error("Frontend error:", error);
-
-      const resData = error.response?.data;
-
-      if (Array.isArray(resData?.details)) {
-        // Validation errors → only messages
-        setError(resData.details.map((err) => err.message));
-      } else {
-        // General error → single string
-        setError(
-          resData?.details ||
-          resData?.error ||
-          "Failed to initiate checkout. Please try again."
-        );
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
 
   if (!isOpen) return null;
 
@@ -240,7 +249,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
 
             {/* Sponsorship */}
             <div className="flex items-center gap-2 col-span-2 text-[#010101]">
-              <label className="font-bold text-xl cursor-pointer" htmlFor="sponsorship">Sponsership</label>
+              <label className="font-bold text-xl cursor-pointer" htmlFor="sponsorship">Sponsor your submission for greater visibility (£15)</label>
               <input
                 type="checkbox"
                 id="sponsorship"

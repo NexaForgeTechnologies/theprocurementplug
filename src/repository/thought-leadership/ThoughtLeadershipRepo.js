@@ -21,7 +21,7 @@ export class ThoughtLeadershipRepo {
     try {
       const [rows] = await db.query(
         `SELECT * FROM viplounge_insight_posts
-       WHERE status = 'Approved' ORDER BY id DESC`
+       WHERE is_approved = 1 ORDER BY id DESC`
       );
 
       return rows; // return full array
