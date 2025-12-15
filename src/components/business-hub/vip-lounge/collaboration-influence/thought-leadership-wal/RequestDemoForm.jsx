@@ -17,6 +17,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     categoryType: "",
     description: "",
     contentType: "",
+    contentUrl: "",
     bannerImage: "",
     logoImage: "",
     sponsorship: false,
@@ -223,13 +224,22 @@ export default function RequestDemoForm({ isOpen, onClose }) {
               value={formData.contentType}
               onChange={handleChange}
               required
-              className="col-span-2 w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+              className="p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
             >
               <option value="">Select Content Type</option>
               <option value="Article">Article</option>
               <option value="Video">Video</option>
               <option value="Infographic">Infographic</option>
             </select>
+            <input
+              type="text"
+              id="content-url"
+              name="content-url"
+              placeholder="Content URL"
+              value={formData.contentUrl}
+              onChange={handleChange}
+              className="col-span-2 sm:col-span-1 p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+            />
 
             {/* Banner & Logo */}
             <div className="col-span-2 sm:col-span-1">

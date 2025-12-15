@@ -48,3 +48,27 @@ export async function varifyStripeSession(sessionId) {
   }
 
 }
+
+// For Insight Post
+export async function createSessionForInsightPost(data) {
+  try {
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items: [
+        { price: data.priceId, quantity: 1 },
+      ],
+      mode: "payment",
+      allow_promotion_codes: true,
+
+      success_url: data.origin + "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall?status=true&session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: data.origin + "/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall?status=false",
+    });
+    return session;
+  } catch (e) {
+    const validationError = new Error("Stripe Failed");
+    validationError.name = "StripeFailed";
+    validationError.errors = e.message;
+
+    throw validationError;
+  }
+}
