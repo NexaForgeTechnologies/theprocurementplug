@@ -15,7 +15,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const [formData, setFormData] = useState({
+  const initalFormData = {
     heading: "",
     categoryType: "",
     description: "",
@@ -24,7 +24,9 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     bannerImage: "",
     logoImage: "",
     sponsorship: false,
-  });
+  };
+
+  const [formData, setFormData] = useState(initalFormData);
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -151,6 +153,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
       const t = setTimeout(() => {
         setShowSuccess(false);
         onClose();
+        setFormData(initalFormData);
       }, 2000);
       return () => clearTimeout(t);
     }
