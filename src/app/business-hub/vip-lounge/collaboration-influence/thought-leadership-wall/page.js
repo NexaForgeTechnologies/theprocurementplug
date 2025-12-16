@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
 
-import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
-import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import ThoughtLeadershipWallCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/ThoughtLeadershipWallCTR'
-import Breadcrumb from '@/components/BreadCrumbs'
+import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection';
+import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs';
+import Breadcrumb from '@/components/BreadCrumbs';
 
+import ThoughtLeadershipWallCTR from '@/containers/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/ThoughtLeadershipWallCTR';
+
+import PaymentSuccessHandler from './PaymentSuccessHandler';
 
 function page() {
   const partnerWithUs = {
@@ -55,6 +57,7 @@ function page() {
 
   return (
     <>
+      <PaymentSuccessHandler />
       <div>
         <HeroCTR
           img="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/herosection.png"
