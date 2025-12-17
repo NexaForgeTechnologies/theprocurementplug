@@ -5,6 +5,7 @@ import axios from "axios";
 
 import RectangularImgUploader from "@/components/img-uploader/RectangularImgUploaderComp";
 import SuccessPopup from "@/components/SuccessMessageComp";
+import { email } from "zod";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
   const [selectedBanner, setSelectedBanner] = useState(null);
@@ -16,6 +17,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
   const [error, setError] = useState(null);
 
   const initalFormData = {
+    name: "",
+    email: "",
     heading: "",
     categoryType: "",
     description: "",
@@ -169,7 +172,8 @@ export default function RequestDemoForm({ isOpen, onClose }) {
           className="max-w-[964px] w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border border-[#DBBB89] custom-scrollbar"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex justify-end mb-4">
+          <div className="flex items-center justify-between mb-4">
+            <h1 className="text-[#010101] text-2xl font-bold">Submit Your Post</h1>
             <div className="cursor-pointer bg-red-300 rounded-full w-10 h-10 flex items-center justify-center"
               onClick={onClose}>
               X
@@ -186,12 +190,34 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             )}
 
             <div className="grid grid-cols-2 gap-4">
+              {/* Name & Email */}
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="col-span-2 sm:col-span-1 p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+              />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Your Email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="col-span-2 sm:col-span-1 p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+              />
+
               {/* Heading & Category */}
               <input
                 type="text"
                 id="heading"
                 name="heading"
-                placeholder="Heading"
+                placeholder="Post Heading"
                 value={formData.heading}
                 onChange={handleChange}
                 required

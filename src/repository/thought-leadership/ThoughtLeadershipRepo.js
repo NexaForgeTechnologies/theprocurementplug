@@ -67,10 +67,12 @@ export class ThoughtLeadershipRepo {
     const [result] = await db.query(
       `
     INSERT INTO viplounge_insight_posts
-    (heading, category, description, content_type, content, banner_img, profile_logo, sponsor, payment, public_url, secret_url, access_token, session_id)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    (name, email, heading, category, description, content_type, content, banner_img, profile_logo, sponsor, payment, public_url, secret_url, access_token, session_id)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `,
       [
+        data.name,
+        data.email,
         data.heading,
         data.categoryType,
         data.description,

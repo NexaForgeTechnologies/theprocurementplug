@@ -44,6 +44,11 @@ export async function sendEmail({ type, to, subject, html }) {
             pass: process.env.SMTP_PARTNERSHIPS_PASS,
             label: "VIP Business Lounge",
         },
+        insightPost: {
+            user: process.env.SMTP_PARTNERSHIPS_USER,
+            pass: process.env.SMTP_PARTNERSHIPS_PASS,
+            label: "Insight Post - The Procurement Plug",
+        }
     };
 
     const account = accounts[type];

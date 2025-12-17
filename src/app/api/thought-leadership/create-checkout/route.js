@@ -4,6 +4,7 @@ export const runtime = 'nodejs'; // important
 export const dynamic = 'force-dynamic';
 
 import { ThoughtLeadershipRepo } from '@/repository/thought-leadership/ThoughtLeadershipRepo';
+import { UserPostEmail, AdminPostEmail } from '@/lib/emails/InsightPostEmail';
 
 export async function POST(request) {
     try {
@@ -12,6 +13,21 @@ export async function POST(request) {
         const origin = request.headers.get("origin");
 
         const data = await ThoughtLeadershipRepo.createInsightPost(body, origin);
+
+        if (data) {
+            await Promise.all([
+                UserPostEmail({
+                    email: body.email,
+                    name: body.name,
+                    heading: body.heading,
+                }),
+                AdminPostEmail({
+                    name: body.name,
+                    heading: body.heading,
+                    category: body.category,
+                }),
+            ]);
+        }
 
         return NextResponse.json({
             success: true,
