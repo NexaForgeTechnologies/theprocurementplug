@@ -95,5 +95,4 @@ export class ThoughtLeadershipRepo {
       postId: result.insertId,
     };
   }
-
 }

@@ -22,9 +22,9 @@ export async function POST(request) {
                     heading: body.heading,
                 }),
                 AdminPostEmail({
-                    name: body.name,
                     heading: body.heading,
-                    category: body.category,
+                    name: body.name,
+                    category: body.categoryType,
                 }),
             ]);
         }

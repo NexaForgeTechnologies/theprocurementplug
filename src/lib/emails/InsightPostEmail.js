@@ -16,10 +16,10 @@ export async function UserPostEmail({ email, name, heading }) {
     });
 }
 
-export async function AdminPostEmail({ email, heading, name, category }) {
+export async function AdminPostEmail({ heading, name, category }) {
     await sendEmail({
         type: "insightPost",
-        to: email,
+        to: "partnerships@theprocurementplug.com",
         subject: "New Insight Submission – Pending Review",
         html: `
             <p><b>Hello Team,</b></p>
