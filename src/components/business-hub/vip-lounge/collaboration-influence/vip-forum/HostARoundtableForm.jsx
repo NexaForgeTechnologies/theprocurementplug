@@ -189,8 +189,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         const newFormData = {
           ...formData,
           bannerImage: bannerUrl,
-          logoImage: logoUrl,
-          payment: formData.package === "1 Week" ? "£150" : isPartner ? "£150" : "£275",
+          logoImage: logoUrl
         };
 
         const response = await axios.post(

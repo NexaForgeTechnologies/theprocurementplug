@@ -65,11 +65,11 @@ export class RoundTableRepo {
             `
                 INSERT INTO round_table
                 (
-                session_id, name, email, website, companyName, package, title, description, targetAudience, date, banner_image, logo_image, payment,already_partner, public_url, secret_url, access_token)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                session_id, name, email, website, companyName, package, title, description, targetAudience, date, banner_image, logo_image, already_partner, public_url, secret_url, access_token)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             `,
             [
-                stripe.id, data.name, data.email, data.website, data.companyName, data.package, data.title, data.description, data.targetAudience, data.date, data.bannerImage, data.logoImage, data.payment, data.already_partner, public_url, secret_url, access_token
+                stripe.id, data.name, data.email, data.website, data.companyName, data.package, data.title, data.description, data.targetAudience, data.date, data.bannerImage, data.logoImage, data.already_partner, public_url, secret_url, access_token
             ]
         );
 

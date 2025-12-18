@@ -54,15 +54,15 @@ export async function POST(req) {
       { payment, status: newStatus },
       { session_id: sessionId }
     );
- setImmediate(async()=>{
- let userHtml=await emailParser("host-round-table-user.html",{name:records.name,year:new Date().getFullYear()});
- let adminHtml=await emailParser("host-round-table-admin.html",{...records[0],year:new Date().getFullYear()})
- await Promise.all([
-         sendEmail(records[0].email,"Thanks New Host Round a Table",userHtml),
-         sendEmail(process.env.SMTP_REQUEST_USER,"Request New Host Round a Table",adminHtml)
-        ]);
- 
-   })
+    setImmediate(async () => {
+      let userHtml = await emailParser("host-round-table-user.html", { name: records.name, year: new Date().getFullYear() });
+      let adminHtml = await emailParser("host-round-table-admin.html", { ...records[0], year: new Date().getFullYear() })
+      await Promise.all([
+        sendEmail(records[0].email, "Thanks New Host Round a Table", userHtml),
+        sendEmail(process.env.SMTP_REQUEST_USER, "Request New Host Round a Table", adminHtml)
+      ]);
+
+    })
     return jsonResponse({
       message: `Thank You! Your RoundTable submission is received
       We have charged ${payment} and your session is now pending review. We will email you within 24 hours when it is 
@@ -83,10 +83,10 @@ export async function POST(req) {
 }
 
 export async function GET() {
-  try{
- const record = await get("round_table", { eq: { status: "pending" } });
-  }catch(e){
- console.error('Error verifying session:', e);
+  try {
+    const record = await get("round_table", { eq: { status: "pending" } });
+  } catch (e) {
+    console.error('Error verifying session:', e);
     return jsonResponse(
       { error: 'Internal Server Error', details: e.message },
       500
