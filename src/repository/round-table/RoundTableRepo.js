@@ -26,7 +26,7 @@ export class RoundTableRepo {
     static async getAll() {
         try {
             const [rows] = await db.query(
-                `SELECT * FROM viplounge_insight_posts
+                `SELECT * FROM roundtables
        WHERE is_approved = 1 ORDER BY id DESC`
             );
 

@@ -193,30 +193,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
           payment: formData.package === "1 Week" ? "£150" : isPartner ? "£150" : "£275",
         };
 
-        // Create FormData instance
-        // const formDataToSend = new FormData();
-
-        // // Append all form fields
-        // for (const key in formData) {
-        //   // Handle files (bannerImage, logoImage) separately if needed
-        //   if (formData[key] instanceof File) {
-        //     formDataToSend.append(key, formData[key], formData[key].name);
-        //   } else {
-        //     formDataToSend.append(key, formData[key]);
-        //   }
-        // }
-
-        // Send as multipart/form-data
-        // const response = await axios.post(
-        //   "/api/round-table/create-checkout-session",
-        //   newFormData,
-        //   {
-        //     headers: {
-        //       "Content-Type": "multipart/form-data",
-        //     },
-        //   }
-        // );
-
         const response = await axios.post(
           "/api/round-table/create-checkout-session",
           newFormData
