@@ -190,6 +190,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
           ...formData,
           bannerImage: bannerUrl,
           logoImage: logoUrl,
+          payment: formData.package === "1 Week" ? "£150" : isPartner ? "£150" : "£275",
         };
 
         // Create FormData instance
@@ -206,14 +207,19 @@ export default function RequestDemoForm({ isOpen, onClose }) {
         // }
 
         // Send as multipart/form-data
+        // const response = await axios.post(
+        //   "/api/round-table/create-checkout-session",
+        //   newFormData,
+        //   {
+        //     headers: {
+        //       "Content-Type": "multipart/form-data",
+        //     },
+        //   }
+        // );
+
         const response = await axios.post(
           "/api/round-table/create-checkout-session",
-          newFormData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
+          newFormData
         );
 
         if (response.data.url) {
