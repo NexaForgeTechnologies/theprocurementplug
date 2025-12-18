@@ -14,62 +14,64 @@ function generateToken() {
 export async function POST(req) {
   try {
     const formData = await req.formData();
+    console.log(formData.FormData);
+    
 
     const origin = req.headers.get("origin");
 
-    const textFields = {
-      companyName: formData.get("companyName") || "",
-      name: formData.get("name") || "",
-      email: formData.get("email") || "",
-      website: formData.get("website") || "",
-      package: formData.get("package") || "",
-      title: formData.get("title") || "",
-      description: formData.get("description") || "",
-      targetAudience: formData.get("targetAudience") || "",
-      date: formData.get("date") || "",
-      already_partner: Number(formData.get("already_partner") || 0), // ← convert to number
-    };
+    // const textFields = {
+    //   companyName: formData.get("companyName") || "",
+    //   name: formData.get("name") || "",
+    //   email: formData.get("email") || "",
+    //   website: formData.get("website") || "",
+    //   package: formData.get("package") || "",
+    //   title: formData.get("title") || "",
+    //   description: formData.get("description") || "",
+    //   targetAudience: formData.get("targetAudience") || "",
+    //   date: formData.get("date") || "",
+    //   already_partner: Number(formData.get("already_partner") || 0), // ← convert to number
+    // };
 
     // 2️⃣ Validate text fields with Zod
-    const parsed = await validate(textFields, "hostRoundTableSchema");
+    // const formData.package = await validate(textFields, "hostRoundTableSchema");
 
     let priceId = process.env.price_id_week_1;
 
-    if (parsed.package === "2 Weeks" && parsed.already_partner === 1) {
+    if (formData.package == "2 Weeks" && formData.already_partner == 1) {
       priceId = process.env.price_id_week_2_existing_partner;
-    } else if (parsed.package === "2 Weeks") {
+    } else if (formData.package == "2 Weeks") {
       priceId = process.env.price_id_week_2_non_partner;
     }
 
     let stripe = await createStripeSession({ origin, priceId })
 
     // // 3️⃣ Extract files
-    const bannerImageFile = formData.get("bannerImage");
-    const logoImageFile = formData.get("logoImage");
+    // const bannerImageFile = formData.get("bannerImage");
+    // const logoImageFile = formData.get("logoImage");
 
-    if (bannerImageFile.size > 2 * 1024 * 1024) { // 2MB limit
-      return new Response(
-        JSON.stringify({ success: false, error: "Banner image too large" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
-      );
-    }
+    // if (bannerImageFile.size > 2 * 1024 * 1024) { // 2MB limit
+    //   return new Response(
+    //     JSON.stringify({ success: false, error: "Banner image too large" }),
+    //     { status: 400, headers: { "Content-Type": "application/json" } }
+    //   );
+    // }
 
-    if (logoImageFile.size > 2 * 1024 * 1024) {
-      return new Response(
-        JSON.stringify({ success: false, error: "logo image too large" }),
-        { status: 400, headers: { "Content-Type": "application/json" } }
-      );
-    }
+    // if (logoImageFile.size > 2 * 1024 * 1024) {
+    //   return new Response(
+    //     JSON.stringify({ success: false, error: "logo image too large" }),
+    //     { status: 400, headers: { "Content-Type": "application/json" } }
+    //   );
+    // }
 
-    const bannerImagePath = bannerImageFile && bannerImageFile.size > 0
-      ? await saveFile(bannerImageFile)
-      : null;
+    // const bannerImagePath = bannerImageFile && bannerImageFile.size > 0
+    //   ? await saveFile(bannerImageFile)
+    //   : null;
 
-    const logoImagePath = logoImageFile && logoImageFile.size > 0
-      ? await saveFile(logoImageFile)
-      : null;
+    // const logoImagePath = logoImageFile && logoImageFile.size > 0
+    //   ? await saveFile(logoImageFile)
+    //   : null;
 
-    const slug = parsed.title
+    const slug = formData?.title
       .toLowerCase()
       .trim()
       .replace(/[^a-z0-9\s-]/g, '')  // remove invalid characters
@@ -82,7 +84,7 @@ export async function POST(req) {
     const access_token = generateToken();
 
     // 6️⃣ Continue with DB insert / Stripe
-    await insert("round_table", { ...textFields, banner_image: bannerImagePath, logo_image: logoImagePath, session_id: stripe.id, public_url: public_url, secret_url: secret_url, access_token: access_token });
+    await insert("round_table", { ...formData, banner_image: formData.bannerImage, logo_image: formData.logoImage, session_id: stripe.id, public_url: public_url, secret_url: secret_url, access_token: access_token });
 
     return new Response(JSON.stringify({ url: stripe.url }), { status: 200 });
   } catch (error) {

@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import Image from "next/image";
 import axios from "axios";
+
+import RectangularImgUploader from "@/components/img-uploader/RectangularImgUploaderComp";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -15,18 +16,18 @@ export default function RequestDemoForm({ isOpen, onClose }) {
     description: "",
     targetAudience: "",
     date: "",
-    bannerImage: null,
-    logoImage: null,
+    bannerImage: "",
+    logoImage: "",
     payment: "",
     already_partner: 0,
   });
 
   const [step, setStep] = useState(1);
   const modalRef = useRef(null);
-  const [bannerPreview, setBannerPreview] = useState(null);
-  const [logoPreview, setLogoPreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [selectedBanner, setSelectedBanner] = useState(null);
+  const [selectedLogo, setSelectedLogo] = useState(null);
 
   // Calculate completion percentage for a step's required fields
   const getCompletionPercentage = (step) => {
@@ -111,72 +112,103 @@ export default function RequestDemoForm({ isOpen, onClose }) {
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
-  const handleFileChange = (e, field) => {
-    const file = e.target.files[0];
-    if (!file) return;
+  // checking alread partner
+  const [isPartner, setIsPartner] = useState(null);
+  const [checkingEmail, setCheckingEmail] = useState(false);
+  const checkEmail = async () => {
+    if (!formData.email) return;
 
-    // Validate file type
-    const validTypes =
-      field === "bannerImage"
-        ? ["image/jpeg", "image/png"]
-        : ["image/png", "image/svg+xml"];
-    if (!validTypes.includes(file.type)) {
-      alert(
-        `Please select a valid ${field === "bannerImage" ? "JPG or PNG" : "PNG or SVG"
-        } image file.`
-      );
-      return;
-    }
+    setCheckingEmail(true);
 
-    // Update formData and preview URL
-    setFormData((prev) => ({
-      ...prev,
-      [field]: file,
-    }));
-    const newPreview = URL.createObjectURL(file);
-    if (field === "bannerImage") {
-      setBannerPreview((prev) => {
-        if (prev) URL.revokeObjectURL(prev);
-        return newPreview;
+    try {
+      const res = await axios.get("/api/round-table/check-partner", {
+        params: { email: formData.email },
       });
-    } else {
-      setLogoPreview((prev) => {
-        if (prev) URL.revokeObjectURL(prev);
-        return newPreview;
-      });
+
+      if (res.data.exists) {
+        setIsPartner(true);
+        setFormData((prev) => ({
+          ...prev,
+          already_partner: 1,
+        }));
+      } else {
+        setIsPartner(false);
+        setFormData((prev) => ({
+          ...prev,
+          already_partner: 0, // reset
+        }));
+      }
+    } catch (err) {
+      console.error("Error checking email:", err);
+    } finally {
+      setCheckingEmail(false);
     }
-    // console.log(`Uploading ${field}:`, {
-    //   name: file.name,
-    //   size: file.size,
-    //   type: file.type,
-    // });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    let bannerUrl = formData.bannerImage;
+    let logoUrl = formData.logoImage;
 
     if (step === 4) {
       setLoading(true);
       setError(null);
 
       try {
-        // Create FormData instance
-        const formDataToSend = new FormData();
+        // Upload banner
+        if (selectedBanner) {
+          const bannerFormData = new FormData();
+          bannerFormData.append("file", selectedBanner);
 
-        // Append all form fields
-        for (const key in formData) {
-          // Handle files (bannerImage, logoImage) separately if needed
-          if (formData[key] instanceof File) {
-            formDataToSend.append(key, formData[key], formData[key].name);
-          } else {
-            formDataToSend.append(key, formData[key]);
-          }
+          const res = await fetch("/api/img-uploads", {
+            method: "POST",
+            body: bannerFormData,
+          });
+
+          if (!res.ok) throw new Error("Banner upload failed");
+          const data = await res.json();
+          bannerUrl = data.url;
         }
+
+        // Upload logo
+        if (selectedLogo) {
+          const logoFormData = new FormData();
+          logoFormData.append("file", selectedLogo);
+
+          const res = await fetch("/api/img-uploads", {
+            method: "POST",
+            body: logoFormData,
+          });
+
+          if (!res.ok) throw new Error("Logo upload failed");
+          const data = await res.json();
+          logoUrl = data.url;
+        }
+
+        const newFormData = {
+          ...formData,
+          bannerImage: bannerUrl,
+          logoImage: logoUrl,
+        };
+
+        // Create FormData instance
+        // const formDataToSend = new FormData();
+
+        // // Append all form fields
+        // for (const key in formData) {
+        //   // Handle files (bannerImage, logoImage) separately if needed
+        //   if (formData[key] instanceof File) {
+        //     formDataToSend.append(key, formData[key], formData[key].name);
+        //   } else {
+        //     formDataToSend.append(key, formData[key]);
+        //   }
+        // }
 
         // Send as multipart/form-data
         const response = await axios.post(
           "/api/round-table/create-checkout-session",
-          formDataToSend,
+          newFormData,
           {
             headers: {
               "Content-Type": "multipart/form-data",
@@ -210,39 +242,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
       }
     } else {
       nextStep();
-    }
-  };
-
-  // checking alread partner
-  const [isPartner, setIsPartner] = useState(null);
-  const [checkingEmail, setCheckingEmail] = useState(false);
-  const checkEmail = async () => {
-    if (!formData.email) return;
-
-    setCheckingEmail(true);
-
-    try {
-      const res = await axios.get("/api/round-table/check-partner", {
-        params: { email: formData.email },
-      });
-
-      if (res.data.exists) {
-        setIsPartner(true);
-        setFormData((prev) => ({
-          ...prev,
-          already_partner: 1,
-        }));
-      } else {
-        setIsPartner(false);
-        setFormData((prev) => ({
-          ...prev,
-          already_partner: 0, // reset
-        }));
-      }
-    } catch (err) {
-      console.error("Error checking email:", err);
-    } finally {
-      setCheckingEmail(false);
     }
   };
 
@@ -524,63 +523,17 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                 />
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                <div
-                  className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-xs cursor-pointer mb-4"
-                  onClick={() => document.getElementById("bannerInput").click()}
-                >
-                  <Image
-                    src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
-                    alt="upload banner"
-                    width={128}
-                    height={128}
-                    className="w-32 h-32 object-cover mb-4"
-                  />
-                  <p className="text-[#1B1B1B] text-center">
-                    <span className="font-semibold">Banner Image</span> (file,
-                    1440×440 px, JPG/PNG)
-                  </p>
-                  {formData.bannerImage && (
-                    <p className="text-sm text-gray-600 mt-2">
-                      {formData.bannerImage.name}
-                    </p>
-                  )}
-                  <input
-                    id="bannerInput"
-                    type="file"
-                    accept="image/jpeg,image/png"
-                    className="hidden"
-                    onChange={(e) => handleFileChange(e, "bannerImage")}
-                  />
-                </div>
-
-                <div
-                  className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-xs cursor-pointer mb-4"
-                  onClick={() => document.getElementById("logoInput").click()}
-                >
-                  <Image
-                    src="/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/thought-leadership-wall/download.png"
-                    alt="upload logo"
-                    width={128}
-                    height={128}
-                    className="w-32 h-32 object-cover mb-4"
-                  />
-                  <p className="text-[#1B1B1B] text-center">
-                    <span className="font-semibold">Logo Upload</span> (file,
-                    max 300×100 px, PNG/SVG)
-                  </p>
-                  {formData.logoImage && (
-                    <p className="text-sm text-gray-600 mt-2">
-                      {formData.logoImage.name}
-                    </p>
-                  )}
-                  <input
-                    id="logoInput"
-                    type="file"
-                    accept="image/png,image/svg+xml"
-                    className="hidden"
-                    onChange={(e) => handleFileChange(e, "logoImage")}
-                  />
-                </div>
+                {/* Banner & Logo */}
+                <RectangularImgUploader
+                  label="Banner Image (file, 1440×440 px, JPG/PNG)"
+                  value={formData.bannerImage}
+                  onImageSelect={(file) => setSelectedBanner(file)}
+                />
+                <RectangularImgUploader
+                  label="Logo Image (file, max 300×100 px, JPG/PNG)"
+                  value={formData.logoImage}
+                  onImageSelect={(file) => setSelectedLogo(file)}
+                />
               </div>
             </div>
           )}
@@ -610,26 +563,6 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                     Start Date:{" "}
                     <span className="text-[#505050]">{formData.date}</span>
                   </p>
-                  <p className="text-[#1b1b1b]">Banner:</p>
-                  {bannerPreview ? (
-                    <img
-                      src={bannerPreview}
-                      alt="Banner Preview"
-                      className="w-full h-[100px] object-cover rounded-xs"
-                    />
-                  ) : (
-                    <p className="text-[#505050]">No banner uploaded</p>
-                  )}
-                  <p className="text-[#1b1b1b]">Logo:</p>
-                  {logoPreview ? (
-                    <img
-                      src={logoPreview}
-                      alt="Logo Preview"
-                      className="w-full max-w-[150px] h-auto object-contain rounded-xs"
-                    />
-                  ) : (
-                    <p className="text-[#505050]">No logo uploaded</p>
-                  )}
                 </div>
                 <div className="p-4 border border-[#85009D] rounded-xs bg-white h-full space-y-4">
                   <p className="text-[#1b1b1b]">

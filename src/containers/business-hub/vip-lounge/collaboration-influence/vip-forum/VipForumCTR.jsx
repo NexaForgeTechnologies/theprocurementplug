@@ -40,7 +40,8 @@ function VipForumCTR() {
         </div>
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+          className="flex self-start items-center cursor-pointer bg-[#b08d57] text-white px-4 py-2 
+          rounded-md w-full md:w-auto"
         >
           Host a Roundtable
           <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
