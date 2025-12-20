@@ -12,7 +12,7 @@ import Breadcrumb from '@/components/BreadCrumbs'
 
 import { usePostStore } from "@/store/insightPostStore";
 
-import CommentSection from '@/containers/business-hub/vip-lounge/comment-section/CommentSectionCTR';
+import CommentSection from '@/containers/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/comment-section/CommentSectionCTR';
 
 function Page() {
   // Query Params
@@ -24,26 +24,26 @@ function Page() {
   const selectedPost = usePostStore((state) => state.selectedPost);
   const setSelectedPost = usePostStore((state) => state.setSelectedPost);
 
-  useEffect(() => {
-    // IF id exists → always fetch from DB
-    if (id) {
-      console.log("id");
+  // useEffect(() => {
+  //   // IF id exists → always fetch from DB
+  //   if (id) {
+  //     console.log("id");
 
-      const fetchPost = async () => {
-        try {
-          const res = await fetch(`/api/insights-post/${id}`);
-          if (!res.ok) throw new Error("Failed to fetch post");
-          const data = await res.json();
-          setSelectedPost(data); // overwrite store
-        } catch (err) {
-          console.error(err);
-        }
-      };
+  //     const fetchPost = async () => {
+  //       try {
+  //         const res = await fetch(`/api/insights-post/${id}`);
+  //         if (!res.ok) throw new Error("Failed to fetch post");
+  //         const data = await res.json();
+  //         setSelectedPost(data); // overwrite store
+  //       } catch (err) {
+  //         console.error(err);
+  //       }
+  //     };
 
-      fetchPost();
-    }
-    // IF id does NOT exist → do nothing (store already has data)
-  }, [id, setSelectedPost]);
+  //     fetchPost();
+  //   }
+  //   // IF id does NOT exist → do nothing (store already has data)
+  // }, [id, setSelectedPost]);
 
   const partnerWithUs = {
     Partnerheader: {
@@ -90,8 +90,6 @@ function Page() {
     ]
   }
 
-  const canShare = status === "true" && session_id !== null && session_id == selectedPost?.session_id;
-
   // Create Url for Content
   const getValidUrl = (url) => {
     if (!url) return "#";
@@ -123,11 +121,11 @@ function Page() {
               </h3>
 
               <p
-                className="text-[#1B1B1B]/70 font-semibold"
+                className="text-[#1B1B1B]/80"
                 title={selectedPost?.description}
               >{selectedPost?.description || "N/A"}</p>
 
-              {selectedPost.content && (
+              {selectedPost?.content && (
                 <a
                   href={getValidUrl(selectedPost.content)}
                   target="_blank"
@@ -151,7 +149,7 @@ function Page() {
             </div>
           </div>
 
-          <CommentSection id={selectedPost?.id} isSecret={canShare} secretToken={selectedPost?.access_token} />
+          <CommentSection id={selectedPost?.id} secretToken={selectedPost?.access_token} />
         </div>
       </div>
 

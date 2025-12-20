@@ -22,7 +22,7 @@ function PostTile({ data }) {
       </div>
 
       {data.category && (
-        <p className="max-w-max text-sm px-2 py-0.5 border border-[#85009D] group-hover:border-white group-hover:text-white text-black rounded-sm">
+        <p className="max-w-max text-sm px-2 py-1 border border-[#85009D] group-hover:border-white group-hover:text-white text-black rounded-sm">
           {data.category}
         </p>
       )}
