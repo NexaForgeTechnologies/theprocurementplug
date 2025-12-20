@@ -82,7 +82,7 @@ export default function CommentSection({ id, secretToken }) {
   // Submit reply
   const handleReplySubmit = async (parentId, text) => {
     await axios.post("/api/thought-leadership/comments", {
-      roundtable_id: id,
+      post_id: id,
       parent_id: parentId,
       user_name: userName,
       user_email: userEmail,
