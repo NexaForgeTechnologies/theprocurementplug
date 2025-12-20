@@ -38,6 +38,21 @@ export class ThoughtLeadershipRepo {
     }
   }
 
+  static async getPostById(id) {
+    try {
+      const [rows] = await db.query(
+        `SELECT * FROM viplounge_insight_posts WHERE id = ?`,
+        [id]
+      );
+
+      return rows[0] || null; // ✅ single post or null
+    } catch (error) {
+      console.error("Error fetching post:", error);
+      throw new Error("Database error");
+    }
+  }
+
+
   // static async createInsightPost(data, origin) {
   //   let stripeSession = null;
 
@@ -166,7 +181,7 @@ export class ThoughtLeadershipRepo {
       // 4️⃣ Build URLs with ID + params
       const public_url =
         `${origin}/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/${slug}` +
-        `?id=${postId}&status=false&session_id=null`;
+        `?id=${postId}`;
 
       const secret_url = stripeSession
         ? `${origin}/business-hub/vip-lounge/collaboration-influence/thought-leadership-wall/${slug}` +

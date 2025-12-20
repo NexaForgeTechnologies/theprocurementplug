@@ -18,32 +18,28 @@ function Page() {
   // Query Params
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
-  const status = searchParams.get("status");
-  const session_id = searchParams.get("session_id");
 
   const selectedPost = usePostStore((state) => state.selectedPost);
   const setSelectedPost = usePostStore((state) => state.setSelectedPost);
 
-  // useEffect(() => {
-  //   // IF id exists → always fetch from DB
-  //   if (id) {
-  //     console.log("id");
+  useEffect(() => {
+    // If selectedPost then return not call api
+    if (selectedPost) return;
 
-  //     const fetchPost = async () => {
-  //       try {
-  //         const res = await fetch(`/api/insights-post/${id}`);
-  //         if (!res.ok) throw new Error("Failed to fetch post");
-  //         const data = await res.json();
-  //         setSelectedPost(data); // overwrite store
-  //       } catch (err) {
-  //         console.error(err);
-  //       }
-  //     };
-
-  //     fetchPost();
-  //   }
-  //   // IF id does NOT exist → do nothing (store already has data)
-  // }, [id, setSelectedPost]);
+    // if selectedPost is null then fetch post from database
+    const fetchPost = async () => {
+      try {
+        const res = await fetch(`/api/thought-leadership/get-post-by-id?post_id=${id}`);
+        if (!res.ok) throw new Error("Failed to fetch post");
+        const data = await res.json();
+        setSelectedPost(data); // overwrite store
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    fetchPost();
+    // IF id does NOT exist → do nothing (store already has data)
+  }, []);
 
   const partnerWithUs = {
     Partnerheader: {
@@ -102,7 +98,7 @@ function Page() {
     <>
       <div>
         <HeroCTR
-          img={selectedPost?.banner_img || "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"}
+          img={selectedPost?.banner_img || "/images/default-rectangle.webp"}
           heading={selectedPost?.heading}
           para={selectedPost?.description}
         />
@@ -140,7 +136,7 @@ function Page() {
 
             <div className='rounded-md px-4 md:px-10 py-4 md:py-20 flex-1 h-full flex justify-center items-center border border-[#D09B48] bg-[#FFFBF5]'>
               <Image
-                src={selectedPost?.profile_logo || "/images/default-rectangle.webp.png"}
+                src={selectedPost?.profile_logo || "/images/default-rectangle.webp"}
                 alt={`company logo`}
                 width={300}
                 height={300}

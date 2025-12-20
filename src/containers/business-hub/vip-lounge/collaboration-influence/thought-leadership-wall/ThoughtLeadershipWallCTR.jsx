@@ -87,8 +87,8 @@ function ThoughtLeadershipWallCTR() {
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
               className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${currentPage === 1
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:text-[#1B1B1B]"
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:text-[#1B1B1B]"
                 }`}
             >
               &lt;
@@ -101,8 +101,8 @@ function ThoughtLeadershipWallCTR() {
                   key={page}
                   onClick={() => handlePageChange(page)}
                   className={`text-lg px-4 py-2 rounded-[10px] ${currentPage === page
-                      ? "text-[#1B1B1B] font-semibold bg-[#EFEFEF]"
-                      : "text-[#7D7D7D] hover:text-[#1B1B1B]"
+                    ? "text-[#1B1B1B] font-semibold bg-[#EFEFEF]"
+                    : "text-[#7D7D7D] hover:text-[#1B1B1B]"
                     }`}
                 >
                   {page}
@@ -115,8 +115,8 @@ function ThoughtLeadershipWallCTR() {
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
               className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${currentPage === totalPages
-                  ? "opacity-50 cursor-not-allowed"
-                  : "hover:text-[#1B1B1B]"
+                ? "opacity-50 cursor-not-allowed"
+                : "hover:text-[#1B1B1B]"
                 }`}
             >
               &gt;
