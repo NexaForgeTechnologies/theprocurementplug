@@ -141,101 +141,58 @@ function Page() {
     }
   };
 
+  console.log(selectedPost);
+
+  const getValidUrl = (url) => {
+    if (!url) return "#";
+    return url.startsWith("http://") || url.startsWith("https://")
+      ? url
+      : `https://${url}`;
+  };
+
   return (
     <>
       <div>
         <HeroCTR
           img={selectedPost?.banner_img || "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"}
-          heading={selectedPost?.title}
+          heading={selectedPost?.heading}
           para={selectedPost?.description}
         />
         <Breadcrumb />
 
         <div>
-          {/* Roundtable Detail */}
+          {/* Insight Post Detail */}
           <div className="flex gap-8 justify-between md:items-center flex-col-reverse md:flex-row mb-6 md:mb-8">
             <div className='flex-2 space-y-4'>
+              <p className="max-w-max px-2 py-1 border border-[#85009D] text-black rounded-sm">
+                {selectedPost?.category || "N/A"}
+              </p>
+
               <h3 className="font-semibold text-3xl md:text-4xl text-[#85009D]">
-                {selectedPost?.title || "N/A"}
+                {selectedPost?.heading || "N/A"}
               </h3>
-              <div className='space-y-2'>
-                <p className="text-[#1B1B1B]/90 font-semibold">
-                  Company Name: <span className="font-normal text-[#1B1B1B]/60">{selectedPost?.companyName || "N/A"}</span>
-                </p>
-                <p className="text-[#1B1B1B]/90 font-semibold">
-                  Full Name: <span className="font-normal text-[#1B1B1B]/60">{selectedPost?.name || "N/A"}</span>
-                </p>
-                <p className="text-[#1B1B1B]/90 font-semibold">
-                  Work Email: <span className="font-normal text-[#1B1B1B]/60">{selectedPost?.email || "N/A"}</span>
-                </p>
-                <p className="text-[#1B1B1B]/90 font-semibold">
-                  Company Website / Linkedin URL (URL): <span className="font-normal text-[#1B1B1B]/60">{selectedPost?.website || "N/A"}</span>
-                </p>
-                <p className="text-[#1B1B1B]/90 font-semibold">
-                  Introduction / Description: <span className="font-normal text-[#1B1B1B]/60">{selectedPost?.description || "N/A"}</span>
-                </p>
-                <p className="text-[#1B1B1B]/90 font-semibold">
-                  Date (yyyy-mm-dd) : <span className="font-normal text-[#1B1B1B]/60">{selectedPost?.date || "N/A"}</span>
-                </p>
-              </div>
-              {/* Buttons */}
-              <div className="flex gap-4 items-center flex-wrap">
-                {canShare ? (
-                  <button
-                    onClick={() => setShowPopup(true)}
-                    className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-md"
-                  >
-                    Share Profile Link
-                  </button>
-                ) : (
-                  <button className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-md">
-                    Submit a Question?
-                  </button>
-                )}
-              </div>
 
-              {/* Popup */}
-              {showPopup && (
-                <div
-                  className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-                  onClick={() => setShowPopup(false)}
+              <p
+                className="text-[#1B1B1B]/70 font-semibold"
+                title={selectedPost?.description}
+              >{selectedPost?.description || "N/A"}</p>
+
+              {selectedPost.content && (
+                <a
+                  href={getValidUrl(selectedPost.content)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-md"
                 >
-                  <div
-                    className="bg-white p-6 rounded-lg shadow-xl flex gap-2 w-[90%] max-w-md flex-col"
-                    onClick={(e) => e.stopPropagation()}
-                  >
-                    <h3 className="text-xl font-semibold mb-2 text-black">Send Roundtable Secret Link</h3>
-
-                    {/* Email Input */}
-                    <input
-                      type="email"
-                      placeholder="Enter email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="text-black border p-2 w-full rounded-md"
-                    />
-
-                    {/* Error or Success Message */}
-                    {error && <p className="text-red-500 text-sm">{error}</p>}
-                    {success && <p className="text-green-600 text-sm">{success}</p>}
-
-                    {/* Send Button */}
-                    <button
-                      onClick={handleSendEmail}
-                      className="bg-[#b08d57] text-white px-4 py-2 rounded-md w-full flex items-center justify-center"
-                      disabled={loading}
-                    >
-                      {loading ? "Sending..." : "Send"}
-                    </button>
-                  </div>
-                </div>
+                  {selectedPost.content_type}
+                </a>
               )}
 
             </div>
 
             <div className='rounded-md px-4 md:px-10 py-4 md:py-20 flex-1 h-full flex justify-center items-center border border-[#D09B48] bg-[#FFFBF5]'>
               <Image
-                src={selectedPost?.logo_image || "/images/bussiness-hub/vip-lounge/Collaboration-influence-zone/vip-forum/future-proofing-procurement/herosection.png"}
+                src={selectedPost?.profile_logo || "/images/default-rectangle.webp.png"}
                 alt={`company logo`}
                 width={300}
                 height={300}
