@@ -124,10 +124,10 @@ export default function NominationForm({ isOpen, onClose }) {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
+        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-200 flex items-center justify-center px-6">
             <div
                 ref={modalRef}
-                className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
+                className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border border-[#DBBB89] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-4">
@@ -152,7 +152,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             value={formData.nomineeFullName}
                             onChange={handleChange}
                             required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
                             type="email"
@@ -162,7 +162,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             value={formData.nomineeEmail}
                             onChange={handleChange}
                             required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -173,7 +173,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             placeholder="Organisation"
                             value={formData.nomineeOrganisation}
                             onChange={handleChange}
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
                             type="text"
@@ -182,7 +182,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             placeholder="Role"
                             value={formData.nomineeRole}
                             onChange={handleChange}
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
 
@@ -194,7 +194,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             value={formData.nominationCategory}
                             onChange={handleChange}
                             required
-                            className="appearance-none border-1 border-[#85009D] text-[#363636] w-full p-4 bg-white cursor-pointer rounded-[2px] focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="appearance-none border border-[#85009D] text-[#363636] w-full p-4 bg-white cursor-pointer rounded-xs focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         >
                             <option value="">Select Nomination Category*</option>
                             <option value="Thought Leader">Thought Leader</option>
@@ -213,7 +213,7 @@ export default function NominationForm({ isOpen, onClose }) {
                         value={formData.nomineeBio}
                         onChange={handleChange}
                         required
-                        className="resize-none w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="resize-none w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         rows="4"
                     />
                     <textarea
@@ -223,7 +223,7 @@ export default function NominationForm({ isOpen, onClose }) {
                         value={formData.keyContribution}
                         onChange={handleChange}
                         required
-                        className="resize-none w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="resize-none w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         rows="4"
                     />
                     <input
@@ -233,7 +233,7 @@ export default function NominationForm({ isOpen, onClose }) {
                         placeholder="Links to Work or Profile (e.g., LinkedIn, GitHub)"
                         value={formData.linksToWork}
                         onChange={handleChange}
-                        className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
 
                     <h4 className="font-semibold text-xl text-[#1B1B1B]">Why You’re Nominating Them</h4>
@@ -244,7 +244,7 @@ export default function NominationForm({ isOpen, onClose }) {
                         value={formData.reasonForNomination}
                         onChange={handleChange}
                         required
-                        className="resize-none w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="resize-none w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         rows="4"
                     />
 
@@ -258,7 +258,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             value={formData.nominatorFullName}
                             onChange={handleChange}
                             required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
                             type="email"
@@ -268,7 +268,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             value={formData.nominatorEmail}
                             onChange={handleChange}
                             required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -279,7 +279,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             placeholder="Organisation"
                             value={formData.nominatorOrganisation}
                             onChange={handleChange}
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
                             type="text"
@@ -288,7 +288,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             placeholder="Role"
                             value={formData.nominatorRole}
                             onChange={handleChange}
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <input
@@ -298,7 +298,7 @@ export default function NominationForm({ isOpen, onClose }) {
                         placeholder="Relationship to Nominee"
                         value={formData.relationshipToNominee}
                         onChange={handleChange}
-                        className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                        className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                     />
 
                     <h4 className="font-semibold text-xl text-[#1B1B1B]">Permissions & Consent</h4>
@@ -332,7 +332,7 @@ export default function NominationForm({ isOpen, onClose }) {
 
                     <h4 className="font-semibold text-xl text-[#1B1B1B]">Attachments (Optional)</h4>
                     <div
-                        className="flex flex-col items-center bg-white border-1 border-[#85009D] p-5 rounded-[2px] cursor-pointer mb-4"
+                        className="flex flex-col items-center bg-white border border-[#85009D] p-5 rounded-xs cursor-pointer mb-4"
                         onClick={() => fileInputRef.current.click()}
                     >
                         <Image
@@ -340,7 +340,7 @@ export default function NominationForm({ isOpen, onClose }) {
                             alt="upload documents"
                             width={128}
                             height={128}
-                            className="w-[128px] h-[128px] object-cover mb-4"
+                            className="w-32 h-32 object-cover mb-4"
                         />
                         <p className="text-[#1B1B1B] text-center">
                             <span className="font-semibold">Attach Supporting Documents</span> (PDF, DOC, Max 5MB)
@@ -358,7 +358,7 @@ export default function NominationForm({ isOpen, onClose }) {
 
                     <button
                         type="submit"
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto"
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-mds w-full md:w-auto"
                     >
                         Submit Nomination
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>

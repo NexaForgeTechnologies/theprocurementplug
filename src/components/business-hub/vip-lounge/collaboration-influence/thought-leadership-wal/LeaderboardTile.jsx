@@ -14,7 +14,7 @@ const LeaderboardTile = ({ rank, name, metric, image, medalImage, isLast }) => {
                         alt={`${name} image`}
                         width={70}
                         height={70}
-                        className="w-[70px] h-[70px] object-cover border-1 border-[#B08D57] rounded-full"
+                        className="w-[70px] h-[70px] object-cover border border-[#B08D57] rounded-full"
                     />
                     <div className="flex flex-col">
                         <span className="text-[#1B1B1B] font-medium">{name}</span>
@@ -27,12 +27,12 @@ const LeaderboardTile = ({ rank, name, metric, image, medalImage, isLast }) => {
                         alt="medal"
                         width={44}
                         height={70}
-                        className="w-[44px] h-[70px]"
+                        className="w-11 h-[70px]"
                     />
                 )}
             </div>
             {!isLast && (
-                <div className="w-full h-[2px] bg-[#DBBB89] my-4"></div>
+                <div className="w-full h-0.5 bg-[#DBBB89] my-4"></div>
             )}
         </div>
 
