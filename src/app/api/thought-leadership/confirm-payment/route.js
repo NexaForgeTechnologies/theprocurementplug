@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getStripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe/stripe";
 import { db } from "@/lib/db";
 
 export async function POST(req) {

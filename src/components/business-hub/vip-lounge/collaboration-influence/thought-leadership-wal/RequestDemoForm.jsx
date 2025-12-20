@@ -5,7 +5,6 @@ import axios from "axios";
 
 import RectangularImgUploader from "@/components/img-uploader/RectangularImgUploaderComp";
 import SuccessPopup from "@/components/SuccessMessageComp";
-import { email } from "zod";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
   const [selectedBanner, setSelectedBanner] = useState(null);

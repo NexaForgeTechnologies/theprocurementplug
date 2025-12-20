@@ -7,7 +7,6 @@ import { buildNestedComments } from "@/utils/buildNestedComments";
 import CommentItem from "@/components/business-hub/vip-lounge/CommentSection";
 
 export default function CommentSection({ id, isSecret, secretToken }) {
-  console.log(id, isSecret, secretToken);
 
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState("");
