@@ -1,13 +1,12 @@
 "use client";
 import { useState } from "react";
 
-import PostTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/PostTile";
-
 import { usePost } from "@/hooks/GetInsightsPost";
 
 import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import SubmissionModalForm from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/RequestDemoForm";
 import NominationForm from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/NominationForm";
+import PostTile from "@/components/business-hub/vip-lounge/collaboration-influence/thought-leadership-wal/PostTile";
 
 function ThoughtLeadershipWallCTR() {
   const { data = [] } = usePost(); // default empty array
@@ -87,11 +86,10 @@ function ThoughtLeadershipWallCTR() {
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
-              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${
-                currentPage === 1
+              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${currentPage === 1
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:text-[#1B1B1B]"
-              }`}
+                }`}
             >
               &lt;
             </button>
@@ -102,11 +100,10 @@ function ThoughtLeadershipWallCTR() {
                 <button
                   key={page}
                   onClick={() => handlePageChange(page)}
-                  className={`text-lg px-4 py-2 rounded-[10px] ${
-                    currentPage === page
+                  className={`text-lg px-4 py-2 rounded-[10px] ${currentPage === page
                       ? "text-[#1B1B1B] font-semibold bg-[#EFEFEF]"
                       : "text-[#7D7D7D] hover:text-[#1B1B1B]"
-                  }`}
+                    }`}
                 >
                   {page}
                 </button>
@@ -117,11 +114,10 @@ function ThoughtLeadershipWallCTR() {
             <button
               onClick={() => handlePageChange(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${
-                currentPage === totalPages
+              className={`text-[#1B1B1B] px-4 py-2 rounded-[10px] bg-white border border-[#EDEDED] text-lg ${currentPage === totalPages
                   ? "opacity-50 cursor-not-allowed"
                   : "hover:text-[#1B1B1B]"
-              }`}
+                }`}
             >
               &gt;
             </button>
@@ -129,7 +125,6 @@ function ThoughtLeadershipWallCTR() {
         )}
       </div>
 
-      {/* <div className="w-full h-[2px] bg-[#85009D] mb-4 md:mb-8"></div> */}
       <SubmissionModalForm
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}

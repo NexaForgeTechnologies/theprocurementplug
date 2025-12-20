@@ -3,7 +3,7 @@
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
 import HeroCTR from '@/components/business-hub/vip-lounge/VipHeroSection'
@@ -15,8 +15,11 @@ import { usePostStore } from "@/store/insightPostStore";
 import CommentSection from '@/containers/business-hub/vip-lounge/comment-section/CommentSectionCTR';
 
 function Page() {
+  // Query Params
   const searchParams = useSearchParams();
-  const id = searchParams.get("id"); // ?id=123
+  const id = searchParams.get("id");
+  const status = searchParams.get("status");
+  const session_id = searchParams.get("session_id");
 
   const selectedPost = usePostStore((state) => state.selectedPost);
   const setSelectedPost = usePostStore((state) => state.setSelectedPost);
@@ -41,7 +44,6 @@ function Page() {
     }
     // IF id does NOT exist → do nothing (store already has data)
   }, [id, setSelectedPost]);
-
 
   const partnerWithUs = {
     Partnerheader: {
@@ -88,61 +90,9 @@ function Page() {
     ]
   }
 
-  const [showPopup, setShowPopup] = useState(false);
-  const status = searchParams.get("status");
-  const session_id = searchParams.get("session_id");
   const canShare = status === "true" && session_id !== null && session_id == selectedPost?.session_id;
 
-  const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-  const handleSendEmail = async () => {
-    setError("");
-    setSuccess("");
-
-    if (!email) {
-      setError("Email is required.");
-      return;
-    }
-
-    if (!/\S+@\S+\.\S+/.test(email)) {
-      setError("Invalid email format.");
-      return;
-    }
-
-    setLoading(true);
-
-    try {
-      const res = await fetch("/api/round-table/secret-link", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          title: selectedPost?.title,
-          date: selectedPost?.date,
-          secret_url: selectedPost?.secret_url, // example
-        }),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        setError(data.message || "Failed to send email.");
-      } else {
-        setSuccess("Email sent successfully!");
-        setEmail("");
-      }
-    } catch (err) {
-      setError("Something went wrong!");
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  console.log(selectedPost);
-
+  // Create Url for Content
   const getValidUrl = (url) => {
     if (!url) return "#";
     return url.startsWith("http://") || url.startsWith("https://")

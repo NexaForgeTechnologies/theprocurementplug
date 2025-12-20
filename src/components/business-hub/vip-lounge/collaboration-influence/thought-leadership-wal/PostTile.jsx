@@ -15,7 +15,7 @@ function PostTile({ data }) {
     >
       <div className="w-full h-40 p-1 bg-white rounded-md">
         <img
-          src={data.banner_img ?? ""}
+          src={data.banner_img ?? "/images/default-rectangle.webp"}
           alt={`logo`}
           className="w-full h-full object-cover rounded-sm"
         />
