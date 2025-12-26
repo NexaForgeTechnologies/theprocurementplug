@@ -145,7 +145,7 @@ function Page() {
             </div>
           </div>
 
-          <CommentSection id={selectedPost?.id} secretToken={selectedPost?.access_token} />
+          <CommentSection id={id} secretToken={selectedPost?.access_token} />
         </div>
       </div>
 

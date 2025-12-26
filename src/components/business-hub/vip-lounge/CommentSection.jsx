@@ -66,15 +66,15 @@ export default function CommentItem({
   };
 
   return (
-    <div className="mb-6">
+    <div className="mb-2">
       {/* User Info */}
-      <div className="flex items-center gap-2 mb-3">
+      <div className="flex items-center gap-2 mb-2">
         <Image
           src="/images/default-circle.png"
           alt="user"
-          width={36}
-          height={36}
-          className="w-9 h-9 rounded-full"
+          width={30}
+          height={30}
+          className="w-8 h-w-8 rounded-full"
         />
         <p className="text-[#1B1B1B] font-medium">{comment.user_name}</p>
         <p className="text-[#919191] text-sm">
@@ -84,7 +84,7 @@ export default function CommentItem({
 
       {/* Comment or Edit Mode */}
       {!isEditing ? (
-        <p className="text-[#000000] text-[16px] md:text-[19px] leading-normal mb-2">
+        <p className="text-[#000000] text-xs md:text-sm leading-normal mb-1">
           {comment.comment}
         </p>
       ) : (
@@ -100,14 +100,14 @@ export default function CommentItem({
         {/* Reply */}
         {!isEditing && (
           <button
-            className="text-[#505050] hover:underline"
+            className="text-[#505050] hover:underline text-sm"
             onClick={openReplyBox}
           >
             Reply
           </button>
         )}
         {canModify && (
-          <div className="space-x-2">
+          <div className="space-x-2 text-sm">
             {!isEditing ? (
               <button
                 className="text-blue-600 hover:underline"
@@ -139,7 +139,7 @@ export default function CommentItem({
             {/* Delete */}
             {!isEditing && (
               <button
-                className="text-red-600 hover:underline"
+                className="hover:underline"
                 onClick={() => onDelete(comment.id)}
               >
                 🗑️
@@ -151,7 +151,7 @@ export default function CommentItem({
 
       {/* Reply Box (NEW) */}
       {showReplyBox && (
-        <div className="mt-3 ml-12">
+        <div className="mt-2 ml-12">
           <textarea
             ref={replyInputRef}
             value={replyText}
@@ -159,7 +159,7 @@ export default function CommentItem({
             className="w-full p-2 border rounded-md"
             placeholder={`Reply to ${comment.user_name}`}
           />
-          <div className="flex items-center gap-4 text-sm mt-2">
+          <div className="flex items-center gap-4 text-sm mt-1">
             <button
               className="text-gray-500 hover:underline"
               onClick={() => {
