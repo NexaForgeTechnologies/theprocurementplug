@@ -6,9 +6,13 @@ import CategoriesBar from "@/components/business-hub/vip-lounge/CategoriesBar";
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom'
 import Form from '@/containers/business-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/Form'
 import LatestReportForm from '@/components/business-hub/vip-lounge/exclusive-intelligence-reports/insight-research/LatestReportForm'
+import IndustryInsightsDownloadForm from '@/components/forms/business-hub/IndustryInsightsDownloadForm';
 function IndustryInsightsCTR() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+    const [isDownloadOpen, setIsDownloadOpen] = useState(false);
+    const [selectedTile, setSelectedTile] = useState(null);
+
 
     const collaboration = [
         {
@@ -68,6 +72,7 @@ function IndustryInsightsCTR() {
             para: "Sponsored",
             pdf: "/files/dummy.pdf",
             pdfIcon: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/pdf.png",
+            allowed: false
         },
         {
             id: 2,
@@ -75,6 +80,7 @@ function IndustryInsightsCTR() {
             para: "Premium",
             pdf: "/files/dummy.pdf",
             pdfIcon: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/pdf.png",
+            allowed: false
         },
         {
             id: 3,
@@ -82,6 +88,7 @@ function IndustryInsightsCTR() {
             para: "Member Exclusive",
             pdf: "/files/dummy.pdf",
             pdfIcon: "/images/bussiness-hub/vip-lounge/exclusive-intelligence-reports/industry-insights/pdf.png",
+            allowed: false
         },
     ];
 
@@ -169,13 +176,18 @@ function IndustryInsightsCTR() {
                     Download Latest Report
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {report.map((partner) => (
+                    {report.map((report) => (
                         <ReportTile
-                            key={partner.id}
-                            heading={partner.heading}
-                            para={partner.para}
-                            pdf={partner.pdf}
-                            pdfIcon={partner.pdfIcon}
+                            key={report.id}
+                            heading={report.heading}
+                            para={report.para}
+                            pdf={report.pdf}
+                            pdfIcon={report.pdfIcon}
+                            allowed={report.allowed}
+                            onTileClick={(tileData) => {
+                                setSelectedTile(tileData);   // store clicked tile
+                                setIsDownloadOpen(true);     // open form modal
+                            }}
                         />
                     ))}
                 </div>
@@ -202,6 +214,12 @@ function IndustryInsightsCTR() {
             </div>
             <LatestReportForm isOpen={isDownloadModalOpen} onClose={() => setIsDownloadModalOpen(false)} />
             <Form isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <IndustryInsightsDownloadForm
+                isOpen={isDownloadOpen}
+                onClose={() => setIsDownloadOpen(false)}
+                selectedTile={selectedTile}
+            />
+
         </div>
     );
 }
