@@ -1,12 +1,12 @@
-// import { AdminSpeakerEmail, UserSpeakerEmail } from "@/lib/emails/ConciergeEmail";
-import { AdminSpeakerEmail, UserSpeakerEmail } from "@/lib/emails/EventEmail";
-import { BecomeASpeakerRepo } from "@/repository/business-hub/BecomeASpeakerRepo";
 import { NextResponse } from "next/server";
+
+import { AdminSpeakerEmail, UserSpeakerEmail } from "@/lib/emails/BecomeSpeakerEmail";
+
+import { BecomeASpeakerRepo } from "@/repository/business-hub/BecomeASpeakerRepo";
 
 export async function POST(request) {
     try {
         const body = await request.json();
-        console.log("📩 Become-a-Speaker form received:", body);
 
         // Save to DB
         const result = await BecomeASpeakerRepo(body);

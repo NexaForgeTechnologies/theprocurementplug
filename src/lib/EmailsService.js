@@ -48,6 +48,11 @@ export async function sendEmail({ type, to, subject, html }) {
             user: process.env.SMTP_PARTNERSHIPS_USER,
             pass: process.env.SMTP_PARTNERSHIPS_PASS,
             label: "Insight Post - The Procurement Plug",
+        },
+        becomeSpeaker: {
+            user: process.env.SMTP_BECOME_A_SPEAKER_USER,
+            pass: process.env.SMTP_BECOME_A_SPEAKER_PASS,
+            label: "The Procurement Plug - Become a Speaker",
         }
     };
 

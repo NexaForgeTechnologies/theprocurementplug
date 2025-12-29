@@ -1,37 +1,51 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
+import toast from "react-hot-toast";
 import Image from "next/image";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import FeatureSpeakerTile from "@/components/events/become-a-speaker/ConsultingPartnerTile";
 import ArrowButtonCom from '@/components/buttons/ArrowButtonCom'
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import toast from "react-hot-toast";
+import Breadcrumb from "@/components/BreadCrumbs";
 
-
-function Breadcrumb() {
-    return (
-        <nav className="text-sm breadcrumbs my-4 md:my-10">
-            <ol className="list-reset flex gap-2 text-[#9C9C9C] whitespace-nowrap overflow-x-auto scrollbar-none md:overflow-x-hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                <li>
-                    <Link href="/business-hub" className="hover:underline">Business Hub</Link>
-                </li>
-                <li>/</li>
-                <li>
-                    <Link href="/event" className="hover:underline">Events</Link>
-                </li>
-                <li>/</li>
-                <li className="text-[#696969] ">
-                    Become a Speaker
-                </li>
-            </ol>
-        </nav>
-    )
-}
 
 function BecomeaSpeaker() {
-    const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    role: "",
+    company: "",
+    proposedtopic: "",
+    interestin: "",
+    proposal: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const res = await fetch("/api/event/become-a-speaker", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) throw new Error("Form submission failed!");
+
+      toast.success("Form submitted successfully!");
+
+      setFormData({
         name: "",
         email: "",
         role: "",
@@ -39,315 +53,280 @@ function BecomeaSpeaker() {
         proposedtopic: "",
         interestin: "",
         proposal: "",
-    });
+      });
 
+      // onClose(); // Optional
+    } catch (error) {
+      toast.error("Form submission unsuccessful!");
+      console.error("Submission error:", error);
+    } finally {
+      setIsLoading(false); // Stop loading
+    }
+  };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-    };
+  const featurespeaker = [
+    {
+      id: 1,
+      img: "/images/events/become-a-speaker/feature1.png",
+      heading: "Showcase Expertise",
+      text: "Share your knowledge with an engaged professional audiences",
+      url: "/business-hub/consulting-partner/six-sigma-change-management",
+    },
+    {
+      id: 2,
+      img: "/images/events/become-a-speaker/feature2.png",
+      heading: "Grow Network",
+      text: "Connect with industry leaders and expand your influence",
+      url: "/business-hub/consulting-partner/procurement",
+    },
+    {
+      id: 3,
+      img: "/images/events/become-a-speaker/feature3.png",
+      heading: "Shape Industry",
+      text: "Contribute to the conversation on procurement best practices",
+      url: "/business-hub/consulting-partner/esg-sustainability",
+    },
+  ];
 
-    const [isLoading, setIsLoading] = useState(false);
+  const partnerWithUs = {
+    Partnerheader: {
+      crossSellh3: "Thought Leadership Zone",
+      h3: "",
+      p: ""
+    },
+    items: [
+      {
+        id: 1,
+        heading: "The Procurement Plug Academy",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 2,
+        heading: "Resources Library",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      },
+      {
+        id: 3,
+        heading: "The Personal Development Hub",
+        text: "",
+        link: "",
+        linkText: "View Details",
+        bgColor: "#85009D"
+      }
+    ]
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-
-        try {
-            const res = await fetch("/api/event/become-a-speaker", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (!res.ok) throw new Error("Form submission failed!");
-
-            toast.success("Form submitted successfully!");
-
-            setFormData({
-                name: "",
-                email: "",
-                role: "",
-                company: "",
-                proposedtopic: "",
-                interestin: "",
-                proposal: "",
-            });
-
-            // onClose(); // Optional
-        } catch (error) {
-            toast.error("Form submission unsuccessful!");
-            console.error("Submission error:", error);
-        } finally {
-            setIsLoading(false); // Stop loading
-        }
-    };
-
-    const featurespeaker = [
-        {
-            id: 1,
-            img: "/images/events/become-a-speaker/feature1.png",
-            heading: "Showcase Expertise",
-            text: "Share your knowledge with an engaged professional audiences",
-            url: "/business-hub/consulting-partner/six-sigma-change-management",
-        },
-        {
-            id: 2,
-            img: "/images/events/become-a-speaker/feature2.png",
-            heading: "Grow Network",
-            text: "Connect with industry leaders and expand your influence",
-            url: "/business-hub/consulting-partner/procurement",
-        },
-        {
-            id: 3,
-            img: "/images/events/become-a-speaker/feature3.png",
-            heading: "Shape Industry",
-            text: "Contribute to the conversation on procurement best practices",
-            url: "/business-hub/consulting-partner/esg-sustainability",
-        },
-    ];
-
-    const partnerWithUs = {
-        Partnerheader: {
-            crossSellh3: "Thought Leadership Zone",
-            h3: "",
-            p: ""
-        },
-        items: [
-            {
-                id: 1,
-                heading: "The Procurement Plug Academy",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: "#85009D"
-            },
-            {
-                id: 2,
-                heading: "Resources Library",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: "#85009D"
-            },
-            {
-                id: 3,
-                heading: "The Personal Development Hub",
-                text: "",
-                link: "",
-                linkText: "View Details",
-                bgColor: "#85009D"
-            }
-        ]
-    };
-
-    return (
-        <>
-            <div>
-                <HeroCTR
-                    img="/images/events/become-a-speaker/herosection.png"
-                    heading={
-                        <span className="flex flex-col gap-0 leading-none">
-                            <span className="font-extrabold">Become a Speaker</span>
-                        </span>
-                    }
-                    para="hare your insights, grow your network, and make
+  return (
+    <>
+      <div>
+        <HeroCTR
+          img="/images/events/become-a-speaker/herosection.png"
+          heading={
+            <span className="flex flex-col gap-0 leading-none">
+              <span className="font-extrabold">Become a Speaker</span>
+            </span>
+          }
+          para="hare your insights, grow your network, and make
                     an impact in the procurement industry."
+        />
+        <Breadcrumb />
+        <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
+          Become a Speaker
+        </h3>
+        <p className="max-w-[930px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
+          Contribute to The Procurement Plug Events
+        </p>
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+          {featurespeaker.map((partner) => (
+            <FeatureSpeakerTile
+              key={partner.id}
+              img={partner.img}
+              heading={partner.heading}
+              text={partner.text}
+              url={partner.url}
+            />
+          ))}
+        </div>
+      </div>
+      <div>
+        <h3 className="font-semibold text-2xl md:text-3xl mb-4 text-[#1B1B1B]">
+          Speaker Benefits
+        </h3>
+        <div className="flex gap-2 md:gap-4 items-start mb-4">
+          <div className="w-5 h-5 bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+          <div>
+            <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Gain visibility among procurement professionals</p>
+          </div>
+        </div>
+        <div className="flex gap-2 md:gap-4 items-start mb-4">
+          <div className="w-5 h-5 bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+          <div>
+            <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Enhance your professional reputation and credibility</p>
+          </div>
+        </div>
+        <div className="flex gap-2 md:gap-4 items-start mb-4">
+          <div className="w-5 h-5 bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
+          <div>
+            <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Access exclusive networking opportunities</p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        style={{
+          boxShadow: "0 0 0 100vmax #85009D",
+          clipPath: "inset(0 -100vmax)",
+        }}
+        className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 bg-[#85009D] py-5 md:py-12">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+          <Image
+            src={"/images/events/become-a-speaker/n1.png"}
+            alt={"number"}
+            width={100}
+            height={100}
+            className="w-[70px] h-[70px] md:w-[100px] md:h-[100px]"
+          />
+          <p className="text-xl font-semibold">Apply:
+            Submit your proposal.
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+          <Image
+            src={"/images/events/become-a-speaker/n2.png"}
+            alt={"number"}
+            width={100}
+            height={100}
+            className="w-[70px] h-[70px] md:w-[100px] md:h-[100px]"
+          />
+          <p className="text-5 font-semibold">Review: Our team will
+            evaluate your submission.
+          </p>
+        </div>
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+          <Image
+            src={"/images/events/become-a-speaker/n3.png"}
+            alt={"number"}
+            width={100}
+            height={100}
+            className="w-[70px] h-[70px] md:w-[100px] md:h-[100px]"
+          />
+          <p className="text-5 font-semibold">Confirm: Receive confirmation
+            and event details.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div className="border border-[#DBBB89] p-4 md:p-6 rounded-md bg-[#FFFBF5]">
+          <h3 className="font-semibold text-2xl md:text-3xl mb-4 text-[#1B1B1B]">
+            Submit Speaker Proposal
+          </h3>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { id: 'name', type: 'text', placeholder: 'Name' },
+                { id: 'email', type: 'email', placeholder: 'Email Address' },
+              ].map(({ id, type, placeholder }) => (
+                <input
+                  key={id}
+                  type={type}
+                  id={id}
+                  name={id}
+                  placeholder={placeholder}
+                  value={formData[id]}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                 />
-                <Breadcrumb />
-                <h3 className="font-semibold text-2xl md:text-3xl text-[#1B1B1B]">
-                    Become a Speaker
-                </h3>
-                <p className="max-w-[930px] md:text-xl text-[#1B1B1B] mt-4 mb-4 md:mb-8">
-                    Contribute to The Procurement Plug Events
-                </p>
-                <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
-                    {featurespeaker.map((partner) => (
-                        <FeatureSpeakerTile
-                            key={partner.id}
-                            img={partner.img}
-                            heading={partner.heading}
-                            text={partner.text}
-                            url={partner.url}
-                        />
-                    ))}
-                </div>
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { id: 'role', type: 'text', placeholder: 'Role' },
+                { id: 'company', type: 'text', placeholder: 'Company' },
+              ].map(({ id, type, placeholder }) => (
+                <input
+                  key={id}
+                  type={type}
+                  id={id}
+                  name={id}
+                  placeholder={placeholder}
+                  value={formData[id]}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                />
+              ))}
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                { id: 'proposedtopic', type: 'text', placeholder: 'Proposed Topic' },
+                { id: 'interestin', type: 'text', placeholder: 'Events Interest In' },
+              ].map(({ id, type, placeholder }) => (
+                <input
+                  key={id}
+                  type={type}
+                  id={id}
+                  name={id}
+                  placeholder={placeholder}
+                  value={formData[id]}
+                  onChange={handleChange}
+                  required
+                  className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                />
+              ))}
             </div>
             <div>
-                <h3 className="font-semibold text-2xl md:text-3xl mb-4 text-[#1B1B1B]">
-                    Speaker Benefits
-                </h3>
-                <div className="flex gap-2 md:gap-4 items-start mb-4">
-                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
-                    <div>
-                        <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Gain visibility among procurement professionals</p>
-                    </div>
-                </div>
-                <div className="flex gap-2 md:gap-4 items-start mb-4">
-                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
-                    <div>
-                        <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Enhance your professional reputation and credibility</p>
-                    </div>
-                </div>
-                <div className="flex gap-2 md:gap-4 items-start mb-4">
-                    <div className="w-[20px] h-[20px] bg-[#B08D57] rounded-full mt-[7px] shrink-0"></div>
-                    <div>
-                        <p className="text-[16px] md:text-[24px] text-[#1B1B1B]">Access exclusive networking opportunities</p>
-                    </div>
-                </div>
+              <textarea
+                id="proposal"
+                name="proposal"
+                placeholder="Proposal"
+                value={formData.proposal}
+                onChange={handleChange}
+                className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
+                rows="4"
+              />
             </div>
-
-            <div
-                style={{
-                    boxShadow: "0 0 0 100vmax #85009D",
-                    clipPath: "inset(0 -100vmax)",
-                }}
-                className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 bg-[#85009D] py-5 md:py-12">
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                    <Image
-                        src={"/images/events/become-a-speaker/n1.png"}
-                        alt={"number"}
-                        width={100}
-                        height={100}
-                        className="w-[70px] h-[70px] md:w-[100px] md:h-[100px]"
-                    />
-                    <p className="text-[20px] font-semibold">Apply:
-                        Submit your proposal.
-                    </p>
-                </div>
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                    <Image
-                        src={"/images/events/become-a-speaker/n2.png"}
-                        alt={"number"}
-                        width={100}
-                        height={100}
-                        className="w-[70px] h-[70px] md:w-[100px] md:h-[100px]"
-                    />
-                    <p className="text-[20px] font-semibold">Review: Our team will
-                        evaluate your submission.
-                    </p>
-                </div>
-                <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                    <Image
-                        src={"/images/events/become-a-speaker/n3.png"}
-                        alt={"number"}
-                        width={100}
-                        height={100}
-                        className="w-[70px] h-[70px] md:w-[100px] md:h-[100px]"
-                    />
-                    <p className="text-[20px] font-semibold">Confirm: Receive confirmation
-                        and event details.
-                    </p>
-                </div>
-            </div>
-
-            <div>
-                <div className="border-1 border-[#DBBB89] p-4 md:p-6 rounded-[6px] bg-[#FFFBF5]">
-                    <h3 className="font-semibold text-2xl md:text-3xl mb-4 text-[#1B1B1B]">
-                        Submit Speaker Proposal
-                    </h3>
-                    <form onSubmit={handleSubmit} className="space-y-4">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {[
-                                { id: 'name', type: 'text', placeholder: 'Name' },
-                                { id: 'email', type: 'email', placeholder: 'Email Address' },
-                            ].map(({ id, type, placeholder }) => (
-                                <input
-                                    key={id}
-                                    type={type}
-                                    id={id}
-                                    name={id}
-                                    placeholder={placeholder}
-                                    value={formData[id]}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                                />
-                            ))}
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {[
-                                { id: 'role', type: 'text', placeholder: 'Role' },
-                                { id: 'company', type: 'text', placeholder: 'Company' },
-                            ].map(({ id, type, placeholder }) => (
-                                <input
-                                    key={id}
-                                    type={type}
-                                    id={id}
-                                    name={id}
-                                    placeholder={placeholder}
-                                    value={formData[id]}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                                />
-                            ))}
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            {[
-                                { id: 'proposedtopic', type: 'text', placeholder: 'Proposed Topic' },
-                                { id: 'interestin', type: 'text', placeholder: 'Events Interest In' },
-                            ].map(({ id, type, placeholder }) => (
-                                <input
-                                    key={id}
-                                    type={type}
-                                    id={id}
-                                    name={id}
-                                    placeholder={placeholder}
-                                    value={formData[id]}
-                                    onChange={handleChange}
-                                    required
-                                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
-                                />
-                            ))}
-                        </div>
-                        <div>
-                            <textarea
-                                id="proposal"
-                                name="proposal"
-                                placeholder="Proposal"
-                                value={formData.proposal}
-                                onChange={handleChange}
-                                className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
-                                rows="4"
-                            />
-                        </div>
-                        <button
-                            type="submit"
-                            disabled={isLoading}
-                            className={`flex items-center justify-center md:justify-start px-4 py-2 rounded-[6px] w-full md:w-auto 
+            <button
+              type="submit"
+              disabled={isLoading}
+              className={`flex items-center justify-center md:justify-start px-4 py-2 rounded-md w-full md:w-auto 
         ${isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-[#b08d57] cursor-pointer"} text-white`}
-                        >
-                            {isLoading ? "Submitting..." : "Submit"}
-                            {!isLoading && (
-                                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
-                            )}
-                        </button>
-
-                    </form>
-                </div>
-            </div>
-            <div
-                className="bg-[#FBE3FF] py-6 md:py-10 flex flex-col sm:flex-row items-center justify-between gap-6 md:gap-8"
-                style={{
-                    boxShadow: "0 0 0 100vmax #FBE3FF",
-                    clipPath: "inset(0 -100vmax)",
-                }}
             >
-                <h2 className="font-medium max-w-[700px] text-3xl md:text-5xl text-[#85009D]">
-                    Upskill your <strong>Capabilities</strong>
-                </h2>
-                <div className="min-w-[200px]">
-                    <ArrowButtonCom text="Join the Procurement Plug Academy" />
-                </div>
-            </div>
-            <PartnerWithUsComp data={partnerWithUs} />
-        </>
-    )
+              {isLoading ? "Submitting..." : "Submit"}
+              {!isLoading && (
+                <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
+              )}
+            </button>
+
+          </form>
+        </div>
+      </div>
+      <div
+        className="bg-[#FBE3FF] py-6 md:py-10 flex flex-col sm:flex-row items-center justify-between gap-6 md:gap-8"
+        style={{
+          boxShadow: "0 0 0 100vmax #FBE3FF",
+          clipPath: "inset(0 -100vmax)",
+        }}
+      >
+        <h2 className="font-medium max-w-[700px] text-3xl md:text-5xl text-[#85009D]">
+          Upskill your <strong>Capabilities</strong>
+        </h2>
+        <div className="min-w-[200px]">
+          <ArrowButtonCom text="Join the Procurement Plug Academy" />
+        </div>
+      </div>
+      <PartnerWithUsComp data={partnerWithUs} />
+    </>
+  )
 }
 
 export default BecomeaSpeaker
