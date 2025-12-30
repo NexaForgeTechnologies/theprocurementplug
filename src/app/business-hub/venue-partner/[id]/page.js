@@ -7,7 +7,7 @@ import { useVenueStore } from "@/store/venueStore";
 
 import HeroCTR from '@/components/business-hub/BussinessHeroSection';
 import PartnerWithUsComp from '@/components/business-hub/vip-lounge/PartnerWithUs'
-import RequestDemoForm from "@/components/business-hub/venue-partner/RequestDemoForm";
+import RequestQuoteForm from "@/components/business-hub/venue-partner/RequestQuoteForm";
 import Breadcrumb from "@/components/BreadCrumbs";
 
 function Page() {
@@ -122,7 +122,7 @@ function Page() {
             </div >
 
             <PartnerWithUsComp data={partnerWithUs} />
-            <RequestDemoForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <RequestQuoteForm isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
         </>
     );
 }

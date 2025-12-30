@@ -48,4 +48,24 @@ export class VenuPartnerRepo {
             throw new Error("Unable to fetch venue partners from the database");
         }
     }
+
+    static async SaveRequestQuote(data) {
+        try {
+            const [result] = await db.query(
+                `INSERT INTO venu_partners_reques_a_quote (name, company, role, email, phone, capacity, date, timeframe, message, subscribe)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [data.name, data.company, data.role, data.email, data.phone, data.capacity, data.date, data.timeframe, data.message, data.subscribe]
+            );
+
+            return {
+                id: result.insertId,
+                name: data.name,
+                company: data.company,
+                email: data.email
+            };
+        } catch (error) {
+            console.error("Error saving form:", error);
+            throw new Error("Unable to save form to the database");
+        }
+    }
 }

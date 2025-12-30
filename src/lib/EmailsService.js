@@ -34,7 +34,7 @@ export async function sendEmail({ type, to, subject, html }) {
             pass: process.env.SMTP_XECXCHANGE_PASS,
             label: "XecXchange",
         },
-        partner:{
+        partner: {
             user: process.env.SMTP_PARTNERSHIPS_USER,
             pass: process.env.SMTP_PARTNERSHIPS_PASS,
             label: "Partner",
@@ -58,6 +58,11 @@ export async function sendEmail({ type, to, subject, html }) {
             user: process.env.SMTP_DOWNLOAD_PARTNERSHIP_USER,
             pass: process.env.SMTP_DOWNLOAD_PARTNERSHIP_PASS,
             label: "The Procurement Plug - Download Partnership Pack",
+        },
+        venuRequestQuote: {
+            user: process.env.SMTP_VENU_REQUEST_QUOTE_USER,
+            pass: process.env.SMTP_VENU_REQUEST_QUOTE_PASS,
+            label: "The Procurement Plug - Request a Quote",
         },
     };
 

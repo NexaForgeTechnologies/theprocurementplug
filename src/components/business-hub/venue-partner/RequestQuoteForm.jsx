@@ -1,23 +1,31 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+
 import IconComponent from "@/components/icon/Icon";
+import SuccessPopup from "@/components/SuccessMessageComp";
 
 export default function RequestDemoForm({ isOpen, onClose }) {
-    const [formData, setFormData] = useState({
+    const initialFormData = {
         name: "",
         company: "",
+        role: "",
         email: "",
         phone: "",
-        role: "",
-        implementationtimeframe: "",
         capacity: "",
         date: "",
+        timeframe: "",
         message: "",
-        Subscribe: false,
-    });
-
-    const modalRef = useRef(null);
+        subscribe: false,
+    };
+    const [formData, setFormData] = useState(initialFormData);
+    const handleChange = (e) => {
+        const { name, value, type, checked } = e.target;
+        setFormData((prev) => ({
+            ...prev,
+            [name]: type === "checkbox" ? checked : value,
+        }));
+    };
 
     useEffect(() => {
         if (isOpen) {
@@ -55,30 +63,55 @@ export default function RequestDemoForm({ isOpen, onClose }) {
             };
         }
     }, [isOpen]);
-    // 
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? checked : value,
-        }));
-    };
+    // Success Popup
+    const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+    const modalRef = useRef(null);
 
-    const handleSubmit = (e) => {
+    // Submit form
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        setFormData({ name: "", company: "", email: "", phone: "", role: "", implementationtimeframe: "", message: "", capacity: "", date: "", Subscribe: false, });
-        onClose();
+        setIsLoading(true);
+
+        try {
+            const response = await fetch("/api/business-hub/venu-partner", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (response.ok && result.success) {
+                // Clear form
+                setFormData(initialFormData);
+
+                // show success popup
+                setShowSuccessPopup(true);
+
+                // Close popup after timeout
+                setTimeout(() => {
+                    setShowSuccessPopup(false);  // hide popup
+                    onClose();                   // close modal
+                }, 3000);
+            } else {
+                console.error(result.error || "Failed to submit application.");
+            }
+        } catch (error) {
+            console.error("Client error:", error);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
+        <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-200 flex items-center justify-center px-6">
             <div
                 ref={modalRef}
-                className="max-w-[964px] w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
+                className="max-w-[964px] w-full max-h-[90vh]  overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border border-[#DBBB89] custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
                 <div className="flex justify-between items-center mb-4">
@@ -92,6 +125,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                         <IconComponent name="close" color='#7C7C7C' size={16} />
                     </button>
                 </div>
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <input
@@ -101,8 +135,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             placeholder="Full Name*"
                             value={formData.name}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
                             type="text"
@@ -111,8 +144,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             placeholder="Company"
                             value={formData.company}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -123,8 +155,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             placeholder="Role"
                             value={formData.role}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
                             type="email"
@@ -133,8 +164,7 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             placeholder="Work email*"
                             value={formData.email}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -145,18 +175,16 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             placeholder="Phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
-                            type="numbe"
+                            type="text"
                             id="capacity"
                             name="capacity"
                             placeholder="Capacity"
-                            value={formData.phone}
+                            value={formData.capacity}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -167,18 +195,16 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                             placeholder="Date"
                             value={formData.date}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                         <input
                             type="text"
-                            id="implementationtimeframe"
-                            name="implementationtimeframe"
+                            id="timeframe"
+                            name="timeframe"
                             placeholder="Project Timeframe"
-                            value={formData.implementationtimeframe}
+                            value={formData.timeframe}
                             onChange={handleChange}
-                            required
-                            className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                            className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                         />
                     </div>
                     <textarea
@@ -187,34 +213,42 @@ export default function RequestDemoForm({ isOpen, onClose }) {
                         placeholder="Message"
                         value={formData.message}
                         onChange={handleChange}
-                        className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
+                        className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D] resize-none"
                         rows="4"
                     />
                     <div className="flex items-center gap-2">
                         <input
                             type="checkbox"
-                            id="Subscribe"
-                            name="Subscribe"
-                            checked={formData.Subscribe}
+                            id="subscribe"
+                            name="subscribe"
+                            checked={formData.subscribe}
                             onChange={handleChange}
-                            required
-                            className="p-2 border border-[#85009D] rounded focus:outline-none"
+                            className="cursor-pointer p-2 border border-[#85009D] rounded focus:outline-none"
                         />
                         <label
-                            htmlFor="Subscribe"
-                            className="block text-[#1B1B1B] font-medium"
+                            htmlFor="subscribe"
+                            className="cursor-pointer block text-[#1B1B1B] font-medium"
                         >
                             Subscribe for more updates
                         </label>
                     </div>
+
                     <button
                         type="submit"
-                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-[6px] w-full md:w-auto">
-                        Submit
+                        disabled={isLoading}
+                        className="flex items-center justify-center md:justify-start cursor-pointer bg-[#b08d57] text-white px-4 py-2 rounded-md w-full md:w-auto">
+                        {isLoading ? "Submitting..." : "Submit"}
                         <div className="ml-1 w-2 h-2 border-t-2 border-r-2 border-white transform rotate-45"></div>
                     </button>
                 </form>
             </div>
+
+            {/* ✅ Success Popup */}
+            <SuccessPopup
+                isOpen={showSuccessPopup}
+                title="Thank you!"
+                message="Thank you for requesting a quote from The Procurement Plug. Our team will get back to you shortly."
+            />
         </div>
     );
 }
