@@ -10,7 +10,7 @@ export async function JoinTheWaitlistRepo(data) {
         } = data;
 
         const sql = `
-          INSERT INTO join_the_waitlist
+          INSERT INTO businesshub_executive_roundtables_join_wait_list
           (name, email, phone, company, role)
           VALUES (?, ?, ?, ?, ?)
         `;

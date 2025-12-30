@@ -143,10 +143,10 @@ export default function JoinTheWaitlistForm({ isOpen, onClose }) {
 
     return (
         <>
-            <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-[200] flex items-center justify-center px-6">
+            <div className="fixed inset-0 backdrop-blur-xs bg-opacity-30 z-200 flex items-center justify-center px-6">
                 <div
                     ref={modalRef}
-                    className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border-1 border-[#DBBB89] custom-scrollbar"
+                    className="max-w-[964px] w-full max-h-[90vh] overflow-y-auto p-6 bg-[#FFFBF5] relative rounded-md border border-[#DBBB89] custom-scrollbar"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <div className="flex justify-between items-center mb-4">
@@ -173,7 +173,7 @@ export default function JoinTheWaitlistForm({ isOpen, onClose }) {
                                     value={formData[field.name]}
                                     onChange={handleChange}
                                     required
-                                    className="w-full p-4 text-[#010101] border-1 border-[#85009D] rounded-[2px] bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
+                                    className="w-full p-4 text-[#010101] border border-[#85009D] rounded-xs bg-white focus:outline-none focus:ring-1 focus:ring-[#85009D]"
                                 />
                             ))}
                         </div>
@@ -181,7 +181,7 @@ export default function JoinTheWaitlistForm({ isOpen, onClose }) {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className={`flex items-center justify-center md:justify-start cursor-pointer px-4 py-2 rounded-[6px] w-full md:w-auto transition-all duration-200 ${isLoading
+                            className={`flex items-center justify-center md:justify-start cursor-pointer px-4 py-2 rounded-md w-full md:w-auto transition-all duration-200 ${isLoading
                                 ? "bg-[#b08d57]/70 cursor-not-allowed"
                                 : "bg-[#b08d57] hover:bg-[#a07b45]"
                                 } text-white`}
