@@ -1,10 +1,15 @@
 FROM node:20 AS build
 WORKDIR /app
 
-COPY package.json ./
-RUN npm install
+# Copy lockfile too for deterministic installs
+COPY package.json package-lock.json ./
+
+# Clean install with lockfile
+RUN npm ci
+
 COPY . .
 RUN npm run build
+
 
 FROM node:20 AS runner
 WORKDIR /app
