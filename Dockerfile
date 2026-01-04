@@ -1,27 +1,12 @@
-FROM --platform=linux/amd64 node:20-slim AS build
+FROM node:20-alpine AS build
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
-  python3 \
-  make \
-  g++ \
-  && rm -rf /var/lib/apt/lists/*
-
 COPY package.json package-lock.json ./
-
-ENV NPM_CONFIG_OPTIONAL=true
-ENV NPM_CONFIG_OMIT=""
-
-RUN npm ci --include=optional --no-audit --no-fund
-
-RUN npm rebuild lightningcss --build-from-source
-RUN node -e "require('lightningcss'); console.log('✅ lightningcss ok')"
-
+RUN npm ci
 COPY . .
 RUN npm run build
 
-
-FROM --platform=linux/amd64 node:20-slim AS runner
+FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
@@ -32,5 +17,4 @@ COPY --from=build /app/package.json ./package.json
 
 EXPOSE 3000
 ENV PORT=3000
-
 CMD ["node", "server.js"]
