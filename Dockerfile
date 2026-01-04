@@ -1,16 +1,22 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json ./
+
+# ✅ Force clean install (your requirement)
+RUN rm -rf node_modules package-lock.json && npm i
 
 COPY . .
 
-# ✅ Fix lightningcss binary for Alpine
-RUN if [ -f node_modules/lightningcss-linux-x64-musl/lightningcss.linux-x64-musl.node ]; then \
-      cp node_modules/lightningcss-linux-x64-musl/lightningcss.linux-x64-musl.node \
-         node_modules/lightningcss/lightningcss.linux-x64-musl.node ; \
-    fi
+# ✅ Fix lightningcss musl binary in correct location
+RUN set -eux; \
+  BIN="$(find node_modules -name 'lightningcss.linux-x64-musl.node' | head -n 1 || true)"; \
+  if [ -n "$BIN" ]; then \
+    cp "$BIN" node_modules/lightningcss/lightningcss.linux-x64-musl.node; \
+  else \
+    echo "❌ lightningcss musl binary not found in node_modules"; \
+    exit 1; \
+  fi
 
 RUN npm run build
 
