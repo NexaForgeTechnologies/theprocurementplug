@@ -11,8 +11,6 @@ RUN npm ci --include=optional --no-audit --no-fund
 
 COPY . .
 
-# ✅ sanity check
-RUN node -e "require('lightningcss'); console.log('✅ lightningcss OK')"
 
 RUN npm run build
 
