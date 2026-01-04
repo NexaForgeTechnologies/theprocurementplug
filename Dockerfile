@@ -6,13 +6,12 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-RUN npm config set optional true \
- && npm config set ignore-scripts false \
- && npm ci --include=optional --no-audit --no-fund
+# ✅ Install deps (optional deps are included automatically)
+RUN npm ci --include=optional --no-audit --no-fund
 
 COPY . .
 
-# ✅ Confirm lightningcss installs correctly
+# ✅ sanity check: lightningcss exists
 RUN node -e "require('lightningcss')" || (echo "❌ lightningcss missing" && exit 1)
 
 RUN npm run build
