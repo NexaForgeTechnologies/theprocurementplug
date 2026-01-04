@@ -1,4 +1,4 @@
-FROM node:20-slim AS build
+FROM --platform=linux/amd64 node:20-slim AS build
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
@@ -14,11 +14,14 @@ ENV NPM_CONFIG_OMIT=""
 
 RUN npm ci --include=optional --no-audit --no-fund
 
+RUN npm rebuild lightningcss --build-from-source
+RUN node -e "require('lightningcss'); console.log('✅ lightningcss ok')"
+
 COPY . .
 RUN npm run build
 
 
-FROM node:20-slim AS runner
+FROM --platform=linux/amd64 node:20-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
