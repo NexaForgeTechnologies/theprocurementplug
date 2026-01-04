@@ -3,9 +3,8 @@ WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-# IMPORTANT: use ci + include optional binaries like lightningcss-linux-x64-gnu
-RUN npm ci --include=optional && npm rebuild lightningcss
-
+# IMPORTANT: install optional deps (lightningcss-linux-x64-gnu)
+RUN npm ci --include=optional
 
 COPY . .
 RUN npm run build
