@@ -1,18 +1,14 @@
-FROM node:20 AS build
+FROM node:20-slim AS build
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-# IMPORTANT: install optional deps (lightningcss-linux-x64-gnu)
-RUN npm ci --include=optional
+RUN npm config set optional true \
+ && npm config set ignore-scripts false \
+ && npm ci --include=optional --no-audit --no-fund
 
 COPY . .
 RUN npm run build
-
-
-FROM node:20 AS runner
-WORKDIR /app
-ENV NODE_ENV=production
 
 COPY --from=build /app/public ./public
 COPY --from=build /app/.next/standalone ./
