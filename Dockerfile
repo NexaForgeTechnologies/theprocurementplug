@@ -1,17 +1,20 @@
 FROM node:20-slim AS build
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y \
+  python3 \
+  make \
+  g++ \
+  && rm -rf /var/lib/apt/lists/*
+
 COPY package.json package-lock.json ./
 
-# ✅ Force optional deps ON
-ENV NPM_CONFIG_OMIT=""
 ENV NPM_CONFIG_OPTIONAL=true
+ENV NPM_CONFIG_OMIT=""
 
 RUN npm ci --include=optional --no-audit --no-fund
 
 COPY . .
-
-
 RUN npm run build
 
 
