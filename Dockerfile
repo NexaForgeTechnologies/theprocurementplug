@@ -1,11 +1,10 @@
 FROM node:20 AS build
 WORKDIR /app
 
-# Copy lockfile too for deterministic installs
 COPY package.json package-lock.json ./
 
-# Clean install with lockfile
-RUN npm i
+# IMPORTANT: use ci + include optional binaries like lightningcss-linux-x64-gnu
+RUN npm ci --include=optional
 
 COPY . .
 RUN npm run build
