@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 
 # Clean install with lockfile
-RUN npm ci
+RUN npm i
 
 COPY . .
 RUN npm run build
