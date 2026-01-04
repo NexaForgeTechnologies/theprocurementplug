@@ -1,25 +1,22 @@
-# ------------------------
-# BUILD STAGE
-# ------------------------
 FROM node:20-slim AS build
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 
-# ✅ Install deps (optional deps are included automatically)
+# ✅ Force optional deps ON
+ENV NPM_CONFIG_OMIT=""
+ENV NPM_CONFIG_OPTIONAL=true
+
 RUN npm ci --include=optional --no-audit --no-fund
 
 COPY . .
 
-# ✅ sanity check: lightningcss exists
-RUN node -e "require('lightningcss')" || (echo "❌ lightningcss missing" && exit 1)
+# ✅ sanity check
+RUN node -e "require('lightningcss'); console.log('✅ lightningcss OK')"
 
 RUN npm run build
 
 
-# ------------------------
-# RUNNER STAGE
-# ------------------------
 FROM node:20-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
