@@ -1,20 +1,17 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 
-# Install deps first (better layer caching)
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Copy source
 COPY . .
 
-# ✅ Fix: lightningcss binary mismatch on Alpine
+# ✅ Fix lightningcss binary for Alpine
 RUN if [ -f node_modules/lightningcss-linux-x64-musl/lightningcss.linux-x64-musl.node ]; then \
       cp node_modules/lightningcss-linux-x64-musl/lightningcss.linux-x64-musl.node \
-         node_modules/lightningcss/lightningcss.linux-x64-gnu.node ; \
+         node_modules/lightningcss/lightningcss.linux-x64-musl.node ; \
     fi
 
-# Build Next.js
 RUN npm run build
 
 
@@ -22,7 +19,6 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 
-# Optional but recommended for Alpine runtime stability
 RUN apk add --no-cache libc6-compat
 
 COPY --from=build /app/public ./public
