@@ -169,7 +169,7 @@ const HeaderComp = () => {
                     Elevate 2025 - Scotland (August)
                   </Link>
                   <Link
-                    href="/event/elevate2025-digital-global"
+                    href="/event/elevate2026-digital-global"
                     className="block py-2 text-white hover:text-[#85009D]"
                   >
                     Elevate 2026 - Digital Global

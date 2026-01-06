@@ -39,7 +39,7 @@ export default function EventHeroCont() {
                         </div>
 
                     </div>
-                    <Link href={"/event/elevate2025-digital-global/agenda"}>
+                    <Link href={"/event/elevate2026-digital-global/agenda"}>
                         <h2 className="font-medium text-md sm:text-xl lg:text-2xl text-white underline cursor-pointer">
                             Agenda Elevate 2026 - Digital Global</h2>
                     </Link>
