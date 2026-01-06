@@ -30,7 +30,7 @@ export const metadata = {
         description: 'Transforming Procurement Excellence & Leadership',
         images: [
             {
-                url: 'https://theprocurementplug.com/images/og/elevate_digital_thumbnail.jpg',
+                url: 'https://theprocurementplug.com/images/og/elevate_digital_thumbnail_2026.jpeg',
                 width: 1200,
                 height: 630,
                 alt: 'Event',
