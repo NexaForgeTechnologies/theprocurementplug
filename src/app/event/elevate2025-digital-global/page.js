@@ -41,7 +41,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Elevate Digital Global Edition January 2026',
         description: 'Transforming Procurement Excellence & Leadership',
-        images: ['https://theprocurementplug.com/images/og/elevate_digital_thumbnail.jpg'],
+        images: ['https://theprocurementplug.com/images/og/elevate_digital_thumbnail_2026.jpeg'],
     },
 };
 
