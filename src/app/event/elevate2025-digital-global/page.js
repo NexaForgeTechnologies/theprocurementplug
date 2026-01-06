@@ -20,13 +20,13 @@ import EventHeroCont from '@/containers/events/digital-global/EventHeroCont'
 import AgendaCTR from '@/containers/events/boardroom/AgendaCTR'
 
 export const metadata = {
-    title: 'Elevate Digital Global Edition November 2025',
+    title: 'Elevate Digital Global Edition November 2026',
     description: 'Transforming Procurement Excellence & Leadership',
     icons: {
         icon: 'https://theprocurementplug.com/images/header/headerlogo.png',
     },
     openGraph: {
-        title: 'Elevate Digital Global Edition November 2025',
+        title: 'Elevate Digital Global Edition November 2026',
         description: 'Transforming Procurement Excellence & Leadership',
         images: [
             {
@@ -39,7 +39,7 @@ export const metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Elevate Digital Global Edition November 2025',
+        title: 'Elevate Digital Global Edition November 2026',
         description: 'Transforming Procurement Excellence & Leadership',
         images: ['https://theprocurementplug.com/images/og/elevate_digital_thumbnail.jpg'],
     },

@@ -25,7 +25,7 @@ export default function EventHeroCont() {
 
                     <div className="bg-[#B08D57] text-white p-4 rounded-lg flex flex-col gap-y-2 mt-3">
                         <p className="text-sm md:text-lg text-white">
-                            <strong> Date: </strong> January 28th, 2026 - Online</p>
+                            <strong> Date: </strong> January 28th - 29th, 2026 - Online</p>
                         <p className="text-sm md:text-lg text-white">
                             <strong> Global Reach: </strong> Perfectly timed for professionals in the US,
                             Europe, Caribbean and the Middle East to attend live.</p>
