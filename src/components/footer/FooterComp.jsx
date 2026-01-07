@@ -376,7 +376,7 @@ const Footer = () => {
     
           {/* Bottom Bar */}
           <div className="border-t border-[#B08D57]/50 p-[20px] flex flex-col lg:flex-row justify-between items-center  text-white">
-            <span className="text-center">© 2025 The Procurement Plug. All rights reserved.</span>
+            <span className="text-center">© 2026 The Procurement Plug. All rights reserved.</span>
     
             <span className="mt-2 lg:mt-0">
               <Link
