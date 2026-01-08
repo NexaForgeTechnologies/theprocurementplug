@@ -1,145 +1,118 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 
 export default function Home() {
-    const agendaItems = [
-        {
-            time: "08:30 - 09:00",
-            title: "Registration & Welcome Coffee",
-            description: 'PROCUREMENT CONFESSIONS WALL - Share your stories, lessons, or funny procurement moments. No names needed. Be real, be bold, be you.',
-            speakers: "All Attendees",
-            moderator: "",
-        },
-        {
-            time: "09:00 - 09:15",
-            title: "Opening Remarks & Event Introduction",
-            description: "",
-            speakers: "Speakers: Annalisha Noel / Jyothi Hartley",
-            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
-        },
-        {
-            time: "09:15 - 09:40",
-            title: "Keynote: The Future of Procurement & Digital Transformation",
-            description: "",
-            speakers: "Speaker: Oliver Jones",
-            moderator: "",
-        },
-        {
-            time: "09:40 - 10:00",
-            title: "Keynote: Procuring a Service from a Supplier Perspective",
-            description: "",
-            speakers: "Speaker: Dan Craddock",
-            moderator: "",
-        },
-        {
-            time: "10:15 - 11:15",
-            title: "Learning Breakout: Finance for Procurement Cost Control & Budgeting",
-            description: "",
-            speakers: "Speaker: Susannah Gooch",
-            moderator: "",
-        },
-        {
-            time: "10:15 - 11:15",
-            title: "Learning Breakout: Mastering Negotiation Strategies",
-            description: "",
-            speakers: "Speaker: Laura Scarfe",
-            moderator: "",
-        },
-        /*{ updated by abubakar
-            time: "10:15 - 11:15",
-            title: "Learning Breakout: The Power of Stakeholder Influence",
-            description: "",
-            speakers: "Speakers: Blessed S. Agyemang / Christoper Robinson",
-            moderator: "",
-        },*/
-        {
-            time: "11:15 - 11:30",
-            title: "Networking Break",
-            description: "Focused Chat Corners - Mentors' Networking | Plug ProcureTech | The Procurement Plug",
-            speakers: "",
-            moderator: "",
-        },
-        {
-            time: "11:30 - 12:00",
-            title: "Panel: Procurement Leadership & Career Growth",
-            description: "",
-            speakers: "Speakers: Susannah Gooch, Fraser McBeth, Josh Caple, Miranda Gordon, Adwoa Owusu Banahene",
-            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
-        },
-        {
-            time: "12:00 - 13:15",
-            title: "Networking Lunch",
-            description: "Career Connect Plug - Recruitment Surgery",
-            speakers: "Speakers: Mick Ramsden | Josh Caple",
-            moderator: "",
-        },
-        {
-            time: "13:20 - 14:00",
-            title: "Panel: Driving Innovation - Procurement Innovation, Sustainability & Agility - Public and Private sector",
-            description: "",
-            speakers: "Speakers: Oliver Jones, Christopher Robinson, Fleur Summers, Blessed S. Agyemang, Lewis Sinkala",
-            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
-        },
-        {
-            time: "14:05 - 15:05",
-            title: "Learning Breakout Session: The Power of Stakeholder Influence",
-            description: "",
-            speakers: "Speakers: Blessed S. Agyemang | Christopher Robinson",
-            moderator: "",
-        },
-        {
-            time: "14:05 - 15:05",
-            title: "Learning Breakout Session: Contract Management & Commercial Awareness",
-            description: "",
-            speakers: "Speaker: Miranda Gordon",
-            moderator: "",
-        },
-        {
-            time: "15:10 - 15:20",
-            title: "Networking Break",
-            description: "Focused Chat Corners - Mentors' Networking Plug | ProcureTech | The Procurement Plug",
-            speakers: "",
-            moderator: "",
-        },
-        {
-            time: "15:20 - 15:50",
-            title: "Panel Case Study: Real-World Procurement Success Stories",
-            description: "",
-            speakers: "Speakers: Luke Tomlinson, Fraser McBeth, Fleur Summers, Lewis Sinkala, Adwoa Owusu Banahene",
-            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
-        },
-        {
-            time: "15:50 - 16:15",
-            title: "Closing Remarks & Future Outlook",
-            description: "",
-            speakers: "Speaker: Annalisha Noel",
-            moderator: "Voice of the Day & Moderator: Jyothi Hartley",
-        },
-        {
-            time: "16:15 - 17:00",
-            title: "Networking & Informal Discussions",
-            description: "Focused Chat Corners - Mentoring | ProcureTech | Recruitment | PROCUREMENT CONFESSIONS",
-            speakers: "",
-            moderator: "",
-        },
-    ];
+    const [day, setDay] = useState("Day1");
+    const agenda = {
+        Day1: [
+            {
+                time: "14:00 - 14:20",
+                title: "Opening Keynote – Global Shifts in Talent",
+                description: "What the Next Decade Means for Procurement Careers",
+                speakers: "Speaker: Michael Van Keulen",
+                moderator: "",
+            },
+            {
+                time: "14:20 - 15:00",
+                title: "The Resilient Supply Chain",
+                description: "Integrating Sustainability Skills for Risk Management and ROI",
+                speakers: "Speaker: Eirini Etoimou",
+                moderator: "",
+            },
+            { time: "15:00 - 15:10", title: "Q&A", description: "", speakers: "", moderator: "" },
+            {
+                time: "15:10 - 15:50",
+                title: "Panel – Beyond Procurement: Building Multi-Disciplinary Skills for Global Relevance",
+                description: "",
+                speakers: "Speakers: Nasima Mohammad, Ronald Martey, Celia SGAR, Urszula Woronowicz",
+                moderator: "",
+            },
+            { time: "15:50 - 16:00", title: "Break", description: "", speakers: "", moderator: "" },
+            {
+                time: "16:00 - 16:30",
+                title: "AI, Analytics & Automation Coupled with– Practical Tools Every Professional Must Master",
+                description: "",
+                speakers: "Speaker: James Meads",
+                moderator: "",
+            },
+            { time: "16:30 - 17:00", title: "Humantic Perspective of AI Use", description: "", speakers: "Karthik Rama", moderator: "" },
+            { time: "17:00 - 17:15", title: "Q&A", description: "", speakers: "", moderator: "" },
+            {
+                time: "17:15 - 17:55",
+                title: "Global Procurement for Public Good",
+                description: "Ethics, ESG, Transparency & Sustainable Governance",
+                speakers: "Speakers: Christopher Robinson, Fleur Summer, Jennifer Akongbota, Latasha Terry",
+                moderator: "",
+            },
+            {
+                time: "17:55 - 18:55",
+                title: "Panel: Closing Insights – Your 12-Month Global Growth Action Plan and Career Accelerator",
+                description: "",
+                speakers: "Speakers: Suresh Kashavan, Blessed S. Agyemang, Costanza Campi, Chukwudi Uche",
+                moderator: "",
+            },
+        ],
+        Day2: [
+            {
+                time: "14:00 - 14:20",
+                title: "Opening Keynote – Inside the Modern Boardroom: How Global Strategy Really Gets Shaped",
+                description: "",
+                speakers: "Speakers: Rodolfo Correira",
+                moderator: "",
+            },
+            {
+                time: "14:20 - 15:00",
+                title: "Masterclass – Enterprise Risk Management: What Boards Expect Leaders to Understand",
+                description: "",
+                speakers: "Speakers: Paul Kurtz",
+                moderator: "",
+            },
+            { time: "15:00 - 15:10", title: "Q&A", description: "", speakers: "", moderator: "" },
+            {
+                time: "15:10 - 15:50",
+                title: "Panel – The Global Executive’s Playbook: Governance, Ethics and Executive Branding at Board Level",
+                description: "",
+                speakers: "Speakers: Zeina Arnous, Georgina Terry-Cowan, Ann Dunkin",
+                moderator: "",
+            },
+            { time: "15:50 - 16:00", title: "Break", description: "", speakers: "", moderator: "" },
+            { time: "16:00 - 16:40", title: "Q&A", description: "", speakers: "", moderator: "" },
+            {
+                time: "16:40 - 16:50",
+                title: "Masterclass – Crisis Room Simulation: Making Enterprise-Level Decisions Under Pressure",
+                description: "",
+                speakers: "Speakers: Irene Poku",
+                moderator: "",
+            },
+            {
+                time: "16:50 - 17:30",
+                title: "Closing Roadmap – Translating Experience into Boardroom Value",
+                description: "",
+                speakers: "Speakers: Georgina Terry-Cowan",
+                moderator: "",
+            },
+        ],
+    };
 
+    const itemsForCurrentDay = agenda[day];
     const itemsPerPage = 4;
     const [currentPage, setCurrentPage] = useState(1);
 
-    // Calculate the total number of pages
-    const totalPages = Math.ceil(agendaItems.length / itemsPerPage);
-
-    // Get the items for the current page
+    const totalPages = Math.ceil(itemsForCurrentDay.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const currentItems = agendaItems.slice(startIndex, startIndex + itemsPerPage);
+    const currentItems = itemsForCurrentDay.slice(startIndex, startIndex + itemsPerPage);
 
-    // Handle page change
+    useEffect(() => setCurrentPage(1), [day]);
+
     const handlePageChange = (page) => {
         if (page >= 1 && page <= totalPages) {
             setCurrentPage(page);
+        } else if (page > totalPages && day === "Day1") {
+            setDay("Day2");
+        } else if (page < 1 && day === "Day2") {
+            setDay("Day1");
         }
     };
 
@@ -233,7 +206,22 @@ export default function Home() {
                     <p className="text-gray-600 mb-4">
                         Download or browse the complete Elevate 2026 agenda below. Sessions include masterclasses, panel talks, live networking corners, and more
                     </p>
+                    <div className="flex space-x-2 mb-4">
+                            <button
+                                onClick={() => setDay("Day1")}
+                                className={`px-3 py-1 rounded ${day === "Day1" ? "bg-[#85009D] text-white" : "bg-gray-200"}`}
+                            >
+                                Day 1
+                            </button>
+                            <button
+                                onClick={() => setDay("Day2")}
+                                className={`px-3 py-1 rounded ${day === "Day2" ? "bg-[#85009D] text-white" : "bg-gray-200"}`}
+                            >
+                                Day 2
+                            </button>
+                        </div>
                     <div className="bg-[#85009D] text-white p-4 rounded flex justify-between items-center">
+                        
                         <div className="flex items-center space-x-2">
                             <span>Page {currentPage} of {totalPages}</span>
                             <div className="flex items-center space-x-2">
@@ -274,12 +262,16 @@ export default function Home() {
                         <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2026</h3>
                         <p className="text-center text-gray-600">PROCUREMENT CAREER & INNOVATION SUMMIT</p>
                         <p className="text-center text-gray-600">28th - 29th Jan 2026 | Digital Global Edition, UK</p>
-                        <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
-                        <p className="text-center text-gray-600 text-2xl">Available Soon ...</p>
+                        
 
-                        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#363636]">
-                            {currentItems.map((item, index) => (
-                                <div key={index} className="flex items-start gap-4">
+                        <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
+                        {/* <p className="text-center text-gray-600 text-2xl">Available Soon ...</p> */}
+                        <p className="text-[#85009D] mb-3 font-semibold">
+                            {day === "Day1" ? "28th Jan Day 1" : "29th Jan Day 2"}
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[#363636]">
+                            {currentItems.map(item => (
+                                <div key={item.id} className="flex items-start gap-4">
                                     <div className="basis-[50%]">
                                         <p className="text-[#B08D57]"><strong>{item.time}</strong></p>
                                     </div>
@@ -291,7 +283,8 @@ export default function Home() {
                                     </div>
                                 </div>
                             ))}
-                        </div> */}
+
+                        </div>
                     </div>
                 </section>
             </main>
