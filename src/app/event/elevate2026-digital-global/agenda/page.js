@@ -37,7 +37,7 @@ export default function Home() {
                 speakers: "Speaker: James Meads",
                 moderator: "",
             },
-            { time: "16:30 - 17:00", title: "Humantic Perspective of AI Use", description: "", speakers: "Karthik Rama", moderator: "" },
+            { time: "16:30 - 17:00", title: "Humantic Perspective of AI Use", description: "", speakers: "Speaker: Karthik Rama", moderator: "" },
             { time: "17:00 - 17:15", title: "Q&A", description: "", speakers: "", moderator: "" },
             {
                 time: "17:15 - 17:55",
