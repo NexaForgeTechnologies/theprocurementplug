@@ -116,83 +116,98 @@ export default function Home() {
         }
     };
 
-    // const generatePDF = () => {
-    //     const doc = new jsPDF();
-    //     const itemsPerPage = 5;
-    //     const padding = 15;
-    //     const pageWidth = 210;
-    //     const pageHeight = 297;
-    //     const contentWidth = pageWidth - 2 * padding;
+    const generatePDF = () => {
+        const doc = new jsPDF();
+        const padding = 15;
+        const pageWidth = 210;
+        const pageHeight = 297;
+        const contentWidth = pageWidth - 2 * padding;
+        const itemsPerPage = 5;
 
-    //     for (let page = 0; page < Math.ceil(agendaItems.length / itemsPerPage); page++) {
-    //         if (page > 0) doc.addPage();
-    //         let yOffset = padding;
+        const agendaItems = agenda[day]; // Only use items for the current day
 
-    //         // Header
-    //         doc.setFont("Helvetica", "bold");
-    //         doc.setFontSize(36);
-    //         doc.setTextColor(133, 0, 157);
-    //         doc.text("ELEVATE 2025", padding + contentWidth / 2, yOffset, { align: "center" });
-    //         yOffset += 12;
-    //         doc.setFont("Helvetica", "normal");
-    //         doc.setFontSize(12);
-    //         doc.setTextColor(96, 96, 96);
-    //         doc.text("PROCUREMENT CAREER & INNOVATION SUMMIT", padding + contentWidth / 2, yOffset, { align: "center" });
-    //         yOffset += 8;
-    //         doc.text("25 JUNE 2026 | Digital Global Edition, UK", padding + contentWidth / 2, yOffset, { align: "center" });
-    //         yOffset += 10;
-    //         doc.setDrawColor(133, 0, 157);
-    //         doc.line(padding, yOffset, pageWidth - padding, yOffset);
-    //         yOffset += 16;
+        for (let page = 0; page < Math.ceil(agendaItems.length / itemsPerPage); page++) {
+            if (page > 0) doc.addPage();
+            let yOffset = padding;
 
-    //         // Agenda Items
-    //         const startIndex = page * itemsPerPage;
-    //         const pageItems = agendaItems.slice(startIndex, startIndex + itemsPerPage);
-    //         pageItems.forEach((item) => {
-    //             doc.setFontSize(12);
-    //             doc.setTextColor(176, 141, 87);
-    //             doc.setFont("Helvetica", "bold");
-    //             doc.text(item.time, padding, yOffset);
+            // Header
+            doc.setFont("Helvetica", "bold");
+            doc.setFontSize(24);
+            doc.setTextColor(133, 0, 157);
+            doc.text("ELEVATE 2026", pageWidth / 2, yOffset, { align: "center" });
 
-    //             doc.setTextColor(133, 0, 157);
-    //             doc.setFont("Helvetica", "bold");
-    //             const titleWidth = contentWidth - 45;
-    //             const titleLines = doc.splitTextToSize(item.title, titleWidth);
-    //             doc.text(titleLines, padding + 45, yOffset);
-    //             yOffset += titleLines.length * 6 + 2;
+            yOffset += 10;
+            doc.setFont("Helvetica", "normal");
+            doc.setFontSize(12);
+            doc.setTextColor(96, 96, 96);
+            doc.text("PROCUREMENT CAREER & INNOVATION SUMMIT", pageWidth / 2, yOffset, { align: "center" });
 
-    //             doc.setTextColor(54, 54, 54);
-    //             doc.setFont("Helvetica", "normal");
-    //             if (item.description) {
-    //                 const descriptionLines = doc.splitTextToSize(item.description, titleWidth);
-    //                 doc.text(descriptionLines, padding + 45, yOffset);
-    //                 yOffset += descriptionLines.length * 6 + 4;
-    //             }
+            yOffset += 6;
+            doc.text(
+                day === "Day1" ? "28th Jan 2026 | Digital Global Edition, UK" : "29th Jan 2026 | Digital Global Edition, UK",
+                pageWidth / 2,
+                yOffset,
+                { align: "center" }
+            );
 
-    //             if (item.speakers) {
-    //                 const speakerWidth = titleWidth;
-    //                 const speakerLines = doc.splitTextToSize(`${item.speakers}`, speakerWidth);
-    //                 doc.text(speakerLines, padding + 45, yOffset);
-    //                 yOffset += speakerLines.length * 6 + 2;
-    //             }
+            yOffset += 10;
+            doc.setDrawColor(133, 0, 157);
+            doc.line(padding, yOffset, pageWidth - padding, yOffset);
+            yOffset += 10;
 
-    //             if (item.moderator) {
-    //                 doc.text(`${item.moderator}`, padding + 45, yOffset);
-    //                 yOffset += 6;
-    //             }
+            // Agenda items
+            const startIndex = page * itemsPerPage;
+            const pageItems = agendaItems.slice(startIndex, startIndex + itemsPerPage);
 
-    //             yOffset += 12;
-    //         });
+            pageItems.forEach((item) => {
+                // Time
+                doc.setFont("Helvetica", "bold");
+                doc.setTextColor(176, 141, 87);
+                doc.setFontSize(12);
+                doc.text(item.time, padding, yOffset);
 
-    //         // Footer
-    //         doc.setFontSize(10);
-    //         doc.setTextColor(96, 96, 96);
-    //         // doc.text("hello@theprocurementplug.com | +44 7447 163285", padding, pageHeight - padding);
-    //         doc.text("© 2025 The Procurement Plug. All rights reserved", pageWidth - padding, pageHeight - padding, { align: "right" });
-    //     }
+                // Title
+                doc.setFont("Helvetica", "bold");
+                doc.setTextColor(133, 0, 157);
+                const titleLines = doc.splitTextToSize(item.title, contentWidth - 45);
+                doc.text(titleLines, padding + 45, yOffset);
+                yOffset += titleLines.length * 6 + 2;
 
-    //     doc.save("Elevate_2025_Agenda.pdf");
-    // };
+                // Description
+                if (item.description) {
+                    doc.setFont("Helvetica", "normal");
+                    doc.setTextColor(54, 54, 54);
+                    const descLines = doc.splitTextToSize(item.description, contentWidth - 45);
+                    doc.text(descLines, padding + 45, yOffset);
+                    yOffset += descLines.length * 6 + 2;
+                }
+
+                // Speakers
+                if (item.speakers) {
+                    const speakerLines = doc.splitTextToSize(item.speakers, contentWidth - 45);
+                    doc.text(speakerLines, padding + 45, yOffset);
+                    yOffset += speakerLines.length * 6 + 2;
+                }
+
+                // Moderator
+                if (item.moderator) {
+                    const modLines = doc.splitTextToSize(item.moderator, contentWidth - 45);
+                    doc.text(modLines, padding + 45, yOffset);
+                    yOffset += modLines.length * 6 + 2;
+                }
+
+                yOffset += 8; // spacing between agenda items
+            });
+
+            // Footer
+            doc.setFontSize(10);
+            doc.setTextColor(96, 96, 96);
+            doc.text("© 2026 The Procurement Plug. All rights reserved", pageWidth - padding, pageHeight - padding, { align: "right" });
+        }
+
+        doc.save(`Elevate_2026_Agenda_${day}.pdf`);
+    };
+
     return (
         <div className=" w-full flex flex-col items-center">
             <main className="flex-1">
@@ -207,21 +222,21 @@ export default function Home() {
                         Download or browse the complete Elevate 2026 agenda below. Sessions include masterclasses, panel talks, live networking corners, and more
                     </p>
                     <div className="flex space-x-2 mb-4">
-                            <button
-                                onClick={() => setDay("Day1")}
-                                className={`px-3 py-1 rounded ${day === "Day1" ? "bg-[#85009D] text-white" : "bg-gray-200"}`}
-                            >
-                                Day 1
-                            </button>
-                            <button
-                                onClick={() => setDay("Day2")}
-                                className={`px-3 py-1 rounded ${day === "Day2" ? "bg-[#85009D] text-white" : "bg-gray-200"}`}
-                            >
-                                Day 2
-                            </button>
-                        </div>
+                        <button
+                            onClick={() => setDay("Day1")}
+                            className={`px-3 py-1 rounded ${day === "Day1" ? "bg-[#85009D] text-white" : "bg-gray-200"}`}
+                        >
+                            Day 1
+                        </button>
+                        <button
+                            onClick={() => setDay("Day2")}
+                            className={`px-3 py-1 rounded ${day === "Day2" ? "bg-[#85009D] text-white" : "bg-gray-200"}`}
+                        >
+                            Day 2
+                        </button>
+                    </div>
                     <div className="bg-[#85009D] text-white p-4 rounded flex justify-between items-center">
-                        
+
                         <div className="flex items-center space-x-2">
                             <span>Page {currentPage} of {totalPages}</span>
                             <div className="flex items-center space-x-2">
@@ -249,20 +264,19 @@ export default function Home() {
                                  Download PDF
                              </button>
                          </div> */}
-                        <div className="flex flex-col md:flex-row gap-4 md:gap-0 items-center space-x-2">
-                            <button
-                                onClick={() => alert("Available Soon")}
-                                className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
-                            >
-                                Download PDF
-                            </button>
-                        </div>
+                        <button
+                            onClick={generatePDF}
+                            className="cursor-pointer px-4 py-1 bg-white text-[#85009D] rounded hover:bg-gray-200"
+                        >
+                            Download PDF
+                        </button>
+
                     </div>
                     <div className="mt-4 p-2 bg-white rounded">
                         <h3 className="text-3xl md:text-6xl font-bold text-center text-[#85009D]">ELEVATE 2026</h3>
                         <p className="text-center text-gray-600">PROCUREMENT CAREER & INNOVATION SUMMIT</p>
                         <p className="text-center text-gray-600">28th - 29th Jan 2026 | Digital Global Edition, UK</p>
-                        
+
 
                         <div className="w-full h-1 bg-[#85009D] rounded my-6"></div>
                         {/* <p className="text-center text-gray-600 text-2xl">Available Soon ...</p> */}
